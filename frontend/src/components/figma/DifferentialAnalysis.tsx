@@ -1,4 +1,5 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { GlassCard } from './GlassCard';
 
 interface DifferentialAnalysisProps {
   predictionData?: any;
@@ -58,7 +59,7 @@ export function DifferentialAnalysis({ predictionData }: DifferentialAnalysisPro
   const getAdvantageTeam = (value: number) => value > 0 ? homeTeam : awayTeam;
   const getAdvantageColor = (value: number) => value > 0 ? homeTeam.primary_color : awayTeam.primary_color;
   return (
-    <div className="relative overflow-hidden rounded-xl bg-[#252b36] border border-[#3a4252] p-6">
+    <GlassCard className="p-6">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
           <svg className="w-5 h-5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -179,9 +180,7 @@ export function DifferentialAnalysis({ predictionData }: DifferentialAnalysisPro
           />
         </div>
       </div>
-
-
-    </div>
+    </GlassCard>
   );
 }
 

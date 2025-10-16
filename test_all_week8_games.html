@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 8 All Games - Betting Logic Test</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+        .game {
+            border: 2px solid #333;
+            padding: 20px;
+            margin: 20px 0;
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #333;
+        }
+        .matchup {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0ea5e9;
+        }
+        .rankings {
+            color: #f59e0b;
+            font-size: 14px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .section {
+            padding: 15px;
+            background: #2a2a2a;
+            border-radius: 8px;
+            border-left: 4px solid #666;
+        }
+        .label {
+            color: #888;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .value {
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .model {
+            border-left-color: #f59e0b;
+        }
+        .market {
+            border-left-color: #10b981;
+        }
+        .recommendation {
+            border-left-color: #8b5cf6;
+            background: #2a1a3a;
+        }
+        .upset-alert {
+            grid-column: 1 / -1;
+            border: 3px solid #ef4444;
+            background: linear-gradient(135deg, #3d1a1a 0%, #2d0a0a 100%);
+            padding: 20px;
+            animation: blink 1.5s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        .upset-alert::before {
+            content: '🚨';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            animation: rotate 2s linear infinite;
+        }
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; border-color: #ef4444; }
+            25%, 75% { opacity: 0.7; border-color: #991b1b; }
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .bet-card {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .bet-card .label {
+            color: #d1fae5;
+        }
+        .bet-card .value {
+            color: #fff;
+            font-size: 22px;
+        }
+        .math {
+            background: #1a2a1a;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 13px;
+            color: #10b981;
+        }
+        .explanation {
+            color: #888;
+            font-size: 12px;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+        .edge-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #10b981;
+            color: #fff;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .edge-badge.massive {
+            background: #ef4444;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏈 Week 8 College Football - Complete Betting Analysis</h1>
+        <p style="color: #e0e0e0; margin: 10px 0;">Model Predictions vs Market Lines - All Key Games</p>
+    </div>
+
+    <!-- GAME 1: Ole Miss @ Georgia -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">Ole Miss @ Georgia</div>
+            <div class="rankings">#5 Ole Miss @ #9 Georgia</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">Ole Miss -1.7</div>
+                <div class="explanation">Model thinks Ole Miss wins by 1.7 (away favorite)</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">Georgia -7.5</div>
+                <div class="explanation">Market favors Georgia by 7.5 at home</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Edge Analysis</div>
+                <div class="value">9.2 Point Disagreement</div>
+                <div class="explanation">Model and market disagree on winner!</div>
+            </div>
+        </div>
+        <div class="upset-alert">
+            <div class="label">🚨 UPSET ALERT - MAXIMUM VALUE 🚨</div>
+            <div class="bet-card">
+                <div class="label">Recommended Bet</div>
+                <div class="value">BET: Ole Miss +7.5 <span class="edge-badge massive">9.2PT EDGE</span></div>
+            </div>
+            <div class="math">
+                WHY THIS IS VALUE:<br>
+                • Model predicts Ole Miss WINS by 1.7 points<br>
+                • Market gives you Ole Miss +7.5 points<br>
+                • Even if Ole Miss loses by 7, you WIN the bet<br>
+                • You're getting 9.2 points of cushion on a team model thinks wins outright!
+            </div>
+        </div>
+    </div>
+
+    <!-- GAME 2: Tennessee @ Alabama -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">Tennessee @ Alabama</div>
+            <div class="rankings">#11 Tennessee @ #6 Alabama</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">Alabama -14.3</div>
+                <div class="explanation">Model thinks Bama wins by 14.3</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">Alabama -10.5</div>
+                <div class="explanation">Market favors Bama by 10.5</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Bet Recommendation</div>
+                <div class="value">Alabama -10.5</div>
+                <div class="explanation">Model thinks Bama wins by MORE <span class="edge-badge">3.8PT</span></div>
+            </div>
+        </div>
+        <div class="math">
+            LOGIC: Model projects Alabama -14.3, only need -10.5 to cover → Bet the favorite
+        </div>
+    </div>
+
+    <!-- GAME 3: LSU @ Vanderbilt -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">LSU @ Vanderbilt</div>
+            <div class="rankings">#10 LSU @ #17 Vanderbilt</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">LSU -3.2</div>
+                <div class="explanation">Model thinks LSU wins by 3.2</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">LSU -6.5</div>
+                <div class="explanation">Market favors LSU by 6.5</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Bet Recommendation</div>
+                <div class="value">Vanderbilt +6.5</div>
+                <div class="explanation">Model projects closer game <span class="edge-badge">3.3PT</span></div>
+            </div>
+        </div>
+        <div class="math">
+            LOGIC: Model thinks LSU only wins by 3.2, market giving Vandy +6.5 → Take the points
+        </div>
+    </div>
+
+    <!-- GAME 4: USC @ Notre Dame -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">USC @ Notre Dame</div>
+            <div class="rankings">#20 USC @ #13 Notre Dame</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">Notre Dame -20.6</div>
+                <div class="explanation">Model thinks ND dominates by 20.6</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">Notre Dame -9.5</div>
+                <div class="explanation">Market only favors ND by 9.5</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Bet Recommendation</div>
+                <div class="value">Notre Dame -9.5</div>
+                <div class="explanation">HUGE VALUE! <span class="edge-badge massive">11.1PT</span></div>
+            </div>
+        </div>
+        <div class="math">
+            LOGIC: Model projects ND -20.6, only need -9.5 to cover → 11.1 point cushion!
+        </div>
+    </div>
+
+    <!-- GAME 5: Utah @ BYU -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">Utah @ BYU</div>
+            <div class="rankings">#23 Utah @ #15 BYU</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">BYU -7.8</div>
+                <div class="explanation">Model thinks BYU wins by 7.8</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">BYU -4.5</div>
+                <div class="explanation">Market favors BYU by 4.5</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Bet Recommendation</div>
+                <div class="value">BYU -4.5</div>
+                <div class="explanation">Model projects bigger win <span class="edge-badge">3.3PT</span></div>
+            </div>
+        </div>
+        <div class="math">
+            LOGIC: Model projects BYU -7.8, only need -4.5 to cover → Bet the favorite
+        </div>
+    </div>
+
+    <!-- GAME 6: Ohio State @ Wisconsin -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">Ohio State @ Wisconsin</div>
+            <div class="rankings">#1 Ohio State @ Wisconsin</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">Ohio State -29.3</div>
+                <div class="explanation">Model thinks OSU destroys by 29.3</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">Ohio State -25.5</div>
+                <div class="explanation">Market favors OSU by 25.5</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Bet Recommendation</div>
+                <div class="value">Ohio State -25.5</div>
+                <div class="explanation">Model projects blowout <span class="edge-badge">3.8PT</span></div>
+            </div>
+        </div>
+        <div class="math">
+            LOGIC: Model projects OSU -29.3, only need -25.5 to cover → Big cushion
+        </div>
+    </div>
+
+    <!-- GAME 7: Louisville @ Miami -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">Louisville @ Miami</div>
+            <div class="rankings">Louisville @ #2 Miami</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">Miami -11.4</div>
+                <div class="explanation">Model thinks Miami wins by 11.4</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">Miami -8.5</div>
+                <div class="explanation">Market favors Miami by 8.5</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Bet Recommendation</div>
+                <div class="value">Miami -8.5</div>
+                <div class="explanation">Value on favorite <span class="edge-badge">2.9PT</span></div>
+            </div>
+        </div>
+        <div class="math">
+            LOGIC: Model projects Miami -11.4, only need -8.5 to cover → Bet Miami
+        </div>
+    </div>
+
+    <!-- GAME 8: Michigan State @ Indiana -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">Michigan State @ Indiana</div>
+            <div class="rankings">Michigan State @ #3 Indiana</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">Indiana -18.7</div>
+                <div class="explanation">Model thinks Indiana dominates</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">Indiana -14.5</div>
+                <div class="explanation">Market favors Indiana by 14.5</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Bet Recommendation</div>
+                <div class="value">Indiana -14.5</div>
+                <div class="explanation">Strong value <span class="edge-badge">4.2PT</span></div>
+            </div>
+        </div>
+        <div class="math">
+            LOGIC: Model projects Indiana -18.7, only need -14.5 → Good cushion
+        </div>
+    </div>
+
+    <!-- GAME 9: Texas A&M @ Arkansas -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">Texas A&M @ Arkansas</div>
+            <div class="rankings">#4 Texas A&M @ Arkansas</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">Texas A&M -8.9</div>
+                <div class="explanation">Model thinks A&M wins by 8.9</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">Texas A&M -6.5</div>
+                <div class="explanation">Market favors A&M by 6.5</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Bet Recommendation</div>
+                <div class="value">Texas A&M -6.5</div>
+                <div class="explanation">Value play <span class="edge-badge">2.4PT</span></div>
+            </div>
+        </div>
+        <div class="math">
+            LOGIC: Model projects A&M -8.9, only need -6.5 to cover
+        </div>
+    </div>
+
+    <!-- GAME 10: Texas Tech @ Arizona State -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">Texas Tech @ Arizona State</div>
+            <div class="rankings">#7 Texas Tech @ Arizona State</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">Texas Tech -4.2</div>
+                <div class="explanation">Model thinks TTU wins by 4.2</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">Texas Tech -3.5</div>
+                <div class="explanation">Market barely favors TTU</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Bet Recommendation</div>
+                <div class="value">No Strong Edge</div>
+                <div class="explanation">Too close to call <span class="edge-badge" style="background:#666;">0.7PT</span></div>
+            </div>
+        </div>
+        <div class="math">
+            LOGIC: Difference too small (0.7 pts) → PASS on this game
+        </div>
+    </div>
+
+    <!-- GAME 11: Oregon @ Rutgers -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">Oregon @ Rutgers</div>
+            <div class="rankings">#8 Oregon @ Rutgers</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">Oregon -8.3</div>
+                <div class="explanation">Model thinks Oregon wins by 8.3</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">Oregon -17.5</div>
+                <div class="explanation">Market thinks Oregon blowout</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Bet Recommendation</div>
+                <div class="value">Rutgers +17.5</div>
+                <div class="explanation">HUGE VALUE <span class="edge-badge massive">9.2PT</span></div>
+            </div>
+        </div>
+        <div class="math">
+            LOGIC: Model projects Oregon -8.3, market giving Rutgers +17.5 → Take all those points!
+        </div>
+    </div>
+
+    <!-- GAME 12: Georgia Tech @ Duke -->
+    <div class="game">
+        <div class="game-header">
+            <div class="matchup">Georgia Tech @ Duke</div>
+            <div class="rankings">#12 Georgia Tech @ Duke</div>
+        </div>
+        <div class="grid">
+            <div class="section model">
+                <div class="label">Model Prediction</div>
+                <div class="value">Georgia Tech -5.6</div>
+                <div class="explanation">Model thinks GT wins by 5.6</div>
+            </div>
+            <div class="section market">
+                <div class="label">Market Line</div>
+                <div class="value">Georgia Tech -3.5</div>
+                <div class="explanation">Market barely favors GT</div>
+            </div>
+            <div class="section recommendation">
+                <div class="label">Bet Recommendation</div>
+                <div class="value">Georgia Tech -3.5</div>
+                <div class="explanation">Small edge <span class="edge-badge">2.1PT</span></div>
+            </div>
+        </div>
+        <div class="math">
+            LOGIC: Model projects GT -5.6, only need -3.5 to cover → Slight value
+        </div>
+    </div>
+
+    <div class="header" style="margin-top: 40px;">
+        <h2>🎯 KEY BETTING PRINCIPLES</h2>
+        <div style="text-align: left; max-width: 800px; margin: 20px auto; color: #e0e0e0; line-height: 1.8;">
+            <p><strong>1. UPSET ALERTS (🚨):</strong> When model and market disagree on favorite = MAXIMUM VALUE<br>
+            → Bet the model's predicted winner getting points as underdog</p>
+            
+            <p><strong>2. Same Favorite:</strong> When both agree on winner, compare spreads<br>
+            → If model spread > market spread: Bet the favorite<br>
+            → If model spread < market spread: Bet the underdog</p>
+            
+            <p><strong>3. Edge Requirements:</strong><br>
+            → 2-5 points: Decent edge, consider betting<br>
+            → 5-10 points: Strong edge, good value<br>
+            → 10+ points: Massive edge, premium play</p>
+            
+            <p><strong>4. Games to Avoid:</strong> Edge < 2 points = no significant value</p>
+        </div>
+    </div>
+
+</body>
+</html>

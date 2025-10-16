@@ -70,6 +70,7 @@ export default {
          🔤 TYPOGRAPHY SYSTEM
          ============================================ */
       fontFamily: {
+        'sans': ['Orbitron', 'sans-serif'],
         'orbitron': ['Orbitron', 'sans-serif'],
         'mono': ['SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', 'monospace'],
       },

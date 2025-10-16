@@ -255,11 +255,7 @@ export function CoachingComparison({ coach1Data, coach2Data, predictionData }: C
   const coach2IsElite = coach2.vsRanked.percentage > 65;
 
   return (
-    <div className="rounded-xl border backdrop-blur-md shadow-lg p-6" style={{
-      background: `linear-gradient(135deg, ${coach1.color}08, ${coach2.color}05, ${coach1.color}06)`,
-      borderColor: `${coach1.color}40`,
-      boxShadow: `0 0 20px ${coach1.color}15`
-    }}>
+    <GlassCard className="p-6">
       <div className="flex items-center gap-3 mb-6">
         <div className="p-2 rounded-lg border" style={{
           background: `linear-gradient(135deg, ${coach1.color}20, ${coach2.color}15)`,
@@ -502,6 +498,6 @@ export function CoachingComparison({ coach1Data, coach2Data, predictionData }: C
           </div>
         </div>
       </div>
-    </div>
+    </GlassCard>
   );
 }

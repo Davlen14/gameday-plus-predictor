@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betting Logic Test - Understanding the Math</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .game {
+            border: 2px solid #333;
+            padding: 20px;
+            margin: 20px 0;
+            background: #222;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #0ea5e9;
+        }
+        .section {
+            margin: 15px 0;
+            padding: 15px;
+            background: #2a2a2a;
+            border-left: 4px solid #666;
+        }
+        .label {
+            color: #888;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .value {
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .model {
+            border-left-color: #f59e0b;
+        }
+        .market {
+            border-left-color: #10b981;
+        }
+        .recommendation {
+            border-left-color: #ef4444;
+            background: #2d1a1a;
+        }
+        .upset-alert {
+            border: 3px solid #ef4444;
+            background: #3d1a1a;
+            padding: 15px;
+            margin: 15px 0;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.5; }
+        }
+        .math {
+            color: #10b981;
+            font-family: monospace;
+            margin: 10px 0;
+            padding: 10px;
+            background: #1a2a1a;
+        }
+        .explanation {
+            color: #888;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏈 Betting Logic - The Correct Math</h1>
+
+    <!-- GAME 1: Notre Dame vs USC -->
+    <div class="game">
+        <div class="title">GAME 1: Notre Dame (Home) vs USC (Away)</div>
+        
+        <div class="section model">
+            <div class="label">Model Prediction</div>
+            <div class="value">Notre Dame -20.6</div>
+            <div class="explanation">Model thinks Notre Dame wins by 20.6 points</div>
+        </div>
+
+        <div class="section market">
+            <div class="label">Market/Sportsbooks</div>
+            <div class="value">Notre Dame -9.5</div>
+            <div class="explanation">Market says Notre Dame only favored by 9.5 points</div>
+        </div>
+
+        <div class="section">
+            <div class="label">The Math</div>
+            <div class="math">
+                Market Spread: -9.5 (ND favored by 9.5)<br>
+                Model Spread: -20.6 (ND favored by 20.6)<br>
+                <br>
+                Edge Calculation:<br>
+                abs(Market) - abs(Model) = 9.5 - 20.6 = -11.1<br>
+                <br>
+                Interpretation:<br>
+                ❌ Market is giving ND ONLY 9.5 points<br>
+                ✅ Model thinks ND should be -20.6<br>
+                📊 Model thinks ND wins by MORE than market expects
+            </div>
+        </div>
+
+        <div class="section recommendation">
+            <div class="label">✅ CORRECT BETTING RECOMMENDATION</div>
+            <div class="value">BET: Notre Dame -9.5</div>
+            <div class="explanation">
+                <strong>Why?</strong> Model thinks ND wins by 20.6, but you only need them to win by 9.5 to cover.<br>
+                <strong>Edge:</strong> 11.1 points of cushion<br>
+                <strong>Logic:</strong> Market undervalues the favorite (ND)
+            </div>
+        </div>
+    </div>
+
+    <!-- GAME 2: Georgia vs Ole Miss -->
+    <div class="game">
+        <div class="title">GAME 2: Georgia (Home) vs Ole Miss (Away)</div>
+        
+        <div class="section model">
+            <div class="label">Model Prediction</div>
+            <div class="value">Ole Miss -1.7 (Away team favored!)</div>
+            <div class="explanation">Model thinks Ole Miss wins by 1.7 points (as visitor)</div>
+        </div>
+
+        <div class="section market">
+            <div class="label">Market/Sportsbooks</div>
+            <div class="value">Georgia -7.5</div>
+            <div class="explanation">Market says Georgia wins by 7.5 points at home</div>
+        </div>
+
+        <div class="section">
+            <div class="label">The Math</div>
+            <div class="math">
+                Market Spread: Georgia -7.5 (Georgia favored by 7.5)<br>
+                Model Spread: Ole Miss -1.7 (Ole Miss favored by 1.7)<br>
+                <br>
+                Convert to same perspective (Georgia's):<br>
+                Market: Georgia -7.5<br>
+                Model: Georgia +1.7 (model thinks Georgia LOSES by 1.7)<br>
+                <br>
+                Edge Calculation:<br>
+                Market giving Georgia -7.5<br>
+                Model thinks Georgia should be +1.7 (lose by 1.7)<br>
+                Difference: 7.5 - (-1.7) = 9.2 points!<br>
+                <br>
+                Interpretation:<br>
+                ❌ Market thinks Georgia wins by 7.5<br>
+                ✅ Model thinks Ole Miss wins by 1.7<br>
+                📊 HUGE DISAGREEMENT - Model favors the underdog!
+            </div>
+        </div>
+
+        <div class="upset-alert">
+            <div class="label">🚨 UPSET ALERT - UNDERDOG VALUE! 🚨</div>
+            <div class="value" style="color: #ef4444; font-size: 24px;">BET: Ole Miss +7.5</div>
+            <div class="explanation" style="color: #fff;">
+                <strong>Why?</strong> Model thinks Ole Miss WINS outright by 1.7, but market is giving you +7.5 points!<br>
+                <strong>Edge:</strong> Massive 9.2 point cushion<br>
+                <strong>Logic:</strong> Model predicts underdog wins, market gives them points = DOUBLE VALUE<br>
+                <strong>Risk:</strong> Even if Ole Miss loses by 7, you still win the bet!
+            </div>
+        </div>
+
+        <div class="section recommendation">
+            <div class="label">✅ CORRECT BETTING RECOMMENDATION</div>
+            <div class="value">BET: Ole Miss +7.5</div>
+            <div class="explanation">
+                Take the underdog getting points when your model predicts they win outright!
+            </div>
+        </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="game" style="border-color: #0ea5e9;">
+        <div class="title">🎯 BETTING LOGIC RULES</div>
+        
+        <div class="section">
+            <div class="value">Rule 1: Compare Favorite/Underdog Positions</div>
+            <div class="explanation">
+                • If model and market agree on favorite: Bet the side with larger spread<br>
+                • If model and market DISAGREE on favorite: UPSET ALERT - bet the underdog!
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="value">Rule 2: Upset Alert Triggers</div>
+            <div class="explanation">
+                • Model predicts Team A wins, Market favors Team B = BET TEAM A<br>
+                • Example: Model says Ole Miss -1.7, Market says Georgia -7.5 = BET OLE MISS +7.5<br>
+                • This is MAXIMUM VALUE - you get points on a team your model thinks wins!
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="value">Rule 3: Value Edge Calculation</div>
+            <div class="math">
+                Same Favorite:<br>
+                Edge = abs(Market Spread) - abs(Model Spread)<br>
+                Bet the favorite if model spread > market spread<br>
+                <br>
+                Different Favorites (UPSET):<br>
+                Edge = abs(Market Spread) + abs(Model Spread)<br>
+                Bet the model's favorite as underdog (getting points)<br>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

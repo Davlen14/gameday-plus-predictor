@@ -1,6 +1,6 @@
 import React from 'react';
 import { GlassCard } from './GlassCard';
-import { Zap, Target, TrendingUp, Clock, CheckCircle } from 'lucide-react';
+import { Zap, Target, TrendingUp, Clock, CheckCircle, BarChart3 } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { extractSection } from '../../utils/teamUtils';
 
@@ -1095,20 +1095,91 @@ export function DriveEfficiency({ team1Data, team2Data, predictionData }: DriveE
         <h3 className="text-white font-semibold text-sm">Drive Efficiency & Game Flow Analytics</h3>
       </div>
 
-      {/* Spider Chart Analytics */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-        {/* Quarter-by-Quarter Performance - Ultra Modern */}
-        <MultiTeamSpiderChart
-          team1Data={team1QuarterScoring}
-          team2Data={team2QuarterScoring}
-          team1Color={team1Color}
-          team2Color={team2Color}
-          team1Label={team1Name}
-          team2Label={team2Name}
-          team1Logo={team1Logo}
-          team2Logo={team2Logo}
-          categories={quarterCategories}
-        />
+      {/* Quarter Performance Analytics */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        {/* Quarter-by-Quarter Performance - Mirroring Field Position Design */}
+        <div className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 rounded-xl p-4 border border-slate-600/30">
+          <h4 className="text-slate-300 font-semibold mb-4 flex items-center gap-2 text-sm">
+            <BarChart3 className="w-3 h-3 text-green-400" />
+            Quarter-by-Quarter Performance
+          </h4>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Team 1 Bar Chart */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 mb-4">
+                <ImageWithFallback 
+                  src={team1Logo}
+                  alt={team1Name}
+                  className="w-6 h-6 object-contain"
+                />
+                <h5 className="font-semibold" style={{ color: team1Color }}>{team1Name}</h5>
+              </div>
+              {quarterCategories.map((category, index) => (
+                <div key={category} className="space-y-1">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-300 font-medium">{category}</span>
+                    <span className="font-bold" style={{ color: team1Color }}>
+                      {team1QuarterScoring[index]}%
+                    </span>
+                  </div>
+                  <div className="relative h-8 bg-slate-700/30 rounded-lg overflow-hidden border border-slate-600/30">
+                    <div 
+                      className="absolute inset-y-0 left-0 rounded-lg transition-all duration-500 ease-out"
+                      style={{ 
+                        width: `${team1QuarterScoring[index]}%`,
+                        background: `linear-gradient(to right, ${team1Color}80, ${team1Color})`,
+                        boxShadow: `0 0 10px ${team1Color}40`
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center px-3">
+                      <span className="text-white text-xs font-bold drop-shadow-lg z-10">
+                        {team1QuarterScoring[index]}%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Team 2 Bar Chart */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 mb-4">
+                <ImageWithFallback 
+                  src={team2Logo}
+                  alt={team2Name}
+                  className="w-6 h-6 object-contain"
+                />
+                <h5 className="font-semibold" style={{ color: team2Color }}>{team2Name}</h5>
+              </div>
+              {quarterCategories.map((category, index) => (
+                <div key={category} className="space-y-1">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-300 font-medium">{category}</span>
+                    <span className="font-bold" style={{ color: team2Color }}>
+                      {team2QuarterScoring[index]}%
+                    </span>
+                  </div>
+                  <div className="relative h-8 bg-slate-700/30 rounded-lg overflow-hidden border border-slate-600/30">
+                    <div 
+                      className="absolute inset-y-0 left-0 rounded-lg transition-all duration-500 ease-out"
+                      style={{ 
+                        width: `${team2QuarterScoring[index]}%`,
+                        background: `linear-gradient(to right, ${team2Color}80, ${team2Color})`,
+                        boxShadow: `0 0 10px ${team2Color}40`
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center px-3">
+                      <span className="text-white text-xs font-bold drop-shadow-lg z-10">
+                        {team2QuarterScoring[index]}%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* Field Position Mastery */}
         <div className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 rounded-xl p-4 border border-slate-600/30">
@@ -1117,21 +1188,80 @@ export function DriveEfficiency({ team1Data, team2Data, predictionData }: DriveE
             Field Position Scoring Mastery
           </h4>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <SpiderChart
-              data={team1FieldPositionScoring}
-              color={team1Color}
-              label={team1Name}
-              categories={fieldPositionCategories}
-              teamLogo={team1Logo}
-            />
-            <SpiderChart
-              data={team2FieldPositionScoring}
-              color={team2Color}
-              label={team2Name}
-              categories={fieldPositionCategories}
-              teamLogo={team2Logo}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Team 1 Bar Chart */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 mb-4">
+                <ImageWithFallback 
+                  src={team1Logo}
+                  alt={team1Name}
+                  className="w-6 h-6 object-contain"
+                />
+                <h5 className="font-semibold" style={{ color: team1Color }}>{team1Name}</h5>
+              </div>
+              {fieldPositionCategories.map((category, index) => (
+                <div key={category} className="space-y-1">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-300 font-medium">{category}</span>
+                    <span className="font-bold" style={{ color: team1Color }}>
+                      {team1FieldPositionScoring[index]}%
+                    </span>
+                  </div>
+                  <div className="relative h-8 bg-slate-700/30 rounded-lg overflow-hidden border border-slate-600/30">
+                    <div 
+                      className="absolute inset-y-0 left-0 rounded-lg transition-all duration-500 ease-out"
+                      style={{ 
+                        width: `${team1FieldPositionScoring[index]}%`,
+                        background: `linear-gradient(to right, ${team1Color}80, ${team1Color})`,
+                        boxShadow: `0 0 10px ${team1Color}40`
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center px-3">
+                      <span className="text-white text-xs font-bold drop-shadow-lg z-10">
+                        {team1FieldPositionScoring[index]}%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Team 2 Bar Chart */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 mb-4">
+                <ImageWithFallback 
+                  src={team2Logo}
+                  alt={team2Name}
+                  className="w-6 h-6 object-contain"
+                />
+                <h5 className="font-semibold" style={{ color: team2Color }}>{team2Name}</h5>
+              </div>
+              {fieldPositionCategories.map((category, index) => (
+                <div key={category} className="space-y-1">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-300 font-medium">{category}</span>
+                    <span className="font-bold" style={{ color: team2Color }}>
+                      {team2FieldPositionScoring[index]}%
+                    </span>
+                  </div>
+                  <div className="relative h-8 bg-slate-700/30 rounded-lg overflow-hidden border border-slate-600/30">
+                    <div 
+                      className="absolute inset-y-0 left-0 rounded-lg transition-all duration-500 ease-out"
+                      style={{ 
+                        width: `${team2FieldPositionScoring[index]}%`,
+                        background: `linear-gradient(to right, ${team2Color}80, ${team2Color})`,
+                        boxShadow: `0 0 10px ${team2Color}40`
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center px-3">
+                      <span className="text-white text-xs font-bold drop-shadow-lg z-10">
+                        {team2FieldPositionScoring[index]}%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -1191,114 +1321,133 @@ export function DriveEfficiency({ team1Data, team2Data, predictionData }: DriveE
         </div>
       </div>
 
-      {/* Drive Outcome Breakdown - Enhanced Clean Design */}
+      {/* Drive Outcome Breakdown - Modern Spacious Design */}
       <div>
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg border shadow-lg backdrop-blur-sm" style={{ 
-              background: `linear-gradient(to bottom right, ${team1Color}20, ${team2Color}20)`,
-              borderColor: `${team1Color}40`
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-4">
+            <div className="p-3 rounded-xl border border-white/20 shadow-2xl backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5" style={{ 
+              boxShadow: `0 0 20px ${team1Color}30`
             }}>
-              <Zap className="w-5 h-5" style={{ color: team1Color }} />
+              <Zap className="w-6 h-6" style={{ color: team1Color }} />
             </div>
             <div>
-              <h3 className="text-white font-bold text-lg tracking-wide" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+              <h3 className="text-white font-bold text-xl tracking-wide" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                 Drive Outcome Breakdown
               </h3>
-              <p className="text-slate-300 text-xs">Power Success, Success Rate, Explosiveness & Efficiency</p>
+              <p className="text-slate-400 text-sm mt-1">Power Success, Success Rate, Explosiveness & Efficiency</p>
             </div>
           </div>
           
-          <div className="flex items-center gap-4">
-            <div className="text-center">
+          <div className="flex items-center gap-8">
+            <div className="text-center px-4 py-3 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-xl">
               <ImageWithFallback 
                 src={team1Logo} 
                 alt={team1Name} 
-                className="w-8 h-8 object-contain mx-auto mb-1"
+                className="w-10 h-10 object-contain mx-auto mb-2 drop-shadow-lg"
               />
-              <span className="font-bold text-xs" style={{ color: team1Color }}>
+              <span className="font-bold text-sm tracking-wide" style={{ color: team1Color }}>
                 {team1Name.split(' ').pop()} Edge
               </span>
             </div>
-            <div className="text-center">
+            <div className="text-center px-4 py-3 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-xl">
               <ImageWithFallback 
                 src={team2Logo} 
                 alt={team2Name} 
-                className="w-8 h-8 object-contain mx-auto mb-1"
+                className="w-10 h-10 object-contain mx-auto mb-2 drop-shadow-lg"
               />
-              <span className="font-bold text-xs" style={{ color: team2Color }}>
+              <span className="font-bold text-sm tracking-wide" style={{ color: team2Color }}>
                 {team2Name.split(' ').pop()} Edge
               </span>
             </div>
           </div>
         </div>
         
-        <div className="bg-gradient-to-br from-slate-900/60 to-slate-800/40 rounded-xl p-4 border border-white/10 backdrop-blur-md">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="rounded-2xl p-8 backdrop-blur-xl shadow-2xl" style={{ background: 'rgba(0, 0, 0, 0.2)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Team 1 */}
-            <div className="bg-gradient-to-br from-slate-900/50 to-slate-800/50 rounded-xl p-4 border border-slate-400/40 shadow-lg backdrop-blur-sm">
-              <div className="flex items-center gap-2 mb-4">
+            <div 
+              className="rounded-2xl p-6 shadow-2xl backdrop-blur-xl border-2 transition-all hover:shadow-[0_0_30px_rgba(0,0,0,0.3)]"
+              style={{ 
+                background: 'rgba(0, 0, 0, 0.2)',
+                borderColor: team1Color,
+                boxShadow: `0 0 20px ${team1Color}40, inset 0 0 60px ${team1Color}15`
+              }}
+            >
+              <div 
+                className="flex items-center gap-3 mb-6 pb-4 border-b-2"
+                style={{ borderColor: `${team1Color}40` }}
+              >
                 <ImageWithFallback 
                   src={team1Logo}
                   alt={team1Name}
-                  className="w-8 h-8 object-contain opacity-95 drop-shadow-lg"
+                  className="w-10 h-10 object-contain opacity-95 drop-shadow-2xl"
                 />
-                <h5 className="font-bold text-lg" style={{ color: team1Color }}>{team1Name}</h5>
+                <h5 className="font-bold text-xl tracking-wide" style={{ color: team1Color }}>{team1Name}</h5>
               </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-1.5 px-2 bg-slate-800/30 rounded border border-slate-600/30">
-                  <span className="text-slate-300 font-medium text-sm">Touchdowns</span>
-                  <span className="text-green-400 font-bold">{driveOutcomes.team1.touchdowns}%</span>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 px-4 bg-gradient-to-r from-slate-800/40 to-transparent rounded-xl border border-slate-600/20 backdrop-blur-sm hover:border-white/20 transition-all">
+                  <span className="text-slate-200 font-semibold text-base">Touchdowns</span>
+                  <span className="text-green-400 font-bold text-lg">{driveOutcomes.team1.touchdowns}%</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 px-2 bg-slate-800/30 rounded border border-slate-600/30">
-                  <span className="text-slate-300 font-medium text-sm">Field Goals</span>
-                  <span className="text-blue-400 font-bold">{driveOutcomes.team1.fieldGoals}%</span>
+                <div className="flex justify-between items-center py-3 px-4 bg-gradient-to-r from-slate-800/40 to-transparent rounded-xl border border-slate-600/20 backdrop-blur-sm hover:border-white/20 transition-all">
+                  <span className="text-slate-200 font-semibold text-base">Field Goals</span>
+                  <span className="text-blue-400 font-bold text-lg">{driveOutcomes.team1.fieldGoals}%</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 px-2 bg-slate-800/30 rounded border border-slate-600/30">
-                  <span className="text-slate-300 font-medium text-sm">Punts</span>
-                  <span className="text-yellow-400 font-bold">{driveOutcomes.team1.punts}%</span>
+                <div className="flex justify-between items-center py-3 px-4 bg-gradient-to-r from-slate-800/40 to-transparent rounded-xl border border-slate-600/20 backdrop-blur-sm hover:border-white/20 transition-all">
+                  <span className="text-slate-200 font-semibold text-base">Punts</span>
+                  <span className="text-yellow-400 font-bold text-lg">{driveOutcomes.team1.punts}%</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 px-2 bg-slate-800/30 rounded border border-slate-600/30">
-                  <span className="text-slate-300 font-medium text-sm">Turnovers</span>
-                  <span className="text-red-400 font-bold">{driveOutcomes.team1.turnovers}%</span>
+                <div className="flex justify-between items-center py-3 px-4 bg-gradient-to-r from-slate-800/40 to-transparent rounded-xl border border-slate-600/20 backdrop-blur-sm hover:border-white/20 transition-all">
+                  <span className="text-slate-200 font-semibold text-base">Turnovers</span>
+                  <span className="text-red-400 font-bold text-lg">{driveOutcomes.team1.turnovers}%</span>
                 </div>
-                <div className="border-t border-slate-600/60 pt-2 flex justify-between items-center py-2 px-2 bg-slate-900/40 rounded">
-                  <span className="text-white font-bold text-sm">Power Success</span>
-                  <span className="text-green-400 font-bold text-lg">{driveOutcomes.team1.totalScoring}%</span>
+                <div className="border-t border-white/10 mt-2 pt-4 flex justify-between items-center py-4 px-5 bg-gradient-to-r from-slate-900/60 to-slate-800/40 rounded-xl backdrop-blur-xl">
+                  <span className="text-white font-bold text-base tracking-wide">Power Success</span>
+                  <span className="text-green-400 font-bold text-2xl">{driveOutcomes.team1.totalScoring}%</span>
                 </div>
               </div>
             </div>
 
             {/* Team 2 */}
-            <div className="bg-gradient-to-br from-slate-900/50 to-slate-800/50 rounded-xl p-4 border border-slate-400/40 shadow-lg backdrop-blur-sm">
-              <div className="flex items-center gap-2 mb-4">
+            <div 
+              className="rounded-2xl p-6 shadow-2xl backdrop-blur-xl border-2 transition-all hover:shadow-[0_0_30px_rgba(0,0,0,0.3)]"
+              style={{ 
+                background: 'rgba(0, 0, 0, 0.2)',
+                borderColor: team2Color,
+                boxShadow: `0 0 20px ${team2Color}40, inset 0 0 60px ${team2Color}15`
+              }}
+            >
+              <div 
+                className="flex items-center gap-3 mb-6 pb-4 border-b-2"
+                style={{ borderColor: `${team2Color}40` }}
+              >
                 <ImageWithFallback 
                   src={team2Logo}
                   alt={team2Name}
-                  className="w-8 h-8 object-contain opacity-95 drop-shadow-lg"
+                  className="w-10 h-10 object-contain opacity-95 drop-shadow-2xl"
                 />
-                <h5 className="font-bold text-lg" style={{ color: team2Color }}>{team2Name}</h5>
+                <h5 className="font-bold text-xl tracking-wide" style={{ color: team2Color }}>{team2Name}</h5>
               </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-1.5 px-2 bg-slate-800/30 rounded border border-slate-600/30">
-                  <span className="text-slate-300 font-medium text-sm">Touchdowns</span>
-                  <span className="text-green-400 font-bold">{driveOutcomes.team2.touchdowns}%</span>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 px-4 bg-gradient-to-r from-slate-800/40 to-transparent rounded-xl border border-slate-600/20 backdrop-blur-sm hover:border-white/20 transition-all">
+                  <span className="text-slate-200 font-semibold text-base">Touchdowns</span>
+                  <span className="text-green-400 font-bold text-lg">{driveOutcomes.team2.touchdowns}%</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 px-2 bg-slate-800/30 rounded border border-slate-600/30">
-                  <span className="text-slate-300 font-medium text-sm">Field Goals</span>
-                  <span className="text-blue-400 font-bold">{driveOutcomes.team2.fieldGoals}%</span>
+                <div className="flex justify-between items-center py-3 px-4 bg-gradient-to-r from-slate-800/40 to-transparent rounded-xl border border-slate-600/20 backdrop-blur-sm hover:border-white/20 transition-all">
+                  <span className="text-slate-200 font-semibold text-base">Field Goals</span>
+                  <span className="text-blue-400 font-bold text-lg">{driveOutcomes.team2.fieldGoals}%</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 px-2 bg-slate-800/30 rounded border border-slate-600/30">
-                  <span className="text-slate-300 font-medium text-sm">Punts</span>
-                  <span className="text-yellow-400 font-bold">{driveOutcomes.team2.punts}%</span>
+                <div className="flex justify-between items-center py-3 px-4 bg-gradient-to-r from-slate-800/40 to-transparent rounded-xl border border-slate-600/20 backdrop-blur-sm hover:border-white/20 transition-all">
+                  <span className="text-slate-200 font-semibold text-base">Punts</span>
+                  <span className="text-yellow-400 font-bold text-lg">{driveOutcomes.team2.punts}%</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 px-2 bg-slate-800/30 rounded border border-slate-600/30">
-                  <span className="text-slate-300 font-medium text-sm">Turnovers</span>
-                  <span className="text-red-400 font-bold">{driveOutcomes.team2.turnovers}%</span>
+                <div className="flex justify-between items-center py-3 px-4 bg-gradient-to-r from-slate-800/40 to-transparent rounded-xl border border-slate-600/20 backdrop-blur-sm hover:border-white/20 transition-all">
+                  <span className="text-slate-200 font-semibold text-base">Turnovers</span>
+                  <span className="text-red-400 font-bold text-lg">{driveOutcomes.team2.turnovers}%</span>
                 </div>
-                <div className="border-t border-slate-600/60 pt-2 flex justify-between items-center py-2 px-2 bg-slate-900/40 rounded">
-                  <span className="text-white font-bold text-sm">Power Success</span>
-                  <span className="text-green-400 font-bold text-lg">{driveOutcomes.team2.totalScoring}%</span>
+                <div className="border-t border-white/10 mt-2 pt-4 flex justify-between items-center py-4 px-5 bg-gradient-to-r from-slate-900/60 to-slate-800/40 rounded-xl backdrop-blur-xl">
+                  <span className="text-white font-bold text-base tracking-wide">Power Success</span>
+                  <span className="text-green-400 font-bold text-2xl">{driveOutcomes.team2.totalScoring}%</span>
                 </div>
               </div>
             </div>

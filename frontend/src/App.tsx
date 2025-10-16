@@ -10,7 +10,8 @@ import { ContextualAnalysis } from './components/figma/ContextualAnalysis';
 import { MediaInformation } from './components/figma/MediaInformation';
 import { EPAComparison } from './components/figma/EPAComparison';
 import { DifferentialAnalysis } from './components/figma/DifferentialAnalysis';
-import { WinProbabilitySection } from './components/figma/WinProbabilitySection';
+import { WinProbability } from './components/figma/WinProbability';
+import { SituationalPerformance } from './components/figma/SituationalPerformance';
 import { FieldPositionMetrics } from './components/figma/FieldPositionMetrics';
 import { KeyPlayerImpact } from './components/figma/KeyPlayerImpact';
 import { AdvancedMetrics } from './components/figma/AdvancedMetrics';
@@ -20,6 +21,7 @@ import { ComprehensiveTeamStats } from './components/figma/ComprehensiveStats';
 import { CoachingComparison } from './components/figma/CoachingComparison';
 import { DriveEfficiency } from './components/figma/DriveEfficiency';
 import { ExtendedDefensiveAnalytics } from './components/figma/ExtendedDefensiveAnalytics';
+import ComprehensiveRatingsComparison from './components/figma/ComprehensiveRatingsComparison';
 import { APPollRankings } from './components/figma/APPollRankings';
 import { SeasonRecords } from './components/figma/SeasonRecords';
 import { FinalPredictionSummary } from './components/figma/FinalPredictionSummary';
@@ -141,64 +143,77 @@ export default function App() {
           {/* Header */}
           <Header predictionData={predictionData} isLoading={isLoading} />
           
-          {/* Prediction Cards */}
+          {/* 🎯 SECTION 1: CORE PREDICTIONS */}
+          {/* Prediction Cards - Main Results */}
           <PredictionCards predictionData={predictionData} isLoading={isLoading} error={error || undefined} />
           
-          {/* Confidence & Market */}
-          <ConfidenceSection predictionData={predictionData} isLoading={isLoading} error={error || undefined} />
+          {/* Final Prediction Summary - Move up for immediate visibility */}
+          <FinalPredictionSummary predictionData={predictionData} />
           
-          {/* Market Comparison */}
+          {/* 📈 MARKET ANALYSIS - RIGHT AFTER PREDICTIONS */}
+          {/* Market Comparison - Sportsbook lines and value analysis */}
           <MarketComparison predictionData={predictionData} />
           
+          {/* Confidence & Market - COMMENTED OUT FOR NOW */}
+          {/* <ConfidenceSection predictionData={predictionData} isLoading={isLoading} error={error || undefined} /> */}
+          
+          {/* 🎲 PROBABILITY & PERFORMANCE */}
+          {/* Win Probability - Standalone Section */}
+          <WinProbability predictionData={predictionData} />
+          
+          {/* Situational Performance - Standalone Section */}
+          <SituationalPerformance predictionData={predictionData} />
+          
+          {/* 🌤️ CONTEXTUAL FACTORS */}
           {/* Weather, Poll & Bye Week Analysis */}
           <ContextualAnalysis predictionData={predictionData} />
+          
+          {/* AP Poll Rankings */}
+          <APPollRankings predictionData={predictionData} />
           
           {/* Media Information */}
           <MediaInformation predictionData={predictionData} />
           
-          {/* EPA Comparison */}
+          {/* 🏈 SECTION 3: ADVANCED ANALYTICS */}
+          {/* EPA Comparison - Core advanced metric */}
           <EPAComparison predictionData={predictionData} />
           
           {/* Comprehensive Differential Analysis */}
           <DifferentialAnalysis predictionData={predictionData} />
           
-          {/* Win Probability & Situational Performance */}
-          <WinProbabilitySection predictionData={predictionData} />
+          {/* Advanced Metrics */}
+          <AdvancedMetrics predictionData={predictionData} />
           
           {/* Field Position Metrics */}
           <FieldPositionMetrics predictionData={predictionData} />
           
+          {/* Drive Efficiency & Game Flow */}
+          <DriveEfficiency predictionData={predictionData} />
+          
+          {/* Comprehensive Ratings Comparison - Advanced Rating Systems */}
+          <ComprehensiveRatingsComparison predictionData={predictionData} />
+          
+          {/* 👥 SECTION 4: TEAM & PLAYER ANALYSIS */}
           {/* Key Player Impact */}
           <KeyPlayerImpact predictionData={predictionData} />
-          
-          {/* Advanced Metrics */}
-          <AdvancedMetrics predictionData={predictionData} />
           
           {/* Comprehensive Team Statistics */}
           <ComprehensiveTeamStats predictionData={predictionData} />
           
+          {/* Season Records */}
+          <SeasonRecords predictionData={predictionData} />
+          
           {/* Coaching Staff Comparison */}
           <CoachingComparison predictionData={predictionData} />
-          
-          {/* Drive Efficiency & Game Flow */}
-          <DriveEfficiency predictionData={predictionData} />
           
           {/* Extended Defensive Analytics & Season Summary */}
           <ExtendedDefensiveAnalytics predictionData={predictionData} />
           
-          {/* AP Poll Rankings */}
-          <APPollRankings predictionData={predictionData} />
-          
-          {/* Season Records */}
-          <SeasonRecords predictionData={predictionData} />
-          
-          {/* Final Prediction Summary */}
-          <FinalPredictionSummary predictionData={predictionData} />
-          
-          {/* Model Weights Breakdown - Moved to bottom */}
+          {/* 🔧 SECTION 5: MODEL TRANSPARENCY */}
+          {/* Model Weights Breakdown */}
           <WeightsBreakdown predictionData={predictionData} />
           
-          {/* Weighted Component Breakdown - Moved to bottom */}
+          {/* Weighted Component Breakdown */}
           <ComponentBreakdown predictionData={predictionData} />
           
           {/* Glossary */}

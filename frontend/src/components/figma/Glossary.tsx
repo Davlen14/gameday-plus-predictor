@@ -244,7 +244,7 @@ export function Glossary({ predictionData }: GlossaryProps) {
         >
           <div 
             ref={modalRef}
-            className="bg-gray-900/90 backdrop-blur-xl border border-gray-400/15 rounded-lg shadow-2xl w-[90vw] h-[85vh] flex flex-col animate-in fade-in zoom-in-95 duration-200"
+            className="bg-slate-900/98 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl w-[90vw] h-[85vh] flex flex-col animate-in fade-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
             style={{ 
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)', 
@@ -254,7 +254,7 @@ export function Glossary({ predictionData }: GlossaryProps) {
               maxHeight: '900px'
             }}
           >
-            <div className="p-6 border-b border-gray-400/15 flex-shrink-0">
+            <div className="p-6 border-b border-white/10 flex-shrink-0">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-white font-semibold text-2xl flex items-center gap-2">
                   <Info className="w-7 h-7 text-cyan-400" />
@@ -262,19 +262,19 @@ export function Glossary({ predictionData }: GlossaryProps) {
                 </h3>
                 <button 
                   onClick={() => setIsOpen(false)}
-                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10"
+                  className="text-slate-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10"
                 >
                   <X className="w-6 h-6" />
                 </button>
               </div>
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                 <input
                   type="text"
                   placeholder="Search glossary terms..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-gray-800/40 border border-gray-400/15 rounded-lg pl-12 pr-4 py-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/40 focus:border-cyan-500/40 text-lg"
+                  className="w-full bg-slate-800/60 border border-white/10 rounded-lg pl-12 pr-4 py-4 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/40 focus:border-cyan-500/40 text-lg"
                   autoFocus
                 />
               </div>
@@ -299,8 +299,8 @@ export function Glossary({ predictionData }: GlossaryProps) {
               </div>
               {filteredItems.length === 0 && (
                 <div className="col-span-full text-center py-12">
-                  <div className="text-gray-400 text-xl mb-2">No terms found</div>
-                  <div className="text-gray-500 text-base">Try adjusting your search terms</div>
+                  <div className="text-slate-400 text-xl mb-2">No terms found</div>
+                  <div className="text-slate-500 text-base">Try adjusting your search terms</div>
                 </div>
               )}
             </div>
@@ -363,7 +363,7 @@ function GlossaryItem({ title, description, color }: { title: string; descriptio
   return (
     <div className={`${bgColors[color]} rounded-lg p-5 border backdrop-blur-sm transition-all duration-300 ${colors[color]} group cursor-default shadow-lg hover:shadow-xl`}>
       <h4 className={`${textColors[color]} font-bold text-lg mb-3 group-hover:scale-105 transition-transform drop-shadow-sm`}>{title}</h4>
-      <p className="text-gray-100 text-base leading-relaxed font-medium">{description}</p>
+      <p className="text-slate-100 text-base leading-relaxed font-medium">{description}</p>
     </div>
   );
 }

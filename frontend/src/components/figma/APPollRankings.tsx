@@ -197,17 +197,17 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
     return "rgb(239, 68, 68)"; // red-500
   };
   return (
-    <GlassCard className="p-6">
+    <GlassCard glowColor="from-yellow-500/20 to-amber-500/20" className="p-6 border-yellow-500/40">
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 rounded-lg bg-gray-500/20 border border-gray-400/40">
-          <Trophy className="w-5 h-5 text-gray-300" />
+        <div className="p-2 rounded-lg bg-yellow-500/20 border border-yellow-500/40">
+          <Trophy className="w-5 h-5 text-yellow-400" />
         </div>
         <h3 className="text-white font-semibold">AP Poll Rankings Progression</h3>
       </div>
       
       {/* Current Rankings */}
       <div className="mb-6">
-        <h4 className="text-gray-300 font-medium mb-4 flex items-center gap-2">
+        <h4 className="text-slate-300 font-medium mb-4 flex items-center gap-2">
           <Award className="w-4 h-4" />
           Current Rankings (Week {currentWeek})
         </h4>
@@ -215,18 +215,18 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-600/40">
-                <th className="text-left py-3 px-4 text-gray-300 font-medium">Team</th>
-                <th className="text-center py-3 px-4 text-gray-300 font-medium">Current Rank</th>
-                <th className="text-center py-3 px-4 text-gray-300 font-medium">Points</th>
-                <th className="text-center py-3 px-4 text-gray-300 font-medium">Conference</th>
-                <th className="text-center py-3 px-4 text-gray-300 font-medium">First Place Votes</th>
+              <tr className="border-b border-slate-600/40">
+                <th className="text-left py-3 px-4 text-slate-300 font-medium">Team</th>
+                <th className="text-center py-3 px-4 text-slate-300 font-medium">Current Rank</th>
+                <th className="text-center py-3 px-4 text-slate-300 font-medium">Points</th>
+                <th className="text-center py-3 px-4 text-slate-300 font-medium">Conference</th>
+                <th className="text-center py-3 px-4 text-slate-300 font-medium">First Place Votes</th>
               </tr>
             </thead>
             <tbody>
               {awayRanking && (
-                <tr className="border-b border-gray-700/30">
-                  <td className="py-3 px-4 text-gray-300 font-medium">
+                <tr className="border-b border-slate-700/30">
+                  <td className="py-3 px-4 text-slate-300 font-medium">
                     <div className="flex items-center gap-2">
                       <ImageWithFallback src={team1Logo} alt={team1Name} className="w-6 h-6 object-contain" />
                       <span style={{ color: team1Color }}>{team1Name}</span>
@@ -239,13 +239,13 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
                     </span>
                   </td>
                   <td className="py-3 px-4 text-center font-mono text-yellow-400 font-semibold">{awayRanking.points}</td>
-                  <td className="py-3 px-4 text-center font-mono text-gray-200">{awayRanking.conference}</td>
-                  <td className="py-3 px-4 text-center font-mono text-gray-200">{awayRanking.firstPlaceVotes}</td>
+                  <td className="py-3 px-4 text-center font-mono text-slate-200">{awayRanking.conference}</td>
+                  <td className="py-3 px-4 text-center font-mono text-slate-200">{awayRanking.firstPlaceVotes}</td>
                 </tr>
               )}
               {homeRanking && (
-                <tr className="border-b border-gray-700/30">
-                  <td className="py-3 px-4 text-gray-300 font-medium">
+                <tr className="border-b border-slate-700/30">
+                  <td className="py-3 px-4 text-slate-300 font-medium">
                     <div className="flex items-center gap-2">
                       <ImageWithFallback src={team2Logo} alt={team2Name} className="w-6 h-6 object-contain" />
                       <span style={{ color: team2Color }}>{team2Name}</span>
@@ -258,8 +258,8 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
                     </span>
                   </td>
                   <td className="py-3 px-4 text-center font-mono text-yellow-400 font-semibold">{homeRanking.points}</td>
-                  <td className="py-3 px-4 text-center font-mono text-gray-200">{homeRanking.conference}</td>
-                  <td className="py-3 px-4 text-center font-mono text-gray-200">{homeRanking.firstPlaceVotes}</td>
+                  <td className="py-3 px-4 text-center font-mono text-slate-200">{homeRanking.conference}</td>
+                  <td className="py-3 px-4 text-center font-mono text-slate-200">{homeRanking.firstPlaceVotes}</td>
                 </tr>
               )}
             </tbody>
@@ -269,7 +269,7 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
 
       {/* Weekly Progression */}
       <div className="mb-6">
-        <h4 className="text-gray-300 font-medium mb-4 flex items-center gap-2">
+        <h4 className="text-slate-300 font-medium mb-4 flex items-center gap-2">
           <TrendingUp className="w-4 h-4" />
           Weekly Rankings Progression
         </h4>
@@ -292,7 +292,7 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
                   <WeeklyRank key={idx} week={week.week} rank={week.rank} trend={week.trend} teamColor={team1Color} />
                 ))
               ) : (
-                <div className="text-xs text-gray-400 text-center py-4">No weekly data available</div>
+                <div className="text-xs text-slate-400 text-center py-4">No weekly data available</div>
               )}
             </div>
             
@@ -328,7 +328,7 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
                   <WeeklyRank key={idx} week={week.week} rank={week.rank} trend={week.trend} teamColor={team2Color} />
                 ))
               ) : (
-                <div className="text-xs text-gray-400 text-center py-4">No weekly data available</div>
+                <div className="text-xs text-slate-400 text-center py-4">No weekly data available</div>
               )}
             </div>
             
@@ -356,13 +356,13 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
           <div className="text-lg font-bold text-yellow-400 mb-1">
             {awayRanking?.rank || 'NR'} vs {homeRanking?.rank || 'NR'}
           </div>
-          <div className="text-xs text-gray-300">{betterRanked} carries elite momentum</div>
+          <div className="text-xs text-slate-300">{betterRanked} carries elite momentum</div>
         </div>
         
         <div className="bg-gradient-to-br from-emerald-500/10 to-green-500/10 border border-emerald-500/30 rounded-lg p-4 text-center">
           <Award className="w-6 h-6 text-emerald-400 mx-auto mb-2" />
           <div className="text-lg font-bold text-emerald-400 mb-1">{higherPoints} Points</div>
-          <div className="text-xs text-gray-300">Strong poll support</div>
+          <div className="text-xs text-slate-300">Strong poll support</div>
         </div>
         
         <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/30 rounded-lg p-4 text-center">
@@ -370,7 +370,7 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
           <div className="text-lg font-bold text-blue-400 mb-1">
             {awayRankNum === 1 || homeRankNum === 1 ? '#1 Status' : 'Consistency'}
           </div>
-          <div className="text-xs text-gray-300">
+          <div className="text-xs text-slate-300">
             {awayRankNum === 1 || homeRankNum === 1 ? 'Top ranking advantage' : 'Maintaining position'}
           </div>
         </div>
@@ -441,7 +441,7 @@ function WeeklyRank({ week, rank, trend, teamColor }: { week: number; rank: stri
       }}
     >
       <div className="flex flex-col gap-1 relative z-10">
-        <span className="text-sm text-gray-300">Week {week}</span>
+        <span className="text-sm text-slate-300">Week {week}</span>
         {/* Colored indicator under trend icon */}
         {trend && (
           <div className="flex items-center gap-1">
