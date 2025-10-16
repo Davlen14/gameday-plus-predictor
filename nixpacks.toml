@@ -11,8 +11,8 @@ nixPkgs = [
 # Define the installation commands for both environments
 [phases.install]
 cmds = [
-    "python3 -m pip install --upgrade pip",
-    "python3 -m pip install -r requirements.txt",
+    "/root/.nix-profile/bin/pip install --upgrade pip",
+    "/root/.nix-profile/bin/pip install -r requirements.txt",
     "npm --prefix frontend install"
 ]
 
