@@ -7,7 +7,13 @@ from graphqlpredictor import LightningPredictor
 from run import format_prediction_output
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for iOS app
+# Configure CORS for Railway deployment
+CORS(app, origins=[
+    "https://graphqlmodel-production.up.railway.app",
+    "https://gameday-graphql-model.up.railway.app", 
+    "http://localhost:5173",
+    "http://localhost:3000"
+], methods=['GET', 'POST', 'OPTIONS'], allow_headers=['Content-Type', 'Authorization'])
 
 def get_team_id(team_name):
     """Convert team name to team ID using fbs.json data"""
@@ -541,8 +547,12 @@ def serve_test_report_page():
 def serve_test_report_js():
     return send_file('test_report.js', mimetype='application/javascript')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['POST', 'OPTIONS'])
 def predict_game():
+    # Handle OPTIONS preflight request
+    if request.method == 'OPTIONS':
+        return '', 200
+        
     try:
         data = request.get_json()
         
