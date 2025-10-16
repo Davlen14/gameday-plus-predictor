@@ -11,11 +11,8 @@ nixPkgs = [
 # Define the installation commands for both environments
 [phases.install]
 cmds = [
-    "ls -la /root/.nix-profile/bin/ | grep -E '(pip|python)'",
-    "which python3 || echo 'python3 not found'", 
-    "which pip || echo 'pip not found'",
-    "/root/.nix-profile/bin/pip install --upgrade pip",
-    "/root/.nix-profile/bin/pip install -r requirements.txt",
+    "/root/.nix-profile/bin/pip install --upgrade pip --break-system-packages",
+    "/root/.nix-profile/bin/pip install -r requirements.txt --break-system-packages",
     "npm --prefix frontend install"
 ]
 
