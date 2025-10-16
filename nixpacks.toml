@@ -1,0 +1,32 @@
+# Tell Nixpacks to install both Python and Node.js[phases.setup]
+
+[phases.setup]nixPkgs = ["python311", "python311Packages.pip", "nodejs_22", "npm-9_x"]
+
+pkgs = ["python311", "nodejs_22"]
+
+[phases.install]
+
+# Define the installation commands for both environmentscmds = [
+
+[phases.install]    "pip install -r requirements.txt",
+
+cmds = [    "cd frontend && npm install"
+
+    "python3 -m pip install --upgrade pip",]
+
+    "python3 -m pip install -r requirements.txt",
+
+    "npm --prefix frontend install"[phases.build]
+
+]cmds = ["cd frontend && npm run build"]
+
+
+
+# Define the build command for the React frontend[start]
+
+[phases.build]cmd = "gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120"
+cmds = ["npm --prefix frontend run build"]
+
+# Define the final start command for the Python backend
+[start]
+cmd = "gunicorn app:app --bind 0.0.0.0:$PORT"
