@@ -1,6 +1,6 @@
 # Tell Nixpacks to install Python, Node.js, and essential system build tools
 [phases.setup]
-pkgs = [
+nixPkgs = [
     "python311", 
     "python311Packages.pip", 
     "nodejs_22", 
