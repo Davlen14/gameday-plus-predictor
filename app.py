@@ -512,7 +512,7 @@ def get_predictor():
         predictor = LightningPredictor(api_key)
     return predictor
 
-@app.route('/', methods=['GET'])
+@app.route('/health', methods=['GET'])
 def health_check():
     return jsonify({
         "status": "healthy",
