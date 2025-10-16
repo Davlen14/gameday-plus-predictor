@@ -1,0 +1,479 @@
+/* ============================================
+   🎨 MODERN CSS DESIGN SYSTEM - GLOBAL STYLES
+   ============================================ */
+
+/* ============================================
+   🌟 CSS CUSTOM PROPERTIES & THEME VARIABLES
+   ============================================ */
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+/* ============================================
+   🌙 DARK THEME VARIABLES
+   ============================================ */
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+/* ============================================
+   🎭 THEME COLOR MAPPING
+   ============================================ */
+
+/* Map theme variables to usable CSS properties */
+.theme-colors {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ============================================
+   🏗️ BASE STYLING & RESETS
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+  outline-color: var(--ring);
+  outline-width: 2px;
+  outline-offset: 2px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* ============================================
+   📝 BASE TYPOGRAPHY SYSTEM
+   ============================================ */
+
+/* Typography for elements without Tailwind text classes */
+h1 {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color: var(--foreground);
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color: var(--foreground);
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color: var(--foreground);
+  margin: 0;
+}
+
+h4 {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color: var(--foreground);
+  margin: 0;
+}
+
+p {
+  font-size: 1rem; /* text-base */
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  color: var(--foreground);
+  margin: 0;
+}
+
+label {
+  font-size: 1rem; /* text-base */
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color: var(--foreground);
+}
+
+button {
+  font-size: 1rem; /* text-base */
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  font-size: 1rem; /* text-base */
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  border: 1px solid var(--border);
+  background-color: var(--input-background, var(--background));
+  color: var(--foreground);
+  padding: 0.5rem;
+  border-radius: var(--radius);
+}
+
+/* ============================================
+   🎨 CUSTOM BACKGROUND GRADIENTS
+   ============================================ */
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Custom gradient background - Dark Space Gray/Silver */
+.custom-gradient-bg {
+  background: #1a1d23;
+  background: linear-gradient(135deg, #1a1d23 0%, #2a2f38 40%, #353a45 60%, #2a2f38 100%);
+  background: -moz-linear-gradient(135deg, #1a1d23 0%, #2a2f38 40%, #353a45 60%, #2a2f38 100%);
+  background: -webkit-linear-gradient(135deg, #1a1d23 0%, #2a2f38 40%, #353a45 60%, #2a2f38 100%);
+}
+
+/* ============================================
+   🔢 ANALYTICAL NUMBER STYLING
+   ============================================ */
+
+.analytical-number {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   💎 GLASSY CARD COMPONENTS
+   ============================================ */
+
+/* Glassy card base - Space Gray */
+.glass-card {
+  background: rgba(42, 47, 56, 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-card-light {
+  background: rgba(53, 58, 69, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced glass cards with different opacity levels */
+.glass-card-strong {
+  background: rgba(42, 47, 56, 0.85);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
+}
+
+.glass-card-subtle {
+  background: rgba(42, 47, 56, 0.3);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   🏈 TEAM COLOR UTILITIES
+   ============================================ */
+
+.team-color-home {
+  color: #ff5f05; /* Illinois Orange */
+}
+
+.team-color-away {
+  color: #ce1141; /* Ohio State Red */
+}
+
+.border-team-home {
+  border-color: rgba(255, 95, 5, 0.5);
+}
+
+.border-team-away {
+  border-color: rgba(206, 17, 65, 0.5);
+}
+
+.bg-team-home {
+  background-color: rgba(255, 95, 5, 0.15);
+}
+
+.bg-team-away {
+  background-color: rgba(206, 17, 65, 0.15);
+}
+
+.shadow-team-home {
+  box-shadow: 0 0 30px rgba(255, 95, 5, 0.5), 0 0 15px rgba(255, 95, 5, 0.7);
+}
+
+.shadow-team-away {
+  box-shadow: 0 0 30px rgba(206, 17, 65, 0.5), 0 0 15px rgba(206, 17, 65, 0.7);
+}
+
+/* ============================================
+   📊 ANALYTICAL METRICS STYLING
+   ============================================ */
+
+.metric-value-positive {
+  color: #10b981;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.metric-value-negative {
+  color: #ef4444;
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+.metric-value-neutral {
+  color: #06b6d4;
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+}
+
+.metric-value-warning {
+  color: #f59e0b;
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+
+/* ============================================
+   ✨ SHINE AND GLOW EFFECTS
+   ============================================ */
+
+.card-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), transparent);
+  pointer-events: none;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.4); }
+}
+
+/* ============================================
+   🎬 ANIMATION SYSTEM
+   ============================================ */
+
+.fade-in { 
+  animation: fadeIn 0.5s ease-in-out; 
+}
+
+.slide-up { 
+  animation: slideUp 0.3s ease-out; 
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.4s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ============================================
+   🎯 COMPONENT STATES
+   ============================================ */
+
+.section-loading { 
+  opacity: 0.6; 
+  pointer-events: none; 
+}
+
+.section-ready { 
+  opacity: 1; 
+  transition: opacity 0.3s ease; 
+}
+
+.interactive-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.interactive-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   📱 RESPONSIVE UTILITIES
+   ============================================ */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile-first responsive text scaling */
+.responsive-text {
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+}
+
+.responsive-heading {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* ============================================
+   🎨 CUSTOM UTILITIES
+   ============================================ */
+
+.text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-gradient {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--background), var(--background)) padding-box,
+              linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05)) border-box;
+}
+
+/* Focus states for accessibility */
+.focus-visible:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}

@@ -1,0 +1,5245 @@
+{
+  "summary": {
+    "generatedAt": "2025-10-14T05:51:44.290884",
+    "week": 8,
+    "year": 2025,
+    "seasonType": "regular",
+    "totalGames": 59,
+    "power5Games": 31,
+    "rankedMatchups": 20,
+    "rankedVsRanked": 5,
+    "topRankedTeams": [
+      [
+        "Ohio State",
+        1
+      ],
+      [
+        "Miami",
+        2
+      ],
+      [
+        "Indiana",
+        3
+      ],
+      [
+        "Texas A&M",
+        4
+      ],
+      [
+        "Ole Miss",
+        5
+      ],
+      [
+        "Alabama",
+        6
+      ],
+      [
+        "Texas Tech",
+        7
+      ],
+      [
+        "Oregon",
+        8
+      ],
+      [
+        "Georgia",
+        9
+      ],
+      [
+        "LSU",
+        10
+      ]
+    ],
+    "bettingLinesAvailable": 7,
+    "totalBettingProviders": 9,
+    "gamesWithConsensusLines": 0,
+    "gamesWithScores": 0,
+    "sortingInfo": "Games sorted by highest rank (lowest rank number) then by conference alphabetically"
+  },
+  "games": {
+    "all": [
+      {
+        "gameId": 401752877,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Wisconsin",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Ohio State",
+          "rank": 1,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401754564,
+        "datetime": {
+          "raw": "2025-10-17T23:00:00",
+          "formatted": "October 17, 2025 at 11:00 PM ET",
+          "date": "2025-10-17",
+          "time": "23:00",
+          "dayOfWeek": "Friday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Miami",
+          "rank": 2,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Louisville",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": -13.5,
+              "spreadOpen": -6.5,
+              "overUnder": 52.5,
+              "overUnderOpen": null,
+              "moneylineHome": -575,
+              "moneylineAway": 425
+            }
+          ],
+          "summary": {
+            "avgSpread": -13.5,
+            "avgOverUnder": 52.5,
+            "spreadRange": {
+              "min": -13.5,
+              "max": -13.5
+            },
+            "overUnderRange": {
+              "min": 52.5,
+              "max": 52.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_unranked"
+      },
+      {
+        "gameId": 401752878,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Indiana",
+          "rank": 3,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Michigan State",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_unranked"
+      },
+      {
+        "gameId": 401752739,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Arkansas",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Texas A&M",
+          "rank": 4,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752742,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Georgia",
+          "rank": 9,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Ole Miss",
+          "rank": 5,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 2,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": -7,
+              "spreadOpen": -10.5,
+              "overUnder": 54.5,
+              "overUnderOpen": null,
+              "moneylineHome": -270,
+              "moneylineAway": 220
+            },
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -7.5,
+              "spreadOpen": -10.5,
+              "overUnder": 54.5,
+              "overUnderOpen": 53.5,
+              "moneylineHome": -280,
+              "moneylineAway": 230
+            }
+          ],
+          "summary": {
+            "avgSpread": -7.25,
+            "avgOverUnder": 54.5,
+            "spreadRange": {
+              "min": -7.5,
+              "max": -7.0
+            },
+            "overUnderRange": {
+              "min": 54.5,
+              "max": 54.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401752738,
+        "datetime": {
+          "raw": "2025-10-18T23:30:00",
+          "formatted": "October 18, 2025 at 11:30 PM ET",
+          "date": "2025-10-18",
+          "time": "23:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Alabama",
+          "rank": 6,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Tennessee",
+          "rank": 11,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -8.5,
+              "spreadOpen": -11.5,
+              "overUnder": 58.5,
+              "overUnderOpen": 53.5,
+              "moneylineHome": -320,
+              "moneylineAway": 260
+            }
+          ],
+          "summary": {
+            "avgSpread": -8.5,
+            "avgOverUnder": 58.5,
+            "spreadRange": {
+              "min": -8.5,
+              "max": -8.5
+            },
+            "overUnderRange": {
+              "min": 58.5,
+              "max": 58.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401756923,
+        "datetime": {
+          "raw": "2025-10-18T20:00:00",
+          "formatted": "October 18, 2025 at 08:00 PM ET",
+          "date": "2025-10-18",
+          "time": "20:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Arizona State",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Texas Tech",
+          "rank": 7,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": 11.5,
+              "spreadOpen": -4,
+              "overUnder": 48.5,
+              "overUnderOpen": null,
+              "moneylineHome": 350,
+              "moneylineAway": -455
+            }
+          ],
+          "summary": {
+            "avgSpread": 11.5,
+            "avgOverUnder": 48.5,
+            "spreadRange": {
+              "min": 11.5,
+              "max": 11.5
+            },
+            "overUnderRange": {
+              "min": 48.5,
+              "max": 48.5
+            }
+          }
+        },
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752876,
+        "datetime": {
+          "raw": "2025-10-18T22:30:00",
+          "formatted": "October 18, 2025 at 10:30 PM ET",
+          "date": "2025-10-18",
+          "time": "22:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Rutgers",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Oregon",
+          "rank": 8,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752745,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Vanderbilt",
+          "rank": 17,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "LSU",
+          "rank": 10,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401754566,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Duke",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Georgia Tech",
+          "rank": 12,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752871,
+        "datetime": {
+          "raw": "2025-10-18T23:30:00",
+          "formatted": "October 18, 2025 at 11:30 PM ET",
+          "date": "2025-10-18",
+          "time": "23:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Notre Dame",
+          "rank": 13,
+          "conference": "FBS Independents",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "USC",
+          "rank": 20,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": false,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 2,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": -8.5,
+              "spreadOpen": -10.5,
+              "overUnder": 61.5,
+              "overUnderOpen": null,
+              "moneylineHome": -340,
+              "moneylineAway": 270
+            },
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -8.5,
+              "spreadOpen": -10,
+              "overUnder": 61.5,
+              "overUnderOpen": 53.5,
+              "moneylineHome": -320,
+              "moneylineAway": 260
+            }
+          ],
+          "summary": {
+            "avgSpread": -8.5,
+            "avgOverUnder": 61.5,
+            "spreadRange": {
+              "min": -8.5,
+              "max": -8.5
+            },
+            "overUnderRange": {
+              "min": 61.5,
+              "max": 61.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401752744,
+        "datetime": {
+          "raw": "2025-10-18T16:45:00",
+          "formatted": "October 18, 2025 at 04:45 PM ET",
+          "date": "2025-10-18",
+          "time": "16:45",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "South Carolina",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Oklahoma",
+          "rank": 14,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401756924,
+        "datetime": {
+          "raw": "2025-10-19T00:00:00",
+          "formatted": "October 19, 2025 at 12:00 AM ET",
+          "date": "2025-10-19",
+          "time": "00:00",
+          "dayOfWeek": "Sunday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "BYU",
+          "rank": 15,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Utah",
+          "rank": 23,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401752740,
+        "datetime": {
+          "raw": "2025-10-18T23:45:00",
+          "formatted": "October 18, 2025 at 11:45 PM ET",
+          "date": "2025-10-18",
+          "time": "23:45",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Auburn",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Missouri",
+          "rank": 16,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752951,
+        "datetime": {
+          "raw": "2025-10-18T22:30:00",
+          "formatted": "October 18, 2025 at 10:30 PM ET",
+          "date": "2025-10-18",
+          "time": "22:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Virginia",
+          "rank": 18,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Washington State",
+          "rank": null,
+          "conference": "Pac-12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": false,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_unranked"
+      },
+      {
+        "gameId": 401762490,
+        "datetime": {
+          "raw": "2025-10-18T23:30:00",
+          "formatted": "October 18, 2025 at 11:30 PM ET",
+          "date": "2025-10-18",
+          "time": "23:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "South Florida",
+          "rank": 19,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Florida Atlantic",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_unranked"
+      },
+      {
+        "gameId": 401752743,
+        "datetime": {
+          "raw": "2025-10-18T23:00:00",
+          "formatted": "October 18, 2025 at 11:00 PM ET",
+          "date": "2025-10-18",
+          "time": "23:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Kentucky",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Texas",
+          "rank": 21,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401762487,
+        "datetime": {
+          "raw": "2025-10-18T20:00:00",
+          "formatted": "October 18, 2025 at 08:00 PM ET",
+          "date": "2025-10-18",
+          "time": "20:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "UAB",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Memphis",
+          "rank": 22,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401756926,
+        "datetime": {
+          "raw": "2025-10-19T00:00:00",
+          "formatted": "October 19, 2025 at 12:00 AM ET",
+          "date": "2025-10-19",
+          "time": "00:00",
+          "dayOfWeek": "Sunday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Oklahoma State",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Cincinnati",
+          "rank": 24,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752872,
+        "datetime": {
+          "raw": "2025-10-18T00:00:00",
+          "formatted": "October 18, 2025 at 12:00 AM ET",
+          "date": "2025-10-18",
+          "time": "00:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Minnesota",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Nebraska",
+          "rank": 25,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401754371,
+        "datetime": {
+          "raw": "2025-10-18T02:30:00",
+          "formatted": "October 18, 2025 at 02:30 AM ET",
+          "date": "2025-10-18",
+          "time": "02:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "California",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "North Carolina",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401754569,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Boston College",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "UConn",
+          "rank": null,
+          "conference": "FBS Independents",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": false,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401754565,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Clemson",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "SMU",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401754568,
+        "datetime": {
+          "raw": "2025-10-18T23:30:00",
+          "formatted": "October 18, 2025 at 11:30 PM ET",
+          "date": "2025-10-18",
+          "time": "23:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Syracuse",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Pittsburgh",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401754567,
+        "datetime": {
+          "raw": "2025-10-19T02:30:00",
+          "formatted": "October 19, 2025 at 02:30 AM ET",
+          "date": "2025-10-19",
+          "time": "02:30",
+          "dayOfWeek": "Sunday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Stanford",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Florida State",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401762486,
+        "datetime": {
+          "raw": "2025-10-16T23:30:00",
+          "formatted": "October 16, 2025 at 11:30 PM ET",
+          "date": "2025-10-16",
+          "time": "23:30",
+          "dayOfWeek": "Thursday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "East Carolina",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Tulsa",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401762488,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Tulane",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Army",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401762489,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Charlotte",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Temple",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401762491,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "North Texas",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "UTSA",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401756925,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Houston",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Arizona",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401756927,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "TCU",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Baylor",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401756928,
+        "datetime": {
+          "raw": "2025-10-18T17:00:00",
+          "formatted": "October 18, 2025 at 05:00 PM ET",
+          "date": "2025-10-18",
+          "time": "17:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "UCF",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "West Virginia",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401752873,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Michigan",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Washington",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -6.5,
+              "spreadOpen": -10.5,
+              "overUnder": 50.5,
+              "overUnderOpen": 47.5,
+              "moneylineHome": -210,
+              "moneylineAway": 175
+            }
+          ],
+          "summary": {
+            "avgSpread": -6.5,
+            "avgOverUnder": 50.5,
+            "spreadRange": {
+              "min": -6.5,
+              "max": -6.5
+            },
+            "overUnderRange": {
+              "min": 50.5,
+              "max": 50.5
+            }
+          }
+        }
+      },
+      {
+        "gameId": 401752874,
+        "datetime": {
+          "raw": "2025-10-18T19:00:00",
+          "formatted": "October 18, 2025 at 07:00 PM ET",
+          "date": "2025-10-18",
+          "time": "19:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Northwestern",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Purdue",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401752879,
+        "datetime": {
+          "raw": "2025-10-18T23:00:00",
+          "formatted": "October 18, 2025 at 11:00 PM ET",
+          "date": "2025-10-18",
+          "time": "23:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "UCLA",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Maryland",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401752875,
+        "datetime": {
+          "raw": "2025-10-18T23:00:00",
+          "formatted": "October 18, 2025 at 11:00 PM ET",
+          "date": "2025-10-18",
+          "time": "23:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Iowa",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Penn State",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -2.5,
+              "spreadOpen": 10.5,
+              "overUnder": 40.5,
+              "overUnderOpen": 45.5,
+              "moneylineHome": -145,
+              "moneylineAway": 125
+            }
+          ],
+          "summary": {
+            "avgSpread": -2.5,
+            "avgOverUnder": 40.5,
+            "spreadRange": {
+              "min": -2.5,
+              "max": -2.5
+            },
+            "overUnderRange": {
+              "min": 40.5,
+              "max": 40.5
+            }
+          }
+        }
+      },
+      {
+        "gameId": 401757282,
+        "datetime": {
+          "raw": "2025-10-14T23:00:00",
+          "formatted": "October 14, 2025 at 11:00 PM ET",
+          "date": "2025-10-14",
+          "time": "23:00",
+          "dayOfWeek": "Tuesday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Liberty",
+          "rank": null,
+          "conference": "Conference USA",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "New Mexico State",
+          "rank": null,
+          "conference": "Conference USA",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401757281,
+        "datetime": {
+          "raw": "2025-10-15T00:00:00",
+          "formatted": "October 15, 2025 at 12:00 AM ET",
+          "date": "2025-10-15",
+          "time": "00:00",
+          "dayOfWeek": "Wednesday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Western Kentucky",
+          "rank": null,
+          "conference": "Conference USA",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Florida International",
+          "rank": null,
+          "conference": "Conference USA",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401757284,
+        "datetime": {
+          "raw": "2025-10-15T23:00:00",
+          "formatted": "October 15, 2025 at 11:00 PM ET",
+          "date": "2025-10-15",
+          "time": "23:00",
+          "dayOfWeek": "Wednesday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Sam Houston",
+          "rank": null,
+          "conference": "Conference USA",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "UTEP",
+          "rank": null,
+          "conference": "Conference USA",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": true,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401757283,
+        "datetime": {
+          "raw": "2025-10-15T23:00:00",
+          "formatted": "October 15, 2025 at 11:00 PM ET",
+          "date": "2025-10-15",
+          "time": "23:00",
+          "dayOfWeek": "Wednesday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Jacksonville State",
+          "rank": null,
+          "conference": "Conference USA",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Delaware",
+          "rank": null,
+          "conference": "Conference USA",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401762841,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Miami (OH)",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Eastern Michigan",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401762839,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Bowling Green",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Central Michigan",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401762842,
+        "datetime": {
+          "raw": "2025-10-18T18:00:00",
+          "formatted": "October 18, 2025 at 06:00 PM ET",
+          "date": "2025-10-18",
+          "time": "18:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Toledo",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Kent State",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401762840,
+        "datetime": {
+          "raw": "2025-10-18T18:30:00",
+          "formatted": "October 18, 2025 at 06:30 PM ET",
+          "date": "2025-10-18",
+          "time": "18:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Massachusetts",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Buffalo",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401762838,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Ball State",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Akron",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401762843,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Ohio",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Northern Illinois",
+          "rank": null,
+          "conference": "Mid-American",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401760396,
+        "datetime": {
+          "raw": "2025-10-18T01:00:00",
+          "formatted": "October 18, 2025 at 01:00 AM ET",
+          "date": "2025-10-18",
+          "time": "01:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Utah State",
+          "rank": null,
+          "conference": "Mountain West",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "San Jos\u00e9 State",
+          "rank": null,
+          "conference": "Mountain West",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401760393,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Boise State",
+          "rank": null,
+          "conference": "Mountain West",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "UNLV",
+          "rank": null,
+          "conference": "Mountain West",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401760392,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Air Force",
+          "rank": null,
+          "conference": "Mountain West",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Wyoming",
+          "rank": null,
+          "conference": "Mountain West",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401760394,
+        "datetime": {
+          "raw": "2025-10-18T23:00:00",
+          "formatted": "October 18, 2025 at 11:00 PM ET",
+          "date": "2025-10-18",
+          "time": "23:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Colorado State",
+          "rank": null,
+          "conference": "Mountain West",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Hawai'i",
+          "rank": null,
+          "conference": "Mountain West",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401760395,
+        "datetime": {
+          "raw": "2025-10-19T01:45:00",
+          "formatted": "October 19, 2025 at 01:45 AM ET",
+          "date": "2025-10-19",
+          "time": "01:45",
+          "dayOfWeek": "Sunday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "New Mexico",
+          "rank": null,
+          "conference": "Mountain West",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Nevada",
+          "rank": null,
+          "conference": "Mountain West",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401752741,
+        "datetime": {
+          "raw": "2025-10-18T20:15:00",
+          "formatted": "October 18, 2025 at 08:15 PM ET",
+          "date": "2025-10-18",
+          "time": "20:15",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Florida",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Mississippi State",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401761628,
+        "datetime": {
+          "raw": "2025-10-14T23:30:00",
+          "formatted": "October 14, 2025 at 11:30 PM ET",
+          "date": "2025-10-14",
+          "time": "23:30",
+          "dayOfWeek": "Tuesday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "South Alabama",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "West",
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Arkansas State",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "West",
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401761633,
+        "datetime": {
+          "raw": "2025-10-18T19:00:00",
+          "formatted": "October 18, 2025 at 07:00 PM ET",
+          "date": "2025-10-18",
+          "time": "19:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "UL Monroe",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "West",
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Troy",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "West",
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401761629,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "App State",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "East",
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Coastal Carolina",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "East",
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401761632,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Marshall",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "East",
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Texas State",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "West",
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401761631,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "James Madison",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "East",
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Old Dominion",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "East",
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401761668,
+        "datetime": {
+          "raw": "2025-10-18T21:00:00",
+          "formatted": "October 18, 2025 at 09:00 PM ET",
+          "date": "2025-10-18",
+          "time": "21:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Louisiana",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "West",
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Southern Miss",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "West",
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401761630,
+        "datetime": {
+          "raw": "2025-10-18T23:00:00",
+          "formatted": "October 18, 2025 at 11:00 PM ET",
+          "date": "2025-10-18",
+          "time": "23:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Georgia Southern",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "East",
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Georgia State",
+          "rank": null,
+          "conference": "Sun Belt",
+          "division": "East",
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      }
+    ],
+    "power5": [
+      {
+        "gameId": 401752877,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Wisconsin",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Ohio State",
+          "rank": 1,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401754564,
+        "datetime": {
+          "raw": "2025-10-17T23:00:00",
+          "formatted": "October 17, 2025 at 11:00 PM ET",
+          "date": "2025-10-17",
+          "time": "23:00",
+          "dayOfWeek": "Friday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Miami",
+          "rank": 2,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Louisville",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": -13.5,
+              "spreadOpen": -6.5,
+              "overUnder": 52.5,
+              "overUnderOpen": null,
+              "moneylineHome": -575,
+              "moneylineAway": 425
+            }
+          ],
+          "summary": {
+            "avgSpread": -13.5,
+            "avgOverUnder": 52.5,
+            "spreadRange": {
+              "min": -13.5,
+              "max": -13.5
+            },
+            "overUnderRange": {
+              "min": 52.5,
+              "max": 52.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_unranked"
+      },
+      {
+        "gameId": 401752878,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Indiana",
+          "rank": 3,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Michigan State",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_unranked"
+      },
+      {
+        "gameId": 401752739,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Arkansas",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Texas A&M",
+          "rank": 4,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752742,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Georgia",
+          "rank": 9,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Ole Miss",
+          "rank": 5,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 2,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": -7,
+              "spreadOpen": -10.5,
+              "overUnder": 54.5,
+              "overUnderOpen": null,
+              "moneylineHome": -270,
+              "moneylineAway": 220
+            },
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -7.5,
+              "spreadOpen": -10.5,
+              "overUnder": 54.5,
+              "overUnderOpen": 53.5,
+              "moneylineHome": -280,
+              "moneylineAway": 230
+            }
+          ],
+          "summary": {
+            "avgSpread": -7.25,
+            "avgOverUnder": 54.5,
+            "spreadRange": {
+              "min": -7.5,
+              "max": -7.0
+            },
+            "overUnderRange": {
+              "min": 54.5,
+              "max": 54.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401752738,
+        "datetime": {
+          "raw": "2025-10-18T23:30:00",
+          "formatted": "October 18, 2025 at 11:30 PM ET",
+          "date": "2025-10-18",
+          "time": "23:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Alabama",
+          "rank": 6,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Tennessee",
+          "rank": 11,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -8.5,
+              "spreadOpen": -11.5,
+              "overUnder": 58.5,
+              "overUnderOpen": 53.5,
+              "moneylineHome": -320,
+              "moneylineAway": 260
+            }
+          ],
+          "summary": {
+            "avgSpread": -8.5,
+            "avgOverUnder": 58.5,
+            "spreadRange": {
+              "min": -8.5,
+              "max": -8.5
+            },
+            "overUnderRange": {
+              "min": 58.5,
+              "max": 58.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401756923,
+        "datetime": {
+          "raw": "2025-10-18T20:00:00",
+          "formatted": "October 18, 2025 at 08:00 PM ET",
+          "date": "2025-10-18",
+          "time": "20:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Arizona State",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Texas Tech",
+          "rank": 7,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": 11.5,
+              "spreadOpen": -4,
+              "overUnder": 48.5,
+              "overUnderOpen": null,
+              "moneylineHome": 350,
+              "moneylineAway": -455
+            }
+          ],
+          "summary": {
+            "avgSpread": 11.5,
+            "avgOverUnder": 48.5,
+            "spreadRange": {
+              "min": 11.5,
+              "max": 11.5
+            },
+            "overUnderRange": {
+              "min": 48.5,
+              "max": 48.5
+            }
+          }
+        },
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752876,
+        "datetime": {
+          "raw": "2025-10-18T22:30:00",
+          "formatted": "October 18, 2025 at 10:30 PM ET",
+          "date": "2025-10-18",
+          "time": "22:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Rutgers",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Oregon",
+          "rank": 8,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752745,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Vanderbilt",
+          "rank": 17,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "LSU",
+          "rank": 10,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401754566,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Duke",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Georgia Tech",
+          "rank": 12,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752871,
+        "datetime": {
+          "raw": "2025-10-18T23:30:00",
+          "formatted": "October 18, 2025 at 11:30 PM ET",
+          "date": "2025-10-18",
+          "time": "23:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Notre Dame",
+          "rank": 13,
+          "conference": "FBS Independents",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "USC",
+          "rank": 20,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": false,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 2,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": -8.5,
+              "spreadOpen": -10.5,
+              "overUnder": 61.5,
+              "overUnderOpen": null,
+              "moneylineHome": -340,
+              "moneylineAway": 270
+            },
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -8.5,
+              "spreadOpen": -10,
+              "overUnder": 61.5,
+              "overUnderOpen": 53.5,
+              "moneylineHome": -320,
+              "moneylineAway": 260
+            }
+          ],
+          "summary": {
+            "avgSpread": -8.5,
+            "avgOverUnder": 61.5,
+            "spreadRange": {
+              "min": -8.5,
+              "max": -8.5
+            },
+            "overUnderRange": {
+              "min": 61.5,
+              "max": 61.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401752744,
+        "datetime": {
+          "raw": "2025-10-18T16:45:00",
+          "formatted": "October 18, 2025 at 04:45 PM ET",
+          "date": "2025-10-18",
+          "time": "16:45",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "South Carolina",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Oklahoma",
+          "rank": 14,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401756924,
+        "datetime": {
+          "raw": "2025-10-19T00:00:00",
+          "formatted": "October 19, 2025 at 12:00 AM ET",
+          "date": "2025-10-19",
+          "time": "00:00",
+          "dayOfWeek": "Sunday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "BYU",
+          "rank": 15,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Utah",
+          "rank": 23,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401752740,
+        "datetime": {
+          "raw": "2025-10-18T23:45:00",
+          "formatted": "October 18, 2025 at 11:45 PM ET",
+          "date": "2025-10-18",
+          "time": "23:45",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Auburn",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Missouri",
+          "rank": 16,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752951,
+        "datetime": {
+          "raw": "2025-10-18T22:30:00",
+          "formatted": "October 18, 2025 at 10:30 PM ET",
+          "date": "2025-10-18",
+          "time": "22:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Virginia",
+          "rank": 18,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Washington State",
+          "rank": null,
+          "conference": "Pac-12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": false,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_unranked"
+      },
+      {
+        "gameId": 401752743,
+        "datetime": {
+          "raw": "2025-10-18T23:00:00",
+          "formatted": "October 18, 2025 at 11:00 PM ET",
+          "date": "2025-10-18",
+          "time": "23:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Kentucky",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Texas",
+          "rank": 21,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401756926,
+        "datetime": {
+          "raw": "2025-10-19T00:00:00",
+          "formatted": "October 19, 2025 at 12:00 AM ET",
+          "date": "2025-10-19",
+          "time": "00:00",
+          "dayOfWeek": "Sunday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Oklahoma State",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Cincinnati",
+          "rank": 24,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752872,
+        "datetime": {
+          "raw": "2025-10-18T00:00:00",
+          "formatted": "October 18, 2025 at 12:00 AM ET",
+          "date": "2025-10-18",
+          "time": "00:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Minnesota",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Nebraska",
+          "rank": 25,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401754371,
+        "datetime": {
+          "raw": "2025-10-18T02:30:00",
+          "formatted": "October 18, 2025 at 02:30 AM ET",
+          "date": "2025-10-18",
+          "time": "02:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "California",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "North Carolina",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401754569,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Boston College",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "UConn",
+          "rank": null,
+          "conference": "FBS Independents",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": false,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401754565,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Clemson",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "SMU",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401754568,
+        "datetime": {
+          "raw": "2025-10-18T23:30:00",
+          "formatted": "October 18, 2025 at 11:30 PM ET",
+          "date": "2025-10-18",
+          "time": "23:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Syracuse",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Pittsburgh",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401754567,
+        "datetime": {
+          "raw": "2025-10-19T02:30:00",
+          "formatted": "October 19, 2025 at 02:30 AM ET",
+          "date": "2025-10-19",
+          "time": "02:30",
+          "dayOfWeek": "Sunday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Stanford",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Florida State",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401756925,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Houston",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Arizona",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401756927,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "TCU",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Baylor",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401756928,
+        "datetime": {
+          "raw": "2025-10-18T17:00:00",
+          "formatted": "October 18, 2025 at 05:00 PM ET",
+          "date": "2025-10-18",
+          "time": "17:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "UCF",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "West Virginia",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401752873,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Michigan",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Washington",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -6.5,
+              "spreadOpen": -10.5,
+              "overUnder": 50.5,
+              "overUnderOpen": 47.5,
+              "moneylineHome": -210,
+              "moneylineAway": 175
+            }
+          ],
+          "summary": {
+            "avgSpread": -6.5,
+            "avgOverUnder": 50.5,
+            "spreadRange": {
+              "min": -6.5,
+              "max": -6.5
+            },
+            "overUnderRange": {
+              "min": 50.5,
+              "max": 50.5
+            }
+          }
+        }
+      },
+      {
+        "gameId": 401752874,
+        "datetime": {
+          "raw": "2025-10-18T19:00:00",
+          "formatted": "October 18, 2025 at 07:00 PM ET",
+          "date": "2025-10-18",
+          "time": "19:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Northwestern",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Purdue",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401752879,
+        "datetime": {
+          "raw": "2025-10-18T23:00:00",
+          "formatted": "October 18, 2025 at 11:00 PM ET",
+          "date": "2025-10-18",
+          "time": "23:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "UCLA",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Maryland",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      },
+      {
+        "gameId": 401752875,
+        "datetime": {
+          "raw": "2025-10-18T23:00:00",
+          "formatted": "October 18, 2025 at 11:00 PM ET",
+          "date": "2025-10-18",
+          "time": "23:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Iowa",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Penn State",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -2.5,
+              "spreadOpen": 10.5,
+              "overUnder": 40.5,
+              "overUnderOpen": 45.5,
+              "moneylineHome": -145,
+              "moneylineAway": 125
+            }
+          ],
+          "summary": {
+            "avgSpread": -2.5,
+            "avgOverUnder": 40.5,
+            "spreadRange": {
+              "min": -2.5,
+              "max": -2.5
+            },
+            "overUnderRange": {
+              "min": 40.5,
+              "max": 40.5
+            }
+          }
+        }
+      },
+      {
+        "gameId": 401752741,
+        "datetime": {
+          "raw": "2025-10-18T20:15:00",
+          "formatted": "October 18, 2025 at 08:15 PM ET",
+          "date": "2025-10-18",
+          "time": "20:15",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Florida",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Mississippi State",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null
+      }
+    ],
+    "rankedMatchups": [
+      {
+        "gameId": 401752877,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Wisconsin",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Ohio State",
+          "rank": 1,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401754564,
+        "datetime": {
+          "raw": "2025-10-17T23:00:00",
+          "formatted": "October 17, 2025 at 11:00 PM ET",
+          "date": "2025-10-17",
+          "time": "23:00",
+          "dayOfWeek": "Friday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Miami",
+          "rank": 2,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Louisville",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": -13.5,
+              "spreadOpen": -6.5,
+              "overUnder": 52.5,
+              "overUnderOpen": null,
+              "moneylineHome": -575,
+              "moneylineAway": 425
+            }
+          ],
+          "summary": {
+            "avgSpread": -13.5,
+            "avgOverUnder": 52.5,
+            "spreadRange": {
+              "min": -13.5,
+              "max": -13.5
+            },
+            "overUnderRange": {
+              "min": 52.5,
+              "max": 52.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_unranked"
+      },
+      {
+        "gameId": 401752878,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Indiana",
+          "rank": 3,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Michigan State",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_unranked"
+      },
+      {
+        "gameId": 401752739,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Arkansas",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Texas A&M",
+          "rank": 4,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752742,
+        "datetime": {
+          "raw": "2025-10-18T19:30:00",
+          "formatted": "October 18, 2025 at 07:30 PM ET",
+          "date": "2025-10-18",
+          "time": "19:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Georgia",
+          "rank": 9,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Ole Miss",
+          "rank": 5,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 2,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": -7,
+              "spreadOpen": -10.5,
+              "overUnder": 54.5,
+              "overUnderOpen": null,
+              "moneylineHome": -270,
+              "moneylineAway": 220
+            },
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -7.5,
+              "spreadOpen": -10.5,
+              "overUnder": 54.5,
+              "overUnderOpen": 53.5,
+              "moneylineHome": -280,
+              "moneylineAway": 230
+            }
+          ],
+          "summary": {
+            "avgSpread": -7.25,
+            "avgOverUnder": 54.5,
+            "spreadRange": {
+              "min": -7.5,
+              "max": -7.0
+            },
+            "overUnderRange": {
+              "min": 54.5,
+              "max": 54.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401752738,
+        "datetime": {
+          "raw": "2025-10-18T23:30:00",
+          "formatted": "October 18, 2025 at 11:30 PM ET",
+          "date": "2025-10-18",
+          "time": "23:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Alabama",
+          "rank": 6,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Tennessee",
+          "rank": 11,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -8.5,
+              "spreadOpen": -11.5,
+              "overUnder": 58.5,
+              "overUnderOpen": 53.5,
+              "moneylineHome": -320,
+              "moneylineAway": 260
+            }
+          ],
+          "summary": {
+            "avgSpread": -8.5,
+            "avgOverUnder": 58.5,
+            "spreadRange": {
+              "min": -8.5,
+              "max": -8.5
+            },
+            "overUnderRange": {
+              "min": 58.5,
+              "max": 58.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401756923,
+        "datetime": {
+          "raw": "2025-10-18T20:00:00",
+          "formatted": "October 18, 2025 at 08:00 PM ET",
+          "date": "2025-10-18",
+          "time": "20:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Arizona State",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Texas Tech",
+          "rank": 7,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 1,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": 11.5,
+              "spreadOpen": -4,
+              "overUnder": 48.5,
+              "overUnderOpen": null,
+              "moneylineHome": 350,
+              "moneylineAway": -455
+            }
+          ],
+          "summary": {
+            "avgSpread": 11.5,
+            "avgOverUnder": 48.5,
+            "spreadRange": {
+              "min": 11.5,
+              "max": 11.5
+            },
+            "overUnderRange": {
+              "min": 48.5,
+              "max": 48.5
+            }
+          }
+        },
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752876,
+        "datetime": {
+          "raw": "2025-10-18T22:30:00",
+          "formatted": "October 18, 2025 at 10:30 PM ET",
+          "date": "2025-10-18",
+          "time": "22:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Rutgers",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Oregon",
+          "rank": 8,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752745,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Vanderbilt",
+          "rank": 17,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "LSU",
+          "rank": 10,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401754566,
+        "datetime": {
+          "raw": "2025-10-18T16:00:00",
+          "formatted": "October 18, 2025 at 04:00 PM ET",
+          "date": "2025-10-18",
+          "time": "16:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Duke",
+          "rank": null,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Georgia Tech",
+          "rank": 12,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752871,
+        "datetime": {
+          "raw": "2025-10-18T23:30:00",
+          "formatted": "October 18, 2025 at 11:30 PM ET",
+          "date": "2025-10-18",
+          "time": "23:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Notre Dame",
+          "rank": 13,
+          "conference": "FBS Independents",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "USC",
+          "rank": 20,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": false,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": {
+          "totalProviders": 2,
+          "consensus": null,
+          "allProviders": [
+            {
+              "provider": "DraftKings",
+              "providerId": 888888,
+              "spread": -8.5,
+              "spreadOpen": -10.5,
+              "overUnder": 61.5,
+              "overUnderOpen": null,
+              "moneylineHome": -340,
+              "moneylineAway": 270
+            },
+            {
+              "provider": "ESPN Bet",
+              "providerId": 58,
+              "spread": -8.5,
+              "spreadOpen": -10,
+              "overUnder": 61.5,
+              "overUnderOpen": 53.5,
+              "moneylineHome": -320,
+              "moneylineAway": 260
+            }
+          ],
+          "summary": {
+            "avgSpread": -8.5,
+            "avgOverUnder": 61.5,
+            "spreadRange": {
+              "min": -8.5,
+              "max": -8.5
+            },
+            "overUnderRange": {
+              "min": 61.5,
+              "max": 61.5
+            }
+          }
+        },
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401752744,
+        "datetime": {
+          "raw": "2025-10-18T16:45:00",
+          "formatted": "October 18, 2025 at 04:45 PM ET",
+          "date": "2025-10-18",
+          "time": "16:45",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "South Carolina",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Oklahoma",
+          "rank": 14,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401756924,
+        "datetime": {
+          "raw": "2025-10-19T00:00:00",
+          "formatted": "October 19, 2025 at 12:00 AM ET",
+          "date": "2025-10-19",
+          "time": "00:00",
+          "dayOfWeek": "Sunday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "BYU",
+          "rank": 15,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Utah",
+          "rank": 23,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_ranked"
+      },
+      {
+        "gameId": 401752740,
+        "datetime": {
+          "raw": "2025-10-18T23:45:00",
+          "formatted": "October 18, 2025 at 11:45 PM ET",
+          "date": "2025-10-18",
+          "time": "23:45",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Auburn",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Missouri",
+          "rank": 16,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752951,
+        "datetime": {
+          "raw": "2025-10-18T22:30:00",
+          "formatted": "October 18, 2025 at 10:30 PM ET",
+          "date": "2025-10-18",
+          "time": "22:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Virginia",
+          "rank": 18,
+          "conference": "ACC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Washington State",
+          "rank": null,
+          "conference": "Pac-12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": false,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_unranked"
+      },
+      {
+        "gameId": 401762490,
+        "datetime": {
+          "raw": "2025-10-18T23:30:00",
+          "formatted": "October 18, 2025 at 11:30 PM ET",
+          "date": "2025-10-18",
+          "time": "23:30",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "South Florida",
+          "rank": 19,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Florida Atlantic",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "ranked_vs_unranked"
+      },
+      {
+        "gameId": 401752743,
+        "datetime": {
+          "raw": "2025-10-18T23:00:00",
+          "formatted": "October 18, 2025 at 11:00 PM ET",
+          "date": "2025-10-18",
+          "time": "23:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Kentucky",
+          "rank": null,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Texas",
+          "rank": 21,
+          "conference": "SEC",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401762487,
+        "datetime": {
+          "raw": "2025-10-18T20:00:00",
+          "formatted": "October 18, 2025 at 08:00 PM ET",
+          "date": "2025-10-18",
+          "time": "20:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "UAB",
+          "rank": null,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Memphis",
+          "rank": 22,
+          "conference": "American Athletic",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401756926,
+        "datetime": {
+          "raw": "2025-10-19T00:00:00",
+          "formatted": "October 19, 2025 at 12:00 AM ET",
+          "date": "2025-10-19",
+          "time": "00:00",
+          "dayOfWeek": "Sunday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Oklahoma State",
+          "rank": null,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Cincinnati",
+          "rank": 24,
+          "conference": "Big 12",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      },
+      {
+        "gameId": 401752872,
+        "datetime": {
+          "raw": "2025-10-18T00:00:00",
+          "formatted": "October 18, 2025 at 12:00 AM ET",
+          "date": "2025-10-18",
+          "time": "00:00",
+          "dayOfWeek": "Saturday",
+          "timeZone": "ET"
+        },
+        "homeTeam": {
+          "name": "Minnesota",
+          "rank": null,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "awayTeam": {
+          "name": "Nebraska",
+          "rank": 25,
+          "conference": "Big Ten",
+          "division": null,
+          "mascot": null,
+          "score": null
+        },
+        "venue": {
+          "name": null,
+          "city": null,
+          "state": null
+        },
+        "gameInfo": {
+          "neutralSite": false,
+          "conferenceGame": true,
+          "attendance": null,
+          "week": 8,
+          "season": 2025,
+          "seasonType": "regular"
+        },
+        "bettingLines": null,
+        "matchupType": "unranked_vs_ranked"
+      }
+    ]
+  },
+  "rankings": {
+    "Ohio State": 1,
+    "Miami": 2,
+    "Indiana": 3,
+    "Texas A&M": 4,
+    "Ole Miss": 5,
+    "Alabama": 6,
+    "Texas Tech": 7,
+    "Oregon": 8,
+    "Georgia": 9,
+    "LSU": 10,
+    "Tennessee": 11,
+    "Georgia Tech": 12,
+    "Notre Dame": 13,
+    "Oklahoma": 14,
+    "BYU": 15,
+    "Missouri": 16,
+    "Vanderbilt": 17,
+    "Virginia": 18,
+    "South Florida": 19,
+    "USC": 20,
+    "Texas": 21,
+    "Memphis": 22,
+    "Utah": 23,
+    "Cincinnati": 24,
+    "Nebraska": 25
+  },
+  "metadata": {
+    "power5Conferences": [
+      "ACC",
+      "Pac-12",
+      "Big 12",
+      "SEC",
+      "Big Ten"
+    ],
+    "fetchedAt": "2025-10-14T05:51:44.290915"
+  }
+}

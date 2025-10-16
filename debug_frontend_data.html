@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Frontend Data Flow</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #1a1a1a;
+            color: #00ff00;
+            padding: 20px;
+        }
+        .section {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .error {
+            color: #ff4444;
+        }
+        .success {
+            color: #44ff44;
+        }
+        .warning {
+            color: #ffff44;
+        }
+        pre {
+            background: #333;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+        button {
+            background: #444;
+            color: #00ff00;
+            border: 1px solid #666;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Frontend Data Flow Debugger</h1>
+    
+    <div class="section">
+        <h2>1. Test API Direct Call</h2>
+        <button onclick="testAPI()">Test API Endpoint</button>
+        <div id="api-result"></div>
+    </div>
+
+    <div class="section">
+        <h2>2. Simulate React Fetch</h2>
+        <button onclick="simulateReactFetch()">Simulate React Component Fetch</button>
+        <div id="react-result"></div>
+    </div>
+
+    <div class="section">
+        <h2>3. Debug Data Parsing</h2>
+        <button onclick="debugDataParsing()">Test Data Parsing Logic</button>
+        <div id="parse-result"></div>
+    </div>
+
+    <script>
+        let globalPredictionData = null;
+
+        async function testAPI() {
+            const resultDiv = document.getElementById('api-result');
+            resultDiv.innerHTML = '<div class="warning">🔄 Testing API...</div>';
+            
+            try {
+                const response = await fetch('http://127.0.0.1:5002/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        home_team: "Arizona State",
+                        away_team: "Texas Tech"
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                globalPredictionData = data;
+                
+                console.log('🔍 Full API Response:', data);
+                
+                // Check if database_stats exists
+                const enhanced = data?.ui_components?.detailed_analysis?.enhanced_player_analysis;
+                const dbStats = enhanced?.database_stats;
+                
+                resultDiv.innerHTML = `
+                    <div class="success">✅ API Call Successful</div>
+                    <h3>Data Structure Check:</h3>
+                    <ul>
+                        <li>ui_components: ${data.ui_components ? '✅' : '❌'}</li>
+                        <li>detailed_analysis: ${data.ui_components?.detailed_analysis ? '✅' : '❌'}</li>
+                        <li>enhanced_player_analysis: ${enhanced ? '✅' : '❌'}</li>
+                        <li>database_stats: ${dbStats ? '✅' : '❌'}</li>
+                    </ul>
+                    
+                    ${dbStats ? `
+                        <div class="success">
+                            <h4>📊 Database Stats Found:</h4>
+                            <pre>${JSON.stringify(dbStats, null, 2)}</pre>
+                        </div>
+                    ` : `
+                        <div class="error">❌ Database stats not found!</div>
+                        <h4>Available keys in enhanced_player_analysis:</h4>
+                        <pre>${enhanced ? JSON.stringify(Object.keys(enhanced), null, 2) : 'N/A'}</pre>
+                    `}
+                    
+                    <details>
+                        <summary>🔍 Full Response (click to expand)</summary>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    </details>
+                `;
+            } catch (error) {
+                console.error('❌ API Error:', error);
+                resultDiv.innerHTML = `<div class="error">❌ API Error: ${error.message}</div>`;
+            }
+        }
+
+        async function simulateReactFetch() {
+            const resultDiv = document.getElementById('react-result');
+            resultDiv.innerHTML = '<div class="warning">🔄 Simulating React fetch...</div>';
+            
+            try {
+                // Simulate exactly what the React app does
+                const response = await fetch('http://127.0.0.1:5002/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        home_team: "Arizona State",
+                        away_team: "Texas Tech"
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch prediction');
+                }
+
+                const data = await response.json();
+                
+                // Simulate the App.tsx data transformation
+                const predictionData = data.ui_components ? { 
+                    ...data.ui_components, 
+                    formatted_analysis: data.formatted_analysis 
+                } : data;
+                
+                console.log('🔍 Processed Data (like React):', predictionData);
+                
+                resultDiv.innerHTML = `
+                    <div class="success">✅ React Simulation Complete</div>
+                    <h3>Processed Data Structure:</h3>
+                    <pre>${JSON.stringify(predictionData, null, 2)}</pre>
+                `;
+                
+                return predictionData;
+            } catch (error) {
+                console.error('❌ React Simulation Error:', error);
+                resultDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                return null;
+            }
+        }
+
+        function debugDataParsing() {
+            const resultDiv = document.getElementById('parse-result');
+            
+            if (!globalPredictionData) {
+                resultDiv.innerHTML = '<div class="error">❌ No data available. Run API test first.</div>';
+                return;
+            }
+            
+            // Simulate the KeyPlayerImpact parsePlayerData function
+            const parsePlayerData = () => {
+                if (!globalPredictionData?.ui_components?.detailed_analysis?.enhanced_player_analysis) {
+                    return {
+                        awayTeam: { name: "Away Team", logo: "", primary_color: "#6366f1" },
+                        homeTeam: { name: "Home Team", logo: "", primary_color: "#10b981" },
+                        awayPlayers: {},
+                        homePlayers: {},
+                        positionalAdvantages: {},
+                        totalImpact: 0,
+                        databaseStats: {}
+                    };
+                }
+
+                const playerData = globalPredictionData.ui_components.detailed_analysis.enhanced_player_analysis;
+                const awayTeam = globalPredictionData.team_selector?.away_team;
+                const homeTeam = globalPredictionData.team_selector?.home_team;
+
+                return {
+                    awayTeam,
+                    homeTeam,
+                    awayPlayers: playerData.away_players || {},
+                    homePlayers: playerData.home_players || {},
+                    positionalAdvantages: playerData.positional_advantages || {},
+                    totalImpact: playerData.total_impact || 0,
+                    databaseStats: playerData.database_stats || {}
+                };
+            };
+            
+            const parsed = parsePlayerData();
+            
+            resultDiv.innerHTML = `
+                <div class="success">✅ Data Parsing Test Complete</div>
+                
+                <h3>🎯 Key Results:</h3>
+                <ul>
+                    <li>databaseStats.quarterbacks_analyzed: ${parsed.databaseStats.quarterbacks_analyzed || 0}</li>
+                    <li>databaseStats.wide_receivers_analyzed: ${parsed.databaseStats.wide_receivers_analyzed || 0}</li>
+                </ul>
+                
+                <h3>📊 Full Parsed Data:</h3>
+                <pre>${JSON.stringify(parsed, null, 2)}</pre>
+                
+                <h3>🔍 Debugging Info:</h3>
+                <ul>
+                    <li>team_selector exists: ${globalPredictionData.team_selector ? '✅' : '❌'}</li>
+                    <li>enhanced_player_analysis path: ${globalPredictionData?.ui_components?.detailed_analysis?.enhanced_player_analysis ? '✅' : '❌'}</li>
+                </ul>
+            `;
+        }
+    </script>
+</body>
+</html>

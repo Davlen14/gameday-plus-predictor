@@ -1,0 +1,242 @@
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.12.100:8080
+[33mPress CTRL+C to quit[0m
+🔍 Looking up teams: Arizona (home) vs BYU (away)
+✅ Arizona (ID: 12)
+✅ BYU (ID: 252)
+
+Predicting game: Arizona vs BYU
+🎯 Found gameId: 401756916 - Fetching market lines...
+
+================================================================================
+📊 GAMEDAY+ GRAPHQL DATA ANALYSIS
+================================================================================
+🏈 MATCHUP: BYU @ Arizona
+🚀 ADVANCED METRICS ANALYSIS:
+   🎯 Passing EPA Differential: -0.207
+   🏃 Rushing EPA Differential: -0.031
+   📊 Passing Downs Success Diff: -0.005
+   📊 Standard Downs Success Diff: 0.032
+   🛡️ Line Yards Differential: 0.368
+   🏃‍♂️ Second Level Yards Diff: 0.052
+   💨 Open Field Yards Diff: 0.057
+   ⭐ Highlight Yards Differential: 0.082
+   🎯 ADVANCED DIFFERENTIAL: 0.028
+
+📈 ENHANCED TEAM METRICS (2025 Season):
+  🏠 Arizona:
+     Overall EPA: 0.124 | EPA Allowed: 0.120
+     Passing EPA: 0.136 | Passing EPA Allowed: 0.195
+     Rushing EPA: 0.117 | Rushing EPA Allowed: 0.077
+     Success Rate: 0.420 | Success Allowed: 0.366
+     Explosiveness: 1.008 | Explosiveness Allowed: 0.985
+  ✈️  BYU:
+     Overall EPA: 0.231 | EPA Allowed: 0.099
+     Passing EPA: 0.294 | Passing EPA Allowed: 0.146
+     Rushing EPA: 0.151 | Rushing EPA Allowed: 0.080
+     Success Rate: 0.460 | Success Allowed: 0.427
+     Explosiveness: 0.971 | Explosiveness Allowed: 0.914
+
+🏈 SITUATIONAL PERFORMANCE:
+  🏠 Arizona:
+     Passing Downs Success: 0.294 | Allowed: 0.292
+     Standard Downs Success: 0.480 | Allowed: 0.414
+  ✈️  BYU:
+     Passing Downs Success: 0.292 | Allowed: 0.284
+     Standard Downs Success: 0.527 | Allowed: 0.493
+
+🎯 FIELD POSITION & YARDS BREAKDOWN:
+  🏠 Arizona:
+     Line Yards: 3.002 | Allowed: 2.571
+     Second Level: 1.145 | Allowed: 0.971
+     Open Field: 1.356 | Allowed: 1.121
+     Highlight Yards: 2.113 | Allowed: 1.799
+  ✈️  BYU:
+     Line Yards: 2.926 | Allowed: 2.863
+     Second Level: 1.108 | Allowed: 0.986
+     Open Field: 1.210 | Allowed: 1.032
+     Highlight Yards: 1.951 | Allowed: 1.719
+
+🎯 COMPREHENSIVE DIFFERENTIAL ANALYSIS:
+     📊 EPA Differentials:
+        Overall EPA: -0.129
+        Passing EPA: -0.207
+        Rushing EPA: -0.031
+     ⚡ Performance Metrics:
+        Success Rate: 0.022
+        Explosiveness: -0.035
+     🏈 Situational Success:
+        Passing Downs: -0.005
+        Standard Downs: 0.032
+     📍 Field Position Control:
+        Line Yards: 0.368
+        Second Level: 0.052
+        Open Field: 0.057
+        Highlight Yards: 0.082
+     🛡️  Defensive Edge:
+        EPA Defense: 0.129
+        Passing Defense: 0.207
+        Rushing Defense: 0.031
+        Success Defense: -0.022
+        Explosiveness Defense: 0.035
+        Situational Defense: -0.013
+
+🌟 TALENT RATINGS:
+  🏠 Arizona: 651.62
+  ✈️  BYU: 649.36
+  📊 Talent Gap: -2.3 (Away advantage)
+
+🗓️  2025 SEASON RECORDS & RESULTS:
+  Arizona: 4-1
+    Week 1: vs Hawai'i W 40-6
+    Week 2: vs Weber State W 48-3
+    Week 3: vs Kansas State W 23-17
+    Week 5: @ Iowa State L 14-39
+    Week 6: vs Oklahoma State W 41-13
+  BYU: 5-0
+    Week 1: vs Portland State W 69-0
+    Week 2: vs Stanford W 27-3
+    Week 4: @ East Carolina W 34-13
+    Week 5: @ Colorado W 24-21
+    Week 6: vs West Virginia W 38-24
+
+⚡ ELO RATINGS (Current):
+  🏠 Arizona: 1467
+  ✈️  BYU: 1701
+  📊 ELO Gap: +234 (Away advantage)
+
+🎯 ENHANCED ANALYSIS (WORKING SCHEMA):
+  🎯 Home FPI: 5.51
+  🎯 Away FPI: 14.465
+  🎯 Home ELO: 1467
+  🎯 Away ELO: 1701
+  🌤️ Temperature: 73.2°F
+  🌤️ Wind: 8.1 mph
+  🌤️ Precipitation: 0.0 in
+  🏆 Poll data: 50 rankings available with team mapping!
+  📅 Calendar data available: 0 weeks
+  📊 Market lines: 3 sportsbooks available!
+  🏆 Poll data: Available with team mapping!
+================================================================================
+
+================================================================================
+🎯 APPLYING OPTIMAL WEIGHTS (Research Framework)
+================================================================================
+
+📊 [1/5] OPPONENT-ADJUSTED METRICS (50%)
+🚀 ADVANCED METRICS ANALYSIS:
+   🎯 Passing EPA Differential: -0.207
+   🏃 Rushing EPA Differential: -0.031
+   📊 Passing Downs Success Diff: -0.005
+   📊 Standard Downs Success Diff: 0.032
+   🛡️ Line Yards Differential: 0.368
+   🏃‍♂️ Second Level Yards Diff: 0.052
+   💨 Open Field Yards Diff: 0.057
+   ⭐ Highlight Yards Differential: 0.082
+   🎯 ADVANCED DIFFERENTIAL: 0.028
+   Advanced Metrics Diff: 0.028
+   Temporal Performance Diff: -1.903
+   SoS Adjustment: -0.098
+   ✅ Final Component: -0.371
+
+💰 [2/5] MARKET CONSENSUS (20%)
+📊 MARKET LINES ANALYSIS:
+   📈 Found 3 sportsbook(s)
+   🏈 DraftKings: Spread +2.5
+   🎯 DraftKings: Total 46.5
+   🏈 Bovada: Spread +2.5
+   🎯 Bovada: Total 47.0
+   🏈 ESPN Bet: Spread +2.5
+   🎯 ESPN Bet: Total 46.5
+   📊 Consensus Spread: +2.5
+   📊 Consensus Total: 46.7
+   💰 Moneylines: Home +117 / Away -137
+   🎯 Market Consensus Signal: 0.250
+   ✅ Market Signal: 0.250
+
+🏆 [3/5] COMPOSITE RATINGS - TALENT (15%)
+🎯 COMPOSITE RATINGS (WORKING SCHEMA):
+   FPI Differential: -8.96
+   ELO Differential: -2.34
+   Composite Signal: -6.97
+   Ratings Diff (ELO/FPI): -6.970
+   Talent Diff: 2.260
+   ✅ Composite Score: -4.201
+
+⭐ [4/5] KEY PLAYER IMPACT (10%)
+⭐ KEY PLAYERS ANALYSIS:
+   📊 Processing 100 player records...
+   🔍 Sample players in dataset:
+     Kansei Matsuzawa (field_goals), Jackson Kleather (field_goals), Aidan Birr (field_goals), Noe Ruelas (field_goals), Tate Sandell (field_goals), John Love (field_goals), Logan Ward (field_goals), David Olano (field_goals), Laith Marjan (field_goals), Mateen Bhaghani (field_goals)
+   🏠 Arizona Key Players:
+     ⚠️  Unable to identify specific players from available data
+     Starting QB: passing ~0.60 (projected)
+     Top WR: receiving ~0.45 (projected)
+     Primary RB: rushing ~0.38 (projected)
+     WR2: receiving ~0.42 (projected)
+     Starting TE: receiving ~0.35 (projected)
+   ✈️  BYU Key Players:
+     ⚠️  Unable to identify specific players from available data
+     Starting QB: passing ~0.58 (projected)
+     Primary RB: rushing ~0.50 (projected)
+     Top WR: receiving ~0.55 (projected)
+     WR2: receiving ~0.48 (projected)
+     Starting TE: receiving ~0.40 (projected)
+   🌟 Other Top Performers (League-wide):
+     Jayden Maiava: passing 0.753 (146 plays)
+     Luke Altmyer: passing 0.663 (153 plays)
+     Julian Sayin: passing 0.653 (118 plays)
+     Liam Szarka: passing 0.640 (75 plays)
+     Joey Aguilar: passing 0.630 (136 plays)
+   📊 General Player Impact: +0.033
+   ⚠️  Note: Limited team identification due to schema constraints
+   🌟 Total Elite Performance: 8.05
+   ✅ Player Differential: 0.033
+
+🌤️  [5/5] CONTEXTUAL FACTORS (5%)
+🌤️  WEATHER ANALYSIS:
+   Temperature: 73.2°F
+   Wind Speed: 8.1 mph
+   Precipitation: N/A
+   Weather Factor: 0.0
+📊 POLL ANALYSIS (WITH TEAM MAPPING):
+   🏠 Home team: Unranked
+   ✈️  BYU: Rank #18 (RANKED)
+   📊 Poll Advantage: -2.00 (Unranked vs Ranked)
+📅 BYE WEEK ANALYSIS:
+   Home Bye Weeks: [4]
+   Away Bye Weeks: [3]
+   Bye Advantage: 0.0
+   Weather Impact: 0.000
+   Poll Momentum: -2.000
+   Bye Week Advantage: 0.000
+   ✅ Contextual Score: -0.600
+
+================================================================================
+⚖️  WEIGHTED COMPOSITE CALCULATION
+================================================================================
+   Opponent-Adjusted (50%): -0.185
+   Market Consensus (20%):   0.050
+   Composite Ratings (15%):  -0.630
+   Key Player Impact (10%):  0.003
+   Contextual Factors (5%): -0.030
+
+   🎯 RAW DIFFERENTIAL: -0.792
+🌤️  WEATHER ANALYSIS:
+   Temperature: 73.2°F
+   Wind Speed: 8.1 mph
+   Precipitation: N/A
+   Weather Factor: 0.0
+   🏠 Home Field Advantage: +2.5
+   🏆 Conference Bonus: +1.0
+   🌧️  Weather Penalty: -0.0
+
+   🎯 ADJUSTED DIFFERENTIAL: 2.708
+
+================================================================================
+🎲 PROBABILITY CALIBRATION (Platt Scaling)
+127.0.0.1 - - [11/Oct/2025 20:12:12] "POST /predict HTTP/1.1" 200 -
