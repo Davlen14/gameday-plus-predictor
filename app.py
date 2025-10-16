@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, send_from_directory
 from flask_cors import CORS
 import asyncio
 import os
@@ -851,6 +851,21 @@ def get_teams():
             
     except Exception as e:
         return jsonify({'error': f'Failed to load teams: {str(e)}'}), 500
+
+# Serve React Frontend
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_react_app(path):
+    """Serve the React frontend"""
+    try:
+        # Serve static files
+        if path and os.path.exists(os.path.join('frontend/dist', path)):
+            return send_from_directory('frontend/dist', path)
+        else:
+            # Serve index.html for React Router
+            return send_from_directory('frontend/dist', 'index.html')
+    except Exception as e:
+        return jsonify({'error': 'Frontend not available', 'details': str(e)}), 404
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5002))  # Changed from 5001 to 5002
