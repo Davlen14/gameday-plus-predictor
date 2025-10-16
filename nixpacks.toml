@@ -11,7 +11,7 @@ nixPkgs = [
 # Define the installation commands for both environments
 [phases.install]
 cmds = [
-    "pip install --upgrade pip --break-system-packages && pip install -r requirements.txt --break-system-packages",
+    "python3 -m pip install --upgrade pip --break-system-packages && python3 -m pip install -r requirements.txt --break-system-packages",
     "npm --prefix frontend install"
 ]
 
