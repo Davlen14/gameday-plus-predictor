@@ -2,10 +2,10 @@ import { GlassCard } from './GlassCard';
 import { TrendingUp, AlertTriangle, Info, BarChart3 } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
-// Import sportsbook SVGs as URLs (Vite will handle these)
-const BovadaLogo = '/src/assets/Bovada-Casino-Logo.svg';
-const ESPNBetLogo = '/src/assets/espnbet.svg';
-const DraftKingsLogo = '/src/assets/Draftking.svg';
+// Sportsbook SVGs from public folder (Vite will serve these correctly)
+const BovadaLogo = '/Bovada-Casino-Logo.svg';
+const ESPNBetLogo = '/espnbet.svg';
+const DraftKingsLogo = '/Draftking.svg';
 
 interface MarketComparisonProps {
   predictionData?: any;
