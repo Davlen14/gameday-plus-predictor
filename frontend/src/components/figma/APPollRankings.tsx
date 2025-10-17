@@ -73,17 +73,17 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
       const homeEscaped = homeTeam.name.replace(/[()]/g, '\\$&');
       
       for (let week = 1; week <= 8; week++) {
-        // Try both possible orders since backend might list teams in different order
-        // Pattern 1: Away first, Home second
+        // Match pattern: "Week 1     Miami: #10        Louisville: NR"
+        // More flexible regex to handle variable whitespace
         let weekPattern = new RegExp(
-          `Week ${week}\\s+${awayEscaped}:\\s+(NR|#\\d+)\\s+${homeEscaped}:\\s+(NR|#\\d+)`,
+          `Week\\s+${week}\\s+${awayEscaped}:\\s*(NR|#\\d+)\\s+${homeEscaped}:\\s*(NR|#\\d+)`,
           'i'
         );
         let match = weeklyText.match(weekPattern);
         
         if (match) {
-          const awayRank = match[1];
-          const homeRank = match[2];
+          const awayRank = match[1].trim();
+          const homeRank = match[2].trim();
           
           const awayTrend = awayWeeks.length > 0 ? getTrend(awayWeeks[awayWeeks.length - 1].rank, awayRank) : undefined;
           const homeTrend = homeWeeks.length > 0 ? getTrend(homeWeeks[homeWeeks.length - 1].rank, homeRank) : undefined;
@@ -93,14 +93,14 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
         } else {
           // Pattern 2: Home first, Away second
           weekPattern = new RegExp(
-            `Week ${week}\\s+${homeEscaped}:\\s+(NR|#\\d+)\\s+${awayEscaped}:\\s+(NR|#\\d+)`,
+            `Week\\s+${week}\\s+${homeEscaped}:\\s*(NR|#\\d+)\\s+${awayEscaped}:\\s*(NR|#\\d+)`,
             'i'
           );
           match = weeklyText.match(weekPattern);
           
           if (match) {
-            const homeRank = match[1];
-            const awayRank = match[2];
+            const homeRank = match[1].trim();
+            const awayRank = match[2].trim();
             
             const awayTrend = awayWeeks.length > 0 ? getTrend(awayWeeks[awayWeeks.length - 1].rank, awayRank) : undefined;
             const homeTrend = homeWeeks.length > 0 ? getTrend(homeWeeks[homeWeeks.length - 1].rank, homeRank) : undefined;

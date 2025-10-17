@@ -250,27 +250,90 @@ export function ExtendedDefensiveAnalytics({ predictionData }: ExtendedDefensive
         </div>
       </GlassCard>
 
-      {/* Defensive Efficiency Visualization */}
+      {/* Defensive Efficiency Visualization - Modernized */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <GlassCard glowColor="from-green-500/20 to-emerald-500/20" className="p-4 border-green-500/40 text-center">
-          <Target className="w-8 h-8 text-green-400 mx-auto mb-3" />
-          <div className="text-2xl font-bold text-green-400 mb-1">{defensePlaysAway} vs {defensePlaysHome}</div>
-          <div className="text-sm text-gray-300">Defense Plays Faced</div>
-          <div className="text-xs text-green-400 mt-1">{playsAdvantage} Advantage: {playsDiff} fewer</div>
+        {/* Defense Plays Card */}
+        <GlassCard glowColor="from-emerald-500/20 to-green-500/20" className="p-5 border-emerald-500/40 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="relative z-10">
+            <div className="flex items-center justify-between mb-3">
+              <div className="p-2 rounded-lg bg-emerald-500/20 border border-emerald-500/40 shadow-lg shadow-emerald-500/20">
+                <Target className="w-6 h-6 text-emerald-400" />
+              </div>
+              <div className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
+                ELITE
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-3xl font-bold text-white drop-shadow-lg">{defensePlaysAway}</span>
+                <span className="text-sm text-gray-400">vs</span>
+                <span className="text-3xl font-bold text-white drop-shadow-lg">{defensePlaysHome}</span>
+              </div>
+              <div className="text-sm text-gray-300 font-medium">Defense Plays Faced</div>
+              <div className="mt-3 p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
+                <div className="text-xs text-emerald-400 font-semibold">
+                  {playsAdvantage} Advantage: <span className="text-white">{playsDiff}</span> fewer plays
+                </div>
+              </div>
+            </div>
+          </div>
         </GlassCard>
 
-        <GlassCard glowColor="from-blue-500/20 to-cyan-500/20" className="p-4 border-blue-500/40 text-center">
-          <TrendingDown className="w-8 h-8 text-blue-400 mx-auto mb-3" />
-          <div className="text-2xl font-bold text-blue-400 mb-1">{pointsPerOppAway} vs {pointsPerOppHome}</div>
-          <div className="text-sm text-gray-300">Points Per Opportunity</div>
-          <div className="text-xs text-blue-400 mt-1">{pointsAdvantage} allows {pointsDiff} fewer</div>
+        {/* Points Per Opportunity Card */}
+        <GlassCard glowColor="from-cyan-500/20 to-blue-500/20" className="p-5 border-cyan-500/40 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="relative z-10">
+            <div className="flex items-center justify-between mb-3">
+              <div className="p-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 shadow-lg shadow-cyan-500/20">
+                <TrendingDown className="w-6 h-6 text-cyan-400" />
+              </div>
+              <div className="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-400 border border-cyan-500/40">
+                EFFICIENCY
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-3xl font-bold text-white drop-shadow-lg">{pointsPerOppAway}</span>
+                <span className="text-sm text-gray-400">vs</span>
+                <span className="text-3xl font-bold text-white drop-shadow-lg">{pointsPerOppHome}</span>
+              </div>
+              <div className="text-sm text-gray-300 font-medium">Points Per Opportunity</div>
+              <div className="mt-3 p-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30">
+                <div className="text-xs text-cyan-400 font-semibold">
+                  {pointsAdvantage} allows <span className="text-white">{pointsDiff}</span> fewer points
+                </div>
+              </div>
+            </div>
+          </div>
         </GlassCard>
 
-        <GlassCard glowColor="from-amber-500/20 to-yellow-500/20" className="p-4 border-amber-500/40 text-center">
-          <Shield className="w-8 h-8 text-amber-400 mx-auto mb-3" />
-          <div className="text-2xl font-bold text-amber-400 mb-1">{turnoverMarginAway} vs {turnoverMarginHome}</div>
-          <div className="text-sm text-gray-300">Turnover Margin</div>
-          <div className="text-xs text-amber-400 mt-1">{marginAdvantage} +{marginDiff} advantage</div>
+        {/* Turnover Margin Card */}
+        <GlassCard glowColor="from-amber-500/20 to-orange-500/20" className="p-5 border-amber-500/40 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="relative z-10">
+            <div className="flex items-center justify-between mb-3">
+              <div className="p-2 rounded-lg bg-amber-500/20 border border-amber-500/40 shadow-lg shadow-amber-500/20">
+                <Shield className="w-6 h-6 text-amber-400" />
+              </div>
+              <div className="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/40">
+                IMPACT
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-3xl font-bold text-white drop-shadow-lg">{turnoverMarginAway}</span>
+                <span className="text-sm text-gray-400">vs</span>
+                <span className="text-3xl font-bold text-white drop-shadow-lg">{turnoverMarginHome}</span>
+              </div>
+              <div className="text-sm text-gray-300 font-medium">Turnover Margin</div>
+              <div className="mt-3 p-2 rounded-lg bg-amber-500/10 border border-amber-500/30">
+                <div className="text-xs text-amber-400 font-semibold">
+                  {marginAdvantage} <span className="text-white">+{marginDiff}</span> advantage
+                </div>
+              </div>
+            </div>
+          </div>
         </GlassCard>
       </div>
     </div>
@@ -292,18 +355,20 @@ function DefenseStatRow({ metric, away, home, advantage, awayTeam, homeTeam }: {
     
     if (isAwayAdvantage) {
       return (
-        <div className="flex items-center justify-center gap-1">
-          <div className="relative">
+        <div className="flex items-center justify-center gap-2">
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <ImageWithFallback 
               src={awayTeam.logo}
               alt={awayTeam.name}
-              className="w-6 h-6 object-contain transform hover:scale-110 transition-transform duration-200"
+              className="relative w-7 h-7 object-contain transform hover:scale-125 transition-all duration-200"
               style={{
-                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
-                transform: 'perspective(100px) rotateX(15deg)'
+                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.4))',
               }}
             />
-            <Check className="absolute -top-1 -right-1 w-3 h-3 text-green-400 bg-green-900/80 rounded-full p-0.5" />
+            <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/50">
+              <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
+            </div>
           </div>
         </div>
       );
@@ -311,36 +376,46 @@ function DefenseStatRow({ metric, away, home, advantage, awayTeam, homeTeam }: {
     
     if (isHomeAdvantage) {
       return (
-        <div className="flex items-center justify-center gap-1">
-          <div className="relative">
+        <div className="flex items-center justify-center gap-2">
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <ImageWithFallback 
               src={homeTeam.logo}
               alt={homeTeam.name}
-              className="w-6 h-6 object-contain transform hover:scale-110 transition-transform duration-200"
+              className="relative w-7 h-7 object-contain transform hover:scale-125 transition-all duration-200"
               style={{
-                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
-                transform: 'perspective(100px) rotateX(15deg)'
+                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.4))',
               }}
             />
-            <Check className="absolute -top-1 -right-1 w-3 h-3 text-green-400 bg-green-900/80 rounded-full p-0.5" />
+            <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/50">
+              <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
+            </div>
           </div>
         </div>
       );
     }
     
     return (
-      <span className="px-2 py-1 rounded-full text-xs font-semibold text-gray-400 bg-slate-500/20">
+      <span className="px-3 py-1.5 rounded-full text-xs font-bold text-slate-400 bg-slate-500/20 border border-slate-500/30 hover:border-slate-500/50 transition-colors">
         {adv}
       </span>
     );
   };
 
   return (
-    <tr className="border-b border-gray-700/30 hover:bg-gray-800/30 transition-colors">
-      <td className="py-3 px-4 text-gray-300 font-medium">{metric}</td>
-      <td className="py-3 px-4 text-center font-mono text-gray-200">{away}</td>
-      <td className="py-3 px-4 text-center font-mono text-gray-200">{home}</td>
-      <td className="py-3 px-4 text-center">
+    <tr className="border-b border-gray-700/20 hover:bg-gradient-to-r hover:from-gray-800/40 hover:to-gray-800/20 transition-all duration-200 group">
+      <td className="py-4 px-4 text-gray-300 font-semibold group-hover:text-white transition-colors">{metric}</td>
+      <td className="py-4 px-4 text-center">
+        <span className="font-mono text-base text-gray-200 group-hover:text-white transition-colors font-semibold">
+          {away}
+        </span>
+      </td>
+      <td className="py-4 px-4 text-center">
+        <span className="font-mono text-base text-gray-200 group-hover:text-white transition-colors font-semibold">
+          {home}
+        </span>
+      </td>
+      <td className="py-4 px-4 text-center">
         {getAdvantageDisplay(advantage)}
       </td>
     </tr>
