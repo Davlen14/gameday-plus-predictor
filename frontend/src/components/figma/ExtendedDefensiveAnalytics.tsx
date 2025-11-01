@@ -127,25 +127,25 @@ export function ExtendedDefensiveAnalytics({ predictionData }: ExtendedDefensive
   return (
     <div className="space-y-6">
       {/* Extended Defensive Analytics */}
-      <GlassCard glowColor="from-slate-500/20 to-gray-500/20" className="p-6 border-gray-500/40">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 rounded-lg bg-slate-500/20 border border-gray-500/40">
-            <Shield className="w-5 h-5 text-red-400" />
+      <GlassCard glowColor="from-slate-500/20 to-gray-500/20" className="p-4 sm:p-6 border-gray-500/40">
+        <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+          <div className="p-1.5 sm:p-2 rounded-lg bg-slate-500/20 border border-gray-500/40">
+            <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-red-400" />
           </div>
-          <h3 className="text-white font-semibold">Extended Defensive Analytics</h3>
+          <h3 className="text-white font-semibold text-sm sm:text-base">Extended Defensive Analytics</h3>
         </div>
         
-        <div className="overflow-x-auto">
-          <table className="w-full">
+        <div className="overflow-x-auto -mx-2 sm:mx-0">
+          <table className="w-full min-w-[640px]">
             <thead>
               <tr className="border-b border-gray-600/40">
-                <th className="text-left py-3 px-4 text-gray-300 font-medium">Metric</th>
-                <th className="text-center py-3 px-4 font-medium">
-                  <div className="flex items-center justify-center gap-2">
+                <th className="text-left py-2 sm:py-3 px-2 sm:px-4 text-gray-300 font-medium text-xs sm:text-sm">Metric</th>
+                <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">
+                  <div className="flex items-center justify-center gap-1 sm:gap-2">
                     <ImageWithFallback 
                       src={team1Logo}
                       alt={team1Name}
-                      className="w-8 h-8 object-contain transform hover:scale-110 transition-transform duration-200"
+                      className="w-6 h-6 sm:w-8 sm:h-8 object-contain transform hover:scale-110 transition-transform duration-200"
                       style={{
                         filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
                         transform: 'perspective(100px) rotateX(15deg)'
@@ -154,12 +154,12 @@ export function ExtendedDefensiveAnalytics({ predictionData }: ExtendedDefensive
                     <span style={{ color: team1Color }}>{team1Name}</span>
                   </div>
                 </th>
-                <th className="text-center py-3 px-4 font-medium">
-                  <div className="flex items-center justify-center gap-2">
+                <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">
+                  <div className="flex items-center justify-center gap-1 sm:gap-2">
                     <ImageWithFallback 
                       src={team2Logo}
                       alt={team2Name}
-                      className="w-8 h-8 object-contain transform hover:scale-110 transition-transform duration-200"
+                      className="w-6 h-6 sm:w-8 sm:h-8 object-contain transform hover:scale-110 transition-transform duration-200"
                       style={{
                         filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
                         transform: 'perspective(100px) rotateX(15deg)'
@@ -168,7 +168,7 @@ export function ExtendedDefensiveAnalytics({ predictionData }: ExtendedDefensive
                     <span style={{ color: team2Color }}>{team2Name}</span>
                   </div>
                 </th>
-                <th className="text-center py-3 px-4 text-gray-300 font-medium">Advantage</th>
+                <th className="text-center py-2 sm:py-3 px-2 sm:px-4 text-gray-300 font-medium text-xs sm:text-sm">Advantage</th>
               </tr>
             </thead>
             <tbody>
@@ -189,53 +189,53 @@ export function ExtendedDefensiveAnalytics({ predictionData }: ExtendedDefensive
       </GlassCard>
 
       {/* Season Summary Statistics */}
-      <GlassCard glowColor="from-slate-500/20 to-gray-500/20" className="p-6 border-gray-500/40">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 rounded-lg bg-slate-500/20 border border-gray-500/40">
-            <BarChart3 className="w-5 h-5 text-purple-400" />
+      <GlassCard glowColor="from-slate-500/20 to-gray-500/20" className="p-4 sm:p-6 border-gray-500/40">
+        <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+          <div className="p-1.5 sm:p-2 rounded-lg bg-slate-500/20 border border-gray-500/40">
+            <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
           </div>
-          <h3 className="text-white font-semibold">Season Summary Statistics</h3>
+          <h3 className="text-white font-semibold text-sm sm:text-base">Season Summary Statistics</h3>
         </div>
         
-        <div className="overflow-x-auto">
-          <table className="w-full">
+        <div className="overflow-x-auto -mx-2 sm:mx-0">
+          <table className="w-full min-w-[640px]">
             <thead>
               <tr className="border-b border-gray-600/40">
-                <th className="text-left py-3 px-4 text-gray-300 font-medium">Metric</th>
-                <th className="text-center py-3 px-4 text-gray-300 font-medium">
-                  <div className="flex items-center justify-center gap-2">
+                <th className="text-left py-2 sm:py-3 px-2 sm:px-4 text-gray-300 font-medium text-xs sm:text-sm">Metric</th>
+                <th className="text-center py-2 sm:py-3 px-2 sm:px-4 text-gray-300 font-medium text-xs sm:text-sm">
+                  <div className="flex items-center justify-center gap-1 sm:gap-2">
                     <ImageWithFallback 
                       src={team1Logo}
                       alt={team1Name}
-                      className="w-8 h-8 object-contain transform hover:scale-110 transition-transform duration-200"
+                      className="w-6 h-6 sm:w-8 sm:h-8 object-contain transform hover:scale-110 transition-transform duration-200"
                       style={{
                         filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
                         transform: 'perspective(100px) rotateX(15deg)'
                       }}
                     />
-                    <span style={{ color: team1Color }}>{team1Name}</span>
+                    <span style={{ color: team1Abbr }}>{team1Abbr}</span>
                   </div>
                 </th>
-                <th className="text-center py-3 px-4 text-gray-300 font-medium">
-                  <div className="flex items-center justify-center gap-2">
+                <th className="text-center py-2 sm:py-3 px-2 sm:px-4 text-gray-300 font-medium text-xs sm:text-sm">
+                  <div className="flex items-center justify-center gap-1 sm:gap-2">
                     <ImageWithFallback 
                       src={team2Logo}
                       alt={team2Name}
-                      className="w-8 h-8 object-contain transform hover:scale-110 transition-transform duration-200"
+                      className="w-6 h-6 sm:w-8 sm:h-8 object-contain transform hover:scale-110 transition-transform duration-200"
                       style={{
                         filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
                         transform: 'perspective(100px) rotateX(15deg)'
                       }}
                     />
-                    <span style={{ color: team2Color }}>{team2Name}</span>
+                    <span style={{ color: team2Abbr }}>{team2Abbr}</span>
                   </div>
                 </th>
-                <th className="text-center py-3 px-4 text-gray-300 font-medium">Advantage</th>
+                <th className="text-center py-2 sm:py-3 px-2 sm:px-4 text-gray-300 font-medium text-xs sm:text-sm">Advantage</th>
               </tr>
             </thead>
             <tbody>
               {summaryData.map((data, index) => (
-                <DefenseStatRow 
+                <DefenseStatRow
                   key={index}
                   metric={data.metric} 
                   away={data.away} 
