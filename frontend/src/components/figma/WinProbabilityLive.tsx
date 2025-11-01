@@ -103,9 +103,30 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
           className="team-prob-row team-prob-away" 
           style={{ 
             width: `${awayWinProb}%`,
-            background: `linear-gradient(90deg, ${awayColor}DD 0%, ${awayColor} 100%)`
+            background: `linear-gradient(90deg, ${awayColor}50 0%, ${awayColor}30 100%)`,
+            border: `2px solid ${awayColor}`,
+            borderRight: 'none',
+            position: 'relative',
+            overflow: 'hidden'
           }}
         >
+          {awayLogo && (
+            <img 
+              src={awayLogo} 
+              alt={awayTeam}
+              style={{
+                position: 'absolute',
+                left: '12px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: '40px',
+                height: '40px',
+                objectFit: 'contain',
+                opacity: 0.15,
+                filter: `brightness(1.2) drop-shadow(0px 4px 8px ${awayColor}60) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4))`
+              }}
+            />
+          )}
           <div className="team-info">
             <span className="team-name">{awayTeam}</span>
             <span className="team-percentage">{awayWinProb.toFixed(1)}%</span>
@@ -115,9 +136,30 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
           className="team-prob-row team-prob-home"
           style={{ 
             width: `${homeWinProb}%`,
-            background: `linear-gradient(90deg, ${homeColor}DD 0%, ${homeColor} 100%)`
+            background: `linear-gradient(90deg, ${homeColor}50 0%, ${homeColor}30 100%)`,
+            border: `2px solid ${homeColor}`,
+            borderLeft: 'none',
+            position: 'relative',
+            overflow: 'hidden'
           }}
         >
+          {homeLogo && (
+            <img 
+              src={homeLogo} 
+              alt={homeTeam}
+              style={{
+                position: 'absolute',
+                right: '12px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: '40px',
+                height: '40px',
+                objectFit: 'contain',
+                opacity: 0.15,
+                filter: `brightness(1.2) drop-shadow(0px 4px 8px ${homeColor}60) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4))`
+              }}
+            />
+          )}
           <div className="team-info">
             <span className="team-name">{homeTeam}</span>
             <span className="team-percentage">{homeWinProb.toFixed(1)}%</span>
@@ -173,28 +215,53 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
               y1={15 + (160 - (y * 1.6))}
               x2="635"
               y2={15 + (160 - (y * 1.6))}
-              stroke="rgba(255, 255, 255, 0.15)"
-              strokeWidth={y === 50 ? "1.5" : "1"}
-              strokeDasharray={y === 50 ? "none" : "4,4"}
+              stroke="rgba(255, 255, 255, 0.08)"
+              strokeWidth="1"
+              strokeDasharray="3 3"
             />
           ))}
 
-          {/* Home team area (draw first so it's behind) */}
+          {/* Home team area (draw first so it's behind) - subtle fill */}
           <path
             className="chart-area-home"
-            d={`M 35 175 ${trendData.map((p: any) => `L ${35 + (p.x * 6)}`).join(' ')} L 635 175 Z`}
+            d={trendData.length > 0 ? `M 35 ${15 + (160 - (trendData[0].home * 1.6))} ${
+              trendData.slice(1).map((p: any, i: number) => {
+                const prev = trendData[i];
+                const x1 = 35 + (prev.x * 6);
+                const y1 = 15 + (160 - (prev.home * 1.6));
+                const x2 = 35 + (p.x * 6);
+                const y2 = 15 + (160 - (p.home * 1.6));
+                const cpx1 = x1 + (x2 - x1) / 3;
+                const cpx2 = x1 + ((x2 - x1) * 2) / 3;
+                return `C ${cpx1} ${y1}, ${cpx2} ${y2}, ${x2} ${y2}`;
+              }).join(' ')
+            } L 635 175 L 35 175 Z` : ''}
           />
 
-          {/* Away team area */}
+          {/* Away team area - subtle fill */}
           <path
             className="chart-area-away"
-            d={`M 35 175 ${trendData.map((p: any) => `L ${35 + (p.x * 6)} ${15 + (160 - (p.away * 1.6))}`).join(' ')} L 635 175 Z`}
+            d={trendData.length > 0 ? `M 35 ${15 + (160 - (trendData[0].away * 1.6))} ${
+              trendData.slice(1).map((p: any, i: number) => {
+                const prev = trendData[i];
+                const x1 = 35 + (prev.x * 6);
+                const y1 = 15 + (160 - (prev.away * 1.6));
+                const x2 = 35 + (p.x * 6);
+                const y2 = 15 + (160 - (p.away * 1.6));
+                const cpx1 = x1 + (x2 - x1) / 3;
+                const cpx2 = x1 + ((x2 - x1) * 2) / 3;
+                return `C ${cpx1} ${y1}, ${cpx2} ${y2}, ${x2} ${y2}`;
+              }).join(' ')
+            } L 635 175 L 35 175 Z` : ''}
           />
 
           {/* Home team line with smooth curves */}
           <path
             className="chart-line-home"
-            style={{ stroke: homeColor }}
+            style={{ 
+              stroke: homeColor,
+              filter: `drop-shadow(0px 8px 20px ${homeColor}80)`
+            }}
             d={trendData.length > 0 ? `M ${35 + (trendData[0].x * 6)} ${15 + (160 - (trendData[0].home * 1.6))} ${
               trendData.slice(1).map((p: any, i: number) => {
                 const prev = trendData[i];
@@ -212,7 +279,10 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
           {/* Away team line with smooth curves */}
           <path
             className="chart-line-away"
-            style={{ stroke: awayColor }}
+            style={{ 
+              stroke: awayColor,
+              filter: `drop-shadow(0px 8px 20px ${awayColor}80)`
+            }}
             d={trendData.length > 0 ? `M ${35 + (trendData[0].x * 6)} ${15 + (160 - (trendData[0].away * 1.6))} ${
               trendData.slice(1).map((p: any, i: number) => {
                 const prev = trendData[i];
@@ -279,13 +349,14 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
                         <g>
                           {/* Away team percentage on line */}
                           <rect
-                            x={tooltipX - 24}
-                            y={awayY - 12}
-                            width="48"
-                            height="20"
-                            rx="10"
-                            fill={awayColor}
-                            opacity="0.95"
+                            x={tooltipX - 26}
+                            y={awayY - 13}
+                            width="52"
+                            height="22"
+                            rx="4"
+                            fill={`${awayColor}40`}
+                            stroke={awayColor}
+                            strokeWidth="1.5"
                           />
                           <text
                             x={tooltipX}
@@ -300,13 +371,14 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
                           
                           {/* Home team percentage on line */}
                           <rect
-                            x={tooltipX - 24}
-                            y={homeY - 12}
-                            width="48"
-                            height="20"
-                            rx="10"
-                            fill={homeColor}
-                            opacity="0.95"
+                            x={tooltipX - 26}
+                            y={homeY - 13}
+                            width="52"
+                            height="22"
+                            rx="4"
+                            fill={`${homeColor}40`}
+                            stroke={homeColor}
+                            strokeWidth="1.5"
                           />
                           <text
                             x={tooltipX}
@@ -320,33 +392,38 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
                           </text>
                         </g>
                         
-                        {/* Main tooltip card - Glassy modern design */}
+                        {/* Main tooltip card - Matching Situational Performance styling */}
                         <rect
                           x={adjustedX}
                           y={adjustedY}
                           width={tooltipWidth}
                           height={tooltipHeight}
-                          rx="12"
-                          fill="rgba(15, 15, 25, 0.85)"
-                          stroke="rgba(255, 255, 255, 0.15)"
+                          rx="8"
+                          fill="rgba(26, 31, 38, 0.95)"
+                          stroke="rgba(255, 255, 255, 0.2)"
                           strokeWidth="1"
-                          style={{
-                            backdropFilter: 'blur(10px)',
-                            WebkitBackdropFilter: 'blur(10px)'
-                          }}
                         />
                         
-                        {/* Play number */}
+                        {/* Play number - header with border */}
                         <text
                           x={adjustedX + tooltipWidth / 2}
-                          y={adjustedY + 14}
+                          y={adjustedY + 12}
                           textAnchor="middle"
-                          fill="rgba(255, 255, 255, 0.5)"
-                          fontSize="9"
-                          fontWeight="400"
+                          fill="#e2e8f0"
+                          fontSize="11"
+                          fontWeight="600"
+                          fontFamily="'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace"
                         >
                           Play {i + 1}
                         </text>
+                        <line
+                          x1={adjustedX + 12}
+                          y1={adjustedY + 16}
+                          x2={adjustedX + tooltipWidth - 12}
+                          y2={adjustedY + 16}
+                          stroke="rgba(255, 255, 255, 0.1)"
+                          strokeWidth="1"
+                        />
                         
                         {/* Away team row with logo */}
                         {awayLogo && (
@@ -354,17 +431,18 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
                             href={awayLogo}
                             x={adjustedX + 12}
                             y={adjustedY + 22}
-                            width="18"
-                            height="18"
+                            width="28"
+                            height="28"
                           />
                         )}
                         <text
-                          x={adjustedX + 36}
-                          y={adjustedY + 35}
+                          x={adjustedX + 46}
+                          y={adjustedY + 38}
                           textAnchor="start"
                           fill={awayColor}
-                          fontSize="12"
-                          fontWeight="300"
+                          fontSize="11"
+                          fontWeight="600"
+                          fontFamily="'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace"
                         >
                           {point.away.toFixed(1)}%
                         </text>
@@ -373,19 +451,20 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
                         {homeLogo && (
                           <image
                             href={homeLogo}
-                            x={adjustedX + tooltipWidth - 30}
+                            x={adjustedX + tooltipWidth - 40}
                             y={adjustedY + 22}
-                            width="18"
-                            height="18"
+                            width="28"
+                            height="28"
                           />
                         )}
                         <text
-                          x={adjustedX + tooltipWidth - 36}
-                          y={adjustedY + 35}
+                          x={adjustedX + tooltipWidth - 46}
+                          y={adjustedY + 38}
                           textAnchor="end"
                           fill={homeColor}
-                          fontSize="12"
-                          fontWeight="300"
+                          fontSize="11"
+                          fontWeight="600"
+                          fontFamily="'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace"
                         >
                           {point.home.toFixed(1)}%
                         </text>
