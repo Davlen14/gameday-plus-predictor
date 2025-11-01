@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { GlassCard } from './GlassCard';
 import { Trophy, TrendingUp, TrendingDown, Minus, Award, Star } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { extractSection, generateTeamAbbr } from '../../utils/teamUtils';
-import apPollData from '../../data/ap.json';
 
 interface APPollRankingsProps {
   predictionData?: any;
@@ -12,13 +11,22 @@ interface APPollRankingsProps {
 export function APPollRankings({ predictionData }: APPollRankingsProps) {
   const awayTeam = predictionData?.team_selector?.away_team;
   const homeTeam = predictionData?.team_selector?.home_team;
+  const [apPollData, setApPollData] = useState<any>(null);
+  
+  // Load AP Poll data from public folder (works on Railway!)
+  useEffect(() => {
+    fetch('/data/ap.json')
+      .then(res => res.json())
+      .then(data => setApPollData(data))
+      .catch(err => console.error('Failed to load AP Poll data:', err));
+  }, []);
 
   // Parse AP Poll data from JSON file (ALWAYS works, even on Railway)
   const parseAPPollData = () => {
     // Get current week dynamically from API data, fallback to 10
     const dynamicWeek = predictionData?.contextual_analysis?.current_week || 10;
     
-    if (!awayTeam || !homeTeam) {
+    if (!awayTeam || !homeTeam || !apPollData) {
       return {
         currentRankings: [],
         weeklyProgression: { away: [], home: [] },
