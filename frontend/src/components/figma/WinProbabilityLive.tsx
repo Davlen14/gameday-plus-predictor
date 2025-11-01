@@ -251,28 +251,6 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
                 style={{ cursor: 'pointer' }}
               />
               
-              {/* Away team point */}
-              <circle
-                cx={50 + (point.x * 6.4)}
-                cy={15 + (160 - (point.away * 1.6))}
-                r={hoveredPoint === i ? "6" : "4"}
-                fill={awayColor}
-                stroke="rgba(255,255,255,0.9)"
-                strokeWidth={hoveredPoint === i ? "3" : "2"}
-                className="chart-point"
-              />
-              
-              {/* Home team point */}
-              <circle
-                cx={50 + (point.x * 6.4)}
-                cy={15 + (160 - (point.home * 1.6))}
-                r={hoveredPoint === i ? "6" : "4"}
-                fill={homeColor}
-                stroke="rgba(255,255,255,0.9)"
-                strokeWidth={hoveredPoint === i ? "3" : "2"}
-                className="chart-point"
-              />
-              
               {/* Hover tooltip */}
               {hoveredPoint === i && (
                 <g>
