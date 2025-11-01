@@ -368,14 +368,14 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
       {/* Sportsbook Lines */}
       <div className="mb-4">
         <h4 
-          className="font-semibold text-sm mb-3 flex items-center gap-2 font-orbitron"
+          className="font-semibold text-xs sm:text-sm mb-3 flex items-center gap-2 font-orbitron"
           style={{ 
             color: primaryTeamColor,
             textShadow: `0 0 8px ${primaryTeamColor}40`
           }}
         >
           <Info 
-            className="w-4 h-4"
+            className="w-3 h-3 sm:w-4 sm:h-4"
             style={{ 
               color: primaryTeamColor,
               filter: `drop-shadow(0 0 4px ${primaryTeamColor}60)`
@@ -383,7 +383,7 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
           />
           Live Sportsbook Lines
         </h4>
-        <div className="space-y-3">
+        <div className="space-y-2 sm:space-y-3">
           {individualBooks.length > 0 ? (
             individualBooks.map((book: any, index: number) => {
               const logo = book.provider === 'DraftKings' ? DraftKingsLogo :
@@ -758,34 +758,30 @@ function SportsbookLine({
   };
 
   return (
-    <div className="relative overflow-hidden rounded-lg p-4 border border-gray-400/15 backdrop-blur-sm hover:border-emerald-400/40 transition-all duration-300 bg-[rgba(26,31,38,0.5)]">
-      <div className="flex items-center justify-between flex-wrap gap-3">
-        <div className="flex items-center gap-3 flex-1">
-          <div className="flex items-center gap-2">
-            <img src={logo} alt={name} className="w-8 h-8 object-contain" />
-            <div className="text-gray-300 font-semibold font-orbitron">{name}</div>
-          </div>
-          <div className="h-8 w-px bg-gray-600"></div>
-          <div className="flex gap-4 flex-wrap">
-            <div className="flex items-center gap-2">
-              <span className="text-gray-400 text-xs font-orbitron">Spread</span>
-              <span className="text-lg font-bold font-orbitron text-white">{spread}</span>
-              <span className={`px-2 py-0.5 border rounded text-xs font-bold font-orbitron ${badgeColors[spreadBadgeColor]}`}>
-                {spreadBadge}
-              </span>
-            </div>
-            <div className="h-6 w-px bg-gray-600 hidden sm:block"></div>
-            <div className="flex items-center gap-2">
-              <span className="text-gray-400 text-xs font-orbitron">Total</span>
-              <span className="text-lg font-bold font-orbitron text-white">{total}</span>
-              <span className="px-2 py-0.5 bg-red-500/30 border border-red-400/50 rounded text-red-400 text-xs font-bold font-orbitron">{totalDiff}
-              </span>
-            </div>
+    <div className="relative overflow-hidden rounded-lg p-3 sm:p-4 border border-gray-400/15 backdrop-blur-sm hover:border-emerald-400/40 transition-all duration-300 bg-[rgba(26,31,38,0.5)]">
+      <div className="flex items-center justify-between flex-wrap gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+            <img src={logo} alt={name} className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
+            <div className="text-gray-300 font-semibold font-orbitron text-xs sm:text-base truncate">{name}</div>
           </div>
         </div>
-        <svg className="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-        </svg>
+        <div className="flex items-center gap-2 sm:gap-4 flex-wrap text-xs sm:text-sm">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <span className="text-gray-400 text-xs font-orbitron">Spread</span>
+            <span className="text-sm sm:text-lg font-bold font-orbitron text-white truncate max-w-[100px] sm:max-w-none">{spread}</span>
+            <span className={`px-1.5 sm:px-2 py-0.5 border rounded text-xs font-bold font-orbitron whitespace-nowrap ${badgeColors[spreadBadgeColor]}`}>
+              {spreadBadge}
+            </span>
+          </div>
+          <div className="h-4 sm:h-6 w-px bg-gray-600 hidden xs:block"></div>
+          <div className="flex items-center gap-1 sm:gap-2">
+            <span className="text-gray-400 text-xs font-orbitron">Total</span>
+            <span className="text-sm sm:text-lg font-bold font-orbitron text-white">{total}</span>
+            <span className="px-1.5 sm:px-2 py-0.5 bg-red-500/30 border border-red-400/50 rounded text-red-400 text-xs font-bold font-orbitron whitespace-nowrap">{totalDiff}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );

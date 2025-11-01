@@ -47,15 +47,15 @@ export function ConfidenceSection({ predictionData, isLoading, error }: Confiden
   
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <GlassCard className="p-6 border-gray-500/40">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+        <GlassCard className="p-4 sm:p-6 border-gray-500/40">
           <div className="space-y-4 animate-pulse">
             <div className="h-4 bg-gray-700 rounded w-3/4"></div>
             <div className="h-8 bg-gray-700 rounded w-1/2"></div>
             <div className="h-3 bg-gray-700 rounded"></div>
           </div>
         </GlassCard>
-        <GlassCard className="p-6 border-gray-500/40">
+        <GlassCard className="p-4 sm:p-6 border-gray-500/40">
           <div className="space-y-4 animate-pulse">
             <div className="h-4 bg-gray-700 rounded w-3/4"></div>
             <div className="h-20 bg-gray-700 rounded"></div>
@@ -67,9 +67,9 @@ export function ConfidenceSection({ predictionData, isLoading, error }: Confiden
 
   if (error) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <GlassCard className="p-6 border-red-500/40 col-span-full">
-          <div className="text-center text-red-400">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+        <GlassCard className="p-4 sm:p-6 border-red-500/40 col-span-full">
+          <div className="text-center text-red-400 text-sm sm:text-base">
             Error loading confidence data: {error}
           </div>
         </GlassCard>
@@ -78,15 +78,15 @@ export function ConfidenceSection({ predictionData, isLoading, error }: Confiden
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
       {/* Confidence Indicator */}
-      <GlassCard className="p-6">
-        <div className="flex items-center justify-between mb-4">
+      <GlassCard className="p-4 sm:p-6">
+        <div className="flex items-center justify-between mb-3 sm:mb-4 gap-2">
           <div className="flex items-center gap-2">
-            <Target className="w-5 h-5 text-emerald-400" />
-            <h3 className="text-white font-semibold">Model Confidence</h3>
+            <Target className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
+            <h3 className="text-white font-semibold text-sm sm:text-base">Model Confidence</h3>
           </div>
-          <span className="text-2xl font-mono text-emerald-400 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">{confidence}%</span>
+          <span className="text-xl sm:text-2xl font-mono text-emerald-400 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">{confidence}%</span>
         </div>
         <div className="relative h-3 bg-gray-800/40 rounded-full overflow-hidden border border-emerald-500/30">
           <div 
@@ -96,7 +96,7 @@ export function ConfidenceSection({ predictionData, isLoading, error }: Confiden
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/30 to-transparent animate-pulse"></div>
           </div>
         </div>
-        <div className="mt-4 space-y-2">
+        <div className="mt-3 sm:mt-4 space-y-2">
           <MetricRow 
             label="Base Data Quality" 
             value={confidenceData.breakdown?.base_data_quality?.toFixed(2) || "0.90"} 
@@ -132,43 +132,49 @@ export function ConfidenceSection({ predictionData, isLoading, error }: Confiden
             />
           </div>
         </div>
-        <p className="text-gray-400 text-sm mt-3">Based on historical performance and current matchup analysis</p>
+        <p className="text-gray-400 text-xs sm:text-sm mt-2 sm:mt-3">Based on historical performance and current matchup analysis</p>
       </GlassCard>
 
       {/* Probability Calibration */}
-      <GlassCard className="p-6">
-        <div className="flex items-center gap-2 mb-4">
-          <Crosshair className="w-5 h-5 text-cyan-400" />
-          <h3 className="text-white font-semibold">Probability Calibration (Platt Scaling)</h3>
+      <GlassCard className="p-4 sm:p-6">
+        <div className="flex items-center gap-2 mb-3 sm:mb-4">
+          <Crosshair className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
+          <h3 className="text-white font-semibold text-sm sm:text-base">
+            <span className="hidden sm:inline">Probability Calibration (Platt Scaling)</span>
+            <span className="sm:hidden">Calibration</span>
+          </h3>
         </div>
-        <div className="space-y-4">
-          <div className="bg-blue-500/20 rounded-lg p-4 border border-blue-400/40 backdrop-blur-sm">
-            <p className="text-gray-300 text-sm mb-2">Raw Probability</p>
-            <p className="text-blue-400 text-3xl font-mono drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+        <div className="space-y-3 sm:space-y-4">
+          <div className="bg-blue-500/20 rounded-lg p-3 sm:p-4 border border-blue-400/40 backdrop-blur-sm">
+            <p className="text-gray-300 text-xs sm:text-sm mb-1 sm:mb-2">Raw Probability</p>
+            <p className="text-blue-400 text-2xl sm:text-3xl font-mono drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">
               {(confidenceData.calibration?.raw_probability || 91.9).toFixed(1)}%
             </p>
             <p className="text-gray-400 text-xs mt-1">Before calibration</p>
           </div>
           <div className="flex items-center justify-center">
-            <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </div>
-          <div className="bg-emerald-500/20 rounded-lg p-4 border border-emerald-400/40 backdrop-blur-sm">
-            <p className="text-gray-300 text-sm mb-2">Calibrated Probability</p>
-            <p className="text-emerald-400 text-3xl font-mono drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">
+          <div className="bg-emerald-500/20 rounded-lg p-3 sm:p-4 border border-emerald-400/40 backdrop-blur-sm">
+            <p className="text-gray-300 text-xs sm:text-sm mb-1 sm:mb-2">Calibrated Probability</p>
+            <p className="text-emerald-400 text-2xl sm:text-3xl font-mono drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">
               {(confidenceData.calibration?.calibrated_probability || 91.9).toFixed(1)}%
             </p>
             <p className="text-gray-400 text-xs mt-1">After Platt Scaling</p>
           </div>
-          <div className="bg-gray-800/40 rounded-lg p-3 border border-gray-400/15 backdrop-blur-sm">
-            <p className="text-gray-300 text-sm font-semibold">Calibration Adjustment</p>
-            <p className="text-white text-lg font-mono">
+          <div className="bg-gray-800/40 rounded-lg p-2 sm:p-3 border border-gray-400/15 backdrop-blur-sm">
+            <p className="text-gray-300 text-xs sm:text-sm font-semibold">Calibration Adjustment</p>
+            <p className="text-white text-base sm:text-lg font-mono">
               {(confidenceData.calibration?.adjustment || 0) > 0 ? '+' : ''}
               {(confidenceData.calibration?.adjustment || 0).toFixed(1)} percentage points
             </p>
           </div>
-          <p className="text-gray-400 text-xs">Platt Scaling transforms raw probabilities to calibrated estimates based on historical accuracy</p>
+          <p className="text-gray-400 text-xs">
+            <span className="hidden sm:inline">Platt Scaling transforms raw probabilities to calibrated estimates based on historical accuracy</span>
+            <span className="sm:hidden">Historical calibration applied</span>
+          </p>
         </div>
       </GlassCard>
     </div>
@@ -177,9 +183,9 @@ export function ConfidenceSection({ predictionData, isLoading, error }: Confiden
 
 function MetricRow({ label, value, positive = false, bold = false }: { label: string; value: string; positive?: boolean; bold?: boolean }) {
   return (
-    <div className="flex justify-between items-center text-sm">
-      <span className={`${bold ? 'text-white' : 'text-gray-300'}`}>{label}</span>
-      <span className={`font-mono ${bold ? 'font-bold' : ''} ${positive ? 'text-emerald-400' : 'text-gray-100'}`}>{value}</span>
+    <div className="flex justify-between items-center text-xs sm:text-sm gap-2">
+      <span className={`${bold ? 'text-white font-semibold' : 'text-gray-300'} truncate`}>{label}</span>
+      <span className={`font-mono ${bold ? 'font-bold' : ''} ${positive ? 'text-emerald-400' : 'text-gray-100'} whitespace-nowrap`}>{value}</span>
     </div>
   );
 }

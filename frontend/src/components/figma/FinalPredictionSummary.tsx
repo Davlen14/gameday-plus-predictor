@@ -35,46 +35,46 @@ export function FinalPredictionSummary({ predictionData }: FinalPredictionSummar
   const homeWins = homeScore > awayScore;
   
   return (
-    <GlassCard glowColor="from-slate-500/20 to-gray-500/20" className="p-6 border-gray-500/40">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 rounded-lg bg-slate-500/20 border border-gray-500/40">
-          <Target className="w-5 h-5 text-gray-400" />
+    <GlassCard glowColor="from-slate-500/20 to-gray-500/20" className="p-4 sm:p-6 border-gray-500/40">
+      <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+        <div className="p-1.5 sm:p-2 rounded-lg bg-slate-500/20 border border-gray-500/40">
+          <Target className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
         </div>
-        <h3 className="text-white font-semibold">Final Prediction Summary</h3>
+        <h3 className="text-white font-semibold text-sm sm:text-base">Final Prediction Summary</h3>
       </div>
       
       {/* Score Prediction */}
-      <div className="mb-6">
-        <div className="bg-gradient-to-br from-slate-500/10 to-gray-500/10 border border-gray-500/30 rounded-lg p-6 text-center">
-          <h4 className="text-xl font-bold text-gray-300 mb-4">Final Score Prediction</h4>
-          <div className="grid grid-cols-3 gap-4 items-center">
+      <div className="mb-4 sm:mb-6">
+        <div className="bg-gradient-to-br from-slate-500/10 to-gray-500/10 border border-gray-500/30 rounded-lg p-4 sm:p-6 text-center">
+          <h4 className="text-lg sm:text-xl font-bold text-gray-300 mb-3 sm:mb-4">Final Score Prediction</h4>
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 items-center">
             <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-2">
+              <div className="flex items-center justify-center gap-1 sm:gap-2 mb-2">
                 <ImageWithFallback 
                   src={awayTeam?.logo || ''} 
                   alt={awayTeam?.name || 'Away Team'} 
-                  className="w-16 h-16 object-contain drop-shadow-lg transform hover:scale-105 transition-transform duration-300 filter brightness-110" 
+                  className="w-12 h-12 sm:w-16 sm:h-16 object-contain drop-shadow-lg transform hover:scale-105 transition-transform duration-300 filter brightness-110" 
                 />
-                {awayWins && <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]"></div>}
+                {awayWins && <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]"></div>}
               </div>
-              <div className={`text-3xl font-bold mb-1 ${awayWins ? 'text-emerald-400' : 'text-gray-400'}`}>{awayScore}</div>
-              <div className="text-sm text-gray-300">{awayTeam?.name || 'Away Team'}</div>
+              <div className={`text-2xl sm:text-3xl font-bold mb-1 ${awayWins ? 'text-emerald-400' : 'text-gray-400'}`}>{awayScore}</div>
+              <div className="text-xs sm:text-sm text-gray-300 truncate">{awayTeam?.name || 'Away Team'}</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-400 mb-1">vs</div>
-              <div className="text-sm text-emerald-400 font-semibold">Total: {Math.round(total)}</div>
+              <div className="text-xl sm:text-2xl font-bold text-gray-400 mb-1">vs</div>
+              <div className="text-xs sm:text-sm text-emerald-400 font-semibold">Total: {Math.round(total)}</div>
             </div>
             <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-2">
+              <div className="flex items-center justify-center gap-1 sm:gap-2 mb-2">
                 <ImageWithFallback 
                   src={homeTeam?.logo || ''} 
                   alt={homeTeam?.name || 'Home Team'} 
-                  className="w-16 h-16 object-contain drop-shadow-lg transform hover:scale-105 transition-transform duration-300 filter brightness-110" 
+                  className="w-12 h-12 sm:w-16 sm:h-16 object-contain drop-shadow-lg transform hover:scale-105 transition-transform duration-300 filter brightness-110" 
                 />
-                {homeWins && <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]"></div>}
+                {homeWins && <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]"></div>}
               </div>
-              <div className={`text-3xl font-bold mb-1 ${homeWins ? 'text-emerald-400' : 'text-gray-400'}`}>{homeScore}</div>
-              <div className="text-sm text-gray-300">{homeTeam?.name || 'Home Team'}</div>
+              <div className={`text-2xl sm:text-3xl font-bold mb-1 ${homeWins ? 'text-emerald-400' : 'text-gray-400'}`}>{homeScore}</div>
+              <div className="text-xs sm:text-sm text-gray-300 truncate">{homeTeam?.name || 'Home Team'}</div>
             </div>
           </div>
         </div>
@@ -82,18 +82,18 @@ export function FinalPredictionSummary({ predictionData }: FinalPredictionSummar
 
       {/* Key Factors */}
       {keyFactors.length > 0 && (
-        <div className="mb-6">
-          <h4 className="text-gray-300 font-medium mb-4 flex items-center gap-2">
-            <Award className="w-4 h-4" />
+        <div className="mb-4 sm:mb-6">
+          <h4 className="text-gray-300 font-medium mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
+            <Award className="w-3 h-3 sm:w-4 sm:h-4" />
             Key Factors
           </h4>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
             {keyFactors.map((factor: string, idx: number) => (
-              <div key={idx} className="p-4 rounded-lg border bg-slate-500/10 border-gray-500/30">
+              <div key={idx} className="p-3 sm:p-4 rounded-lg border bg-slate-500/10 border-gray-500/30">
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">{factor}</span>
+                  <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm text-gray-200">{factor}</span>
                 </div>
               </div>
             ))}
@@ -128,10 +128,13 @@ export function FinalPredictionSummary({ predictionData }: FinalPredictionSummar
       </div>
 
       {/* Analysis Complete Badge */}
-      <div className="mt-6 text-center">
-        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500/20 to-green-500/20 border border-emerald-500/40 rounded-full px-6 py-3">
-          <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-          <span className="text-emerald-400 font-semibold">COMPREHENSIVE ANALYSIS COMPLETE!</span>
+      <div className="mt-4 sm:mt-6 text-center">
+        <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-emerald-500/20 to-green-500/20 border border-emerald-500/40 rounded-full px-4 sm:px-6 py-2 sm:py-3">
+          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
+          <span className="text-emerald-400 font-semibold text-xs sm:text-base">
+            <span className="hidden sm:inline">COMPREHENSIVE ANALYSIS COMPLETE!</span>
+            <span className="sm:hidden">ANALYSIS COMPLETE!</span>
+          </span>
         </div>
       </div>
     </GlassCard>
@@ -141,8 +144,8 @@ export function FinalPredictionSummary({ predictionData }: FinalPredictionSummar
 function ConfidenceItem({ label, value }: { label: string; value: string }) {
   return (
     <div className="text-center">
-      <div className="font-mono font-semibold text-gray-300">{value}</div>
-      <div className="text-gray-400">{label}</div>
+      <div className="font-mono font-semibold text-gray-300 text-sm sm:text-base">{value}</div>
+      <div className="text-gray-400 text-xs sm:text-sm">{label}</div>
     </div>
   );
 }
