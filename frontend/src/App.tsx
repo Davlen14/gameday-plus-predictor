@@ -261,6 +261,7 @@ export default function App() {
               <LivePlaysFeed
                 plays={liveData.plays?.recent_plays || []}
                 showEPA={true}
+                predictionData={predictionData}
               />
             </>
           )}

@@ -11,8 +11,18 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
   
   if (!liveData) return null;
 
-  const awayWinProb = liveData.win_probability?.away || 50;
-  const homeWinProb = liveData.win_probability?.home || 50;
+  // Convert win probability to percentage if it's a decimal (0-1 range)
+  let awayWinProb = liveData.win_probability?.away || 50;
+  let homeWinProb = liveData.win_probability?.home || 50;
+  
+  // If values are between 0 and 1, they're decimals - convert to percentage
+  if (awayWinProb <= 1 && awayWinProb >= 0) {
+    awayWinProb = awayWinProb * 100;
+  }
+  if (homeWinProb <= 1 && homeWinProb >= 0) {
+    homeWinProb = homeWinProb * 100;
+  }
+  
   const awayTeam = liveData.game_info?.away_team || 'Away';
   const homeTeam = liveData.game_info?.home_team || 'Home';
   
@@ -21,6 +31,9 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
   const homeColor = predictionData?.team_selector?.home_team?.primary_color || '#dc2626';
   const awayLogo = predictionData?.team_selector?.away_team?.logo;
   const homeLogo = predictionData?.team_selector?.home_team?.logo;
+
+  // Determine which team is favored
+  const leadingColor = awayWinProb > homeWinProb ? awayColor : homeColor;
 
   // Get play-by-play win probability trend from recent plays
   const generateTrendData = () => {
@@ -94,7 +107,12 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
   const trendData = generateTrendData();
 
   return (
-    <div className="win-prob-live-container">
+    <div 
+      className="win-prob-live-container"
+      style={{
+        boxShadow: `0 8px 32px 0 ${leadingColor}30, 0 0 0 1px ${leadingColor}20`
+      }}
+    >
       <h3>Live Win Probability</h3>
       
       {/* Horizontal Split Bar */}

@@ -104,8 +104,9 @@
   background: rgba(255, 255, 255, 0.03);
   border-left: 3px solid;
   padding: 14px;
-  border-radius: 8px;
+  border-radius: 0px;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .play-item:hover {
@@ -114,11 +115,11 @@
 }
 
 .play-success {
-  border-left-color: #10B981;
+  border-left-color: rgba(16, 185, 129, 0.4);
 }
 
 .play-failure {
-  border-left-color: #EF4444;
+  border-left-color: rgba(239, 68, 68, 0.4);
 }
 
 .play-header-row {
@@ -260,8 +261,34 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .live-plays-container {
+    padding: 16px;
+  }
+  
+  .plays-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .plays-header h3 {
+    font-size: 18px;
+  }
+  
+  .quarter-filter {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .quarter-btn {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  
   .plays-list {
-    max-height: 400px;
+    max-height: 500px;
+    gap: 10px;
   }
   
   .play-item {
@@ -274,8 +301,26 @@
     gap: 8px;
   }
   
+  .play-meta {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .play-score {
+    font-size: 13px;
+  }
+  
+  .play-description {
+    font-size: 13px;
+  }
+  
+  .play-text {
+    font-size: 13px;
+  }
+  
   .play-stats-row {
     gap: 8px;
+    flex-wrap: wrap;
   }
   
   .yards-gained,
@@ -283,5 +328,14 @@
   .success-indicator {
     font-size: 11px;
     padding: 3px 6px;
+  }
+  
+  .plays-footer {
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+  
+  .plays-count {
+    font-size: 12px;
   }
 }

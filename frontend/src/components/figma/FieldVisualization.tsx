@@ -49,8 +49,16 @@ export const FieldVisualization: React.FC<FieldVisualizationProps> = ({
   const isPossessionHome = possession.team.toLowerCase().includes(homeTeam.name.toLowerCase()) ||
                            homeTeam.name.toLowerCase().includes(possession.team.toLowerCase());
   
+  const possessionColor = isPossessionHome ? homeTeam.color : awayTeam.color;
+  const possessionLogo = isPossessionHome ? homeTeam.logo : awayTeam.logo;
+  
   return (
-    <div className="field-visualization-container">
+    <div 
+      className="field-visualization-container"
+      style={{
+        boxShadow: `0 8px 32px 0 ${possessionColor}30, 0 0 0 1px ${possessionColor}20`
+      }}
+    >
       <div className="field-header">
         <h3>Field Position</h3>
       </div>
@@ -59,16 +67,64 @@ export const FieldVisualization: React.FC<FieldVisualizationProps> = ({
         {/* Away Team Endzone (Left) */}
         <div 
           className="endzone endzone-away"
-          style={{ backgroundColor: awayTeam.color }}
+          style={{ 
+            background: `linear-gradient(135deg, ${awayTeam.color}40 0%, ${awayTeam.color}20 100%)`,
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+            border: `1px solid ${awayTeam.color}50`,
+            position: 'relative',
+            overflow: 'hidden'
+          }}
         >
+          {awayTeam.logo && (
+            <img 
+              src={awayTeam.logo} 
+              alt={awayTeam.name}
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '60px',
+                height: '60px',
+                objectFit: 'contain',
+                opacity: 0.15,
+                filter: 'brightness(1.5)',
+                pointerEvents: 'none'
+              }}
+            />
+          )}
           <div className="endzone-content">
             {awayTeam.logo && <img src={awayTeam.logo} alt={awayTeam.name} className="endzone-logo" />}
-            <span className="endzone-text">{awayTeam.abbr || awayTeam.name.substring(0, 3).toUpperCase()}</span>
+            <span className="endzone-text" style={{ color: awayTeam.color, textShadow: `0 2px 8px ${awayTeam.color}80` }}>
+              {awayTeam.abbr || awayTeam.name.substring(0, 3).toUpperCase()}
+            </span>
           </div>
         </div>
         
         {/* Football Field */}
         <div className="field">
+          {/* Home Team Logo at 50 yard line */}
+          {homeTeam.logo && (
+            <img 
+              src={homeTeam.logo} 
+              alt={homeTeam.name}
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '220px',
+                height: '220px',
+                objectFit: 'contain',
+                opacity: 0.12,
+                filter: 'brightness(1.3)',
+                pointerEvents: 'none',
+                zIndex: 1
+              }}
+            />
+          )}
+          
           {/* Yard lines */}
           <div className="yard-markers">
             {[10, 20, 30, 40, 50, 40, 30, 20, 10].map((yard, idx) => (
@@ -83,9 +139,27 @@ export const FieldVisualization: React.FC<FieldVisualizationProps> = ({
             className="ball-position"
             style={{ left: `${ballPositionPercent}%` }}
           >
-            <div className="ball-marker">
-              {possession.logo ? (
-                <img src={possession.logo} alt={possession.team} className="ball-team-logo" />
+            <div 
+              className="ball-marker"
+              style={{
+                background: 'transparent',
+                boxShadow: 'none',
+                width: '64px',
+                height: '64px'
+              }}
+            >
+              {possessionLogo ? (
+                <img 
+                  src={possessionLogo} 
+                  alt={possession.team} 
+                  style={{
+                    width: '64px',
+                    height: '64px',
+                    objectFit: 'contain',
+                    filter: `drop-shadow(0 4px 12px ${possessionColor}80) brightness(1.1)`,
+                    opacity: 0.95
+                  }}
+                />
               ) : (
                 <span className="football-icon">🏈</span>
               )}
@@ -99,11 +173,38 @@ export const FieldVisualization: React.FC<FieldVisualizationProps> = ({
         {/* Home Team Endzone (Right) */}
         <div 
           className="endzone endzone-home"
-          style={{ backgroundColor: homeTeam.color }}
+          style={{ 
+            background: `linear-gradient(135deg, ${homeTeam.color}40 0%, ${homeTeam.color}20 100%)`,
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+            border: `1px solid ${homeTeam.color}50`,
+            position: 'relative',
+            overflow: 'hidden'
+          }}
         >
+          {homeTeam.logo && (
+            <img 
+              src={homeTeam.logo} 
+              alt={homeTeam.name}
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '60px',
+                height: '60px',
+                objectFit: 'contain',
+                opacity: 0.15,
+                filter: 'brightness(1.5)',
+                pointerEvents: 'none'
+              }}
+            />
+          )}
           <div className="endzone-content">
             {homeTeam.logo && <img src={homeTeam.logo} alt={homeTeam.name} className="endzone-logo" />}
-            <span className="endzone-text">{homeTeam.abbr || homeTeam.name.substring(0, 3).toUpperCase()}</span>
+            <span className="endzone-text" style={{ color: homeTeam.color, textShadow: `0 2px 8px ${homeTeam.color}80` }}>
+              {homeTeam.abbr || homeTeam.name.substring(0, 3).toUpperCase()}
+            </span>
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@
   align-items: stretch;
   gap: 0;
   margin-bottom: 20px;
-  min-height: 180px;
+  min-height: 400px;
 }
 
 .endzone {
@@ -32,7 +32,6 @@
   justify-content: center;
   position: relative;
   border-radius: 8px;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .endzone-away {
@@ -50,21 +49,20 @@
   gap: 8px;
   writing-mode: vertical-rl;
   text-orientation: mixed;
+  position: relative;
+  z-index: 1;
 }
 
 .endzone-logo {
   width: 40px;
   height: 40px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 .endzone-text {
   font-size: 16px;
   font-weight: 700;
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   letter-spacing: 2px;
 }
 
@@ -72,49 +70,51 @@
   flex: 1;
   background: linear-gradient(
     90deg,
-    #0d5c2f 0%,
-    #0d5c2f 5%,
-    #1a7a42 5%,
-    #1a7a42 10%,
-    #0d5c2f 10%,
-    #0d5c2f 15%,
-    #1a7a42 15%,
-    #1a7a42 20%,
-    #0d5c2f 20%,
-    #0d5c2f 25%,
-    #1a7a42 25%,
-    #1a7a42 30%,
-    #0d5c2f 30%,
-    #0d5c2f 35%,
-    #1a7a42 35%,
-    #1a7a42 40%,
-    #0d5c2f 40%,
-    #0d5c2f 45%,
-    #1a7a42 45%,
-    #1a7a42 50%,
-    #0d5c2f 50%,
-    #0d5c2f 55%,
-    #1a7a42 55%,
-    #1a7a42 60%,
-    #0d5c2f 60%,
-    #0d5c2f 65%,
-    #1a7a42 65%,
-    #1a7a42 70%,
-    #0d5c2f 70%,
-    #0d5c2f 75%,
-    #1a7a42 75%,
-    #1a7a42 80%,
-    #0d5c2f 80%,
-    #0d5c2f 85%,
-    #1a7a42 85%,
-    #1a7a42 90%,
-    #0d5c2f 90%,
-    #0d5c2f 95%,
-    #1a7a42 95%,
-    #1a7a42 100%
+    rgba(13, 92, 47, 0.15) 0%,
+    rgba(13, 92, 47, 0.15) 5%,
+    rgba(26, 122, 66, 0.15) 5%,
+    rgba(26, 122, 66, 0.15) 10%,
+    rgba(13, 92, 47, 0.15) 10%,
+    rgba(13, 92, 47, 0.15) 15%,
+    rgba(26, 122, 66, 0.15) 15%,
+    rgba(26, 122, 66, 0.15) 20%,
+    rgba(13, 92, 47, 0.15) 20%,
+    rgba(13, 92, 47, 0.15) 25%,
+    rgba(26, 122, 66, 0.15) 25%,
+    rgba(26, 122, 66, 0.15) 30%,
+    rgba(13, 92, 47, 0.15) 30%,
+    rgba(13, 92, 47, 0.15) 35%,
+    rgba(26, 122, 66, 0.15) 35%,
+    rgba(26, 122, 66, 0.15) 40%,
+    rgba(13, 92, 47, 0.15) 40%,
+    rgba(13, 92, 47, 0.15) 45%,
+    rgba(26, 122, 66, 0.15) 45%,
+    rgba(26, 122, 66, 0.15) 50%,
+    rgba(13, 92, 47, 0.15) 50%,
+    rgba(13, 92, 47, 0.15) 55%,
+    rgba(26, 122, 66, 0.15) 55%,
+    rgba(26, 122, 66, 0.15) 60%,
+    rgba(13, 92, 47, 0.15) 60%,
+    rgba(13, 92, 47, 0.15) 65%,
+    rgba(26, 122, 66, 0.15) 65%,
+    rgba(26, 122, 66, 0.15) 70%,
+    rgba(13, 92, 47, 0.15) 70%,
+    rgba(13, 92, 47, 0.15) 75%,
+    rgba(26, 122, 66, 0.15) 75%,
+    rgba(26, 122, 66, 0.15) 80%,
+    rgba(13, 92, 47, 0.15) 80%,
+    rgba(13, 92, 47, 0.15) 85%,
+    rgba(26, 122, 66, 0.15) 85%,
+    rgba(26, 122, 66, 0.15) 90%,
+    rgba(13, 92, 47, 0.15) 90%,
+    rgba(13, 92, 47, 0.15) 95%,
+    rgba(26, 122, 66, 0.15) 95%,
+    rgba(26, 122, 66, 0.15) 100%
   );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   position: relative;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .yard-markers {
@@ -246,29 +246,50 @@
 /* Responsive */
 @media (max-width: 768px) {
   .field-wrapper {
-    min-height: 140px;
+    min-height: 280px;
+    flex-direction: column;
   }
   
   .endzone {
     flex: 0 0 60px;
+    width: 100%;
+  }
+  
+  .endzone-away {
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .endzone-home {
+    border-radius: 0 0 8px 8px;
+  }
+  
+  .endzone-content {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    flex-direction: row;
+    gap: 12px;
   }
   
   .endzone-logo {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
   }
   
   .endzone-text {
     font-size: 14px;
   }
   
+  .field {
+    order: 2;
+  }
+  
   .yard-number {
-    font-size: 12px;
+    font-size: 11px;
   }
   
   .ball-marker {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
   }
   
   .ball-team-logo {
@@ -278,5 +299,18 @@
   
   .football-icon {
     font-size: 22px;
+  }
+  
+  .field-info {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .down-text {
+    font-size: 18px;
+  }
+  
+  .possession-team {
+    font-size: 14px;
   }
 }

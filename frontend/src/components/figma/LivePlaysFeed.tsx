@@ -23,14 +23,38 @@ interface LivePlaysFeedProps {
   plays: Play[];
   limit?: number;
   showEPA?: boolean;
+  predictionData?: any;
 }
 
 export const LivePlaysFeed: React.FC<LivePlaysFeedProps> = ({ 
   plays, 
   limit,
-  showEPA = true
+  showEPA = true,
+  predictionData
 }) => {
   const [selectedQuarter, setSelectedQuarter] = useState<number | 'all'>('all');
+  
+  // Get team colors
+  const awayTeam = predictionData?.team_selector?.away_team;
+  const homeTeam = predictionData?.team_selector?.home_team;
+  
+  const getTeamColor = (teamName: string) => {
+    if (teamName === awayTeam?.name || teamName === awayTeam?.school) {
+      return awayTeam?.primary_color || '#3b82f6';
+    } else if (teamName === homeTeam?.name || teamName === homeTeam?.school) {
+      return homeTeam?.primary_color || '#dc2626';
+    }
+    return 'rgba(255, 255, 255, 0.9)';
+  };
+  
+  const getTeamLogo = (teamName: string) => {
+    if (teamName === awayTeam?.name || teamName === awayTeam?.school) {
+      return awayTeam?.logo;
+    } else if (teamName === homeTeam?.name || teamName === homeTeam?.school) {
+      return homeTeam?.logo;
+    }
+    return null;
+  };
   
   // Group plays by quarter
   const quarters = Array.from(new Set(plays.map(p => p.period))).sort((a, b) => a - b);
@@ -68,12 +92,34 @@ export const LivePlaysFeed: React.FC<LivePlaysFeedProps> = ({
           <div 
             key={play.id || idx} 
             className={`play-item ${play.success ? 'play-success' : 'play-failure'}`}
+            style={{
+              backgroundImage: `linear-gradient(135deg, ${getTeamColor(play.team)}15 0%, ${getTeamColor(play.team)}05 100%)`,
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)'
+            }}
           >
+            {getTeamLogo(play.team) && (
+              <img 
+                src={getTeamLogo(play.team)!} 
+                alt={play.team}
+                style={{
+                  position: 'absolute',
+                  right: '12px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  width: '70px',
+                  height: '70px',
+                  objectFit: 'contain',
+                  opacity: 0.08,
+                  pointerEvents: 'none'
+                }}
+              />
+            )}
             <div className="play-header-row">
               <div className="play-meta">
                 <span className="play-quarter">Q{play.period}</span>
                 <span className="play-clock">{play.clock}</span>
-                <span className="play-team">{play.team}</span>
+                <span className="play-team" style={{ color: getTeamColor(play.team) }}>{play.team}</span>
               </div>
               
               <div className="play-score">

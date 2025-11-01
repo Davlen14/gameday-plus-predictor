@@ -308,9 +308,58 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .win-prob-live-container {
+    padding: 16px;
+  }
+  
   .win-prob-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+  
+  .win-prob-bars {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .team-prob-row {
+    height: 60px;
+    width: 100% !important;
+  }
+  
+  .team-prob-away,
+  .team-prob-home {
+    border: 2px solid;
+    border-radius: 8px;
+  }
+  
+  .team-info {
+    position: relative;
+    flex-direction: row;
+    gap: 12px;
+    transform: none;
+  }
+  
+  .team-name {
+    font-size: 14px;
+  }
+  
+  .team-percentage {
+    font-size: 20px;
+  }
+  
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .chart-legend {
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .chart-svg {
+    height: 280px;
   }
   
   .prob-bar-background {
