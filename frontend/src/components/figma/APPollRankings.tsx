@@ -1,7 +1,9 @@
+import React from 'react';
 import { GlassCard } from './GlassCard';
 import { Trophy, TrendingUp, TrendingDown, Minus, Award, Star } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { extractSection, generateTeamAbbr } from '../../utils/teamUtils';
+import apPollData from '../../data/ap.json';
 
 interface APPollRankingsProps {
   predictionData?: any;
@@ -11,103 +13,212 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
   const awayTeam = predictionData?.team_selector?.away_team;
   const homeTeam = predictionData?.team_selector?.home_team;
 
-  // Parse AP Poll data from section [18]
+  // Parse AP Poll data from JSON file (ALWAYS works, even on Railway)
   const parseAPPollData = () => {
-    const section = predictionData?.formatted_analysis ? extractSection(predictionData.formatted_analysis, 18) : null;
+    // Get current week dynamically from API data, fallback to 10
+    const dynamicWeek = predictionData?.contextual_analysis?.current_week || 10;
     
-    if (!section || !awayTeam || !homeTeam) {
+    if (!awayTeam || !homeTeam) {
       return {
         currentRankings: [],
         weeklyProgression: { away: [], home: [] },
-        currentWeek: 7
+        currentWeek: dynamicWeek
       };
     }
+    
+    // Try parsing from backend section first (formatted_analysis)
+    const section = predictionData?.formatted_analysis ? extractSection(predictionData.formatted_analysis, 18) : null;
 
-    // Parse current rankings
+    // Try parsing from backend section first (formatted_analysis)
+    const section = predictionData?.formatted_analysis ? extractSection(predictionData.formatted_analysis, 18) : null;
+
+    // Parse current rankings - from backend OR fallback to JSON
     const parseCurrentRankings = () => {
       const rankings: any[] = [];
       
-      // Pattern: "TeamName           #Rank             Points        Conference           FirstPlaceVotes"
-      const awayPattern = new RegExp(`${awayTeam.name}\\s+#(\\d+|NR)\\s+(\\d+)\\s+(\\w+[\\w\\s]*)\\s+(\\d+)`, 'i');
-      const homePattern = new RegExp(`${homeTeam.name}\\s+#(\\d+|NR)\\s+(\\d+)\\s+(\\w+[\\w\\s]*)\\s+(\\d+)`, 'i');
-      
-      const awayMatch = section.match(awayPattern);
-      const homeMatch = section.match(homePattern);
-      
-      if (awayMatch) {
-        rankings.push({
-          team: 'away',
-          rank: awayMatch[1] === 'NR' ? 'NR' : `#${awayMatch[1]}`,
-          points: parseInt(awayMatch[2]),
-          conference: awayMatch[3].trim(),
-          firstPlaceVotes: parseInt(awayMatch[4])
-        });
+      // Try backend data first
+      if (section) {
+        // Pattern: "TeamName           #Rank             Points        Conference           FirstPlaceVotes"
+        const awayPattern = new RegExp(`${awayTeam.name}\\s+#(\\d+|NR)\\s+(\\d+)\\s+(\\w+[\\w\\s]*)\\s+(\\d+)`, 'i');
+        const homePattern = new RegExp(`${homeTeam.name}\\s+#(\\d+|NR)\\s+(\\d+)\\s+(\\w+[\\w\\s]*)\\s+(\\d+)`, 'i');
+        
+        const awayMatch = section.match(awayPattern);
+        const homeMatch = section.match(homePattern);
+        
+        if (awayMatch) {
+          rankings.push({
+            team: 'away',
+            rank: awayMatch[1] === 'NR' ? 'NR' : `#${awayMatch[1]}`,
+            points: parseInt(awayMatch[2]),
+            conference: awayMatch[3].trim(),
+            firstPlaceVotes: parseInt(awayMatch[4])
+          });
+        }
+        
+        if (homeMatch) {
+          rankings.push({
+            team: 'home',
+            rank: homeMatch[1] === 'NR' ? 'NR' : `#${homeMatch[1]}`,
+            points: parseInt(homeMatch[2]),
+            conference: homeMatch[3].trim(),
+            firstPlaceVotes: parseInt(homeMatch[4])
+          });
+        }
+        
+        if (rankings.length > 0) {
+          return rankings; // Backend data worked!
+        }
       }
       
-      if (homeMatch) {
-        rankings.push({
-          team: 'home',
-          rank: homeMatch[1] === 'NR' ? 'NR' : `#${homeMatch[1]}`,
-          points: parseInt(homeMatch[2]),
-          conference: homeMatch[3].trim(),
-          firstPlaceVotes: parseInt(homeMatch[4])
-        });
+      // FALLBACK: Use static JSON data (works on Railway!)
+      const weekKey = `week_${dynamicWeek}` as keyof typeof apPollData;
+      const weekData = apPollData[weekKey];
+      
+      if (weekData && weekData.ranks) {
+        // Find away team
+        const awayRank = weekData.ranks.find((r: any) => 
+          r.school.toLowerCase() === awayTeam.name.toLowerCase()
+        );
+        if (awayRank) {
+          rankings.push({
+            team: 'away',
+            rank: `#${awayRank.rank}`,
+            points: awayRank.points,
+            conference: awayRank.conference,
+            firstPlaceVotes: awayRank.firstPlaceVotes
+          });
+        } else {
+          // Not ranked
+          rankings.push({
+            team: 'away',
+            rank: 'NR',
+            points: 0,
+            conference: awayTeam.conference || 'Unknown',
+            firstPlaceVotes: 0
+          });
+        }
+        
+        // Find home team
+        const homeRank = weekData.ranks.find((r: any) => 
+          r.school.toLowerCase() === homeTeam.name.toLowerCase()
+        );
+        if (homeRank) {
+          rankings.push({
+            team: 'home',
+            rank: `#${homeRank.rank}`,
+            points: homeRank.points,
+            conference: homeRank.conference,
+            firstPlaceVotes: homeRank.firstPlaceVotes
+          });
+        } else {
+          // Not ranked
+          rankings.push({
+            team: 'home',
+            rank: 'NR',
+            points: 0,
+            conference: homeTeam.conference || 'Unknown',
+            firstPlaceVotes: 0
+          });
+        }
       }
       
       return rankings;
     };
 
-    // Parse weekly progression
+    // Parse weekly progression - from backend OR fallback to JSON
     const parseWeeklyProgression = () => {
-      const weeklySection = section.match(/WEEKLY RANKINGS PROGRESSION:([\s\S]*?)(?:================|$)/i);
-      if (!weeklySection) return { away: [], home: [] };
+      if (section) {
+        // Try backend data first
+        const weeklySection = section.match(/WEEKLY RANKINGS PROGRESSION:([\s\S]*?)(?:================|$)/i);
+        if (weeklySection) {
+          const weeklyText = weeklySection[1];
+          
+          // Extract weeks for away team
+          const awayWeeks: any[] = [];
+          const homeWeeks: any[] = [];
+          
+          // Need to escape special characters in team names
+          const awayEscaped = awayTeam.name.replace(/[()]/g, '\\$&');
+          const homeEscaped = homeTeam.name.replace(/[()]/g, '\\$&');
+          
+          for (let week = 1; week <= dynamicWeek; week++) {
+            // Match pattern: "Week 1     Miami: #10        Louisville: NR"
+            // More flexible regex to handle variable whitespace
+            let weekPattern = new RegExp(
+              `Week\\s+${week}\\s+${awayEscaped}:\\s*(NR|#\\d+)\\s+${homeEscaped}:\\s*(NR|#\\d+)`,
+              'i'
+            );
+            let match = weeklyText.match(weekPattern);
+            
+            if (match) {
+              const awayRank = match[1].trim();
+              const homeRank = match[2].trim();
+              
+              const awayPrevRank = awayWeeks.length > 0 ? awayWeeks[awayWeeks.length - 1].rank : undefined;
+              const homePrevRank = homeWeeks.length > 0 ? homeWeeks[homeWeeks.length - 1].rank : undefined;
+              const awayTrend = awayPrevRank ? getTrend(awayPrevRank, awayRank) : undefined;
+              const homeTrend = homePrevRank ? getTrend(homePrevRank, homeRank) : undefined;
+              
+              awayWeeks.push({ week, rank: awayRank, trend: awayTrend, prevRank: awayPrevRank });
+              homeWeeks.push({ week, rank: homeRank, trend: homeTrend, prevRank: homePrevRank });
+            } else {
+              // Pattern 2: Home first, Away second
+              weekPattern = new RegExp(
+                `Week\\s+${week}\\s+${homeEscaped}:\\s*(NR|#\\d+)\\s+${awayEscaped}:\\s*(NR|#\\d+)`,
+                'i'
+              );
+              match = weeklyText.match(weekPattern);
+              
+              if (match) {
+                const homeRank = match[1].trim();
+                const awayRank = match[2].trim();
+                
+                const awayPrevRank = awayWeeks.length > 0 ? awayWeeks[awayWeeks.length - 1].rank : undefined;
+                const homePrevRank = homeWeeks.length > 0 ? homeWeeks[homeWeeks.length - 1].rank : undefined;
+                const awayTrend = awayPrevRank ? getTrend(awayPrevRank, awayRank) : undefined;
+                const homeTrend = homePrevRank ? getTrend(homePrevRank, homeRank) : undefined;
+                
+                awayWeeks.push({ week, rank: awayRank, trend: awayTrend, prevRank: awayPrevRank });
+                homeWeeks.push({ week, rank: homeRank, trend: homeTrend, prevRank: homePrevRank });
+              }
+            }
+          }
+          
+          if (awayWeeks.length > 0 || homeWeeks.length > 0) {
+            return { away: awayWeeks, home: homeWeeks }; // Backend data worked!
+          }
+        }
+      }
       
-      const weeklyText = weeklySection[1];
-      
-      // Extract weeks for away team
+      // FALLBACK: Use static JSON data to build weekly progression
       const awayWeeks: any[] = [];
       const homeWeeks: any[] = [];
       
-      // Need to escape special characters in team names
-      const awayEscaped = awayTeam.name.replace(/[()]/g, '\\$&');
-      const homeEscaped = homeTeam.name.replace(/[()]/g, '\\$&');
-      
-      for (let week = 1; week <= 8; week++) {
-        // Match pattern: "Week 1     Miami: #10        Louisville: NR"
-        // More flexible regex to handle variable whitespace
-        let weekPattern = new RegExp(
-          `Week\\s+${week}\\s+${awayEscaped}:\\s*(NR|#\\d+)\\s+${homeEscaped}:\\s*(NR|#\\d+)`,
-          'i'
-        );
-        let match = weeklyText.match(weekPattern);
+      for (let week = 1; week <= dynamicWeek; week++) {
+        const weekKey = `week_${week}` as keyof typeof apPollData;
+        const weekData = apPollData[weekKey];
         
-        if (match) {
-          const awayRank = match[1].trim();
-          const homeRank = match[2].trim();
-          
-          const awayTrend = awayWeeks.length > 0 ? getTrend(awayWeeks[awayWeeks.length - 1].rank, awayRank) : undefined;
-          const homeTrend = homeWeeks.length > 0 ? getTrend(homeWeeks[homeWeeks.length - 1].rank, homeRank) : undefined;
-          
-          awayWeeks.push({ week, rank: awayRank, trend: awayTrend });
-          homeWeeks.push({ week, rank: homeRank, trend: homeTrend });
-        } else {
-          // Pattern 2: Home first, Away second
-          weekPattern = new RegExp(
-            `Week\\s+${week}\\s+${homeEscaped}:\\s*(NR|#\\d+)\\s+${awayEscaped}:\\s*(NR|#\\d+)`,
-            'i'
+        if (weekData && weekData.ranks) {
+          // Find away team rank
+          const awayRank = weekData.ranks.find((r: any) => 
+            r.school.toLowerCase() === awayTeam.name.toLowerCase()
           );
-          match = weeklyText.match(weekPattern);
+          const awayRankStr = awayRank ? `#${awayRank.rank}` : 'NR';
           
-          if (match) {
-            const homeRank = match[1].trim();
-            const awayRank = match[2].trim();
-            
-            const awayTrend = awayWeeks.length > 0 ? getTrend(awayWeeks[awayWeeks.length - 1].rank, awayRank) : undefined;
-            const homeTrend = homeWeeks.length > 0 ? getTrend(homeWeeks[homeWeeks.length - 1].rank, homeRank) : undefined;
-            
-            awayWeeks.push({ week, rank: awayRank, trend: awayTrend });
-            homeWeeks.push({ week, rank: homeRank, trend: homeTrend });
-          }
+          // Find home team rank
+          const homeRank = weekData.ranks.find((r: any) => 
+            r.school.toLowerCase() === homeTeam.name.toLowerCase()
+          );
+          const homeRankStr = homeRank ? `#${homeRank.rank}` : 'NR';
+          
+          // Calculate trends
+          const awayPrevRank = awayWeeks.length > 0 ? awayWeeks[awayWeeks.length - 1].rank : undefined;
+          const homePrevRank = homeWeeks.length > 0 ? homeWeeks[homeWeeks.length - 1].rank : undefined;
+          const awayTrend = awayPrevRank ? getTrend(awayPrevRank, awayRankStr) : undefined;
+          const homeTrend = homePrevRank ? getTrend(homePrevRank, homeRankStr) : undefined;
+          
+          awayWeeks.push({ week, rank: awayRankStr, trend: awayTrend, prevRank: awayPrevRank });
+          homeWeeks.push({ week, rank: homeRankStr, trend: homeTrend, prevRank: homePrevRank });
         }
       }
       
@@ -128,7 +239,7 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
     return {
       currentRankings: parseCurrentRankings(),
       weeklyProgression: parseWeeklyProgression(),
-      currentWeek: 8 // Can be dynamic if needed
+      currentWeek: dynamicWeek // Dynamic week from API data
     };
   };
 
@@ -170,37 +281,88 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
     const firstNum = firstRank === 'NR' ? 999 : parseInt(firstRank.replace('#', ''));
     const lastNum = lastRank === 'NR' ? 999 : parseInt(lastRank.replace('#', ''));
     
+    // Check for RECENT big drops (last 2-3 weeks) - prioritize recent trend
+    if (weeks.length >= 3) {
+      const recentWeeks = weeks.slice(-3); // Last 3 weeks
+      const peakRank = recentWeeks[0].rank;
+      const currentRank = recentWeeks[recentWeeks.length - 1].rank;
+      
+      if (peakRank !== 'NR' && currentRank !== 'NR') {
+        const peakNum = parseInt(peakRank.replace('#', ''));
+        const currentNum = parseInt(currentRank.replace('#', ''));
+        const recentDrop = currentNum - peakNum;
+        
+        // If dropped 3+ spots in recent weeks, call it declining regardless of overall trend
+        if (recentDrop >= 3) {
+          return "Declining in rankings";
+        }
+        // If climbed 3+ spots in recent weeks, call it rising
+        if (recentDrop <= -3) {
+          return "Rising in rankings";
+        }
+      }
+    }
+    
+    // Otherwise use overall trend
     if (lastNum < firstNum) return "Rising in rankings";
     return "Declining in rankings";
   };
 
-  // Helper to get trend color based on progression
+  // Helper to get trend color based on progression (matches getTrendDescription logic)
   const getTrendColor = (weeks: any[]) => {
-    if (weeks.length < 2) return "rgb(148, 163, 184)"; // slate-400
+    if (weeks.length < 2) return "#6b7280"; // gray-500
     
     const firstRank = weeks[0].rank;
     const lastRank = weeks[weeks.length - 1].rank;
     
-    if (lastRank === 'NR') return "rgb(239, 68, 68)"; // red-500
-    if (firstRank === 'NR' && lastRank !== 'NR') return "rgb(59, 130, 246)"; // blue-500
-    if (firstRank === lastRank) return "rgb(234, 179, 8)"; // yellow-500
+    // Dropped out of rankings - RED (negative)
+    if (lastRank === 'NR' && firstRank !== 'NR') return "#ef4444"; // red-500
     
-    const firstNum = firstRank === 'NR' ? 999 : parseInt(firstRank.replace('#', ''));
-    const lastNum = lastRank === 'NR' ? 999 : parseInt(lastRank.replace('#', ''));
-    const lastRankNum = parseInt(lastRank.replace('#', ''));
+    // Entered rankings - GREEN (positive momentum)
+    if (firstRank === 'NR' && lastRank !== 'NR') return "#22c55e"; // green-500
     
-    // Rising or maintaining top 5 = green
-    if (lastNum < firstNum || (lastNum === firstNum && lastRankNum <= 5)) {
-      return "rgb(34, 197, 94)"; // green-500
+    // Never ranked - GRAY (neutral)
+    if (firstRank === 'NR' && lastRank === 'NR') return "#6b7280"; // gray-500
+    
+    const firstNum = parseInt(firstRank.replace('#', ''));
+    const lastNum = parseInt(lastRank.replace('#', ''));
+    
+    // Check for RECENT big changes (last 3 weeks) - prioritize recent trend
+    if (weeks.length >= 3) {
+      const recentWeeks = weeks.slice(-3);
+      const peakRank = recentWeeks[0].rank;
+      const currentRank = recentWeeks[recentWeeks.length - 1].rank;
+      
+      if (peakRank !== 'NR' && currentRank !== 'NR') {
+        const peakNum = parseInt(peakRank.replace('#', ''));
+        const currentNum = parseInt(currentRank.replace('#', ''));
+        const recentChange = currentNum - peakNum;
+        
+        // Big recent drop (3+ spots) - RED regardless of overall trend
+        if (recentChange >= 3) return "#ef4444"; // red-500 (declining)
+        
+        // Big recent climb (3+ spots) - GREEN
+        if (recentChange <= -3) return "#22c55e"; // green-500 (rising)
+      }
     }
-    // Declining = red
-    return "rgb(239, 68, 68)"; // red-500
+    
+    // Otherwise use overall trend
+    if (lastNum < firstNum) {
+      return "#22c55e"; // green-500 (rising overall)
+    }
+    
+    if (lastNum > firstNum) {
+      return "#ef4444"; // red-500 (falling overall)
+    }
+    
+    // Stayed the same - YELLOW (stable)
+    return "#eab308"; // yellow-500 (maintaining)
   };
   return (
-    <GlassCard glowColor="from-yellow-500/20 to-amber-500/20" className="p-6 border-yellow-500/40">
+    <GlassCard glowColor="from-slate-500/10 to-gray-500/10" className="p-6 border-gray-500/20">
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 rounded-lg bg-yellow-500/20 border border-yellow-500/40">
-          <Trophy className="w-5 h-5 text-yellow-400" />
+        <div className="p-2 rounded-lg bg-slate-500/20 border border-gray-500/30">
+          <Trophy className="w-5 h-5 text-amber-400" />
         </div>
         <h3 className="text-white font-semibold">AP Poll Rankings Progression</h3>
       </div>
@@ -289,7 +451,7 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
             <div className="space-y-2">
               {weeklyProgression.away.length > 0 ? (
                 weeklyProgression.away.map((week: any, idx: number) => (
-                  <WeeklyRank key={idx} week={week.week} rank={week.rank} trend={week.trend} teamColor={team1Color} />
+                  <WeeklyRank key={idx} week={week.week} rank={week.rank} trend={week.trend} prevRank={week.prevRank} teamColor={team1Color} />
                 ))
               ) : (
                 <div className="text-xs text-slate-400 text-center py-4">No weekly data available</div>
@@ -325,7 +487,7 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
             <div className="space-y-2">
               {weeklyProgression.home.length > 0 ? (
                 weeklyProgression.home.map((week: any, idx: number) => (
-                  <WeeklyRank key={idx} week={week.week} rank={week.rank} trend={week.trend} teamColor={team2Color} />
+                  <WeeklyRank key={idx} week={week.week} rank={week.rank} trend={week.trend} prevRank={week.prevRank} teamColor={team2Color} />
                 ))
               ) : (
                 <div className="text-xs text-slate-400 text-center py-4">No weekly data available</div>
@@ -379,41 +541,66 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
   );
 }
 
-function WeeklyRank({ week, rank, trend, teamColor }: { week: number; rank: string; trend?: string; teamColor?: string }) {
+function WeeklyRank({ week, rank, trend, prevRank, teamColor }: { week: number; rank: string; trend?: string; prevRank?: string; teamColor?: string }) {
   const isRanked = rank !== "NR";
   
-  // Determine the indicator color based on trend and ranking
+  // Determine colors based on TREND and performance (green/yellow/red/gray system)
   let indicatorColor = "";
+  let bgColor = "";
+  let borderColor = "";
+  let textColor = "";
   
   if (!isRanked) {
     // Never ranked - gray
-    indicatorColor = "rgb(71, 85, 105)"; // slate-600
+    indicatorColor = "rgb(107, 114, 128)"; // gray-500
+    bgColor = "rgba(107, 114, 128, 0.15)"; // gray with transparency
+    borderColor = "rgba(107, 114, 128, 0.3)"; // gray border
+    textColor = "rgb(156, 163, 175)"; // gray-400
   } else {
     const rankNum = parseInt(rank.replace('#', ''));
-    const isTopFive = rankNum <= 5;
     
-    if (trend === 'up' || (trend === 'static' && isTopFive)) {
-      // Trending up or consistently top 5 - green
-      indicatorColor = "rgb(34, 197, 94)"; // green-500
-    } else if (trend === 'down') {
-      // Declining - red
+    // Check for BIG DROP (3+ spots) - prioritize showing this as RED
+    let isBigDrop = false;
+    if (prevRank && prevRank !== 'NR') {
+      const prevNum = parseInt(prevRank.replace('#', ''));
+      const dropAmount = rankNum - prevNum; // Positive = dropped, negative = improved
+      if (dropAmount >= 3) {
+        isBigDrop = true;
+      }
+    }
+    
+    // Color based on big drops first, then trend and position
+    // RED: Big drop (3+ spots) takes priority over everything
+    // GREEN: Trending up OR currently top 10 OR new to rankings
+    // YELLOW: Stable/maintaining position
+    // RED: Trending down
+    
+    if (isBigDrop) {
+      // BIG DROP - RED (takes priority!)
       indicatorColor = "rgb(239, 68, 68)"; // red-500
-    } else if (trend === 'static') {
-      // Static but not top 5 - yellow
-      indicatorColor = "rgb(234, 179, 8)"; // yellow-500
-    } else if (trend === 'new') {
-      // New to rankings - blue
-      indicatorColor = "rgb(59, 130, 246)"; // blue-500
+      bgColor = "rgba(239, 68, 68, 0.15)";
+      borderColor = "rgba(239, 68, 68, 0.4)";
+      textColor = "rgb(239, 68, 68)"; // red-500
+    } else if (trend === 'up' || trend === 'new' || rankNum <= 10) {
+      // Trending up, new to rankings, or top 10 - GREEN (positive momentum)
+      indicatorColor = "rgb(34, 197, 94)"; // green-500
+      bgColor = "rgba(34, 197, 94, 0.15)";
+      borderColor = "rgba(34, 197, 94, 0.4)";
+      textColor = "rgb(34, 197, 94)"; // green-500
+    } else if (trend === 'down') {
+      // Trending down - RED (negative momentum)
+      indicatorColor = "rgb(239, 68, 68)"; // red-500
+      bgColor = "rgba(239, 68, 68, 0.15)";
+      borderColor = "rgba(239, 68, 68, 0.4)";
+      textColor = "rgb(239, 68, 68)"; // red-500
     } else {
-      // Default for first week
+      // Static/stable - YELLOW (holding position)
       indicatorColor = "rgb(234, 179, 8)"; // yellow-500
+      bgColor = "rgba(234, 179, 8, 0.15)";
+      borderColor = "rgba(234, 179, 8, 0.4)";
+      textColor = "rgb(234, 179, 8)"; // yellow-500
     }
   }
-  
-  // Use team color with transparency for background
-  const bgColor = teamColor ? `${teamColor}33` : "rgba(234, 179, 8, 0.2)"; // 20% opacity
-  const borderColor = teamColor ? `${teamColor}66` : "rgba(234, 179, 8, 0.4)"; // 40% opacity
-  const textColor = isRanked ? (teamColor || "rgb(250, 204, 21)") : "rgb(148, 163, 184)"; // slate-400 for NR
   
   const getTrendIcon = () => {
     if (!trend) return null;
