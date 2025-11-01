@@ -41,26 +41,26 @@ interface HeaderProps {
 }
 
 export function Header({ predictionData, isLoading }: HeaderProps) {
-  // Demo data as fallback (Ohio State vs Illinois)
+  // Demo data: Week 10 Ranked Matchup - #9 Vanderbilt @ #20 Texas
   const demoData = {
     game_info: {
-      date: "October 12, 2025",
-      time: "7:30 PM ET",
+      date: "November 2, 2025",
+      time: "TBD",
       network: "TBD",
-      excitement_index: 4.2
+      excitement_index: 8.5
     },
     teams: {
       away: {
-        name: "Illinois",
-        record: "4-2",
-        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/356.png",
-        rank: undefined
+        name: "Vanderbilt",
+        record: "6-3",
+        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/238.png",
+        rank: 9
       },
       home: {
-        name: "Ohio State", 
-        record: "6-0",
-        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
-        rank: undefined
+        name: "Texas", 
+        record: "7-2",
+        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+        rank: 20
       }
     }
   };
@@ -86,35 +86,35 @@ export function Header({ predictionData, isLoading }: HeaderProps) {
   const awayTeamColors = predictionData?.team_selector?.away_team;
 
   return (
-    <GlassCard className="p-6">
+    <GlassCard className="p-3 sm:p-4 md:p-6">
       {/* Game Info Header */}
-      <div className="text-center mb-6">
-        <div className="flex items-center justify-center gap-6 mb-3">
+      <div className="text-center mb-4 sm:mb-6">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mb-3 text-xs sm:text-sm">
           {/* Date & Time */}
-          <div className="flex items-center gap-2 text-muted-foreground text-sm">
-            <Calendar className="w-4 h-4" />
-            <span>{gameDate}</span>
+          <div className="flex items-center gap-1.5 sm:gap-2 text-muted-foreground">
+            <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="whitespace-nowrap">{gameDate}</span>
           </div>
-          <div className="flex items-center gap-2 text-muted-foreground text-sm">
-            <Clock className="w-4 h-4" />
+          <div className="flex items-center gap-1.5 sm:gap-2 text-muted-foreground">
+            <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
             <span>{gameTime}</span>
           </div>
           
           {/* Network */}
-          <div className="flex items-center gap-2 bg-blue-600/20 px-3 py-1 rounded-full border border-blue-500/30">
-            <Tv className="w-4 h-4 text-blue-400" />
-            <span className="text-blue-300 font-semibold text-sm">{network}</span>
+          <div className="flex items-center gap-1.5 sm:gap-2 bg-blue-600/20 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-blue-500/30">
+            <Tv className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
+            <span className="text-blue-300 font-semibold">{network}</span>
           </div>
         </div>
 
         {/* Excitement Index */}
         <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="text-muted-foreground text-sm">Excitement Index:</span>
+          <span className="text-muted-foreground text-xs sm:text-sm">Excitement:</span>
           <div className="flex items-center gap-1">
             {[...Array(5)].map((_, i) => (
               <Star 
                 key={i} 
-                className="w-5 h-5 fill-current"
+                className="w-4 h-4 sm:w-5 sm:h-5 fill-current"
                 style={{
                   color: i < Math.floor(excitementIndex) ? 'transparent' : '#6B7280',
                   background: i < Math.floor(excitementIndex) ? 'linear-gradient(45deg, #FFD700, #FFA500, #FF8C00, #DAA520, #B8860B, #CD853F, #FFD700)' : 'transparent',
@@ -124,17 +124,17 @@ export function Header({ predictionData, isLoading }: HeaderProps) {
                 }}
               />
             ))}
-            <span className="ml-2 text-sm font-bold text-yellow-500">{excitementIndex.toFixed(1)}/5</span>
+            <span className="ml-1 sm:ml-2 text-xs sm:text-sm font-bold text-yellow-500">{excitementIndex.toFixed(1)}/5</span>
           </div>
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-0 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 items-center">
         {/* Away Team - Real Data */}
-        <div className="text-center flex flex-col items-end pr-4">
-          <div className="relative inline-block mb-3">
+        <div className="text-center md:text-right flex flex-col items-center md:items-end md:pr-4">
+          <div className="relative inline-block mb-2 sm:mb-3">
             <div 
-              className="absolute inset-0 blur-3xl rounded-full"
+              className="absolute inset-0 blur-2xl sm:blur-3xl rounded-full"
               style={{
                 backgroundColor: awayTeamColors?.primary_color ? `${awayTeamColors.primary_color}33` : 'rgba(239, 68, 68, 0.2)'
               }}
@@ -142,32 +142,32 @@ export function Header({ predictionData, isLoading }: HeaderProps) {
             <ImageWithFallback
               src={awayLogo}
               alt={awayTeam}
-              className="relative w-32 h-32 md:w-48 md:h-48 lg:w-72 lg:h-72 object-contain"
+              className="relative w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 object-contain"
             />
           </div>
-          <div className="flex items-center gap-2 justify-end">
+          <div className="flex flex-wrap items-center gap-2 justify-center md:justify-end">
             <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-yellow-500/30 border border-yellow-600/40">
-              <span className="text-yellow-700 font-bold text-lg">Away</span>
+              <span className="text-yellow-700 font-bold text-sm sm:text-base lg:text-lg">Away</span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-white">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
               {awayRank && `#${awayRank} `}{awayTeam}
             </h2>
           </div>
-          <p className="text-gray-300 text-lg font-semibold">{awayRecord}</p>
+          <p className="text-gray-300 text-base sm:text-lg font-semibold">{awayRecord}</p>
         </div>
 
         {/* VS */}
-        <div className="text-center flex-shrink-0 py-4 md:py-0">
-          <div className="text-4xl md:text-6xl font-black bg-gradient-to-br from-yellow-400 via-amber-500 to-amber-300 bg-clip-text text-transparent">
+        <div className="text-center flex-shrink-0 py-2 md:py-0">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-br from-yellow-400 via-amber-500 to-amber-300 bg-clip-text text-transparent">
             VS
           </div>
         </div>
 
         {/* Home Team - Real Data */}
-        <div className="text-center flex flex-col items-start pl-4">
-          <div className="relative inline-block mb-3">
+        <div className="text-center md:text-left flex flex-col items-center md:items-start md:pl-4">
+          <div className="relative inline-block mb-2 sm:mb-3">
             <div 
-              className="absolute inset-0 blur-3xl rounded-full"
+              className="absolute inset-0 blur-2xl sm:blur-3xl rounded-full"
               style={{
                 backgroundColor: homeTeamColors?.primary_color ? `${homeTeamColors.primary_color}33` : 'rgba(249, 115, 22, 0.2)'
               }}
@@ -175,18 +175,18 @@ export function Header({ predictionData, isLoading }: HeaderProps) {
             <ImageWithFallback
               src={homeLogo}
               alt={homeTeam}
-              className="relative w-32 h-32 md:w-48 md:h-48 lg:w-72 lg:h-72 object-contain"
+              className="relative w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 object-contain"
             />
           </div>
-          <div className="flex items-center gap-2 justify-start">
-            <h2 className="text-2xl md:text-3xl font-bold text-white">
+          <div className="flex flex-wrap items-center gap-2 justify-center md:justify-start">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
               {homeRank && `#${homeRank} `}{homeTeam}
             </h2>
             <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-yellow-500/30 border border-yellow-600/40">
-              <span className="text-yellow-700 font-bold text-lg">Home</span>
+              <span className="text-yellow-700 font-bold text-sm sm:text-base lg:text-lg">Home</span>
             </div>
           </div>
-          <p className="text-gray-300 text-lg font-semibold">{homeRecord}</p>
+          <p className="text-gray-300 text-base sm:text-lg font-semibold">{homeRecord}</p>
         </div>
       </div>
     </GlassCard>

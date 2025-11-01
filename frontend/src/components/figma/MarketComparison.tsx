@@ -23,6 +23,9 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
   // Use corrected betting analysis data if available
   const bettingAnalysis = predictionData?.detailed_analysis?.betting_analysis;
   
+  // Get individual sportsbooks from API
+  const individualBooks = bettingAnalysis?.sportsbooks?.individual_books || [];
+  
   // Market comparison data - use real betting analysis when available
   const modelSpread = predictionData?.prediction_cards?.predicted_spread?.model_spread || 0;
   
@@ -41,43 +44,27 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
   }
   
   // Use real market data from betting analysis if available
-  const marketSpread = bettingAnalysis?.market_spread || predictionData?.prediction_cards?.predicted_spread?.market_spread || -3.5;
+  const marketSpreadRaw = bettingAnalysis?.market_spread || predictionData?.prediction_cards?.predicted_spread?.market_spread || -3.5;
+  const marketSpread = Math.round(marketSpreadRaw * 2) / 2; // Round to nearest 0.5
   const marketSpreadDisplay = bettingAnalysis?.formatted_spread || `${homeTeam.name} ${marketSpread >= 0 ? '+' : ''}${marketSpread.toFixed(1)}`;
   const valueEdge = bettingAnalysis?.spread_edge || predictionData?.prediction_cards?.predicted_spread?.value_edge || 0;
   const spreadEdge = Math.abs(valueEdge);
   
   const modelTotal = predictionData?.prediction_cards?.predicted_total?.model_total || 52.5;
-  const marketTotal = bettingAnalysis?.market_total || predictionData?.prediction_cards?.predicted_total?.market_total || 45.0;
+  const marketTotalRaw = bettingAnalysis?.market_total || predictionData?.prediction_cards?.predicted_total?.market_total || 45.0;
+  const marketTotal = Math.round(marketTotalRaw * 2) / 2; // Round to nearest 0.5
   const totalEdge = bettingAnalysis?.total_edge || predictionData?.prediction_cards?.predicted_total?.edge || 8.0;
   
-  // Determine who is the favorite and format spreads correctly
-  const determineFavoriteAndSpread = (rawSpread: number, homeTeamName: string, awayTeamName: string) => {
-    if (rawSpread < 0) {
-      // Home team is favorite
-      return {
-        favoriteTeam: homeTeamName,
-        underdogTeam: awayTeamName,
-        favoriteSpread: rawSpread, // Keep negative
-        underdogSpread: -rawSpread // Make positive
-      };
+  // Helper function to format spread display with team name
+  const formatSpreadDisplay = (spread: number) => {
+    if (spread < 0) {
+      // Home team favored
+      return `${homeTeam.name} ${spread.toFixed(1)}`;
     } else {
-      // Away team is favorite  
-      return {
-        favoriteTeam: awayTeamName,
-        underdogTeam: homeTeamName,
-        favoriteSpread: -rawSpread, // Make negative
-        underdogSpread: rawSpread // Keep positive
-      };
+      // Away team favored (show as positive for home team)
+      return `${homeTeam.name} +${spread.toFixed(1)}`;
     }
   };
-  
-  // Use real betting analysis spread format, or generate sportsbook variations
-  const baseSpreadDisplay = marketSpreadDisplay;
-  
-  // All sportsbooks use the same spread display (with team name)
-  const bovadaSpreadDisplay = baseSpreadDisplay;
-  const draftKingsSpreadDisplay = baseSpreadDisplay; 
-  const espnBetSpreadDisplay = baseSpreadDisplay;
   
   // Use real betting analysis recommendations if available
   const valueBetSpread = bettingAnalysis?.spread_recommendation || 
@@ -89,16 +76,6 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
     (modelTotal > marketTotal + 3 ? `OVER ${marketTotal}` :
      modelTotal < marketTotal - 3 ? `UNDER ${marketTotal}` :
      "No significant edge");
-
-  
-  // Market display for favorite perspective (corrected) - only if no betting analysis
-  const marketDisplay = determineFavoriteAndSpread(marketSpread, homeTeam.name, awayTeam.name);
-  const fallbackMarketDisplay = `${marketDisplay.favoriteTeam} ${marketDisplay.favoriteSpread.toFixed(1)}`;
-  
-  // Sportsbook totals
-  const bovadaTotal = marketTotal - 0.5;
-  const draftKingsTotal = marketTotal;
-  const espnBetTotal = marketTotal + 1.0;
   
   // Check for upset alert from API
   const isUpsetAlert = bettingAnalysis?.is_upset_alert || false;
@@ -113,7 +90,7 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
   // Use the team that the MODEL favors (based on spread)
   const modelFavoredTeam = modelSpread < 0 ? awayTeam : homeTeam;
   const primaryTeamColor = modelSpread < 0 ? awayTeamColor : homeTeamColor;  return (
-    <GlassCard className="p-6">
+    <GlassCard className="p-4 sm:p-6">
       {/* Upset Alert Banner - Team-Themed Design */}
       {isUpsetAlert && (
         <div 
@@ -407,33 +384,67 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
           Live Sportsbook Lines
         </h4>
         <div className="space-y-3">
-          <SportsbookLine 
-            name="Bovada" 
-            logo={BovadaLogo}
-            spread={bovadaSpreadDisplay}
-            total={bovadaTotal.toString()} 
-            spreadBadge="CONSENSUS"
-            spreadBadgeColor="emerald"
-            totalDiff={`${(bovadaTotal - modelTotal).toFixed(1)}`}
-          />
-          <SportsbookLine 
-            name="ESPN Bet" 
-            logo={ESPNBetLogo}
-            spread={espnBetSpreadDisplay}
-            total={espnBetTotal.toString()} 
-            spreadBadge="+1.0"
-            spreadBadgeColor="amber"
-            totalDiff={`${(espnBetTotal - modelTotal).toFixed(1)}`}
-          />
-          <SportsbookLine 
-            name="DraftKings" 
-            logo={DraftKingsLogo}
-            spread={draftKingsSpreadDisplay}
-            total={draftKingsTotal.toString()} 
-            spreadBadge="CONSENSUS"
-            spreadBadgeColor="emerald"
-            totalDiff={`${(draftKingsTotal - modelTotal).toFixed(1)}`}
-          />
+          {individualBooks.length > 0 ? (
+            individualBooks.map((book: any, index: number) => {
+              const logo = book.provider === 'DraftKings' ? DraftKingsLogo :
+                          book.provider === 'ESPN Bet' ? ESPNBetLogo :
+                          book.provider === 'Bovada' ? BovadaLogo :
+                          DraftKingsLogo;
+              
+              const spreadDisplay = formatSpreadDisplay(book.spread);
+              const total = book.overUnder || 0;
+              const totalDiff = (total - modelTotal).toFixed(1);
+              
+              // Determine badge for spread
+              const isConsensus = Math.abs(book.spread - marketSpread) < 0.3;
+              const spreadBadge = isConsensus ? 'CONSENSUS' : `${(book.spread - marketSpread) > 0 ? '+' : ''}${(book.spread - marketSpread).toFixed(1)}`;
+              const spreadBadgeColor = isConsensus ? 'emerald' : 'amber';
+              
+              return (
+                <SportsbookLine 
+                  key={index}
+                  name={book.provider} 
+                  logo={logo}
+                  spread={spreadDisplay}
+                  total={total.toString()} 
+                  spreadBadge={spreadBadge}
+                  spreadBadgeColor={spreadBadgeColor as 'emerald' | 'amber'}
+                  totalDiff={totalDiff}
+                />
+              );
+            })
+          ) : (
+            // Fallback if no individual books data
+            <>
+              <SportsbookLine 
+                name="Bovada" 
+                logo={BovadaLogo}
+                spread={marketSpreadDisplay}
+                total={(marketTotal - 0.5).toString()} 
+                spreadBadge="CONSENSUS"
+                spreadBadgeColor="emerald"
+                totalDiff={`${(marketTotal - 0.5 - modelTotal).toFixed(1)}`}
+              />
+              <SportsbookLine 
+                name="ESPN Bet" 
+                logo={ESPNBetLogo}
+                spread={marketSpreadDisplay}
+                total={(marketTotal + 1.0).toString()} 
+                spreadBadge="+1.0"
+                spreadBadgeColor="amber"
+                totalDiff={`${(marketTotal + 1.0 - modelTotal).toFixed(1)}`}
+              />
+              <SportsbookLine 
+                name="DraftKings" 
+                logo={DraftKingsLogo}
+                spread={marketSpreadDisplay}
+                total={marketTotal.toString()} 
+                spreadBadge="CONSENSUS"
+                spreadBadgeColor="emerald"
+                totalDiff={`${(marketTotal - modelTotal).toFixed(1)}`}
+              />
+            </>
+          )}
         </div>
 
         {/* Model's Line - Featured - Team Themed & Transparent */}
