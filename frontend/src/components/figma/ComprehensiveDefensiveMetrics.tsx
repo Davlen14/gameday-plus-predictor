@@ -136,43 +136,76 @@ const ComprehensiveDefensiveMetrics: React.FC<ComprehensiveDefensiveMetricsProps
     };
 
     return (
-      <div key={key} className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 py-3 border-b border-white/10">
-        {/* Away Team */}
-        <div className={`text-right ${diff.advantage === 'away' ? 'text-blue-400 font-semibold' : 'text-gray-300'}`}>
-          {formatValue(awayValue)}
-        </div>
-
-        {/* Label & Differential */}
-        <div className="flex flex-col items-center min-w-[220px]">
-          <div className="text-xs text-gray-400 mb-1">{label}</div>
-          <div className={`text-sm font-bold px-3 py-1 rounded-lg ${
-            diff.advantage === 'away' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : diff.advantage === 'home'
-              ? 'bg-orange-500/20 text-orange-400'
-              : 'bg-gray-500/20 text-gray-400'
-          }`}>
-            {diff.advantage === 'away' && '+'}{formatValue(diff.value)}
+      <>
+        {/* Mobile Layout */}
+        <div key={`${key}-mobile`} className="md:hidden space-y-3 py-3 border-b border-white/10">
+          <div className="text-center text-xs font-semibold text-slate-300 uppercase tracking-wider">
+            {label}
+          </div>
+          
+          <div className="flex justify-between items-center gap-2">
+            <div className={`flex-1 text-right ${diff.advantage === 'away' ? 'text-blue-400 font-semibold' : 'text-gray-300'}`}>
+              <div className="text-sm sm:text-base font-bold">{formatValue(awayValue)}</div>
+            </div>
+            
+            <div className="flex flex-col items-center min-w-[100px] sm:min-w-[120px] px-2">
+              <div className={`text-base sm:text-lg font-bold px-2 sm:px-3 py-1 rounded-lg ${
+                diff.advantage === 'away' 
+                  ? 'bg-blue-500/20 text-blue-400' 
+                  : diff.advantage === 'home'
+                  ? 'bg-orange-500/20 text-orange-400'
+                  : 'bg-gray-500/20 text-gray-400'
+              }`}>
+                {diff.advantage === 'away' && '+'}{formatValue(diff.value)}
+              </div>
+            </div>
+            
+            <div className={`flex-1 text-left ${diff.advantage === 'home' ? 'text-blue-400 font-semibold' : 'text-gray-300'}`}>
+              <div className="text-sm sm:text-base font-bold">{formatValue(homeValue)}</div>
+            </div>
           </div>
         </div>
+        
+        {/* Desktop Layout */}
+        <div key={`${key}-desktop`} className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-4 py-3 border-b border-white/10">
+          {/* Away Team */}
+          <div className={`text-right ${diff.advantage === 'away' ? 'text-blue-400 font-semibold' : 'text-gray-300'}`}>
+            {formatValue(awayValue)}
+          </div>
 
-        {/* Home Team */}
-        <div className={`text-left ${diff.advantage === 'home' ? 'text-blue-400 font-semibold' : 'text-gray-300'}`}>
-          {formatValue(homeValue)}
+          {/* Label & Differential */}
+          <div className="flex flex-col items-center min-w-[220px]">
+            <div className="text-xs text-gray-400 mb-1">{label}</div>
+            <div className={`text-sm font-bold px-3 py-1 rounded-lg ${
+              diff.advantage === 'away' 
+                ? 'bg-blue-500/20 text-blue-400' 
+                : diff.advantage === 'home'
+                ? 'bg-orange-500/20 text-orange-400'
+                : 'bg-gray-500/20 text-gray-400'
+            }`}>
+              {diff.advantage === 'away' && '+'}{formatValue(diff.value)}
+            </div>
+          </div>
+
+          {/* Home Team */}
+          <div className={`text-left ${diff.advantage === 'home' ? 'text-blue-400 font-semibold' : 'text-gray-300'}`}>
+            {formatValue(homeValue)}
+          </div>
         </div>
-      </div>
+      </>
     );
   };
 
   return (
-    <div className="bg-gradient-to-br from-red-900/30 to-orange-900/30 backdrop-blur-xl rounded-2xl p-8 border border-white/20 shadow-2xl">
+    <div className="bg-gradient-to-br from-red-900/30 to-orange-900/30 backdrop-blur-xl rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h3 className="text-2xl font-bold text-white flex items-center gap-2">
-          <span className="text-3xl">🛡️</span>
-          Comprehensive Defensive Metrics
+      <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-4 sm:mb-6 gap-2">
+        <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+          <span className="text-2xl sm:text-3xl">🛡️</span>
+          <span className="hidden sm:inline">Comprehensive Defensive Metrics</span>
+          <span className="sm:hidden">Defensive Metrics</span>
         </h3>
-        <div className="text-sm text-gray-400">
+        <div className="text-xs sm:text-sm text-gray-400">
           40 Advanced Defensive Stats
         </div>
       </div>

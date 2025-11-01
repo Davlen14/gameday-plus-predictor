@@ -361,10 +361,10 @@ const ComprehensiveMetricsDashboard: React.FC<ComprehensiveMetricsProps> = ({
       </div>
 
       {/* Section Navigation */}
-      <div className="flex gap-3 border-b border-white/10 pb-4">
+      <div className="flex gap-2 sm:gap-3 border-b border-white/10 pb-3 sm:pb-4 overflow-x-auto scrollbar-hide">
         <button
           onClick={() => setActiveSection('overview')}
-          className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 backdrop-blur-xl border ${
+          className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 backdrop-blur-xl border whitespace-nowrap flex-shrink-0 text-sm sm:text-base ${
             activeSection === 'overview'
               ? 'bg-white/20 text-white border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] scale-105'
               : 'bg-white/5 text-slate-300 border-white/10 hover:bg-white/10 hover:border-white/20 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]'
@@ -379,7 +379,7 @@ const ComprehensiveMetricsDashboard: React.FC<ComprehensiveMetricsProps> = ({
         </button>
         <button
           onClick={() => setActiveSection('offense')}
-          className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 backdrop-blur-xl border ${
+          className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 backdrop-blur-xl border whitespace-nowrap flex-shrink-0 text-sm sm:text-base ${
             activeSection === 'offense'
               ? 'bg-white/20 text-white border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] scale-105'
               : 'bg-white/5 text-slate-300 border-white/10 hover:bg-white/10 hover:border-white/20 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]'
@@ -390,11 +390,12 @@ const ComprehensiveMetricsDashboard: React.FC<ComprehensiveMetricsProps> = ({
               : '0 4px 16px 0 rgba(0, 0, 0, 0.4), inset 0 1px 2px 0 rgba(255, 255, 255, 0.05)'
           }}
         >
-          Offensive Metrics
+          <span className="hidden sm:inline">Offensive Metrics</span>
+          <span className="sm:hidden">Offense</span>
         </button>
         <button
           onClick={() => setActiveSection('defense')}
-          className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 backdrop-blur-xl border ${
+          className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 backdrop-blur-xl border whitespace-nowrap flex-shrink-0 text-sm sm:text-base ${
             activeSection === 'defense'
               ? 'bg-white/20 text-white border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] scale-105'
               : 'bg-white/5 text-slate-300 border-white/10 hover:bg-white/10 hover:border-white/20 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]'
@@ -405,7 +406,8 @@ const ComprehensiveMetricsDashboard: React.FC<ComprehensiveMetricsProps> = ({
               : '0 4px 16px 0 rgba(0, 0, 0, 0.4), inset 0 1px 2px 0 rgba(255, 255, 255, 0.05)'
           }}
         >
-          Defensive Metrics
+          <span className="hidden sm:inline">Defensive Metrics</span>
+          <span className="sm:hidden">Defense</span>
         </button>
       </div>
 

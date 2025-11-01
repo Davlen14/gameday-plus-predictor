@@ -73,32 +73,33 @@ const OverallPowerRankings: React.FC<OverallPowerRankingsProps> = ({
   };
 
   return (
-    <div className="bg-gradient-to-br from-indigo-900/40 to-purple-900/40 backdrop-blur-xl rounded-2xl p-8 border border-white/20 shadow-2xl">
+    <div className="bg-gradient-to-br from-indigo-900/40 to-purple-900/40 backdrop-blur-xl rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
       {/* Header */}
-      <div className="flex justify-between items-center mb-8">
-        <h3 className="text-3xl font-bold text-white flex items-center gap-3">
-          <span className="text-4xl">🏆</span>
-          Overall Power Rankings
+      <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-6 sm:mb-8 gap-3">
+        <h3 className="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2 sm:gap-3">
+          <span className="text-3xl sm:text-4xl">🏆</span>
+          <span className="hidden sm:inline">Overall Power Rankings</span>
+          <span className="sm:hidden">Power Rankings</span>
         </h3>
-        <div className={`text-lg font-bold ${matchQuality.color} px-4 py-2 bg-white/10 rounded-xl`}>
+        <div className={`text-sm sm:text-lg font-bold ${matchQuality.color} px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 rounded-lg sm:rounded-xl text-center sm:text-left`}>
           {matchQuality.level}
         </div>
       </div>
 
       {/* Team Names & Ranks */}
-      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-6 mb-8 pb-6 border-b-2 border-white/30">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6 mb-6 sm:mb-8 pb-4 sm:pb-6 border-b-2 border-white/30">
         <div className="text-right">
-          <div className="text-2xl font-bold text-white mb-1">{awayTeam}</div>
-          <div className="text-sm text-gray-400 mb-2">{awayData.conference}</div>
-          <div className="inline-block bg-blue-500/20 px-4 py-2 rounded-lg">
-            <div className="text-xs text-gray-400">National Rank</div>
-            <div className="text-3xl font-bold text-blue-400">#{awayData.rank}</div>
+          <div className="text-base sm:text-xl md:text-2xl font-bold text-white mb-1 truncate">{awayTeam}</div>
+          <div className="text-xs sm:text-sm text-gray-400 mb-2 hidden sm:block">{awayData.conference}</div>
+          <div className="inline-block bg-blue-500/20 px-2 sm:px-4 py-1 sm:py-2 rounded-lg">
+            <div className="text-xs text-gray-400 hidden sm:block">National Rank</div>
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-400">#{awayData.rank}</div>
           </div>
         </div>
 
-        <div className="text-center px-4">
-          <div className="text-xs text-gray-400 mb-2">Rank Differential</div>
-          <div className={`text-2xl font-bold px-4 py-2 rounded-lg ${
+        <div className="text-center px-2 sm:px-4 min-w-[60px] sm:min-w-[80px]">
+          <div className="text-xs text-gray-400 mb-1 sm:mb-2 hidden sm:block">Rank Diff</div>
+          <div className={`text-base sm:text-xl md:text-2xl font-bold px-2 sm:px-4 py-1 sm:py-2 rounded-lg ${
             rankDiff.advantage === 'away' 
               ? 'bg-blue-500/20 text-blue-400' 
               : rankDiff.advantage === 'home'
@@ -110,11 +111,11 @@ const OverallPowerRankings: React.FC<OverallPowerRankingsProps> = ({
         </div>
 
         <div className="text-left">
-          <div className="text-2xl font-bold text-white mb-1">{homeTeam}</div>
-          <div className="text-sm text-gray-400 mb-2">{homeData.conference}</div>
-          <div className="inline-block bg-purple-500/20 px-4 py-2 rounded-lg">
-            <div className="text-xs text-gray-400">National Rank</div>
-            <div className="text-3xl font-bold text-purple-400">#{homeData.rank}</div>
+          <div className="text-base sm:text-xl md:text-2xl font-bold text-white mb-1 truncate">{homeTeam}</div>
+          <div className="text-xs sm:text-sm text-gray-400 mb-2 hidden sm:block">{homeData.conference}</div>
+          <div className="inline-block bg-purple-500/20 px-2 sm:px-4 py-1 sm:py-2 rounded-lg">
+            <div className="text-xs text-gray-400 hidden sm:block">National Rank</div>
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-400">#{homeData.rank}</div>
           </div>
         </div>
       </div>

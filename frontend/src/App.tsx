@@ -142,28 +142,28 @@ export default function App() {
         }}></div>
         
         {/* Content */}
-        <div className="relative z-10 p-4 md:p-8 lg:p-12 text-white">
-          <div className="max-w-[1600px] mx-auto space-y-6">
+        <div className="relative z-10 px-3 py-4 sm:px-4 sm:py-6 md:p-8 lg:p-12 text-white">
+          <div className="max-w-[1600px] mx-auto space-y-4 sm:space-y-6">
           
           {/* Modern Header */}
-          <div className="relative text-center mb-12">
+          <div className="relative text-center mb-8 sm:mb-12">
             {/* Theme Toggle - Top Right */}
             <div className="absolute top-0 right-0">
               <button 
                 onClick={() => setDarkMode(!darkMode)}
-                className="p-4 bg-slate-900/70 backdrop-blur-xl border border-white/20 hover:border-white/40 rounded-xl transition-all duration-300 hover:scale-105 hover:bg-slate-800/80 shadow-lg hover:shadow-xl"
+                className="p-2 sm:p-3 md:p-4 bg-slate-900/70 backdrop-blur-xl border border-white/20 hover:border-white/40 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 hover:bg-slate-800/80 shadow-lg hover:shadow-xl"
                 aria-label="Toggle theme"
               >
                 {darkMode ? (
-                  <Sun className="h-6 w-6 text-yellow-400 drop-shadow-sm" />
+                  <Sun className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-yellow-400 drop-shadow-sm" />
                 ) : (
-                  <Moon className="h-6 w-6 text-slate-300 drop-shadow-sm" />
+                  <Moon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-slate-300 drop-shadow-sm" />
                 )}
               </button>
             </div>
 
             {/* Main Title */}
-            <h1 className="text-5xl md:text-7xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">
               <span 
                 className="italic"
                 style={{

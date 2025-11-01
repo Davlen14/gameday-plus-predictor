@@ -229,7 +229,7 @@ export function Glossary({ predictionData }: GlossaryProps) {
       {/* Portal Modal */}
       <PortalModal isOpen={isOpen}>
         <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 z-50"
           onClick={() => setIsOpen(false)}
           style={{ 
             zIndex: 999999,
@@ -244,7 +244,7 @@ export function Glossary({ predictionData }: GlossaryProps) {
         >
           <div 
             ref={modalRef}
-            className="bg-slate-900/98 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl w-[90vw] h-[85vh] flex flex-col animate-in fade-in zoom-in-95 duration-200"
+            className="bg-slate-900/98 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl w-full max-w-[95vw] sm:w-[90vw] h-[90vh] sm:h-[85vh] flex flex-col animate-in fade-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
             style={{ 
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)', 
@@ -254,9 +254,9 @@ export function Glossary({ predictionData }: GlossaryProps) {
               maxHeight: '900px'
             }}
           >
-            <div className="p-6 border-b border-white/10 flex-shrink-0">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-white font-semibold text-2xl flex items-center gap-2">
+            <div className="p-4 sm:p-6 border-b border-white/10 flex-shrink-0">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <h3 className="text-white font-semibold text-xl sm:text-2xl flex items-center gap-2">
                   <Info className="w-7 h-7 text-cyan-400" />
                   Metrics Glossary ({filteredItems.length} of {glossaryItems.length} terms)
                 </h3>
@@ -287,7 +287,7 @@ export function Glossary({ predictionData }: GlossaryProps) {
               }}
             >
               <div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-4" 
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 pb-4" 
                 style={{ 
                   zIndex: 1000002,
                   position: 'relative'
