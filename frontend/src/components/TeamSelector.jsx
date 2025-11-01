@@ -124,17 +124,30 @@ export const TeamSelector = () => {
         );
     };
 
-    // Week 8 Key Games Quick Select - Using exact school names from fbs.json
-    const week8Games = [
-        { away: 'Ohio State', home: 'Wisconsin', label: '#1 OSU @ Wisconsin' },
-        { away: 'Louisville', home: 'Miami', label: 'Louisville @ #2 Miami' },
-        { away: 'Michigan State', home: 'Indiana', label: 'MSU @ #3 Indiana' },
+    // Week 9 Key Games Quick Select - Using exact school names from fbs.json
+    const week9Games = [
+        // Ranked vs Ranked Games
+        { away: 'Oklahoma', home: 'Ole Miss', label: '#11 Oklahoma vs #8 Ole Miss' },
+        { away: 'Vanderbilt', home: 'Missouri', label: '#12 Vanderbilt vs #14 Missouri' },
+        { away: 'LSU', home: 'Texas A&M', label: '#19 LSU vs #3 Texas A&M' },
+        // Other Top 25 Games
+        { away: 'South Florida', home: 'Memphis', label: '#20 South Florida @ Memphis' },
+        { away: 'Virginia', home: 'North Carolina', label: '#16 Virginia @ North Carolina' },
+        { away: 'Georgia Tech', home: 'Syracuse', label: '#7 Georgia Tech vs Syracuse' },
+        { away: 'BYU', home: 'Iowa State', label: '#10 BYU @ Iowa State' },
+        { away: 'Alabama', home: 'South Carolina', label: '#4 Alabama @ South Carolina' },
+        { away: 'Cincinnati', home: 'Baylor', label: '#21 Cincinnati vs Baylor' },
+        { away: 'Texas Tech', home: 'Oklahoma State', label: '#15 Texas Tech vs Oklahoma State' },
+        { away: 'Texas', home: 'Mississippi State', label: '#18 Texas @ Mississippi State' },
+        { away: 'Oregon', home: 'Wisconsin', label: '#6 Oregon vs Wisconsin' },
+        { away: 'Miami', home: 'Stanford', label: '#9 Miami vs Stanford' },
+        { away: 'Louisville', home: 'Boston College', label: '#22 Louisville vs Boston College' },
+        { away: 'Michigan', home: 'Michigan State', label: '#24 Michigan @ Michigan State' },
+        { away: 'Tennessee', home: 'Kentucky', label: '#17 Tennessee @ Kentucky' },
+        { away: 'Arizona State', home: 'Houston', label: '#25 Arizona State vs Houston' },
         { away: 'Texas A&M', home: 'Arkansas', label: '#4 A&M @ Arkansas' },
-        { away: 'Ole Miss', home: 'Georgia', label: '#5 Ole Miss @ #9 Georgia' },
-        { away: 'Tennessee', home: 'Alabama', label: '#11 Tenn @ #6 Bama' },
         { away: 'Texas Tech', home: 'Arizona State', label: '#7 TTU @ ASU' },
         { away: 'Oregon', home: 'Rutgers', label: '#8 Oregon @ Rutgers' },
-        { away: 'LSU', home: 'Vanderbilt', label: '#10 LSU @ #17 Vandy' },
         { away: 'Georgia Tech', home: 'Duke', label: '#12 GT @ Duke' }
     ];
 
@@ -189,14 +202,14 @@ export const TeamSelector = () => {
             className="col-span-full"
         >
             <div className="space-y-6">
-                {/* Week 8 Quick Games */}
+                {/* Week 9 Quick Games */}
                 <div className="space-y-3">
                     <h4 className="text-slate-300 font-medium flex items-center gap-2">
                         <span>⚡</span>
-                        Week 8 Key Games - Quick Select
+                        Week 9 Key Games - Quick Select
                     </h4>
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
-                        {week8Games.map((game, idx) => (
+                        {week9Games.map((game, idx) => (
                             <button
                                 key={idx}
                                 onClick={() => handleQuickGameSelect(game)}

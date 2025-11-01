@@ -71,8 +71,12 @@ interface TeamSelectorProps {
 }
 
 export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchupChange }: TeamSelectorProps) {
-  const [awayTeam, setAwayTeam] = useState<Team>(teams[0]);
-  const [homeTeam, setHomeTeam] = useState<Team>(teams[1]);
+  // Default to Week 10 Top Ranked Matchup: #9 Vanderbilt @ #20 Texas
+  const defaultAwayTeam = teams.find(t => t.school === 'Vanderbilt') || teams[0];
+  const defaultHomeTeam = teams.find(t => t.school === 'Texas') || teams[1];
+  
+  const [awayTeam, setAwayTeam] = useState<Team>(defaultAwayTeam);
+  const [homeTeam, setHomeTeam] = useState<Team>(defaultHomeTeam);
   const [showAwayDropdown, setShowAwayDropdown] = useState(false);
   const [showHomeDropdown, setShowHomeDropdown] = useState(false);
   const [awaySearch, setAwaySearch] = useState('');
@@ -196,23 +200,19 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
     onMatchupChange?.(homeTeam, temp);
   };
 
-  // Week 8 Key Games Quick Select - All Top Ranked Matchups
-  const week8Games = [
+  // Week 10 Key Games Quick Select - Top Ranked Matchups
+  const week9Games = [
     // Ranked vs Ranked Games (Top Priority)
-    { away: 'Ole Miss', home: 'Georgia', label: '#5 Ole Miss @ #9 Georgia' },
-    { away: 'Tennessee', home: 'Alabama', label: '#11 Tenn @ #6 Bama' },
-    { away: 'LSU', home: 'Vanderbilt', label: '#10 LSU @ #17 Vandy' },
-    { away: 'USC', home: 'Notre Dame', label: '#20 USC @ #13 Notre Dame' },
-    { away: 'Utah', home: 'BYU', label: '#23 Utah @ #15 BYU' },
+    { away: 'Vanderbilt', home: 'Texas', label: '#9 Vanderbilt @ #20 Texas' },
+    { away: 'Oklahoma', home: 'Tennessee', label: '#18 Oklahoma @ #14 Tennessee' },
+    { away: 'Cincinnati', home: 'Utah', label: '#17 Cincinnati @ #24 Utah' },
     
-    // Other Top Ranked Games  
-    { away: 'Ohio State', home: 'Wisconsin', label: '#1 OSU @ Wisconsin' },
-    { away: 'Louisville', home: 'Miami', label: 'Louisville @ #2 Miami' },
-    { away: 'Michigan State', home: 'Indiana', label: 'MSU @ #3 Indiana' },
-    { away: 'Texas A&M', home: 'Arkansas', label: '#4 A&M @ Arkansas' },
-    { away: 'Texas Tech', home: 'Arizona State', label: '#7 TTU @ ASU' },
-    { away: 'Oregon', home: 'Rutgers', label: '#8 Oregon @ Rutgers' },
-    { away: 'Georgia Tech', home: 'Duke', label: '#12 GT @ Duke' }
+    // Top 10 & Key Conference Games
+    { away: 'Penn State', home: 'Ohio State', label: 'Penn State @ #1 Ohio State' },
+    { away: 'Indiana', home: 'Maryland', label: '#2 Indiana @ Maryland' },
+    { away: 'Georgia', home: 'Florida', label: '#5 Georgia @ Florida' },
+    { away: 'South Carolina', home: 'Ole Miss', label: 'South Carolina @ #7 Ole Miss' },
+    { away: 'Georgia Tech', home: 'NC State', label: '#8 Georgia Tech @ NC State' }
   ];
 
   const handleQuickGameSelect = (game: { away: string; home: string; label: string }) => {
@@ -284,14 +284,14 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
           <div className="text-gray-400 text-sm">Choose teams to analyze</div>
         </div>
 
-        {/* Week 8 Quick Games */}
+        {/* Week 10 Quick Games */}
         <div className="space-y-3">
           <h4 className="text-gray-300 font-medium flex items-center gap-2">
             <Zap className="w-5 h-5 text-yellow-400" />
-            Week 8 Key Games - Quick Select
+            Week 10 Key Games - Quick Select
           </h4>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-            {week8Games.map((game, idx) => {
+            {week9Games.map((game, idx) => {
               const awayTeamData = teams.find(t => {
                 const schoolName = t.school.toLowerCase();
                 const searchName = game.away.toLowerCase();

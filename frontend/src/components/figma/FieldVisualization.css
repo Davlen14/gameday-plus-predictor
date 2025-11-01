@@ -1,0 +1,282 @@
+.field-visualization-container {
+  background: rgba(30, 30, 40, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 24px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.field-header h3 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+}
+
+.field-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 20px;
+  min-height: 180px;
+}
+
+.endzone {
+  flex: 0 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.endzone-away {
+  border-radius: 8px 0 0 8px;
+}
+
+.endzone-home {
+  border-radius: 0 8px 8px 0;
+}
+
+.endzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.endzone-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.endzone-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+.field {
+  flex: 1;
+  background: linear-gradient(
+    90deg,
+    #0d5c2f 0%,
+    #0d5c2f 5%,
+    #1a7a42 5%,
+    #1a7a42 10%,
+    #0d5c2f 10%,
+    #0d5c2f 15%,
+    #1a7a42 15%,
+    #1a7a42 20%,
+    #0d5c2f 20%,
+    #0d5c2f 25%,
+    #1a7a42 25%,
+    #1a7a42 30%,
+    #0d5c2f 30%,
+    #0d5c2f 35%,
+    #1a7a42 35%,
+    #1a7a42 40%,
+    #0d5c2f 40%,
+    #0d5c2f 45%,
+    #1a7a42 45%,
+    #1a7a42 50%,
+    #0d5c2f 50%,
+    #0d5c2f 55%,
+    #1a7a42 55%,
+    #1a7a42 60%,
+    #0d5c2f 60%,
+    #0d5c2f 65%,
+    #1a7a42 65%,
+    #1a7a42 70%,
+    #0d5c2f 70%,
+    #0d5c2f 75%,
+    #1a7a42 75%,
+    #1a7a42 80%,
+    #0d5c2f 80%,
+    #0d5c2f 85%,
+    #1a7a42 85%,
+    #1a7a42 90%,
+    #0d5c2f 90%,
+    #0d5c2f 95%,
+    #1a7a42 95%,
+    #1a7a42 100%
+  );
+  position: relative;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.yard-markers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.yard-marker {
+  flex: 1;
+  text-align: center;
+}
+
+.yard-number {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  opacity: 0.7;
+}
+
+.hash-marks {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    white 0px,
+    white 8px,
+    transparent 8px,
+    transparent 20px
+  );
+  opacity: 0.3;
+  transform: translateY(-50%);
+}
+
+.ball-position {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ball-marker {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 0 0 4px rgba(255, 255, 255, 0.3);
+  animation: ballBounce 2s ease-in-out infinite;
+}
+
+@keyframes ballBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.ball-team-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.football-icon {
+  font-size: 28px;
+}
+
+.field-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.down-distance {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.down-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.situation-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.possession-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.possession-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.possession-team {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .field-wrapper {
+    min-height: 140px;
+  }
+  
+  .endzone {
+    flex: 0 0 60px;
+  }
+  
+  .endzone-logo {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .endzone-text {
+    font-size: 14px;
+  }
+  
+  .yard-number {
+    font-size: 12px;
+  }
+  
+  .ball-marker {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .ball-team-logo {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .football-icon {
+    font-size: 22px;
+  }
+}

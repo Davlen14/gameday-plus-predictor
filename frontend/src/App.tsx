@@ -260,7 +260,6 @@ export default function App() {
               {/* Live Plays Feed */}
               <LivePlaysFeed
                 plays={liveData.plays?.recent_plays || []}
-                limit={10}
                 showEPA={true}
               />
             </>

@@ -1,0 +1,311 @@
+.win-prob-live-container {
+  background: rgba(30, 30, 40, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 24px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.win-prob-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.win-prob-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.win-prob-timestamp {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.win-prob-bars {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+  height: 60px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.team-prob-row {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-info {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.team-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.team-percentage {
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Win Prob Chart */
+.win-prob-chart {
+  margin-top: 24px;
+  padding: 12px;
+  background: rgba(20, 20, 30, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 0 8px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chart-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.chart-legend {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.legend-text {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(180deg, rgba(20, 20, 30, 0.4) 0%, rgba(30, 30, 40, 0.3) 100%);
+  border-radius: 8px;
+  padding: 0;
+}
+
+.chart-line-away {
+  stroke-width: 3;
+  fill: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: stroke-width 0.2s ease;
+}
+
+.chart-line-home {
+  stroke-width: 3;
+  fill: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: stroke-width 0.2s ease;
+}
+
+.chart-area-away {
+  fill: url(#awayGradient);
+  opacity: 0.25;
+}
+
+.chart-area-home {
+  fill: url(#homeGradient);
+  opacity: 0.25;
+}
+
+.chart-grid-line {
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.chart-axis-label {
+  fill: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.chart-y-label {
+  fill: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.chart-point {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.chart-point:hover {
+  filter: brightness(1.2);
+}
+
+.chart-point-group:hover .chart-line-away,
+.chart-point-group:hover .chart-line-home {
+  stroke-width: 3;
+}
+
+.prob-bar-container {
+  position: relative;
+}
+
+.prob-bar-background {
+  position: relative;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.prob-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prob-bar-live {
+  background: linear-gradient(90deg, #10B981 0%, #059669 100%);
+  z-index: 2;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.prob-bar-model {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(59, 130, 246, 0.3),
+    rgba(59, 130, 246, 0.3) 10px,
+    rgba(37, 99, 235, 0.3) 10px,
+    rgba(37, 99, 235, 0.3) 20px
+  );
+  z-index: 1;
+}
+
+.prob-values {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 3;
+}
+
+.live-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.model-value {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.win-prob-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-indicator {
+  width: 20px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.legend-live {
+  background: linear-gradient(90deg, #10B981 0%, #059669 100%);
+}
+
+.legend-model {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(59, 130, 246, 0.5),
+    rgba(59, 130, 246, 0.5) 5px,
+    rgba(37, 99, 235, 0.5) 5px,
+    rgba(37, 99, 235, 0.5) 10px
+  );
+}
+
+.legend-text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .win-prob-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .prob-bar-background {
+    height: 40px;
+  }
+  
+  .live-value {
+    font-size: 16px;
+  }
+  
+  .model-value {
+    font-size: 12px;
+  }
+  
+  .win-prob-legend {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

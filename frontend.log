@@ -1,0 +1,16 @@
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0
+
+You are using Node.js 18.18.0. Vite requires Node.js version 20.19+ or 22.12+. Please upgrade your Node.js version.
+error when starting dev server:
+TypeError: crypto.hash is not a function
+    at getHash (file:///Users/davlenswain/Desktop/Gameday_Graphql_Model/frontend/node_modules/vite/dist/node/chunks/config.js:2608:21)
+    at getLockfileHash (file:///Users/davlenswain/Desktop/Gameday_Graphql_Model/frontend/node_modules/vite/dist/node/chunks/config.js:11362:9)
+    at getDepHash (file:///Users/davlenswain/Desktop/Gameday_Graphql_Model/frontend/node_modules/vite/dist/node/chunks/config.js:11365:23)
+    at initDepsOptimizerMetadata (file:///Users/davlenswain/Desktop/Gameday_Graphql_Model/frontend/node_modules/vite/dist/node/chunks/config.js:10830:53)
+    at createDepsOptimizer (file:///Users/davlenswain/Desktop/Gameday_Graphql_Model/frontend/node_modules/vite/dist/node/chunks/config.js:34258:17)
+    at new DevEnvironment (file:///Users/davlenswain/Desktop/Gameday_Graphql_Model/frontend/node_modules/vite/dist/node/chunks/config.js:35020:109)
+    at Object.defaultCreateClientDevEnvironment [as createEnvironment] (file:///Users/davlenswain/Desktop/Gameday_Graphql_Model/frontend/node_modules/vite/dist/node/chunks/config.js:35431:9)
+    at _createServer (file:///Users/davlenswain/Desktop/Gameday_Graphql_Model/frontend/node_modules/vite/dist/node/chunks/config.js:27965:132)
+    at async CAC.<anonymous> (file:///Users/davlenswain/Desktop/Gameday_Graphql_Model/frontend/node_modules/vite/dist/node/cli.js:572:18)

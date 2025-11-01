@@ -40,10 +40,10 @@ export function MediaInformation({ predictionData }: MediaInformationProps) {
   const gameTime = gameInfo.time;
 
   return (
-    <GlassCard glowColor="from-purple-500/20 to-pink-500/20" className="p-6 border-purple-500/40">
+    <GlassCard glowColor="from-slate-500/10 to-gray-500/10" className="p-6 border-gray-500/20">
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 rounded-lg bg-purple-500/20 border border-purple-500/40">
-          <Tv className="w-5 h-5 text-purple-400" />
+        <div className="p-2 rounded-lg bg-slate-500/20 border border-gray-500/30">
+          <Tv className="w-5 h-5 text-violet-400" />
         </div>
         <h2 className="text-xl font-bold text-white">Media Information</h2>
       </div>
