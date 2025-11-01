@@ -3,7 +3,7 @@ from flask_cors import CORS
 import asyncio
 import os
 import json
-from predictor.core.lightning_predictor import LightningPredictor
+from graphqlpredictor import LightningPredictor
 from run import format_prediction_output
 from prediction_validator import PredictionValidator, apply_prediction_fixes
 from betting_lines_manager import betting_manager

@@ -418,8 +418,33 @@ class LightningPredictor:
                             power_rankings_data = json.load(f)
                         print(f"✅ Loaded comprehensive power rankings from {filename}")
                         break
+                
+                # Load comprehensive player analysis files (QBs, RBs, WRs, TEs, DBs, DLs, LBs)
+                player_data = {}
+                player_files = {
+                    'qbs': 'comprehensive_qb_analysis_2025_20251015_034259.json',
+                    'rbs': 'comprehensive_rb_analysis_2025_20251015_043434.json', 
+                    'wrs': 'comprehensive_wr_analysis_2025_20251015_045922.json',
+                    'tes': 'comprehensive_te_analysis_2025_20251015_050510.json',
+                    'dbs': 'comprehensive_db_analysis_2025_20251015_051747.json',
+                    'dls': 'comprehensive_dl_analysis_2025_20251015_051056.json',
+                    'lbs': 'comprehensive_lb_analysis_2025_20251015_053156.json'
+                }
+                
+                for position, filename in player_files.items():
+                    try:
+                        filepath = os.path.join(backtesting_path, filename)
+                        if os.path.exists(filepath):
+                            with open(filepath, 'r') as f:
+                                player_data[position] = json.load(f)
+                            print(f"✅ Loaded {position.upper()} data: {filename}")
+                    except Exception as e:
+                        print(f"⚠️  Could not load {position} data: {e}")
+                        player_data[position] = {}
+                        
             except Exception as e:
                 print(f"⚠️  Backtesting data not found - using standard calibration: {e}")
+                player_data = {}
             
             # Process and organize data
             return {
@@ -440,7 +465,9 @@ class LightningPredictor:
                 'structured_offensive': self._process_structured_offensive(structured_offensive_stats),
                 'structured_defensive': self._process_structured_defensive(structured_defensive_stats),
                 'backtesting_ratings': self._process_backtesting_data(backtesting_data),
-                'power_rankings': self._process_power_rankings(power_rankings_data)
+                'power_rankings': self._process_power_rankings(power_rankings_data),
+                # Comprehensive player analysis
+                'player_data': player_data
             }
         except Exception as e:
             print(f"⚠️  Warning: Could not load static data files: {e}")
