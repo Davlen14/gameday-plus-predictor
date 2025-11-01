@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { CONFIG } from './config';
 import { TeamSelector } from './components/figma/TeamSelector';
@@ -6,6 +6,7 @@ import { Header } from './components/figma/Header';
 import { PredictionCards } from './components/figma/PredictionCards';
 import { ConfidenceSection } from './components/figma/ConfidenceSection';
 import { MarketComparison } from './components/figma/MarketComparison';
+import { LineMovement } from './components/figma/LineMovement';
 import { ContextualAnalysis } from './components/figma/ContextualAnalysis';
 import { MediaInformation } from './components/figma/MediaInformation';
 import { EPAComparison } from './components/figma/EPAComparison';
@@ -26,18 +27,83 @@ import { APPollRankings } from './components/figma/APPollRankings';
 import { SeasonRecords } from './components/figma/SeasonRecords';
 import { FinalPredictionSummary } from './components/figma/FinalPredictionSummary';
 import { Glossary } from './components/figma/Glossary';
+import { EnhancedTeamStats } from './components/figma/EnhancedTeamStats';
+import LiveGameBadge from './components/figma/LiveGameBadge';
+import FieldVisualization from './components/figma/FieldVisualization';
+import WinProbabilityLive from './components/figma/WinProbabilityLive';
+import LivePlaysFeed from './components/figma/LivePlaysFeed';
+import ComprehensiveMetricsDashboard from './components/figma/ComprehensiveMetricsDashboard';
+
+// Import comprehensive power rankings data
+import powerRankingsData from './data/comprehensive_power_rankings.json';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [predictionData, setPredictionData] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [liveData, setLiveData] = useState<any | null>(null);
+  const [selectedTeams, setSelectedTeams] = useState<{ home: string; away: string } | null>(null);
+  const intervalRef = useRef<number | null>(null);
+  
+  // Fetch live game data
+  const fetchLiveData = async (homeTeam: string, awayTeam: string) => {
+    try {
+      const response = await fetch(
+        `${CONFIG.API.BASE_URL}/api/live-game?home=${encodeURIComponent(homeTeam)}&away=${encodeURIComponent(awayTeam)}`
+      );
+      
+      if (!response.ok) {
+        console.error('Live data fetch failed');
+        return;
+      }
+      
+      const data = await response.json();
+      
+      // Only set live data if game is actually live
+      if (data.game_info?.is_live) {
+        setLiveData(data);
+      } else {
+        setLiveData(null);
+      }
+    } catch (error) {
+      console.error('Error fetching live data:', error);
+    }
+  };
+  
+  // Auto-refresh effect for live data
+  useEffect(() => {
+    // Clear any existing interval
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    
+    // Only start polling if we have teams selected and live data is active
+    if (selectedTeams && liveData?.game_info?.is_live) {
+      // Initial fetch
+      fetchLiveData(selectedTeams.home, selectedTeams.away);
+      
+      // Set up polling every 30 seconds
+      intervalRef.current = window.setInterval(() => {
+        fetchLiveData(selectedTeams.home, selectedTeams.away);
+      }, 30000);
+    }
+    
+    // Cleanup on unmount or when dependencies change
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [selectedTeams, liveData?.game_info?.is_live]);
 
   const handlePrediction = async (homeTeam: string, awayTeam: string) => {
     setIsLoading(true);
     setError(null);
+    setSelectedTeams({ home: homeTeam, away: awayTeam });
     
     try {
+      // Fetch prediction data
       const response = await fetch(`${CONFIG.API.BASE_URL}${CONFIG.API.ENDPOINTS.PREDICT}`, {
         method: 'POST',
         headers: {
@@ -56,6 +122,9 @@ export default function App() {
       const data = await response.json();
       // Pass the complete data structure including formatted_analysis
       setPredictionData(data.ui_components ? { ...data.ui_components, formatted_analysis: data.formatted_analysis } : data);
+      
+      // Also check for live game data
+      await fetchLiveData(homeTeam, awayTeam);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
@@ -143,6 +212,60 @@ export default function App() {
           {/* Header */}
           <Header predictionData={predictionData} isLoading={isLoading} />
           
+          {/* 🔴 LIVE GAME SECTION - Only shows when game is in progress */}
+          {liveData?.game_info?.is_live && (
+            <>
+              {/* Live Badge */}
+              <LiveGameBadge 
+                period={liveData.game_state.period}
+                clock={liveData.game_state.clock}
+              />
+              
+              {/* Field Visualization - Tall and Wide */}
+              <FieldVisualization
+                possession={{
+                  team: liveData.game_state.possession === 'home' 
+                    ? liveData.game_info.home_team 
+                    : liveData.game_info.away_team,
+                  logo: liveData.game_state.possession === 'home'
+                    ? predictionData?.team_selector?.home_team?.logo
+                    : predictionData?.team_selector?.away_team?.logo
+                }}
+                fieldPosition={{
+                  yardLine: liveData.field_position?.yard_line || 50,
+                  down: parseInt(liveData.game_state.situation?.match(/(\d+)(?:st|nd|rd|th)/)?.[1] || '1'),
+                  distance: parseInt(liveData.game_state.situation?.match(/& (\d+)/)?.[1] || '10')
+                }}
+                homeTeam={{
+                  name: liveData.game_info.home_team,
+                  abbr: liveData.game_info.home_team.substring(0, 3).toUpperCase(),
+                  color: predictionData?.team_selector?.home_team?.primary_color || '#1a7a42',
+                  logo: predictionData?.team_selector?.home_team?.logo
+                }}
+                awayTeam={{
+                  name: liveData.game_info.away_team,
+                  abbr: liveData.game_info.away_team.substring(0, 3).toUpperCase(),
+                  color: predictionData?.team_selector?.away_team?.primary_color || '#0d5c2f',
+                  logo: predictionData?.team_selector?.away_team?.logo
+                }}
+                situation={liveData.game_state.situation}
+              />
+              
+              {/* Win Probability Chart - Live vs Model */}
+              <WinProbabilityLive
+                liveData={liveData}
+                predictionData={predictionData}
+              />
+              
+              {/* Live Plays Feed */}
+              <LivePlaysFeed
+                plays={liveData.plays?.recent_plays || []}
+                limit={10}
+                showEPA={true}
+              />
+            </>
+          )}
+          
           {/* 🎯 SECTION 1: CORE PREDICTIONS */}
           {/* Prediction Cards - Main Results */}
           <PredictionCards predictionData={predictionData} isLoading={isLoading} error={error || undefined} />
@@ -153,6 +276,9 @@ export default function App() {
           {/* 📈 MARKET ANALYSIS - RIGHT AFTER PREDICTIONS */}
           {/* Market Comparison - Sportsbook lines and value analysis */}
           <MarketComparison predictionData={predictionData} />
+          
+          {/* Line Movement - Shows how betting lines changed from open to close */}
+          <LineMovement predictionData={predictionData} />
           
           {/* Confidence & Market - COMMENTED OUT FOR NOW */}
           {/* <ConfidenceSection predictionData={predictionData} isLoading={isLoading} error={error || undefined} /> */}
@@ -193,12 +319,21 @@ export default function App() {
           {/* Comprehensive Ratings Comparison - Advanced Rating Systems */}
           <ComprehensiveRatingsComparison predictionData={predictionData} />
           
+          {/* 🎯 COMPREHENSIVE POWER RANKINGS - 167 Metrics Dashboard */}
+          <ComprehensiveMetricsDashboard 
+            predictionData={predictionData} 
+            powerRankingsData={powerRankingsData}
+          />
+          
           {/* 👥 SECTION 4: TEAM & PLAYER ANALYSIS */}
           {/* Key Player Impact */}
           <KeyPlayerImpact predictionData={predictionData} />
           
           {/* Comprehensive Team Statistics */}
           <ComprehensiveTeamStats predictionData={predictionData} />
+          
+          {/* Enhanced Team Stats - NEW: Basic Offensive, Efficiency, Special Teams, Turnovers, Tempo, Red Zone, Momentum */}
+          <EnhancedTeamStats predictionData={predictionData} />
           
           {/* Season Records */}
           <SeasonRecords predictionData={predictionData} />

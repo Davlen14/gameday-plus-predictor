@@ -11,9 +11,11 @@ from typing import Dict, List, Any, Optional
 class BettingLinesManager:
     """Manages betting lines data from week8.json"""
     
-    def __init__(self, lines_file: str = "week8.json"):
+    def __init__(self, lines_file: str = "week9.json", current_week_file: str = "Currentweekgames.json"):
         self.lines_file = lines_file
+        self.current_week_file = current_week_file
         self.games_data = self._load_games_data()
+        self.current_week_data = self._load_current_week_data()
         
     def _load_games_data(self) -> Dict[str, Any]:
         """Load games and betting lines data from JSON file"""
@@ -29,11 +31,34 @@ class BettingLinesManager:
             print(f"❌ Error loading betting lines: {e}")
             return {'games': []}
     
+    def _load_current_week_data(self) -> Dict[str, Any]:
+        """Load current week games data with enhanced formatting"""
+        try:
+            if os.path.exists(self.current_week_file):
+                with open(self.current_week_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    return data
+            else:
+                print(f"⚠️  Current week file {self.current_week_file} not found")
+                return {'games': {'all': []}}
+        except Exception as e:
+            print(f"❌ Error loading current week data: {e}")
+            return {'games': {'all': []}}
+    
     def find_game_by_teams(self, home_team: str, away_team: str) -> Optional[Dict[str, Any]]:
         """Find a game by team names"""
         home_team_clean = self._clean_team_name(home_team)
         away_team_clean = self._clean_team_name(away_team)
         
+        # First try current week data (has better formatting)
+        for game in self.current_week_data.get('games', {}).get('all', []):
+            game_home = self._clean_team_name(game.get('homeTeam', {}).get('name', ''))
+            game_away = self._clean_team_name(game.get('awayTeam', {}).get('name', ''))
+            
+            if game_home == home_team_clean and game_away == away_team_clean:
+                return game
+        
+        # Fallback to week9.json format
         for game in self.games_data.get('games', []):
             game_home = self._clean_team_name(game.get('homeTeam', ''))
             game_away = self._clean_team_name(game.get('awayTeam', ''))
@@ -69,19 +94,174 @@ class BettingLinesManager:
         clean_name = team_name.lower().strip()
         return normalizations.get(clean_name, clean_name)
     
+    def get_game_metadata(self, home_team: str, away_team: str) -> Dict[str, Any]:
+        """Get game metadata including date, time, network info, and rankings"""
+        game = self.find_game_by_teams(home_team, away_team)
+        
+        if not game:
+            return {
+                'date': 'October 25, 2025',
+                'time': '4:00 PM ET',
+                'network': 'TBD',
+                'excitement_index': 4.2,
+                'home_rank': None,
+                'away_rank': None
+            }
+        
+        # Handle Currentweekgames.json format
+        if 'datetime' in game:
+            datetime_info = game['datetime']
+            date = datetime_info.get('date', '2025-10-25')
+            time_24h = datetime_info.get('time', '16:00')
+            day_of_week = datetime_info.get('dayOfWeek', 'Saturday')
+            
+            # Get rankings from current week data
+            home_rank = game.get('homeTeam', {}).get('rank')
+            away_rank = game.get('awayTeam', {}).get('rank')
+            
+            # Convert 24h to 12h format with ET
+            try:
+                hour = int(time_24h.split(':')[0])
+                minute = time_24h.split(':')[1]
+                if hour == 0:
+                    time_12h = f"12:{minute} AM ET"
+                elif hour < 12:
+                    time_12h = f"{hour}:{minute} AM ET"
+                elif hour == 12:
+                    time_12h = f"12:{minute} PM ET"
+                else:
+                    time_12h = f"{hour - 12}:{minute} PM ET"
+            except:
+                time_12h = "4:00 PM ET"
+            
+            # Format date as "October 25, 2025"
+            try:
+                from datetime import datetime
+                date_obj = datetime.strptime(date, '%Y-%m-%d')
+                formatted_date = date_obj.strftime('%B %d, %Y')
+            except:
+                formatted_date = "October 25, 2025"
+            
+            return {
+                'date': formatted_date,
+                'time': time_12h,
+                'network': 'TBD',  # Could be enhanced later
+                'excitement_index': 4.2,
+                'day_of_week': day_of_week,
+                'home_rank': home_rank,
+                'away_rank': away_rank
+            }
+        
+        # Handle week9.json format (fallback)
+        try:
+            start_date = game.get('startDate', '2025-10-25T16:00:00.000Z')
+            from datetime import datetime
+            date_obj = datetime.fromisoformat(start_date.replace('Z', '+00:00'))
+            formatted_date = date_obj.strftime('%B %d, %Y')
+            time_12h = date_obj.strftime('%I:%M %p ET')
+            
+            return {
+                'date': formatted_date,
+                'time': time_12h,
+                'network': 'TBD',
+                'excitement_index': 4.2,
+                'home_rank': None,
+                'away_rank': None
+            }
+        except:
+            return {
+                'date': 'October 25, 2025',
+                'time': '4:00 PM ET',
+                'network': 'TBD',
+                'excitement_index': 4.2,
+                'home_rank': None,
+                'away_rank': None
+            }
+    
     def get_betting_analysis(self, home_team: str, away_team: str, model_spread: float = None, model_total: float = None) -> Dict[str, Any]:
         """Get detailed betting analysis for a game"""
         game = self.find_game_by_teams(home_team, away_team)
         
-        if not game or not game.get('betting_lines', {}).get('lines_available'):
+        if not game:
             return self._get_empty_betting_analysis()
+        
+        # Handle Currentweekgames.json format
+        if 'bettingLines' in game:
+            betting_lines = game['bettingLines']
             
-        betting_lines = game['betting_lines']
+            # Get provider data
+            all_providers = betting_lines.get('allProviders', [])
+            providers_list = [p.get('provider', 'Unknown') for p in all_providers]
+            
+            # Calculate consensus (most common) spread and total instead of average
+            if all_providers:
+                from collections import Counter
+                from statistics import median
+                
+                spreads = [p.get('spread', 0) for p in all_providers if p.get('spread') is not None]
+                totals = [p.get('overUnder', 0) for p in all_providers if p.get('overUnder') is not None]
+                
+                # Use most common value (consensus), or median if no clear consensus
+                if spreads:
+                    spread_counts = Counter(spreads)
+                    most_common_spread, spread_count = spread_counts.most_common(1)[0]
+                    # If most common appears at least twice, use it (consensus)
+                    # Otherwise use median to avoid outliers
+                    if spread_count >= 2:
+                        consensus_spread = most_common_spread
+                    else:
+                        consensus_spread = median(spreads)
+                else:
+                    consensus_spread = betting_lines.get('summary', {}).get('avgSpread', 0)
+                
+                if totals:
+                    total_counts = Counter(totals)
+                    most_common_total, total_count = total_counts.most_common(1)[0]
+                    # If most common appears at least twice, use it (consensus)
+                    # Otherwise use median to avoid outliers
+                    if total_count >= 2:
+                        consensus_total = most_common_total
+                    else:
+                        consensus_total = median(totals)
+                else:
+                    consensus_total = betting_lines.get('summary', {}).get('avgOverUnder', 0)
+                    
+                avg_spread = consensus_spread
+                avg_total = consensus_total
+            else:
+                # Fallback to summary averages
+                avg_spread = betting_lines.get('summary', {}).get('avgSpread', 0)
+                avg_total = betting_lines.get('summary', {}).get('avgOverUnder', 0)
+            
+            # Format spread display
+            if avg_spread > 0:
+                formatted_spread = f"{game['awayTeam']['name']} -{avg_spread:.1f}"
+            elif avg_spread < 0:
+                formatted_spread = f"{game['homeTeam']['name']} {abs(avg_spread):.1f}"
+            else:
+                formatted_spread = "Pick'em"
+            
+            # Use first provider for specific line info
+            first_provider = all_providers[0] if all_providers else {}
+            
+        # Handle week9.json format (fallback)
+        elif 'betting_lines' in game and game.get('betting_lines', {}).get('lines_available'):
+            betting_lines = game['betting_lines']
+            avg_spread = betting_lines.get('spread', 0)
+            avg_total = betting_lines.get('over_under', 0)
+            formatted_spread = betting_lines.get('formatted_spread', 'N/A')
+            providers_list = betting_lines.get('all_providers', [])
+            first_provider = {
+                'provider': betting_lines.get('provider', 'Unknown'),
+                'moneylineHome': betting_lines.get('home_moneyline', 'N/A'),
+                'moneylineAway': betting_lines.get('away_moneyline', 'N/A')
+            }
+        else:
+            return self._get_empty_betting_analysis()
         
         # Extract market data
-        market_spread = betting_lines.get('spread', 0)
-        market_total = betting_lines.get('over_under', 0)
-        formatted_spread = betting_lines.get('formatted_spread', 'N/A')
+        market_spread = avg_spread
+        market_total = avg_total
         
         # Calculate value edges if model data provided
         spread_edge = 0
@@ -136,6 +316,19 @@ class BettingLinesManager:
             market_total, total_edge, model_total
         )
         
+        # Build individual sportsbook lines for UI display
+        individual_sportsbooks = []
+        for provider in all_providers:
+            individual_sportsbooks.append({
+                'provider': provider.get('provider', 'Unknown'),
+                'spread': provider.get('spread', 0),
+                'spreadOpen': provider.get('spreadOpen', 0),
+                'overUnder': provider.get('overUnder', 0),
+                'overUnderOpen': provider.get('overUnderOpen', 0),
+                'moneylineHome': provider.get('moneylineHome', 'N/A'),
+                'moneylineAway': provider.get('moneylineAway', 'N/A')
+            })
+        
         return {
             'market_spread': market_spread,
             'market_total': market_total,
@@ -148,15 +341,16 @@ class BettingLinesManager:
             'model_favorite': model_favorite,
             'market_favorite': market_favorite,
             'sportsbooks': {
-                'primary_provider': betting_lines.get('provider', 'Unknown'),
-                'all_providers': betting_lines.get('all_providers', []),
-                'home_moneyline': betting_lines.get('home_moneyline', 'N/A'),
-                'away_moneyline': betting_lines.get('away_moneyline', 'N/A'),
-                'spread_open': betting_lines.get('spread_open', 'N/A'),
-                'total_open': betting_lines.get('over_under_open', 'N/A')
+                'primary_provider': first_provider.get('provider', 'Unknown'),
+                'all_providers': providers_list,
+                'home_moneyline': first_provider.get('moneylineHome', 'N/A'),
+                'away_moneyline': first_provider.get('moneylineAway', 'N/A'),
+                'spread_open': first_provider.get('spreadOpen', 'N/A'),
+                'total_open': first_provider.get('overUnderOpen', 'N/A'),
+                'individual_books': individual_sportsbooks  # NEW: Individual sportsbook lines
             },
             'data_source': 'College Football Data API',
-            'last_updated': betting_lines.get('last_updated', 'Unknown')
+            'last_updated': 'Current Week Data'
         }
     
     def _get_spread_recommendation(self, formatted_spread: str, edge: float, home_team: str, away_team: str,

@@ -3,10 +3,11 @@ from flask_cors import CORS
 import asyncio
 import os
 import json
-from graphqlpredictor import LightningPredictor
+from predictor.core.lightning_predictor import LightningPredictor
 from run import format_prediction_output
 from prediction_validator import PredictionValidator, apply_prediction_fixes
 from betting_lines_manager import betting_manager
+from game_media_service import get_game_media_service
 
 app = Flask(__name__)
 # Configure CORS - allow same origin and local development
@@ -564,6 +565,34 @@ def calculate_ratings_comparison(predictor, away_team, home_team):
         "consistency_advantage": consistency_advantage
     }
 
+def convert_comprehensive_stats_to_dict(stats):
+    """Convert ComprehensiveTeamStats dataclass to dictionary for JSON serialization"""
+    if stats is None:
+        return {}
+    
+    # Convert dataclass to dict using __dict__
+    return {
+        k: v for k, v in stats.__dict__.items()
+    }
+
+def convert_coaching_metrics_to_dict(coaching):
+    """Convert CoachingMetrics dataclass to dictionary for JSON serialization"""
+    if coaching is None:
+        return {}
+    
+    return {
+        k: v for k, v in coaching.__dict__.items()
+    }
+
+def convert_drive_metrics_to_dict(drives):
+    """Convert DriveMetrics dataclass to dictionary for JSON serialization"""
+    if drives is None:
+        return {}
+    
+    return {
+        k: v for k, v in drives.__dict__.items()
+    }
+
 def format_prediction_for_api(prediction, home_team_data, away_team_data, predictor):
     """
     Bridge function that captures the output from run.py's format_prediction_output 
@@ -633,23 +662,6 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
                 return default
         return d if d != {} else default
     
-    # Load AP Poll data for rankings
-    home_ranking = None
-    away_ranking = None
-    try:
-        with open('frontend/src/data/ap.json', 'r') as f:
-            ap_data = json.load(f)
-        
-        current_week = 'week_8'
-        if current_week in ap_data:
-            for rank_entry in ap_data[current_week]['ranks']:
-                if rank_entry['school'] == prediction.home_team:
-                    home_ranking = rank_entry
-                elif rank_entry['school'] == prediction.away_team:
-                    away_ranking = rank_entry
-    except Exception as e:
-        print(f"Note: AP Poll data not available: {e}")
-    
     # Get season records
     season_records = get_val(details, 'season_records', default={})
     home_record = season_records.get('home', {'wins': 0, 'losses': 0})
@@ -686,6 +698,66 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
     print(f"🔍 DEBUG: Flask weather_data keys: {list(weather_data.keys()) if weather_data else 'None'}")
     print(f"🔍 DEBUG: Flask weather_data values: {weather_data}")
     
+    # Get game metadata from Week 9 media service
+    media_service = get_game_media_service()
+    game_media_info = media_service.get_game_info(prediction.home_team, prediction.away_team)
+    
+    # Start with betting manager metadata as fallback
+    game_metadata = betting_manager.get_game_metadata(prediction.home_team, prediction.away_team)
+    
+    # Override with actual game media data if available
+    if game_media_info:
+        print(f"✅ Found game media for {prediction.home_team} vs {prediction.away_team}")
+        game_metadata['date'] = game_media_info.get('date', game_metadata.get('date', 'TBD'))
+        game_metadata['time'] = game_media_info.get('time', game_metadata.get('time', 'TBD'))
+        game_metadata['network'] = game_media_info.get('network', game_metadata.get('network', 'TBD'))
+        
+        # Also override weather if available from media service
+        if game_media_info.get('weather'):
+            media_weather = game_media_info['weather']
+            if not weather_data or not weather_data.get('temperature'):
+                weather_data = {
+                    'temperature': media_weather.get('temperature'),
+                    'wind_speed': media_weather.get('windSpeed'),
+                    'precipitation': media_weather.get('precipitation'),
+                    'humidity': media_weather.get('humidity'),
+                    'conditions': 'Clear' if media_weather.get('weatherConditionCode', 0) == 0 else 'Various'
+                }
+    else:
+        # Fallback to prediction object attributes
+        if hasattr(prediction, 'game_date') and prediction.game_date:
+            game_metadata['date'] = prediction.game_date
+        if hasattr(prediction, 'game_time') and prediction.game_time:
+            game_metadata['time'] = prediction.game_time
+        
+        # Extract network from media_info if available
+        if hasattr(prediction, 'media_info') and prediction.media_info:
+            for media in prediction.media_info:
+                if media.get('mediaType') == 'TV' or media.get('mediaType') == 'television':
+                    network_name = media.get('name', 'TBD')
+                    game_metadata['network'] = network_name
+                    break
+    
+    # Load rankings from AP Poll week_9 (most current)
+    home_ranking = None
+    away_ranking = None
+    try:
+        with open('frontend/src/data/ap.json', 'r') as f:
+            ap_data = json.load(f)
+        
+        current_week = 'week_10'
+        if current_week in ap_data:
+            for rank_entry in ap_data[current_week]['ranks']:
+                if rank_entry['school'] == prediction.home_team:
+                    home_ranking = rank_entry
+                elif rank_entry['school'] == prediction.away_team:
+                    away_ranking = rank_entry
+    except Exception as e:
+        print(f"Note: AP Poll data not available: {e}")
+        # Fallback to current week data if AP Poll fails
+        home_ranking = {'rank': game_metadata.get('home_rank')} if game_metadata.get('home_rank') else None
+        away_ranking = {'rank': game_metadata.get('away_rank')} if game_metadata.get('away_rank') else None
+    
     # Build UI components structure with REAL data
     ui_components = {
         "team_selector": {
@@ -706,10 +778,10 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
         },
         "header": {
             "game_info": {
-                "date": getattr(prediction, 'game_date', "October 19, 2025"),
-                "time": getattr(prediction, 'game_time', "7:30 PM ET"),
-                "network": prediction.media_info[0].get('name', 'TBD') if prediction.media_info else 'TBD',
-                "excitement_index": 4.2
+                "date": game_metadata.get('date', 'October 25, 2025'),
+                "time": game_metadata.get('time', '4:00 PM ET'),
+                "network": game_metadata.get('network', 'TBD'),
+                "excitement_index": game_metadata.get('excitement_index', 4.2)
             },
             "teams": {
                 "away": {
@@ -807,7 +879,20 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
         },
         "detailed_analysis": {
             "enhanced_player_analysis": details.get('enhanced_player_analysis', {}),
-            "betting_analysis": details.get('betting_analysis', {})
+            "betting_analysis": getattr(prediction, 'detailed_analysis', {}).get('betting_analysis', details.get('betting_analysis', {}))
+        },
+        # NEW: Team Statistics for UI components showing zeros
+        "team_statistics": {
+            "home": convert_comprehensive_stats_to_dict(getattr(prediction, 'home_team_stats', None)),
+            "away": convert_comprehensive_stats_to_dict(getattr(prediction, 'away_team_stats', None))
+        },
+        "coaching_data": {
+            "home": convert_coaching_metrics_to_dict(getattr(prediction, 'home_coaching', None)),
+            "away": convert_coaching_metrics_to_dict(getattr(prediction, 'away_coaching', None))
+        },
+        "drive_metrics": {
+            "home": convert_drive_metrics_to_dict(getattr(prediction, 'home_drive_metrics', None)),
+            "away": convert_drive_metrics_to_dict(getattr(prediction, 'away_drive_metrics', None))
         }
     }
     
@@ -1173,6 +1258,40 @@ def predict_game_detailed(home_team, away_team):
         traceback.print_exc()
         return jsonify({
             "error": f"Prediction failed: {str(e)}"
+        }), 500
+
+@app.route('/api/live-game', methods=['GET'])
+def get_live_game():
+    """Fetch live game data including win probability, field position, and plays"""
+    try:
+        home_team = request.args.get('home')
+        away_team = request.args.get('away')
+        
+        if not home_team or not away_team:
+            return jsonify({
+                'error': 'Both home and away team names are required'
+            }), 400
+        
+        # Import the live data fetcher
+        import sys
+        import importlib.util
+        
+        # Load the test script as a module
+        spec = importlib.util.spec_from_file_location("live_fetcher", "test_iowa_state_live.py")
+        live_fetcher = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(live_fetcher)
+        
+        # Fetch live data
+        live_data = live_fetcher.get_complete_live_data(home_team, away_team)
+        
+        return jsonify(live_data)
+        
+    except Exception as e:
+        print(f"Error fetching live game data: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({
+            'error': f'Failed to fetch live game data: {str(e)}'
         }), 500
 
 @app.route('/teams', methods=['GET'])
