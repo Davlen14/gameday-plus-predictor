@@ -29,9 +29,6 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
     // Try parsing from backend section first (formatted_analysis)
     const section = predictionData?.formatted_analysis ? extractSection(predictionData.formatted_analysis, 18) : null;
 
-    // Try parsing from backend section first (formatted_analysis)
-    const section = predictionData?.formatted_analysis ? extractSection(predictionData.formatted_analysis, 18) : null;
-
     // Parse current rankings - from backend OR fallback to JSON
     const parseCurrentRankings = () => {
       const rankings: any[] = [];
