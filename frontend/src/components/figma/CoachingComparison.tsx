@@ -121,28 +121,28 @@ const PerformanceRow = ({
   
   return (
     <tr className="border-b border-gray-700/30 hover:bg-gray-800/20 transition-colors">
-      <td className="py-4 px-4">
-        <div className="flex items-center gap-2 text-gray-300 font-medium">
-          <Icon className="w-4 h-4" />
-          {label}
+      <td className="py-3 sm:py-4 px-2 sm:px-4">
+        <div className="flex items-center gap-1 sm:gap-2 text-gray-300 font-medium text-xs sm:text-sm">
+          <Icon className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+          <span className="truncate">{label}</span>
         </div>
       </td>
-      <td className="py-4 px-4 text-center">
+      <td className="py-3 sm:py-4 px-2 sm:px-4 text-center">
         <div className={`space-y-1 ${coach1Better ? 'text-green-400' : 'text-white'}`}>
-          <div className="font-bold text-lg">{coach1Data.percentage}%</div>
+          <div className="font-bold text-base sm:text-lg">{coach1Data.percentage}%</div>
           <div className="text-xs text-gray-400">
-            {coach1Data.wins}-{coach1Data.losses}-0 ({coach1Data.total} games)
+            {coach1Data.wins}-{coach1Data.losses}-0 <span className="hidden sm:inline">({coach1Data.total} games)</span>
           </div>
-          {coach1Better && <CheckCircle className="w-4 h-4 text-green-400 mx-auto" />}
+          {coach1Better && <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 mx-auto" />}
         </div>
       </td>
-      <td className="py-4 px-4 text-center">
+      <td className="py-3 sm:py-4 px-2 sm:px-4 text-center">
         <div className={`space-y-1 ${!coach1Better ? 'text-green-400' : 'text-white'}`}>
-          <div className="font-bold text-lg">{coach2Data.percentage}%</div>
+          <div className="font-bold text-base sm:text-lg">{coach2Data.percentage}%</div>
           <div className="text-xs text-gray-400">
-            {coach2Data.wins}-{coach2Data.losses}-0 ({coach2Data.total} games)
+            {coach2Data.wins}-{coach2Data.losses}-0 <span className="hidden sm:inline">({coach2Data.total} games)</span>
           </div>
-          {!coach1Better && <CheckCircle className="w-4 h-4 text-green-400 mx-auto" />}
+          {!coach1Better && <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 mx-auto" />}
         </div>
       </td>
     </tr>
@@ -255,59 +255,62 @@ export function CoachingComparison({ coach1Data, coach2Data, predictionData }: C
   const coach2IsElite = coach2.vsRanked.percentage > 65;
 
   return (
-    <GlassCard className="p-6">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 rounded-lg border" style={{
+    <GlassCard className="p-4 sm:p-6">
+      <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+        <div className="p-1.5 sm:p-2 rounded-lg border" style={{
           background: `linear-gradient(135deg, ${coach1.color}20, ${coach2.color}15)`,
           borderColor: `${coach1.color}40`
         }}>
-          <Users className="w-5 h-5" style={{ color: `${coach1.color}` }} />
+          <Users className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: `${coach1.color}` }} />
         </div>
-        <h3 className="text-white font-semibold">Elite vs Ranked Performance Analysis</h3>
+        <h3 className="text-white font-semibold text-sm sm:text-base">
+          <span className="hidden sm:inline">Elite vs Ranked Performance Analysis</span>
+          <span className="sm:hidden">Coaching Analysis</span>
+        </h3>
       </div>
 
       {/* Coach Headers */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
         <TeamHeader coach={coach1} isElite={coach1IsElite} />
         <TeamHeader coach={coach2} isElite={coach2IsElite} />
       </div>
 
       {/* Big Game Performance Summary */}
-      <div className="mb-8">
-        <h4 className="text-gray-300 font-semibold mb-4 flex items-center gap-2">
-          <Trophy className="w-4 h-4 text-yellow-400" />
+      <div className="mb-6 sm:mb-8">
+        <h4 className="text-gray-300 font-semibold mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
+          <Trophy className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
           Big Game Performance Summary
         </h4>
         
-        <div className="rounded-xl p-6 border backdrop-blur-lg shadow-xl" style={{
+        <div className="rounded-xl p-4 sm:p-6 border backdrop-blur-lg shadow-xl" style={{
           background: `linear-gradient(to bottom right, ${coach1.color}10, ${coach2.color}10, ${coach1.color}08)`,
           borderColor: `${coach1.color}20`,
           backdropFilter: 'blur(16px) saturate(180%)',
           WebkitBackdropFilter: 'blur(16px) saturate(180%)'
         }}>
-          <div className="overflow-x-auto">
-            <table className="w-full">
+          <div className="overflow-x-auto -mx-2 sm:mx-0">
+            <table className="w-full min-w-[580px]">
               <thead>
                 <tr className="border-b border-gray-600/40">
-                  <th className="text-left py-3 px-4 text-gray-300 font-medium">Performance Level</th>
-                  <th className="text-center py-3 px-4 font-medium">
-                    <div className="flex items-center justify-center gap-2">
+                  <th className="text-left py-2 sm:py-3 px-2 sm:px-4 text-gray-300 font-medium text-xs sm:text-sm">Performance Level</th>
+                  <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">
+                    <div className="flex items-center justify-center gap-1 sm:gap-2">
                       <ImageWithFallback 
                         src={coach1.logo}
                         alt={coach1.team}
-                        className="w-6 h-6 object-contain opacity-90"
+                        className="w-5 h-5 sm:w-6 sm:h-6 object-contain opacity-90"
                       />
-                      <span style={{ color: coach1.color }}>{coach1.name}</span>
+                      <span style={{ color: coach1.color }} className="truncate max-w-[80px] sm:max-w-none">{coach1.name}</span>
                     </div>
                   </th>
-                  <th className="text-center py-3 px-4 font-medium">
-                    <div className="flex items-center justify-center gap-2">
+                  <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">
+                    <div className="flex items-center justify-center gap-1 sm:gap-2">
                       <ImageWithFallback 
                         src={coach2.logo}
                         alt={coach2.team}
-                        className="w-6 h-6 object-contain opacity-90"
+                        className="w-5 h-5 sm:w-6 sm:h-6 object-contain opacity-90"
                       />
-                      <span style={{ color: coach2.color }}>{coach2.name}</span>
+                      <span style={{ color: coach2.color }} className="truncate max-w-[80px] sm:max-w-none">{coach2.name}</span>
                     </div>
                   </th>
                 </tr>
