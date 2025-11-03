@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Week 10 College Football Games and Lines Fetcher
-Fetches all games and betting lines for Week 10 using College Football Data API
+Week 11 College Football Games and Lines Fetcher
+Fetches all games and betting lines for Week 11 using College Football Data API
 Generates Currentweekgames.json format
 """
 
@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import Dict, List, Any
 
 class Week10DataFetcher:
-    """Fetches Week 10 college football games and betting lines"""
+    """Fetches Week 11 college football games and betting lines"""
 
     BASE_URL = "https://api.collegefootballdata.com"
     API_KEY = "T0iV2bfp8UKCf8rTV12qsS26USzyDYiVNA7x6WbaV3NOvewuDQnJlv3NfPzr3f/p"
@@ -24,26 +24,74 @@ class Week10DataFetcher:
         })
 
     def get_week10_games(self) -> List[Dict[str, Any]]:
-        """Get all games for Week 10"""
+        """Get all games for Week 11 with media info"""
         try:
             current_year = 2025
             games_url = f"{self.BASE_URL}/games"
             params = {
                 'year': current_year,
-                'week': 10,
+                'week': 11,
                 'seasonType': 'regular'
             }
 
-            print(f"📡 Fetching Week 10 games for {current_year}...")
+            print(f"📡 Fetching Week 11 games for {current_year}...")
             response = self.session.get(games_url, params=params)
             response.raise_for_status()
 
             games = response.json()
-            print(f"✅ Found {len(games)} games for Week 10")
+            print(f"✅ Found {len(games)} games for Week 11")
+            
+            # Enhance games with media info
+            print(f"📺 Fetching media info for games...")
+            for game in games:
+                game['mediaInfo'] = self.get_game_media(game['id'])
+            
             return games
 
         except requests.exceptions.RequestException as e:
             print(f"❌ Error fetching games: {e}")
+            return []
+    
+    def get_game_media(self, game_id: int) -> List[Dict[str, str]]:
+        """Get media info (TV network) for a specific game using GraphQL"""
+        try:
+            # GraphQL endpoint for College Football Data API
+            graphql_url = "https://apiv2.collegefootballdata.com/graphql"
+            
+            query = """
+            query GetGameMedia($gameId: Int!) {
+              game(where: {id: {_eq: $gameId}}) {
+                id
+                mediaInfo {
+                  mediaType
+                  name
+                }
+              }
+            }
+            """
+            
+            payload = {
+                "query": query,
+                "variables": {
+                    "gameId": game_id
+                }
+            }
+            
+            response = self.session.post(graphql_url, json=payload)
+            response.raise_for_status()
+            
+            data = response.json()
+            
+            # Extract media info from GraphQL response
+            if data.get('data') and data['data'].get('game'):
+                games = data['data']['game']
+                if games and len(games) > 0:
+                    return games[0].get('mediaInfo', [])
+            
+            return []
+
+        except Exception as e:
+            # Don't fail if media not available
             return []
 
     def get_rankings(self) -> List[tuple]:
@@ -52,7 +100,7 @@ class Week10DataFetcher:
             rankings_url = f"{self.BASE_URL}/rankings"
             params = {
                 'year': 2025,
-                'week': 10
+                'week': 11
             }
 
             response = self.session.get(rankings_url, params=params)
@@ -168,6 +216,19 @@ class Week10DataFetcher:
             date_only = "TBD"
             time_only = "TBD"
             day_of_week = "TBD"
+        
+        # Extract media/network info
+        media_info = game.get('mediaInfo', [])
+        network = "TBD"
+        if media_info:
+            # Find TV broadcast (prioritize over streaming)
+            for media in media_info:
+                if media.get('mediaType') in ['TV', 'television', 'tv']:
+                    network = media.get('name', 'TBD')
+                    break
+            # If no TV, use first media source
+            if network == "TBD" and media_info:
+                network = media_info[0].get('name', 'TBD')
 
         # Get betting lines
         betting_lines = self.get_game_lines(game_id)
@@ -198,6 +259,10 @@ class Week10DataFetcher:
                 'mascot': None,
                 'score': None
             },
+            'media': {
+                'network': network,
+                'mediaInfo': media_info
+            },
             'venue': {
                 'name': None,
                 'city': None,
@@ -207,7 +272,7 @@ class Week10DataFetcher:
                 'neutralSite': game.get('neutralSite', False),
                 'conferenceGame': game.get('conferenceGame', False),
                 'attendance': None,
-                'week': 10,
+                'week': 11,
                 'season': 2025,
                 'seasonType': 'regular'
             },
@@ -217,13 +282,13 @@ class Week10DataFetcher:
 
     def run(self):
         """Main execution"""
-        print("🏈 Week 10 College Football Data Fetcher")
+        print("🏈 Week 11 College Football Data Fetcher")
         print("=" * 50)
 
         # Get games
         games = self.get_week10_games()
         if not games:
-            print("❌ No games found for Week 10")
+            print("❌ No games found for Week 11")
             return
 
         # Filter FBS only
@@ -251,7 +316,7 @@ class Week10DataFetcher:
         output = {
             'summary': {
                 'generatedAt': datetime.now().isoformat(),
-                'week': 10,
+                'week': 11,
                 'year': datetime.now().year,
                 'seasonType': 'regular',
                 'totalGames': len(fbs_games),
@@ -274,7 +339,7 @@ class Week10DataFetcher:
         with open('Currentweekgames.json', 'w') as f:
             json.dump(output, f, indent=2)
         
-        print(f"\n✅ Week 10 data saved to Currentweekgames.json")
+        print(f"\n✅ Week 11 data saved to Currentweekgames.json")
         print(f"   Total games: {len(fbs_games)}")
 
 

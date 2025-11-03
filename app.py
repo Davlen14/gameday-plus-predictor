@@ -106,13 +106,13 @@ def extract_team_season_games(details, games_key, team_id_key, team_name, team_d
                     "opponentLogo": f"http://a.espncdn.com/i/teamlogos/ncaa/500/{game.get('homeTeamId', 0)}.png"
                 })
     
-    # Return last 6 games
+    # Return all games
     return {
         "team": team_name,
         "record": f"{wins}-{losses}",
         "logo": team_data.get('logo_url', 'N/A'),
         "primary_color": team_data.get('primary_color', '#000000'),
-        "games": games[-6:]  # Last 6 games
+        "games": games  # All games
     }
 
 def calculate_base_data_quality(prediction, details):
@@ -738,25 +738,15 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
                     game_metadata['network'] = network_name
                     break
     
-    # Load rankings from AP Poll week_9 (most current)
+    # Load rankings from Currentweekgames.json (Week 11 rankings already embedded)
     home_ranking = None
     away_ranking = None
-    try:
-        with open('frontend/src/data/ap.json', 'r') as f:
-            ap_data = json.load(f)
-        
-        current_week = 'week_10'
-        if current_week in ap_data:
-            for rank_entry in ap_data[current_week]['ranks']:
-                if rank_entry['school'] == prediction.home_team:
-                    home_ranking = rank_entry
-                elif rank_entry['school'] == prediction.away_team:
-                    away_ranking = rank_entry
-    except Exception as e:
-        print(f"Note: AP Poll data not available: {e}")
-        # Fallback to current week data if AP Poll fails
-        home_ranking = {'rank': game_metadata.get('home_rank')} if game_metadata.get('home_rank') else None
-        away_ranking = {'rank': game_metadata.get('away_rank')} if game_metadata.get('away_rank') else None
+    
+    # Use rankings from game_metadata (from Currentweekgames.json)
+    if game_metadata.get('home_rank'):
+        home_ranking = {'rank': game_metadata.get('home_rank')}
+    if game_metadata.get('away_rank'):
+        away_ranking = {'rank': game_metadata.get('away_rank')}
     
     # Build UI components structure with REAL data
     ui_components = {

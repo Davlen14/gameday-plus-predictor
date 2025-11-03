@@ -142,10 +142,16 @@ class BettingLinesManager:
             except:
                 formatted_date = "October 25, 2025"
             
+            # Extract network from media info
+            network = 'TBD'
+            if 'media' in game:
+                media_data = game['media']
+                network = media_data.get('network', 'TBD')
+            
             return {
                 'date': formatted_date,
                 'time': time_12h,
-                'network': 'TBD',  # Could be enhanced later
+                'network': network,
                 'excitement_index': 4.2,
                 'day_of_week': day_of_week,
                 'home_rank': home_rank,

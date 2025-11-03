@@ -23,8 +23,8 @@ export function APPollRankings({ predictionData }: APPollRankingsProps) {
 
   // Parse AP Poll data from JSON file (ALWAYS works, even on Railway)
   const parseAPPollData = () => {
-    // Get current week dynamically from API data, fallback to 10
-    const dynamicWeek = predictionData?.contextual_analysis?.current_week || 10;
+    // Get current week dynamically from API data, fallback to 11 (Week 11)
+    const dynamicWeek = predictionData?.contextual_analysis?.current_week || 11;
     
     if (!awayTeam || !homeTeam || !apPollData) {
       return {

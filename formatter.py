@@ -1145,20 +1145,71 @@ class PredictionFormatter:
         text_lines.append("=" * 110)
         text_lines.append(f"{'Team':<20} {'Current Rank':<15} {'Points':<10} {'Conference':<20} {'First Place Votes':<20}")
         text_lines.append("-" * 85)
-        text_lines.append(f"{prediction.home_team:<20} {'#13':<15} {'793':<10} {'FBS Independents':<20} {'0':<20}")
-        text_lines.append(f"{prediction.away_team:<20} {'#20':<15} {'361':<10} {'Big Ten':<20} {'0':<20}")
+        
+        # Try to get current rankings from ap.json (Week 11)
+        try:
+            import json
+            with open('frontend/src/data/ap.json', 'r') as f:
+                ap_data = json.load(f)
+            
+            current_week = 'week_11'
+            home_rank_display = 'Unranked'
+            away_rank_display = 'Unranked'
+            home_points = 'N/A'
+            away_points = 'N/A'
+            home_conf = 'N/A'
+            away_conf = 'N/A'
+            home_fpv = '0'
+            away_fpv = '0'
+            
+            if current_week in ap_data:
+                for rank_entry in ap_data[current_week]['ranks']:
+                    if rank_entry['school'] == prediction.home_team:
+                        home_rank_display = f"#{rank_entry['rank']}"
+                        home_points = str(rank_entry['points'])
+                        home_conf = rank_entry.get('conference', 'N/A')
+                        home_fpv = str(rank_entry['firstPlaceVotes'])
+                    elif rank_entry['school'] == prediction.away_team:
+                        away_rank_display = f"#{rank_entry['rank']}"
+                        away_points = str(rank_entry['points'])
+                        away_conf = rank_entry.get('conference', 'N/A')
+                        away_fpv = str(rank_entry['firstPlaceVotes'])
+        except:
+            home_rank_display = 'Unranked'
+            away_rank_display = 'Unranked'
+            home_points = 'N/A'
+            away_points = 'N/A'
+            home_conf = 'N/A'
+            away_conf = 'N/A'
+            home_fpv = '0'
+            away_fpv = '0'
+        
+        text_lines.append(f"{prediction.home_team:<20} {home_rank_display:<15} {home_points:<10} {home_conf:<20} {home_fpv:<20}")
+        text_lines.append(f"{prediction.away_team:<20} {away_rank_display:<15} {away_points:<10} {away_conf:<20} {away_fpv:<20}")
         text_lines.append("")
         
         text_lines.append("WEEKLY RANKINGS PROGRESSION:")
         text_lines.append("-" * 85)
-        text_lines.append(f"Week 1     {prediction.home_team}: #6         {prediction.away_team}: NR        ")
-        text_lines.append(f"Week 2     {prediction.home_team}: #9         {prediction.away_team}: NR        ")
-        text_lines.append(f"Week 3     {prediction.home_team}: #8         {prediction.away_team}: NR        ")
-        text_lines.append(f"Week 4     {prediction.home_team}: #24        {prediction.away_team}: #25       ")
-        text_lines.append(f"Week 5     {prediction.home_team}: #22        {prediction.away_team}: #21       ")
-        text_lines.append(f"Week 6     {prediction.home_team}: #21        {prediction.away_team}: NR        ")
-        text_lines.append(f"Week 7     {prediction.home_team}: #16        {prediction.away_team}: NR        ")
-        text_lines.append(f"Week 8     {prediction.home_team}: #13        {prediction.away_team}: #20       ")
+        
+        # Build weekly progression from ap.json data
+        try:
+            weeks_to_show = ['week_1', 'week_2', 'week_3', 'week_4', 'week_5', 'week_6', 'week_7', 'week_8', 'week_9', 'week_10', 'week_11']
+            for i, week_key in enumerate(weeks_to_show, 1):
+                if week_key in ap_data:
+                    home_week_rank = 'NR'
+                    away_week_rank = 'NR'
+                    
+                    for rank_entry in ap_data[week_key]['ranks']:
+                        if rank_entry['school'] == prediction.home_team:
+                            home_week_rank = f"#{rank_entry['rank']}"
+                        elif rank_entry['school'] == prediction.away_team:
+                            away_week_rank = f"#{rank_entry['rank']}"
+                    
+                    text_lines.append(f"Week {i:<6} {prediction.home_team}: {home_week_rank:<10} {prediction.away_team}: {away_week_rank:<10}")
+        except:
+            # Fallback to showing current week only if ap.json not available
+            text_lines.append(f"Week 11    {prediction.home_team}: {home_rank_display}    {prediction.away_team}: {away_rank_display}")
+        
         text_lines.append("")
         
         # Season Records & Results
@@ -1203,7 +1254,7 @@ class PredictionFormatter:
                             losses += 1
                         completed_games.append(f"    Week {game['week']}: @ {game.get('homeTeam', 'Unknown')} {result} {away_points}-{home_points}")
             
-            return wins, losses, completed_games[-6:]  # Last 6 games
+            return wins, losses, completed_games  # Return all games
         
         # Format away team record
         if away_season_games and away_team_id:

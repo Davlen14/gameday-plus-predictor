@@ -977,13 +977,25 @@ class LightningPredictor:
         self.platt_b = 0.0  # Offset parameter
         
         # OPTIMAL FEATURE WEIGHTS (Research-Based)
-        self.WEIGHTS = {
-            'opponent_adjusted_metrics': 0.50,  # 50% - Core predictive power
-            'market_consensus': 0.20,            # 20% - Strong Bayesian prior
-            'composite_ratings': 0.15,           # 15% - Talent/Rankings
-            'key_player_impact': 0.10,           # 10% - Injury/Player value
-            'contextual_factors': 0.05           # 5% - Weather, travel, etc.
+        # BASE WEIGHTS - Will be dynamically adjusted per game
+        self.BASE_WEIGHTS = {
+            'composite_ratings': 0.55,           # 55% - ELO/FPI/S&P+/SRS (PRIMARY FACTOR)
+            'opponent_adjusted_metrics': 0.20,  # 20% - EPA/Success Rate (SOS-adjusted)
+            'defensive_metrics': 0.10,           # 10% - Defensive mismatch analysis
+            'key_player_impact': 0.08,           # 8% - Player analysis
+            'market_consensus': 0.05,            # 5% - Market validation (NOT prediction input)
+            'contextual_factors': 0.02           # 2% - Weather/bye/travel
         }
+        
+        # DYNAMIC WEIGHTING THRESHOLDS
+        self.ELO_THRESHOLDS = {
+            'extreme_mismatch': 750,   # 65% composite, 15% EPA
+            'large_mismatch': 600,     # 60% composite, 18% EPA  
+            'moderate_mismatch': 400,  # 55% composite, 20% EPA
+            'balanced_game': 200       # 50% composite, 25% EPA
+        }
+        
+        self.WEIGHTS = self.BASE_WEIGHTS.copy()  # Will be overridden per prediction
         
         # Load all static data files for comprehensive analysis
         self.static_data = self._load_all_static_data()
@@ -1090,6 +1102,111 @@ class LightningPredictor:
             print(f"⚠️  Warning: Could not load static data files: {e}")
             print("   Prediction will work with real-time data only")
             return {}
+
+    def _calculate_dynamic_weights(self, home_elo: float, away_elo: float, 
+                                   home_ratings: Dict, away_ratings: Dict,
+                                   home_sos_rank: int, away_sos_rank: int) -> Dict[str, float]:
+        """
+        Calculate dynamic weights based on matchup characteristics.
+        Adjusts weights for mismatches, rating consensus, and opponent quality.
+        """
+        elo_diff = abs(home_elo - away_elo)
+        
+        # Start with base weights
+        weights = self.BASE_WEIGHTS.copy()
+        
+        # STEP 1: Adjust for ELO mismatch severity
+        if elo_diff >= self.ELO_THRESHOLDS['extreme_mismatch']:
+            # Extreme mismatch (750+): Trust ratings heavily
+            weights['composite_ratings'] = 0.65
+            weights['opponent_adjusted_metrics'] = 0.15
+            weights['defensive_metrics'] = 0.12
+            weights['key_player_impact'] = 0.05
+            weights['market_consensus'] = 0.02
+            weights['contextual_factors'] = 0.01
+            print(f"   🔥 EXTREME MISMATCH (ELO diff {elo_diff:.0f}): Composite boosted to 65%")
+            
+        elif elo_diff >= self.ELO_THRESHOLDS['large_mismatch']:
+            # Large mismatch (600-749): Heavily favor ratings
+            weights['composite_ratings'] = 0.60
+            weights['opponent_adjusted_metrics'] = 0.18
+            weights['defensive_metrics'] = 0.11
+            weights['key_player_impact'] = 0.07
+            weights['market_consensus'] = 0.03
+            weights['contextual_factors'] = 0.01
+            print(f"   ⚡ LARGE MISMATCH (ELO diff {elo_diff:.0f}): Composite boosted to 60%")
+            
+        elif elo_diff >= self.ELO_THRESHOLDS['moderate_mismatch']:
+            # Moderate mismatch (400-599): Favor ratings
+            weights['composite_ratings'] = 0.55
+            weights['opponent_adjusted_metrics'] = 0.20
+            weights['defensive_metrics'] = 0.10
+            weights['key_player_impact'] = 0.08
+            weights['market_consensus'] = 0.05
+            weights['contextual_factors'] = 0.02
+            print(f"   📊 MODERATE MISMATCH (ELO diff {elo_diff:.0f}): Using base weights (55% composite)")
+            
+        elif elo_diff >= self.ELO_THRESHOLDS['balanced_game']:
+            # Small advantage (200-399): Balance ratings and performance
+            weights['composite_ratings'] = 0.50
+            weights['opponent_adjusted_metrics'] = 0.25
+            weights['defensive_metrics'] = 0.10
+            weights['key_player_impact'] = 0.08
+            weights['market_consensus'] = 0.05
+            weights['contextual_factors'] = 0.02
+            print(f"   ⚖️  SMALL ADVANTAGE (ELO diff {elo_diff:.0f}): Balanced weighting (50/25)")
+            
+        else:
+            # Even matchup (<200): Recent performance matters more
+            weights['composite_ratings'] = 0.40
+            weights['opponent_adjusted_metrics'] = 0.35
+            weights['defensive_metrics'] = 0.10
+            weights['key_player_impact'] = 0.08
+            weights['market_consensus'] = 0.05
+            weights['contextual_factors'] = 0.02
+            print(f"   🤝 EVEN MATCHUP (ELO diff {elo_diff:.0f}): EPA weighted higher (35%)")
+        
+        # STEP 2: Check rating consensus (all 4 systems agree)
+        home_fpi = home_ratings.get('fpi', 0)
+        away_fpi = away_ratings.get('fpi', 0)
+        home_sp = home_ratings.get('sp_overall', 0)
+        away_sp = away_ratings.get('sp_overall', 0)
+        home_srs = home_ratings.get('srs', 0)
+        away_srs = away_ratings.get('srs', 0)
+        
+        fpi_diff = abs(home_fpi - away_fpi)
+        sp_diff = abs(home_sp - away_sp)
+        srs_diff = abs(home_srs - away_srs)
+        elo_normalized = elo_diff / 35  # Normalize to similar scale
+        
+        # Calculate agreement (all systems within 15% of each other)
+        diffs = [elo_normalized, fpi_diff, sp_diff, srs_diff]
+        avg_diff = sum(diffs) / len(diffs)
+        variance = sum((d - avg_diff)**2 for d in diffs) / len(diffs)
+        consensus = 1.0 - min(variance / (avg_diff + 1), 0.3)  # 0.7-1.0 scale
+        
+        if consensus > 0.90:
+            # All systems strongly agree - boost composite
+            weights['composite_ratings'] *= 1.10
+            weights['opponent_adjusted_metrics'] *= 0.90
+            print(f"   🎯 RATING CONSENSUS {consensus:.0%}: Composite boosted +10%")
+        
+        # STEP 3: Strength of schedule adjustment
+        # If favorite has tough SOS (rank < 40), boost their EPA credibility
+        favorite_sos = min(home_sos_rank, away_sos_rank)
+        underdog_sos = max(home_sos_rank, away_sos_rank)
+        
+        if favorite_sos < 40 and underdog_sos > 80:
+            # Favorite played tough schedule, underdog played weak - trust composite more
+            weights['composite_ratings'] *= 1.05
+            weights['opponent_adjusted_metrics'] *= 0.95
+            print(f"   📅 SOS ADJUSTMENT: Favorite SOS #{favorite_sos}, Underdog #{underdog_sos} - Composite +5%")
+        
+        # STEP 4: Normalize weights to sum to 1.0
+        total = sum(weights.values())
+        weights = {k: v/total for k, v in weights.items()}
+        
+        return weights
 
     def _process_team_stats(self, fbs_stats: List[Dict]) -> Dict[str, ComprehensiveTeamStats]:
         """Process FBS team stats into comprehensive team objects"""
@@ -2887,10 +3004,41 @@ class LightningPredictor:
         print(f"   ✅ Contextual Score: {contextual_score:.3f}")
         
         # ==============================================================================
-        # APPLY OPTIMAL WEIGHTS
+        # CALCULATE DYNAMIC WEIGHTS BASED ON MATCHUP CHARACTERISTICS
         # ==============================================================================
         print("\n" + "="*80)
-        print("⚖️  WEIGHTED COMPOSITE CALCULATION")
+        print("🎲 DYNAMIC WEIGHT CALCULATION")
+        print("="*80)
+        
+        # Get ratings for dynamic weighting
+        home_ratings_dict = data.get('homeRatings', [{}])[0] if data.get('homeRatings') else {}
+        away_ratings_dict = data.get('awayRatings', [{}])[0] if data.get('awayRatings') else {}
+        home_elo = home_ratings_dict.get('elo', 1500)
+        away_elo = away_ratings_dict.get('elo', 1500)
+        
+        # Get SOS ranks (lower is tougher schedule)
+        home_sos_rank = 65  # Default to middle of FBS
+        away_sos_rank = 65
+        if home_metrics and hasattr(home_metrics, 'sos_rating'):
+            home_sos_rank = int(home_metrics.sos_rating * 2) if home_metrics.sos_rating > 0 else 65
+        if away_metrics and hasattr(away_metrics, 'sos_rating'):
+            away_sos_rank = int(away_metrics.sos_rating * 2) if away_metrics.sos_rating > 0 else 65
+        
+        # Calculate dynamic weights based on matchup
+        self.WEIGHTS = self._calculate_dynamic_weights(
+            home_elo, away_elo,
+            home_ratings_dict, away_ratings_dict,
+            home_sos_rank, away_sos_rank
+        )
+        
+        # Add defensive metrics weight (will be applied in enhancement section)
+        defensive_metrics_weight = self.WEIGHTS.get('defensive_metrics', 0.10)
+        
+        # ==============================================================================
+        # APPLY DYNAMIC WEIGHTS
+        # ==============================================================================
+        print("\n" + "="*80)
+        print("⚖️  WEIGHTED COMPOSITE CALCULATION (DYNAMIC)")
         print("="*80)
         
         raw_differential = (
@@ -2932,6 +3080,47 @@ class LightningPredictor:
             weather_penalty
         )
 
+        # DEFENSIVE METRICS ANALYSIS - New weighted category
+        print("\n🛡️  DEFENSIVE MISMATCH ANALYSIS")
+        
+        # Get defensive efficiency from metrics or static data
+        home_def_efficiency = 50.0  # Default
+        away_def_efficiency = 50.0
+        home_off_efficiency = 50.0
+        away_off_efficiency = 50.0
+        
+        # Try to get from backtesting ratings if available
+        if self.static_data and 'backtesting_ratings' in self.static_data:
+            backtesting = self.static_data['backtesting_ratings']
+            if home_team_name in backtesting:
+                home_def_efficiency = backtesting[home_team_name].get('defensive_efficiency', 50.0)
+                home_off_efficiency = backtesting[home_team_name].get('offensive_efficiency', 50.0)
+            if away_team_name in backtesting:
+                away_def_efficiency = backtesting[away_team_name].get('defensive_efficiency', 50.0)
+                away_off_efficiency = backtesting[away_team_name].get('offensive_efficiency', 50.0)
+        
+        # Calculate defensive mismatch factor
+        # When elite defense meets poor offense, scoring drops
+        home_def_vs_away_off = home_def_efficiency - away_off_efficiency
+        away_def_vs_home_off = away_def_efficiency - home_off_efficiency
+        
+        defensive_advantage = (home_def_vs_away_off - away_def_vs_home_off) / 10.0
+        
+        # Apply defensive dampener for extreme mismatches
+        defensive_dampener = 1.0
+        if abs(home_def_vs_away_off) > 40 or abs(away_def_vs_home_off) > 40:
+            # Elite defense vs poor offense - reduce expected scoring
+            defensive_dampener = 0.85  # 15% reduction
+            print(f"   🔒 ELITE DEFENSE DETECTED: Dampening total scoring by 15%")
+        elif abs(home_def_vs_away_off) > 30 or abs(away_def_vs_home_off) > 30:
+            defensive_dampener = 0.92  # 8% reduction
+            print(f"   🛡️  Strong defensive mismatch: Dampening total scoring by 8%")
+        
+        print(f"   Home Def vs Away Off: {home_def_vs_away_off:+.1f}")
+        print(f"   Away Def vs Home Off: {away_def_vs_home_off:+.1f}")
+        print(f"   Defensive Advantage: {defensive_advantage:+.2f}")
+        print(f"   Defensive Dampener: {defensive_dampener:.2%}")
+        
         # COMPREHENSIVE DIFFERENTIAL ENHANCEMENT - Using all calculated metrics for maximum effectiveness
         comprehensive_enhancement = (
             epa_differential * 0.12 +                    # 12% EPA differential (strong predictor)
@@ -2940,7 +3129,8 @@ class LightningPredictor:
             elo_differential * 0.06 +                    # 6% ELO differential
             consistency_differential * 0.04 +            # 4% Consistency (reliability factor)
             recent_vs_early_differential * 0.03 +        # 3% Recent form vs early season
-            trend_differential * 0.05                    # 5% Season trajectory
+            trend_differential * 0.05 +                  # 5% Season trajectory
+            defensive_advantage * defensive_metrics_weight  # Defensive metrics (dynamic weight)
         )
         
         print(f"   📊 Comprehensive Enhancement: {comprehensive_enhancement:+.3f}")
@@ -2951,6 +3141,7 @@ class LightningPredictor:
         print(f"      • Consistency Diff: {consistency_differential:+.3f}")
         print(f"      • Recent vs Early: {recent_vs_early_differential:+.3f}")
         print(f"      • Trend Diff: {trend_differential:+.3f}")
+        print(f"      • Defensive Advantage: {defensive_advantage:+.3f} (weight: {defensive_metrics_weight:.0%})")
         
         # Apply comprehensive enhancement
         adjusted_differential += comprehensive_enhancement
@@ -3004,6 +3195,11 @@ class LightningPredictor:
             predicted_spread = math.log(home_win_prob / (1 - home_win_prob)) * 6.0
 
         predicted_total = self._calculate_total(home_metrics, away_metrics, data)
+        
+        # Apply defensive dampener to total if defensive mismatch exists
+        predicted_total = predicted_total * defensive_dampener
+        if defensive_dampener < 1.0:
+            print(f"   🔒 Total adjusted for defensive mismatch: {predicted_total:.1f} (dampened by {(1-defensive_dampener)*100:.0f}%)")
 
         # Ensure reasonable spread bounds for college football
         predicted_spread = max(min(predicted_spread, 35), -35)  # Cap spreads at ±35
@@ -3023,14 +3219,29 @@ class LightningPredictor:
             home_implied_score = predicted_total
         
         print("\n" + "="*80)
-        print("� FINAL PREDICTION")
+        print("🎯 FINAL PREDICTION")
         print("="*80)
         print(f"   Spread: {predicted_spread:+.1f} (Home)")
         print(f"   Total: {predicted_total:.1f}")
         print(f"   {home_team_name}: {home_implied_score:.0f} points")
         print(f"   {away_team_name}: {away_implied_score:.0f} points")
         print(f"   Win Probability: {home_team_name} {home_win_prob:.1%} | {away_team_name} {(1-home_win_prob):.1%}")
-
+        
+        # MARKET VALIDATION: Check if prediction is significantly off from consensus
+        if market_lines and len(market_lines) > 0:
+            avg_market_spread = sum([line.get('spread', 0) for line in market_lines]) / len(market_lines)
+            spread_difference = abs(predicted_spread - avg_market_spread)
+            
+            if spread_difference > 15:
+                print(f"\n⚠️  WARNING: Prediction differs from market by {spread_difference:.1f} points!")
+                print(f"   Market consensus: {avg_market_spread:+.1f}")
+                print(f"   Model prediction: {predicted_spread:+.1f}")
+                print(f"   This may indicate a data quality issue or extreme mismatch.")
+            elif spread_difference > 10:
+                print(f"\n⚡ NOTICE: Prediction differs from market by {spread_difference:.1f} points")
+                print(f"   Market: {avg_market_spread:+.1f} | Model: {predicted_spread:+.1f}")
+                print(f"   Potential value bet opportunity or model recalibration needed.")
+        
         # Enhanced confidence based on data quality and consensus
         confidence = self._calculate_enhanced_confidence(data, abs(adjusted_differential), home_metrics, away_metrics)
 
@@ -4052,7 +4263,7 @@ class LightningPredictor:
         return player_differential
 
     def _analyze_composite_ratings(self, home_ratings: List[Dict], away_ratings: List[Dict]) -> float:
-        """Analyze composite ratings (ELO + FPI) for validation - FIXED SCHEMA"""
+        """Analyze composite ratings (ELO + FPI) for validation - ENHANCED WITH PROPER ELO SCALING"""
         if not home_ratings or not away_ratings:
             return 0.0
             
@@ -4065,17 +4276,51 @@ class LightningPredictor:
         home_elo = home_rating.get('elo', 1500)
         away_elo = away_rating.get('elo', 1500)
         
-        # Composite differential calculation (FPI + ELO only - no SP+ available)
+        # CRITICAL FIX: Use proper ELO scaling and win probability formula
         fpi_diff = home_fpi - away_fpi
-        elo_diff = (home_elo - away_elo) / 100  # Scale ELO to similar range as FPI
+        elo_diff = home_elo - away_elo
         
-        # Weighted composite (FPI is primary, ELO for validation)
-        composite_diff = (fpi_diff * 0.7 + elo_diff * 0.3)
+        # Calculate ELO-based win probability using proper chess rating formula
+        # Formula: 1 / (1 + 10 ** (-elo_diff / 400))
+        # This converts ELO differential to a 0-1 probability scale
+        elo_win_probability = 1 / (1 + 10 ** (-elo_diff / 400))
         
-        print(f"🎯 COMPOSITE RATINGS (WORKING SCHEMA):")
-        print(f"   FPI Differential: {fpi_diff:.2f}")
-        print(f"   ELO Differential: {elo_diff:.2f}")
-        print(f"   Composite Signal: {composite_diff:.2f}")
+        # Convert win probability back to point spread equivalent
+        # Using logistic inverse: spread ≈ ln(p/(1-p)) * scaling_factor
+        # For college football, use 7.0 scaling factor (higher variance than NFL)
+        if elo_win_probability > 0.01 and elo_win_probability < 0.99:
+            elo_spread_equivalent = math.log(elo_win_probability / (1 - elo_win_probability)) * 7.0
+        else:
+            # Edge case handling for extreme probabilities
+            elo_spread_equivalent = math.log(elo_win_probability / (1 - elo_win_probability)) * 9.0
+        
+        # ELITE TEAM MISMATCH MULTIPLIER
+        # Detect when top-5 team plays bottom-tier opponent (huge talent gap)
+        mismatch_multiplier = 1.0
+        elite_threshold_elo = 2000  # Top-5 teams typically above 2000 ELO
+        weak_threshold_elo = 1400   # Bottom-tier teams typically below 1400 ELO
+        
+        if (home_elo > elite_threshold_elo and away_elo < weak_threshold_elo) or \
+           (away_elo > elite_threshold_elo and home_elo < weak_threshold_elo):
+            # Massive talent gap - amplify the differential
+            mismatch_multiplier = 1.5
+            print(f"   🔥 ELITE VS WEAK MISMATCH DETECTED! Amplifying by {mismatch_multiplier}x")
+        elif abs(elo_diff) > 600:  # Huge ELO gap even if not elite vs weak
+            mismatch_multiplier = 1.3
+            print(f"   ⚡ LARGE TALENT GAP DETECTED! Amplifying by {mismatch_multiplier}x")
+        
+        # Weighted composite (ELO is now PRIMARY with proper scaling, FPI validates)
+        # CRITICAL FIX: ELO spread equivalent is now the main signal (60%), FPI validates (40%)
+        composite_diff = (elo_spread_equivalent * 0.60 + fpi_diff * 0.40) * mismatch_multiplier
+        
+        print(f"🎯 COMPOSITE RATINGS (ENHANCED ELO SCALING):")
+        print(f"   Home ELO: {home_elo:.0f} | Away ELO: {away_elo:.0f}")
+        print(f"   ELO Differential: {elo_diff:+.0f}")
+        print(f"   ELO Win Probability: {elo_win_probability:.1%}")
+        print(f"   ELO Spread Equivalent: {elo_spread_equivalent:+.2f}")
+        print(f"   FPI Differential: {fpi_diff:+.2f}")
+        print(f"   Mismatch Multiplier: {mismatch_multiplier}x")
+        print(f"   Composite Signal: {composite_diff:+.2f}")
         
         return composite_diff
 

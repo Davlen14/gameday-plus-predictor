@@ -41,26 +41,26 @@ interface HeaderProps {
 }
 
 export function Header({ predictionData, isLoading }: HeaderProps) {
-  // Demo data: Week 10 Ranked Matchup - #9 Vanderbilt @ #20 Texas
+  // Demo data: Week 11 Ranked Matchup - #8 BYU @ #9 Texas Tech
   const demoData = {
     game_info: {
-      date: "November 2, 2025",
+      date: "November 8, 2025",
       time: "TBD",
-      network: "TBD",
-      excitement_index: 8.5
+      network: "ESPN",
+      excitement_index: 9.2
     },
     teams: {
       away: {
-        name: "Vanderbilt",
-        record: "6-3",
-        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/238.png",
-        rank: 9
+        name: "BYU",
+        record: "8-1",
+        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/252.png",
+        rank: 8
       },
       home: {
-        name: "Texas", 
-        record: "7-2",
-        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
-        rank: 20
+        name: "Texas Tech", 
+        record: "8-1",
+        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png",
+        rank: 9
       }
     }
   };

@@ -316,7 +316,7 @@ class LightningPredictor:
     
     def __init__(self, api_key: Optional[str] = None):
         self.current_year = 2025
-        self.current_week = 10
+        self.current_week = 11
         self.api_key = api_key or "9eeDfEKdAIQMnSP4W/QZ8r6nPKLyGYNj7hLKO/YxD5qhGWOGGxZF5pW+o1x5+8Ht"
         self.graphql_url = "https://graphql.collegefootballdata.com/v1/graphql"
         
@@ -422,13 +422,13 @@ class LightningPredictor:
                 # Load comprehensive player analysis files (QBs, RBs, WRs, TEs, DBs, DLs, LBs)
                 player_data = {}
                 player_files = {
-                    'qbs': 'comprehensive_qb_analysis_2025_20251015_034259.json',
-                    'rbs': 'comprehensive_rb_analysis_2025_20251015_043434.json', 
-                    'wrs': 'comprehensive_wr_analysis_2025_20251015_045922.json',
-                    'tes': 'comprehensive_te_analysis_2025_20251015_050510.json',
-                    'dbs': 'comprehensive_db_analysis_2025_20251015_051747.json',
-                    'dls': 'comprehensive_dl_analysis_2025_20251015_051056.json',
-                    'lbs': 'comprehensive_lb_analysis_2025_20251015_053156.json'
+                    'qbs': 'comprehensive_qb_analysis_2025_20251103_004118.json',
+                    'rbs': 'comprehensive_rb_analysis_2025_20251103_004639.json', 
+                    'wrs': 'comprehensive_wr_analysis_2025_20251103_004752.json',
+                    'tes': 'comprehensive_te_analysis_2025_20251103_004907.json',
+                    'dbs': 'comprehensive_db_analysis_2025_20251103_005036.json',
+                    'dls': 'comprehensive_dl_analysis_2025_20251103_005326.json',
+                    'lbs': 'comprehensive_lb_analysis_2025_20251103_005148.json'
                 }
                 
                 for position, filename in player_files.items():
@@ -930,7 +930,7 @@ class LightningPredictor:
         """Single game prediction using one GraphQL call - EXACT SAME LOGIC AS ORIGINAL"""
 
         query = """
-        query GamePredictorEnhanced($homeTeamId: Int!, $awayTeamId: Int!, $currentYear: smallint = 2025, $currentYearInt: Int = 2025, $currentWeek: smallint = 10) {
+    query GamePredictorEnhanced($homeTeamId: Int!, $awayTeamId: Int!, $currentYear: smallint = 2025, $currentYearInt: Int = 2025, $currentWeek: smallint = 11) {
             # Current season team metrics (ENHANCED with all available fields)
             homeTeamMetrics: adjustedTeamMetrics(where: {teamId: {_eq: $homeTeamId}, year: {_eq: $currentYear}}) {
                 epa epaAllowed explosiveness explosivenessAllowed success successAllowed
