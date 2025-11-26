@@ -41,26 +41,26 @@ interface HeaderProps {
 }
 
 export function Header({ predictionData, isLoading }: HeaderProps) {
-  // Demo data: Week 11 Ranked Matchup - #8 BYU @ #9 Texas Tech
+  // Demo data: Week 13 Ranked Matchup - #16 USC @ #6 Oregon
   const demoData = {
     game_info: {
-      date: "November 8, 2025",
-      time: "TBD",
-      network: "ESPN",
-      excitement_index: 9.2
+      date: "November 22, 2025",
+      time: "8:30 PM ET",
+      network: "NBC",
+      excitement_index: 8.7
     },
     teams: {
       away: {
-        name: "BYU",
-        record: "8-1",
-        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/252.png",
-        rank: 8
+        name: "USC",
+        record: "8-3",
+        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/30.png",
+        rank: 16
       },
       home: {
-        name: "Texas Tech", 
-        record: "8-1",
-        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png",
-        rank: 9
+        name: "Oregon", 
+        record: "11-0",
+        logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png",
+        rank: 6
       }
     }
   };

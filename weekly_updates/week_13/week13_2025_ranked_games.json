@@ -1,0 +1,1824 @@
+{
+  "metadata": {
+    "week": 13,
+    "season": 2025,
+    "seasonType": "regular",
+    "generatedAt": "2025-11-17T21:26:38.372034",
+    "description": "Week 13 games involving ranked teams"
+  },
+  "summary": {
+    "totalRankedGames": 17,
+    "bothTeamsRanked": 2,
+    "oneTeamRanked": 15,
+    "gamesWithBettingLines": 17,
+    "gamesWithWeather": 17
+  },
+  "topMatchups": [
+    "#16 USC @ #6 Oregon",
+    "#23 Missouri @ #8 Oklahoma"
+  ],
+  "games": [
+    {
+      "gameId": 401752912,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T17:00:00",
+        "formatted": "November 22, 2025 at 05:00 PM ET",
+        "date": "2025-11-22",
+        "time": "17:00",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Ohio State",
+        "rank": 1,
+        "score": null,
+        "conference": "Big Ten",
+        "division": null,
+        "abbreviation": "B1G"
+      },
+      "awayTeam": {
+        "name": "Rutgers",
+        "rank": null,
+        "score": null,
+        "conference": "Big Ten",
+        "division": null,
+        "abbreviation": "B1G"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": -31.5,
+            "formattedSpread": "Ohio State -31.5",
+            "spreadOpen": -32.5,
+            "overUnder": 55.5,
+            "overUnderOpen": null,
+            "homeMoneyline": -8000,
+            "awayMoneyline": 2200
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": -31.5,
+            "formattedSpread": "Ohio State -31.5",
+            "spreadOpen": -33.5,
+            "overUnder": 55.5,
+            "overUnderOpen": 55.5,
+            "homeMoneyline": -50000,
+            "awayMoneyline": 3500
+          },
+          {
+            "provider": "Bovada",
+            "spread": -31.5,
+            "formattedSpread": "Ohio State -31.5",
+            "spreadOpen": -32.5,
+            "overUnder": 55.5,
+            "overUnderOpen": 56,
+            "homeMoneyline": null,
+            "awayMoneyline": null
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": -31.5,
+          "overUnder": 55.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "ESPN Bet",
+          "DraftKings",
+          "Bovada"
+        ],
+        "averages": {
+          "spread": -31.5,
+          "overUnder": 55.5
+        }
+      },
+      "weather": {
+        "temperature": 49.3,
+        "dewPoint": 34.7,
+        "humidity": 57,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 26,
+        "windSpeed": 5.2,
+        "pressure": 1016.9,
+        "weatherConditionCode": 0,
+        "weatherCondition": null,
+        "gameIndoors": false,
+        "venue": "Ohio Stadium"
+      }
+    },
+    {
+      "gameId": 401752776,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T17:45:00",
+        "formatted": "November 22, 2025 at 05:45 PM ET",
+        "date": "2025-11-22",
+        "time": "17:45",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Georgia",
+        "rank": 4,
+        "score": null,
+        "conference": "SEC",
+        "division": null,
+        "abbreviation": "SEC"
+      },
+      "awayTeam": {
+        "name": "Charlotte",
+        "rank": null,
+        "score": null,
+        "conference": "American Athletic",
+        "division": null,
+        "abbreviation": "AAC"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": false,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": -44.5,
+            "formattedSpread": "Georgia -44.5",
+            "spreadOpen": -44.5,
+            "overUnder": 53.5,
+            "overUnderOpen": null,
+            "homeMoneyline": null,
+            "awayMoneyline": null
+          },
+          {
+            "provider": "Bovada",
+            "spread": -43,
+            "formattedSpread": "Georgia -43.0",
+            "spreadOpen": -45,
+            "overUnder": 53.5,
+            "overUnderOpen": 54,
+            "homeMoneyline": null,
+            "awayMoneyline": null
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": -44.5,
+            "formattedSpread": "Georgia -44.5",
+            "spreadOpen": -44.5,
+            "overUnder": 54.5,
+            "overUnderOpen": 55.5,
+            "homeMoneyline": null,
+            "awayMoneyline": null
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": -44.5,
+          "overUnder": 53.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": -44.0,
+          "overUnder": 53.833333333333336
+        }
+      },
+      "weather": {
+        "temperature": 77.5,
+        "dewPoint": 51.4,
+        "humidity": 40,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 278,
+        "windSpeed": 13,
+        "pressure": 1011.9,
+        "weatherConditionCode": 0,
+        "weatherCondition": null,
+        "gameIndoors": false,
+        "venue": "Sanford Stadium"
+      }
+    },
+    {
+      "gameId": 401752911,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T20:30:00",
+        "formatted": "November 22, 2025 at 08:30 PM ET",
+        "date": "2025-11-22",
+        "time": "20:30",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Oregon",
+        "rank": 6,
+        "score": null,
+        "conference": "Big Ten",
+        "division": null,
+        "abbreviation": "B1G"
+      },
+      "awayTeam": {
+        "name": "USC",
+        "rank": 16,
+        "score": null,
+        "conference": "Big Ten",
+        "division": null,
+        "abbreviation": "B1G"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": -10,
+            "formattedSpread": "Oregon -10",
+            "spreadOpen": -13.5,
+            "overUnder": 59.5,
+            "overUnderOpen": null,
+            "homeMoneyline": -395,
+            "awayMoneyline": 310
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": -10.5,
+            "formattedSpread": "Oregon -10.5",
+            "spreadOpen": -12,
+            "overUnder": 58.5,
+            "overUnderOpen": 55.5,
+            "homeMoneyline": -400,
+            "awayMoneyline": 300
+          },
+          {
+            "provider": "Bovada",
+            "spread": -10,
+            "formattedSpread": "Oregon -10.0",
+            "spreadOpen": -9.5,
+            "overUnder": 59.5,
+            "overUnderOpen": 60,
+            "homeMoneyline": -380,
+            "awayMoneyline": 290
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": -10,
+          "overUnder": 59.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "ESPN Bet",
+          "DraftKings",
+          "Bovada"
+        ],
+        "averages": {
+          "spread": -10.166666666666666,
+          "overUnder": 59.166666666666664
+        }
+      },
+      "weather": {
+        "temperature": 41.4,
+        "dewPoint": 40.6,
+        "humidity": 97,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 163,
+        "windSpeed": 1.6,
+        "pressure": 1022.7,
+        "weatherConditionCode": 0,
+        "weatherCondition": null,
+        "gameIndoors": false,
+        "venue": "Autzen Stadium"
+      }
+    },
+    {
+      "gameId": 401752778,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T17:00:00",
+        "formatted": "November 22, 2025 at 05:00 PM ET",
+        "date": "2025-11-22",
+        "time": "17:00",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Oklahoma",
+        "rank": 8,
+        "score": null,
+        "conference": "SEC",
+        "division": null,
+        "abbreviation": "SEC"
+      },
+      "awayTeam": {
+        "name": "Missouri",
+        "rank": 23,
+        "score": null,
+        "conference": "SEC",
+        "division": null,
+        "abbreviation": "SEC"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "ESPN Bet",
+            "spread": -7.5,
+            "formattedSpread": "Oklahoma -7.5",
+            "spreadOpen": -7.5,
+            "overUnder": 42.5,
+            "overUnderOpen": 54.5,
+            "homeMoneyline": -320,
+            "awayMoneyline": 260
+          },
+          {
+            "provider": "DraftKings",
+            "spread": -7.5,
+            "formattedSpread": "Oklahoma -7.5",
+            "spreadOpen": -10.5,
+            "overUnder": 42.5,
+            "overUnderOpen": null,
+            "homeMoneyline": -310,
+            "awayMoneyline": 250
+          },
+          {
+            "provider": "Bovada",
+            "spread": -7.5,
+            "formattedSpread": "Oklahoma -7.5",
+            "spreadOpen": -9.5,
+            "overUnder": 42.5,
+            "overUnderOpen": 42.5,
+            "homeMoneyline": -350,
+            "awayMoneyline": 275
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": -7.5,
+          "overUnder": 42.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "ESPN Bet",
+          "DraftKings",
+          "Bovada"
+        ],
+        "averages": {
+          "spread": -7.5,
+          "overUnder": 42.5
+        }
+      },
+      "weather": {
+        "temperature": 57.7,
+        "dewPoint": 39.2,
+        "humidity": 50,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 322,
+        "windSpeed": 11.5,
+        "pressure": 1018.5,
+        "weatherConditionCode": 2,
+        "weatherCondition": "Fair",
+        "gameIndoors": false,
+        "venue": "Memorial Stadium (Norman, OK)"
+      }
+    },
+    {
+      "gameId": 401754604,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T20:30:00",
+        "formatted": "November 22, 2025 at 08:30 PM ET",
+        "date": "2025-11-22",
+        "time": "20:30",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Notre Dame",
+        "rank": 9,
+        "score": null,
+        "conference": "FBS Independents",
+        "division": null,
+        "abbreviation": "Ind"
+      },
+      "awayTeam": {
+        "name": "Syracuse",
+        "rank": null,
+        "score": null,
+        "conference": "ACC",
+        "division": null,
+        "abbreviation": "ACC"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": false,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": -34.5,
+            "formattedSpread": "Notre Dame -34.5",
+            "spreadOpen": -34.5,
+            "overUnder": 50.5,
+            "overUnderOpen": null,
+            "homeMoneyline": null,
+            "awayMoneyline": null
+          },
+          {
+            "provider": "Bovada",
+            "spread": -35,
+            "formattedSpread": "Notre Dame -35.0",
+            "spreadOpen": -35,
+            "overUnder": 50.5,
+            "overUnderOpen": 51.5,
+            "homeMoneyline": null,
+            "awayMoneyline": null
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": -35.5,
+            "formattedSpread": "Notre Dame -35.5",
+            "spreadOpen": -35.5,
+            "overUnder": 51.5,
+            "overUnderOpen": 51.5,
+            "homeMoneyline": -100000,
+            "awayMoneyline": null
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": -34.5,
+          "overUnder": 50.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": -35.0,
+          "overUnder": 50.833333333333336
+        }
+      },
+      "weather": {
+        "temperature": 46.6,
+        "dewPoint": 30.4,
+        "humidity": 53,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 200,
+        "windSpeed": 2.2,
+        "pressure": 1018.8,
+        "weatherConditionCode": 0,
+        "weatherCondition": null,
+        "gameIndoors": false,
+        "venue": "Notre Dame Stadium"
+      }
+    },
+    {
+      "gameId": 401756955,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-23T01:00:00",
+        "formatted": "November 23, 2025 at 01:00 AM ET",
+        "date": "2025-11-23",
+        "time": "01:00",
+        "dayOfWeek": "Sunday"
+      },
+      "homeTeam": {
+        "name": "Cincinnati",
+        "rank": null,
+        "score": null,
+        "conference": "Big 12",
+        "division": null,
+        "abbreviation": "B12"
+      },
+      "awayTeam": {
+        "name": "BYU",
+        "rank": 11,
+        "score": null,
+        "conference": "Big 12",
+        "division": null,
+        "abbreviation": "B12"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": 2.5,
+            "formattedSpread": "BYU -2.5",
+            "spreadOpen": -3.5,
+            "overUnder": 54.5,
+            "overUnderOpen": null,
+            "homeMoneyline": 114,
+            "awayMoneyline": -135
+          },
+          {
+            "provider": "Bovada",
+            "spread": 2.5,
+            "formattedSpread": "BYU -2.5",
+            "spreadOpen": 2,
+            "overUnder": 54.5,
+            "overUnderOpen": 54,
+            "homeMoneyline": 105,
+            "awayMoneyline": -125
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": 2.5,
+            "formattedSpread": "BYU -2.5",
+            "spreadOpen": 2.5,
+            "overUnder": 53.5,
+            "overUnderOpen": 53.5,
+            "homeMoneyline": 115,
+            "awayMoneyline": -135
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": 2.5,
+          "overUnder": 54.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": 2.5,
+          "overUnder": 54.166666666666664
+        }
+      },
+      "weather": {
+        "temperature": 51.8,
+        "dewPoint": 41.5,
+        "humidity": 68,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 273,
+        "windSpeed": 6.9,
+        "pressure": 1015.8,
+        "weatherConditionCode": 4,
+        "weatherCondition": "Overcast",
+        "gameIndoors": false,
+        "venue": "Nippert Stadium"
+      }
+    },
+    {
+      "gameId": 401752782,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T20:30:00",
+        "formatted": "November 22, 2025 at 08:30 PM ET",
+        "date": "2025-11-22",
+        "time": "20:30",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Vanderbilt",
+        "rank": 12,
+        "score": null,
+        "conference": "SEC",
+        "division": null,
+        "abbreviation": "SEC"
+      },
+      "awayTeam": {
+        "name": "Kentucky",
+        "rank": null,
+        "score": null,
+        "conference": "SEC",
+        "division": null,
+        "abbreviation": "SEC"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": -10,
+            "formattedSpread": "Vanderbilt -10",
+            "spreadOpen": -7.5,
+            "overUnder": 53.5,
+            "overUnderOpen": null,
+            "homeMoneyline": -375,
+            "awayMoneyline": 295
+          },
+          {
+            "provider": "Bovada",
+            "spread": -10,
+            "formattedSpread": "Vanderbilt -10.0",
+            "spreadOpen": -10,
+            "overUnder": 54,
+            "overUnderOpen": 53.5,
+            "homeMoneyline": -420,
+            "awayMoneyline": 315
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": -9.5,
+            "formattedSpread": "Vanderbilt -9.5",
+            "spreadOpen": -10.5,
+            "overUnder": 53.5,
+            "overUnderOpen": 52.5,
+            "homeMoneyline": -360,
+            "awayMoneyline": 280
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": -10,
+          "overUnder": 53.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": -9.833333333333334,
+          "overUnder": 53.666666666666664
+        }
+      },
+      "weather": {
+        "temperature": 65.7,
+        "dewPoint": 49.1,
+        "humidity": 55,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 287,
+        "windSpeed": 8.1,
+        "pressure": 1015.3,
+        "weatherConditionCode": 3,
+        "weatherCondition": "Cloudy",
+        "gameIndoors": false,
+        "venue": "FirstBank Stadium"
+      }
+    },
+    {
+      "gameId": 401756960,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T21:00:00",
+        "formatted": "November 22, 2025 at 09:00 PM ET",
+        "date": "2025-11-22",
+        "time": "21:00",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Utah",
+        "rank": 13,
+        "score": null,
+        "conference": "Big 12",
+        "division": null,
+        "abbreviation": "B12"
+      },
+      "awayTeam": {
+        "name": "Kansas State",
+        "rank": null,
+        "score": null,
+        "conference": "Big 12",
+        "division": null,
+        "abbreviation": "B12"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "ESPN Bet",
+            "spread": -16.5,
+            "formattedSpread": "Utah -16.5",
+            "spreadOpen": -1.5,
+            "overUnder": 52.5,
+            "overUnderOpen": 54.5,
+            "homeMoneyline": -900,
+            "awayMoneyline": 550
+          },
+          {
+            "provider": "DraftKings",
+            "spread": -17.5,
+            "formattedSpread": "Utah -17.5",
+            "spreadOpen": -16.5,
+            "overUnder": 52.5,
+            "overUnderOpen": null,
+            "homeMoneyline": -950,
+            "awayMoneyline": 625
+          },
+          {
+            "provider": "Bovada",
+            "spread": -17.5,
+            "formattedSpread": "Utah -17.5",
+            "spreadOpen": -17,
+            "overUnder": 52.5,
+            "overUnderOpen": 52.5,
+            "homeMoneyline": -850,
+            "awayMoneyline": 550
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": -16.5,
+          "overUnder": 52.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "ESPN Bet",
+          "DraftKings",
+          "Bovada"
+        ],
+        "averages": {
+          "spread": -17.166666666666668,
+          "overUnder": 52.5
+        }
+      },
+      "weather": {
+        "temperature": 46.6,
+        "dewPoint": 32.9,
+        "humidity": 59,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 352,
+        "windSpeed": 5.8,
+        "pressure": 1021.6,
+        "weatherConditionCode": 2,
+        "weatherCondition": "Fair",
+        "gameIndoors": false,
+        "venue": "Rice-Eccles Stadium"
+      }
+    },
+    {
+      "gameId": 401754603,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T17:00:00",
+        "formatted": "November 22, 2025 at 05:00 PM ET",
+        "date": "2025-11-22",
+        "time": "17:00",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Virginia Tech",
+        "rank": null,
+        "score": null,
+        "conference": "ACC",
+        "division": null,
+        "abbreviation": "ACC"
+      },
+      "awayTeam": {
+        "name": "Miami",
+        "rank": 14,
+        "score": null,
+        "conference": "ACC",
+        "division": null,
+        "abbreviation": "ACC"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": 17.5,
+            "formattedSpread": "Miami -17.5",
+            "spreadOpen": 15.5,
+            "overUnder": 48.5,
+            "overUnderOpen": null,
+            "homeMoneyline": 625,
+            "awayMoneyline": -950
+          },
+          {
+            "provider": "Bovada",
+            "spread": 17.5,
+            "formattedSpread": "Miami -17.5",
+            "spreadOpen": 17,
+            "overUnder": 49,
+            "overUnderOpen": 48.5,
+            "homeMoneyline": 575,
+            "awayMoneyline": -900
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": 17.5,
+            "formattedSpread": "Miami -17.5",
+            "spreadOpen": 16.5,
+            "overUnder": 48.5,
+            "overUnderOpen": 49.5,
+            "homeMoneyline": 700,
+            "awayMoneyline": -1200
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": 17.5,
+          "overUnder": 48.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": 17.5,
+          "overUnder": 48.666666666666664
+        }
+      },
+      "weather": {
+        "temperature": 56.3,
+        "dewPoint": 53.4,
+        "humidity": 90,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 40,
+        "windSpeed": 1.1,
+        "pressure": 1011.3,
+        "weatherConditionCode": 0,
+        "weatherCondition": null,
+        "gameIndoors": false,
+        "venue": "Lane Stadium"
+      }
+    },
+    {
+      "gameId": 401754601,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-23T00:00:00",
+        "formatted": "November 23, 2025 at 12:00 AM ET",
+        "date": "2025-11-23",
+        "time": "00:00",
+        "dayOfWeek": "Sunday"
+      },
+      "homeTeam": {
+        "name": "Georgia Tech",
+        "rank": 15,
+        "score": null,
+        "conference": "ACC",
+        "division": null,
+        "abbreviation": "ACC"
+      },
+      "awayTeam": {
+        "name": "Pittsburgh",
+        "rank": null,
+        "score": null,
+        "conference": "ACC",
+        "division": null,
+        "abbreviation": "ACC"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": -3,
+            "formattedSpread": "Georgia Tech -3",
+            "spreadOpen": -3,
+            "overUnder": 62.5,
+            "overUnderOpen": null,
+            "homeMoneyline": -142,
+            "awayMoneyline": 120
+          },
+          {
+            "provider": "Bovada",
+            "spread": -2.5,
+            "formattedSpread": "Georgia Tech -2.5",
+            "spreadOpen": -2.5,
+            "overUnder": 62,
+            "overUnderOpen": 62,
+            "homeMoneyline": -140,
+            "awayMoneyline": 120
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": -2.5,
+            "formattedSpread": "Georgia Tech -2.5",
+            "spreadOpen": -2.5,
+            "overUnder": 62.5,
+            "overUnderOpen": 61.5,
+            "homeMoneyline": -140,
+            "awayMoneyline": 120
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": -3,
+          "overUnder": 62.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": -2.6666666666666665,
+          "overUnder": 62.333333333333336
+        }
+      },
+      "weather": {
+        "temperature": 65.3,
+        "dewPoint": 53.2,
+        "humidity": 65,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 315,
+        "windSpeed": 5.8,
+        "pressure": 1014.3,
+        "weatherConditionCode": 3,
+        "weatherCondition": "Cloudy",
+        "gameIndoors": false,
+        "venue": "Bobby Dodd Stadium"
+      }
+    },
+    {
+      "gameId": 401752780,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T20:30:00",
+        "formatted": "November 22, 2025 at 08:30 PM ET",
+        "date": "2025-11-22",
+        "time": "20:30",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Texas",
+        "rank": 17,
+        "score": null,
+        "conference": "SEC",
+        "division": null,
+        "abbreviation": "SEC"
+      },
+      "awayTeam": {
+        "name": "Arkansas",
+        "rank": null,
+        "score": null,
+        "conference": "SEC",
+        "division": null,
+        "abbreviation": "SEC"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": -10,
+            "formattedSpread": "Texas -10",
+            "spreadOpen": -10.5,
+            "overUnder": 57.5,
+            "overUnderOpen": null,
+            "homeMoneyline": -395,
+            "awayMoneyline": 310
+          },
+          {
+            "provider": "Bovada",
+            "spread": -10,
+            "formattedSpread": "Texas -10.0",
+            "spreadOpen": -10,
+            "overUnder": 57.5,
+            "overUnderOpen": 56.5,
+            "homeMoneyline": -430,
+            "awayMoneyline": 320
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": -9.5,
+            "formattedSpread": "Texas -9.5",
+            "spreadOpen": -10.5,
+            "overUnder": 57.5,
+            "overUnderOpen": 56.5,
+            "homeMoneyline": -380,
+            "awayMoneyline": 290
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": -10,
+          "overUnder": 57.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": -9.833333333333334,
+          "overUnder": 57.5
+        }
+      },
+      "weather": {
+        "temperature": 66.6,
+        "dewPoint": 48.9,
+        "humidity": 53,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 21,
+        "windSpeed": 5.8,
+        "pressure": 1017.2,
+        "weatherConditionCode": 2,
+        "weatherCondition": "Fair",
+        "gameIndoors": false,
+        "venue": "DKR-Texas Memorial Stadium"
+      }
+    },
+    {
+      "gameId": 401752914,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T21:00:00",
+        "formatted": "November 22, 2025 at 09:00 PM ET",
+        "date": "2025-11-22",
+        "time": "21:00",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Maryland",
+        "rank": null,
+        "score": null,
+        "conference": "Big Ten",
+        "division": null,
+        "abbreviation": "B1G"
+      },
+      "awayTeam": {
+        "name": "Michigan",
+        "rank": 18,
+        "score": null,
+        "conference": "Big Ten",
+        "division": null,
+        "abbreviation": "B1G"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": 14,
+            "formattedSpread": "Michigan -14",
+            "spreadOpen": 11.5,
+            "overUnder": 46.5,
+            "overUnderOpen": null,
+            "homeMoneyline": 425,
+            "awayMoneyline": -575
+          },
+          {
+            "provider": "Bovada",
+            "spread": 14,
+            "formattedSpread": "Michigan -14.0",
+            "spreadOpen": 11.5,
+            "overUnder": 45.5,
+            "overUnderOpen": 45.5,
+            "homeMoneyline": 400,
+            "awayMoneyline": -575
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": 13.5,
+            "formattedSpread": "Michigan -13.5",
+            "spreadOpen": 13.5,
+            "overUnder": 45.5,
+            "overUnderOpen": 45.5,
+            "homeMoneyline": 475,
+            "awayMoneyline": -750
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": 14,
+          "overUnder": 46.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": 13.833333333333334,
+          "overUnder": 45.833333333333336
+        }
+      },
+      "weather": {
+        "temperature": 54.1,
+        "dewPoint": 41,
+        "humidity": 61,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 24,
+        "windSpeed": 8.1,
+        "pressure": 1014.3,
+        "weatherConditionCode": 3,
+        "weatherCondition": "Cloudy",
+        "gameIndoors": false,
+        "venue": "SECU Stadium"
+      }
+    },
+    {
+      "gameId": 401752775,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-23T00:30:00",
+        "formatted": "November 23, 2025 at 12:30 AM ET",
+        "date": "2025-11-23",
+        "time": "00:30",
+        "dayOfWeek": "Sunday"
+      },
+      "homeTeam": {
+        "name": "Florida",
+        "rank": null,
+        "score": null,
+        "conference": "SEC",
+        "division": null,
+        "abbreviation": "SEC"
+      },
+      "awayTeam": {
+        "name": "Tennessee",
+        "rank": 20,
+        "score": null,
+        "conference": "SEC",
+        "division": null,
+        "abbreviation": "SEC"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": 4.5,
+            "formattedSpread": "Tennessee -4.5",
+            "spreadOpen": -4,
+            "overUnder": 57.5,
+            "overUnderOpen": null,
+            "homeMoneyline": 164,
+            "awayMoneyline": -198
+          },
+          {
+            "provider": "Bovada",
+            "spread": 4.5,
+            "formattedSpread": "Tennessee -4.5",
+            "spreadOpen": 3.5,
+            "overUnder": 57,
+            "overUnderOpen": 57.5,
+            "homeMoneyline": 145,
+            "awayMoneyline": -170
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": 4.5,
+            "formattedSpread": "Tennessee -4.5",
+            "spreadOpen": 3.5,
+            "overUnder": 57.5,
+            "overUnderOpen": 57.5,
+            "homeMoneyline": 150,
+            "awayMoneyline": -175
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": 4.5,
+          "overUnder": 57.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": 4.5,
+          "overUnder": 57.333333333333336
+        }
+      },
+      "weather": {
+        "temperature": 71.8,
+        "dewPoint": 65.7,
+        "humidity": 81,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 230,
+        "windSpeed": 7,
+        "pressure": 1016,
+        "weatherConditionCode": 0,
+        "weatherCondition": null,
+        "gameIndoors": false,
+        "venue": "Ben Hill Griffin Stadium"
+      }
+    },
+    {
+      "gameId": 401752954,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T18:00:00",
+        "formatted": "November 22, 2025 at 06:00 PM ET",
+        "date": "2025-11-22",
+        "time": "18:00",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "James Madison",
+        "rank": 21,
+        "score": null,
+        "conference": "Sun Belt",
+        "division": "East",
+        "abbreviation": "SBC"
+      },
+      "awayTeam": {
+        "name": "Washington State",
+        "rank": null,
+        "score": null,
+        "conference": "Pac-12",
+        "division": null,
+        "abbreviation": "PAC"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": false,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "ESPN Bet",
+            "spread": -13.5,
+            "formattedSpread": "James Madison -13.5",
+            "spreadOpen": -13.5,
+            "overUnder": 41.5,
+            "overUnderOpen": 41.5,
+            "homeMoneyline": -750,
+            "awayMoneyline": 475
+          },
+          {
+            "provider": "DraftKings",
+            "spread": -13.5,
+            "formattedSpread": "James Madison -13.5",
+            "spreadOpen": -13.5,
+            "overUnder": 42.5,
+            "overUnderOpen": null,
+            "homeMoneyline": -600,
+            "awayMoneyline": 440
+          },
+          {
+            "provider": "Bovada",
+            "spread": -14,
+            "formattedSpread": "James Madison -14.0",
+            "spreadOpen": -13.5,
+            "overUnder": 42,
+            "overUnderOpen": 44.5,
+            "homeMoneyline": -550,
+            "awayMoneyline": 390
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": -13.5,
+          "overUnder": 41.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "ESPN Bet",
+          "DraftKings",
+          "Bovada"
+        ],
+        "averages": {
+          "spread": -13.666666666666666,
+          "overUnder": 42.0
+        }
+      },
+      "weather": {
+        "temperature": 46.9,
+        "dewPoint": 40.8,
+        "humidity": 79,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 38,
+        "windSpeed": 8.1,
+        "pressure": 1014.5,
+        "weatherConditionCode": 0,
+        "weatherCondition": null,
+        "gameIndoors": false,
+        "venue": "Bridgeforth Stadium"
+      }
+    },
+    {
+      "gameId": 401762514,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-23T00:30:00",
+        "formatted": "November 23, 2025 at 12:30 AM ET",
+        "date": "2025-11-23",
+        "time": "00:30",
+        "dayOfWeek": "Sunday"
+      },
+      "homeTeam": {
+        "name": "Rice",
+        "rank": null,
+        "score": null,
+        "conference": "American Athletic",
+        "division": null,
+        "abbreviation": "AAC"
+      },
+      "awayTeam": {
+        "name": "North Texas",
+        "rank": 22,
+        "score": null,
+        "conference": "American Athletic",
+        "division": null,
+        "abbreviation": "AAC"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": 18.5,
+            "formattedSpread": "North Texas -18.5",
+            "spreadOpen": 17.5,
+            "overUnder": 55.5,
+            "overUnderOpen": null,
+            "homeMoneyline": 675,
+            "awayMoneyline": -1050
+          },
+          {
+            "provider": "Bovada",
+            "spread": 18,
+            "formattedSpread": "North Texas -18.0",
+            "spreadOpen": 18,
+            "overUnder": 55,
+            "overUnderOpen": 54.5,
+            "homeMoneyline": 625,
+            "awayMoneyline": -1000
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": 17.5,
+            "formattedSpread": "North Texas -17.5",
+            "spreadOpen": 17.5,
+            "overUnder": 55.5,
+            "overUnderOpen": 55.5,
+            "homeMoneyline": 750,
+            "awayMoneyline": -1400
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": 18.5,
+          "overUnder": 55.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": 18.0,
+          "overUnder": 55.333333333333336
+        }
+      },
+      "weather": {
+        "temperature": 70.7,
+        "dewPoint": 57.6,
+        "humidity": 63,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 351,
+        "windSpeed": 2.5,
+        "pressure": 1018.3,
+        "weatherConditionCode": 0,
+        "weatherCondition": null,
+        "gameIndoors": false,
+        "venue": "Rice Stadium"
+      }
+    },
+    {
+      "gameId": 401762515,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T20:45:00",
+        "formatted": "November 22, 2025 at 08:45 PM ET",
+        "date": "2025-11-22",
+        "time": "20:45",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Temple",
+        "rank": null,
+        "score": null,
+        "conference": "American Athletic",
+        "division": null,
+        "abbreviation": "AAC"
+      },
+      "awayTeam": {
+        "name": "Tulane",
+        "rank": 24,
+        "score": null,
+        "conference": "American Athletic",
+        "division": null,
+        "abbreviation": "AAC"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": 8.5,
+            "formattedSpread": "Tulane -8.5",
+            "spreadOpen": 8.5,
+            "overUnder": 56.5,
+            "overUnderOpen": null,
+            "homeMoneyline": 260,
+            "awayMoneyline": -325
+          },
+          {
+            "provider": "Bovada",
+            "spread": 8,
+            "formattedSpread": "Tulane -8.0",
+            "spreadOpen": 8,
+            "overUnder": 56,
+            "overUnderOpen": 55,
+            "homeMoneyline": 260,
+            "awayMoneyline": -320
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": 7.5,
+            "formattedSpread": "Tulane -7.5",
+            "spreadOpen": 8.5,
+            "overUnder": 56.5,
+            "overUnderOpen": 54.5,
+            "homeMoneyline": 260,
+            "awayMoneyline": -320
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": 8.5,
+          "overUnder": 56.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": 8.0,
+          "overUnder": 56.333333333333336
+        }
+      },
+      "weather": {
+        "temperature": 54.9,
+        "dewPoint": 41.2,
+        "humidity": 60,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 314,
+        "windSpeed": 8.1,
+        "pressure": 1015.1,
+        "weatherConditionCode": 3,
+        "weatherCondition": "Cloudy",
+        "gameIndoors": false,
+        "venue": "Lincoln Financial Field"
+      }
+    },
+    {
+      "gameId": 401756957,
+      "status": {
+        "state": "scheduled",
+        "description": "Scheduled",
+        "inProgress": false,
+        "completed": false,
+        "scheduled": true,
+        "period": null,
+        "clock": null,
+        "lastUpdate": null
+      },
+      "datetime": {
+        "raw": "2025-11-22T21:00:00",
+        "formatted": "November 22, 2025 at 09:00 PM ET",
+        "date": "2025-11-22",
+        "time": "21:00",
+        "dayOfWeek": "Saturday"
+      },
+      "homeTeam": {
+        "name": "Houston",
+        "rank": 25,
+        "score": null,
+        "conference": "Big 12",
+        "division": null,
+        "abbreviation": "B12"
+      },
+      "awayTeam": {
+        "name": "TCU",
+        "rank": null,
+        "score": null,
+        "conference": "Big 12",
+        "division": null,
+        "abbreviation": "B12"
+      },
+      "gameInfo": {
+        "neutralSite": false,
+        "conferenceGame": true,
+        "attendance": null,
+        "week": 13,
+        "season": 2025
+      },
+      "bettingLines": {
+        "providers": [
+          {
+            "provider": "DraftKings",
+            "spread": -1.5,
+            "formattedSpread": "Houston -1.5",
+            "spreadOpen": -2.5,
+            "overUnder": 54.5,
+            "overUnderOpen": null,
+            "homeMoneyline": -115,
+            "awayMoneyline": -105
+          },
+          {
+            "provider": "Bovada",
+            "spread": -1,
+            "formattedSpread": "Houston -1.0",
+            "spreadOpen": -2.5,
+            "overUnder": 55.5,
+            "overUnderOpen": 55,
+            "homeMoneyline": -135,
+            "awayMoneyline": 115
+          },
+          {
+            "provider": "ESPN Bet",
+            "spread": -1.5,
+            "formattedSpread": "Houston -1.5",
+            "spreadOpen": -2.5,
+            "overUnder": 54.5,
+            "overUnderOpen": 54.5,
+            "homeMoneyline": -110,
+            "awayMoneyline": -110
+          }
+        ],
+        "totalProviders": 3,
+        "consensus": {
+          "spread": -1.5,
+          "overUnder": 54.5,
+          "providerCount": 3
+        },
+        "allProviders": [
+          "Bovada",
+          "DraftKings",
+          "ESPN Bet"
+        ],
+        "averages": {
+          "spread": -1.3333333333333333,
+          "overUnder": 54.833333333333336
+        }
+      },
+      "weather": {
+        "temperature": 72.1,
+        "dewPoint": 53.1,
+        "humidity": 51,
+        "precipitation": 0,
+        "snowfall": 0,
+        "windDirection": 355,
+        "windSpeed": 5.2,
+        "pressure": 1019.7,
+        "weatherConditionCode": 0,
+        "weatherCondition": null,
+        "gameIndoors": false,
+        "venue": "TDECU Stadium"
+      }
+    }
+  ]
+}

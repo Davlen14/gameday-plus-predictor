@@ -1,0 +1,1235 @@
+{
+  "metadata": {
+    "generated_at": "2025-11-25T02:19:13.082310",
+    "season": 2025,
+    "week": 14,
+    "total_teams": 136,
+    "rating_system": "SP+ (Success Rate Plus)"
+  },
+  "ratings": [
+    {
+      "rank": 1,
+      "team": "Ohio State",
+      "conference": "Big Ten",
+      "sp_overall": 32.4,
+      "sp_offense": 40.4,
+      "sp_defense": 8.3,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 2,
+      "team": "Indiana",
+      "conference": "Big Ten",
+      "sp_overall": 29.9,
+      "sp_offense": 40.6,
+      "sp_defense": 11.2,
+      "sp_special_teams": 0.4
+    },
+    {
+      "rank": 3,
+      "team": "Texas Tech",
+      "conference": "Big 12",
+      "sp_overall": 28.7,
+      "sp_offense": 41.1,
+      "sp_defense": 12.8,
+      "sp_special_teams": 0.4
+    },
+    {
+      "rank": 4,
+      "team": "Oregon",
+      "conference": "Big Ten",
+      "sp_overall": 26.6,
+      "sp_offense": 39.2,
+      "sp_defense": 12.9,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 5,
+      "team": "Notre Dame",
+      "conference": "FBS Independents",
+      "sp_overall": 24.3,
+      "sp_offense": 40,
+      "sp_defense": 15.9,
+      "sp_special_teams": 0.2
+    },
+    {
+      "rank": 6,
+      "team": "Georgia",
+      "conference": "SEC",
+      "sp_overall": 24.3,
+      "sp_offense": 38.9,
+      "sp_defense": 15.3,
+      "sp_special_teams": 0.7
+    },
+    {
+      "rank": 7,
+      "team": "Texas A&M",
+      "conference": "SEC",
+      "sp_overall": 22.6,
+      "sp_offense": 41.4,
+      "sp_defense": 18.7,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 8,
+      "team": "Ole Miss",
+      "conference": "SEC",
+      "sp_overall": 21.9,
+      "sp_offense": 39.5,
+      "sp_defense": 18.2,
+      "sp_special_teams": 0.7
+    },
+    {
+      "rank": 9,
+      "team": "Utah",
+      "conference": "Big 12",
+      "sp_overall": 21.4,
+      "sp_offense": 39.1,
+      "sp_defense": 17.7,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 10,
+      "team": "Alabama",
+      "conference": "SEC",
+      "sp_overall": 21,
+      "sp_offense": 35.7,
+      "sp_defense": 14.3,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 11,
+      "team": "Miami",
+      "conference": "ACC",
+      "sp_overall": 20.2,
+      "sp_offense": 35.8,
+      "sp_defense": 16.2,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 12,
+      "team": "Oklahoma",
+      "conference": "SEC",
+      "sp_overall": 19.5,
+      "sp_offense": 31.7,
+      "sp_defense": 12.7,
+      "sp_special_teams": 0.5
+    },
+    {
+      "rank": 13,
+      "team": "Vanderbilt",
+      "conference": "SEC",
+      "sp_overall": 19.3,
+      "sp_offense": 39.8,
+      "sp_defense": 21.2,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 14,
+      "team": "Tennessee",
+      "conference": "SEC",
+      "sp_overall": 17.5,
+      "sp_offense": 41,
+      "sp_defense": 23.8,
+      "sp_special_teams": 0.4
+    },
+    {
+      "rank": 15,
+      "team": "Washington",
+      "conference": "Big Ten",
+      "sp_overall": 17.5,
+      "sp_offense": 34.6,
+      "sp_defense": 16.8,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 16,
+      "team": "BYU",
+      "conference": "Big 12",
+      "sp_overall": 17.3,
+      "sp_offense": 34.7,
+      "sp_defense": 17.9,
+      "sp_special_teams": 0.4
+    },
+    {
+      "rank": 17,
+      "team": "Penn State",
+      "conference": "Big Ten",
+      "sp_overall": 16.4,
+      "sp_offense": 34.9,
+      "sp_defense": 19.1,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 18,
+      "team": "North Texas",
+      "conference": "American Athletic",
+      "sp_overall": 16.4,
+      "sp_offense": 43.4,
+      "sp_defense": 27.1,
+      "sp_special_teams": 0.1
+    },
+    {
+      "rank": 19,
+      "team": "USC",
+      "conference": "Big Ten",
+      "sp_overall": 16.3,
+      "sp_offense": 39.5,
+      "sp_defense": 22.8,
+      "sp_special_teams": -0.3
+    },
+    {
+      "rank": 20,
+      "team": "Iowa",
+      "conference": "Big Ten",
+      "sp_overall": 15.4,
+      "sp_offense": 29.5,
+      "sp_defense": 14.6,
+      "sp_special_teams": 0.4
+    },
+    {
+      "rank": 21,
+      "team": "Missouri",
+      "conference": "SEC",
+      "sp_overall": 15.4,
+      "sp_offense": 33,
+      "sp_defense": 17.1,
+      "sp_special_teams": -0.5
+    },
+    {
+      "rank": 22,
+      "team": "Michigan",
+      "conference": "Big Ten",
+      "sp_overall": 15.2,
+      "sp_offense": 31.6,
+      "sp_defense": 15.8,
+      "sp_special_teams": -0.5
+    },
+    {
+      "rank": 23,
+      "team": "Texas",
+      "conference": "SEC",
+      "sp_overall": 14.9,
+      "sp_offense": 32.2,
+      "sp_defense": 17.5,
+      "sp_special_teams": 0.2
+    },
+    {
+      "rank": 24,
+      "team": "SMU",
+      "conference": "ACC",
+      "sp_overall": 14.8,
+      "sp_offense": 34.4,
+      "sp_defense": 19.2,
+      "sp_special_teams": -0.3
+    },
+    {
+      "rank": 25,
+      "team": "Arizona",
+      "conference": "Big 12",
+      "sp_overall": 13,
+      "sp_offense": 34.4,
+      "sp_defense": 20.9,
+      "sp_special_teams": -0.5
+    },
+    {
+      "rank": 26,
+      "team": "James Madison",
+      "conference": "Sun Belt",
+      "sp_overall": 12.5,
+      "sp_offense": 32.6,
+      "sp_defense": 19.8,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 27,
+      "team": "Auburn",
+      "conference": "SEC",
+      "sp_overall": 12.5,
+      "sp_offense": 29.8,
+      "sp_defense": 17.4,
+      "sp_special_teams": 0.1
+    },
+    {
+      "rank": 28,
+      "team": "South Florida",
+      "conference": "American Athletic",
+      "sp_overall": 12.4,
+      "sp_offense": 38.9,
+      "sp_defense": 26.5,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 29,
+      "team": "Pittsburgh",
+      "conference": "ACC",
+      "sp_overall": 11.7,
+      "sp_offense": 34.6,
+      "sp_defense": 23.2,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 30,
+      "team": "Memphis",
+      "conference": "American Athletic",
+      "sp_overall": 11.3,
+      "sp_offense": 37.9,
+      "sp_defense": 27.2,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 31,
+      "team": "Virginia",
+      "conference": "ACC",
+      "sp_overall": 11,
+      "sp_offense": 31.3,
+      "sp_defense": 20.5,
+      "sp_special_teams": 0.2
+    },
+    {
+      "rank": 32,
+      "team": "Illinois",
+      "conference": "Big Ten",
+      "sp_overall": 10.7,
+      "sp_offense": 33.6,
+      "sp_defense": 23.4,
+      "sp_special_teams": 0.5
+    },
+    {
+      "rank": 33,
+      "team": "LSU",
+      "conference": "SEC",
+      "sp_overall": 10.2,
+      "sp_offense": 25.8,
+      "sp_defense": 15.6,
+      "sp_special_teams": 0.1
+    },
+    {
+      "rank": 34,
+      "team": "Florida State",
+      "conference": "ACC",
+      "sp_overall": 10.1,
+      "sp_offense": 30.4,
+      "sp_defense": 20.3,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 35,
+      "team": "Iowa State",
+      "conference": "Big 12",
+      "sp_overall": 9.5,
+      "sp_offense": 29.6,
+      "sp_defense": 20.5,
+      "sp_special_teams": 0.4
+    },
+    {
+      "rank": 36,
+      "team": "Clemson",
+      "conference": "ACC",
+      "sp_overall": 9.2,
+      "sp_offense": 29.3,
+      "sp_defense": 20.5,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 37,
+      "team": "Louisville",
+      "conference": "ACC",
+      "sp_overall": 9.1,
+      "sp_offense": 30.6,
+      "sp_defense": 21.7,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 38,
+      "team": "Nebraska",
+      "conference": "Big Ten",
+      "sp_overall": 8.8,
+      "sp_offense": 29.6,
+      "sp_defense": 20.8,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 39,
+      "team": "Georgia Tech",
+      "conference": "ACC",
+      "sp_overall": 8.8,
+      "sp_offense": 35.3,
+      "sp_defense": 27,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 40,
+      "team": "Toledo",
+      "conference": "Mid-American",
+      "sp_overall": 8.4,
+      "sp_offense": 27.2,
+      "sp_defense": 18.5,
+      "sp_special_teams": -0.3
+    },
+    {
+      "rank": 41,
+      "team": "Cincinnati",
+      "conference": "Big 12",
+      "sp_overall": 8.3,
+      "sp_offense": 32.4,
+      "sp_defense": 24.3,
+      "sp_special_teams": 0.2
+    },
+    {
+      "rank": 42,
+      "team": "Houston",
+      "conference": "Big 12",
+      "sp_overall": 7.3,
+      "sp_offense": 29.7,
+      "sp_defense": 22,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 43,
+      "team": "San Diego State",
+      "conference": "Mountain West",
+      "sp_overall": 7.2,
+      "sp_offense": 23.6,
+      "sp_defense": 17.1,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 44,
+      "team": "TCU",
+      "conference": "Big 12",
+      "sp_overall": 6.7,
+      "sp_offense": 31.2,
+      "sp_defense": 24.1,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 45,
+      "team": "Arkansas",
+      "conference": "SEC",
+      "sp_overall": 6.7,
+      "sp_offense": 37.9,
+      "sp_defense": 31.8,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 46,
+      "team": "Arizona State",
+      "conference": "Big 12",
+      "sp_overall": 6.5,
+      "sp_offense": 28.6,
+      "sp_defense": 21.4,
+      "sp_special_teams": -0.7
+    },
+    {
+      "rank": 47,
+      "team": "UConn",
+      "conference": "FBS Independents",
+      "sp_overall": 6.3,
+      "sp_offense": 33.1,
+      "sp_defense": 27.4,
+      "sp_special_teams": 0.5
+    },
+    {
+      "rank": 48,
+      "team": "Old Dominion",
+      "conference": "Sun Belt",
+      "sp_overall": 6.2,
+      "sp_offense": 32,
+      "sp_defense": 25.1,
+      "sp_special_teams": -0.7
+    },
+    {
+      "rank": 49,
+      "team": "South Carolina",
+      "conference": "SEC",
+      "sp_overall": 6.1,
+      "sp_offense": 25.9,
+      "sp_defense": 20.2,
+      "sp_special_teams": 0.5
+    },
+    {
+      "rank": 50,
+      "team": "Kansas State",
+      "conference": "Big 12",
+      "sp_overall": 6.1,
+      "sp_offense": 32.1,
+      "sp_defense": 26,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 51,
+      "team": "East Carolina",
+      "conference": "American Athletic",
+      "sp_overall": 6,
+      "sp_offense": 31.8,
+      "sp_defense": 26,
+      "sp_special_teams": 0.1
+    },
+    {
+      "rank": 52,
+      "team": "Tulane",
+      "conference": "American Athletic",
+      "sp_overall": 5.8,
+      "sp_offense": 33.1,
+      "sp_defense": 27.9,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 53,
+      "team": "Wake Forest",
+      "conference": "ACC",
+      "sp_overall": 5.8,
+      "sp_offense": 24.9,
+      "sp_defense": 19.1,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 54,
+      "team": "UNLV",
+      "conference": "Mountain West",
+      "sp_overall": 5.7,
+      "sp_offense": 36.2,
+      "sp_defense": 30.7,
+      "sp_special_teams": 0.2
+    },
+    {
+      "rank": 55,
+      "team": "Boise State",
+      "conference": "Mountain West",
+      "sp_overall": 5.3,
+      "sp_offense": 29.7,
+      "sp_defense": 24,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 56,
+      "team": "Mississippi State",
+      "conference": "SEC",
+      "sp_overall": 5.1,
+      "sp_offense": 32.6,
+      "sp_defense": 28,
+      "sp_special_teams": 0.4
+    },
+    {
+      "rank": 57,
+      "team": "Kentucky",
+      "conference": "SEC",
+      "sp_overall": 4.6,
+      "sp_offense": 27.2,
+      "sp_defense": 22.9,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 58,
+      "team": "Kansas",
+      "conference": "Big 12",
+      "sp_overall": 3.8,
+      "sp_offense": 31.6,
+      "sp_defense": 28.4,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 59,
+      "team": "Duke",
+      "conference": "ACC",
+      "sp_overall": 3.7,
+      "sp_offense": 33.6,
+      "sp_defense": 29.9,
+      "sp_special_teams": 0.1
+    },
+    {
+      "rank": 60,
+      "team": "UTSA",
+      "conference": "American Athletic",
+      "sp_overall": 2.3,
+      "sp_offense": 32.8,
+      "sp_defense": 30.8,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 61,
+      "team": "Navy",
+      "conference": "American Athletic",
+      "sp_overall": 2.3,
+      "sp_offense": 33.5,
+      "sp_defense": 31.4,
+      "sp_special_teams": 0.2
+    },
+    {
+      "rank": 62,
+      "team": "Northwestern",
+      "conference": "Big Ten",
+      "sp_overall": 1.9,
+      "sp_offense": 24,
+      "sp_defense": 22.6,
+      "sp_special_teams": 0.5
+    },
+    {
+      "rank": 63,
+      "team": "Baylor",
+      "conference": "Big 12",
+      "sp_overall": 1.4,
+      "sp_offense": 33.9,
+      "sp_defense": 33,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 64,
+      "team": "Western Kentucky",
+      "conference": "Conference USA",
+      "sp_overall": 1.1,
+      "sp_offense": 26.9,
+      "sp_defense": 26.4,
+      "sp_special_teams": 0.5
+    },
+    {
+      "rank": 65,
+      "team": "Washington State",
+      "conference": "Pac-12",
+      "sp_overall": 0.8,
+      "sp_offense": 22.7,
+      "sp_defense": 22,
+      "sp_special_teams": 0.1
+    },
+    {
+      "rank": 66,
+      "team": "NC State",
+      "conference": "ACC",
+      "sp_overall": 0.7,
+      "sp_offense": 30.2,
+      "sp_defense": 28.9,
+      "sp_special_teams": -0.5
+    },
+    {
+      "rank": 67,
+      "team": "UCF",
+      "conference": "Big 12",
+      "sp_overall": 0.7,
+      "sp_offense": 23.5,
+      "sp_defense": 22.7,
+      "sp_special_teams": -0.1
+    },
+    {
+      "rank": 68,
+      "team": "Maryland",
+      "conference": "Big Ten",
+      "sp_overall": 0.6,
+      "sp_offense": 24.2,
+      "sp_defense": 24.1,
+      "sp_special_teams": 0.4
+    },
+    {
+      "rank": 69,
+      "team": "Florida",
+      "conference": "SEC",
+      "sp_overall": 0.5,
+      "sp_offense": 23.4,
+      "sp_defense": 23.4,
+      "sp_special_teams": 0.5
+    },
+    {
+      "rank": 70,
+      "team": "New Mexico",
+      "conference": "Mountain West",
+      "sp_overall": 0,
+      "sp_offense": 27.1,
+      "sp_defense": 27.6,
+      "sp_special_teams": 0.5
+    },
+    {
+      "rank": 71,
+      "team": "Minnesota",
+      "conference": "Big Ten",
+      "sp_overall": -0.2,
+      "sp_offense": 24.5,
+      "sp_defense": 24.2,
+      "sp_special_teams": -0.5
+    },
+    {
+      "rank": 72,
+      "team": "Rutgers",
+      "conference": "Big Ten",
+      "sp_overall": -0.5,
+      "sp_offense": 30.3,
+      "sp_defense": 30.8,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 73,
+      "team": "Utah State",
+      "conference": "Mountain West",
+      "sp_overall": -0.7,
+      "sp_offense": 30.8,
+      "sp_defense": 30.9,
+      "sp_special_teams": -0.6
+    },
+    {
+      "rank": 74,
+      "team": "Hawai'i",
+      "conference": "Mountain West",
+      "sp_overall": -1.1,
+      "sp_offense": 26.1,
+      "sp_defense": 27.6,
+      "sp_special_teams": 0.5
+    },
+    {
+      "rank": 75,
+      "team": "Fresno State",
+      "conference": "Mountain West",
+      "sp_overall": -1.2,
+      "sp_offense": 22.2,
+      "sp_defense": 23.1,
+      "sp_special_teams": -0.3
+    },
+    {
+      "rank": 76,
+      "team": "Texas State",
+      "conference": "Sun Belt",
+      "sp_overall": -1.5,
+      "sp_offense": 34.7,
+      "sp_defense": 36.2,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 77,
+      "team": "Louisiana Tech",
+      "conference": "Conference USA",
+      "sp_overall": -1.5,
+      "sp_offense": 23.7,
+      "sp_defense": 25.1,
+      "sp_special_teams": -0.1
+    },
+    {
+      "rank": 78,
+      "team": "Kennesaw State",
+      "conference": "Conference USA",
+      "sp_overall": -1.5,
+      "sp_offense": 25.7,
+      "sp_defense": 26.7,
+      "sp_special_teams": -0.5
+    },
+    {
+      "rank": 79,
+      "team": "Army",
+      "conference": "American Athletic",
+      "sp_overall": -2.5,
+      "sp_offense": 22.9,
+      "sp_defense": 25.3,
+      "sp_special_teams": -0.1
+    },
+    {
+      "rank": 80,
+      "team": "Ohio",
+      "conference": "Mid-American",
+      "sp_overall": -2.7,
+      "sp_offense": 24,
+      "sp_defense": 26,
+      "sp_special_teams": -0.7
+    },
+    {
+      "rank": 81,
+      "team": "Miami (OH)",
+      "conference": "Mid-American",
+      "sp_overall": -3,
+      "sp_offense": 20.8,
+      "sp_defense": 24.4,
+      "sp_special_teams": 0.7
+    },
+    {
+      "rank": 82,
+      "team": "Western Michigan",
+      "conference": "Mid-American",
+      "sp_overall": -3.2,
+      "sp_offense": 20.6,
+      "sp_defense": 23.3,
+      "sp_special_teams": -0.5
+    },
+    {
+      "rank": 83,
+      "team": "California",
+      "conference": "ACC",
+      "sp_overall": -4.1,
+      "sp_offense": 23,
+      "sp_defense": 27.2,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 84,
+      "team": "Troy",
+      "conference": "Sun Belt",
+      "sp_overall": -4.2,
+      "sp_offense": 24.4,
+      "sp_defense": 29,
+      "sp_special_teams": 0.4
+    },
+    {
+      "rank": 85,
+      "team": "Southern Miss",
+      "conference": "Sun Belt",
+      "sp_overall": -4.2,
+      "sp_offense": 28.1,
+      "sp_defense": 32.1,
+      "sp_special_teams": -0.3
+    },
+    {
+      "rank": 86,
+      "team": "Marshall",
+      "conference": "Sun Belt",
+      "sp_overall": -4.4,
+      "sp_offense": 30.4,
+      "sp_defense": 34.7,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 87,
+      "team": "Central Michigan",
+      "conference": "Mid-American",
+      "sp_overall": -4.4,
+      "sp_offense": 20.8,
+      "sp_defense": 24.8,
+      "sp_special_teams": -0.3
+    },
+    {
+      "rank": 88,
+      "team": "Wisconsin",
+      "conference": "Big Ten",
+      "sp_overall": -4.7,
+      "sp_offense": 18.3,
+      "sp_defense": 22.7,
+      "sp_special_teams": -0.3
+    },
+    {
+      "rank": 89,
+      "team": "Temple",
+      "conference": "American Athletic",
+      "sp_overall": -5.1,
+      "sp_offense": 27.1,
+      "sp_defense": 32.4,
+      "sp_special_teams": 0.2
+    },
+    {
+      "rank": 90,
+      "team": "Jacksonville State",
+      "conference": "Conference USA",
+      "sp_overall": -5.2,
+      "sp_offense": 27.2,
+      "sp_defense": 31.8,
+      "sp_special_teams": -0.6
+    },
+    {
+      "rank": 91,
+      "team": "Michigan State",
+      "conference": "Big Ten",
+      "sp_overall": -5.2,
+      "sp_offense": 24.8,
+      "sp_defense": 29.6,
+      "sp_special_teams": -0.5
+    },
+    {
+      "rank": 92,
+      "team": "West Virginia",
+      "conference": "Big 12",
+      "sp_overall": -5.3,
+      "sp_offense": 23.9,
+      "sp_defense": 29.2,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 93,
+      "team": "Air Force",
+      "conference": "Mountain West",
+      "sp_overall": -5.8,
+      "sp_offense": 26.9,
+      "sp_defense": 32.6,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 94,
+      "team": "North Carolina",
+      "conference": "ACC",
+      "sp_overall": -6.1,
+      "sp_offense": 18,
+      "sp_defense": 24.5,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 95,
+      "team": "Purdue",
+      "conference": "Big Ten",
+      "sp_overall": -6.5,
+      "sp_offense": 22.6,
+      "sp_defense": 29.8,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 96,
+      "team": "Colorado",
+      "conference": "Big 12",
+      "sp_overall": -6.8,
+      "sp_offense": 23.9,
+      "sp_defense": 30.3,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 97,
+      "team": "Florida Atlantic",
+      "conference": "American Athletic",
+      "sp_overall": -7.7,
+      "sp_offense": 29.3,
+      "sp_defense": 37.3,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 98,
+      "team": "Missouri State",
+      "conference": "Conference USA",
+      "sp_overall": -7.8,
+      "sp_offense": 24,
+      "sp_defense": 31.3,
+      "sp_special_teams": -0.5
+    },
+    {
+      "rank": 99,
+      "team": "Liberty",
+      "conference": "Conference USA",
+      "sp_overall": -8,
+      "sp_offense": 22.5,
+      "sp_defense": 30.3,
+      "sp_special_teams": -0.2
+    },
+    {
+      "rank": 100,
+      "team": "Buffalo",
+      "conference": "Mid-American",
+      "sp_overall": -8,
+      "sp_offense": 17.9,
+      "sp_defense": 26.5,
+      "sp_special_teams": 0.6
+    },
+    {
+      "rank": 101,
+      "team": "UCLA",
+      "conference": "Big Ten",
+      "sp_overall": -8.5,
+      "sp_offense": 22.6,
+      "sp_defense": 31.1,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 102,
+      "team": "Virginia Tech",
+      "conference": "ACC",
+      "sp_overall": -8.6,
+      "sp_offense": 23.1,
+      "sp_defense": 31.5,
+      "sp_special_teams": -0.1
+    },
+    {
+      "rank": 103,
+      "team": "Louisiana",
+      "conference": "Sun Belt",
+      "sp_overall": -8.6,
+      "sp_offense": 25.9,
+      "sp_defense": 34.1,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 104,
+      "team": "Wyoming",
+      "conference": "Mountain West",
+      "sp_overall": -9.2,
+      "sp_offense": 15.9,
+      "sp_defense": 24.5,
+      "sp_special_teams": -0.6
+    },
+    {
+      "rank": 105,
+      "team": "Florida International",
+      "conference": "Conference USA",
+      "sp_overall": -9.7,
+      "sp_offense": 24.7,
+      "sp_defense": 34,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 106,
+      "team": "Stanford",
+      "conference": "ACC",
+      "sp_overall": -9.9,
+      "sp_offense": 18.9,
+      "sp_defense": 28.2,
+      "sp_special_teams": -0.6
+    },
+    {
+      "rank": 107,
+      "team": "Arkansas State",
+      "conference": "Sun Belt",
+      "sp_overall": -9.9,
+      "sp_offense": 22.2,
+      "sp_defense": 32.4,
+      "sp_special_teams": 0.2
+    },
+    {
+      "rank": 108,
+      "team": "South Alabama",
+      "conference": "Sun Belt",
+      "sp_overall": -10.4,
+      "sp_offense": 25.1,
+      "sp_defense": 34.8,
+      "sp_special_teams": -0.7
+    },
+    {
+      "rank": 109,
+      "team": "App State",
+      "conference": "Sun Belt",
+      "sp_overall": -10.6,
+      "sp_offense": 23.1,
+      "sp_defense": 34,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 110,
+      "team": "Tulsa",
+      "conference": "American Athletic",
+      "sp_overall": -10.7,
+      "sp_offense": 21.8,
+      "sp_defense": 32.9,
+      "sp_special_teams": 0.4
+    },
+    {
+      "rank": 111,
+      "team": "San Jos\u00e9 State",
+      "conference": "Mountain West",
+      "sp_overall": -11.4,
+      "sp_offense": 22.8,
+      "sp_defense": 33.7,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 112,
+      "team": "Coastal Carolina",
+      "conference": "Sun Belt",
+      "sp_overall": -11.5,
+      "sp_offense": 24.7,
+      "sp_defense": 36.3,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 113,
+      "team": "Boston College",
+      "conference": "ACC",
+      "sp_overall": -11.8,
+      "sp_offense": 22.9,
+      "sp_defense": 35.2,
+      "sp_special_teams": 0.4
+    },
+    {
+      "rank": 114,
+      "team": "Georgia Southern",
+      "conference": "Sun Belt",
+      "sp_overall": -12.1,
+      "sp_offense": 27.6,
+      "sp_defense": 39.7,
+      "sp_special_teams": 0.1
+    },
+    {
+      "rank": 115,
+      "team": "Rice",
+      "conference": "American Athletic",
+      "sp_overall": -12.5,
+      "sp_offense": 19.1,
+      "sp_defense": 31.8,
+      "sp_special_teams": 0.2
+    },
+    {
+      "rank": 116,
+      "team": "Nevada",
+      "conference": "Mountain West",
+      "sp_overall": -12.6,
+      "sp_offense": 14.4,
+      "sp_defense": 27.3,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 117,
+      "team": "Delaware",
+      "conference": "Conference USA",
+      "sp_overall": -12.6,
+      "sp_offense": 24.1,
+      "sp_defense": 36.3,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 118,
+      "team": "Syracuse",
+      "conference": "ACC",
+      "sp_overall": -12.9,
+      "sp_offense": 20.2,
+      "sp_defense": 33.2,
+      "sp_special_teams": 0.2
+    },
+    {
+      "rank": 119,
+      "team": "Oregon State",
+      "conference": "Pac-12",
+      "sp_overall": -13.3,
+      "sp_offense": 17.7,
+      "sp_defense": 30.3,
+      "sp_special_teams": -0.7
+    },
+    {
+      "rank": 120,
+      "team": "Akron",
+      "conference": "Mid-American",
+      "sp_overall": -13.7,
+      "sp_offense": 17,
+      "sp_defense": 30.1,
+      "sp_special_teams": -0.6
+    },
+    {
+      "rank": 121,
+      "team": "New Mexico State",
+      "conference": "Conference USA",
+      "sp_overall": -14.1,
+      "sp_offense": 19.3,
+      "sp_defense": 33.2,
+      "sp_special_teams": -0.1
+    },
+    {
+      "rank": 122,
+      "team": "Eastern Michigan",
+      "conference": "Mid-American",
+      "sp_overall": -14.3,
+      "sp_offense": 19.8,
+      "sp_defense": 34,
+      "sp_special_teams": null
+    },
+    {
+      "rank": 123,
+      "team": "Colorado State",
+      "conference": "Mountain West",
+      "sp_overall": -14.5,
+      "sp_offense": 17.5,
+      "sp_defense": 31.9,
+      "sp_special_teams": -0.1
+    },
+    {
+      "rank": 124,
+      "team": "UTEP",
+      "conference": "Conference USA",
+      "sp_overall": -15,
+      "sp_offense": 19,
+      "sp_defense": 33.4,
+      "sp_special_teams": -0.6
+    },
+    {
+      "rank": 125,
+      "team": "Bowling Green",
+      "conference": "Mid-American",
+      "sp_overall": -15.7,
+      "sp_offense": 14.1,
+      "sp_defense": 30.1,
+      "sp_special_teams": 0.3
+    },
+    {
+      "rank": 126,
+      "team": "Northern Illinois",
+      "conference": "Mid-American",
+      "sp_overall": -15.8,
+      "sp_offense": 11.2,
+      "sp_defense": 26.7,
+      "sp_special_teams": -0.4
+    },
+    {
+      "rank": 127,
+      "team": "Oklahoma State",
+      "conference": "Big 12",
+      "sp_overall": -16.4,
+      "sp_offense": 16.2,
+      "sp_defense": 32.9,
+      "sp_special_teams": 0.2
+    },
+    {
+      "rank": 128,
+      "team": "UAB",
+      "conference": "American Athletic",
+      "sp_overall": -16.8,
+      "sp_offense": 24.8,
+      "sp_defense": 41.1,
+      "sp_special_teams": -0.5
+    },
+    {
+      "rank": 129,
+      "team": "Middle Tennessee",
+      "conference": "Conference USA",
+      "sp_overall": -18,
+      "sp_offense": 18.7,
+      "sp_defense": 36.7,
+      "sp_special_teams": -0.1
+    },
+    {
+      "rank": 130,
+      "team": "Kent State",
+      "conference": "Mid-American",
+      "sp_overall": -19.6,
+      "sp_offense": 15.9,
+      "sp_defense": 34.8,
+      "sp_special_teams": -0.6
+    },
+    {
+      "rank": 131,
+      "team": "Ball State",
+      "conference": "Mid-American",
+      "sp_overall": -20.7,
+      "sp_offense": 13.3,
+      "sp_defense": 33.4,
+      "sp_special_teams": -0.7
+    },
+    {
+      "rank": 132,
+      "team": "UL Monroe",
+      "conference": "Sun Belt",
+      "sp_overall": -21.6,
+      "sp_offense": 14.7,
+      "sp_defense": 35.6,
+      "sp_special_teams": -0.7
+    },
+    {
+      "rank": 133,
+      "team": "Georgia State",
+      "conference": "Sun Belt",
+      "sp_overall": -23.6,
+      "sp_offense": 19,
+      "sp_defense": 41.9,
+      "sp_special_teams": -0.7
+    },
+    {
+      "rank": 134,
+      "team": "Sam Houston",
+      "conference": "Conference USA",
+      "sp_overall": -25.4,
+      "sp_offense": 14.8,
+      "sp_defense": 39.7,
+      "sp_special_teams": -0.6
+    },
+    {
+      "rank": 135,
+      "team": "Charlotte",
+      "conference": "American Athletic",
+      "sp_overall": -25.5,
+      "sp_offense": 15.2,
+      "sp_defense": 40.4,
+      "sp_special_teams": -0.2
+    },
+    {
+      "rank": 136,
+      "team": "Massachusetts",
+      "conference": "Mid-American",
+      "sp_overall": -34.9,
+      "sp_offense": 8.3,
+      "sp_defense": 42.6,
+      "sp_special_teams": -0.6
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { GlassCard } from './GlassCard';
 import { TrendingUp, AlertTriangle, Info, BarChart3 } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { InsightBox } from './InsightBox';
 
 // Sportsbook SVGs from public folder (Vite will serve these correctly)
 const BovadaLogo = '/Bovada-Casino-Logo.svg';
@@ -391,13 +392,15 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
                           book.provider === 'Bovada' ? BovadaLogo :
                           DraftKingsLogo;
               
-              const spreadDisplay = formatSpreadDisplay(book.spread);
+              // Use each book's individual spread and total
+              const bookSpread = book.spread || 0;
+              const spreadDisplay = formatSpreadDisplay(bookSpread);
               const total = book.overUnder || 0;
               const totalDiff = (total - modelTotal).toFixed(1);
               
               // Determine badge for spread
-              const isConsensus = Math.abs(book.spread - marketSpread) < 0.3;
-              const spreadBadge = isConsensus ? 'CONSENSUS' : `${(book.spread - marketSpread) > 0 ? '+' : ''}${(book.spread - marketSpread).toFixed(1)}`;
+              const isConsensus = Math.abs(bookSpread - marketSpread) < 0.3;
+              const spreadBadge = isConsensus ? 'CONSENSUS' : `${(bookSpread - marketSpread) > 0 ? '+' : ''}${(bookSpread - marketSpread).toFixed(1)}`;
               const spreadBadgeColor = isConsensus ? 'emerald' : 'amber';
               
               return (
@@ -410,6 +413,18 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
                   spreadBadge={spreadBadge}
                   spreadBadgeColor={spreadBadgeColor as 'emerald' | 'amber'}
                   totalDiff={totalDiff}
+                  spreadEdge={spreadEdge}
+                  valueEdge={valueEdge}
+                  totalEdge={totalEdge}
+                  modelSpreadDisplay={modelSpreadDisplay}
+                  marketSpreadDisplay={marketSpreadDisplay}
+                  modelTotal={modelTotal}
+                  marketTotal={marketTotal}
+                  isUpsetAlert={isUpsetAlert}
+                  modelFavorite={modelFavorite}
+                  marketFavorite={marketFavorite}
+                  homeTeamName={homeTeam.name}
+                  awayTeamName={awayTeam.name}
                 />
               );
             })
@@ -424,6 +439,18 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
                 spreadBadge="CONSENSUS"
                 spreadBadgeColor="emerald"
                 totalDiff={`${(marketTotal - 0.5 - modelTotal).toFixed(1)}`}
+                spreadEdge={spreadEdge}
+                valueEdge={valueEdge}
+                totalEdge={totalEdge}
+                modelSpreadDisplay={modelSpreadDisplay}
+                marketSpreadDisplay={marketSpreadDisplay}
+                modelTotal={modelTotal}
+                marketTotal={marketTotal}
+                isUpsetAlert={isUpsetAlert}
+                modelFavorite={modelFavorite}
+                marketFavorite={marketFavorite}
+                homeTeamName={homeTeam.name}
+                awayTeamName={awayTeam.name}
               />
               <SportsbookLine 
                 name="ESPN Bet" 
@@ -433,6 +460,18 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
                 spreadBadge="+1.0"
                 spreadBadgeColor="amber"
                 totalDiff={`${(marketTotal + 1.0 - modelTotal).toFixed(1)}`}
+                spreadEdge={spreadEdge}
+                valueEdge={valueEdge}
+                totalEdge={totalEdge}
+                modelSpreadDisplay={modelSpreadDisplay}
+                marketSpreadDisplay={marketSpreadDisplay}
+                modelTotal={modelTotal}
+                marketTotal={marketTotal}
+                isUpsetAlert={isUpsetAlert}
+                modelFavorite={modelFavorite}
+                marketFavorite={marketFavorite}
+                homeTeamName={homeTeam.name}
+                awayTeamName={awayTeam.name}
               />
               <SportsbookLine 
                 name="DraftKings" 
@@ -442,6 +481,18 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
                 spreadBadge="CONSENSUS"
                 spreadBadgeColor="emerald"
                 totalDiff={`${(marketTotal - modelTotal).toFixed(1)}`}
+                spreadEdge={spreadEdge}
+                valueEdge={valueEdge}
+                totalEdge={totalEdge}
+                modelSpreadDisplay={modelSpreadDisplay}
+                marketSpreadDisplay={marketSpreadDisplay}
+                modelTotal={modelTotal}
+                marketTotal={marketTotal}
+                isUpsetAlert={isUpsetAlert}
+                modelFavorite={modelFavorite}
+                marketFavorite={marketFavorite}
+                homeTeamName={homeTeam.name}
+                awayTeamName={awayTeam.name}
               />
             </>
           )}
@@ -742,7 +793,19 @@ function SportsbookLine({
   total, 
   spreadBadge, 
   spreadBadgeColor, 
-  totalDiff 
+  totalDiff,
+  spreadEdge,
+  valueEdge,
+  totalEdge,
+  modelSpreadDisplay,
+  marketSpreadDisplay,
+  modelTotal,
+  marketTotal,
+  isUpsetAlert,
+  modelFavorite,
+  marketFavorite,
+  homeTeamName,
+  awayTeamName
 }: { 
   name: string; 
   logo: string;
@@ -751,6 +814,18 @@ function SportsbookLine({
   spreadBadge: string; 
   spreadBadgeColor: 'emerald' | 'amber'; 
   totalDiff: string;
+  spreadEdge: number;
+  valueEdge: number;
+  totalEdge: number;
+  modelSpreadDisplay: string;
+  marketSpreadDisplay: string;
+  modelTotal: number;
+  marketTotal: number;
+  isUpsetAlert: boolean;
+  modelFavorite: string;
+  marketFavorite: string;
+  homeTeamName: string;
+  awayTeamName: string;
 }) {
   const badgeColors = {
     emerald: 'bg-emerald-500/30 border-emerald-400/50 text-emerald-400',
@@ -783,6 +858,22 @@ function SportsbookLine({
           </div>
         </div>
       </div>
+
+      {/* Market Analysis Insights */}
+      <InsightBox
+        whatItMeans="The market spread is what Vegas sportsbooks believe the final margin will be. Our model's spread is an independent prediction. When they disagree significantly, there's potential 'value' - a bet with positive expected return."
+        whyItMatters={`A ${spreadEdge.toFixed(1)}-point edge means the model sees ${((spreadEdge / 3) * 100).toFixed(0)}% more scoring advantage than Vegas prices. On a $100 bet, this translates to roughly $${((spreadEdge / 3) * 110).toFixed(0)} in expected value. Edges over 3 points historically win 55-60% of the time.`}
+        whoHasEdge={{
+          team: valueEdge > 0 ? homeTeamName : awayTeamName,
+          reason: `Model projects ${Math.abs(valueEdge).toFixed(1)} points ${valueEdge > 0 ? 'stronger' : 'weaker'} than market consensus. ${spreadEdge > 5 ? 'This is a MAJOR disagreement suggesting the model found something Vegas missed.' : spreadEdge > 3 ? 'Significant edge worth betting.' : 'Moderate difference, proceed with caution.'} Total shows ${totalEdge > 5 ? 'major' : totalEdge > 3 ? 'significant' : 'minor'} ${modelTotal > marketTotal ? 'OVER' : 'UNDER'} value.`,
+          magnitude: spreadEdge > 5 ? 'major' : spreadEdge > 3 ? 'significant' : spreadEdge > 1.5 ? 'moderate' : 'small'
+        }}
+        keyDifferences={[
+          `Spread disagreement: ${spreadEdge.toFixed(1)} points (Model: ${modelSpreadDisplay}, Vegas: ${marketSpreadDisplay})`,
+          `Total disagreement: ${totalEdge.toFixed(1)} points (Model: ${modelTotal.toFixed(1)}, Vegas: ${marketTotal.toFixed(1)})`,
+          isUpsetAlert ? `🚨 UPSET ALERT: Model picks ${modelFavorite}, market favors ${marketFavorite}` : `Both model and market agree on favorite (${modelFavorite})`
+        ]}
+      />
     </div>
   );
 }

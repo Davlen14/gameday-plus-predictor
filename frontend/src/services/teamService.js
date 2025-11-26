@@ -142,10 +142,44 @@ class TeamService {
 
     // Find partial matches for fuzzy searching
     findPartialMatch(query) {
-        // Try partial school name match
+        // CRITICAL: Explicit disambiguation for commonly confused teams
+        // These MUST be checked before any fuzzy matching
+        const exactDisambiguation = {
+            'ohio': 'Ohio',           // Ohio Bobcats, NOT Ohio State
+            'oklahoma': 'Oklahoma',   // Oklahoma Sooners, NOT Oklahoma State
+            'miami': 'Miami',         // Miami Hurricanes, NOT Miami (OH)
+            'georgia': 'Georgia',     // Georgia Bulldogs, NOT Georgia State/Tech
+            'washington': 'Washington' // Washington Huskies, NOT Washington State
+        };
+        
+        // If query exactly matches a disambiguation key, find that EXACT school name
+        if (exactDisambiguation[query]) {
+            const exactSchool = exactDisambiguation[query];
+            for (const [name, team] of this.nameMap.entries()) {
+                if (team.school === exactSchool) {
+                    return team;
+                }
+            }
+        }
+        
+        // First try exact word boundary matches
         for (const [name, team] of this.nameMap.entries()) {
-            if (name.includes(query) || query.includes(name)) {
+            const nameWords = name.split(/\s+/);
+            const queryWords = query.split(/\s+/);
+            // Exact match on all words
+            if (queryWords.length === nameWords.length && 
+                queryWords.every((word, i) => nameWords[i] === word)) {
                 return team;
+            }
+        }
+        
+        // Only allow partial matches if query has 2+ words (prevents "ohio" matching "ohio state")
+        const queryWords = query.split(/\s+/);
+        if (queryWords.length >= 2) {
+            for (const [name, team] of this.nameMap.entries()) {
+                if (name === query || name.startsWith(query + ' ')) {
+                    return team;
+                }
             }
         }
         

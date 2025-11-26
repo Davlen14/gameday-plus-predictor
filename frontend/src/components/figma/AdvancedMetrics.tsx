@@ -4,9 +4,10 @@ import { BarChart3 } from 'lucide-react';
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer, Tooltip } from 'recharts';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { generateTeamAbbr, extractSection, parseTeamValue } from '../../utils/teamUtils';
+import { InsightBox } from './InsightBox';
 
 // StatComparison Component
-const StatComparison = ({ label, awayValue, homeValue, awayLabel, homeLabel, higherBetter, awayTeam, homeTeam }: {
+const StatComparison = ({ label, awayValue, homeValue, awayLabel, homeLabel, higherBetter, awayTeam, homeTeam, awayTeamColor, homeTeamColor }: {
   label: string;
   awayValue: number;
   homeValue: number;
@@ -15,6 +16,8 @@ const StatComparison = ({ label, awayValue, homeValue, awayLabel, homeLabel, hig
   higherBetter: boolean;
   awayTeam: any;
   homeTeam: any;
+  awayTeamColor: string;
+  homeTeamColor: string;
 }) => {
   // Calculate percentages for bar widths
   const total = awayValue + homeValue;
@@ -63,7 +66,7 @@ const StatComparison = ({ label, awayValue, homeValue, awayLabel, homeLabel, hig
           className="transition-all duration-500"
           style={{ 
             width: `${awayPercent}%`,
-            backgroundColor: awayBetter ? awayTeam.primary_color : `${awayTeam.primary_color}80`
+            backgroundColor: awayBetter ? awayTeamColor : `${awayTeamColor}80`
           }}
         />
         {/* Home team bar - extends from right */}
@@ -71,7 +74,7 @@ const StatComparison = ({ label, awayValue, homeValue, awayLabel, homeLabel, hig
           className="transition-all duration-500"
           style={{ 
             width: `${homePercent}%`,
-            backgroundColor: homeBetter ? homeTeam.primary_color : `${homeTeam.primary_color}80`
+            backgroundColor: homeBetter ? homeTeamColor : `${homeTeamColor}80`
           }}
         />
       </div>
@@ -90,6 +93,26 @@ export function AdvancedMetrics({ predictionData }: AdvancedMetricsProps) {
   if (!homeTeam || !awayTeam) {
     return null; // Return nothing instead of loading message
   }
+
+  // Helper function to check if color is blue or black
+  const isBlueOrBlack = (color: string) => {
+    const hex = color.toLowerCase();
+    // Check for blue colors (dark blue, navy, etc.)
+    const isBlue = hex.includes('004') || hex.includes('003') || hex.includes('002') || hex.includes('001') || 
+                   hex === '#000080' || hex === '#003366' || hex === '#002244' || hex === '#041e42';
+    // Check for black/very dark colors
+    const isBlack = hex === '#000000' || hex === '#222222' || hex === '#1a1a1a' || hex === '#333333';
+    return isBlue || isBlack;
+  };
+
+  // Get display colors - use alt_color if primary is blue/black
+  const awayTeamColor = (awayTeam.primary_color && isBlueOrBlack(awayTeam.primary_color)) 
+    ? (awayTeam.alt_color || awayTeam.secondary_color || '#f97316') 
+    : (awayTeam.primary_color || '#3b82f6');
+    
+  const homeTeamColor = (homeTeam.primary_color && isBlueOrBlack(homeTeam.primary_color)) 
+    ? (homeTeam.alt_color || homeTeam.secondary_color || '#10b981') 
+    : (homeTeam.primary_color || '#f97316');
 
   // Parse advanced metrics from formatted_analysis section [15] - ADVANCED OFFENSIVE METRICS
   const parseAdvancedMetrics = () => {
@@ -199,8 +222,8 @@ export function AdvancedMetrics({ predictionData }: AdvancedMetricsProps) {
   });
 
   const teams = {
-    away: { name: awayTeam.name, abbreviation: generateTeamAbbr(awayTeam.name), color: awayTeam.primary_color },
-    home: { name: homeTeam.name, abbreviation: generateTeamAbbr(homeTeam.name), color: homeTeam.primary_color }
+    away: { name: awayTeam.name, abbreviation: generateTeamAbbr(awayTeam.name), color: awayTeamColor },
+    home: { name: homeTeam.name, abbreviation: generateTeamAbbr(homeTeam.name), color: homeTeamColor }
   };
 
   // Calculate team advantages
@@ -309,6 +332,8 @@ export function AdvancedMetrics({ predictionData }: AdvancedMetricsProps) {
                   higherBetter={metric.higherBetter}
                   awayTeam={awayTeam}
                   homeTeam={homeTeam}
+                  awayTeamColor={awayTeamColor}
+                  homeTeamColor={homeTeamColor}
                 />
               ))}
             </div>
@@ -362,6 +387,23 @@ export function AdvancedMetrics({ predictionData }: AdvancedMetricsProps) {
           </div>
         </div>
       </div>
+
+      {/* Insight Box */}
+      <InsightBox
+        whatItMeans="Success rate (gaining 50%+ of yards needed on 1st/2nd down, 100% on 3rd/4th) measures consistency. Explosiveness tracks plays gaining 10+ yards (passing) or 8+ yards (rushing). Power success = short yardage conversion (3rd/4th & 1-2)."
+        whyItMatters={`Success rate >45% = efficient offense that sustains drives. Explosiveness >15% = big-play ability that scores quickly. Teams with BOTH (45%+ success, 15%+ explosive) average 35+ PPG. Power success >70% wins 4th quarter tight games. Combined offensive efficiency: ${offensiveMetrics.reduce((sum, m) => sum + (m.AWAY + m.HOME) / 2, 0) / offensiveMetrics.length}%.`}
+        whoHasEdge={{
+          team: homeAdvantages.length > awayAdvantages.length ? homeTeam.name : awayTeam.name,
+          reason: `${homeAdvantages.length > awayAdvantages.length ? homeTeam.name : awayTeam.name} combines ${offensiveMetrics.find(m => m.metric === 'Success Rate')?.[homeAdvantages.length > awayAdvantages.length ? 'HOME' : 'AWAY'] || 0}% success rate with ${offensiveMetrics.find(m => m.metric === 'Explosiveness')?.[homeAdvantages.length > awayAdvantages.length ? 'HOME' : 'AWAY'] || 0}% explosiveness. Their ${offensiveMetrics.find(m => m.metric === 'Power Success')?.[homeAdvantages.length > awayAdvantages.length ? 'HOME' : 'AWAY'] || 0}% power success dominates short yardage. Total offensive efficiency edge: ${Math.abs(homeAdvantages.length - awayAdvantages.length)} categories.`,
+          magnitude: Math.abs(homeAdvantages.length - awayAdvantages.length) >= 5 ? 'major' : 
+                     Math.abs(homeAdvantages.length - awayAdvantages.length) >= 3 ? 'significant' : 'moderate'
+        }}
+        keyDifferences={[
+          `Success rate: ${offensiveMetrics.find(m => m.metric === 'Success Rate')?.AWAY || 0}% vs ${offensiveMetrics.find(m => m.metric === 'Success Rate')?.HOME || 0}% (${Math.abs((offensiveMetrics.find(m => m.metric === 'Success Rate')?.AWAY || 0) - (offensiveMetrics.find(m => m.metric === 'Success Rate')?.HOME || 0)).toFixed(1)}% more consistent drives)`,
+          `Explosiveness: ${offensiveMetrics.find(m => m.metric === 'Explosiveness')?.AWAY || 0}% vs ${offensiveMetrics.find(m => m.metric === 'Explosiveness')?.HOME || 0}% (big play differential)`,
+          `Power success: ${offensiveMetrics.find(m => m.metric === 'Power Success')?.AWAY || 0}% vs ${offensiveMetrics.find(m => m.metric === 'Power Success')?.HOME || 0}% (short yardage domination)`
+        ]}
+      />
     </GlassCard>
   );
 }

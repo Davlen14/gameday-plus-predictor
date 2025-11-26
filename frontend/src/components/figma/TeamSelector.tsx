@@ -71,9 +71,9 @@ interface TeamSelectorProps {
 }
 
 export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchupChange }: TeamSelectorProps) {
-  // Default to Week 11 Top Ranked Matchup: #8 BYU @ #9 Texas Tech
-  const defaultAwayTeam = teams.find(t => t.school === 'BYU') || teams[0];
-  const defaultHomeTeam = teams.find(t => t.school === 'Texas Tech') || teams[1];
+  // Default to Week 14 Game of the Week: #1 Ohio State @ #15 Michigan
+  const defaultAwayTeam = teams.find(t => t.school === 'Ohio State') || teams[0];
+  const defaultHomeTeam = teams.find(t => t.school === 'Michigan') || teams[1];
   
   const [awayTeam, setAwayTeam] = useState<Team>(defaultAwayTeam);
   const [homeTeam, setHomeTeam] = useState<Team>(defaultHomeTeam);
@@ -200,16 +200,77 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
     onMatchupChange?.(homeTeam, temp);
   };
 
-  // Week 11 Key Games Quick Select - Top Ranked Matchups
-  const week9Games = [
-    { away: 'Indiana', home: 'Penn State', label: '#2 Indiana @ Penn State' },
-    { away: 'BYU', home: 'Texas Tech', label: '#8 BYU @ #9 Texas Tech' },
-    { away: 'LSU', home: 'Alabama', label: 'LSU @ #4 Alabama' },
-    { away: 'Texas A&M', home: 'Missouri', label: '#3 Texas A&M @ #19 Missouri' },
-    { away: 'Ohio State', home: 'Purdue', label: '#1 Ohio State @ Purdue' },
-    { away: 'Georgia', home: 'Mississippi State', label: '#5 Georgia @ Miss State' },
-    { away: 'Oregon', home: 'Iowa', label: '#6 Oregon @ Iowa' },
-    { away: 'Navy', home: 'Notre Dame', label: 'Navy @ #10 Notre Dame' }
+  // Week 14 ALL GAMES (67 total from Currentweekgames.json)
+  const week14Games = [
+    // Top Ranked Matchups
+    { away: 'Ohio State', home: 'Michigan', label: '#1 Ohio State @ #15 Michigan' },
+    { away: 'Indiana', home: 'Purdue', label: '#2 Indiana @ Purdue' },
+    { away: 'Texas A&M', home: 'Texas', label: '#3 Texas A&M @ #16 Texas' },
+    { away: 'Georgia', home: 'Georgia Tech', label: '#4 Georgia @ #23 Georgia Tech' },
+    { away: 'Oregon', home: 'Washington', label: '#5 Oregon @ Washington' },
+    { away: 'Ole Miss', home: 'Mississippi State', label: '#6 Ole Miss @ Mississippi State' },
+    { away: 'Texas Tech', home: 'West Virginia', label: '#7 Texas Tech @ West Virginia' },
+    { away: 'LSU', home: 'Oklahoma', label: 'LSU @ #8 Oklahoma' },
+    { away: 'Notre Dame', home: 'Stanford', label: '#9 Notre Dame @ Stanford' },
+    { away: 'Alabama', home: 'Auburn', label: '#10 Alabama @ Auburn' },
+    { away: 'UCF', home: 'BYU', label: 'UCF @ #11 BYU' },
+    { away: 'Vanderbilt', home: 'Tennessee', label: '#12 Vanderbilt @ #18 Tennessee' },
+    { away: 'Miami', home: 'Pittsburgh', label: '#13 Miami @ #24 Pittsburgh' },
+    { away: 'Utah', home: 'Kansas', label: '#14 Utah @ Kansas' },
+    { away: 'Virginia Tech', home: 'Virginia', label: 'Virginia Tech @ #17 Virginia' },
+    { away: 'UCLA', home: 'USC', label: 'UCLA @ #19 USC' },
+    { away: 'James Madison', home: 'Coastal Carolina', label: '#20 James Madison @ Coastal Carolina' },
+    { away: 'Temple', home: 'North Texas', label: 'Temple @ #21 North Texas' },
+    { away: 'Charlotte', home: 'Tulane', label: 'Charlotte @ #22 Tulane' },
+    { away: 'SMU', home: 'California', label: '#25 SMU @ California' },
+    // Rest of Week 14 Games
+    { away: 'Cincinnati', home: 'TCU', label: 'Cincinnati @ TCU' },
+    { away: 'Kennesaw State', home: 'Liberty', label: 'Kennesaw State @ Liberty' },
+    { away: 'Troy', home: 'Southern Miss', label: 'Troy @ Southern Miss' },
+    { away: 'Florida State', home: 'Florida', label: 'Florida State @ Florida' },
+    { away: 'Oregon State', home: 'Washington State', label: 'Oregon State @ Washington State' },
+    { away: 'Maryland', home: 'Michigan State', label: 'Maryland @ Michigan State' },
+    { away: 'Rice', home: 'South Florida', label: 'Rice @ South Florida' },
+    { away: 'Northwestern', home: 'Illinois', label: 'Northwestern @ Illinois' },
+    { away: 'Navy', home: 'Memphis', label: 'Navy @ Memphis' },
+    { away: 'Ohio', home: 'Buffalo', label: 'Ohio @ Buffalo' },
+    { away: 'Kent State', home: 'Northern Illinois', label: 'Kent State @ Northern Illinois' },
+    { away: 'Air Force', home: 'Colorado State', label: 'Air Force @ Colorado State' },
+    { away: 'San Diego State', home: 'New Mexico', label: 'San Diego State @ New Mexico' },
+    { away: 'Boise State', home: 'Utah State', label: 'Boise State @ Utah State' },
+    { away: 'Arizona', home: 'Arizona State', label: 'Arizona @ Arizona State' },
+    { away: 'Houston', home: 'Baylor', label: 'Houston @ Baylor' },
+    { away: 'Kentucky', home: 'Louisville', label: 'Kentucky @ Louisville' },
+    { away: 'Clemson', home: 'South Carolina', label: 'Clemson @ South Carolina' },
+    { away: 'Colorado', home: 'Kansas State', label: 'Colorado @ Kansas State' },
+    { away: 'Iowa State', home: 'Oklahoma State', label: 'Iowa State @ Oklahoma State' },
+    { away: 'East Carolina', home: 'Florida Atlantic', label: 'East Carolina @ Florida Atlantic' },
+    { away: 'Toledo', home: 'Central Michigan', label: 'Toledo @ Central Michigan' },
+    { away: 'Ball State', home: 'Miami (OH)', label: 'Ball State @ Miami (OH)' },
+    { away: 'UTEP', home: 'Delaware', label: 'UTEP @ Delaware' },
+    { away: 'Florida International', home: 'Sam Houston', label: 'Florida International @ Sam Houston' },
+    { away: 'Georgia Southern', home: 'Marshall', label: 'Georgia Southern @ Marshall' },
+    { away: 'Western Kentucky', home: 'Jacksonville State', label: 'Western Kentucky @ Jacksonville State' },
+    { away: 'Louisiana Tech', home: 'Missouri State', label: 'Louisiana Tech @ Missouri State' },
+    { away: 'Georgia State', home: 'Old Dominion', label: 'Georgia State @ Old Dominion' },
+    { away: 'Arkansas State', home: 'App State', label: 'Arkansas State @ App State' },
+    { away: 'Boston College', home: 'Syracuse', label: 'Boston College @ Syracuse' },
+    { away: 'Middle Tennessee', home: 'New Mexico State', label: 'Middle Tennessee @ New Mexico State' },
+    { away: 'UL Monroe', home: 'Louisiana', label: 'UL Monroe @ Louisiana' },
+    { away: 'South Alabama', home: 'Texas State', label: 'South Alabama @ Texas State' },
+    { away: 'Missouri', home: 'Arkansas', label: 'Missouri @ Arkansas' },
+    { away: 'Wisconsin', home: 'Minnesota', label: 'Wisconsin @ Minnesota' },
+    { away: 'Penn State', home: 'Rutgers', label: 'Penn State @ Rutgers' },
+    { away: 'Wake Forest', home: 'Duke', label: 'Wake Forest @ Duke' },
+    { away: 'North Carolina', home: 'NC State', label: 'North Carolina @ NC State' },
+    { away: 'UAB', home: 'Tulsa', label: 'UAB @ Tulsa' },
+    { away: 'Fresno State', home: 'San José State', label: 'Fresno State @ San José State' },
+    { away: 'Bowling Green', home: 'Massachusetts', label: 'Bowling Green @ Massachusetts' },
+    { away: 'Western Michigan', home: 'Eastern Michigan', label: 'Western Michigan @ Eastern Michigan' },
+    { away: 'Army', home: 'UTSA', label: 'Army @ UTSA' },
+    { away: 'Iowa', home: 'Nebraska', label: 'Iowa @ Nebraska' },
+    { away: 'UNLV', home: 'Nevada', label: 'UNLV @ Nevada' },
+    { away: 'Wyoming', home: 'Hawai\'i', label: 'Wyoming @ Hawai\'i' }
   ];
 
   const handleQuickGameSelect = (game: { away: string; home: string; label: string }) => {
@@ -281,14 +342,14 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
           <div className="text-gray-400 text-sm">Choose teams to analyze</div>
         </div>
 
-        {/* Week 11 Quick Games */}
+        {/* Week 14 Quick Games */}
         <div className="space-y-3">
           <h4 className="text-gray-300 font-medium flex items-center gap-2">
             <Zap className="w-5 h-5 text-yellow-400" />
-            Week 11 Key Games - Quick Select
+            Week 14 Key Games - Quick Select
           </h4>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-            {week9Games.map((game, idx) => {
+            {week14Games.map((game, idx) => {
               const awayTeamData = teams.find(t => {
                 const schoolName = t.school.toLowerCase();
                 const searchName = game.away.toLowerCase();

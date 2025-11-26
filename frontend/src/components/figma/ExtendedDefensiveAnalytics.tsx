@@ -93,13 +93,31 @@ export function ExtendedDefensiveAnalytics({ predictionData }: ExtendedDefensive
   const defensiveData = parseDefensiveAnalytics();
   const summaryData = parseSeasonSummary();
   
+  // Helper function to check if color is blue or black
+  const isBlueOrBlack = (color: string) => {
+    const hex = color.toLowerCase();
+    // Check for blue colors (dark blue, navy, etc.)
+    const isBlue = hex.includes('004') || hex.includes('003') || hex.includes('002') || hex.includes('001') || 
+                   hex === '#000080' || hex === '#003366' || hex === '#002244' || hex === '#041e42';
+    // Check for black/very dark colors
+    const isBlack = hex === '#000000' || hex === '#222222' || hex === '#1a1a1a' || hex === '#333333';
+    return isBlue || isBlack;
+  };
+
   // Use team data or fallback
   const team1Logo = awayTeam?.logo || "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png";
   const team2Logo = homeTeam?.logo || "https://a.espncdn.com/i/teamlogos/ncaa/500/356.png";
   const team1Name = awayTeam?.name || "Ohio State";
   const team2Name = homeTeam?.name || "Illinois";
-  const team1Color = awayTeam?.primary_color || "#ce1141";
-  const team2Color = homeTeam?.primary_color || "#ff5f05";
+  
+  // Get display colors - use alt_color if primary is blue/black
+  const team1Color = (awayTeam?.primary_color && isBlueOrBlack(awayTeam.primary_color)) 
+    ? (awayTeam.alt_color || awayTeam.secondary_color || '#ce1141') 
+    : (awayTeam?.primary_color || "#ce1141");
+    
+  const team2Color = (homeTeam?.primary_color && isBlueOrBlack(homeTeam.primary_color)) 
+    ? (homeTeam.alt_color || homeTeam.secondary_color || '#ff5f05') 
+    : (homeTeam?.primary_color || "#ff5f05");
   const team1Abbr = awayTeam ? generateTeamAbbr(awayTeam.name) : "OSU";
   const team2Abbr = homeTeam ? generateTeamAbbr(homeTeam.name) : "ILL";
 

@@ -1,0 +1,4583 @@
+{
+  "generatedAt": "2025-11-17",
+  "note": "Simplified version with rankings - Career totals + 2025 season only",
+  "totalCoaches": 136,
+  "description": "Current FBS coaches with career records and 2025 season (no detailed history)",
+  "coaches": [
+    {
+      "id": 1741,
+      "name": "Curt Cignetti",
+      "currentTeam": {
+        "school": "Indiana",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 22,
+        "losses": 2,
+        "ties": 0,
+        "games": 24,
+        "winPercentage": 91.7,
+        "record": "22-2"
+      },
+      "current2025Season": {
+        "wins": 11,
+        "losses": 0,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 2,
+      "schoolsCoached": [
+        "Indiana"
+      ],
+      "yearsCoached": "2024-2025",
+      "rankings": {
+        "overallRank": 1,
+        "winPercentageRank": 1,
+        "totalWinsRank": 86,
+        "current2025Rank": 1
+      }
+    },
+    {
+      "id": 524,
+      "name": "Ryan Day",
+      "currentTeam": {
+        "school": "Ohio State",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 80,
+        "losses": 10,
+        "ties": 0,
+        "games": 90,
+        "winPercentage": 88.9,
+        "record": "80-10"
+      },
+      "current2025Season": {
+        "wins": 10,
+        "losses": 0,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 8,
+      "schoolsCoached": [
+        "Ohio State"
+      ],
+      "yearsCoached": "2018-2025",
+      "rankings": {
+        "overallRank": 2,
+        "winPercentageRank": 2,
+        "totalWinsRank": 31,
+        "current2025Rank": 2
+      }
+    },
+    {
+      "id": 1745,
+      "name": "Dan Lanning",
+      "currentTeam": {
+        "school": "Oregon",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 44,
+        "losses": 7,
+        "ties": 0,
+        "games": 51,
+        "winPercentage": 86.3,
+        "record": "44-7"
+      },
+      "current2025Season": {
+        "wins": 9,
+        "losses": 1,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 4,
+      "schoolsCoached": [
+        "Oregon"
+      ],
+      "yearsCoached": "2022-2025",
+      "rankings": {
+        "overallRank": 3,
+        "winPercentageRank": 3,
+        "totalWinsRank": 56,
+        "current2025Rank": 6
+      }
+    },
+    {
+      "id": 429,
+      "name": "Kirby Smart",
+      "currentTeam": {
+        "school": "Georgia",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 114,
+        "losses": 20,
+        "ties": 0,
+        "games": 134,
+        "winPercentage": 85.1,
+        "record": "114-20"
+      },
+      "current2025Season": {
+        "wins": 9,
+        "losses": 1,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 10,
+      "schoolsCoached": [
+        "Georgia"
+      ],
+      "yearsCoached": "2016-2025",
+      "rankings": {
+        "overallRank": 4,
+        "winPercentageRank": 4,
+        "totalWinsRank": 14,
+        "current2025Rank": 7
+      }
+    },
+    {
+      "id": 1749,
+      "name": "Jon Sumrall",
+      "currentTeam": {
+        "school": "Tulane",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 40,
+        "losses": 11,
+        "ties": 0,
+        "games": 51,
+        "winPercentage": 78.4,
+        "record": "40-11"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 4,
+      "schoolsCoached": [
+        "Troy",
+        "Tulane"
+      ],
+      "yearsCoached": "2022-2025",
+      "rankings": {
+        "overallRank": 5,
+        "winPercentageRank": 5,
+        "totalWinsRank": 59,
+        "current2025Rank": 13
+      }
+    },
+    {
+      "id": 564,
+      "name": "Kalen DeBoer",
+      "currentTeam": {
+        "school": "Alabama",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 54,
+        "losses": 15,
+        "ties": 0,
+        "games": 69,
+        "winPercentage": 78.3,
+        "record": "54-15"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 6,
+      "schoolsCoached": [
+        "Fresno State",
+        "Washington",
+        "Alabama"
+      ],
+      "yearsCoached": "2020-2025",
+      "rankings": {
+        "overallRank": 6,
+        "winPercentageRank": 6,
+        "totalWinsRank": 47,
+        "current2025Rank": 14
+      }
+    },
+    {
+      "id": 1790,
+      "name": "Bob Chesney",
+      "currentTeam": {
+        "school": "James Madison",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 18,
+        "losses": 5,
+        "ties": 0,
+        "games": 23,
+        "winPercentage": 78.3,
+        "record": "18-5"
+      },
+      "current2025Season": {
+        "wins": 9,
+        "losses": 1,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 2,
+      "schoolsCoached": [
+        "James Madison"
+      ],
+      "yearsCoached": "2024-2025",
+      "rankings": {
+        "overallRank": 7,
+        "winPercentageRank": 7,
+        "totalWinsRank": 96,
+        "current2025Rank": 8
+      }
+    },
+    {
+      "id": 462,
+      "name": "Dabo Swinney",
+      "currentTeam": {
+        "school": "Clemson",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 185,
+        "losses": 52,
+        "ties": 0,
+        "games": 237,
+        "winPercentage": 78.1,
+        "record": "185-52"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 18,
+      "schoolsCoached": [
+        "Clemson"
+      ],
+      "yearsCoached": "2008-2025",
+      "rankings": {
+        "overallRank": 8,
+        "winPercentageRank": 8,
+        "totalWinsRank": 3,
+        "current2025Rank": 66
+      }
+    },
+    {
+      "id": 394,
+      "name": "Lincoln Riley",
+      "currentTeam": {
+        "school": "USC",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 89,
+        "losses": 26,
+        "ties": 0,
+        "games": 115,
+        "winPercentage": 77.4,
+        "record": "89-26"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 9,
+      "schoolsCoached": [
+        "Oklahoma",
+        "USC"
+      ],
+      "yearsCoached": "2017-2025",
+      "rankings": {
+        "overallRank": 9,
+        "winPercentageRank": 9,
+        "totalWinsRank": 24,
+        "current2025Rank": 15
+      }
+    },
+    {
+      "id": 1732,
+      "name": "Marcus Freeman",
+      "currentTeam": {
+        "school": "Notre Dame",
+        "conference": "FBS Independents"
+      },
+      "careerRecord": {
+        "wins": 41,
+        "losses": 12,
+        "ties": 0,
+        "games": 53,
+        "winPercentage": 77.4,
+        "record": "41-12"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 5,
+      "schoolsCoached": [
+        "Notre Dame"
+      ],
+      "yearsCoached": "2021-2025",
+      "rankings": {
+        "overallRank": 10,
+        "winPercentageRank": 10,
+        "totalWinsRank": 58,
+        "current2025Rank": 16
+      }
+    },
+    {
+      "id": 1781,
+      "name": "Spencer Danielson",
+      "currentTeam": {
+        "school": "Boise State",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 21,
+        "losses": 7,
+        "ties": 0,
+        "games": 28,
+        "winPercentage": 75.0,
+        "record": "21-7"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "Boise State"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 11,
+        "winPercentageRank": 11,
+        "totalWinsRank": 87,
+        "current2025Rank": 52
+      }
+    },
+    {
+      "id": 1799,
+      "name": "Blake Harrell",
+      "currentTeam": {
+        "school": "East Carolina",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 12,
+        "losses": 4,
+        "ties": 0,
+        "games": 16,
+        "winPercentage": 75.0,
+        "record": "12-4"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 2,
+      "schoolsCoached": [
+        "East Carolina"
+      ],
+      "yearsCoached": "2024-2025",
+      "rankings": {
+        "overallRank": 12,
+        "winPercentageRank": 12,
+        "totalWinsRank": 105,
+        "current2025Rank": 29
+      }
+    },
+    {
+      "id": 529,
+      "name": "Josh Heupel",
+      "currentTeam": {
+        "school": "Tennessee",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 72,
+        "losses": 26,
+        "ties": 0,
+        "games": 98,
+        "winPercentage": 73.5,
+        "record": "72-26"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 8,
+      "schoolsCoached": [
+        "UCF",
+        "Tennessee"
+      ],
+      "yearsCoached": "2018-2025",
+      "rankings": {
+        "overallRank": 13,
+        "winPercentageRank": 13,
+        "totalWinsRank": 36,
+        "current2025Rank": 30
+      }
+    },
+    {
+      "id": 246,
+      "name": "Brian Kelly",
+      "currentTeam": {
+        "school": "LSU",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 201,
+        "losses": 77,
+        "ties": 0,
+        "games": 278,
+        "winPercentage": 72.3,
+        "record": "201-77"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 23,
+      "schoolsCoached": [
+        "Central Michigan",
+        "Cincinnati",
+        "Notre Dame",
+        "LSU"
+      ],
+      "yearsCoached": "2004-2025",
+      "rankings": {
+        "overallRank": 14,
+        "winPercentageRank": 14,
+        "totalWinsRank": 2,
+        "current2025Rank": 53
+      }
+    },
+    {
+      "id": 1739,
+      "name": "Mike Elko",
+      "currentTeam": {
+        "school": "Texas A&M",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 34,
+        "losses": 14,
+        "ties": 0,
+        "games": 48,
+        "winPercentage": 70.8,
+        "record": "34-14"
+      },
+      "current2025Season": {
+        "wins": 10,
+        "losses": 0,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 4,
+      "schoolsCoached": [
+        "Duke",
+        "Texas A&M"
+      ],
+      "yearsCoached": "2022-2025",
+      "rankings": {
+        "overallRank": 15,
+        "winPercentageRank": 15,
+        "totalWinsRank": 69,
+        "current2025Rank": 3
+      }
+    },
+    {
+      "id": 1746,
+      "name": "Rhett Lashlee",
+      "currentTeam": {
+        "school": "SMU",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 36,
+        "losses": 15,
+        "ties": 0,
+        "games": 51,
+        "winPercentage": 70.6,
+        "record": "36-15"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 4,
+      "schoolsCoached": [
+        "SMU"
+      ],
+      "yearsCoached": "2022-2025",
+      "rankings": {
+        "overallRank": 16,
+        "winPercentageRank": 16,
+        "totalWinsRank": 63,
+        "current2025Rank": 31
+      }
+    },
+    {
+      "id": 1819,
+      "name": "Matt Entz",
+      "currentTeam": {
+        "school": "Fresno State",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 70.0,
+        "record": "7-3"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Fresno State"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 17,
+        "winPercentageRank": 17,
+        "totalWinsRank": 109,
+        "current2025Rank": 32
+      }
+    },
+    {
+      "id": 1823,
+      "name": "Jason Eck",
+      "currentTeam": {
+        "school": "New Mexico",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 70.0,
+        "record": "7-3"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "New Mexico"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 18,
+        "winPercentageRank": 18,
+        "totalWinsRank": 110,
+        "current2025Rank": 33
+      }
+    },
+    {
+      "id": 1831,
+      "name": "Charles Kelly",
+      "currentTeam": {
+        "school": "Jacksonville State",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 70.0,
+        "record": "7-3"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Jacksonville State"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 19,
+        "winPercentageRank": 19,
+        "totalWinsRank": 111,
+        "current2025Rank": 34
+      }
+    },
+    {
+      "id": 1833,
+      "name": "Jerry Mack",
+      "currentTeam": {
+        "school": "Kennesaw State",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 70.0,
+        "record": "7-3"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Kennesaw State"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 20,
+        "winPercentageRank": 20,
+        "totalWinsRank": 112,
+        "current2025Rank": 35
+      }
+    },
+    {
+      "id": 1835,
+      "name": "Ryan Beard",
+      "currentTeam": {
+        "school": "Missouri State",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 70.0,
+        "record": "7-3"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Missouri State"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 21,
+        "winPercentageRank": 21,
+        "totalWinsRank": 113,
+        "current2025Rank": 36
+      }
+    },
+    {
+      "id": 1791,
+      "name": "Sherrone Moore",
+      "currentTeam": {
+        "school": "Michigan",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 16,
+        "losses": 7,
+        "ties": 0,
+        "games": 23,
+        "winPercentage": 69.6,
+        "record": "16-7"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 2,
+      "schoolsCoached": [
+        "Michigan"
+      ],
+      "yearsCoached": "2024-2025",
+      "rankings": {
+        "overallRank": 22,
+        "winPercentageRank": 22,
+        "totalWinsRank": 100,
+        "current2025Rank": 17
+      }
+    },
+    {
+      "id": 250,
+      "name": "Lane Kiffin",
+      "currentTeam": {
+        "school": "Ole Miss",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 116,
+        "losses": 53,
+        "ties": 0,
+        "games": 169,
+        "winPercentage": 68.6,
+        "record": "116-53"
+      },
+      "current2025Season": {
+        "wins": 10,
+        "losses": 1,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 14,
+      "schoolsCoached": [
+        "Tennessee",
+        "USC",
+        "Florida Atlantic",
+        "Ole Miss"
+      ],
+      "yearsCoached": "2009-2025",
+      "rankings": {
+        "overallRank": 23,
+        "winPercentageRank": 23,
+        "totalWinsRank": 12,
+        "current2025Rank": 4
+      }
+    },
+    {
+      "id": 573,
+      "name": "Ryan Silverfield",
+      "currentTeam": {
+        "school": "Memphis",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 50,
+        "losses": 23,
+        "ties": 0,
+        "games": 73,
+        "winPercentage": 68.5,
+        "record": "50-23"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 3,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 6,
+      "schoolsCoached": [
+        "Memphis"
+      ],
+      "yearsCoached": "2020-2025",
+      "rankings": {
+        "overallRank": 24,
+        "winPercentageRank": 24,
+        "totalWinsRank": 51,
+        "current2025Rank": 27
+      }
+    },
+    {
+      "id": 172,
+      "name": "James Franklin",
+      "currentTeam": {
+        "school": "Penn State",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 129,
+        "losses": 63,
+        "ties": 0,
+        "games": 192,
+        "winPercentage": 67.2,
+        "record": "129-63"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 15,
+      "schoolsCoached": [
+        "Vanderbilt",
+        "Penn State"
+      ],
+      "yearsCoached": "2011-2025",
+      "rankings": {
+        "overallRank": 25,
+        "winPercentageRank": 25,
+        "totalWinsRank": 10,
+        "current2025Rank": 90
+      }
+    },
+    {
+      "id": 546,
+      "name": "Eli Drinkwitz",
+      "currentTeam": {
+        "school": "Missouri",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 57,
+        "losses": 28,
+        "ties": 0,
+        "games": 85,
+        "winPercentage": 67.1,
+        "record": "57-28"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 7,
+      "schoolsCoached": [
+        "App State",
+        "Missouri"
+      ],
+      "yearsCoached": "2019-2025",
+      "rankings": {
+        "overallRank": 26,
+        "winPercentageRank": 26,
+        "totalWinsRank": 45,
+        "current2025Rank": 37
+      }
+    },
+    {
+      "id": 574,
+      "name": "Jeff Traylor",
+      "currentTeam": {
+        "school": "UTSA",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 51,
+        "losses": 25,
+        "ties": 0,
+        "games": 76,
+        "winPercentage": 67.1,
+        "record": "51-25"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 6,
+      "schoolsCoached": [
+        "UTSA"
+      ],
+      "yearsCoached": "2020-2025",
+      "rankings": {
+        "overallRank": 27,
+        "winPercentageRank": 27,
+        "totalWinsRank": 49,
+        "current2025Rank": 67
+      }
+    },
+    {
+      "id": 497,
+      "name": "Kyle Whittingham",
+      "currentTeam": {
+        "school": "Utah",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 175,
+        "losses": 88,
+        "ties": 0,
+        "games": 263,
+        "winPercentage": 66.5,
+        "record": "175-88"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 22,
+      "schoolsCoached": [
+        "Utah"
+      ],
+      "yearsCoached": "2004-2025",
+      "rankings": {
+        "overallRank": 28,
+        "winPercentageRank": 28,
+        "totalWinsRank": 4,
+        "current2025Rank": 18
+      }
+    },
+    {
+      "id": 81,
+      "name": "Jamey Chadwell",
+      "currentTeam": {
+        "school": "Liberty",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 64,
+        "losses": 33,
+        "ties": 0,
+        "games": 97,
+        "winPercentage": 66.0,
+        "record": "64-33"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 8,
+      "schoolsCoached": [
+        "Coastal Carolina",
+        "Liberty"
+      ],
+      "yearsCoached": "2017-2025",
+      "rankings": {
+        "overallRank": 29,
+        "winPercentageRank": 29,
+        "totalWinsRank": 41,
+        "current2025Rank": 91
+      }
+    },
+    {
+      "id": 1748,
+      "name": "Joey McGuire",
+      "currentTeam": {
+        "school": "Texas Tech",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 33,
+        "losses": 17,
+        "ties": 0,
+        "games": 50,
+        "winPercentage": 66.0,
+        "record": "33-17"
+      },
+      "current2025Season": {
+        "wins": 10,
+        "losses": 1,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 4,
+      "schoolsCoached": [
+        "Texas Tech"
+      ],
+      "yearsCoached": "2022-2025",
+      "rankings": {
+        "overallRank": 30,
+        "winPercentageRank": 30,
+        "totalWinsRank": 70,
+        "current2025Rank": 5
+      }
+    },
+    {
+      "id": 1773,
+      "name": "Brian Newberry",
+      "currentTeam": {
+        "school": "Navy",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 23,
+        "losses": 12,
+        "ties": 0,
+        "games": 35,
+        "winPercentage": 65.7,
+        "record": "23-12"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "Navy"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 31,
+        "winPercentageRank": 31,
+        "totalWinsRank": 84,
+        "current2025Rank": 19
+      }
+    },
+    {
+      "id": 426,
+      "name": "Kalani Sitake",
+      "currentTeam": {
+        "school": "BYU",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 81,
+        "losses": 44,
+        "ties": 0,
+        "games": 125,
+        "winPercentage": 64.8,
+        "record": "81-44"
+      },
+      "current2025Season": {
+        "wins": 9,
+        "losses": 1,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 10,
+      "schoolsCoached": [
+        "BYU"
+      ],
+      "yearsCoached": "2016-2025",
+      "rankings": {
+        "overallRank": 32,
+        "winPercentageRank": 32,
+        "totalWinsRank": 30,
+        "current2025Rank": 9
+      }
+    },
+    {
+      "id": 71,
+      "name": "Jason Candle",
+      "currentTeam": {
+        "school": "Toledo",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 79,
+        "losses": 44,
+        "ties": 0,
+        "games": 123,
+        "winPercentage": 64.2,
+        "record": "79-44"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 11,
+      "schoolsCoached": [
+        "Toledo"
+      ],
+      "yearsCoached": "2015-2025",
+      "rankings": {
+        "overallRank": 33,
+        "winPercentageRank": 33,
+        "totalWinsRank": 32,
+        "current2025Rank": 54
+      }
+    },
+    {
+      "id": 334,
+      "name": "Dan Mullen",
+      "currentTeam": {
+        "school": "UNLV",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 111,
+        "losses": 63,
+        "ties": 0,
+        "games": 174,
+        "winPercentage": 63.8,
+        "record": "111-63"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 14,
+      "schoolsCoached": [
+        "Mississippi State",
+        "Florida",
+        "UNLV"
+      ],
+      "yearsCoached": "2009-2025",
+      "rankings": {
+        "overallRank": 34,
+        "winPercentageRank": 34,
+        "totalWinsRank": 15,
+        "current2025Rank": 20
+      }
+    },
+    {
+      "id": 164,
+      "name": "Luke Fickell",
+      "currentTeam": {
+        "school": "Wisconsin",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 79,
+        "losses": 45,
+        "ties": 0,
+        "games": 124,
+        "winPercentage": 63.7,
+        "record": "79-45"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 11,
+      "schoolsCoached": [
+        "Ohio State",
+        "Cincinnati",
+        "Wisconsin"
+      ],
+      "yearsCoached": "2011-2025",
+      "rankings": {
+        "overallRank": 35,
+        "winPercentageRank": 35,
+        "totalWinsRank": 33,
+        "current2025Rank": 106
+      }
+    },
+    {
+      "id": 190,
+      "name": "Mike Gundy",
+      "currentTeam": {
+        "school": "Oklahoma State",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 170,
+        "losses": 97,
+        "ties": 0,
+        "games": 267,
+        "winPercentage": 63.7,
+        "record": "170-97"
+      },
+      "current2025Season": {
+        "wins": 1,
+        "losses": 9,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 21,
+      "schoolsCoached": [
+        "Oklahoma State"
+      ],
+      "yearsCoached": "2005-2025",
+      "rankings": {
+        "overallRank": 36,
+        "winPercentageRank": 36,
+        "totalWinsRank": 5,
+        "current2025Rank": 131
+      }
+    },
+    {
+      "id": 1717,
+      "name": "Charles Huff",
+      "currentTeam": {
+        "school": "Southern Miss",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 39,
+        "losses": 23,
+        "ties": 0,
+        "games": 62,
+        "winPercentage": 62.9,
+        "record": "39-23"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 5,
+      "schoolsCoached": [
+        "Marshall",
+        "Southern Miss"
+      ],
+      "yearsCoached": "2021-2025",
+      "rankings": {
+        "overallRank": 37,
+        "winPercentageRank": 37,
+        "totalWinsRank": 60,
+        "current2025Rank": 38
+      }
+    },
+    {
+      "id": 53,
+      "name": "Jeff Brohm",
+      "currentTeam": {
+        "school": "Louisville",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 92,
+        "losses": 55,
+        "ties": 0,
+        "games": 147,
+        "winPercentage": 62.6,
+        "record": "92-55"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 12,
+      "schoolsCoached": [
+        "Western Kentucky",
+        "Purdue",
+        "Louisville"
+      ],
+      "yearsCoached": "2014-2025",
+      "rankings": {
+        "overallRank": 38,
+        "winPercentageRank": 38,
+        "totalWinsRank": 22,
+        "current2025Rank": 39
+      }
+    },
+    {
+      "id": 1581,
+      "name": "Steve Sarkisian",
+      "currentTeam": {
+        "school": "Texas",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 88,
+        "losses": 53,
+        "ties": 0,
+        "games": 141,
+        "winPercentage": 62.4,
+        "record": "88-53"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 11,
+      "schoolsCoached": [
+        "Washington",
+        "USC",
+        "Texas"
+      ],
+      "yearsCoached": "2009-2025",
+      "rankings": {
+        "overallRank": 39,
+        "winPercentageRank": 39,
+        "totalWinsRank": 25,
+        "current2025Rank": 40
+      }
+    },
+    {
+      "id": 551,
+      "name": "Tyson Helton",
+      "currentTeam": {
+        "school": "Western Kentucky",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 56,
+        "losses": 34,
+        "ties": 0,
+        "games": 90,
+        "winPercentage": 62.2,
+        "record": "56-34"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 7,
+      "schoolsCoached": [
+        "Western Kentucky"
+      ],
+      "yearsCoached": "2019-2025",
+      "rankings": {
+        "overallRank": 40,
+        "winPercentageRank": 40,
+        "totalWinsRank": 46,
+        "current2025Rank": 21
+      }
+    },
+    {
+      "id": 162,
+      "name": "Kirk Ferentz",
+      "currentTeam": {
+        "school": "Iowa",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 210,
+        "losses": 128,
+        "ties": 0,
+        "games": 338,
+        "winPercentage": 62.1,
+        "record": "210-128"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 27,
+      "schoolsCoached": [
+        "Iowa"
+      ],
+      "yearsCoached": "1999-2025",
+      "rankings": {
+        "overallRank": 41,
+        "winPercentageRank": 41,
+        "totalWinsRank": 1,
+        "current2025Rank": 55
+      }
+    },
+    {
+      "id": 535,
+      "name": "Billy Napier",
+      "currentTeam": {
+        "school": "Florida",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 62,
+        "losses": 38,
+        "ties": 0,
+        "games": 100,
+        "winPercentage": 62.0,
+        "record": "62-38"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 8,
+      "schoolsCoached": [
+        "Louisiana",
+        "Florida"
+      ],
+      "yearsCoached": "2018-2025",
+      "rankings": {
+        "overallRank": 42,
+        "winPercentageRank": 42,
+        "totalWinsRank": 43,
+        "current2025Rank": 107
+      }
+    },
+    {
+      "id": 553,
+      "name": "Chris Klieman",
+      "currentTeam": {
+        "school": "Kansas State",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 53,
+        "losses": 33,
+        "ties": 0,
+        "games": 86,
+        "winPercentage": 61.6,
+        "record": "53-33"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 7,
+      "schoolsCoached": [
+        "Kansas State"
+      ],
+      "yearsCoached": "2019-2025",
+      "rankings": {
+        "overallRank": 43,
+        "winPercentageRank": 43,
+        "totalWinsRank": 48,
+        "current2025Rank": 68
+      }
+    },
+    {
+      "id": 36,
+      "name": "Bret Bielema",
+      "currentTeam": {
+        "school": "Illinois",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 132,
+        "losses": 83,
+        "ties": 0,
+        "games": 215,
+        "winPercentage": 61.4,
+        "record": "132-83"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 17,
+      "schoolsCoached": [
+        "Wisconsin",
+        "Arkansas",
+        "Illinois"
+      ],
+      "yearsCoached": "2006-2025",
+      "rankings": {
+        "overallRank": 44,
+        "winPercentageRank": 44,
+        "totalWinsRank": 9,
+        "current2025Rank": 41
+      }
+    },
+    {
+      "id": 1758,
+      "name": "Brent Key",
+      "currentTeam": {
+        "school": "Georgia Tech",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 27,
+        "losses": 17,
+        "ties": 0,
+        "games": 44,
+        "winPercentage": 61.4,
+        "record": "27-17"
+      },
+      "current2025Season": {
+        "wins": 9,
+        "losses": 1,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 4,
+      "schoolsCoached": [
+        "Georgia Tech"
+      ],
+      "yearsCoached": "2022-2025",
+      "rankings": {
+        "overallRank": 45,
+        "winPercentageRank": 45,
+        "totalWinsRank": 77,
+        "current2025Rank": 10
+      }
+    },
+    {
+      "id": 354,
+      "name": "Mike Norvell",
+      "currentTeam": {
+        "school": "Florida State",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 76,
+        "losses": 48,
+        "ties": 0,
+        "games": 124,
+        "winPercentage": 61.3,
+        "record": "76-48"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 10,
+      "schoolsCoached": [
+        "Memphis",
+        "Florida State"
+      ],
+      "yearsCoached": "2016-2025",
+      "rankings": {
+        "overallRank": 46,
+        "winPercentageRank": 46,
+        "totalWinsRank": 35,
+        "current2025Rank": 69
+      }
+    },
+    {
+      "id": 1744,
+      "name": "Brent Venables",
+      "currentTeam": {
+        "school": "Oklahoma",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 30,
+        "losses": 19,
+        "ties": 0,
+        "games": 49,
+        "winPercentage": 61.2,
+        "record": "30-19"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 4,
+      "schoolsCoached": [
+        "Oklahoma"
+      ],
+      "yearsCoached": "2022-2025",
+      "rankings": {
+        "overallRank": 47,
+        "winPercentageRank": 47,
+        "totalWinsRank": 74,
+        "current2025Rank": 22
+      }
+    },
+    {
+      "id": 309,
+      "name": "Bronco Mendenhall",
+      "currentTeam": {
+        "school": "Utah State",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 145,
+        "losses": 93,
+        "ties": 0,
+        "games": 238,
+        "winPercentage": 60.9,
+        "record": "145-93"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 19,
+      "schoolsCoached": [
+        "BYU",
+        "Virginia",
+        "New Mexico",
+        "Utah State"
+      ],
+      "yearsCoached": "2005-2025",
+      "rankings": {
+        "overallRank": 48,
+        "winPercentageRank": 48,
+        "totalWinsRank": 6,
+        "current2025Rank": 70
+      }
+    },
+    {
+      "id": 548,
+      "name": "Hugh Freeze",
+      "currentTeam": {
+        "school": "Auburn",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 98,
+        "losses": 63,
+        "ties": 0,
+        "games": 161,
+        "winPercentage": 60.9,
+        "record": "98-63"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 13,
+      "schoolsCoached": [
+        "Liberty",
+        "Ole Miss",
+        "Arkansas State",
+        "Auburn"
+      ],
+      "yearsCoached": "2011-2025",
+      "rankings": {
+        "overallRank": 49,
+        "winPercentageRank": 49,
+        "totalWinsRank": 20,
+        "current2025Rank": 92
+      }
+    },
+    {
+      "id": 130,
+      "name": "Dave Doeren",
+      "currentTeam": {
+        "school": "NC State",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 115,
+        "losses": 74,
+        "ties": 0,
+        "games": 189,
+        "winPercentage": 60.8,
+        "record": "115-74"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 15,
+      "schoolsCoached": [
+        "Northern Illinois",
+        "NC State"
+      ],
+      "yearsCoached": "2011-2025",
+      "rankings": {
+        "overallRank": 50,
+        "winPercentageRank": 50,
+        "totalWinsRank": 13,
+        "current2025Rank": 71
+      }
+    },
+    {
+      "id": 70,
+      "name": "Matt Campbell",
+      "currentTeam": {
+        "school": "Iowa State",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 105,
+        "losses": 70,
+        "ties": 0,
+        "games": 175,
+        "winPercentage": 60.0,
+        "record": "105-70"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 15,
+      "schoolsCoached": [
+        "Toledo",
+        "Iowa State"
+      ],
+      "yearsCoached": "2011-2025",
+      "rankings": {
+        "overallRank": 51,
+        "winPercentageRank": 51,
+        "totalWinsRank": 17,
+        "current2025Rank": 56
+      }
+    },
+    {
+      "id": 1816,
+      "name": "Matt Drinkall",
+      "currentTeam": {
+        "school": "Central Michigan",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 60.0,
+        "record": "6-4"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Central Michigan"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 52,
+        "winPercentageRank": 52,
+        "totalWinsRank": 117,
+        "current2025Rank": 57
+      }
+    },
+    {
+      "id": 1825,
+      "name": "Brian Smith",
+      "currentTeam": {
+        "school": "Ohio",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 60.0,
+        "record": "6-4"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Ohio"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 53,
+        "winPercentageRank": 53,
+        "totalWinsRank": 118,
+        "current2025Rank": 58
+      }
+    },
+    {
+      "id": 210,
+      "name": "Clay Helton",
+      "currentTeam": {
+        "school": "Georgia Southern",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 71,
+        "losses": 48,
+        "ties": 0,
+        "games": 119,
+        "winPercentage": 59.7,
+        "record": "71-48"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 12,
+      "schoolsCoached": [
+        "USC",
+        "Georgia Southern"
+      ],
+      "yearsCoached": "2013-2025",
+      "rankings": {
+        "overallRank": 54,
+        "winPercentageRank": 54,
+        "totalWinsRank": 38,
+        "current2025Rank": 72
+      }
+    },
+    {
+      "id": 411,
+      "name": "Scott Satterfield",
+      "currentTeam": {
+        "school": "Cincinnati",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 87,
+        "losses": 59,
+        "ties": 0,
+        "games": 146,
+        "winPercentage": 59.6,
+        "record": "87-59"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 12,
+      "schoolsCoached": [
+        "App State",
+        "Louisville",
+        "Cincinnati"
+      ],
+      "yearsCoached": "2014-2025",
+      "rankings": {
+        "overallRank": 55,
+        "winPercentageRank": 55,
+        "totalWinsRank": 26,
+        "current2025Rank": 42
+      }
+    },
+    {
+      "id": 545,
+      "name": "Manny Diaz",
+      "currentTeam": {
+        "school": "Duke",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 35,
+        "losses": 24,
+        "ties": 0,
+        "games": 59,
+        "winPercentage": 59.3,
+        "record": "35-24"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 5,
+      "schoolsCoached": [
+        "Miami",
+        "Duke"
+      ],
+      "yearsCoached": "2019-2025",
+      "rankings": {
+        "overallRank": 56,
+        "winPercentageRank": 56,
+        "totalWinsRank": 65,
+        "current2025Rank": 73
+      }
+    },
+    {
+      "id": 168,
+      "name": "P.J. Fleck",
+      "currentTeam": {
+        "school": "Minnesota",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 94,
+        "losses": 65,
+        "ties": 0,
+        "games": 159,
+        "winPercentage": 59.1,
+        "record": "94-65"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 13,
+      "schoolsCoached": [
+        "Western Michigan",
+        "Minnesota"
+      ],
+      "yearsCoached": "2013-2025",
+      "rankings": {
+        "overallRank": 57,
+        "winPercentageRank": 57,
+        "totalWinsRank": 21,
+        "current2025Rank": 59
+      }
+    },
+    {
+      "id": 68,
+      "name": "Troy Calhoun",
+      "currentTeam": {
+        "school": "Air Force",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 138,
+        "losses": 96,
+        "ties": 0,
+        "games": 234,
+        "winPercentage": 59.0,
+        "record": "138-96"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 19,
+      "schoolsCoached": [
+        "Air Force"
+      ],
+      "yearsCoached": "2007-2025",
+      "rankings": {
+        "overallRank": 58,
+        "winPercentageRank": 58,
+        "totalWinsRank": 8,
+        "current2025Rank": 108
+      }
+    },
+    {
+      "id": 323,
+      "name": "Jeff Monken",
+      "currentTeam": {
+        "school": "Army",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 87,
+        "losses": 61,
+        "ties": 0,
+        "games": 148,
+        "winPercentage": 58.8,
+        "record": "87-61"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 4,
+        "ties": 0,
+        "games": 9
+      },
+      "seasonsCoached": 12,
+      "schoolsCoached": [
+        "Army"
+      ],
+      "yearsCoached": "2014-2025",
+      "rankings": {
+        "overallRank": 59,
+        "winPercentageRank": 59,
+        "totalWinsRank": 27,
+        "current2025Rank": 65
+      }
+    },
+    {
+      "id": 400,
+      "name": "Rich Rodriguez",
+      "currentTeam": {
+        "school": "West Virginia",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 140,
+        "losses": 99,
+        "ties": 0,
+        "games": 239,
+        "winPercentage": 58.6,
+        "record": "140-99"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 7,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 19,
+      "schoolsCoached": [
+        "West Virginia",
+        "Michigan",
+        "Arizona",
+        "Jacksonville State"
+      ],
+      "yearsCoached": "2001-2025",
+      "rankings": {
+        "overallRank": 60,
+        "winPercentageRank": 60,
+        "totalWinsRank": 7,
+        "current2025Rank": 103
+      }
+    },
+    {
+      "id": 1767,
+      "name": "Kenny Dillingham",
+      "currentTeam": {
+        "school": "Arizona State",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 21,
+        "losses": 15,
+        "ties": 0,
+        "games": 36,
+        "winPercentage": 58.3,
+        "record": "21-15"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "Arizona State"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 61,
+        "winPercentageRank": 61,
+        "totalWinsRank": 88,
+        "current2025Rank": 43
+      }
+    },
+    {
+      "id": 1776,
+      "name": "Alex Golesh",
+      "currentTeam": {
+        "school": "South Florida",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 21,
+        "losses": 15,
+        "ties": 0,
+        "games": 36,
+        "winPercentage": 58.3,
+        "record": "21-15"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "South Florida"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 62,
+        "winPercentageRank": 62,
+        "totalWinsRank": 89,
+        "current2025Rank": 44
+      }
+    },
+    {
+      "id": 327,
+      "name": "Jim Mora",
+      "currentTeam": {
+        "school": "UConn",
+        "conference": "FBS Independents"
+      },
+      "careerRecord": {
+        "wins": 72,
+        "losses": 53,
+        "ties": 0,
+        "games": 125,
+        "winPercentage": 57.6,
+        "record": "72-53"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 3,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 10,
+      "schoolsCoached": [
+        "UCLA",
+        "UConn"
+      ],
+      "yearsCoached": "2012-2025",
+      "rankings": {
+        "overallRank": 63,
+        "winPercentageRank": 63,
+        "totalWinsRank": 37,
+        "current2025Rank": 28
+      }
+    },
+    {
+      "id": 343,
+      "name": "Pat Narduzzi",
+      "currentTeam": {
+        "school": "Pittsburgh",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 79,
+        "losses": 59,
+        "ties": 0,
+        "games": 138,
+        "winPercentage": 57.2,
+        "record": "79-59"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 11,
+      "schoolsCoached": [
+        "Pittsburgh"
+      ],
+      "yearsCoached": "2015-2025",
+      "rankings": {
+        "overallRank": 64,
+        "winPercentageRank": 64,
+        "totalWinsRank": 34,
+        "current2025Rank": 45
+      }
+    },
+    {
+      "id": 1774,
+      "name": "Eric Morris",
+      "currentTeam": {
+        "school": "North Texas",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 20,
+        "losses": 15,
+        "ties": 0,
+        "games": 35,
+        "winPercentage": 57.1,
+        "record": "20-15"
+      },
+      "current2025Season": {
+        "wins": 9,
+        "losses": 1,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "North Texas"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 65,
+        "winPercentageRank": 65,
+        "totalWinsRank": 90,
+        "current2025Rank": 11
+      }
+    },
+    {
+      "id": 174,
+      "name": "Willie Fritz",
+      "currentTeam": {
+        "school": "Houston",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 84,
+        "losses": 64,
+        "ties": 0,
+        "games": 148,
+        "winPercentage": 56.8,
+        "record": "84-64"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 12,
+      "schoolsCoached": [
+        "Georgia Southern",
+        "Tulane",
+        "Houston"
+      ],
+      "yearsCoached": "2014-2025",
+      "rankings": {
+        "overallRank": 66,
+        "winPercentageRank": 66,
+        "totalWinsRank": 28,
+        "current2025Rank": 23
+      }
+    },
+    {
+      "id": 526,
+      "name": "Sonny Dykes",
+      "currentTeam": {
+        "school": "TCU",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 104,
+        "losses": 79,
+        "ties": 0,
+        "games": 183,
+        "winPercentage": 56.8,
+        "record": "104-79"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 15,
+      "schoolsCoached": [
+        "SMU",
+        "California",
+        "Louisiana Tech",
+        "TCU"
+      ],
+      "yearsCoached": "2010-2025",
+      "rankings": {
+        "overallRank": 67,
+        "winPercentageRank": 67,
+        "totalWinsRank": 18,
+        "current2025Rank": 60
+      }
+    },
+    {
+      "id": 1738,
+      "name": "Jake Dickert",
+      "currentTeam": {
+        "school": "Wake Forest",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 30,
+        "losses": 23,
+        "ties": 0,
+        "games": 53,
+        "winPercentage": 56.6,
+        "record": "30-23"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 5,
+      "schoolsCoached": [
+        "Washington State",
+        "Wake Forest"
+      ],
+      "yearsCoached": "2021-2025",
+      "rankings": {
+        "overallRank": 68,
+        "winPercentageRank": 68,
+        "totalWinsRank": 75,
+        "current2025Rank": 46
+      }
+    },
+    {
+      "id": 1795,
+      "name": "Fran Brown",
+      "currentTeam": {
+        "school": "Syracuse",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 13,
+        "losses": 10,
+        "ties": 0,
+        "games": 23,
+        "winPercentage": 56.5,
+        "record": "13-10"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 2,
+      "schoolsCoached": [
+        "Syracuse"
+      ],
+      "yearsCoached": "2024-2025",
+      "rankings": {
+        "overallRank": 69,
+        "winPercentageRank": 69,
+        "totalWinsRank": 104,
+        "current2025Rank": 109
+      }
+    },
+    {
+      "id": 631,
+      "name": "Pete Lembo",
+      "currentTeam": {
+        "school": "Buffalo",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 47,
+        "losses": 38,
+        "ties": 0,
+        "games": 84,
+        "winPercentage": 56.0,
+        "record": "47-38"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 7,
+      "schoolsCoached": [
+        "Ball State",
+        "Buffalo"
+      ],
+      "yearsCoached": "2011-2025",
+      "rankings": {
+        "overallRank": 70,
+        "winPercentageRank": 70,
+        "totalWinsRank": 53,
+        "current2025Rank": 74
+      }
+    },
+    {
+      "id": 1718,
+      "name": "Tim Albin",
+      "currentTeam": {
+        "school": "Charlotte",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 35,
+        "losses": 28,
+        "ties": 0,
+        "games": 63,
+        "winPercentage": 55.6,
+        "record": "35-28"
+      },
+      "current2025Season": {
+        "wins": 1,
+        "losses": 9,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 5,
+      "schoolsCoached": [
+        "Ohio",
+        "Charlotte"
+      ],
+      "yearsCoached": "2021-2025",
+      "rankings": {
+        "overallRank": 71,
+        "winPercentageRank": 71,
+        "totalWinsRank": 66,
+        "current2025Rank": 132
+      }
+    },
+    {
+      "id": 1769,
+      "name": "Tim Beck",
+      "currentTeam": {
+        "school": "Coastal Carolina",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 20,
+        "losses": 16,
+        "ties": 0,
+        "games": 36,
+        "winPercentage": 55.6,
+        "record": "20-16"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "Coastal Carolina"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 72,
+        "winPercentageRank": 72,
+        "totalWinsRank": 91,
+        "current2025Rank": 61
+      }
+    },
+    {
+      "id": 1778,
+      "name": "G.J. Kinne",
+      "currentTeam": {
+        "school": "Texas State",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 20,
+        "losses": 16,
+        "ties": 0,
+        "games": 36,
+        "winPercentage": 55.6,
+        "record": "20-16"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "Texas State"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 73,
+        "winPercentageRank": 73,
+        "totalWinsRank": 92,
+        "current2025Rank": 93
+      }
+    },
+    {
+      "id": 351,
+      "name": "Ken Niumatalolo",
+      "currentTeam": {
+        "school": "San Jos\u00e9 State",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 119,
+        "losses": 96,
+        "ties": 0,
+        "games": 215,
+        "winPercentage": 55.3,
+        "record": "119-96"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 18,
+      "schoolsCoached": [
+        "Navy",
+        "San Jos\u00e9 State"
+      ],
+      "yearsCoached": "2007-2025",
+      "rankings": {
+        "overallRank": 74,
+        "winPercentageRank": 74,
+        "totalWinsRank": 11,
+        "current2025Rank": 110
+      }
+    },
+    {
+      "id": 237,
+      "name": "Butch Jones",
+      "currentTeam": {
+        "school": "Arkansas State",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 108,
+        "losses": 90,
+        "ties": 0,
+        "games": 198,
+        "winPercentage": 54.5,
+        "record": "108-90"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 16,
+      "schoolsCoached": [
+        "Central Michigan",
+        "Cincinnati",
+        "Tennessee",
+        "Arkansas State"
+      ],
+      "yearsCoached": "2007-2025",
+      "rankings": {
+        "overallRank": 75,
+        "winPercentageRank": 75,
+        "totalWinsRank": 16,
+        "current2025Rank": 75
+      }
+    },
+    {
+      "id": 523,
+      "name": "Mario Cristobal",
+      "currentTeam": {
+        "school": "Miami",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 92,
+        "losses": 77,
+        "ties": 0,
+        "games": 169,
+        "winPercentage": 54.4,
+        "record": "92-77"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 14,
+      "schoolsCoached": [
+        "Oregon",
+        "Florida International",
+        "Miami"
+      ],
+      "yearsCoached": "2007-2025",
+      "rankings": {
+        "overallRank": 76,
+        "winPercentageRank": 76,
+        "totalWinsRank": 23,
+        "current2025Rank": 24
+      }
+    },
+    {
+      "id": 1727,
+      "name": "Michael Desormeaux",
+      "currentTeam": {
+        "school": "Louisiana",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 27,
+        "losses": 24,
+        "ties": 0,
+        "games": 51,
+        "winPercentage": 52.9,
+        "record": "27-24"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 5,
+      "schoolsCoached": [
+        "Louisiana"
+      ],
+      "yearsCoached": "2021-2025",
+      "rankings": {
+        "overallRank": 77,
+        "winPercentageRank": 77,
+        "totalWinsRank": 78,
+        "current2025Rank": 94
+      }
+    },
+    {
+      "id": 361,
+      "name": "Barry Odom",
+      "currentTeam": {
+        "school": "Purdue",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 47,
+        "losses": 42,
+        "ties": 0,
+        "games": 89,
+        "winPercentage": 52.8,
+        "record": "47-42"
+      },
+      "current2025Season": {
+        "wins": 2,
+        "losses": 9,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 7,
+      "schoolsCoached": [
+        "Missouri",
+        "UNLV",
+        "Purdue"
+      ],
+      "yearsCoached": "2016-2025",
+      "rankings": {
+        "overallRank": 78,
+        "winPercentageRank": 78,
+        "totalWinsRank": 54,
+        "current2025Rank": 129
+      }
+    },
+    {
+      "id": 391,
+      "name": "Matt Rhule",
+      "currentTeam": {
+        "school": "Nebraska",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 66,
+        "losses": 59,
+        "ties": 0,
+        "games": 125,
+        "winPercentage": 52.8,
+        "record": "66-59"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 10,
+      "schoolsCoached": [
+        "Temple",
+        "Baylor",
+        "Nebraska"
+      ],
+      "yearsCoached": "2013-2025",
+      "rankings": {
+        "overallRank": 79,
+        "winPercentageRank": 79,
+        "totalWinsRank": 40,
+        "current2025Rank": 47
+      }
+    },
+    {
+      "id": 1719,
+      "name": "Shane Beamer",
+      "currentTeam": {
+        "school": "South Carolina",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 32,
+        "losses": 29,
+        "ties": 0,
+        "games": 61,
+        "winPercentage": 52.5,
+        "record": "32-29"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 5,
+      "schoolsCoached": [
+        "South Carolina"
+      ],
+      "yearsCoached": "2021-2025",
+      "rankings": {
+        "overallRank": 80,
+        "winPercentageRank": 80,
+        "totalWinsRank": 71,
+        "current2025Rank": 111
+      }
+    },
+    {
+      "id": 455,
+      "name": "Mark Stoops",
+      "currentTeam": {
+        "school": "Kentucky",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 82,
+        "losses": 78,
+        "ties": 0,
+        "games": 160,
+        "winPercentage": 51.2,
+        "record": "82-78"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 13,
+      "schoolsCoached": [
+        "Kentucky"
+      ],
+      "yearsCoached": "2013-2025",
+      "rankings": {
+        "overallRank": 81,
+        "winPercentageRank": 81,
+        "totalWinsRank": 29,
+        "current2025Rank": 76
+      }
+    },
+    {
+      "id": 14,
+      "name": "Major Applewhite",
+      "currentTeam": {
+        "school": "South Alabama",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 25,
+        "losses": 24,
+        "ties": 0,
+        "games": 49,
+        "winPercentage": 51.0,
+        "record": "25-24"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 5,
+      "schoolsCoached": [
+        "Houston",
+        "South Alabama"
+      ],
+      "yearsCoached": "2016-2025",
+      "rankings": {
+        "overallRank": 82,
+        "winPercentageRank": 82,
+        "totalWinsRank": 82,
+        "current2025Rank": 112
+      }
+    },
+    {
+      "id": 562,
+      "name": "Dave Aranda",
+      "currentTeam": {
+        "school": "Baylor",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 36,
+        "losses": 35,
+        "ties": 0,
+        "games": 71,
+        "winPercentage": 50.7,
+        "record": "36-35"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 6,
+      "schoolsCoached": [
+        "Baylor"
+      ],
+      "yearsCoached": "2020-2025",
+      "rankings": {
+        "overallRank": 83,
+        "winPercentageRank": 83,
+        "totalWinsRank": 64,
+        "current2025Rank": 77
+      }
+    },
+    {
+      "id": 1818,
+      "name": "Willie Simmons",
+      "currentTeam": {
+        "school": "Florida International",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 50.0,
+        "record": "5-5"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Florida International"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 84,
+        "winPercentageRank": 84,
+        "totalWinsRank": 120,
+        "current2025Rank": 78
+      }
+    },
+    {
+      "id": 1785,
+      "name": "K.C. Keeler",
+      "currentTeam": {
+        "school": "Temple",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 17,
+        "losses": 17,
+        "ties": 0,
+        "games": 34,
+        "winPercentage": 50.0,
+        "record": "17-17"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "Sam Houston",
+        "Temple"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 85,
+        "winPercentageRank": 85,
+        "totalWinsRank": 98,
+        "current2025Rank": 79
+      }
+    },
+    {
+      "id": 1821,
+      "name": "Tony Gibson",
+      "currentTeam": {
+        "school": "Marshall",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 50.0,
+        "record": "5-5"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Marshall"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 86,
+        "winPercentageRank": 86,
+        "totalWinsRank": 121,
+        "current2025Rank": 80
+      }
+    },
+    {
+      "id": 1826,
+      "name": "Scott Abell",
+      "currentTeam": {
+        "school": "Rice",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 50.0,
+        "record": "5-5"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Rice"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 87,
+        "winPercentageRank": 87,
+        "totalWinsRank": 122,
+        "current2025Rank": 81
+      }
+    },
+    {
+      "id": 1829,
+      "name": "Jimmy Rogers",
+      "currentTeam": {
+        "school": "Washington State",
+        "conference": "Pac-12"
+      },
+      "careerRecord": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 50.0,
+        "record": "5-5"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Washington State"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 88,
+        "winPercentageRank": 88,
+        "totalWinsRank": 123,
+        "current2025Rank": 82
+      }
+    },
+    {
+      "id": 1830,
+      "name": "Ryan Carty",
+      "currentTeam": {
+        "school": "Delaware",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 50.0,
+        "record": "5-5"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Delaware"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 89,
+        "winPercentageRank": 89,
+        "totalWinsRank": 124,
+        "current2025Rank": 83
+      }
+    },
+    {
+      "id": 290,
+      "name": "Chuck Martin",
+      "currentTeam": {
+        "school": "Miami (OH)",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 70,
+        "losses": 72,
+        "ties": 0,
+        "games": 142,
+        "winPercentage": 49.3,
+        "record": "70-72"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 12,
+      "schoolsCoached": [
+        "Miami (OH)"
+      ],
+      "yearsCoached": "2014-2025",
+      "rankings": {
+        "overallRank": 90,
+        "winPercentageRank": 90,
+        "totalWinsRank": 39,
+        "current2025Rank": 84
+      }
+    },
+    {
+      "id": 267,
+      "name": "Lance Leipold",
+      "currentTeam": {
+        "school": "Kansas",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 64,
+        "losses": 66,
+        "ties": 0,
+        "games": 130,
+        "winPercentage": 49.2,
+        "record": "64-66"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 11,
+      "schoolsCoached": [
+        "Buffalo",
+        "Kansas"
+      ],
+      "yearsCoached": "2015-2025",
+      "rankings": {
+        "overallRank": 91,
+        "winPercentageRank": 91,
+        "totalWinsRank": 42,
+        "current2025Rank": 85
+      }
+    },
+    {
+      "id": 1763,
+      "name": "David Braun",
+      "currentTeam": {
+        "school": "Northwestern",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 17,
+        "losses": 18,
+        "ties": 0,
+        "games": 35,
+        "winPercentage": 48.6,
+        "record": "17-18"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "Northwestern"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 92,
+        "winPercentageRank": 92,
+        "totalWinsRank": 99,
+        "current2025Rank": 86
+      }
+    },
+    {
+      "id": 165,
+      "name": "Jedd Fisch",
+      "currentTeam": {
+        "school": "Washington",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 30,
+        "losses": 32,
+        "ties": 0,
+        "games": 62,
+        "winPercentage": 48.4,
+        "record": "30-32"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 6,
+      "schoolsCoached": [
+        "UCLA",
+        "Arizona",
+        "Washington"
+      ],
+      "yearsCoached": "2017-2025",
+      "rankings": {
+        "overallRank": 93,
+        "winPercentageRank": 93,
+        "totalWinsRank": 76,
+        "current2025Rank": 48
+      }
+    },
+    {
+      "id": 414,
+      "name": "Greg Schiano",
+      "currentTeam": {
+        "school": "Rutgers",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 99,
+        "losses": 106,
+        "ties": 0,
+        "games": 205,
+        "winPercentage": 48.3,
+        "record": "99-106"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 17,
+      "schoolsCoached": [
+        "Rutgers"
+      ],
+      "yearsCoached": "2001-2025",
+      "rankings": {
+        "overallRank": 94,
+        "winPercentageRank": 94,
+        "totalWinsRank": 19,
+        "current2025Rank": 87
+      }
+    },
+    {
+      "id": 353,
+      "name": "Jay Norvell",
+      "currentTeam": {
+        "school": "Colorado State",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 51,
+        "losses": 55,
+        "ties": 0,
+        "games": 106,
+        "winPercentage": 48.1,
+        "record": "51-55"
+      },
+      "current2025Season": {
+        "wins": 2,
+        "losses": 8,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 9,
+      "schoolsCoached": [
+        "Nevada",
+        "Colorado State"
+      ],
+      "yearsCoached": "2017-2025",
+      "rankings": {
+        "overallRank": 95,
+        "winPercentageRank": 95,
+        "totalWinsRank": 50,
+        "current2025Rank": 124
+      }
+    },
+    {
+      "id": 728,
+      "name": "Bill O'Brien",
+      "currentTeam": {
+        "school": "Boston College",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 23,
+        "losses": 25,
+        "ties": 0,
+        "games": 48,
+        "winPercentage": 47.9,
+        "record": "23-25"
+      },
+      "current2025Season": {
+        "wins": 1,
+        "losses": 10,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 4,
+      "schoolsCoached": [
+        "Penn State",
+        "Boston College"
+      ],
+      "yearsCoached": "2012-2025",
+      "rankings": {
+        "overallRank": 96,
+        "winPercentageRank": 96,
+        "totalWinsRank": 85,
+        "current2025Rank": 135
+      }
+    },
+    {
+      "id": 499,
+      "name": "Justin Wilcox",
+      "currentTeam": {
+        "school": "California",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 48,
+        "losses": 54,
+        "ties": 0,
+        "games": 102,
+        "winPercentage": 47.1,
+        "record": "48-54"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 9,
+      "schoolsCoached": [
+        "California"
+      ],
+      "yearsCoached": "2017-2025",
+      "rankings": {
+        "overallRank": 97,
+        "winPercentageRank": 97,
+        "totalWinsRank": 52,
+        "current2025Rank": 62
+      }
+    },
+    {
+      "id": 176,
+      "name": "Scott Frost",
+      "currentTeam": {
+        "school": "UCF",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 39,
+        "losses": 44,
+        "ties": 0,
+        "games": 83,
+        "winPercentage": 47.0,
+        "record": "39-44"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 8,
+      "schoolsCoached": [
+        "UCF",
+        "Nebraska"
+      ],
+      "yearsCoached": "2016-2025",
+      "rankings": {
+        "overallRank": 98,
+        "winPercentageRank": 98,
+        "totalWinsRank": 61,
+        "current2025Rank": 95
+      }
+    },
+    {
+      "id": 559,
+      "name": "Jonathan Smith",
+      "currentTeam": {
+        "school": "Michigan State",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 42,
+        "losses": 49,
+        "ties": 0,
+        "games": 91,
+        "winPercentage": 46.2,
+        "record": "42-49"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 8,
+      "schoolsCoached": [
+        "Oregon State",
+        "Michigan State"
+      ],
+      "yearsCoached": "2018-2025",
+      "rankings": {
+        "overallRank": 99,
+        "winPercentageRank": 99,
+        "totalWinsRank": 57,
+        "current2025Rank": 113
+      }
+    },
+    {
+      "id": 1770,
+      "name": "Deion Sanders",
+      "currentTeam": {
+        "school": "Colorado",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 16,
+        "losses": 19,
+        "ties": 0,
+        "games": 35,
+        "winPercentage": 45.7,
+        "record": "16-19"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "Colorado"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 100,
+        "winPercentageRank": 100,
+        "totalWinsRank": 101,
+        "current2025Rank": 114
+      }
+    },
+    {
+      "id": 1780,
+      "name": "Lance Taylor",
+      "currentTeam": {
+        "school": "Western Michigan",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 16,
+        "losses": 19,
+        "ties": 0,
+        "games": 35,
+        "winPercentage": 45.7,
+        "record": "16-19"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "Western Michigan"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 101,
+        "winPercentageRank": 101,
+        "totalWinsRank": 102,
+        "current2025Rank": 63
+      }
+    },
+    {
+      "id": 554,
+      "name": "Sean Lewis",
+      "currentTeam": {
+        "school": "San Diego State",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 35,
+        "losses": 42,
+        "ties": 0,
+        "games": 77,
+        "winPercentage": 45.5,
+        "record": "35-42"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 7,
+      "schoolsCoached": [
+        "Kent State",
+        "San Diego State"
+      ],
+      "yearsCoached": "2018-2025",
+      "rankings": {
+        "overallRank": 102,
+        "winPercentageRank": 102,
+        "totalWinsRank": 67,
+        "current2025Rank": 25
+      }
+    },
+    {
+      "id": 570,
+      "name": "Sam Pittman",
+      "currentTeam": {
+        "school": "Arkansas",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 32,
+        "losses": 39,
+        "ties": 0,
+        "games": 71,
+        "winPercentage": 45.1,
+        "record": "32-39"
+      },
+      "current2025Season": {
+        "wins": 2,
+        "losses": 8,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 6,
+      "schoolsCoached": [
+        "Arkansas"
+      ],
+      "yearsCoached": "2020-2025",
+      "rankings": {
+        "overallRank": 103,
+        "winPercentageRank": 103,
+        "totalWinsRank": 72,
+        "current2025Rank": 125
+      }
+    },
+    {
+      "id": 571,
+      "name": "Ricky Rahne",
+      "currentTeam": {
+        "school": "Old Dominion",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 27,
+        "losses": 33,
+        "ties": 0,
+        "games": 60,
+        "winPercentage": 45.0,
+        "record": "27-33"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 6,
+      "schoolsCoached": [
+        "Old Dominion"
+      ],
+      "yearsCoached": "2020-2025",
+      "rankings": {
+        "overallRank": 104,
+        "winPercentageRank": 104,
+        "totalWinsRank": 79,
+        "current2025Rank": 49
+      }
+    },
+    {
+      "id": 1751,
+      "name": "Tony Elliott",
+      "currentTeam": {
+        "school": "Virginia",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 20,
+        "losses": 25,
+        "ties": 0,
+        "games": 45,
+        "winPercentage": 44.4,
+        "record": "20-25"
+      },
+      "current2025Season": {
+        "wins": 9,
+        "losses": 2,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 4,
+      "schoolsCoached": [
+        "Virginia"
+      ],
+      "yearsCoached": "2022-2025",
+      "rankings": {
+        "overallRank": 105,
+        "winPercentageRank": 105,
+        "totalWinsRank": 93,
+        "current2025Rank": 12
+      }
+    },
+    {
+      "id": 549,
+      "name": "Thomas Hammock",
+      "currentTeam": {
+        "school": "Northern Illinois",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 35,
+        "losses": 45,
+        "ties": 0,
+        "games": 80,
+        "winPercentage": 43.8,
+        "record": "35-45"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 7,
+      "schoolsCoached": [
+        "Northern Illinois"
+      ],
+      "yearsCoached": "2019-2025",
+      "rankings": {
+        "overallRank": 106,
+        "winPercentageRank": 106,
+        "totalWinsRank": 68,
+        "current2025Rank": 115
+      }
+    },
+    {
+      "id": 50,
+      "name": "Brent Brennan",
+      "currentTeam": {
+        "school": "Arizona",
+        "conference": "Big 12"
+      },
+      "careerRecord": {
+        "wins": 45,
+        "losses": 59,
+        "ties": 0,
+        "games": 104,
+        "winPercentage": 43.3,
+        "record": "45-59"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 9,
+      "schoolsCoached": [
+        "San Jos\u00e9 State",
+        "Arizona"
+      ],
+      "yearsCoached": "2017-2025",
+      "rankings": {
+        "overallRank": 107,
+        "winPercentageRank": 107,
+        "totalWinsRank": 55,
+        "current2025Rank": 50
+      }
+    },
+    {
+      "id": 1750,
+      "name": "Bryant Vincent",
+      "currentTeam": {
+        "school": "UL Monroe",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 15,
+        "losses": 20,
+        "ties": 0,
+        "games": 35,
+        "winPercentage": 42.9,
+        "record": "15-20"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "UAB",
+        "UL Monroe"
+      ],
+      "yearsCoached": "2022-2025",
+      "rankings": {
+        "overallRank": 108,
+        "winPercentageRank": 108,
+        "totalWinsRank": 103,
+        "current2025Rank": 116
+      }
+    },
+    {
+      "id": 98,
+      "name": "Chris Creighton",
+      "currentTeam": {
+        "school": "Eastern Michigan",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 61,
+        "losses": 82,
+        "ties": 0,
+        "games": 143,
+        "winPercentage": 42.7,
+        "record": "61-82"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 7,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 12,
+      "schoolsCoached": [
+        "Eastern Michigan"
+      ],
+      "yearsCoached": "2014-2025",
+      "rankings": {
+        "overallRank": 109,
+        "winPercentageRank": 109,
+        "totalWinsRank": 44,
+        "current2025Rank": 104
+      }
+    },
+    {
+      "id": 1740,
+      "name": "Timmy Chang",
+      "currentTeam": {
+        "school": "Hawai'i",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 20,
+        "losses": 28,
+        "ties": 0,
+        "games": 48,
+        "winPercentage": 41.7,
+        "record": "20-28"
+      },
+      "current2025Season": {
+        "wins": 7,
+        "losses": 3,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 4,
+      "schoolsCoached": [
+        "Hawai'i"
+      ],
+      "yearsCoached": "2022-2025",
+      "rankings": {
+        "overallRank": 110,
+        "winPercentageRank": 110,
+        "totalWinsRank": 94,
+        "current2025Rank": 51
+      }
+    },
+    {
+      "id": 1721,
+      "name": "Clark Lea",
+      "currentTeam": {
+        "school": "Vanderbilt",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 24,
+        "losses": 35,
+        "ties": 0,
+        "games": 59,
+        "winPercentage": 40.7,
+        "record": "24-35"
+      },
+      "current2025Season": {
+        "wins": 8,
+        "losses": 2,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 5,
+      "schoolsCoached": [
+        "Vanderbilt"
+      ],
+      "yearsCoached": "2021-2025",
+      "rankings": {
+        "overallRank": 111,
+        "winPercentageRank": 111,
+        "totalWinsRank": 83,
+        "current2025Rank": 26
+      }
+    },
+    {
+      "id": 1752,
+      "name": "Brent Pry",
+      "currentTeam": {
+        "school": "Virginia Tech",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 19,
+        "losses": 28,
+        "ties": 0,
+        "games": 47,
+        "winPercentage": 40.4,
+        "record": "19-28"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 4,
+      "schoolsCoached": [
+        "Virginia Tech"
+      ],
+      "yearsCoached": "2022-2025",
+      "rankings": {
+        "overallRank": 112,
+        "winPercentageRank": 112,
+        "totalWinsRank": 95,
+        "current2025Rank": 117
+      }
+    },
+    {
+      "id": 1813,
+      "name": "Dowell Loggains",
+      "currentTeam": {
+        "school": "App State",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 40.0,
+        "record": "4-6"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "App State"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 113,
+        "winPercentageRank": 113,
+        "totalWinsRank": 126,
+        "current2025Rank": 96
+      }
+    },
+    {
+      "id": 1814,
+      "name": "Mike Uremovich",
+      "currentTeam": {
+        "school": "Ball State",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 40.0,
+        "record": "4-6"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Ball State"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 114,
+        "winPercentageRank": 114,
+        "totalWinsRank": 127,
+        "current2025Rank": 97
+      }
+    },
+    {
+      "id": 1817,
+      "name": "Zach Kittley",
+      "currentTeam": {
+        "school": "Florida Atlantic",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 40.0,
+        "record": "4-6"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Florida Atlantic"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 115,
+        "winPercentageRank": 115,
+        "totalWinsRank": 128,
+        "current2025Rank": 98
+      }
+    },
+    {
+      "id": 1820,
+      "name": "Mark Carney",
+      "currentTeam": {
+        "school": "Kent State",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 40.0,
+        "record": "4-6"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Kent State"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 116,
+        "winPercentageRank": 116,
+        "totalWinsRank": 129,
+        "current2025Rank": 99
+      }
+    },
+    {
+      "id": 1824,
+      "name": "Bill Belichick",
+      "currentTeam": {
+        "school": "North Carolina",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 40.0,
+        "record": "4-6"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "North Carolina"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 117,
+        "winPercentageRank": 117,
+        "totalWinsRank": 130,
+        "current2025Rank": 100
+      }
+    },
+    {
+      "id": 1797,
+      "name": "Deshaun Foster",
+      "currentTeam": {
+        "school": "UCLA",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 8,
+        "losses": 14,
+        "ties": 0,
+        "games": 22,
+        "winPercentage": 36.4,
+        "record": "8-14"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 2,
+      "schoolsCoached": [
+        "UCLA"
+      ],
+      "yearsCoached": "2024-2025",
+      "rankings": {
+        "overallRank": 118,
+        "winPercentageRank": 118,
+        "totalWinsRank": 108,
+        "current2025Rank": 118
+      }
+    },
+    {
+      "id": 556,
+      "name": "Mike Locksley",
+      "currentTeam": {
+        "school": "Maryland",
+        "conference": "Big Ten"
+      },
+      "careerRecord": {
+        "wins": 38,
+        "losses": 68,
+        "ties": 0,
+        "games": 106,
+        "winPercentage": 35.8,
+        "record": "38-68"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 10,
+      "schoolsCoached": [
+        "Maryland",
+        "New Mexico"
+      ],
+      "yearsCoached": "2009-2025",
+      "rankings": {
+        "overallRank": 119,
+        "winPercentageRank": 119,
+        "totalWinsRank": 62,
+        "current2025Rank": 101
+      }
+    },
+    {
+      "id": 628,
+      "name": "Gerad Parker",
+      "currentTeam": {
+        "school": "Troy",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 10,
+        "losses": 18,
+        "ties": 0,
+        "games": 28,
+        "winPercentage": 35.7,
+        "record": "10-18"
+      },
+      "current2025Season": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "Purdue",
+        "Troy"
+      ],
+      "yearsCoached": "2016-2025",
+      "rankings": {
+        "overallRank": 120,
+        "winPercentageRank": 120,
+        "totalWinsRank": 106,
+        "current2025Rank": 64
+      }
+    },
+    {
+      "id": 534,
+      "name": "Joe Moorhead",
+      "currentTeam": {
+        "school": "Akron",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 26,
+        "losses": 47,
+        "ties": 0,
+        "games": 73,
+        "winPercentage": 35.6,
+        "record": "26-47"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 7,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 6,
+      "schoolsCoached": [
+        "Mississippi State",
+        "Akron"
+      ],
+      "yearsCoached": "2018-2025",
+      "rankings": {
+        "overallRank": 121,
+        "winPercentageRank": 121,
+        "totalWinsRank": 80,
+        "current2025Rank": 105
+      }
+    },
+    {
+      "id": 1734,
+      "name": "Sonny Cumbie",
+      "currentTeam": {
+        "school": "Louisiana Tech",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 18,
+        "losses": 34,
+        "ties": 0,
+        "games": 52,
+        "winPercentage": 34.6,
+        "record": "18-34"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 5,
+      "schoolsCoached": [
+        "Texas Tech",
+        "Louisiana Tech"
+      ],
+      "yearsCoached": "2021-2025",
+      "rankings": {
+        "overallRank": 122,
+        "winPercentageRank": 122,
+        "totalWinsRank": 97,
+        "current2025Rank": 88
+      }
+    },
+    {
+      "id": 1796,
+      "name": "Jay Sawvel",
+      "currentTeam": {
+        "school": "Wyoming",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 7,
+        "losses": 15,
+        "ties": 0,
+        "games": 22,
+        "winPercentage": 31.8,
+        "record": "7-15"
+      },
+      "current2025Season": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 2,
+      "schoolsCoached": [
+        "Wyoming"
+      ],
+      "yearsCoached": "2024-2025",
+      "rankings": {
+        "overallRank": 123,
+        "winPercentageRank": 123,
+        "totalWinsRank": 114,
+        "current2025Rank": 102
+      }
+    },
+    {
+      "id": 407,
+      "name": "Tony Sanchez",
+      "currentTeam": {
+        "school": "New Mexico State",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 26,
+        "losses": 56,
+        "ties": 0,
+        "games": 82,
+        "winPercentage": 31.7,
+        "record": "26-56"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 7,
+      "schoolsCoached": [
+        "UNLV",
+        "New Mexico State"
+      ],
+      "yearsCoached": "2015-2025",
+      "rankings": {
+        "overallRank": 124,
+        "winPercentageRank": 124,
+        "totalWinsRank": 81,
+        "current2025Rank": 119
+      }
+    },
+    {
+      "id": 1792,
+      "name": "Jeff Lebby",
+      "currentTeam": {
+        "school": "Mississippi State",
+        "conference": "SEC"
+      },
+      "careerRecord": {
+        "wins": 7,
+        "losses": 16,
+        "ties": 0,
+        "games": 23,
+        "winPercentage": 30.4,
+        "record": "7-16"
+      },
+      "current2025Season": {
+        "wins": 5,
+        "losses": 6,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 2,
+      "schoolsCoached": [
+        "Mississippi State"
+      ],
+      "yearsCoached": "2024-2025",
+      "rankings": {
+        "overallRank": 125,
+        "winPercentageRank": 125,
+        "totalWinsRank": 115,
+        "current2025Rank": 89
+      }
+    },
+    {
+      "id": 1794,
+      "name": "Trent Bray",
+      "currentTeam": {
+        "school": "Oregon State",
+        "conference": "Pac-12"
+      },
+      "careerRecord": {
+        "wins": 7,
+        "losses": 16,
+        "ties": 0,
+        "games": 23,
+        "winPercentage": 30.4,
+        "record": "7-16"
+      },
+      "current2025Season": {
+        "wins": 2,
+        "losses": 9,
+        "ties": 0,
+        "games": 11
+      },
+      "seasonsCoached": 2,
+      "schoolsCoached": [
+        "Oregon State"
+      ],
+      "yearsCoached": "2024-2025",
+      "rankings": {
+        "overallRank": 126,
+        "winPercentageRank": 126,
+        "totalWinsRank": 116,
+        "current2025Rank": 130
+      }
+    },
+    {
+      "id": 1815,
+      "name": "Eddie George",
+      "currentTeam": {
+        "school": "Bowling Green",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 30.0,
+        "record": "3-7"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Bowling Green"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 127,
+        "winPercentageRank": 127,
+        "totalWinsRank": 132,
+        "current2025Rank": 120
+      }
+    },
+    {
+      "id": 1827,
+      "name": "Frank Reich",
+      "currentTeam": {
+        "school": "Stanford",
+        "conference": "ACC"
+      },
+      "careerRecord": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 30.0,
+        "record": "3-7"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Stanford"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 128,
+        "winPercentageRank": 128,
+        "totalWinsRank": 133,
+        "current2025Rank": 121
+      }
+    },
+    {
+      "id": 1828,
+      "name": "Tre Lamb",
+      "currentTeam": {
+        "school": "Tulsa",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 30.0,
+        "record": "3-7"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Tulsa"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 129,
+        "winPercentageRank": 129,
+        "totalWinsRank": 134,
+        "current2025Rank": 122
+      }
+    },
+    {
+      "id": 292,
+      "name": "Derek Mason",
+      "currentTeam": {
+        "school": "Middle Tennessee",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 31,
+        "losses": 73,
+        "ties": 0,
+        "games": 104,
+        "winPercentage": 29.8,
+        "record": "31-73"
+      },
+      "current2025Season": {
+        "wins": 1,
+        "losses": 9,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 9,
+      "schoolsCoached": [
+        "Vanderbilt",
+        "Middle Tennessee"
+      ],
+      "yearsCoached": "2014-2025",
+      "rankings": {
+        "overallRank": 130,
+        "winPercentageRank": 130,
+        "totalWinsRank": 73,
+        "current2025Rank": 133
+      }
+    },
+    {
+      "id": 1779,
+      "name": "Trent Dilfer",
+      "currentTeam": {
+        "school": "UAB",
+        "conference": "American Athletic"
+      },
+      "careerRecord": {
+        "wins": 10,
+        "losses": 24,
+        "ties": 0,
+        "games": 34,
+        "winPercentage": 29.4,
+        "record": "10-24"
+      },
+      "current2025Season": {
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "UAB"
+      ],
+      "yearsCoached": "2023-2025",
+      "rankings": {
+        "overallRank": 131,
+        "winPercentageRank": 131,
+        "totalWinsRank": 107,
+        "current2025Rank": 123
+      }
+    },
+    {
+      "id": 1557,
+      "name": "Scotty Walden",
+      "currentTeam": {
+        "school": "UTEP",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 6,
+        "losses": 20,
+        "ties": 0,
+        "games": 26,
+        "winPercentage": 23.1,
+        "record": "6-20"
+      },
+      "current2025Season": {
+        "wins": 2,
+        "losses": 8,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 3,
+      "schoolsCoached": [
+        "Southern Miss",
+        "UTEP"
+      ],
+      "yearsCoached": "2020-2025",
+      "rankings": {
+        "overallRank": 132,
+        "winPercentageRank": 132,
+        "totalWinsRank": 119,
+        "current2025Rank": 126
+      }
+    },
+    {
+      "id": 1793,
+      "name": "Jeff Choate",
+      "currentTeam": {
+        "school": "Nevada",
+        "conference": "Mountain West"
+      },
+      "careerRecord": {
+        "wins": 5,
+        "losses": 18,
+        "ties": 0,
+        "games": 23,
+        "winPercentage": 21.7,
+        "record": "5-18"
+      },
+      "current2025Season": {
+        "wins": 2,
+        "losses": 8,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 2,
+      "schoolsCoached": [
+        "Nevada"
+      ],
+      "yearsCoached": "2024-2025",
+      "rankings": {
+        "overallRank": 133,
+        "winPercentageRank": 133,
+        "totalWinsRank": 125,
+        "current2025Rank": 127
+      }
+    },
+    {
+      "id": 1834,
+      "name": "Phil Longo",
+      "currentTeam": {
+        "school": "Sam Houston",
+        "conference": "Conference USA"
+      },
+      "careerRecord": {
+        "wins": 2,
+        "losses": 8,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 20.0,
+        "record": "2-8"
+      },
+      "current2025Season": {
+        "wins": 2,
+        "losses": 8,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Sam Houston"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 134,
+        "winPercentageRank": 134,
+        "totalWinsRank": 135,
+        "current2025Rank": 128
+      }
+    },
+    {
+      "id": 1800,
+      "name": "Dell McGee",
+      "currentTeam": {
+        "school": "Georgia State",
+        "conference": "Sun Belt"
+      },
+      "careerRecord": {
+        "wins": 4,
+        "losses": 18,
+        "ties": 0,
+        "games": 22,
+        "winPercentage": 18.2,
+        "record": "4-18"
+      },
+      "current2025Season": {
+        "wins": 1,
+        "losses": 9,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 2,
+      "schoolsCoached": [
+        "Georgia State"
+      ],
+      "yearsCoached": "2024-2025",
+      "rankings": {
+        "overallRank": 135,
+        "winPercentageRank": 135,
+        "totalWinsRank": 131,
+        "current2025Rank": 134
+      }
+    },
+    {
+      "id": 1822,
+      "name": "Joe Harasymiak",
+      "currentTeam": {
+        "school": "Massachusetts",
+        "conference": "Mid-American"
+      },
+      "careerRecord": {
+        "wins": 0,
+        "losses": 10,
+        "ties": 0,
+        "games": 10,
+        "winPercentage": 0.0,
+        "record": "0-10"
+      },
+      "current2025Season": {
+        "wins": 0,
+        "losses": 10,
+        "ties": 0,
+        "games": 10
+      },
+      "seasonsCoached": 1,
+      "schoolsCoached": [
+        "Massachusetts"
+      ],
+      "yearsCoached": "2025",
+      "rankings": {
+        "overallRank": 136,
+        "winPercentageRank": 136,
+        "totalWinsRank": 136,
+        "current2025Rank": 136
+      }
+    }
+  ],
+  "rankings": {
+    "overallRank": "Ranked by career win percentage",
+    "totalWinsRank": "Ranked by total career wins",
+    "current2025Rank": "Ranked by 2025 win percentage (3+ games only)"
+  }
+}

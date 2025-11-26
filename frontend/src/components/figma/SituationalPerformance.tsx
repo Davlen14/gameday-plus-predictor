@@ -1,6 +1,7 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, Cell } from 'recharts';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { GlassCard } from './GlassCard';
+import { InsightBox } from './InsightBox';
 
 // Custom Tooltip Component with Team Logos (same as original)
 const CustomTooltip = ({ active, payload, label, awayTeam, homeTeam, awayAbbr, homeAbbr }: any) => {
@@ -566,6 +567,26 @@ export function SituationalPerformance({ predictionData }: SituationalPerformanc
           </div>
         </div>
       </div>
+
+      {/* Insight Box */}
+      <InsightBox
+        whatItMeans="Situational performance shows how teams perform in critical moments: 3rd downs (sustaining drives), red zone (scoring TDs vs FGs), and goal-to-go (punch-it-in ability). These situations determine game outcomes more than total yardage."
+        whyItMatters="Teams that convert 3rd downs control the clock and wear down defenses. Red zone efficiency (50%+ TD rate) is the difference between 28-point and 21-point performances. Goal-to-go success rate predicts short-yardage dominance."
+        whoHasEdge={{
+          team: situationalPerformanceData.reduce((max, curr) => 
+            (curr[awayAbbr] > curr[homeAbbr] ? awayAbbr : homeAbbr) === awayAbbr ? awayTeam.name : homeTeam.name
+          , awayTeam.name),
+          reason: `${awayTeam.name} shows ${situationalPerformanceData.filter(d => d[awayAbbr] > d[homeAbbr]).length} category advantages vs ${homeTeam.name}'s ${situationalPerformanceData.filter(d => d[homeAbbr] > d[awayAbbr]).length}. Biggest gap: ${Math.max(...situationalPerformanceData.map(d => Math.abs(d[awayAbbr] - d[homeAbbr]))).toFixed(1)}% in ${situationalPerformanceData.find(d => Math.abs(d[awayAbbr] - d[homeAbbr]) === Math.max(...situationalPerformanceData.map(m => Math.abs(m[awayAbbr] - m[homeAbbr]))))?.metric || 'key metric'}.`,
+          magnitude: situationalPerformanceData.filter(d => Math.abs(d[awayAbbr] - d[homeAbbr]) > 15).length > 1 ? 'major' : 
+                     situationalPerformanceData.filter(d => Math.abs(d[awayAbbr] - d[homeAbbr]) > 10).length > 0 ? 'significant' : 
+                     situationalPerformanceData.filter(d => Math.abs(d[awayAbbr] - d[homeAbbr]) > 5).length > 0 ? 'moderate' : 'small'
+        }}
+        keyDifferences={[
+          `Success Rate: ${situationalPerformanceData[0][awayAbbr].toFixed(1)}% vs ${situationalPerformanceData[0][homeAbbr].toFixed(1)}% (${Math.abs(situationalPerformanceData[0][awayAbbr] - situationalPerformanceData[0][homeAbbr]).toFixed(1)}% gap)`,
+          `Explosiveness: ${situationalPerformanceData[1][awayAbbr].toFixed(1)}% vs ${situationalPerformanceData[1][homeAbbr].toFixed(1)}% (${Math.abs(situationalPerformanceData[1][awayAbbr] - situationalPerformanceData[1][homeAbbr]).toFixed(1)}% gap)`,
+          `Passing Downs: ${situationalPerformanceData[2][awayAbbr].toFixed(1)}% vs ${situationalPerformanceData[2][homeAbbr].toFixed(1)}% (critical 3rd down conversion)`
+        ]}
+      />
     </GlassCard>
   );
 }

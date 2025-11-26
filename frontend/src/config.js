@@ -11,7 +11,7 @@ export const CONFIG = {
         RETRY_ATTEMPTS: 3
     },
     
-    // Dynamic sections that can be enabled/disabled
+    // Dynamic sections that can be enabled/disabled  
     SECTIONS: {
         TEAM_SELECTOR: { enabled: true, order: 1 },
         PREDICTION_CARDS: { enabled: true, order: 2 },

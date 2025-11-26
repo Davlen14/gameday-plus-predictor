@@ -1,0 +1,962 @@
+{
+  "metadata": {
+    "rating_system": "SRS",
+    "season": 2025,
+    "timestamp": "20251015_021151",
+    "total_ranked": 136
+  },
+  "rankings": [
+    {
+      "rank": 1,
+      "team": "Notre Dame",
+      "conference": "FBS Independents",
+      "rating": 27.3,
+      "teamId": 87
+    },
+    {
+      "rank": 2,
+      "team": "Ohio State",
+      "conference": "Big Ten",
+      "rating": 27.2,
+      "teamId": 194
+    },
+    {
+      "rank": 3,
+      "team": "Indiana",
+      "conference": "Big Ten",
+      "rating": 27.1,
+      "teamId": 84
+    },
+    {
+      "rank": 4,
+      "team": "Miami",
+      "conference": "ACC",
+      "rating": 26.8,
+      "teamId": 2390
+    },
+    {
+      "rank": 5,
+      "team": "Texas Tech",
+      "conference": "Big 12",
+      "rating": 24.6,
+      "teamId": 2641
+    },
+    {
+      "rank": 6,
+      "team": "Utah",
+      "conference": "Big 12",
+      "rating": 21.7,
+      "teamId": 254
+    },
+    {
+      "rank": 7,
+      "team": "Texas A&M",
+      "conference": "SEC",
+      "rating": 21.2,
+      "teamId": 245
+    },
+    {
+      "rank": 8,
+      "team": "Washington",
+      "conference": "Big Ten",
+      "rating": 19.5,
+      "teamId": 264
+    },
+    {
+      "rank": 9,
+      "team": "Oregon",
+      "conference": "Big Ten",
+      "rating": 19.0,
+      "teamId": 2483
+    },
+    {
+      "rank": 10,
+      "team": "Georgia",
+      "conference": "SEC",
+      "rating": 18.0,
+      "teamId": 61
+    },
+    {
+      "rank": 11,
+      "team": "Alabama",
+      "conference": "SEC",
+      "rating": 17.2,
+      "teamId": 333
+    },
+    {
+      "rank": 12,
+      "team": "South Florida",
+      "conference": "American Athletic",
+      "rating": 17.2,
+      "teamId": 58
+    },
+    {
+      "rank": 13,
+      "team": "Florida State",
+      "conference": "ACC",
+      "rating": 16.7,
+      "teamId": 52
+    },
+    {
+      "rank": 14,
+      "team": "USC",
+      "conference": "Big Ten",
+      "rating": 16.4,
+      "teamId": 30
+    },
+    {
+      "rank": 15,
+      "team": "Illinois",
+      "conference": "Big Ten",
+      "rating": 16.3,
+      "teamId": 356
+    },
+    {
+      "rank": 16,
+      "team": "BYU",
+      "conference": "Big 12",
+      "rating": 16.2,
+      "teamId": 252
+    },
+    {
+      "rank": 17,
+      "team": "LSU",
+      "conference": "SEC",
+      "rating": 16.2,
+      "teamId": 99
+    },
+    {
+      "rank": 18,
+      "team": "Tennessee",
+      "conference": "SEC",
+      "rating": 16.0,
+      "teamId": 2633
+    },
+    {
+      "rank": 19,
+      "team": "Virginia",
+      "conference": "ACC",
+      "rating": 14.8,
+      "teamId": 258
+    },
+    {
+      "rank": 20,
+      "team": "Vanderbilt",
+      "conference": "SEC",
+      "rating": 14.6,
+      "teamId": 238
+    },
+    {
+      "rank": 21,
+      "team": "Ole Miss",
+      "conference": "SEC",
+      "rating": 13.9,
+      "teamId": 145
+    },
+    {
+      "rank": 22,
+      "team": "Louisville",
+      "conference": "ACC",
+      "rating": 13.4,
+      "teamId": 97
+    },
+    {
+      "rank": 23,
+      "team": "Texas",
+      "conference": "SEC",
+      "rating": 13.1,
+      "teamId": 251
+    },
+    {
+      "rank": 24,
+      "team": "Florida",
+      "conference": "SEC",
+      "rating": 12.6,
+      "teamId": 57
+    },
+    {
+      "rank": 25,
+      "team": "Missouri",
+      "conference": "SEC",
+      "rating": 12.5,
+      "teamId": 142
+    },
+    {
+      "rank": 26,
+      "team": "Georgia Tech",
+      "conference": "ACC",
+      "rating": 12.4,
+      "teamId": 59
+    },
+    {
+      "rank": 27,
+      "team": "Oklahoma",
+      "conference": "SEC",
+      "rating": 11.9,
+      "teamId": 201
+    },
+    {
+      "rank": 28,
+      "team": "Pittsburgh",
+      "conference": "ACC",
+      "rating": 10.9,
+      "teamId": 221
+    },
+    {
+      "rank": 29,
+      "team": "Cincinnati",
+      "conference": "Big 12",
+      "rating": 9.8,
+      "teamId": 2132
+    },
+    {
+      "rank": 30,
+      "team": "Iowa State",
+      "conference": "Big 12",
+      "rating": 9.8,
+      "teamId": 66
+    },
+    {
+      "rank": 31,
+      "team": "Nebraska",
+      "conference": "Big Ten",
+      "rating": 9.6,
+      "teamId": 158
+    },
+    {
+      "rank": 32,
+      "team": "Auburn",
+      "conference": "SEC",
+      "rating": 9.5,
+      "teamId": 2
+    },
+    {
+      "rank": 33,
+      "team": "Duke",
+      "conference": "ACC",
+      "rating": 9.5,
+      "teamId": 150
+    },
+    {
+      "rank": 34,
+      "team": "Memphis",
+      "conference": "American Athletic",
+      "rating": 9.1,
+      "teamId": 235
+    },
+    {
+      "rank": 35,
+      "team": "Arkansas",
+      "conference": "SEC",
+      "rating": 9.0,
+      "teamId": 8
+    },
+    {
+      "rank": 36,
+      "team": "Michigan",
+      "conference": "Big Ten",
+      "rating": 8.9,
+      "teamId": 130
+    },
+    {
+      "rank": 37,
+      "team": "Iowa",
+      "conference": "Big Ten",
+      "rating": 8.7,
+      "teamId": 2294
+    },
+    {
+      "rank": 38,
+      "team": "North Texas",
+      "conference": "American Athletic",
+      "rating": 8.5,
+      "teamId": 249
+    },
+    {
+      "rank": 39,
+      "team": "Kansas",
+      "conference": "Big 12",
+      "rating": 7.4,
+      "teamId": 2305
+    },
+    {
+      "rank": 40,
+      "team": "Penn State",
+      "conference": "Big Ten",
+      "rating": 7.3,
+      "teamId": 213
+    },
+    {
+      "rank": 41,
+      "team": "Old Dominion",
+      "conference": "Sun Belt",
+      "rating": 7.1,
+      "teamId": 295
+    },
+    {
+      "rank": 42,
+      "team": "Mississippi State",
+      "conference": "SEC",
+      "rating": 7.0,
+      "teamId": 344
+    },
+    {
+      "rank": 43,
+      "team": "East Carolina",
+      "conference": "American Athletic",
+      "rating": 6.9,
+      "teamId": 151
+    },
+    {
+      "rank": 44,
+      "team": "NC State",
+      "conference": "ACC",
+      "rating": 6.5,
+      "teamId": 152
+    },
+    {
+      "rank": 45,
+      "team": "Boise State",
+      "conference": "Mountain West",
+      "rating": 6.4,
+      "teamId": 68
+    },
+    {
+      "rank": 46,
+      "team": "Clemson",
+      "conference": "ACC",
+      "rating": 6.3,
+      "teamId": 228
+    },
+    {
+      "rank": 47,
+      "team": "TCU",
+      "conference": "Big 12",
+      "rating": 6.2,
+      "teamId": 2628
+    },
+    {
+      "rank": 48,
+      "team": "Arizona",
+      "conference": "Big 12",
+      "rating": 6.1,
+      "teamId": 12
+    },
+    {
+      "rank": 49,
+      "team": "Toledo",
+      "conference": "Mid-American",
+      "rating": 5.8,
+      "teamId": 2649
+    },
+    {
+      "rank": 50,
+      "team": "Houston",
+      "conference": "Big 12",
+      "rating": 5.6,
+      "teamId": 248
+    },
+    {
+      "rank": 51,
+      "team": "Maryland",
+      "conference": "Big Ten",
+      "rating": 5.5,
+      "teamId": 120
+    },
+    {
+      "rank": 52,
+      "team": "Colorado",
+      "conference": "Big 12",
+      "rating": 5.0,
+      "teamId": 38
+    },
+    {
+      "rank": 53,
+      "team": "San Diego State",
+      "conference": "Mountain West",
+      "rating": 5.0,
+      "teamId": 21
+    },
+    {
+      "rank": 54,
+      "team": "South Carolina",
+      "conference": "SEC",
+      "rating": 4.7,
+      "teamId": 2579
+    },
+    {
+      "rank": 55,
+      "team": "Tulane",
+      "conference": "American Athletic",
+      "rating": 4.5,
+      "teamId": 2655
+    },
+    {
+      "rank": 56,
+      "team": "Wake Forest",
+      "conference": "ACC",
+      "rating": 3.9,
+      "teamId": 154
+    },
+    {
+      "rank": 57,
+      "team": "Kansas State",
+      "conference": "Big 12",
+      "rating": 3.3,
+      "teamId": 2306
+    },
+    {
+      "rank": 58,
+      "team": "SMU",
+      "conference": "ACC",
+      "rating": 3.0,
+      "teamId": 2567
+    },
+    {
+      "rank": 59,
+      "team": "Rutgers",
+      "conference": "Big Ten",
+      "rating": 2.7,
+      "teamId": 164
+    },
+    {
+      "rank": 60,
+      "team": "Arizona State",
+      "conference": "Big 12",
+      "rating": 2.5,
+      "teamId": 9
+    },
+    {
+      "rank": 61,
+      "team": "Washington State",
+      "conference": "Pac-12",
+      "rating": 1.4,
+      "teamId": 265
+    },
+    {
+      "rank": 62,
+      "team": "Purdue",
+      "conference": "Big Ten",
+      "rating": 1.2,
+      "teamId": 2509
+    },
+    {
+      "rank": 63,
+      "team": "Syracuse",
+      "conference": "ACC",
+      "rating": 1.1,
+      "teamId": 183
+    },
+    {
+      "rank": 64,
+      "team": "UCF",
+      "conference": "Big 12",
+      "rating": 1.0,
+      "teamId": 2116
+    },
+    {
+      "rank": 65,
+      "team": "Kentucky",
+      "conference": "SEC",
+      "rating": 0.2,
+      "teamId": 96
+    },
+    {
+      "rank": 66,
+      "team": "Minnesota",
+      "conference": "Big Ten",
+      "rating": -0.1,
+      "teamId": 135
+    },
+    {
+      "rank": 67,
+      "team": "James Madison",
+      "conference": "Sun Belt",
+      "rating": -0.2,
+      "teamId": 256
+    },
+    {
+      "rank": 68,
+      "team": "Northwestern",
+      "conference": "Big Ten",
+      "rating": -0.2,
+      "teamId": 77
+    },
+    {
+      "rank": 69,
+      "team": "Louisiana Tech",
+      "conference": "Conference USA",
+      "rating": -0.5,
+      "teamId": 2348
+    },
+    {
+      "rank": 70,
+      "team": "UTSA",
+      "conference": "American Athletic",
+      "rating": -0.9,
+      "teamId": 2636
+    },
+    {
+      "rank": 71,
+      "team": "Marshall",
+      "conference": "Sun Belt",
+      "rating": -1.0,
+      "teamId": 276
+    },
+    {
+      "rank": 72,
+      "team": "Baylor",
+      "conference": "Big 12",
+      "rating": -1.4,
+      "teamId": 239
+    },
+    {
+      "rank": 73,
+      "team": "Western Michigan",
+      "conference": "Mid-American",
+      "rating": -1.7,
+      "teamId": 2711
+    },
+    {
+      "rank": 74,
+      "team": "Kennesaw State",
+      "conference": "Conference USA",
+      "rating": -2.0,
+      "teamId": 338
+    },
+    {
+      "rank": 75,
+      "team": "UCLA",
+      "conference": "Big Ten",
+      "rating": -2.0,
+      "teamId": 26
+    },
+    {
+      "rank": 76,
+      "team": "UConn",
+      "conference": "FBS Independents",
+      "rating": -2.1,
+      "teamId": 41
+    },
+    {
+      "rank": 77,
+      "team": "New Mexico",
+      "conference": "Mountain West",
+      "rating": -2.3,
+      "teamId": 167
+    },
+    {
+      "rank": 78,
+      "team": "Ohio",
+      "conference": "Mid-American",
+      "rating": -2.6,
+      "teamId": 195
+    },
+    {
+      "rank": 79,
+      "team": "West Virginia",
+      "conference": "Big 12",
+      "rating": -3.0,
+      "teamId": 277
+    },
+    {
+      "rank": 80,
+      "team": "Temple",
+      "conference": "American Athletic",
+      "rating": -3.5,
+      "teamId": 218
+    },
+    {
+      "rank": 81,
+      "team": "UNLV",
+      "conference": "Mountain West",
+      "rating": -3.6,
+      "teamId": 2439
+    },
+    {
+      "rank": 82,
+      "team": "Virginia Tech",
+      "conference": "ACC",
+      "rating": -4.1,
+      "teamId": 259
+    },
+    {
+      "rank": 83,
+      "team": "Michigan State",
+      "conference": "Big Ten",
+      "rating": -4.3,
+      "teamId": 127
+    },
+    {
+      "rank": 84,
+      "team": "Wisconsin",
+      "conference": "Big Ten",
+      "rating": -4.3,
+      "teamId": 275
+    },
+    {
+      "rank": 85,
+      "team": "Army",
+      "conference": "American Athletic",
+      "rating": -4.4,
+      "teamId": 349
+    },
+    {
+      "rank": 86,
+      "team": "Utah State",
+      "conference": "Mountain West",
+      "rating": -4.5,
+      "teamId": 328
+    },
+    {
+      "rank": 87,
+      "team": "Navy",
+      "conference": "American Athletic",
+      "rating": -4.6,
+      "teamId": 2426
+    },
+    {
+      "rank": 88,
+      "team": "Bowling Green",
+      "conference": "Mid-American",
+      "rating": -4.8,
+      "teamId": 189
+    },
+    {
+      "rank": 89,
+      "team": "Colorado State",
+      "conference": "Mountain West",
+      "rating": -5.2,
+      "teamId": 36
+    },
+    {
+      "rank": 90,
+      "team": "Western Kentucky",
+      "conference": "Conference USA",
+      "rating": -5.3,
+      "teamId": 98
+    },
+    {
+      "rank": 91,
+      "team": "California",
+      "conference": "ACC",
+      "rating": -5.6,
+      "teamId": 25
+    },
+    {
+      "rank": 92,
+      "team": "Texas State",
+      "conference": "Sun Belt",
+      "rating": -5.6,
+      "teamId": 326
+    },
+    {
+      "rank": 93,
+      "team": "Southern Miss",
+      "conference": "Sun Belt",
+      "rating": -5.8,
+      "teamId": 2572
+    },
+    {
+      "rank": 94,
+      "team": "Troy",
+      "conference": "Sun Belt",
+      "rating": -6.9,
+      "teamId": 2653
+    },
+    {
+      "rank": 95,
+      "team": "Delaware",
+      "conference": "Conference USA",
+      "rating": -7.2,
+      "teamId": 48
+    },
+    {
+      "rank": 96,
+      "team": "Miami (OH)",
+      "conference": "Mid-American",
+      "rating": -7.9,
+      "teamId": 193
+    },
+    {
+      "rank": 97,
+      "team": "Hawai'i",
+      "conference": "Mountain West",
+      "rating": -8.2,
+      "teamId": 62
+    },
+    {
+      "rank": 98,
+      "team": "Wyoming",
+      "conference": "Mountain West",
+      "rating": -8.7,
+      "teamId": 2751
+    },
+    {
+      "rank": 99,
+      "team": "Fresno State",
+      "conference": "Mountain West",
+      "rating": -8.9,
+      "teamId": 278
+    },
+    {
+      "rank": 100,
+      "team": "Stanford",
+      "conference": "ACC",
+      "rating": -9.9,
+      "teamId": 24
+    },
+    {
+      "rank": 101,
+      "team": "Missouri State",
+      "conference": "Conference USA",
+      "rating": -10.3,
+      "teamId": 2623
+    },
+    {
+      "rank": 102,
+      "team": "Boston College",
+      "conference": "ACC",
+      "rating": -10.5,
+      "teamId": 103
+    },
+    {
+      "rank": 103,
+      "team": "Air Force",
+      "conference": "Mountain West",
+      "rating": -10.6,
+      "teamId": 2005
+    },
+    {
+      "rank": 104,
+      "team": "San Jos\u00e9 State",
+      "conference": "Mountain West",
+      "rating": -11.4,
+      "teamId": 23
+    },
+    {
+      "rank": 105,
+      "team": "Coastal Carolina",
+      "conference": "Sun Belt",
+      "rating": -11.9,
+      "teamId": 324
+    },
+    {
+      "rank": 106,
+      "team": "Liberty",
+      "conference": "Conference USA",
+      "rating": -12.1,
+      "teamId": 2335
+    },
+    {
+      "rank": 107,
+      "team": "South Alabama",
+      "conference": "Sun Belt",
+      "rating": -12.3,
+      "teamId": 6
+    },
+    {
+      "rank": 108,
+      "team": "App State",
+      "conference": "Sun Belt",
+      "rating": -12.4,
+      "teamId": 2026
+    },
+    {
+      "rank": 109,
+      "team": "Buffalo",
+      "conference": "Mid-American",
+      "rating": -12.8,
+      "teamId": 2084
+    },
+    {
+      "rank": 110,
+      "team": "Kent State",
+      "conference": "Mid-American",
+      "rating": -12.8,
+      "teamId": 2309
+    },
+    {
+      "rank": 111,
+      "team": "Jacksonville State",
+      "conference": "Conference USA",
+      "rating": -13.1,
+      "teamId": 55
+    },
+    {
+      "rank": 112,
+      "team": "Central Michigan",
+      "conference": "Mid-American",
+      "rating": -13.2,
+      "teamId": 2117
+    },
+    {
+      "rank": 113,
+      "team": "Arkansas State",
+      "conference": "Sun Belt",
+      "rating": -13.5,
+      "teamId": 2032
+    },
+    {
+      "rank": 114,
+      "team": "North Carolina",
+      "conference": "ACC",
+      "rating": -13.5,
+      "teamId": 153
+    },
+    {
+      "rank": 115,
+      "team": "Tulsa",
+      "conference": "American Athletic",
+      "rating": -13.5,
+      "teamId": 202
+    },
+    {
+      "rank": 116,
+      "team": "Oregon State",
+      "conference": "Pac-12",
+      "rating": -13.9,
+      "teamId": 204
+    },
+    {
+      "rank": 117,
+      "team": "Louisiana",
+      "conference": "Sun Belt",
+      "rating": -14.2,
+      "teamId": 309
+    },
+    {
+      "rank": 118,
+      "team": "New Mexico State",
+      "conference": "Conference USA",
+      "rating": -14.7,
+      "teamId": 166
+    },
+    {
+      "rank": 119,
+      "team": "Florida Atlantic",
+      "conference": "American Athletic",
+      "rating": -14.9,
+      "teamId": 2226
+    },
+    {
+      "rank": 120,
+      "team": "Akron",
+      "conference": "Mid-American",
+      "rating": -15.1,
+      "teamId": 2006
+    },
+    {
+      "rank": 121,
+      "team": "Georgia Southern",
+      "conference": "Sun Belt",
+      "rating": -15.4,
+      "teamId": 290
+    },
+    {
+      "rank": 122,
+      "team": "UL Monroe",
+      "conference": "Sun Belt",
+      "rating": -16.8,
+      "teamId": 2433
+    },
+    {
+      "rank": 123,
+      "team": "Northern Illinois",
+      "conference": "Mid-American",
+      "rating": -17.0,
+      "teamId": 2459
+    },
+    {
+      "rank": 124,
+      "team": "UTEP",
+      "conference": "Conference USA",
+      "rating": -17.0,
+      "teamId": 2638
+    },
+    {
+      "rank": 125,
+      "team": "Rice",
+      "conference": "American Athletic",
+      "rating": -17.4,
+      "teamId": 242
+    },
+    {
+      "rank": 126,
+      "team": "Ball State",
+      "conference": "Mid-American",
+      "rating": -17.6,
+      "teamId": 2050
+    },
+    {
+      "rank": 127,
+      "team": "Nevada",
+      "conference": "Mountain West",
+      "rating": -18.0,
+      "teamId": 2440
+    },
+    {
+      "rank": 128,
+      "team": "Florida International",
+      "conference": "Conference USA",
+      "rating": -18.4,
+      "teamId": 2229
+    },
+    {
+      "rank": 129,
+      "team": "Oklahoma State",
+      "conference": "Big 12",
+      "rating": -18.5,
+      "teamId": 197
+    },
+    {
+      "rank": 130,
+      "team": "UAB",
+      "conference": "American Athletic",
+      "rating": -19.3,
+      "teamId": 5
+    },
+    {
+      "rank": 131,
+      "team": "Georgia State",
+      "conference": "Sun Belt",
+      "rating": -19.7,
+      "teamId": 2247
+    },
+    {
+      "rank": 132,
+      "team": "Middle Tennessee",
+      "conference": "Conference USA",
+      "rating": -20.3,
+      "teamId": 2393
+    },
+    {
+      "rank": 133,
+      "team": "Eastern Michigan",
+      "conference": "Mid-American",
+      "rating": -21.7,
+      "teamId": 2199
+    },
+    {
+      "rank": 134,
+      "team": "Sam Houston",
+      "conference": "Conference USA",
+      "rating": -22.1,
+      "teamId": 2534
+    },
+    {
+      "rank": 135,
+      "team": "Charlotte",
+      "conference": "American Athletic",
+      "rating": -23.5,
+      "teamId": 2429
+    },
+    {
+      "rank": 136,
+      "team": "Massachusetts",
+      "conference": "Mid-American",
+      "rating": -27.9,
+      "teamId": 113
+    }
+  ]
+}

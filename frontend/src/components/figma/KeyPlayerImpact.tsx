@@ -2,6 +2,7 @@ import { GlassCard } from './GlassCard';
 import { Users } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { generateTeamAbbr } from '../../utils/teamUtils';
+import { InsightBox } from './InsightBox';
 
 interface KeyPlayerImpactProps {
   predictionData?: any;
@@ -322,6 +323,22 @@ export function KeyPlayerImpact({ predictionData }: KeyPlayerImpactProps) {
           </div>
         </div>
       </div>
+
+      {/* Insight Box */}
+      <InsightBox
+        whatItMeans="Individual player efficiency scores quantify how much better/worse a team performs with that player. QB efficiency combines completion %, yards/attempt, TD rate, and INT avoidance. WR efficiency measures targets converted to yards and TDs relative to team average."
+        whyItMatters={`Elite QB play (efficiency >75) wins 65%+ of games regardless of team talent. A 20-point QB efficiency gap typically translates to 2-3 point spread advantage. Combined roster strength: ${(awayQB ? 1 : 0) + awayWRs.length + awayRBs.length} key ${awayTeam.name} players vs ${(homeQB ? 1 : 0) + homeWRs.length + homeRBs.length} for ${homeTeam.name}.`}
+        whoHasEdge={{
+          team: awayImpact > homeImpact ? awayTeam.name : homeTeam.name,
+          reason: `${awayImpact > homeImpact ? awayTeam.name : homeTeam.name}'s combined impact score of ${Math.max(awayImpact, homeImpact).toFixed(2)} vs ${Math.min(awayImpact, homeImpact).toFixed(2)}. QB advantage: ${(positionalAdvantages.quarterback || 0).toFixed(3)}, Skill positions: ${(positionalAdvantages.skill_positions || 0).toFixed(3)}, Defense: ${(positionalAdvantages.defense || 0).toFixed(3)}. Database analyzed ${databaseStats.quarterbacks_analyzed || 0} QBs and ${databaseStats.wide_receivers_analyzed || 0} WRs.`,
+          magnitude: Math.abs(awayImpact - homeImpact) > 20 ? 'major' : Math.abs(awayImpact - homeImpact) > 15 ? 'significant' : Math.abs(awayImpact - homeImpact) > 10 ? 'moderate' : 'small'
+        }}
+        keyDifferences={[
+          `QB Impact: ${(positionalAdvantages.quarterback || 0).toFixed(3)} (${Math.abs(positionalAdvantages.quarterback || 0) > 0.15 ? 'major' : 'moderate'} gap - 40% weight)`,
+          `Skill Players: ${awayWRs.length} WRs + ${awayRBs.length} RBs (${awayTeam.name}) vs ${homeWRs.length} WRs + ${homeRBs.length} RBs (${homeTeam.name})`,
+          `Total Differential: ${differential} points (${advantageTeam} holds comprehensive player advantage)`
+        ]}
+      />
     </GlassCard>
   );
 }

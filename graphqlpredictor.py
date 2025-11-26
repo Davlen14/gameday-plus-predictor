@@ -2,7 +2,7 @@ import asyncio
 import aiohttp
 import json
 import os
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 from dataclasses import dataclass
 from datetime import datetime
 import math
@@ -23,6 +23,16 @@ class DataIntegrityWarning(UserWarning):
 class DataSanityWarning(UserWarning):
     """Warning for extreme value discrepancies"""
     pass
+
+@dataclass
+class ArbitrageOpportunity:
+    """Represents a detected arbitrage betting opportunity"""
+    opportunity_type: str  # 'pure_arbitrage', 'middle', 'model_edge', 'hedge'
+    profit_margin: float  # Percentage profit or expected value
+    risk_level: str  # 'low', 'medium', 'high'
+    bets: List[Dict]  # List of required bets with book, team, line, odds, stake
+    explanation: str  # Human-readable explanation
+    confidence: float  # 0-100 confidence in the opportunity
 
 @dataclass
 class TeamMetrics:
@@ -736,6 +746,309 @@ class FixedBettingAnalyzer:
             
         return "\n".join(output_lines)
 
+class ArbitrageDetector:
+    """Detects arbitrage opportunities across multiple sportsbooks"""
+    
+    @staticmethod
+    def analyze_arbitrage(sportsbooks: List[Dict], model_spread: float, model_total: float, 
+                         model_confidence: float, home_team: str, away_team: str) -> Dict[str, Any]:
+        """
+        Comprehensive arbitrage analysis across all sportsbook lines.
+        Returns opportunities for pure arbitrage, middles, and model-based edges.
+        """
+        opportunities = []
+        
+        # 1. PURE ARBITRAGE - Risk-free profit from line discrepancies
+        pure_arb = ArbitrageDetector._find_pure_arbitrage(sportsbooks, home_team, away_team)
+        if pure_arb:
+            opportunities.extend(pure_arb)
+        
+        # 2. MIDDLE OPPORTUNITIES - Profit windows from spread/total differences
+        middles = ArbitrageDetector._find_middle_opportunities(sportsbooks, home_team, away_team)
+        if middles:
+            opportunities.extend(middles)
+        
+        # 3. MODEL-BASED +EV - Where model confidence exceeds market
+        if model_confidence >= 70:  # Only show high-confidence edges
+            model_edges = ArbitrageDetector._find_model_edges(
+                sportsbooks, model_spread, model_total, model_confidence, home_team, away_team
+            )
+            if model_edges:
+                opportunities.extend(model_edges)
+        
+        # 4. HEDGE CALCULATOR SETUP - Pre-calculate optimal hedge scenarios
+        hedge_scenarios = ArbitrageDetector._generate_hedge_scenarios(sportsbooks, home_team, away_team)
+        
+        return {
+            'opportunities': opportunities,
+            'total_opportunities': len(opportunities),
+            'best_margin': max([opp['profit_margin'] for opp in opportunities]) if opportunities else 0,
+            'hedge_calculator': hedge_scenarios,
+            'market_efficiency': ArbitrageDetector._calculate_market_efficiency(sportsbooks),
+            'timestamp': datetime.now().isoformat()
+        }
+    
+    @staticmethod
+    def _find_pure_arbitrage(sportsbooks: List[Dict], home_team: str, away_team: str) -> List[Dict]:
+        """Find risk-free arbitrage by betting both sides across different books"""
+        opportunities = []
+        
+        if len(sportsbooks) < 2:
+            return opportunities
+        
+        # Check spread arbitrage
+        for i, book1 in enumerate(sportsbooks):
+            for book2 in sportsbooks[i+1:]:
+                spread1 = book1.get('spread', 0)
+                spread2 = book2.get('spread', 0)
+                
+                # Pure arbitrage exists when spreads don't overlap
+                if abs(spread1 - spread2) >= 1.0:  # At least 1 point gap
+                    # Calculate if betting both sides guarantees profit
+                    # Assuming standard -110 odds on both sides
+                    implied_prob_1 = 110 / 210  # 52.4%
+                    implied_prob_2 = 110 / 210  # 52.4%
+                    total_implied = implied_prob_1 + implied_prob_2
+                    
+                    if total_implied < 1.0:  # Arbitrage exists!
+                        profit_margin = ((1 / total_implied) - 1) * 100
+                        
+                        # Determine which team to bet at each book
+                        if spread1 < spread2:
+                            bet1_team = home_team
+                            bet1_line = spread1
+                            bet2_team = away_team
+                            bet2_line = spread2
+                        else:
+                            bet1_team = away_team
+                            bet1_line = spread1
+                            bet2_team = home_team
+                            bet2_line = spread2
+                        
+                        opportunities.append({
+                            'opportunity_type': 'pure_arbitrage',
+                            'profit_margin': round(profit_margin, 2),
+                            'risk_level': 'low',
+                            'bets': [
+                                {
+                                    'sportsbook': book1.get('provider', 'Unknown'),
+                                    'team': bet1_team,
+                                    'spread': bet1_line,
+                                    'odds': -110,
+                                    'stake': '$523'
+                                },
+                                {
+                                    'sportsbook': book2.get('provider', 'Unknown'),
+                                    'team': bet2_team,
+                                    'spread': bet2_line,
+                                    'odds': -110,
+                                    'stake': '$477'
+                                }
+                            ],
+                            'explanation': f"Guaranteed {profit_margin:.1f}% profit by betting {bet1_team} {bet1_line:+.1f} at {book1.get('provider')} and {bet2_team} {bet2_line:+.1f} at {book2.get('provider')}",
+                            'confidence': 100
+                        })
+        
+        return opportunities
+    
+    @staticmethod
+    def _find_middle_opportunities(sportsbooks: List[Dict], home_team: str, away_team: str) -> List[Dict]:
+        """Find middle opportunities where you can win both bets"""
+        opportunities = []
+        
+        if len(sportsbooks) < 2:
+            return opportunities
+        
+        # Check for spread middles
+        for i, book1 in enumerate(sportsbooks):
+            for book2 in sportsbooks[i+1:]:
+                spread1 = book1.get('spread', 0)
+                spread2 = book2.get('spread', 0)
+                
+                # Middle exists when spreads create a winning window
+                spread_diff = abs(spread1 - spread2)
+                if 0.5 <= spread_diff < 3.0:  # Sweet spot for middles
+                    # Estimate probability of landing in the middle
+                    middle_probability = min(spread_diff * 5, 20)  # Rough estimate
+                    
+                    opportunities.append({
+                        'opportunity_type': 'middle',
+                        'profit_margin': round(middle_probability, 1),
+                        'risk_level': 'medium',
+                        'bets': [
+                            {
+                                'sportsbook': book1.get('provider', 'Unknown'),
+                                'team': home_team if spread1 < 0 else away_team,
+                                'spread': spread1,
+                                'odds': -110,
+                                'stake': '$550'
+                            },
+                            {
+                                'sportsbook': book2.get('provider', 'Unknown'),
+                                'team': away_team if spread1 < 0 else home_team,
+                                'spread': spread2,
+                                'odds': -110,
+                                'stake': '$550'
+                            }
+                        ],
+                        'explanation': f"Middle opportunity: Win both if final margin lands between {min(abs(spread1), abs(spread2)):.1f} and {max(abs(spread1), abs(spread2)):.1f} points. ~{middle_probability:.0f}% chance to profit.",
+                        'confidence': 75
+                    })
+        
+        # Check for total middles
+        for i, book1 in enumerate(sportsbooks):
+            for book2 in sportsbooks[i+1:]:
+                total1 = book1.get('overUnder', 0)
+                total2 = book2.get('overUnder', 0)
+                
+                if total1 and total2:
+                    total_diff = abs(total1 - total2)
+                    if 0.5 <= total_diff < 4.0:
+                        middle_probability = min(total_diff * 3, 18)
+                        
+                        opportunities.append({
+                            'opportunity_type': 'middle',
+                            'profit_margin': round(middle_probability, 1),
+                            'risk_level': 'medium',
+                            'bets': [
+                                {
+                                    'sportsbook': book1.get('provider', 'Unknown'),
+                                    'bet_type': 'OVER' if total1 < total2 else 'UNDER',
+                                    'total': total1,
+                                    'odds': -110,
+                                    'stake': '$550'
+                                },
+                                {
+                                    'sportsbook': book2.get('provider', 'Unknown'),
+                                    'bet_type': 'UNDER' if total1 < total2 else 'OVER',
+                                    'total': total2,
+                                    'odds': -110,
+                                    'stake': '$550'
+                                }
+                            ],
+                            'explanation': f"Total middle: Win both if score lands between {min(total1, total2):.1f} and {max(total1, total2):.1f}. ~{middle_probability:.0f}% chance.",
+                            'confidence': 70
+                        })
+        
+        return opportunities
+    
+    @staticmethod
+    def _find_model_edges(sportsbooks: List[Dict], model_spread: float, model_total: float,
+                         confidence: float, home_team: str, away_team: str) -> List[Dict]:
+        """Find +EV opportunities where model disagrees with market"""
+        opportunities = []
+        
+        # Find best spread line that matches model's prediction
+        for book in sportsbooks:
+            market_spread = book.get('spread', 0)
+            spread_edge = abs(model_spread) - abs(market_spread)
+            
+            # Model sees significant edge (3+ points better than market)
+            if abs(spread_edge) >= 3.0:
+                expected_value = (confidence / 100) * spread_edge * 10  # Rough EV calculation
+                
+                # Determine recommended bet
+                if model_spread < 0 and market_spread < model_spread:
+                    # Model thinks favorite wins by more
+                    recommended_team = home_team if model_spread < 0 else away_team
+                    explanation = f"Model projects {recommended_team} by {abs(model_spread):.1f}, market only has {abs(market_spread):.1f}. Bet {recommended_team} {market_spread:+.1f}"
+                else:
+                    recommended_team = away_team if model_spread < 0 else home_team
+                    explanation = f"Model sees closer game ({abs(model_spread):.1f}pt spread) than market ({abs(market_spread):.1f}). Take the points with {recommended_team}"
+                
+                opportunities.append({
+                    'opportunity_type': 'model_edge',
+                    'profit_margin': round(expected_value, 2),
+                    'risk_level': 'medium' if confidence >= 80 else 'high',
+                    'bets': [
+                        {
+                            'sportsbook': book.get('provider', 'Unknown'),
+                            'team': recommended_team,
+                            'spread': market_spread,
+                            'odds': -110,
+                            'stake': f"${int(confidence * 5)}"  # Scale bet with confidence
+                        }
+                    ],
+                    'explanation': explanation,
+                    'confidence': round(confidence, 1)
+                })
+        
+        # Check total edges
+        for book in sportsbooks:
+            market_total = book.get('overUnder', 0)
+            if market_total and model_total:
+                total_edge = abs(model_total - market_total)
+                
+                if total_edge >= 4.0:  # 4+ point edge on total
+                    expected_value = (confidence / 100) * total_edge * 8
+                    bet_direction = 'OVER' if model_total > market_total else 'UNDER'
+                    
+                    opportunities.append({
+                        'opportunity_type': 'model_edge',
+                        'profit_margin': round(expected_value, 2),
+                        'risk_level': 'medium',
+                        'bets': [
+                            {
+                                'sportsbook': book.get('provider', 'Unknown'),
+                                'bet_type': bet_direction,
+                                'total': market_total,
+                                'odds': -110,
+                                'stake': f"${int(confidence * 4)}"
+                            }
+                        ],
+                        'explanation': f"Model projects {model_total:.1f} total points, market at {market_total:.1f}. Take {bet_direction} {market_total:.1f}",
+                        'confidence': round(confidence, 1)
+                    })
+        
+        return opportunities
+    
+    @staticmethod
+    def _generate_hedge_scenarios(sportsbooks: List[Dict], home_team: str, away_team: str) -> Dict[str, Any]:
+        """Generate hedge calculator scenarios for live betting"""
+        if not sportsbooks:
+            return {}
+        
+        # Use first sportsbook as reference
+        ref_book = sportsbooks[0]
+        ref_spread = ref_book.get('spread', 0)
+        
+        return {
+            'original_bet_scenarios': [
+                {
+                    'scenario': 'Pre-game favorite',
+                    'original': f"{home_team if ref_spread < 0 else away_team} {ref_spread:+.1f} @ -110",
+                    'hedge_at': f"{away_team if ref_spread < 0 else home_team} +3.0 live",
+                    'profit_if_hedged': 'Guaranteed $90 profit'
+                },
+                {
+                    'scenario': 'Pre-game underdog',
+                    'original': f"{away_team if ref_spread < 0 else home_team} {-ref_spread:+.1f} @ -110",
+                    'hedge_at': f"{home_team if ref_spread < 0 else away_team} -10.0 live",
+                    'profit_if_hedged': 'Guaranteed $75 profit'
+                }
+            ]
+        }
+    
+    @staticmethod
+    def _calculate_market_efficiency(sportsbooks: List[Dict]) -> float:
+        """Calculate how efficient the market is (lower = more arbitrage opportunities)"""
+        if len(sportsbooks) < 2:
+            return 100.0
+        
+        spreads = [book.get('spread', 0) for book in sportsbooks if book.get('spread')]
+        if not spreads:
+            return 100.0
+        
+        # Calculate standard deviation of spreads
+        from statistics import stdev, mean
+        if len(spreads) < 2:
+            return 100.0
+        
+        spread_variance = stdev(spreads)
+        # Lower variance = more efficient market (less arbitrage)
+        efficiency = max(0, 100 - (spread_variance * 20))
+        return round(efficiency, 1)
+
 class LightningPredictor:
     @staticmethod
     def _generate_realistic_weather(home_team_name: str, game_date: str = None) -> Dict[str, float]:
@@ -1005,7 +1318,7 @@ class LightningPredictor:
         """Load all static JSON data files for comprehensive team analysis"""
         try:
             # Base path for data files
-            base_path = os.path.join(os.path.dirname(__file__), 'frontend', 'src', 'data')
+            base_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_14')
             
             # Load comprehensive team stats
             with open(os.path.join(base_path, 'fbs_teams_stats_only.json'), 'r') as f:
@@ -1063,20 +1376,19 @@ class LightningPredictor:
             # Load backtesting data if available for enhanced calibration
             backtesting_data = {}
             try:
-                # Try the new backtesting 2 directory first
-                backtesting_path = os.path.join(os.path.dirname(__file__), 'backtesting 2')
-                if not os.path.exists(backtesting_path):
-                    # Fallback to old backtesting directory
-                    backtesting_path = os.path.join(os.path.dirname(__file__), 'backtesting')
+                # Use weekly_updates/week_14 comprehensive ratings
+                backtesting_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_14')
+                ratings_file = 'all_fbs_ratings_comprehensive_2025_20251125_021912.json'
                 
-                for filename in os.listdir(backtesting_path):
-                    if filename.startswith('all_fbs_ratings_comprehensive') and filename.endswith('.json'):
-                        with open(os.path.join(backtesting_path, filename), 'r') as f:
-                            backtesting_data = json.load(f)
-                        print(f"✅ Loaded backtesting data from {filename}")
-                        break
+                ratings_path = os.path.join(backtesting_path, ratings_file)
+                if os.path.exists(ratings_path):
+                    with open(ratings_path, 'r') as f:
+                        backtesting_data = json.load(f)
+                    print(f"✅ Loaded Week 14 ratings data from {ratings_file}")
+                else:
+                    print(f"⚠️  Week 14 ratings file not found at {ratings_path}")
             except Exception as e:
-                print(f"⚠️  Backtesting data not found - using standard calibration: {e}")
+                print(f"⚠️  Week 14 ratings data not found - using standard calibration: {e}")
             
             # Process and organize data
             return {
@@ -2260,24 +2572,36 @@ class LightningPredictor:
         if not home_defense or not away_defense:
             return 0.0
         
+        # Normalize values - handle both percentage (0-100) and decimal (0-1) formats
+        def normalize_rate(value, default=0.5):
+            if value is None:
+                return default
+            # If value > 1, assume it's a percentage, convert to decimal
+            if value > 1.0:
+                value = value / 100.0
+            return max(0.0, min(1.0, value))  # Clamp to [0, 1]
+        
         # Third down stop rate differential (home defense vs away offense)
-        home_3rd_stop = home_defense.get('third_down_stop_rate', 0.6)
-        away_3rd_stop = away_defense.get('third_down_stop_rate', 0.6)
+        home_3rd_stop = normalize_rate(home_defense.get('third_down_stop_rate'), 0.6)
+        away_3rd_stop = normalize_rate(away_defense.get('third_down_stop_rate'), 0.6)
         third_down_diff = home_3rd_stop - away_3rd_stop
         
         # Havoc rate differential
-        home_havoc = home_defense.get('defensive_havoc_rate', 0.05)
-        away_havoc = away_defense.get('defensive_havoc_rate', 0.05)
+        home_havoc = normalize_rate(home_defense.get('defensive_havoc_rate'), 0.05)
+        away_havoc = normalize_rate(away_defense.get('defensive_havoc_rate'), 0.05)
         havoc_diff = home_havoc - away_havoc
         
         # Red zone defense differential
-        home_rz_def = home_defense.get('red_zone_defense', 0.7)
-        away_rz_def = away_defense.get('red_zone_defense', 0.7)
+        home_rz_def = normalize_rate(home_defense.get('red_zone_defense'), 0.7)
+        away_rz_def = normalize_rate(away_defense.get('red_zone_defense'), 0.7)
         rz_def_diff = home_rz_def - away_rz_def
         
-        # Combine factors
-        defensive_factor = (third_down_diff * 3.5 + havoc_diff * 25.0 + rz_def_diff * 2.5)
-        return defensive_factor
+        # Combine factors with MUCH SMALLER multipliers (values now in 0-1 range)
+        # These multipliers are now reasonable: 10 point havoc diff (0.1) = 0.25 contribution
+        defensive_factor = (third_down_diff * 3.5 + havoc_diff * 2.5 + rz_def_diff * 2.5)
+        
+        # Cap the defensive enhancement to prevent extreme values
+        return max(-3.0, min(3.0, defensive_factor))
     
     def _calculate_backtesting_enhancement(self, home_team: str, away_team: str) -> float:
         """Calculate enhancement from comprehensive backtesting ratings"""
@@ -2916,10 +3240,12 @@ class LightningPredictor:
             data.get('homeRatings', []), 
             data.get('awayRatings', [])
         )
-        talent_differential = home_metrics.talent_rating - away_metrics.talent_rating
+        # Talent ratings are typically in range of 0-1000, normalize to similar scale as ratings_differential
+        talent_raw = home_metrics.talent_rating - away_metrics.talent_rating
+        talent_differential = talent_raw * 0.001  # Normalize: 100 talent diff = 0.1 contribution
         composite_score = (ratings_differential * 0.70 + talent_differential * 0.30)
         print(f"   Ratings Diff (ELO/FPI): {ratings_differential:.3f}")
-        print(f"   Talent Diff: {talent_differential:.3f}")
+        print(f"   Talent Diff (raw): {talent_raw:.1f} -> normalized: {talent_differential:.3f}")
         print(f"   ✅ Composite Score: {composite_score:.3f}")
         
         # 4. KEY PLAYER IMPACT (10% weight) - SIGNIFICANTLY INCREASED
@@ -3161,8 +3487,9 @@ class LightningPredictor:
         print(f"   🌧️  Weather Penalty: -{weather_penalty:.1f}")
         print(f"\n   🎯 ADJUSTED DIFFERENTIAL: {adjusted_differential:.3f}")
 
-        # Convert to win probability (logistic function with more conservative scaling)
-        raw_home_win_prob = 1 / (1 + math.exp(-adjusted_differential / 18.0))
+        # Convert to win probability (logistic function with proper scaling for college football)
+        # Lower divisor = more aggressive spread scaling (better matches actual game differentials)
+        raw_home_win_prob = 1 / (1 + math.exp(-adjusted_differential / 12.0))
         
         # ==============================================================================
         # APPLY PLATT SCALING FOR PROBABILITY CALIBRATION
@@ -3188,11 +3515,11 @@ class LightningPredictor:
         # FIXED: Use higher conversion factor for college football (more volatile than NFL)
         # College football has bigger talent gaps and score differentials
         if home_win_prob > 0.01 and home_win_prob < 0.99:
-            predicted_spread = math.log(home_win_prob / (1 - home_win_prob)) * 4.5  # Increased from 2.4
+            predicted_spread = math.log(home_win_prob / (1 - home_win_prob)) * 11.0  # Increased to match actual spreads
         else:
             # Edge case: if probability is extreme, use even larger conversion factor
-            # For extreme cases, use 6.0 instead of 3.5 to properly scale large differentials
-            predicted_spread = math.log(home_win_prob / (1 - home_win_prob)) * 6.0
+            # For extreme cases, use higher factor to properly scale large differentials
+            predicted_spread = math.log(home_win_prob / (1 - home_win_prob)) * 14.0
 
         predicted_total = self._calculate_total(home_metrics, away_metrics, data)
         
@@ -3391,6 +3718,28 @@ class LightningPredictor:
         # Extract drive metrics
         home_drive_metrics = self._get_drive_metrics(home_team_name)
         away_drive_metrics = self._get_drive_metrics(away_team_name)
+        
+        # Update offense_drives in team stats from drive metrics
+        # Calculate total drives from drive outcomes (more accurate than quarterly sum)
+        if home_drive_metrics and home_comprehensive_stats:
+            home_total_drives = (home_drive_metrics.touchdowns + 
+                               home_drive_metrics.field_goals + 
+                               home_drive_metrics.punts + 
+                               home_drive_metrics.turnovers + 
+                               home_drive_metrics.turnover_on_downs +
+                               home_drive_metrics.missed_field_goals)
+            home_comprehensive_stats.offense_drives = home_total_drives
+            home_comprehensive_stats.drives_total = home_total_drives
+        
+        if away_drive_metrics and away_comprehensive_stats:
+            away_total_drives = (away_drive_metrics.touchdowns + 
+                               away_drive_metrics.field_goals + 
+                               away_drive_metrics.punts + 
+                               away_drive_metrics.turnovers + 
+                               away_drive_metrics.turnover_on_downs +
+                               away_drive_metrics.missed_field_goals)
+            away_comprehensive_stats.offense_drives = away_total_drives
+            away_comprehensive_stats.drives_total = away_total_drives
         
         # Extract game date and time from currentMatchup
         game_date = None
@@ -3863,13 +4212,13 @@ class LightningPredictor:
         
         player_data = {}
         json_files = {
-            'qbs': 'backtesting 2/comprehensive_qb_analysis_2025_20251015_034259.json',
-            'rbs': 'backtesting 2/comprehensive_rb_analysis_2025_20251015_043434.json', 
-            'wrs': 'backtesting 2/comprehensive_wr_analysis_2025_20251015_045922.json',
-            'tes': 'backtesting 2/comprehensive_te_analysis_2025_20251015_050510.json',
-            'dbs': 'backtesting 2/comprehensive_db_analysis_2025_20251015_051747.json',
-            'lbs': 'backtesting 2/comprehensive_lb_analysis_2025_20251015_053156.json',
-            'dls': 'backtesting 2/comprehensive_dl_analysis_2025_20251015_051056.json'
+            'qbs': 'weekly_updates/week_14/comprehensive_qb_analysis_2025_20251125_022527.json',
+            'rbs': 'player_metrics/rb/comprehensive_rb_analysis_2025_20251125_023445.json', 
+            'wrs': 'player_metrics/wr/comprehensive_wr_analysis_2025_20251125_135657.json',
+            'tes': 'player_metrics/te/comprehensive_te_analysis_2025_20251125_135843.json',
+            'dbs': 'player_metrics/db/comprehensive_db_analysis_2025_20251125_140358.json',
+            'lbs': 'player_metrics/lb/comprehensive_lb_analysis_2025_20251125_140138.json',
+            'dls': 'player_metrics/dl/comprehensive_dl_analysis_2025_20251125_140201.json'
         }
         
         # Try to load actual data files first
@@ -4285,42 +4634,44 @@ class LightningPredictor:
         # This converts ELO differential to a 0-1 probability scale
         elo_win_probability = 1 / (1 + 10 ** (-elo_diff / 400))
         
-        # Convert win probability back to point spread equivalent
-        # Using logistic inverse: spread ≈ ln(p/(1-p)) * scaling_factor
-        # For college football, use 7.0 scaling factor (higher variance than NFL)
-        if elo_win_probability > 0.01 and elo_win_probability < 0.99:
-            elo_spread_equivalent = math.log(elo_win_probability / (1 - elo_win_probability)) * 7.0
-        else:
-            # Edge case handling for extreme probabilities
-            elo_spread_equivalent = math.log(elo_win_probability / (1 - elo_win_probability)) * 9.0
+        # Convert ELO difference to a normalized signal for the composite model
+        # CRITICAL FIX: Since this goes into a weighted model (not direct spread),
+        # we need to use a MUCH SMALLER scaling factor to avoid dominating other components
+        # ELO diff of 100 points = ~64% win probability = should contribute ~0.5 to composite
+        # Using scaling of 0.003 means 100 ELO diff = 0.3 contribution (reasonable range)
+        elo_normalized_signal = elo_diff * 0.003
         
-        # ELITE TEAM MISMATCH MULTIPLIER
-        # Detect when top-5 team plays bottom-tier opponent (huge talent gap)
+        # FPI is already in a reasonable range (-40 to +40), so use it more directly
+        # Scale FPI by 0.1 to keep it in similar range to normalized ELO signal
+        fpi_normalized_signal = fpi_diff * 0.1
+        
+        # ELITE TEAM MISMATCH MULTIPLIER - only for extreme cases
         mismatch_multiplier = 1.0
-        elite_threshold_elo = 2000  # Top-5 teams typically above 2000 ELO
+        elite_threshold_elo = 2100  # Top-5 teams typically above 2100 ELO
         weak_threshold_elo = 1400   # Bottom-tier teams typically below 1400 ELO
         
         if (home_elo > elite_threshold_elo and away_elo < weak_threshold_elo) or \
            (away_elo > elite_threshold_elo and home_elo < weak_threshold_elo):
-            # Massive talent gap - amplify the differential
-            mismatch_multiplier = 1.5
+            # Massive talent gap - amplify slightly
+            mismatch_multiplier = 1.2
             print(f"   🔥 ELITE VS WEAK MISMATCH DETECTED! Amplifying by {mismatch_multiplier}x")
         elif abs(elo_diff) > 600:  # Huge ELO gap even if not elite vs weak
-            mismatch_multiplier = 1.3
+            mismatch_multiplier = 1.1
             print(f"   ⚡ LARGE TALENT GAP DETECTED! Amplifying by {mismatch_multiplier}x")
         
-        # Weighted composite (ELO is now PRIMARY with proper scaling, FPI validates)
-        # CRITICAL FIX: ELO spread equivalent is now the main signal (60%), FPI validates (40%)
-        composite_diff = (elo_spread_equivalent * 0.60 + fpi_diff * 0.40) * mismatch_multiplier
+        # Weighted composite - both signals now in similar normalized ranges
+        # ELO is primary signal (60%), FPI validates (40%)
+        composite_diff = (elo_normalized_signal * 0.60 + fpi_normalized_signal * 0.40) * mismatch_multiplier
         
-        print(f"🎯 COMPOSITE RATINGS (ENHANCED ELO SCALING):")
+        print(f"🎯 COMPOSITE RATINGS (NORMALIZED SIGNALS):")
         print(f"   Home ELO: {home_elo:.0f} | Away ELO: {away_elo:.0f}")
         print(f"   ELO Differential: {elo_diff:+.0f}")
         print(f"   ELO Win Probability: {elo_win_probability:.1%}")
-        print(f"   ELO Spread Equivalent: {elo_spread_equivalent:+.2f}")
+        print(f"   ELO Normalized Signal: {elo_normalized_signal:+.3f}")
         print(f"   FPI Differential: {fpi_diff:+.2f}")
+        print(f"   FPI Normalized Signal: {fpi_normalized_signal:+.3f}")
         print(f"   Mismatch Multiplier: {mismatch_multiplier}x")
-        print(f"   Composite Signal: {composite_diff:+.2f}")
+        print(f"   Composite Signal: {composite_diff:+.3f}")
         
         return composite_diff
 

@@ -1,0 +1,612 @@
+{
+  "Air Force": {
+    "team_name": "Air Force",
+    "players": {
+      "quarterback": {
+        "name": "John Busha",
+        "position": "QB",
+        "team": "Air Force",
+        "usage_percentage": 39.5,
+        "total_plays": 395,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Cade Harris",
+          "position": "WR",
+          "team": "Air Force",
+          "usage_percentage": 8.5,
+          "total_plays": 85,
+          "season_stats": {}
+        },
+        {
+          "name": "Tylor Latham",
+          "position": "WR",
+          "team": "Air Force",
+          "usage_percentage": 5.8,
+          "total_plays": 58,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Dylan Carson",
+          "position": "RB",
+          "team": "Air Force",
+          "usage_percentage": 20.2,
+          "total_plays": 202,
+          "season_stats": {}
+        },
+        {
+          "name": "Roman Bradley",
+          "position": "FB",
+          "team": "Air Force",
+          "usage_percentage": 16.3,
+          "total_plays": 163,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Air Force K1",
+        "position": "K",
+        "team": "Air Force",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Akron": {
+    "team_name": "Akron",
+    "players": {
+      "quarterback": {
+        "name": "Ben Finley",
+        "position": "QB",
+        "team": "Akron",
+        "usage_percentage": 54.9,
+        "total_plays": 549,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Adrian Norton",
+          "position": "WR",
+          "team": "Akron",
+          "usage_percentage": 9.4,
+          "total_plays": 94,
+          "season_stats": {}
+        },
+        {
+          "name": "Bobby Golden",
+          "position": "WR",
+          "team": "Akron",
+          "usage_percentage": 6.0,
+          "total_plays": 60,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Jordan Simmons",
+          "position": "RB",
+          "team": "Akron",
+          "usage_percentage": 17.6,
+          "total_plays": 176,
+          "season_stats": {}
+        },
+        {
+          "name": "Charles Kellom",
+          "position": "RB",
+          "team": "Akron",
+          "usage_percentage": 14.1,
+          "total_plays": 141,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Akron K1",
+        "position": "K",
+        "team": "Akron",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Alabama": {
+    "team_name": "Alabama",
+    "players": {
+      "quarterback": {
+        "name": "Jalen Milroe",
+        "position": "QB",
+        "team": "Alabama",
+        "usage_percentage": 57.8,
+        "total_plays": 578,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Ryan Williams",
+          "position": "WR",
+          "team": "Alabama",
+          "usage_percentage": 9.5,
+          "total_plays": 95,
+          "season_stats": {}
+        },
+        {
+          "name": "Germie Bernard",
+          "position": "WR",
+          "team": "Alabama",
+          "usage_percentage": 8.3,
+          "total_plays": 83,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Jamarion Miller",
+          "position": "RB",
+          "team": "Alabama",
+          "usage_percentage": 19.3,
+          "total_plays": 193,
+          "season_stats": {}
+        },
+        {
+          "name": "Justice Haynes",
+          "position": "RB",
+          "team": "Alabama",
+          "usage_percentage": 12.4,
+          "total_plays": 124,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Alabama K1",
+        "position": "K",
+        "team": "Alabama",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "App State": {
+    "team_name": "App State",
+    "players": {
+      "quarterback": {
+        "name": "Joey Aguilar",
+        "position": "QB",
+        "team": "App State",
+        "usage_percentage": 56.9,
+        "total_plays": 569,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Kaedin Robinson",
+          "position": "WR",
+          "team": "App State",
+          "usage_percentage": 8.8,
+          "total_plays": 88,
+          "season_stats": {}
+        },
+        {
+          "name": "Makai Jackson",
+          "position": "WR",
+          "team": "App State",
+          "usage_percentage": 6.7,
+          "total_plays": 67,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Ahmani Marshall",
+          "position": "RB",
+          "team": "App State",
+          "usage_percentage": 23.4,
+          "total_plays": 234,
+          "season_stats": {}
+        },
+        {
+          "name": "Kanye Roberts",
+          "position": "RB",
+          "team": "App State",
+          "usage_percentage": 16.6,
+          "total_plays": 166,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "App State K1",
+        "position": "K",
+        "team": "App State",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Arizona": {
+    "team_name": "Arizona",
+    "players": {
+      "quarterback": {
+        "name": "Noah Fifita",
+        "position": "QB",
+        "team": "Arizona",
+        "usage_percentage": 64.3,
+        "total_plays": 643,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Tetairoa Mcmillan",
+          "position": "WR",
+          "team": "Arizona",
+          "usage_percentage": 12.0,
+          "total_plays": 120,
+          "season_stats": {}
+        },
+        {
+          "name": "Chris Hunter",
+          "position": "WR",
+          "team": "Arizona",
+          "usage_percentage": 6.3,
+          "total_plays": 63,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Quali Conley",
+          "position": "RB",
+          "team": "Arizona",
+          "usage_percentage": 24.7,
+          "total_plays": 247,
+          "season_stats": {}
+        },
+        {
+          "name": "Jacory Merritt",
+          "position": "RB",
+          "team": "Arizona",
+          "usage_percentage": 24.6,
+          "total_plays": 246,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Arizona K1",
+        "position": "K",
+        "team": "Arizona",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Arizona State": {
+    "team_name": "Arizona State",
+    "players": {
+      "quarterback": {
+        "name": "Sam Leavitt",
+        "position": "QB",
+        "team": "Arizona State",
+        "usage_percentage": 50.2,
+        "total_plays": 502,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Jordyn Tyson",
+          "position": "WR",
+          "team": "Arizona State",
+          "usage_percentage": 10.5,
+          "total_plays": 105,
+          "season_stats": {}
+        },
+        {
+          "name": "Chamon Metayer",
+          "position": "TE",
+          "team": "Arizona State",
+          "usage_percentage": 3.7,
+          "total_plays": 37,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Cameron Skattebo",
+          "position": "RB",
+          "team": "Arizona State",
+          "usage_percentage": 37.2,
+          "total_plays": 372,
+          "season_stats": {}
+        },
+        {
+          "name": "Kyson Brown",
+          "position": "RB",
+          "team": "Arizona State",
+          "usage_percentage": 11.3,
+          "total_plays": 113,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Arizona State K1",
+        "position": "K",
+        "team": "Arizona State",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Arkansas": {
+    "team_name": "Arkansas",
+    "players": {
+      "quarterback": {
+        "name": "Taylen Green",
+        "position": "QB",
+        "team": "Arkansas",
+        "usage_percentage": 58.7,
+        "total_plays": 587,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Andrew Armstrong",
+          "position": "WR",
+          "team": "Arkansas",
+          "usage_percentage": 12.2,
+          "total_plays": 122,
+          "season_stats": {}
+        },
+        {
+          "name": "Dazmin James",
+          "position": "WR",
+          "team": "Arkansas",
+          "usage_percentage": 6.1,
+          "total_plays": 61,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Ja'Quinden Jackson",
+          "position": "RB",
+          "team": "Arkansas",
+          "usage_percentage": 23.4,
+          "total_plays": 234,
+          "season_stats": {}
+        },
+        {
+          "name": "Rashod Dubinion",
+          "position": "RB",
+          "team": "Arkansas",
+          "usage_percentage": 13.7,
+          "total_plays": 137,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Arkansas K1",
+        "position": "K",
+        "team": "Arkansas",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Arkansas State": {
+    "team_name": "Arkansas State",
+    "players": {
+      "quarterback": {
+        "name": "Jaylen Raynor",
+        "position": "QB",
+        "team": "Arkansas State",
+        "usage_percentage": 59.6,
+        "total_plays": 596,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Corey Rucker",
+          "position": "WR",
+          "team": "Arkansas State",
+          "usage_percentage": 7.9,
+          "total_plays": 79,
+          "season_stats": {}
+        },
+        {
+          "name": "Courtney Jackson",
+          "position": "WR",
+          "team": "Arkansas State",
+          "usage_percentage": 4.6,
+          "total_plays": 46,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Zak Wallace",
+          "position": "RB",
+          "team": "Arkansas State",
+          "usage_percentage": 18.0,
+          "total_plays": 180,
+          "season_stats": {}
+        },
+        {
+          "name": "Ja'Quez Cross",
+          "position": "RB",
+          "team": "Arkansas State",
+          "usage_percentage": 16.1,
+          "total_plays": 161,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Arkansas State K1",
+        "position": "K",
+        "team": "Arkansas State",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Army": {
+    "team_name": "Army",
+    "players": {
+      "quarterback": {
+        "name": "Bryson Daily",
+        "position": "QB",
+        "team": "Army",
+        "usage_percentage": 48.8,
+        "total_plays": 488,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Noah Short",
+          "position": "WR",
+          "team": "Army",
+          "usage_percentage": 11.1,
+          "total_plays": 111,
+          "season_stats": {}
+        },
+        {
+          "name": "Samari Howard",
+          "position": "WR",
+          "team": "Army",
+          "usage_percentage": 5.3,
+          "total_plays": 53,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Kanye Udoh",
+          "position": "RB",
+          "team": "Army",
+          "usage_percentage": 22.9,
+          "total_plays": 229,
+          "season_stats": {}
+        },
+        {
+          "name": "Hayden Reed",
+          "position": "RB",
+          "team": "Army",
+          "usage_percentage": 8.8,
+          "total_plays": 88,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Army K1",
+        "position": "K",
+        "team": "Army",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Auburn": {
+    "team_name": "Auburn",
+    "players": {
+      "quarterback": {
+        "name": "Payton Thorne",
+        "position": "QB",
+        "team": "Auburn",
+        "usage_percentage": 60.0,
+        "total_plays": 600,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Keandre Lambert",
+          "position": "WR",
+          "team": "Auburn",
+          "usage_percentage": 7.0,
+          "total_plays": 70,
+          "season_stats": {}
+        },
+        {
+          "name": "Cam Coleman",
+          "position": "WR",
+          "team": "Auburn",
+          "usage_percentage": 6.4,
+          "total_plays": 64,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Jarquez Hunter",
+          "position": "RB",
+          "team": "Auburn",
+          "usage_percentage": 27.1,
+          "total_plays": 271,
+          "season_stats": {}
+        },
+        {
+          "name": "Damari Alston",
+          "position": "RB",
+          "team": "Auburn",
+          "usage_percentage": 7.4,
+          "total_plays": 74,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Auburn K1",
+        "position": "K",
+        "team": "Auburn",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  }
+}

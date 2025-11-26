@@ -1,0 +1,4254 @@
+{
+  "timestamp": "2025-11-26T06:35:05.553789",
+  "total_props": 22,
+  "props": [
+    {
+      "player_name": "Julian Sayin",
+      "player_team": "Ohio State",
+      "position": "QB",
+      "prop_type": "passing_yards",
+      "over_under_line": 250,
+      "confidence": 40,
+      "recommendation": "under",
+      "reasoning": "Based on trend analysis and Michigan defense matchup",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather expected",
+      "defensive_matchup": {
+        "opponent": "Michigan",
+        "sp_plus_rank": 22,
+        "sp_plus_rating": 15.2,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #22) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Julian Sayin",
+      "player_team": "Ohio State",
+      "position": "QB",
+      "prop_type": "passing_tds",
+      "over_under_line": 2.0,
+      "confidence": 40,
+      "recommendation": "under",
+      "reasoning": "Based on trend analysis and Michigan defense matchup",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather expected",
+      "defensive_matchup": {
+        "opponent": "Michigan",
+        "sp_plus_rank": 22,
+        "sp_plus_rating": 15.2,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #22) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Julian Sayin",
+      "player_team": "Ohio State",
+      "position": "QB",
+      "prop_type": "rushing_yards",
+      "over_under_line": 25,
+      "confidence": 40,
+      "recommendation": "under",
+      "reasoning": "Based on trend analysis and Michigan defense matchup",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather expected",
+      "defensive_matchup": {
+        "opponent": "Michigan",
+        "sp_plus_rank": 22,
+        "sp_plus_rating": 15.2,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #22) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Jeremiah Smith",
+      "player_team": "Ohio State",
+      "position": "WR",
+      "prop_type": "receiving_yards",
+      "over_under_line": 60,
+      "confidence": 50,
+      "recommendation": "under",
+      "reasoning": "Trend and matchup analysis vs Michigan",
+      "season_average": 0.0,
+      "weather_impact": "Cold affects passing",
+      "defensive_matchup": {
+        "opponent": "Michigan",
+        "sp_plus_rank": 22,
+        "sp_plus_rating": 15.2,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #22) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Jeremiah Smith",
+      "player_team": "Ohio State",
+      "position": "WR",
+      "prop_type": "receptions",
+      "over_under_line": 4.5,
+      "confidence": 50,
+      "recommendation": "under",
+      "reasoning": "Trend and matchup analysis vs Michigan",
+      "season_average": 0.0,
+      "weather_impact": "Cold affects passing",
+      "defensive_matchup": {
+        "opponent": "Michigan",
+        "sp_plus_rank": 22,
+        "sp_plus_rating": 15.2,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #22) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Carnell Tate",
+      "player_team": "Ohio State",
+      "position": "WR",
+      "prop_type": "receiving_yards",
+      "over_under_line": 60,
+      "confidence": 50,
+      "recommendation": "under",
+      "reasoning": "Trend and matchup analysis vs Michigan",
+      "season_average": 0.0,
+      "weather_impact": "Cold affects passing",
+      "defensive_matchup": {
+        "opponent": "Michigan",
+        "sp_plus_rank": 22,
+        "sp_plus_rating": 15.2,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #22) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Carnell Tate",
+      "player_team": "Ohio State",
+      "position": "WR",
+      "prop_type": "receptions",
+      "over_under_line": 4.5,
+      "confidence": 50,
+      "recommendation": "under",
+      "reasoning": "Trend and matchup analysis vs Michigan",
+      "season_average": 0.0,
+      "weather_impact": "Cold affects passing",
+      "defensive_matchup": {
+        "opponent": "Michigan",
+        "sp_plus_rank": 22,
+        "sp_plus_rating": 15.2,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #22) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Bo Jackson",
+      "player_team": "Ohio State",
+      "position": "RB",
+      "prop_type": "rushing_yards",
+      "over_under_line": 70,
+      "confidence": 55,
+      "recommendation": "under",
+      "reasoning": "Game log analysis vs Michigan defense",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather favors running",
+      "defensive_matchup": {
+        "opponent": "Michigan",
+        "sp_plus_rank": 22,
+        "sp_plus_rating": 15.2,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #22) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Bo Jackson",
+      "player_team": "Ohio State",
+      "position": "RB",
+      "prop_type": "rushing_attempts",
+      "over_under_line": 15,
+      "confidence": 55,
+      "recommendation": "under",
+      "reasoning": "Game log analysis vs Michigan defense",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather favors running",
+      "defensive_matchup": {
+        "opponent": "Michigan",
+        "sp_plus_rank": 22,
+        "sp_plus_rating": 15.2,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #22) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "James Peoples",
+      "player_team": "Ohio State",
+      "position": "RB",
+      "prop_type": "rushing_yards",
+      "over_under_line": 70,
+      "confidence": 55,
+      "recommendation": "under",
+      "reasoning": "Game log analysis vs Michigan defense",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather favors running",
+      "defensive_matchup": {
+        "opponent": "Michigan",
+        "sp_plus_rank": 22,
+        "sp_plus_rating": 15.2,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #22) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "James Peoples",
+      "player_team": "Ohio State",
+      "position": "RB",
+      "prop_type": "rushing_attempts",
+      "over_under_line": 15,
+      "confidence": 55,
+      "recommendation": "under",
+      "reasoning": "Game log analysis vs Michigan defense",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather favors running",
+      "defensive_matchup": {
+        "opponent": "Michigan",
+        "sp_plus_rank": 22,
+        "sp_plus_rating": 15.2,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #22) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Bryce Underwood",
+      "player_team": "Michigan",
+      "position": "QB",
+      "prop_type": "passing_yards",
+      "over_under_line": 250,
+      "confidence": 40,
+      "recommendation": "under",
+      "reasoning": "Based on trend analysis and Ohio State defense matchup",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather expected",
+      "defensive_matchup": {
+        "opponent": "Ohio State",
+        "sp_plus_rank": 1,
+        "sp_plus_rating": 32.4,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #1) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Bryce Underwood",
+      "player_team": "Michigan",
+      "position": "QB",
+      "prop_type": "passing_tds",
+      "over_under_line": 2.0,
+      "confidence": 40,
+      "recommendation": "under",
+      "reasoning": "Based on trend analysis and Ohio State defense matchup",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather expected",
+      "defensive_matchup": {
+        "opponent": "Ohio State",
+        "sp_plus_rank": 1,
+        "sp_plus_rating": 32.4,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #1) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Bryce Underwood",
+      "player_team": "Michigan",
+      "position": "QB",
+      "prop_type": "rushing_yards",
+      "over_under_line": 25,
+      "confidence": 40,
+      "recommendation": "under",
+      "reasoning": "Based on trend analysis and Ohio State defense matchup",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather expected",
+      "defensive_matchup": {
+        "opponent": "Ohio State",
+        "sp_plus_rank": 1,
+        "sp_plus_rating": 32.4,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #1) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "passing_yards": 0,
+            "passing_tds": 0,
+            "rushing_yards": 0,
+            "completions": 0,
+            "attempts": 0,
+            "interceptions": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Andrew Marsh",
+      "player_team": "Michigan",
+      "position": "WR",
+      "prop_type": "receiving_yards",
+      "over_under_line": 60,
+      "confidence": 50,
+      "recommendation": "under",
+      "reasoning": "Trend and matchup analysis vs Ohio State",
+      "season_average": 0.0,
+      "weather_impact": "Cold affects passing",
+      "defensive_matchup": {
+        "opponent": "Ohio State",
+        "sp_plus_rank": 1,
+        "sp_plus_rating": 32.4,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #1) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Andrew Marsh",
+      "player_team": "Michigan",
+      "position": "WR",
+      "prop_type": "receptions",
+      "over_under_line": 4.5,
+      "confidence": 50,
+      "recommendation": "under",
+      "reasoning": "Trend and matchup analysis vs Ohio State",
+      "season_average": 0.0,
+      "weather_impact": "Cold affects passing",
+      "defensive_matchup": {
+        "opponent": "Ohio State",
+        "sp_plus_rank": 1,
+        "sp_plus_rating": 32.4,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #1) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Donaven McCulley",
+      "player_team": "Michigan",
+      "position": "WR",
+      "prop_type": "receiving_yards",
+      "over_under_line": 60,
+      "confidence": 50,
+      "recommendation": "under",
+      "reasoning": "Trend and matchup analysis vs Ohio State",
+      "season_average": 0.0,
+      "weather_impact": "Cold affects passing",
+      "defensive_matchup": {
+        "opponent": "Ohio State",
+        "sp_plus_rank": 1,
+        "sp_plus_rating": 32.4,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #1) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Donaven McCulley",
+      "player_team": "Michigan",
+      "position": "WR",
+      "prop_type": "receptions",
+      "over_under_line": 4.5,
+      "confidence": 50,
+      "recommendation": "under",
+      "reasoning": "Trend and matchup analysis vs Ohio State",
+      "season_average": 0.0,
+      "weather_impact": "Cold affects passing",
+      "defensive_matchup": {
+        "opponent": "Ohio State",
+        "sp_plus_rank": 1,
+        "sp_plus_rating": 32.4,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #1) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "receptions": 0,
+            "receiving_yards": 0,
+            "receiving_tds": 0,
+            "targets": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Justice Haynes",
+      "player_team": "Michigan",
+      "position": "RB",
+      "prop_type": "rushing_yards",
+      "over_under_line": 70,
+      "confidence": 55,
+      "recommendation": "under",
+      "reasoning": "Game log analysis vs Ohio State defense",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather favors running",
+      "defensive_matchup": {
+        "opponent": "Ohio State",
+        "sp_plus_rank": 1,
+        "sp_plus_rating": 32.4,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #1) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Justice Haynes",
+      "player_team": "Michigan",
+      "position": "RB",
+      "prop_type": "rushing_attempts",
+      "over_under_line": 15,
+      "confidence": 55,
+      "recommendation": "under",
+      "reasoning": "Game log analysis vs Ohio State defense",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather favors running",
+      "defensive_matchup": {
+        "opponent": "Ohio State",
+        "sp_plus_rank": 1,
+        "sp_plus_rating": 32.4,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #1) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Jordan Marshall",
+      "player_team": "Michigan",
+      "position": "RB",
+      "prop_type": "rushing_yards",
+      "over_under_line": 70,
+      "confidence": 55,
+      "recommendation": "under",
+      "reasoning": "Game log analysis vs Ohio State defense",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather favors running",
+      "defensive_matchup": {
+        "opponent": "Ohio State",
+        "sp_plus_rank": 1,
+        "sp_plus_rating": 32.4,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #1) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    },
+    {
+      "player_name": "Jordan Marshall",
+      "player_team": "Michigan",
+      "position": "RB",
+      "prop_type": "rushing_attempts",
+      "over_under_line": 15,
+      "confidence": 55,
+      "recommendation": "under",
+      "reasoning": "Game log analysis vs Ohio State defense",
+      "season_average": 0.0,
+      "weather_impact": "Cold weather favors running",
+      "defensive_matchup": {
+        "opponent": "Ohio State",
+        "sp_plus_rank": 1,
+        "sp_plus_rating": 32.4,
+        "yards_allowed_per_game": null,
+        "points_allowed_per_game": null,
+        "category": "elite"
+      },
+      "trend_analysis": {
+        "last_3_games_avg": 0.0,
+        "last_5_games_avg": 0.0,
+        "season_avg": 0.0,
+        "vs_good_defenses_avg": 0.0,
+        "vs_poor_defenses_avg": 0.0,
+        "home_vs_away_diff": 0.0,
+        "trend_direction": "stable"
+      },
+      "key_insights": [
+        "\ud83d\udee1\ufe0f Facing ELITE defense (SP+ rank #1) - expect reduced production"
+      ],
+      "game_logs": [
+        {
+          "week": 12,
+          "opponent": "Rutgers",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 11,
+          "opponent": "Minnesota",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 10,
+          "opponent": "Wisconsin",
+          "home_away": "away",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 9,
+          "opponent": "Michigan State",
+          "home_away": "home",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 8,
+          "opponent": "Maryland",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 7,
+          "opponent": "Nebraska",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 6,
+          "opponent": "Northwestern",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 5,
+          "opponent": "Iowa",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 4,
+          "opponent": "Purdue",
+          "home_away": "away",
+          "result": "L",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        },
+        {
+          "week": 3,
+          "opponent": "Indiana",
+          "home_away": "home",
+          "result": "W",
+          "stats": {
+            "rushing_yards": 0,
+            "rushing_attempts": 0,
+            "rushing_tds": 0,
+            "receptions": 0,
+            "receiving_yards": 0
+          },
+          "defense_rank": null,
+          "defense_sp_plus": null,
+          "weather": null
+        }
+      ]
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import { GlassCard } from './GlassCard';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend } from 'recharts';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { TrendingUp, Shield, Activity } from 'lucide-react';
+import { InsightBox } from './InsightBox';
 
 
 
@@ -333,6 +334,22 @@ export function EPAComparison({ predictionData }: EPAComparisonProps) {
           </div>
         </div>
       </div>
+
+      {/* Understanding EPA Insights */}
+      <InsightBox
+        whatItMeans="EPA (Expected Points Added) measures how many points a team adds or loses on each play compared to average. Positive EPA means the team is gaining more yards/scoring more than expected, while negative EPA means they're underperforming."
+        whyItMatters="EPA is the single most important efficiency metric in football analytics. It directly correlates with winning games because it accounts for down, distance, and field position - not just raw yardage. Teams with higher EPA win 70%+ of their matchups."
+        whoHasEdge={{
+          team: overallDiff > 0 ? awayTeam.name : homeTeam.name,
+          reason: `${overallDiff > 0 ? awayTeam.name : homeTeam.name} averages ${Math.abs(overallDiff).toFixed(3)} more expected points per play. Over 70 plays per game, this translates to roughly ${(Math.abs(overallDiff) * 70).toFixed(1)} more expected points - essentially ${Math.round(Math.abs(overallDiff) * 70 / 7)} extra touchdowns worth of offensive efficiency.`,
+          magnitude: Math.abs(overallDiff) > 0.150 ? 'major' : Math.abs(overallDiff) > 0.100 ? 'significant' : Math.abs(overallDiff) > 0.050 ? 'moderate' : 'small'
+        }}
+        keyDifferences={[
+          `${Math.abs(passingDiff) > Math.abs(rushingDiff) ? 'Passing' : 'Rushing'} is the biggest difference (${Math.abs(passingDiff) > Math.abs(rushingDiff) ? Math.abs(passingDiff).toFixed(3) : Math.abs(rushingDiff).toFixed(3)} EPA/play gap)`,
+          `${epaData.awayEPAAllowed < epaData.homeEPAAllowed ? awayTeam.name : homeTeam.name} has the better defense (allows ${Math.min(epaData.awayEPAAllowed, epaData.homeEPAAllowed).toFixed(3)} EPA/play)`,
+          `${overallDiff > 0 ? awayTeam.name : homeTeam.name}'s ${epaData.awayPassingEPA > epaData.awayRushingEPA === (overallDiff > 0) ? 'passing' : 'rushing'} attack is their strongest weapon`
+        ]}
+      />
     </GlassCard>
   );
 }

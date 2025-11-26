@@ -142,7 +142,7 @@ export function PredictionCards({ predictionData, isLoading, error }: Prediction
             <span className="text-2xl sm:text-3xl md:text-4xl font-mono tracking-tight truncate block">{spreadDisplay}</span>
           </div>
           <div className="space-y-1">
-            <p className="text-gray-400 text-xs sm:text-sm font-mono">Model: {spread.toFixed(1)}</p>
+            <p className="text-gray-400 text-xs sm:text-sm font-mono">Wins by: {Math.abs(spread).toFixed(1)} pts</p>
             {marketSpread && (
               <div className="flex justify-between text-xs text-gray-500">
                 <span>Market: {marketSpread.toFixed(1)}</span>

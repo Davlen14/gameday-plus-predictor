@@ -1,5 +1,6 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { GlassCard } from './GlassCard';
+import { InsightBox } from './InsightBox';
 
 interface DifferentialAnalysisProps {
   predictionData?: any;
@@ -180,6 +181,24 @@ export function DifferentialAnalysis({ predictionData }: DifferentialAnalysisPro
           />
         </div>
       </div>
+
+      {/* Insight Box */}
+      <InsightBox
+        whatItMeans="Differentials compare teams head-to-head across all categories. Positive differentials show where one team has statistical advantages. The magnitude of gaps determines whether advantages are noise (<5%) or meaningful (>10%)."
+        whyItMatters={`Teams with 3+ major differentials (>0.15 gaps) in their favor win 75%+ of matchups. Offensive + defensive differentials compounding (both >0.10) create overwhelming advantages. Total EPA differential: ${diffData.overallEPA.toFixed(3)} points across all phases.`}
+        whoHasEdge={{
+          team: diffData.overallEPA > 0 ? homeTeam.name : awayTeam.name,
+          reason: `${diffData.overallEPA > 0 ? homeTeam.name : awayTeam.name} holds ${[diffData.overallEPA, diffData.passingEPA, diffData.rushingEPA, diffData.successRate, diffData.explosiveness].filter(v => (diffData.overallEPA > 0 ? v > 0 : v < 0) && Math.abs(v) > 0.15).length} major advantages (>0.15 gaps). Combined differential strength: Overall EPA ${diffData.overallEPA.toFixed(3)}, Passing ${diffData.passingEPA.toFixed(3)}, Rushing ${diffData.rushingEPA.toFixed(3)}. Largest gap: ${Math.max(Math.abs(diffData.overallEPA), Math.abs(diffData.passingEPA), Math.abs(diffData.rushingEPA), Math.abs(diffData.successRate), Math.abs(diffData.explosiveness)).toFixed(3)}.`,
+          magnitude: [diffData.overallEPA, diffData.passingEPA, diffData.rushingEPA].filter(v => Math.abs(v) > 0.15).length >= 2 ? 'major' : 
+                     [diffData.overallEPA, diffData.passingEPA, diffData.rushingEPA].filter(v => Math.abs(v) > 0.10).length >= 2 ? 'significant' : 
+                     [diffData.overallEPA, diffData.passingEPA, diffData.rushingEPA].filter(v => Math.abs(v) > 0.05).length >= 1 ? 'moderate' : 'small'
+        }}
+        keyDifferences={[
+          `Biggest offensive gap: ${Math.abs(diffData.passingEPA) > Math.abs(diffData.rushingEPA) ? 'Passing' : 'Rushing'} EPA ${Math.max(Math.abs(diffData.passingEPA), Math.abs(diffData.rushingEPA)).toFixed(3)} (${(Math.max(Math.abs(diffData.passingEPA), Math.abs(diffData.rushingEPA)) * 7).toFixed(1)} points per game impact)`,
+          `Performance metrics: Success Rate ${diffData.successRate.toFixed(3)}, Explosiveness ${diffData.explosiveness.toFixed(3)}`,
+          `Net advantage: ${diffData.overallEPA > 0 ? homeTeam.name : awayTeam.name} holds overall ${Math.abs(diffData.overallEPA).toFixed(3)} EPA edge (${(Math.abs(diffData.overallEPA) * 7).toFixed(1)}pt scoring impact)`
+        ]}
+      />
     </GlassCard>
   );
 }

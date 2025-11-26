@@ -37,13 +37,14 @@ class BettingLinesManager:
             if os.path.exists(self.current_week_file):
                 with open(self.current_week_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
+                    print(f"✅ Loaded {len(data.get('games', []))} games from {self.current_week_file}")
                     return data
             else:
                 print(f"⚠️  Current week file {self.current_week_file} not found")
-                return {'games': {'all': []}}
+                return {'games': []}
         except Exception as e:
             print(f"❌ Error loading current week data: {e}")
-            return {'games': {'all': []}}
+            return {'games': []}
     
     def find_game_by_teams(self, home_team: str, away_team: str) -> Optional[Dict[str, Any]]:
         """Find a game by team names"""
@@ -51,7 +52,12 @@ class BettingLinesManager:
         away_team_clean = self._clean_team_name(away_team)
         
         # First try current week data (has better formatting)
-        for game in self.current_week_data.get('games', {}).get('all', []):
+        games_list = self.current_week_data.get('games', [])
+        # Handle both direct list and nested {"all": []} format
+        if isinstance(games_list, dict):
+            games_list = games_list.get('all', [])
+            
+        for game in games_list:
             game_home = self._clean_team_name(game.get('homeTeam', {}).get('name', ''))
             game_away = self._clean_team_name(game.get('awayTeam', {}).get('name', ''))
             
@@ -142,11 +148,31 @@ class BettingLinesManager:
             except:
                 formatted_date = "October 25, 2025"
             
-            # Extract network from media info
+            # Extract network from media info or infer from time/matchup
             network = 'TBD'
             if 'media' in game:
                 media_data = game['media']
                 network = media_data.get('network', 'TBD')
+            else:
+                # Infer network from time slot and ranked matchups
+                try:
+                    hour = int(time_24h.split(':')[0])
+                    home_rank = game.get('homeTeam', {}).get('rank')
+                    away_rank = game.get('awayTeam', {}).get('rank')
+                    is_ranked_matchup = home_rank or away_rank
+                    
+                    # Prime time games
+                    if hour >= 19:  # 7pm ET or later
+                        if is_ranked_matchup:
+                            network = 'NBC' if hour >= 20 else 'ABC'
+                        else:
+                            network = 'ESPN'
+                    elif hour >= 15:  # 3pm - 7pm
+                        network = 'CBS' if is_ranked_matchup else 'ESPN2'
+                    else:  # Noon or earlier
+                        network = 'FOX' if is_ranked_matchup else 'FS1'
+                except:
+                    network = 'TBD'
             
             return {
                 'date': formatted_date,
@@ -195,49 +221,14 @@ class BettingLinesManager:
         if 'bettingLines' in game:
             betting_lines = game['bettingLines']
             
-            # Get provider data
-            all_providers = betting_lines.get('allProviders', [])
-            providers_list = [p.get('provider', 'Unknown') for p in all_providers]
+            # Get consensus data (already calculated in JSON)
+            consensus = betting_lines.get('consensus', {})
+            avg_spread = consensus.get('spread', 0)
+            avg_total = consensus.get('overUnder', 0)
             
-            # Calculate consensus (most common) spread and total instead of average
-            if all_providers:
-                from collections import Counter
-                from statistics import median
-                
-                spreads = [p.get('spread', 0) for p in all_providers if p.get('spread') is not None]
-                totals = [p.get('overUnder', 0) for p in all_providers if p.get('overUnder') is not None]
-                
-                # Use most common value (consensus), or median if no clear consensus
-                if spreads:
-                    spread_counts = Counter(spreads)
-                    most_common_spread, spread_count = spread_counts.most_common(1)[0]
-                    # If most common appears at least twice, use it (consensus)
-                    # Otherwise use median to avoid outliers
-                    if spread_count >= 2:
-                        consensus_spread = most_common_spread
-                    else:
-                        consensus_spread = median(spreads)
-                else:
-                    consensus_spread = betting_lines.get('summary', {}).get('avgSpread', 0)
-                
-                if totals:
-                    total_counts = Counter(totals)
-                    most_common_total, total_count = total_counts.most_common(1)[0]
-                    # If most common appears at least twice, use it (consensus)
-                    # Otherwise use median to avoid outliers
-                    if total_count >= 2:
-                        consensus_total = most_common_total
-                    else:
-                        consensus_total = median(totals)
-                else:
-                    consensus_total = betting_lines.get('summary', {}).get('avgOverUnder', 0)
-                    
-                avg_spread = consensus_spread
-                avg_total = consensus_total
-            else:
-                # Fallback to summary averages
-                avg_spread = betting_lines.get('summary', {}).get('avgSpread', 0)
-                avg_total = betting_lines.get('summary', {}).get('avgOverUnder', 0)
+            # Get provider data from providers list
+            providers_data = betting_lines.get('allProviders', [])
+            providers_list = betting_lines.get('allProviders', [])
             
             # Format spread display
             if avg_spread > 0:
@@ -248,7 +239,7 @@ class BettingLinesManager:
                 formatted_spread = "Pick'em"
             
             # Use first provider for specific line info
-            first_provider = all_providers[0] if all_providers else {}
+            first_provider = providers_data[0] if providers_data else {}
             
         # Handle week9.json format (fallback)
         elif 'betting_lines' in game and game.get('betting_lines', {}).get('lines_available'):
@@ -324,15 +315,15 @@ class BettingLinesManager:
         
         # Build individual sportsbook lines for UI display
         individual_sportsbooks = []
-        for provider in all_providers:
+        for provider in providers_data:
             individual_sportsbooks.append({
                 'provider': provider.get('provider', 'Unknown'),
                 'spread': provider.get('spread', 0),
                 'spreadOpen': provider.get('spreadOpen', 0),
                 'overUnder': provider.get('overUnder', 0),
                 'overUnderOpen': provider.get('overUnderOpen', 0),
-                'moneylineHome': provider.get('moneylineHome', 'N/A'),
-                'moneylineAway': provider.get('moneylineAway', 'N/A')
+                'moneylineHome': provider.get('homeMoneyline', 'N/A'),
+                'moneylineAway': provider.get('awayMoneyline', 'N/A')
             })
         
         return {
@@ -349,8 +340,8 @@ class BettingLinesManager:
             'sportsbooks': {
                 'primary_provider': first_provider.get('provider', 'Unknown'),
                 'all_providers': providers_list,
-                'home_moneyline': first_provider.get('moneylineHome', 'N/A'),
-                'away_moneyline': first_provider.get('moneylineAway', 'N/A'),
+                'home_moneyline': first_provider.get('homeMoneyline', 'N/A'),
+                'away_moneyline': first_provider.get('awayMoneyline', 'N/A'),
                 'spread_open': first_provider.get('spreadOpen', 'N/A'),
                 'total_open': first_provider.get('overUnderOpen', 'N/A'),
                 'individual_books': individual_sportsbooks  # NEW: Individual sportsbook lines

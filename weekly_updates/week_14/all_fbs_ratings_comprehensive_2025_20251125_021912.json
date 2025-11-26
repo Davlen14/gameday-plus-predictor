@@ -1,0 +1,3417 @@
+{
+  "metadata": {
+    "generated_at": "2025-11-25T02:19:13.089015",
+    "season": 2025,
+    "week": 14,
+    "total_teams": 136,
+    "rating_systems": [
+      "ELO",
+      "FPI",
+      "SP+",
+      "SRS"
+    ],
+    "composite_methodology": "Normalized average of all available rating systems"
+  },
+  "teams": [
+    {
+      "team": "Ohio State",
+      "conference": "Big Ten",
+      "team_id": 194,
+      "ratings": {
+        "elo": 2158,
+        "fpi": 28.11,
+        "sp_overall": 32.4,
+        "srs": 27.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 87.72,
+        "defensive_efficiency": 92.28,
+        "special_teams_efficiency": 35.43,
+        "sos_rank": 52,
+        "resume_rank": 1
+      },
+      "sp_details": {
+        "offense": 40.4,
+        "defense": 8.3,
+        "special_teams": 0.3
+      },
+      "composite_score": 100.83,
+      "composite_rank": 1
+    },
+    {
+      "team": "Indiana",
+      "conference": "Big Ten",
+      "team_id": 84,
+      "ratings": {
+        "elo": 2142,
+        "fpi": 26.61,
+        "sp_overall": 29.9,
+        "srs": 24.9
+      },
+      "fpi_details": {
+        "offensive_efficiency": 87.0,
+        "defensive_efficiency": 89.63,
+        "special_teams_efficiency": 62.58,
+        "sos_rank": 38,
+        "resume_rank": 2
+      },
+      "sp_details": {
+        "offense": 40.6,
+        "defense": 11.2,
+        "special_teams": 0.4
+      },
+      "composite_score": 97.48,
+      "composite_rank": 2
+    },
+    {
+      "team": "Notre Dame",
+      "conference": "FBS Independents",
+      "team_id": 87,
+      "ratings": {
+        "elo": 2263,
+        "fpi": 24.91,
+        "sp_overall": 24.3,
+        "srs": 23.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 86.92,
+        "defensive_efficiency": 82.85,
+        "special_teams_efficiency": 53.01,
+        "sos_rank": 34,
+        "resume_rank": 3
+      },
+      "sp_details": {
+        "offense": 40,
+        "defense": 15.9,
+        "special_teams": 0.2
+      },
+      "composite_score": 94.74,
+      "composite_rank": 3
+    },
+    {
+      "team": "Oregon",
+      "conference": "Big Ten",
+      "team_id": 2483,
+      "ratings": {
+        "elo": 2086,
+        "fpi": 24.4,
+        "sp_overall": 26.6,
+        "srs": 22.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 88.13,
+        "defensive_efficiency": 83.93,
+        "special_teams_efficiency": 46.14,
+        "sos_rank": 24,
+        "resume_rank": 4
+      },
+      "sp_details": {
+        "offense": 39.2,
+        "defense": 12.9,
+        "special_teams": 0.3
+      },
+      "composite_score": 92.68,
+      "composite_rank": 4
+    },
+    {
+      "team": "Texas Tech",
+      "conference": "Big 12",
+      "team_id": 2641,
+      "ratings": {
+        "elo": 1997,
+        "fpi": 20.45,
+        "sp_overall": 28.7,
+        "srs": 24.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 68.68,
+        "defensive_efficiency": 95.26,
+        "special_teams_efficiency": 71.39,
+        "sos_rank": 56,
+        "resume_rank": 7
+      },
+      "sp_details": {
+        "offense": 41.1,
+        "defense": 12.8,
+        "special_teams": 0.4
+      },
+      "composite_score": 91.54,
+      "composite_rank": 5
+    },
+    {
+      "team": "Georgia",
+      "conference": "SEC",
+      "team_id": 61,
+      "ratings": {
+        "elo": 2048,
+        "fpi": 21.71,
+        "sp_overall": 24.3,
+        "srs": 18.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 83.99,
+        "defensive_efficiency": 71.45,
+        "special_teams_efficiency": 58.91,
+        "sos_rank": 16,
+        "resume_rank": 6
+      },
+      "sp_details": {
+        "offense": 38.9,
+        "defense": 15.3,
+        "special_teams": 0.7
+      },
+      "composite_score": 87.8,
+      "composite_rank": 6
+    },
+    {
+      "team": "Utah",
+      "conference": "Big 12",
+      "team_id": 254,
+      "ratings": {
+        "elo": 1971,
+        "fpi": 19.89,
+        "sp_overall": 21.4,
+        "srs": 22.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 84.94,
+        "defensive_efficiency": 72.74,
+        "special_teams_efficiency": 44.17,
+        "sos_rank": 55,
+        "resume_rank": 8
+      },
+      "sp_details": {
+        "offense": 39.1,
+        "defense": 17.7,
+        "special_teams": null
+      },
+      "composite_score": 86.58,
+      "composite_rank": 7
+    },
+    {
+      "team": "Alabama",
+      "conference": "SEC",
+      "team_id": 333,
+      "ratings": {
+        "elo": 1966,
+        "fpi": 21.8,
+        "sp_overall": 21,
+        "srs": 17.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 78.93,
+        "defensive_efficiency": 82.95,
+        "special_teams_efficiency": 35.42,
+        "sos_rank": 9,
+        "resume_rank": 5
+      },
+      "sp_details": {
+        "offense": 35.7,
+        "defense": 14.3,
+        "special_teams": -0.4
+      },
+      "composite_score": 84.67,
+      "composite_rank": 8
+    },
+    {
+      "team": "Texas A&M",
+      "conference": "SEC",
+      "team_id": 245,
+      "ratings": {
+        "elo": 1896,
+        "fpi": 19.64,
+        "sp_overall": 22.6,
+        "srs": 19.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 80.54,
+        "defensive_efficiency": 79.63,
+        "special_teams_efficiency": 47.87,
+        "sos_rank": 23,
+        "resume_rank": 9
+      },
+      "sp_details": {
+        "offense": 41.4,
+        "defense": 18.7,
+        "special_teams": null
+      },
+      "composite_score": 84.37,
+      "composite_rank": 9
+    },
+    {
+      "team": "Miami",
+      "conference": "ACC",
+      "team_id": 2390,
+      "ratings": {
+        "elo": 1907,
+        "fpi": 19.04,
+        "sp_overall": 20.2,
+        "srs": 18.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 71.27,
+        "defensive_efficiency": 83.88,
+        "special_teams_efficiency": 48.44,
+        "sos_rank": 48,
+        "resume_rank": 10
+      },
+      "sp_details": {
+        "offense": 35.8,
+        "defense": 16.2,
+        "special_teams": 0.6
+      },
+      "composite_score": 82.86,
+      "composite_rank": 10
+    },
+    {
+      "team": "Ole Miss",
+      "conference": "SEC",
+      "team_id": 145,
+      "ratings": {
+        "elo": 1959,
+        "fpi": 18.0,
+        "sp_overall": 21.9,
+        "srs": 15.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 81.5,
+        "defensive_efficiency": 57.98,
+        "special_teams_efficiency": 59.38,
+        "sos_rank": 33,
+        "resume_rank": 13
+      },
+      "sp_details": {
+        "offense": 39.5,
+        "defense": 18.2,
+        "special_teams": 0.7
+      },
+      "composite_score": 82.04,
+      "composite_rank": 11
+    },
+    {
+      "team": "USC",
+      "conference": "Big Ten",
+      "team_id": 30,
+      "ratings": {
+        "elo": 1898,
+        "fpi": 18.97,
+        "sp_overall": 16.3,
+        "srs": 15.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 90.26,
+        "defensive_efficiency": 57.84,
+        "special_teams_efficiency": 38.98,
+        "sos_rank": 19,
+        "resume_rank": 11
+      },
+      "sp_details": {
+        "offense": 39.5,
+        "defense": 22.8,
+        "special_teams": -0.3
+      },
+      "composite_score": 79.26,
+      "composite_rank": 12
+    },
+    {
+      "team": "Oklahoma",
+      "conference": "SEC",
+      "team_id": 201,
+      "ratings": {
+        "elo": 1824,
+        "fpi": 17.33,
+        "sp_overall": 19.5,
+        "srs": 15.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 60.33,
+        "defensive_efficiency": 86.73,
+        "special_teams_efficiency": 72.6,
+        "sos_rank": 5,
+        "resume_rank": 14
+      },
+      "sp_details": {
+        "offense": 31.7,
+        "defense": 12.7,
+        "special_teams": 0.5
+      },
+      "composite_score": 79.12,
+      "composite_rank": 13
+    },
+    {
+      "team": "BYU",
+      "conference": "Big 12",
+      "team_id": 252,
+      "ratings": {
+        "elo": 1781,
+        "fpi": 17.16,
+        "sp_overall": 17.3,
+        "srs": 19.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 75.65,
+        "defensive_efficiency": 81.75,
+        "special_teams_efficiency": 59.49,
+        "sos_rank": 28,
+        "resume_rank": 15
+      },
+      "sp_details": {
+        "offense": 34.7,
+        "defense": 17.9,
+        "special_teams": 0.4
+      },
+      "composite_score": 78.99,
+      "composite_rank": 14
+    },
+    {
+      "team": "Vanderbilt",
+      "conference": "SEC",
+      "team_id": 238,
+      "ratings": {
+        "elo": 1827,
+        "fpi": 16.54,
+        "sp_overall": 19.3,
+        "srs": 16.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 92.41,
+        "defensive_efficiency": 57.91,
+        "special_teams_efficiency": 48.86,
+        "sos_rank": 26,
+        "resume_rank": 17
+      },
+      "sp_details": {
+        "offense": 39.8,
+        "defense": 21.2,
+        "special_teams": 0.6
+      },
+      "composite_score": 78.86,
+      "composite_rank": 15
+    },
+    {
+      "team": "Tennessee",
+      "conference": "SEC",
+      "team_id": 2633,
+      "ratings": {
+        "elo": 1856,
+        "fpi": 17.03,
+        "sp_overall": 17.5,
+        "srs": 15.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 83.88,
+        "defensive_efficiency": 69.74,
+        "special_teams_efficiency": 40.36,
+        "sos_rank": 31,
+        "resume_rank": 16
+      },
+      "sp_details": {
+        "offense": 41,
+        "defense": 23.8,
+        "special_teams": 0.4
+      },
+      "composite_score": 78.22,
+      "composite_rank": 16
+    },
+    {
+      "team": "Penn State",
+      "conference": "Big Ten",
+      "team_id": 213,
+      "ratings": {
+        "elo": 1975,
+        "fpi": 15.56,
+        "sp_overall": 16.4,
+        "srs": 13.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 67.01,
+        "defensive_efficiency": 61.13,
+        "special_teams_efficiency": 73.51,
+        "sos_rank": 18,
+        "resume_rank": 19
+      },
+      "sp_details": {
+        "offense": 34.9,
+        "defense": 19.1,
+        "special_teams": 0.6
+      },
+      "composite_score": 77.47,
+      "composite_rank": 17
+    },
+    {
+      "team": "Washington",
+      "conference": "Big Ten",
+      "team_id": 264,
+      "ratings": {
+        "elo": 1802,
+        "fpi": 13.42,
+        "sp_overall": 17.5,
+        "srs": 16.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 74.9,
+        "defensive_efficiency": 70.86,
+        "special_teams_efficiency": 45.75,
+        "sos_rank": 49,
+        "resume_rank": 21
+      },
+      "sp_details": {
+        "offense": 34.6,
+        "defense": 16.8,
+        "special_teams": -0.4
+      },
+      "composite_score": 76.38,
+      "composite_rank": 18
+    },
+    {
+      "team": "Texas",
+      "conference": "SEC",
+      "team_id": 251,
+      "ratings": {
+        "elo": 1880,
+        "fpi": 18.24,
+        "sp_overall": 14.9,
+        "srs": 12.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 60.59,
+        "defensive_efficiency": 80.73,
+        "special_teams_efficiency": 67.57,
+        "sos_rank": 10,
+        "resume_rank": 12
+      },
+      "sp_details": {
+        "offense": 32.2,
+        "defense": 17.5,
+        "special_teams": 0.2
+      },
+      "composite_score": 76.07,
+      "composite_rank": 19
+    },
+    {
+      "team": "Michigan",
+      "conference": "Big Ten",
+      "team_id": 130,
+      "ratings": {
+        "elo": 1825,
+        "fpi": 15.84,
+        "sp_overall": 15.2,
+        "srs": 13.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 76.52,
+        "defensive_efficiency": 73.89,
+        "special_teams_efficiency": 35.44,
+        "sos_rank": 37,
+        "resume_rank": 18
+      },
+      "sp_details": {
+        "offense": 31.6,
+        "defense": 15.8,
+        "special_teams": -0.5
+      },
+      "composite_score": 74.83,
+      "composite_rank": 20
+    },
+    {
+      "team": "Iowa",
+      "conference": "Big Ten",
+      "team_id": 2294,
+      "ratings": {
+        "elo": 1902,
+        "fpi": 12.96,
+        "sp_overall": 15.4,
+        "srs": 11.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 53.35,
+        "defensive_efficiency": 81.96,
+        "special_teams_efficiency": 65.45,
+        "sos_rank": 20,
+        "resume_rank": 22
+      },
+      "sp_details": {
+        "offense": 29.5,
+        "defense": 14.6,
+        "special_teams": 0.4
+      },
+      "composite_score": 73.5,
+      "composite_rank": 21
+    },
+    {
+      "team": "Missouri",
+      "conference": "SEC",
+      "team_id": 142,
+      "ratings": {
+        "elo": 1748,
+        "fpi": 14.04,
+        "sp_overall": 15.4,
+        "srs": 12.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 65.14,
+        "defensive_efficiency": 72.98,
+        "special_teams_efficiency": 42.01,
+        "sos_rank": 21,
+        "resume_rank": 20
+      },
+      "sp_details": {
+        "offense": 33,
+        "defense": 17.1,
+        "special_teams": -0.5
+      },
+      "composite_score": 72.57,
+      "composite_rank": 22
+    },
+    {
+      "team": "SMU",
+      "conference": "ACC",
+      "team_id": 2567,
+      "ratings": {
+        "elo": 1860,
+        "fpi": 12.68,
+        "sp_overall": 14.8,
+        "srs": 11.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 63.42,
+        "defensive_efficiency": 76.05,
+        "special_teams_efficiency": 52.05,
+        "sos_rank": 66,
+        "resume_rank": 23
+      },
+      "sp_details": {
+        "offense": 34.4,
+        "defense": 19.2,
+        "special_teams": -0.3
+      },
+      "composite_score": 72.49,
+      "composite_rank": 23
+    },
+    {
+      "team": "South Florida",
+      "conference": "American Athletic",
+      "team_id": 58,
+      "ratings": {
+        "elo": 1751,
+        "fpi": 10.86,
+        "sp_overall": 12.4,
+        "srs": 14.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 74.93,
+        "defensive_efficiency": 70.15,
+        "special_teams_efficiency": 50.14,
+        "sos_rank": 62,
+        "resume_rank": 26
+      },
+      "sp_details": {
+        "offense": 38.9,
+        "defense": 26.5,
+        "special_teams": null
+      },
+      "composite_score": 70.62,
+      "composite_rank": 24
+    },
+    {
+      "team": "North Texas",
+      "conference": "American Athletic",
+      "team_id": 249,
+      "ratings": {
+        "elo": 1741,
+        "fpi": 6.97,
+        "sp_overall": 16.4,
+        "srs": 11.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 80.14,
+        "defensive_efficiency": 54.58,
+        "special_teams_efficiency": 40.01,
+        "sos_rank": 127,
+        "resume_rank": 42
+      },
+      "sp_details": {
+        "offense": 43.4,
+        "defense": 27.1,
+        "special_teams": 0.1
+      },
+      "composite_score": 69.0,
+      "composite_rank": 25
+    },
+    {
+      "team": "Auburn",
+      "conference": "SEC",
+      "team_id": 2,
+      "ratings": {
+        "elo": 1660,
+        "fpi": 11.63,
+        "sp_overall": 12.5,
+        "srs": 10.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 61.06,
+        "defensive_efficiency": 74.58,
+        "special_teams_efficiency": 50.73,
+        "sos_rank": 12,
+        "resume_rank": 24
+      },
+      "sp_details": {
+        "offense": 29.8,
+        "defense": 17.4,
+        "special_teams": 0.1
+      },
+      "composite_score": 68.06,
+      "composite_rank": 26
+    },
+    {
+      "team": "Arizona",
+      "conference": "Big 12",
+      "team_id": 12,
+      "ratings": {
+        "elo": 1651,
+        "fpi": 9.29,
+        "sp_overall": 13,
+        "srs": 12.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 70.3,
+        "defensive_efficiency": 70.58,
+        "special_teams_efficiency": 32.83,
+        "sos_rank": 63,
+        "resume_rank": 31
+      },
+      "sp_details": {
+        "offense": 34.4,
+        "defense": 20.9,
+        "special_teams": -0.5
+      },
+      "composite_score": 67.88,
+      "composite_rank": 27
+    },
+    {
+      "team": "James Madison",
+      "conference": "Sun Belt",
+      "team_id": 256,
+      "ratings": {
+        "elo": 1874,
+        "fpi": 7.99,
+        "sp_overall": 12.5,
+        "srs": 8.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 60.12,
+        "defensive_efficiency": 73.77,
+        "special_teams_efficiency": 45.88,
+        "sos_rank": 123,
+        "resume_rank": 35
+      },
+      "sp_details": {
+        "offense": 32.6,
+        "defense": 19.8,
+        "special_teams": -0.4
+      },
+      "composite_score": 67.77,
+      "composite_rank": 28
+    },
+    {
+      "team": "Pittsburgh",
+      "conference": "ACC",
+      "team_id": 221,
+      "ratings": {
+        "elo": 1691,
+        "fpi": 9.31,
+        "sp_overall": 11.7,
+        "srs": 11.9
+      },
+      "fpi_details": {
+        "offensive_efficiency": 55.61,
+        "defensive_efficiency": 77.95,
+        "special_teams_efficiency": 57.52,
+        "sos_rank": 61,
+        "resume_rank": 29
+      },
+      "sp_details": {
+        "offense": 34.6,
+        "defense": 23.2,
+        "special_teams": 0.3
+      },
+      "composite_score": 67.59,
+      "composite_rank": 29
+    },
+    {
+      "team": "LSU",
+      "conference": "SEC",
+      "team_id": 99,
+      "ratings": {
+        "elo": 1690,
+        "fpi": 11.32,
+        "sp_overall": 10.2,
+        "srs": 9.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 47.47,
+        "defensive_efficiency": 81.56,
+        "special_teams_efficiency": 44.76,
+        "sos_rank": 13,
+        "resume_rank": 25
+      },
+      "sp_details": {
+        "offense": 25.8,
+        "defense": 15.6,
+        "special_teams": 0.1
+      },
+      "composite_score": 66.48,
+      "composite_rank": 30
+    },
+    {
+      "team": "Illinois",
+      "conference": "Big Ten",
+      "team_id": 356,
+      "ratings": {
+        "elo": 1576,
+        "fpi": 9.16,
+        "sp_overall": 10.7,
+        "srs": 11.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 73.97,
+        "defensive_efficiency": 57.92,
+        "special_teams_efficiency": 55.6,
+        "sos_rank": 17,
+        "resume_rank": 32
+      },
+      "sp_details": {
+        "offense": 33.6,
+        "defense": 23.4,
+        "special_teams": 0.5
+      },
+      "composite_score": 65.48,
+      "composite_rank": 31
+    },
+    {
+      "team": "Iowa State",
+      "conference": "Big 12",
+      "team_id": 66,
+      "ratings": {
+        "elo": 1655,
+        "fpi": 9.29,
+        "sp_overall": 9.5,
+        "srs": 10.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 63.3,
+        "defensive_efficiency": 59.74,
+        "special_teams_efficiency": 57.18,
+        "sos_rank": 53,
+        "resume_rank": 30
+      },
+      "sp_details": {
+        "offense": 29.6,
+        "defense": 20.5,
+        "special_teams": 0.4
+      },
+      "composite_score": 65.28,
+      "composite_rank": 32
+    },
+    {
+      "team": "Florida State",
+      "conference": "ACC",
+      "team_id": 52,
+      "ratings": {
+        "elo": 1606,
+        "fpi": 9.97,
+        "sp_overall": 10.1,
+        "srs": 9.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 72.47,
+        "defensive_efficiency": 58.46,
+        "special_teams_efficiency": 33.61,
+        "sos_rank": 47,
+        "resume_rank": 28
+      },
+      "sp_details": {
+        "offense": 30.4,
+        "defense": 20.3,
+        "special_teams": null
+      },
+      "composite_score": 65.01,
+      "composite_rank": 33
+    },
+    {
+      "team": "South Carolina",
+      "conference": "SEC",
+      "team_id": 2579,
+      "ratings": {
+        "elo": 1730,
+        "fpi": 10.79,
+        "sp_overall": 6.1,
+        "srs": 6.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 45.39,
+        "defensive_efficiency": 75.67,
+        "special_teams_efficiency": 67.96,
+        "sos_rank": 4,
+        "resume_rank": 27
+      },
+      "sp_details": {
+        "offense": 25.9,
+        "defense": 20.2,
+        "special_teams": 0.5
+      },
+      "composite_score": 63.27,
+      "composite_rank": 34
+    },
+    {
+      "team": "Virginia",
+      "conference": "ACC",
+      "team_id": 258,
+      "ratings": {
+        "elo": 1604,
+        "fpi": 6.6,
+        "sp_overall": 11,
+        "srs": 8.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 59.08,
+        "defensive_efficiency": 66.5,
+        "special_teams_efficiency": 54.7,
+        "sos_rank": 84,
+        "resume_rank": 45
+      },
+      "sp_details": {
+        "offense": 31.3,
+        "defense": 20.5,
+        "special_teams": 0.2
+      },
+      "composite_score": 63.25,
+      "composite_rank": 35
+    },
+    {
+      "team": "Clemson",
+      "conference": "ACC",
+      "team_id": 228,
+      "ratings": {
+        "elo": 1727,
+        "fpi": 8.21,
+        "sp_overall": 9.2,
+        "srs": 4.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 58.22,
+        "defensive_efficiency": 61.7,
+        "special_teams_efficiency": 44.13,
+        "sos_rank": 71,
+        "resume_rank": 33
+      },
+      "sp_details": {
+        "offense": 29.3,
+        "defense": 20.5,
+        "special_teams": 0.3
+      },
+      "composite_score": 62.59,
+      "composite_rank": 36
+    },
+    {
+      "team": "Memphis",
+      "conference": "American Athletic",
+      "team_id": 235,
+      "ratings": {
+        "elo": 1660,
+        "fpi": 6.29,
+        "sp_overall": 11.3,
+        "srs": 5.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 65.01,
+        "defensive_efficiency": 51.87,
+        "special_teams_efficiency": 62.04,
+        "sos_rank": 110,
+        "resume_rank": 46
+      },
+      "sp_details": {
+        "offense": 37.9,
+        "defense": 27.2,
+        "special_teams": 0.6
+      },
+      "composite_score": 62.44,
+      "composite_rank": 37
+    },
+    {
+      "team": "Arizona State",
+      "conference": "Big 12",
+      "team_id": 9,
+      "ratings": {
+        "elo": 1653,
+        "fpi": 7.83,
+        "sp_overall": 6.5,
+        "srs": 7.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 54.16,
+        "defensive_efficiency": 72.74,
+        "special_teams_efficiency": 35.59,
+        "sos_rank": 39,
+        "resume_rank": 37
+      },
+      "sp_details": {
+        "offense": 28.6,
+        "defense": 21.4,
+        "special_teams": -0.7
+      },
+      "composite_score": 61.58,
+      "composite_rank": 38
+    },
+    {
+      "team": "Kansas State",
+      "conference": "Big 12",
+      "team_id": 2306,
+      "ratings": {
+        "elo": 1680,
+        "fpi": 7.46,
+        "sp_overall": 6.1,
+        "srs": 7.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 59.87,
+        "defensive_efficiency": 65.87,
+        "special_teams_efficiency": 41.44,
+        "sos_rank": 35,
+        "resume_rank": 40
+      },
+      "sp_details": {
+        "offense": 32.1,
+        "defense": 26,
+        "special_teams": null
+      },
+      "composite_score": 61.33,
+      "composite_rank": 39
+    },
+    {
+      "team": "Louisville",
+      "conference": "ACC",
+      "team_id": 97,
+      "ratings": {
+        "elo": 1631,
+        "fpi": 6.8,
+        "sp_overall": 9.1,
+        "srs": 5.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 51.5,
+        "defensive_efficiency": 72.58,
+        "special_teams_efficiency": 61.23,
+        "sos_rank": 51,
+        "resume_rank": 44
+      },
+      "sp_details": {
+        "offense": 30.6,
+        "defense": 21.7,
+        "special_teams": 0.3
+      },
+      "composite_score": 61.24,
+      "composite_rank": 40
+    },
+    {
+      "team": "TCU",
+      "conference": "Big 12",
+      "team_id": 2628,
+      "ratings": {
+        "elo": 1602,
+        "fpi": 8.0,
+        "sp_overall": 6.7,
+        "srs": 6.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 64.39,
+        "defensive_efficiency": 63.12,
+        "special_teams_efficiency": 57.76,
+        "sos_rank": 45,
+        "resume_rank": 34
+      },
+      "sp_details": {
+        "offense": 31.2,
+        "defense": 24.1,
+        "special_teams": -0.4
+      },
+      "composite_score": 60.77,
+      "composite_rank": 41
+    },
+    {
+      "team": "Cincinnati",
+      "conference": "Big 12",
+      "team_id": 2132,
+      "ratings": {
+        "elo": 1569,
+        "fpi": 6.82,
+        "sp_overall": 8.3,
+        "srs": 7.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 80.82,
+        "defensive_efficiency": 48.61,
+        "special_teams_efficiency": 59.05,
+        "sos_rank": 57,
+        "resume_rank": 43
+      },
+      "sp_details": {
+        "offense": 32.4,
+        "defense": 24.3,
+        "special_teams": 0.2
+      },
+      "composite_score": 60.67,
+      "composite_rank": 42
+    },
+    {
+      "team": "Georgia Tech",
+      "conference": "ACC",
+      "team_id": 59,
+      "ratings": {
+        "elo": 1573,
+        "fpi": 6.29,
+        "sp_overall": 8.8,
+        "srs": 6.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 73.12,
+        "defensive_efficiency": 38.73,
+        "special_teams_efficiency": 71.78,
+        "sos_rank": 81,
+        "resume_rank": 47
+      },
+      "sp_details": {
+        "offense": 35.3,
+        "defense": 27,
+        "special_teams": 0.6
+      },
+      "composite_score": 60.51,
+      "composite_rank": 43
+    },
+    {
+      "team": "Nebraska",
+      "conference": "Big Ten",
+      "team_id": 158,
+      "ratings": {
+        "elo": 1611,
+        "fpi": 7.48,
+        "sp_overall": 8.8,
+        "srs": 4.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 55.34,
+        "defensive_efficiency": 58.23,
+        "special_teams_efficiency": 68.62,
+        "sos_rank": 54,
+        "resume_rank": 39
+      },
+      "sp_details": {
+        "offense": 29.6,
+        "defense": 20.8,
+        "special_teams": null
+      },
+      "composite_score": 60.38,
+      "composite_rank": 44
+    },
+    {
+      "team": "Arkansas",
+      "conference": "SEC",
+      "team_id": 8,
+      "ratings": {
+        "elo": 1588,
+        "fpi": 7.84,
+        "sp_overall": 6.7,
+        "srs": 6.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 79.61,
+        "defensive_efficiency": 35.45,
+        "special_teams_efficiency": 49.55,
+        "sos_rank": 3,
+        "resume_rank": 36
+      },
+      "sp_details": {
+        "offense": 37.9,
+        "defense": 31.8,
+        "special_teams": 0.6
+      },
+      "composite_score": 60.17,
+      "composite_rank": 45
+    },
+    {
+      "team": "Toledo",
+      "conference": "Mid-American",
+      "team_id": 2649,
+      "ratings": {
+        "elo": 1642,
+        "fpi": 3.74,
+        "sp_overall": 8.4,
+        "srs": 5.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 44.88,
+        "defensive_efficiency": 74.62,
+        "special_teams_efficiency": 58.37,
+        "sos_rank": 125,
+        "resume_rank": 53
+      },
+      "sp_details": {
+        "offense": 27.2,
+        "defense": 18.5,
+        "special_teams": -0.3
+      },
+      "composite_score": 59.49,
+      "composite_rank": 46
+    },
+    {
+      "team": "Kentucky",
+      "conference": "SEC",
+      "team_id": 96,
+      "ratings": {
+        "elo": 1578,
+        "fpi": 7.72,
+        "sp_overall": 4.6,
+        "srs": 5.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 50.68,
+        "defensive_efficiency": 70.63,
+        "special_teams_efficiency": 44.13,
+        "sos_rank": 7,
+        "resume_rank": 38
+      },
+      "sp_details": {
+        "offense": 27.2,
+        "defense": 22.9,
+        "special_teams": 0.3
+      },
+      "composite_score": 58.74,
+      "composite_rank": 47
+    },
+    {
+      "team": "Old Dominion",
+      "conference": "Sun Belt",
+      "team_id": 295,
+      "ratings": {
+        "elo": 1635,
+        "fpi": 3.71,
+        "sp_overall": 6.2,
+        "srs": 4.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 64.61,
+        "defensive_efficiency": 72.64,
+        "special_teams_efficiency": 27.68,
+        "sos_rank": 75,
+        "resume_rank": 54
+      },
+      "sp_details": {
+        "offense": 32,
+        "defense": 25.1,
+        "special_teams": -0.7
+      },
+      "composite_score": 57.39,
+      "composite_rank": 48
+    },
+    {
+      "team": "Boise State",
+      "conference": "Mountain West",
+      "team_id": 68,
+      "ratings": {
+        "elo": 1621,
+        "fpi": 4.59,
+        "sp_overall": 5.3,
+        "srs": 4.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 58.0,
+        "defensive_efficiency": 59.14,
+        "special_teams_efficiency": 37.04,
+        "sos_rank": 68,
+        "resume_rank": 49
+      },
+      "sp_details": {
+        "offense": 29.7,
+        "defense": 24,
+        "special_teams": -0.4
+      },
+      "composite_score": 57.36,
+      "composite_rank": 49
+    },
+    {
+      "team": "Mississippi State",
+      "conference": "SEC",
+      "team_id": 344,
+      "ratings": {
+        "elo": 1492,
+        "fpi": 5.72,
+        "sp_overall": 5.1,
+        "srs": 5.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 57.2,
+        "defensive_efficiency": 62.83,
+        "special_teams_efficiency": 59.47,
+        "sos_rank": 14,
+        "resume_rank": 48
+      },
+      "sp_details": {
+        "offense": 32.6,
+        "defense": 28,
+        "special_teams": 0.4
+      },
+      "composite_score": 56.76,
+      "composite_rank": 50
+    },
+    {
+      "team": "Houston",
+      "conference": "Big 12",
+      "team_id": 248,
+      "ratings": {
+        "elo": 1479,
+        "fpi": 3.06,
+        "sp_overall": 7.3,
+        "srs": 5.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 52.15,
+        "defensive_efficiency": 65.0,
+        "special_teams_efficiency": 44.18,
+        "sos_rank": 72,
+        "resume_rank": 57
+      },
+      "sp_details": {
+        "offense": 29.7,
+        "defense": 22,
+        "special_teams": -0.4
+      },
+      "composite_score": 56.52,
+      "composite_rank": 51
+    },
+    {
+      "team": "Tulane",
+      "conference": "American Athletic",
+      "team_id": 2655,
+      "ratings": {
+        "elo": 1575,
+        "fpi": 3.48,
+        "sp_overall": 5.8,
+        "srs": 3.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 62.61,
+        "defensive_efficiency": 53.93,
+        "special_teams_efficiency": 63.48,
+        "sos_rank": 73,
+        "resume_rank": 55
+      },
+      "sp_details": {
+        "offense": 33.1,
+        "defense": 27.9,
+        "special_teams": 0.6
+      },
+      "composite_score": 56.08,
+      "composite_rank": 52
+    },
+    {
+      "team": "Florida",
+      "conference": "SEC",
+      "team_id": 57,
+      "ratings": {
+        "elo": 1543,
+        "fpi": 7.33,
+        "sp_overall": 0.5,
+        "srs": 4.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 45.5,
+        "defensive_efficiency": 69.01,
+        "special_teams_efficiency": 61.1,
+        "sos_rank": 2,
+        "resume_rank": 41
+      },
+      "sp_details": {
+        "offense": 23.4,
+        "defense": 23.4,
+        "special_teams": 0.5
+      },
+      "composite_score": 55.55,
+      "composite_rank": 53
+    },
+    {
+      "team": "Duke",
+      "conference": "ACC",
+      "team_id": 150,
+      "ratings": {
+        "elo": 1573,
+        "fpi": 4.37,
+        "sp_overall": 3.7,
+        "srs": 2.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 69.18,
+        "defensive_efficiency": 35.02,
+        "special_teams_efficiency": 55.06,
+        "sos_rank": 76,
+        "resume_rank": 51
+      },
+      "sp_details": {
+        "offense": 33.6,
+        "defense": 29.9,
+        "special_teams": 0.1
+      },
+      "composite_score": 55.0,
+      "composite_rank": 54
+    },
+    {
+      "team": "East Carolina",
+      "conference": "American Athletic",
+      "team_id": 151,
+      "ratings": {
+        "elo": 1491,
+        "fpi": 2.58,
+        "sp_overall": 6,
+        "srs": 3.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 51.18,
+        "defensive_efficiency": 61.08,
+        "special_teams_efficiency": 48.81,
+        "sos_rank": 88,
+        "resume_rank": 59
+      },
+      "sp_details": {
+        "offense": 31.8,
+        "defense": 26,
+        "special_teams": 0.1
+      },
+      "composite_score": 54.83,
+      "composite_rank": 55
+    },
+    {
+      "team": "San Diego State",
+      "conference": "Mountain West",
+      "team_id": 21,
+      "ratings": {
+        "elo": 1530,
+        "fpi": 0.57,
+        "sp_overall": 7.2,
+        "srs": 3.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 37.0,
+        "defensive_efficiency": 75.72,
+        "special_teams_efficiency": 69.43,
+        "sos_rank": 130,
+        "resume_rank": 64
+      },
+      "sp_details": {
+        "offense": 23.6,
+        "defense": 17.1,
+        "special_teams": 0.6
+      },
+      "composite_score": 54.61,
+      "composite_rank": 56
+    },
+    {
+      "team": "Wake Forest",
+      "conference": "ACC",
+      "team_id": 154,
+      "ratings": {
+        "elo": 1542,
+        "fpi": 0.81,
+        "sp_overall": 5.8,
+        "srs": 3.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 29.58,
+        "defensive_efficiency": 81.31,
+        "special_teams_efficiency": 48.54,
+        "sos_rank": 77,
+        "resume_rank": 62
+      },
+      "sp_details": {
+        "offense": 24.9,
+        "defense": 19.1,
+        "special_teams": null
+      },
+      "composite_score": 54.43,
+      "composite_rank": 57
+    },
+    {
+      "team": "Kansas",
+      "conference": "Big 12",
+      "team_id": 2305,
+      "ratings": {
+        "elo": 1499,
+        "fpi": 4.38,
+        "sp_overall": 3.8,
+        "srs": 3.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 69.79,
+        "defensive_efficiency": 41.49,
+        "special_teams_efficiency": 63.52,
+        "sos_rank": 41,
+        "resume_rank": 50
+      },
+      "sp_details": {
+        "offense": 31.6,
+        "defense": 28.4,
+        "special_teams": 0.6
+      },
+      "composite_score": 54.43,
+      "composite_rank": 58
+    },
+    {
+      "team": "UNLV",
+      "conference": "Mountain West",
+      "team_id": 2439,
+      "ratings": {
+        "elo": 1663,
+        "fpi": 0.79,
+        "sp_overall": 5.7,
+        "srs": -0.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 64.18,
+        "defensive_efficiency": 33.73,
+        "special_teams_efficiency": 56.27,
+        "sos_rank": 129,
+        "resume_rank": 63
+      },
+      "sp_details": {
+        "offense": 36.2,
+        "defense": 30.7,
+        "special_teams": 0.2
+      },
+      "composite_score": 53.68,
+      "composite_rank": 59
+    },
+    {
+      "team": "Northwestern",
+      "conference": "Big Ten",
+      "team_id": 77,
+      "ratings": {
+        "elo": 1531,
+        "fpi": 3.1,
+        "sp_overall": 1.9,
+        "srs": 2.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 56.54,
+        "defensive_efficiency": 50.21,
+        "special_teams_efficiency": 56.9,
+        "sos_rank": 25,
+        "resume_rank": 56
+      },
+      "sp_details": {
+        "offense": 24,
+        "defense": 22.6,
+        "special_teams": 0.5
+      },
+      "composite_score": 52.99,
+      "composite_rank": 60
+    },
+    {
+      "team": "Baylor",
+      "conference": "Big 12",
+      "team_id": 239,
+      "ratings": {
+        "elo": 1526,
+        "fpi": 3.74,
+        "sp_overall": 1.4,
+        "srs": 1.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 65.95,
+        "defensive_efficiency": 36.48,
+        "special_teams_efficiency": 55.75,
+        "sos_rank": 40,
+        "resume_rank": 52
+      },
+      "sp_details": {
+        "offense": 33.9,
+        "defense": 33,
+        "special_teams": 0.6
+      },
+      "composite_score": 52.44,
+      "composite_rank": 61
+    },
+    {
+      "team": "NC State",
+      "conference": "ACC",
+      "team_id": 152,
+      "ratings": {
+        "elo": 1481,
+        "fpi": 2.41,
+        "sp_overall": 0.7,
+        "srs": 3.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 72.69,
+        "defensive_efficiency": 45.56,
+        "special_teams_efficiency": 41.62,
+        "sos_rank": 27,
+        "resume_rank": 60
+      },
+      "sp_details": {
+        "offense": 30.2,
+        "defense": 28.9,
+        "special_teams": -0.5
+      },
+      "composite_score": 51.97,
+      "composite_rank": 62
+    },
+    {
+      "team": "UTSA",
+      "conference": "American Athletic",
+      "team_id": 2636,
+      "ratings": {
+        "elo": 1585,
+        "fpi": 0.54,
+        "sp_overall": 2.3,
+        "srs": 1.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 54.29,
+        "defensive_efficiency": 52.97,
+        "special_teams_efficiency": 43.9,
+        "sos_rank": 65,
+        "resume_rank": 65
+      },
+      "sp_details": {
+        "offense": 32.8,
+        "defense": 30.8,
+        "special_teams": 0.3
+      },
+      "composite_score": 51.73,
+      "composite_rank": 63
+    },
+    {
+      "team": "Washington State",
+      "conference": "Pac-12",
+      "team_id": 265,
+      "ratings": {
+        "elo": 1508,
+        "fpi": -0.41,
+        "sp_overall": 0.8,
+        "srs": 3.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 43.02,
+        "defensive_efficiency": 68.93,
+        "special_teams_efficiency": 51.17,
+        "sos_rank": 46,
+        "resume_rank": 68
+      },
+      "sp_details": {
+        "offense": 22.7,
+        "defense": 22,
+        "special_teams": 0.1
+      },
+      "composite_score": 50.84,
+      "composite_rank": 64
+    },
+    {
+      "team": "UConn",
+      "conference": "FBS Independents",
+      "team_id": 41,
+      "ratings": {
+        "elo": 1554,
+        "fpi": -2.13,
+        "sp_overall": 6.3,
+        "srs": -2.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 65.99,
+        "defensive_efficiency": 35.22,
+        "special_teams_efficiency": 62.02,
+        "sos_rank": 135,
+        "resume_rank": 73
+      },
+      "sp_details": {
+        "offense": 33.1,
+        "defense": 27.4,
+        "special_teams": 0.5
+      },
+      "composite_score": 50.41,
+      "composite_rank": 65
+    },
+    {
+      "team": "Wisconsin",
+      "conference": "Big Ten",
+      "team_id": 275,
+      "ratings": {
+        "elo": 1521,
+        "fpi": 2.79,
+        "sp_overall": -4.7,
+        "srs": 3.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 23.51,
+        "defensive_efficiency": 72.53,
+        "special_teams_efficiency": 51.65,
+        "sos_rank": 1,
+        "resume_rank": 58
+      },
+      "sp_details": {
+        "offense": 18.3,
+        "defense": 22.7,
+        "special_teams": -0.3
+      },
+      "composite_score": 49.71,
+      "composite_rank": 66
+    },
+    {
+      "team": "Rutgers",
+      "conference": "Big Ten",
+      "team_id": 164,
+      "ratings": {
+        "elo": 1445,
+        "fpi": 0.84,
+        "sp_overall": -0.5,
+        "srs": 1.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 68.58,
+        "defensive_efficiency": 22.18,
+        "special_teams_efficiency": 64.4,
+        "sos_rank": 22,
+        "resume_rank": 61
+      },
+      "sp_details": {
+        "offense": 30.3,
+        "defense": 30.8,
+        "special_teams": null
+      },
+      "composite_score": 48.93,
+      "composite_rank": 67
+    },
+    {
+      "team": "UCF",
+      "conference": "Big 12",
+      "team_id": 2116,
+      "ratings": {
+        "elo": 1464,
+        "fpi": -0.6,
+        "sp_overall": 0.7,
+        "srs": -0.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 29.61,
+        "defensive_efficiency": 58.64,
+        "special_teams_efficiency": 52.01,
+        "sos_rank": 59,
+        "resume_rank": 69
+      },
+      "sp_details": {
+        "offense": 23.5,
+        "defense": 22.7,
+        "special_teams": -0.1
+      },
+      "composite_score": 48.25,
+      "composite_rank": 68
+    },
+    {
+      "team": "Minnesota",
+      "conference": "Big Ten",
+      "team_id": 135,
+      "ratings": {
+        "elo": 1491,
+        "fpi": 0.36,
+        "sp_overall": -0.2,
+        "srs": -1.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 50.98,
+        "defensive_efficiency": 45.7,
+        "special_teams_efficiency": 56.09,
+        "sos_rank": 30,
+        "resume_rank": 66
+      },
+      "sp_details": {
+        "offense": 24.5,
+        "defense": 24.2,
+        "special_teams": -0.5
+      },
+      "composite_score": 48.17,
+      "composite_rank": 69
+    },
+    {
+      "team": "Navy",
+      "conference": "American Athletic",
+      "team_id": 2426,
+      "ratings": {
+        "elo": 1485,
+        "fpi": -2.71,
+        "sp_overall": 2.3,
+        "srs": -1.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 69.6,
+        "defensive_efficiency": 31.13,
+        "special_teams_efficiency": 60.36,
+        "sos_rank": 70,
+        "resume_rank": 76
+      },
+      "sp_details": {
+        "offense": 33.5,
+        "defense": 31.4,
+        "special_teams": 0.2
+      },
+      "composite_score": 47.86,
+      "composite_rank": 70
+    },
+    {
+      "team": "Maryland",
+      "conference": "Big Ten",
+      "team_id": 120,
+      "ratings": {
+        "elo": 1414,
+        "fpi": -1.42,
+        "sp_overall": 0.6,
+        "srs": 0.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 35.78,
+        "defensive_efficiency": 63.79,
+        "special_teams_efficiency": 58.25,
+        "sos_rank": 44,
+        "resume_rank": 70
+      },
+      "sp_details": {
+        "offense": 24.2,
+        "defense": 24.1,
+        "special_teams": 0.4
+      },
+      "composite_score": 47.31,
+      "composite_rank": 71
+    },
+    {
+      "team": "New Mexico",
+      "conference": "Mountain West",
+      "team_id": 167,
+      "ratings": {
+        "elo": 1491,
+        "fpi": -2.43,
+        "sp_overall": 0,
+        "srs": -0.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 49.6,
+        "defensive_efficiency": 54.24,
+        "special_teams_efficiency": 45.96,
+        "sos_rank": 83,
+        "resume_rank": 75
+      },
+      "sp_details": {
+        "offense": 27.1,
+        "defense": 27.6,
+        "special_teams": 0.5
+      },
+      "composite_score": 47.22,
+      "composite_rank": 72
+    },
+    {
+      "team": "Utah State",
+      "conference": "Mountain West",
+      "team_id": 328,
+      "ratings": {
+        "elo": 1455,
+        "fpi": -2.34,
+        "sp_overall": -0.7,
+        "srs": -1.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 58.99,
+        "defensive_efficiency": 46.76,
+        "special_teams_efficiency": 37.96,
+        "sos_rank": 64,
+        "resume_rank": 74
+      },
+      "sp_details": {
+        "offense": 30.8,
+        "defense": 30.9,
+        "special_teams": -0.6
+      },
+      "composite_score": 45.82,
+      "composite_rank": 73
+    },
+    {
+      "team": "Texas State",
+      "conference": "Sun Belt",
+      "team_id": 326,
+      "ratings": {
+        "elo": 1533,
+        "fpi": -3.16,
+        "sp_overall": -1.5,
+        "srs": -4.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 70.16,
+        "defensive_efficiency": 29.19,
+        "special_teams_efficiency": 38.15,
+        "sos_rank": 109,
+        "resume_rank": 80
+      },
+      "sp_details": {
+        "offense": 34.7,
+        "defense": 36.2,
+        "special_teams": null
+      },
+      "composite_score": 44.83,
+      "composite_rank": 74
+    },
+    {
+      "team": "Ohio",
+      "conference": "Mid-American",
+      "team_id": 195,
+      "ratings": {
+        "elo": 1572,
+        "fpi": -2.97,
+        "sp_overall": -2.7,
+        "srs": -4.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 52.07,
+        "defensive_efficiency": 44.27,
+        "special_teams_efficiency": 48.3,
+        "sos_rank": 82,
+        "resume_rank": 78
+      },
+      "sp_details": {
+        "offense": 24,
+        "defense": 26,
+        "special_teams": -0.7
+      },
+      "composite_score": 44.77,
+      "composite_rank": 75
+    },
+    {
+      "team": "Michigan State",
+      "conference": "Big Ten",
+      "team_id": 127,
+      "ratings": {
+        "elo": 1382,
+        "fpi": -0.34,
+        "sp_overall": -5.2,
+        "srs": -2.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 47.22,
+        "defensive_efficiency": 50.02,
+        "special_teams_efficiency": 44.47,
+        "sos_rank": 15,
+        "resume_rank": 67
+      },
+      "sp_details": {
+        "offense": 24.8,
+        "defense": 29.6,
+        "special_teams": -0.5
+      },
+      "composite_score": 43.35,
+      "composite_rank": 76
+    },
+    {
+      "team": "West Virginia",
+      "conference": "Big 12",
+      "team_id": 277,
+      "ratings": {
+        "elo": 1355,
+        "fpi": -1.97,
+        "sp_overall": -5.3,
+        "srs": -1.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 35.05,
+        "defensive_efficiency": 58.36,
+        "special_teams_efficiency": 49.74,
+        "sos_rank": 36,
+        "resume_rank": 72
+      },
+      "sp_details": {
+        "offense": 23.9,
+        "defense": 29.2,
+        "special_teams": null
+      },
+      "composite_score": 42.45,
+      "composite_rank": 77
+    },
+    {
+      "team": "Army",
+      "conference": "American Athletic",
+      "team_id": 349,
+      "ratings": {
+        "elo": 1504,
+        "fpi": -5.85,
+        "sp_overall": -2.5,
+        "srs": -4.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 41.54,
+        "defensive_efficiency": 46.75,
+        "special_teams_efficiency": 59.12,
+        "sos_rank": 96,
+        "resume_rank": 87
+      },
+      "sp_details": {
+        "offense": 22.9,
+        "defense": 25.3,
+        "special_teams": -0.1
+      },
+      "composite_score": 42.42,
+      "composite_rank": 78
+    },
+    {
+      "team": "Western Michigan",
+      "conference": "Mid-American",
+      "team_id": 2711,
+      "ratings": {
+        "elo": 1407,
+        "fpi": -5.21,
+        "sp_overall": -3.2,
+        "srs": -2.9
+      },
+      "fpi_details": {
+        "offensive_efficiency": 39.7,
+        "defensive_efficiency": 62.59,
+        "special_teams_efficiency": 35.85,
+        "sos_rank": 107,
+        "resume_rank": 86
+      },
+      "sp_details": {
+        "offense": 20.6,
+        "defense": 23.3,
+        "special_teams": -0.5
+      },
+      "composite_score": 41.93,
+      "composite_rank": 79
+    },
+    {
+      "team": "Western Kentucky",
+      "conference": "Conference USA",
+      "team_id": 98,
+      "ratings": {
+        "elo": 1401,
+        "fpi": -7.9,
+        "sp_overall": 1.1,
+        "srs": -4.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 38.53,
+        "defensive_efficiency": 44.95,
+        "special_teams_efficiency": 47.94,
+        "sos_rank": 120,
+        "resume_rank": 97
+      },
+      "sp_details": {
+        "offense": 26.9,
+        "defense": 26.4,
+        "special_teams": 0.5
+      },
+      "composite_score": 41.86,
+      "composite_rank": 80
+    },
+    {
+      "team": "Hawai'i",
+      "conference": "Mountain West",
+      "team_id": 62,
+      "ratings": {
+        "elo": 1421,
+        "fpi": -6.07,
+        "sp_overall": -1.1,
+        "srs": -4.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 40.94,
+        "defensive_efficiency": 43.78,
+        "special_teams_efficiency": 59.85,
+        "sos_rank": 105,
+        "resume_rank": 89
+      },
+      "sp_details": {
+        "offense": 26.1,
+        "defense": 27.6,
+        "special_teams": 0.5
+      },
+      "composite_score": 41.83,
+      "composite_rank": 81
+    },
+    {
+      "team": "Miami (OH)",
+      "conference": "Mid-American",
+      "team_id": 193,
+      "ratings": {
+        "elo": 1451,
+        "fpi": -4.73,
+        "sp_overall": -3,
+        "srs": -5.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 35.77,
+        "defensive_efficiency": 55.3,
+        "special_teams_efficiency": 63.16,
+        "sos_rank": 122,
+        "resume_rank": 83
+      },
+      "sp_details": {
+        "offense": 20.8,
+        "defense": 24.4,
+        "special_teams": 0.7
+      },
+      "composite_score": 41.72,
+      "composite_rank": 82
+    },
+    {
+      "team": "Fresno State",
+      "conference": "Mountain West",
+      "team_id": 278,
+      "ratings": {
+        "elo": 1478,
+        "fpi": -6.96,
+        "sp_overall": -1.2,
+        "srs": -5.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 24.95,
+        "defensive_efficiency": 58.43,
+        "special_teams_efficiency": 60.83,
+        "sos_rank": 116,
+        "resume_rank": 92
+      },
+      "sp_details": {
+        "offense": 22.2,
+        "defense": 23.1,
+        "special_teams": -0.3
+      },
+      "composite_score": 41.5,
+      "composite_rank": 83
+    },
+    {
+      "team": "Marshall",
+      "conference": "Sun Belt",
+      "team_id": 276,
+      "ratings": {
+        "elo": 1495,
+        "fpi": -5.14,
+        "sp_overall": -4.4,
+        "srs": -5.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 44.38,
+        "defensive_efficiency": 46.45,
+        "special_teams_efficiency": 52.7,
+        "sos_rank": 87,
+        "resume_rank": 85
+      },
+      "sp_details": {
+        "offense": 30.4,
+        "defense": 34.7,
+        "special_teams": null
+      },
+      "composite_score": 41.22,
+      "composite_rank": 84
+    },
+    {
+      "team": "Louisiana Tech",
+      "conference": "Conference USA",
+      "team_id": 2348,
+      "ratings": {
+        "elo": 1407,
+        "fpi": -6.6,
+        "sp_overall": -1.5,
+        "srs": -4.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 33.29,
+        "defensive_efficiency": 58.1,
+        "special_teams_efficiency": 55.92,
+        "sos_rank": 121,
+        "resume_rank": 90
+      },
+      "sp_details": {
+        "offense": 23.7,
+        "defense": 25.1,
+        "special_teams": -0.1
+      },
+      "composite_score": 41.19,
+      "composite_rank": 85
+    },
+    {
+      "team": "Kennesaw State",
+      "conference": "Conference USA",
+      "team_id": 338,
+      "ratings": {
+        "elo": 1385,
+        "fpi": -6.94,
+        "sp_overall": -1.5,
+        "srs": -4.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 48.52,
+        "defensive_efficiency": 40.58,
+        "special_teams_efficiency": 53.53,
+        "sos_rank": 92,
+        "resume_rank": 91
+      },
+      "sp_details": {
+        "offense": 25.7,
+        "defense": 26.7,
+        "special_teams": -0.5
+      },
+      "composite_score": 41.09,
+      "composite_rank": 86
+    },
+    {
+      "team": "Colorado",
+      "conference": "Big 12",
+      "team_id": 38,
+      "ratings": {
+        "elo": 1338,
+        "fpi": -2.96,
+        "sp_overall": -6.8,
+        "srs": -2.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 44.36,
+        "defensive_efficiency": 47.04,
+        "special_teams_efficiency": 41.88,
+        "sos_rank": 42,
+        "resume_rank": 77
+      },
+      "sp_details": {
+        "offense": 23.9,
+        "defense": 30.3,
+        "special_teams": -0.4
+      },
+      "composite_score": 40.74,
+      "composite_rank": 87
+    },
+    {
+      "team": "Virginia Tech",
+      "conference": "ACC",
+      "team_id": 259,
+      "ratings": {
+        "elo": 1409,
+        "fpi": -1.62,
+        "sp_overall": -8.6,
+        "srs": -4.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 49.83,
+        "defensive_efficiency": 33.77,
+        "special_teams_efficiency": 41.53,
+        "sos_rank": 43,
+        "resume_rank": 71
+      },
+      "sp_details": {
+        "offense": 23.1,
+        "defense": 31.5,
+        "special_teams": -0.1
+      },
+      "composite_score": 40.1,
+      "composite_rank": 88
+    },
+    {
+      "team": "UCLA",
+      "conference": "Big Ten",
+      "team_id": 26,
+      "ratings": {
+        "elo": 1313,
+        "fpi": -3.01,
+        "sp_overall": -8.5,
+        "srs": -1.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 40.88,
+        "defensive_efficiency": 41.92,
+        "special_teams_efficiency": 47.71,
+        "sos_rank": 8,
+        "resume_rank": 79
+      },
+      "sp_details": {
+        "offense": 22.6,
+        "defense": 31.1,
+        "special_teams": null
+      },
+      "composite_score": 40.01,
+      "composite_rank": 89
+    },
+    {
+      "team": "Purdue",
+      "conference": "Big Ten",
+      "team_id": 2509,
+      "ratings": {
+        "elo": 1276,
+        "fpi": -3.4,
+        "sp_overall": -6.5,
+        "srs": -2.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 45.91,
+        "defensive_efficiency": 39.79,
+        "special_teams_efficiency": 51.95,
+        "sos_rank": 6,
+        "resume_rank": 81
+      },
+      "sp_details": {
+        "offense": 22.6,
+        "defense": 29.8,
+        "special_teams": 0.6
+      },
+      "composite_score": 39.95,
+      "composite_rank": 90
+    },
+    {
+      "team": "California",
+      "conference": "ACC",
+      "team_id": 25,
+      "ratings": {
+        "elo": 1351,
+        "fpi": -5.06,
+        "sp_overall": -4.1,
+        "srs": -6.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 35.14,
+        "defensive_efficiency": 52.38,
+        "special_teams_efficiency": 54.22,
+        "sos_rank": 91,
+        "resume_rank": 84
+      },
+      "sp_details": {
+        "offense": 23,
+        "defense": 27.2,
+        "special_teams": null
+      },
+      "composite_score": 38.96,
+      "composite_rank": 91
+    },
+    {
+      "team": "North Carolina",
+      "conference": "ACC",
+      "team_id": 153,
+      "ratings": {
+        "elo": 1364,
+        "fpi": -5.99,
+        "sp_overall": -6.1,
+        "srs": -6.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 33.48,
+        "defensive_efficiency": 47.11,
+        "special_teams_efficiency": 60.07,
+        "sos_rank": 93,
+        "resume_rank": 88
+      },
+      "sp_details": {
+        "offense": 18,
+        "defense": 24.5,
+        "special_teams": 0.3
+      },
+      "composite_score": 37.6,
+      "composite_rank": 92
+    },
+    {
+      "team": "Stanford",
+      "conference": "ACC",
+      "team_id": 24,
+      "ratings": {
+        "elo": 1315,
+        "fpi": -3.74,
+        "sp_overall": -9.9,
+        "srs": -4.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 31.04,
+        "defensive_efficiency": 57.23,
+        "special_teams_efficiency": 42.56,
+        "sos_rank": 32,
+        "resume_rank": 82
+      },
+      "sp_details": {
+        "offense": 18.9,
+        "defense": 28.2,
+        "special_teams": -0.6
+      },
+      "composite_score": 37.42,
+      "composite_rank": 93
+    },
+    {
+      "team": "Southern Miss",
+      "conference": "Sun Belt",
+      "team_id": 2572,
+      "ratings": {
+        "elo": 1297,
+        "fpi": -7.06,
+        "sp_overall": -4.2,
+        "srs": -7.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 36.37,
+        "defensive_efficiency": 48.47,
+        "special_teams_efficiency": 58.39,
+        "sos_rank": 133,
+        "resume_rank": 93
+      },
+      "sp_details": {
+        "offense": 28.1,
+        "defense": 32.1,
+        "special_teams": -0.3
+      },
+      "composite_score": 36.88,
+      "composite_rank": 94
+    },
+    {
+      "team": "Troy",
+      "conference": "Sun Belt",
+      "team_id": 2653,
+      "ratings": {
+        "elo": 1362,
+        "fpi": -7.27,
+        "sp_overall": -4.2,
+        "srs": -9.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 26.34,
+        "defensive_efficiency": 48.66,
+        "special_teams_efficiency": 58.5,
+        "sos_rank": 112,
+        "resume_rank": 95
+      },
+      "sp_details": {
+        "offense": 24.4,
+        "defense": 29,
+        "special_teams": 0.4
+      },
+      "composite_score": 36.64,
+      "composite_rank": 95
+    },
+    {
+      "team": "Jacksonville State",
+      "conference": "Conference USA",
+      "team_id": 55,
+      "ratings": {
+        "elo": 1501,
+        "fpi": -9.36,
+        "sp_overall": -5.2,
+        "srs": -10.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 39.31,
+        "defensive_efficiency": 46.3,
+        "special_teams_efficiency": 39.87,
+        "sos_rank": 136,
+        "resume_rank": 101
+      },
+      "sp_details": {
+        "offense": 27.2,
+        "defense": 31.8,
+        "special_teams": -0.6
+      },
+      "composite_score": 36.33,
+      "composite_rank": 96
+    },
+    {
+      "team": "Central Michigan",
+      "conference": "Mid-American",
+      "team_id": 2117,
+      "ratings": {
+        "elo": 1291,
+        "fpi": -9.91,
+        "sp_overall": -4.4,
+        "srs": -6.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 41.95,
+        "defensive_efficiency": 49.48,
+        "special_teams_efficiency": 47.22,
+        "sos_rank": 99,
+        "resume_rank": 104
+      },
+      "sp_details": {
+        "offense": 20.8,
+        "defense": 24.8,
+        "special_teams": -0.3
+      },
+      "composite_score": 35.78,
+      "composite_rank": 97
+    },
+    {
+      "team": "Temple",
+      "conference": "American Athletic",
+      "team_id": 218,
+      "ratings": {
+        "elo": 1234,
+        "fpi": -8.44,
+        "sp_overall": -5.1,
+        "srs": -6.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 57.25,
+        "defensive_efficiency": 30.9,
+        "special_teams_efficiency": 38.52,
+        "sos_rank": 97,
+        "resume_rank": 98
+      },
+      "sp_details": {
+        "offense": 27.1,
+        "defense": 32.4,
+        "special_teams": 0.2
+      },
+      "composite_score": 35.26,
+      "composite_rank": 98
+    },
+    {
+      "team": "Missouri State",
+      "conference": "Conference USA",
+      "team_id": 2623,
+      "ratings": {
+        "elo": 1366,
+        "fpi": -10.1,
+        "sp_overall": -7.8,
+        "srs": -7.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 47.34,
+        "defensive_efficiency": 40.44,
+        "special_teams_efficiency": 44.08,
+        "sos_rank": 86,
+        "resume_rank": 106
+      },
+      "sp_details": {
+        "offense": 24,
+        "defense": 31.3,
+        "special_teams": -0.5
+      },
+      "composite_score": 34.62,
+      "composite_rank": 99
+    },
+    {
+      "team": "Air Force",
+      "conference": "Mountain West",
+      "team_id": 2005,
+      "ratings": {
+        "elo": 1350,
+        "fpi": -10.08,
+        "sp_overall": -5.8,
+        "srs": -9.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 58.15,
+        "defensive_efficiency": 17.31,
+        "special_teams_efficiency": 38.48,
+        "sos_rank": 119,
+        "resume_rank": 105
+      },
+      "sp_details": {
+        "offense": 26.9,
+        "defense": 32.6,
+        "special_teams": null
+      },
+      "composite_score": 34.23,
+      "composite_rank": 100
+    },
+    {
+      "team": "Liberty",
+      "conference": "Conference USA",
+      "team_id": 2335,
+      "ratings": {
+        "elo": 1457,
+        "fpi": -10.69,
+        "sp_overall": -8,
+        "srs": -10.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 36.46,
+        "defensive_efficiency": 31.73,
+        "special_teams_efficiency": 56.72,
+        "sos_rank": 124,
+        "resume_rank": 107
+      },
+      "sp_details": {
+        "offense": 22.5,
+        "defense": 30.3,
+        "special_teams": -0.2
+      },
+      "composite_score": 33.72,
+      "composite_rank": 101
+    },
+    {
+      "team": "Louisiana",
+      "conference": "Sun Belt",
+      "team_id": 309,
+      "ratings": {
+        "elo": 1354,
+        "fpi": -8.92,
+        "sp_overall": -8.6,
+        "srs": -10.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 34.55,
+        "defensive_efficiency": 41.28,
+        "special_teams_efficiency": 42.98,
+        "sos_rank": 94,
+        "resume_rank": 99
+      },
+      "sp_details": {
+        "offense": 25.9,
+        "defense": 34.1,
+        "special_teams": -0.4
+      },
+      "composite_score": 32.96,
+      "composite_rank": 102
+    },
+    {
+      "team": "Boston College",
+      "conference": "ACC",
+      "team_id": 103,
+      "ratings": {
+        "elo": 1311,
+        "fpi": -7.22,
+        "sp_overall": -11.8,
+        "srs": -8.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 43.56,
+        "defensive_efficiency": 25.51,
+        "special_teams_efficiency": 51.21,
+        "sos_rank": 50,
+        "resume_rank": 94
+      },
+      "sp_details": {
+        "offense": 22.9,
+        "defense": 35.2,
+        "special_teams": 0.4
+      },
+      "composite_score": 32.73,
+      "composite_rank": 103
+    },
+    {
+      "team": "Florida Atlantic",
+      "conference": "American Athletic",
+      "team_id": 2226,
+      "ratings": {
+        "elo": 1263,
+        "fpi": -9.1,
+        "sp_overall": -7.7,
+        "srs": -9.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 46.55,
+        "defensive_efficiency": 33.16,
+        "special_teams_efficiency": 43.54,
+        "sos_rank": 95,
+        "resume_rank": 100
+      },
+      "sp_details": {
+        "offense": 29.3,
+        "defense": 37.3,
+        "special_teams": 0.3
+      },
+      "composite_score": 32.59,
+      "composite_rank": 104
+    },
+    {
+      "team": "Syracuse",
+      "conference": "ACC",
+      "team_id": 183,
+      "ratings": {
+        "elo": 1230,
+        "fpi": -7.85,
+        "sp_overall": -12.9,
+        "srs": -5.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 23.03,
+        "defensive_efficiency": 52.92,
+        "special_teams_efficiency": 48.66,
+        "sos_rank": 11,
+        "resume_rank": 96
+      },
+      "sp_details": {
+        "offense": 20.2,
+        "defense": 33.2,
+        "special_teams": 0.2
+      },
+      "composite_score": 32.35,
+      "composite_rank": 105
+    },
+    {
+      "team": "Wyoming",
+      "conference": "Mountain West",
+      "team_id": 2751,
+      "ratings": {
+        "elo": 1333,
+        "fpi": -10.73,
+        "sp_overall": -9.2,
+        "srs": -10.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 20.63,
+        "defensive_efficiency": 54.24,
+        "special_teams_efficiency": 39.95,
+        "sos_rank": 102,
+        "resume_rank": 108
+      },
+      "sp_details": {
+        "offense": 15.9,
+        "defense": 24.5,
+        "special_teams": -0.6
+      },
+      "composite_score": 31.65,
+      "composite_rank": 106
+    },
+    {
+      "team": "South Alabama",
+      "conference": "Sun Belt",
+      "team_id": 6,
+      "ratings": {
+        "elo": 1375,
+        "fpi": -9.57,
+        "sp_overall": -10.4,
+        "srs": -12.0
+      },
+      "fpi_details": {
+        "offensive_efficiency": 40.56,
+        "defensive_efficiency": 30.89,
+        "special_teams_efficiency": 44.85,
+        "sos_rank": 104,
+        "resume_rank": 102
+      },
+      "sp_details": {
+        "offense": 25.1,
+        "defense": 34.8,
+        "special_teams": -0.7
+      },
+      "composite_score": 31.2,
+      "composite_rank": 107
+    },
+    {
+      "team": "Arkansas State",
+      "conference": "Sun Belt",
+      "team_id": 2032,
+      "ratings": {
+        "elo": 1302,
+        "fpi": -9.65,
+        "sp_overall": -9.9,
+        "srs": -11.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 28.88,
+        "defensive_efficiency": 42.31,
+        "special_teams_efficiency": 55.07,
+        "sos_rank": 118,
+        "resume_rank": 103
+      },
+      "sp_details": {
+        "offense": 22.2,
+        "defense": 32.4,
+        "special_teams": 0.2
+      },
+      "composite_score": 30.85,
+      "composite_rank": 108
+    },
+    {
+      "team": "Florida International",
+      "conference": "Conference USA",
+      "team_id": 2229,
+      "ratings": {
+        "elo": 1343,
+        "fpi": -11.5,
+        "sp_overall": -9.7,
+        "srs": -10.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 31.57,
+        "defensive_efficiency": 46.53,
+        "special_teams_efficiency": 37.54,
+        "sos_rank": 113,
+        "resume_rank": 110
+      },
+      "sp_details": {
+        "offense": 24.7,
+        "defense": 34,
+        "special_teams": -0.4
+      },
+      "composite_score": 30.84,
+      "composite_rank": 109
+    },
+    {
+      "team": "Buffalo",
+      "conference": "Mid-American",
+      "team_id": 2084,
+      "ratings": {
+        "elo": 1288,
+        "fpi": -13.26,
+        "sp_overall": -8,
+        "srs": -14.4
+      },
+      "fpi_details": {
+        "offensive_efficiency": 14.09,
+        "defensive_efficiency": 49.01,
+        "special_teams_efficiency": 54.48,
+        "sos_rank": 134,
+        "resume_rank": 119
+      },
+      "sp_details": {
+        "offense": 17.9,
+        "defense": 26.5,
+        "special_teams": 0.6
+      },
+      "composite_score": 28.27,
+      "composite_rank": 110
+    },
+    {
+      "team": "App State",
+      "conference": "Sun Belt",
+      "team_id": 2026,
+      "ratings": {
+        "elo": 1252,
+        "fpi": -12.38,
+        "sp_overall": -10.6,
+        "srs": -12.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 31.4,
+        "defensive_efficiency": 33.0,
+        "special_teams_efficiency": 56.76,
+        "sos_rank": 111,
+        "resume_rank": 114
+      },
+      "sp_details": {
+        "offense": 23.1,
+        "defense": 34,
+        "special_teams": 0.3
+      },
+      "composite_score": 27.91,
+      "composite_rank": 111
+    },
+    {
+      "team": "Coastal Carolina",
+      "conference": "Sun Belt",
+      "team_id": 324,
+      "ratings": {
+        "elo": 1228,
+        "fpi": -12.81,
+        "sp_overall": -11.5,
+        "srs": -11.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 25.55,
+        "defensive_efficiency": 42.11,
+        "special_teams_efficiency": 62.73,
+        "sos_rank": 98,
+        "resume_rank": 116
+      },
+      "sp_details": {
+        "offense": 24.7,
+        "defense": 36.3,
+        "special_teams": null
+      },
+      "composite_score": 27.39,
+      "composite_rank": 112
+    },
+    {
+      "team": "Georgia Southern",
+      "conference": "Sun Belt",
+      "team_id": 290,
+      "ratings": {
+        "elo": 1250,
+        "fpi": -11.69,
+        "sp_overall": -12.1,
+        "srs": -13.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 49.01,
+        "defensive_efficiency": 18.8,
+        "special_teams_efficiency": 53.05,
+        "sos_rank": 78,
+        "resume_rank": 111
+      },
+      "sp_details": {
+        "offense": 27.6,
+        "defense": 39.7,
+        "special_teams": 0.1
+      },
+      "composite_score": 27.13,
+      "composite_rank": 113
+    },
+    {
+      "team": "Nevada",
+      "conference": "Mountain West",
+      "team_id": 2440,
+      "ratings": {
+        "elo": 1303,
+        "fpi": -13.42,
+        "sp_overall": -12.6,
+        "srs": -12.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 16.69,
+        "defensive_efficiency": 47.27,
+        "special_teams_efficiency": 57.26,
+        "sos_rank": 85,
+        "resume_rank": 122
+      },
+      "sp_details": {
+        "offense": 14.4,
+        "defense": 27.3,
+        "special_teams": 0.3
+      },
+      "composite_score": 27.03,
+      "composite_rank": 114
+    },
+    {
+      "team": "Tulsa",
+      "conference": "American Athletic",
+      "team_id": 202,
+      "ratings": {
+        "elo": 1119,
+        "fpi": -13.37,
+        "sp_overall": -10.7,
+        "srs": -10.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 31.83,
+        "defensive_efficiency": 39.72,
+        "special_teams_efficiency": 48.24,
+        "sos_rank": 115,
+        "resume_rank": 121
+      },
+      "sp_details": {
+        "offense": 21.8,
+        "defense": 32.9,
+        "special_teams": 0.4
+      },
+      "composite_score": 26.7,
+      "composite_rank": 115
+    },
+    {
+      "team": "San Jos\u00e9 State",
+      "conference": "Mountain West",
+      "team_id": 23,
+      "ratings": {
+        "elo": 1185,
+        "fpi": -12.2,
+        "sp_overall": -11.4,
+        "srs": -13.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 49.29,
+        "defensive_efficiency": 27.74,
+        "special_teams_efficiency": 40.65,
+        "sos_rank": 90,
+        "resume_rank": 113
+      },
+      "sp_details": {
+        "offense": 22.8,
+        "defense": 33.7,
+        "special_teams": -0.4
+      },
+      "composite_score": 26.41,
+      "composite_rank": 116
+    },
+    {
+      "team": "Oregon State",
+      "conference": "Pac-12",
+      "team_id": 204,
+      "ratings": {
+        "elo": 1175,
+        "fpi": -11.29,
+        "sp_overall": -13.3,
+        "srs": -12.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 26.61,
+        "defensive_efficiency": 39.58,
+        "special_teams_efficiency": 19.75,
+        "sos_rank": 60,
+        "resume_rank": 109
+      },
+      "sp_details": {
+        "offense": 17.7,
+        "defense": 30.3,
+        "special_teams": -0.7
+      },
+      "composite_score": 26.09,
+      "composite_rank": 117
+    },
+    {
+      "team": "Colorado State",
+      "conference": "Mountain West",
+      "team_id": 36,
+      "ratings": {
+        "elo": 1191,
+        "fpi": -12.03,
+        "sp_overall": -14.5,
+        "srs": -13.1
+      },
+      "fpi_details": {
+        "offensive_efficiency": 25.31,
+        "defensive_efficiency": 30.32,
+        "special_teams_efficiency": 46.95,
+        "sos_rank": 80,
+        "resume_rank": 112
+      },
+      "sp_details": {
+        "offense": 17.5,
+        "defense": 31.9,
+        "special_teams": -0.1
+      },
+      "composite_score": 25.07,
+      "composite_rank": 118
+    },
+    {
+      "team": "Delaware",
+      "conference": "Conference USA",
+      "team_id": 48,
+      "ratings": {
+        "elo": 1266,
+        "fpi": -15.43,
+        "sp_overall": -12.6,
+        "srs": -15.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 33.79,
+        "defensive_efficiency": 19.45,
+        "special_teams_efficiency": 56.11,
+        "sos_rank": 131,
+        "resume_rank": 126
+      },
+      "sp_details": {
+        "offense": 24.1,
+        "defense": 36.3,
+        "special_teams": -0.4
+      },
+      "composite_score": 24.06,
+      "composite_rank": 119
+    },
+    {
+      "team": "Eastern Michigan",
+      "conference": "Mid-American",
+      "team_id": 2199,
+      "ratings": {
+        "elo": 1246,
+        "fpi": -12.95,
+        "sp_overall": -14.3,
+        "srs": -16.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 41.39,
+        "defensive_efficiency": 18.97,
+        "special_teams_efficiency": 52.28,
+        "sos_rank": 126,
+        "resume_rank": 117
+      },
+      "sp_details": {
+        "offense": 19.8,
+        "defense": 34,
+        "special_teams": null
+      },
+      "composite_score": 23.85,
+      "composite_rank": 120
+    },
+    {
+      "team": "Rice",
+      "conference": "American Athletic",
+      "team_id": 242,
+      "ratings": {
+        "elo": 1144,
+        "fpi": -15.29,
+        "sp_overall": -12.5,
+        "srs": -13.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 23.43,
+        "defensive_efficiency": 30.91,
+        "special_teams_efficiency": 54.42,
+        "sos_rank": 117,
+        "resume_rank": 124
+      },
+      "sp_details": {
+        "offense": 19.1,
+        "defense": 31.8,
+        "special_teams": 0.2
+      },
+      "composite_score": 23.66,
+      "composite_rank": 121
+    },
+    {
+      "team": "Bowling Green",
+      "conference": "Mid-American",
+      "team_id": 189,
+      "ratings": {
+        "elo": 1230,
+        "fpi": -13.21,
+        "sp_overall": -15.7,
+        "srs": -15.2
+      },
+      "fpi_details": {
+        "offensive_efficiency": 11.66,
+        "defensive_efficiency": 43.01,
+        "special_teams_efficiency": 59.9,
+        "sos_rank": 108,
+        "resume_rank": 118
+      },
+      "sp_details": {
+        "offense": 14.1,
+        "defense": 30.1,
+        "special_teams": 0.3
+      },
+      "composite_score": 23.32,
+      "composite_rank": 122
+    },
+    {
+      "team": "Oklahoma State",
+      "conference": "Big 12",
+      "team_id": 197,
+      "ratings": {
+        "elo": 1084,
+        "fpi": -12.59,
+        "sp_overall": -16.4,
+        "srs": -11.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 23.84,
+        "defensive_efficiency": 27.22,
+        "special_teams_efficiency": 54.47,
+        "sos_rank": 29,
+        "resume_rank": 115
+      },
+      "sp_details": {
+        "offense": 16.2,
+        "defense": 32.9,
+        "special_teams": 0.2
+      },
+      "composite_score": 23.21,
+      "composite_rank": 123
+    },
+    {
+      "team": "Northern Illinois",
+      "conference": "Mid-American",
+      "team_id": 2459,
+      "ratings": {
+        "elo": 1260,
+        "fpi": -13.35,
+        "sp_overall": -15.8,
+        "srs": -16.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 16.6,
+        "defensive_efficiency": 41.25,
+        "special_teams_efficiency": 58.33,
+        "sos_rank": 114,
+        "resume_rank": 120
+      },
+      "sp_details": {
+        "offense": 11.2,
+        "defense": 26.7,
+        "special_teams": -0.4
+      },
+      "composite_score": 22.92,
+      "composite_rank": 124
+    },
+    {
+      "team": "New Mexico State",
+      "conference": "Conference USA",
+      "team_id": 166,
+      "ratings": {
+        "elo": 1188,
+        "fpi": -15.66,
+        "sp_overall": -14.1,
+        "srs": -14.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 19.0,
+        "defensive_efficiency": 39.98,
+        "special_teams_efficiency": 48.28,
+        "sos_rank": 100,
+        "resume_rank": 127
+      },
+      "sp_details": {
+        "offense": 19.3,
+        "defense": 33.2,
+        "special_teams": -0.1
+      },
+      "composite_score": 22.82,
+      "composite_rank": 125
+    },
+    {
+      "team": "UTEP",
+      "conference": "Conference USA",
+      "team_id": 2638,
+      "ratings": {
+        "elo": 1208,
+        "fpi": -14.55,
+        "sp_overall": -15,
+        "srs": -15.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 18.02,
+        "defensive_efficiency": 43.85,
+        "special_teams_efficiency": 37.52,
+        "sos_rank": 106,
+        "resume_rank": 123
+      },
+      "sp_details": {
+        "offense": 19,
+        "defense": 33.4,
+        "special_teams": -0.6
+      },
+      "composite_score": 22.52,
+      "composite_rank": 126
+    },
+    {
+      "team": "UAB",
+      "conference": "American Athletic",
+      "team_id": 5,
+      "ratings": {
+        "elo": 1175,
+        "fpi": -15.37,
+        "sp_overall": -16.8,
+        "srs": -14.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 40.37,
+        "defensive_efficiency": 16.23,
+        "special_teams_efficiency": 32.41,
+        "sos_rank": 74,
+        "resume_rank": 125
+      },
+      "sp_details": {
+        "offense": 24.8,
+        "defense": 41.1,
+        "special_teams": -0.5
+      },
+      "composite_score": 21.2,
+      "composite_rank": 127
+    },
+    {
+      "team": "Akron",
+      "conference": "Mid-American",
+      "team_id": 2006,
+      "ratings": {
+        "elo": 1101,
+        "fpi": -17.42,
+        "sp_overall": -13.7,
+        "srs": -14.3
+      },
+      "fpi_details": {
+        "offensive_efficiency": 22.66,
+        "defensive_efficiency": 39.12,
+        "special_teams_efficiency": 33.19,
+        "sos_rank": 128,
+        "resume_rank": 128
+      },
+      "sp_details": {
+        "offense": 17,
+        "defense": 30.1,
+        "special_teams": -0.6
+      },
+      "composite_score": 21.05,
+      "composite_rank": 128
+    },
+    {
+      "team": "Middle Tennessee",
+      "conference": "Conference USA",
+      "team_id": 2393,
+      "ratings": {
+        "elo": 1148,
+        "fpi": -18.63,
+        "sp_overall": -18,
+        "srs": -19.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 25.57,
+        "defensive_efficiency": 20.75,
+        "special_teams_efficiency": 50.76,
+        "sos_rank": 132,
+        "resume_rank": 130
+      },
+      "sp_details": {
+        "offense": 18.7,
+        "defense": 36.7,
+        "special_teams": -0.1
+      },
+      "composite_score": 16.23,
+      "composite_rank": 129
+    },
+    {
+      "team": "Kent State",
+      "conference": "Mid-American",
+      "team_id": 2309,
+      "ratings": {
+        "elo": 974,
+        "fpi": -20.35,
+        "sp_overall": -19.6,
+        "srs": -15.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 22.73,
+        "defensive_efficiency": 19.59,
+        "special_teams_efficiency": 62.09,
+        "sos_rank": 58,
+        "resume_rank": 133
+      },
+      "sp_details": {
+        "offense": 15.9,
+        "defense": 34.8,
+        "special_teams": -0.6
+      },
+      "composite_score": 14.3,
+      "composite_rank": 130
+    },
+    {
+      "team": "Ball State",
+      "conference": "Mid-American",
+      "team_id": 2050,
+      "ratings": {
+        "elo": 1018,
+        "fpi": -18.92,
+        "sp_overall": -20.7,
+        "srs": -18.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 19.58,
+        "defensive_efficiency": 32.96,
+        "special_teams_efficiency": 29.57,
+        "sos_rank": 101,
+        "resume_rank": 131
+      },
+      "sp_details": {
+        "offense": 13.3,
+        "defense": 33.4,
+        "special_teams": -0.7
+      },
+      "composite_score": 13.61,
+      "composite_rank": 131
+    },
+    {
+      "team": "Georgia State",
+      "conference": "Sun Belt",
+      "team_id": 2247,
+      "ratings": {
+        "elo": 1104,
+        "fpi": -18.28,
+        "sp_overall": -23.6,
+        "srs": -19.6
+      },
+      "fpi_details": {
+        "offensive_efficiency": 32.04,
+        "defensive_efficiency": 18.68,
+        "special_teams_efficiency": 34.34,
+        "sos_rank": 67,
+        "resume_rank": 129
+      },
+      "sp_details": {
+        "offense": 19,
+        "defense": 41.9,
+        "special_teams": -0.7
+      },
+      "composite_score": 13.06,
+      "composite_rank": 132
+    },
+    {
+      "team": "UL Monroe",
+      "conference": "Sun Belt",
+      "team_id": 2433,
+      "ratings": {
+        "elo": 1013,
+        "fpi": -20.0,
+        "sp_overall": -21.6,
+        "srs": -20.8
+      },
+      "fpi_details": {
+        "offensive_efficiency": 19.52,
+        "defensive_efficiency": 34.9,
+        "special_teams_efficiency": 25.1,
+        "sos_rank": 79,
+        "resume_rank": 132
+      },
+      "sp_details": {
+        "offense": 14.7,
+        "defense": 35.6,
+        "special_teams": -0.7
+      },
+      "composite_score": 11.46,
+      "composite_rank": 133
+    },
+    {
+      "team": "Sam Houston",
+      "conference": "Conference USA",
+      "team_id": 2534,
+      "ratings": {
+        "elo": 1068,
+        "fpi": -22.33,
+        "sp_overall": -25.4,
+        "srs": -21.7
+      },
+      "fpi_details": {
+        "offensive_efficiency": 13.38,
+        "defensive_efficiency": 25.11,
+        "special_teams_efficiency": 61.47,
+        "sos_rank": 103,
+        "resume_rank": 135
+      },
+      "sp_details": {
+        "offense": 14.8,
+        "defense": 39.7,
+        "special_teams": -0.6
+      },
+      "composite_score": 8.64,
+      "composite_rank": 134
+    },
+    {
+      "team": "Charlotte",
+      "conference": "American Athletic",
+      "team_id": 2429,
+      "ratings": {
+        "elo": 1035,
+        "fpi": -21.73,
+        "sp_overall": -25.5,
+        "srs": -21.9
+      },
+      "fpi_details": {
+        "offensive_efficiency": 8.86,
+        "defensive_efficiency": 22.52,
+        "special_teams_efficiency": 52.7,
+        "sos_rank": 69,
+        "resume_rank": 134
+      },
+      "sp_details": {
+        "offense": 15.2,
+        "defense": 40.4,
+        "special_teams": -0.2
+      },
+      "composite_score": 8.37,
+      "composite_rank": 135
+    },
+    {
+      "team": "Massachusetts",
+      "conference": "Mid-American",
+      "team_id": 113,
+      "ratings": {
+        "elo": 748,
+        "fpi": -29.83,
+        "sp_overall": -34.9,
+        "srs": -31.5
+      },
+      "fpi_details": {
+        "offensive_efficiency": 10.6,
+        "defensive_efficiency": 9.61,
+        "special_teams_efficiency": 57.7,
+        "sos_rank": 89,
+        "resume_rank": 136
+      },
+      "sp_details": {
+        "offense": 8.3,
+        "defense": 42.6,
+        "special_teams": -0.6
+      },
+      "composite_score": -8.76,
+      "composite_rank": 136
+    }
+  ]
+}

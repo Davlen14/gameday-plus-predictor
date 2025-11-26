@@ -2,6 +2,7 @@ import { GlassCard } from './GlassCard';
 import { Grid3x3, Check } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { generateTeamAbbr, extractSection, parseTeamValue } from '../../utils/teamUtils';
+import { InsightBox } from './InsightBox';
 
 interface FieldPositionMetricsProps {
   predictionData?: any;
@@ -164,6 +165,22 @@ export function FieldPositionMetrics({ predictionData }: FieldPositionMetricsPro
           )}
         </div>
       </div>
+
+      {/* Insight Box */}
+      <InsightBox
+        whatItMeans="Starting field position is 'free yards' - teams starting at their 35 vs their 25 gain 10 extra yards per drive without running a play. This compounds over 12+ drives per game into significant scoring advantages."
+        whyItMatters={`Every 5 yards of field position advantage equals roughly 0.5 points per game. A 10-yard edge translates to 1+ point per game, or 7-10 points over a season. Elite field position teams (avg 30+ yard line) score 3-5 more PPG. Total field position advantage: ${((awayStats.lineYards + awayStats.secondLevel + awayStats.openField + awayStats.highlightYards) - (homeStats.lineYards + homeStats.secondLevel + homeStats.openField + homeStats.highlightYards)).toFixed(1)} yards.`}
+        whoHasEdge={{
+          team: awayAdvantages > homeAdvantages ? awayTeam.name : homeTeam.name,
+          reason: `${awayAdvantages > homeAdvantages ? awayTeam.name : homeTeam.name} leads ${Math.max(awayAdvantages, homeAdvantages)} of 4 field zones. Average yards per zone: ${awayAdvantages > homeAdvantages ? ((awayStats.lineYards + awayStats.secondLevel + awayStats.openField + awayStats.highlightYards) / 4).toFixed(2) : ((homeStats.lineYards + homeStats.secondLevel + homeStats.openField + homeStats.highlightYards) / 4).toFixed(2)} vs ${awayAdvantages > homeAdvantages ? ((homeStats.lineYards + homeStats.secondLevel + homeStats.openField + homeStats.highlightYards) / 4).toFixed(2) : ((awayStats.lineYards + awayStats.secondLevel + awayStats.openField + awayStats.highlightYards) / 4).toFixed(2)}.`,
+          magnitude: Math.abs(awayAdvantages - homeAdvantages) >= 3 ? 'major' : Math.abs(awayAdvantages - homeAdvantages) >= 2 ? 'significant' : 'moderate'
+        }}
+        keyDifferences={[
+          `Line Yards: ${awayStats.lineYards.toFixed(2)} vs ${homeStats.lineYards.toFixed(2)} (${Math.abs(awayStats.lineYards - homeStats.lineYards).toFixed(2)} yard gap)`,
+          `Open Field: ${awayStats.openField.toFixed(2)} vs ${homeStats.openField.toFixed(2)} (explosive play potential)`,
+          `Zone Control: ${awayAdvantages > homeAdvantages ? awayAbbr : homeAbbr} dominates ${Math.max(awayAdvantages, homeAdvantages)}/4 zones`
+        ]}
+      />
     </GlassCard>
   );
 }

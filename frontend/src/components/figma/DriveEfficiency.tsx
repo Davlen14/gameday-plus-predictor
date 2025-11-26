@@ -3,6 +3,7 @@ import { GlassCard } from './GlassCard';
 import { Zap, Target, TrendingUp, Clock, CheckCircle, BarChart3 } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { extractSection } from '../../utils/teamUtils';
+import { InsightBox } from './InsightBox';
 
 interface DriveEfficiencyProps {
   team1Data?: any;
@@ -1454,6 +1455,24 @@ export function DriveEfficiency({ team1Data, team2Data, predictionData }: DriveE
           </div>
         </div>
       </div>
+
+      {/* Insight Box */}
+      <InsightBox
+        whatItMeans="Drive efficiency combines scoring %, explosive plays, methodical drives, 3&outs, and red zone success. Scoring drives % = % of possessions ending in points. Explosive drives have 3+ plays of 15+ yards. Methodical drives = 10+ plays grinding defenses."
+        whyItMatters={`Teams scoring on 40%+ of drives average 30+ PPG. Explosive drives (fast scores) preserve defense energy. Methodical drives (8+ minutes) dominate time of possession and wear down opponents. Total scoring efficiency: ${driveOutcomes.team1.totalScoring.toFixed(1)}% vs ${driveOutcomes.team2.totalScoring.toFixed(1)}%. Quarter-by-quarter average: ${(team1QuarterScoring.reduce((a, b) => a + b, 0) / 4).toFixed(1)}% vs ${(team2QuarterScoring.reduce((a, b) => a + b, 0) / 4).toFixed(1)}%.`}
+        whoHasEdge={{
+          team: driveOutcomes.team1.totalScoring > driveOutcomes.team2.totalScoring ? team1Name : team2Name,
+          reason: `${driveOutcomes.team1.totalScoring > driveOutcomes.team2.totalScoring ? team1Name : team2Name} scores on ${Math.max(driveOutcomes.team1.totalScoring, driveOutcomes.team2.totalScoring).toFixed(1)}% of drives vs opponent's ${Math.min(driveOutcomes.team1.totalScoring, driveOutcomes.team2.totalScoring).toFixed(1)}%, a ${Math.abs(driveOutcomes.team1.totalScoring - driveOutcomes.team2.totalScoring).toFixed(1)}pt per game advantage. TD rate: ${Math.max(driveOutcomes.team1.touchdowns, driveOutcomes.team2.touchdowns).toFixed(1)}% vs ${Math.min(driveOutcomes.team1.touchdowns, driveOutcomes.team2.touchdowns).toFixed(1)}%. Field position mastery in ${fieldPositionData.team1.reduce((max, pos, i) => pos.scoringPct > max ? fieldPositionData.team1[i].zone : max, '')} zone.`,
+          magnitude: Math.abs(driveOutcomes.team1.totalScoring - driveOutcomes.team2.totalScoring) > 15 ? 'major' : 
+                     Math.abs(driveOutcomes.team1.totalScoring - driveOutcomes.team2.totalScoring) > 10 ? 'significant' : 
+                     Math.abs(driveOutcomes.team1.totalScoring - driveOutcomes.team2.totalScoring) > 5 ? 'moderate' : 'small'
+        }}
+        keyDifferences={[
+          `Scoring drive %: ${driveOutcomes.team1.totalScoring.toFixed(1)}% vs ${driveOutcomes.team2.totalScoring.toFixed(1)}% (${Math.abs(driveOutcomes.team1.totalScoring - driveOutcomes.team2.totalScoring).toFixed(1)}% more scoring possessions)`,
+          `TD efficiency: ${driveOutcomes.team1.touchdowns.toFixed(1)}% vs ${driveOutcomes.team2.touchdowns.toFixed(1)}% (${Math.abs(driveOutcomes.team1.touchdowns - driveOutcomes.team2.touchdowns).toFixed(1)}% TD rate difference)`,
+          `3 & out rate: ${driveOutcomes.team1.punts.toFixed(1)}% vs ${driveOutcomes.team2.punts.toFixed(1)}% (drive sustainability edge)`
+        ]}
+      />
     </GlassCard>
   );
 }

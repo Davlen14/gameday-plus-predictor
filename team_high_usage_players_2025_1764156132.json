@@ -1,0 +1,612 @@
+{
+  "Air Force": {
+    "team_name": "Air Force",
+    "players": {
+      "quarterback": {
+        "name": "Unknown",
+        "position": "QB",
+        "team": "Air Force",
+        "usage_percentage": 0.438,
+        "total_plays": 0,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Air Force",
+          "usage_percentage": 0.146,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Air Force",
+          "usage_percentage": 0.044,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Air Force",
+          "usage_percentage": 0.156,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "FB",
+          "team": "Air Force",
+          "usage_percentage": 0.122,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Air Force K1",
+        "position": "K",
+        "team": "Air Force",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Akron": {
+    "team_name": "Akron",
+    "players": {
+      "quarterback": {
+        "name": "Unknown",
+        "position": "QB",
+        "team": "Akron",
+        "usage_percentage": 0.532,
+        "total_plays": 0,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Akron",
+          "usage_percentage": 0.08,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Akron",
+          "usage_percentage": 0.075,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Akron",
+          "usage_percentage": 0.258,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Akron",
+          "usage_percentage": 0.113,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Akron K1",
+        "position": "K",
+        "team": "Akron",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Alabama": {
+    "team_name": "Alabama",
+    "players": {
+      "quarterback": {
+        "name": "Unknown",
+        "position": "QB",
+        "team": "Alabama",
+        "usage_percentage": 0.54,
+        "total_plays": 0,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Alabama",
+          "usage_percentage": 0.133,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Alabama",
+          "usage_percentage": 0.089,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Alabama",
+          "usage_percentage": 0.225,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Alabama",
+          "usage_percentage": 0.12,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Alabama K1",
+        "position": "K",
+        "team": "Alabama",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "App State": {
+    "team_name": "App State",
+    "players": {
+      "quarterback": {
+        "name": "Unknown",
+        "position": "QB",
+        "team": "App State",
+        "usage_percentage": 0.512,
+        "total_plays": 0,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "App State",
+          "usage_percentage": 0.116,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "App State",
+          "usage_percentage": 0.082,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "App State",
+          "usage_percentage": 0.261,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "App State",
+          "usage_percentage": 0.182,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "App State K1",
+        "position": "K",
+        "team": "App State",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Arizona": {
+    "team_name": "Arizona",
+    "players": {
+      "quarterback": {
+        "name": "Unknown",
+        "position": "QB",
+        "team": "Arizona",
+        "usage_percentage": 0.572,
+        "total_plays": 0,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Arizona",
+          "usage_percentage": 0.126,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Arizona",
+          "usage_percentage": 0.08,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Arizona",
+          "usage_percentage": 0.164,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Arizona",
+          "usage_percentage": 0.128,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Arizona K1",
+        "position": "K",
+        "team": "Arizona",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Arizona State": {
+    "team_name": "Arizona State",
+    "players": {
+      "quarterback": {
+        "name": "Unknown",
+        "position": "QB",
+        "team": "Arizona State",
+        "usage_percentage": 0.601,
+        "total_plays": 0,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Arizona State",
+          "usage_percentage": 0.159,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "TE",
+          "team": "Arizona State",
+          "usage_percentage": 0.067,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Arizona State",
+          "usage_percentage": 0.267,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Arizona State",
+          "usage_percentage": 0.105,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Arizona State K1",
+        "position": "K",
+        "team": "Arizona State",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Arkansas": {
+    "team_name": "Arkansas",
+    "players": {
+      "quarterback": {
+        "name": "Unknown",
+        "position": "QB",
+        "team": "Arkansas",
+        "usage_percentage": 0.581,
+        "total_plays": 0,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Arkansas",
+          "usage_percentage": 0.099,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Arkansas",
+          "usage_percentage": 0.083,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Arkansas",
+          "usage_percentage": 0.25,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Arkansas",
+          "usage_percentage": 0.1,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Arkansas K1",
+        "position": "K",
+        "team": "Arkansas",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Arkansas State": {
+    "team_name": "Arkansas State",
+    "players": {
+      "quarterback": {
+        "name": "Unknown",
+        "position": "QB",
+        "team": "Arkansas State",
+        "usage_percentage": 0.681,
+        "total_plays": 0,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Arkansas State",
+          "usage_percentage": 0.131,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Arkansas State",
+          "usage_percentage": 0.09,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Arkansas State",
+          "usage_percentage": 0.194,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Arkansas State",
+          "usage_percentage": 0.167,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Arkansas State K1",
+        "position": "K",
+        "team": "Arkansas State",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Army": {
+    "team_name": "Army",
+    "players": {
+      "quarterback": {
+        "name": "Unknown",
+        "position": "QB",
+        "team": "Army",
+        "usage_percentage": 0.408,
+        "total_plays": 0,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Army",
+          "usage_percentage": 0.157,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Army",
+          "usage_percentage": 0.035,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Army",
+          "usage_percentage": 0.131,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Army",
+          "usage_percentage": 0.091,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Army K1",
+        "position": "K",
+        "team": "Army",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  },
+  "Auburn": {
+    "team_name": "Auburn",
+    "players": {
+      "quarterback": {
+        "name": "Unknown",
+        "position": "QB",
+        "team": "Auburn",
+        "usage_percentage": 0.662,
+        "total_plays": 0,
+        "season_stats": {}
+      },
+      "wide_receivers": [
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Auburn",
+          "usage_percentage": 0.124,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "WR",
+          "team": "Auburn",
+          "usage_percentage": 0.114,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "running_backs": [
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Auburn",
+          "usage_percentage": 0.217,
+          "total_plays": 0,
+          "season_stats": {}
+        },
+        {
+          "name": "Unknown",
+          "position": "RB",
+          "team": "Auburn",
+          "usage_percentage": 0.14,
+          "total_plays": 0,
+          "season_stats": {}
+        }
+      ],
+      "kicker": {
+        "name": "Auburn K1",
+        "position": "K",
+        "team": "Auburn",
+        "usage_percentage": 50.0,
+        "total_plays": 100,
+        "season_stats": {
+          "totalYards": 500,
+          "totalTDs": 3,
+          "games": 12
+        }
+      }
+    }
+  }
+}

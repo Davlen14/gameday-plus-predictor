@@ -8,6 +8,10 @@ from run import format_prediction_output
 from prediction_validator import PredictionValidator, apply_prediction_fixes
 from betting_lines_manager import betting_manager
 from game_media_service import get_game_media_service
+from real_data_props_generator import RealDataPlayerPropsEngine
+from dataclasses import asdict
+from rivalry_config import is_rivalry_game, get_rivalry_info
+from batch_rivalry_analyzer import BatchRivalryAnalyzer
 
 app = Flask(__name__)
 # Configure CORS - allow same origin and local development
@@ -593,6 +597,34 @@ def convert_drive_metrics_to_dict(drives):
         k: v for k, v in drives.__dict__.items()
     }
 
+def generate_arbitrage_analysis(sportsbooks, model_spread, model_total, confidence, home_team, away_team):
+    """Generate arbitrage opportunities using ArbitrageDetector"""
+    from graphqlpredictor import ArbitrageDetector
+    
+    if not sportsbooks or len(sportsbooks) == 0:
+        return {
+            'opportunities': [],
+            'total_opportunities': 0,
+            'best_margin': 0,
+            'market_efficiency': 100.0,
+            'message': 'Insufficient sportsbook data for arbitrage analysis'
+        }
+    
+    try:
+        analysis = ArbitrageDetector.analyze_arbitrage(
+            sportsbooks, model_spread, model_total, confidence, home_team, away_team
+        )
+        return analysis
+    except Exception as e:
+        print(f"⚠️ Error generating arbitrage analysis: {e}")
+        return {
+            'opportunities': [],
+            'total_opportunities': 0,
+            'best_margin': 0,
+            'market_efficiency': 100.0,
+            'error': str(e)
+        }
+
 def format_prediction_for_api(prediction, home_team_data, away_team_data, predictor):
     """
     Bridge function that captures the output from run.py's format_prediction_output 
@@ -796,10 +828,18 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
             },
             "predicted_spread": {
                 "model_spread": prediction.predicted_spread,
-                "model_spread_display": f"{prediction.away_team if prediction.predicted_spread < 0 else prediction.home_team} {abs(prediction.predicted_spread):.1f}" if prediction.predicted_spread != 0 else "Pick'em",
+                # Display format: Favorite team with negative spread (e.g., "Ohio State -35.0")
+                # Model convention: positive = home favored, negative = away favored
+                # Display convention: always show favorite with negative (industry standard)
+                "model_spread_display": (
+                    f"{prediction.away_team if prediction.predicted_spread < 0 else prediction.home_team} {-abs(prediction.predicted_spread):.1f}"
+                    if prediction.predicted_spread != 0 else "Pick'em"
+                ),
                 "market_spread": market_spread,
-                "edge": abs(market_spread - prediction.predicted_spread) if market_spread else 0,
-                "value_edge": (market_spread - prediction.predicted_spread) if market_spread else 0
+                # Normalize market spread: ESPN/JSON uses negative for home favorite, model uses positive
+                # Convert market to model convention (positive = home favored) before calculating edge
+                "edge": abs(prediction.predicted_spread - (-market_spread)) if market_spread else 0,
+                "value_edge": (prediction.predicted_spread - (-market_spread)) if market_spread else 0
             },
             "predicted_total": {
                 "model_total": prediction.predicted_total,
@@ -871,6 +911,15 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
             "enhanced_player_analysis": details.get('enhanced_player_analysis', {}),
             "betting_analysis": getattr(prediction, 'detailed_analysis', {}).get('betting_analysis', details.get('betting_analysis', {}))
         },
+        # NEW: Arbitrage Analysis
+        "arbitrage_analysis": generate_arbitrage_analysis(
+            betting_analysis.get('sportsbooks', {}).get('individual_books', []),
+            prediction.predicted_spread,
+            prediction.predicted_total,
+            prediction.confidence * 100,
+            prediction.home_team,
+            prediction.away_team
+        ) if betting_analysis.get('sportsbooks', {}).get('individual_books') else {},
         # NEW: Team Statistics for UI components showing zeros
         "team_statistics": {
             "home": convert_comprehensive_stats_to_dict(getattr(prediction, 'home_team_stats', None)),
@@ -959,6 +1008,56 @@ def predict_game():
         print(f"✅ {data['home_team']} (ID: {home_team_id})")
         print(f"✅ {data['away_team']} (ID: {away_team_id})")
         print(f"\nPredicting game: {data['home_team']} vs {data['away_team']}")
+        
+        # Check if this is a rivalry game
+        rivalry_history = None
+        if is_rivalry_game(data['home_team'], data['away_team']):
+            rivalry_info = get_rivalry_info(data['home_team'], data['away_team'])
+            print(f"🏆 RIVALRY DETECTED: {rivalry_info['name']}")
+            if rivalry_info.get('trophy'):
+                print(f"   Trophy: {rivalry_info['trophy']}")
+            
+            # Fetch rivalry history
+            try:
+                analyzer = BatchRivalryAnalyzer()
+                games = analyzer.get_rivalry_games(data['home_team'], data['away_team'])
+                if games:
+                    rankings = analyzer.get_rankings_for_games(games)
+                    stats = analyzer.analyze_rivalry(data['home_team'], data['away_team'], games, rankings)
+                    
+                    # Make stats JSON serializable
+                    stats_serializable = {k: v for k, v in stats.items() if k not in ['closest_game', 'biggest_blowout']}
+                    if stats.get('closest_game'):
+                        stats_serializable['closest_game'] = {
+                            'season': stats['closest_game']['season'],
+                            'week': stats['closest_game']['week'],
+                            'homeTeam': stats['closest_game']['homeTeam'],
+                            'awayTeam': stats['closest_game']['awayTeam'],
+                            'homePoints': stats['closest_game']['homePoints'],
+                            'awayPoints': stats['closest_game']['awayPoints']
+                        }
+                    if stats.get('biggest_blowout'):
+                        stats_serializable['biggest_blowout'] = {
+                            'season': stats['biggest_blowout']['season'],
+                            'week': stats['biggest_blowout']['week'],
+                            'homeTeam': stats['biggest_blowout']['homeTeam'],
+                            'awayTeam': stats['biggest_blowout']['awayTeam'],
+                            'homePoints': stats['biggest_blowout']['homePoints'],
+                            'awayPoints': stats['biggest_blowout']['awayPoints']
+                        }
+                    
+                    rivalry_history = {
+                        'name': rivalry_info['name'],
+                        'trophy': rivalry_info.get('trophy'),
+                        'established': rivalry_info.get('established'),
+                        'stats': stats_serializable,
+                        'recent_games': games[-10:]  # Last 10 games
+                    }
+                    print(f"   ✓ Loaded {stats['total_games']} historical games ({stats['team1_wins']}-{stats['team2_wins']} series)")
+            except Exception as e:
+                print(f"   ⚠️ Could not load rivalry history: {e}")
+                import traceback
+                traceback.print_exc()
         
         # Run async prediction
         loop = asyncio.new_event_loop()
@@ -1072,10 +1171,17 @@ def predict_game():
             print("=" * 80)
             
             # Return the comprehensive analysis from formatter
-            return jsonify({
+            response_data = {
                 "success": True,
                 **comprehensive_analysis
-            })
+            }
+            
+            # Add rivalry history if available
+            if rivalry_history:
+                response_data['rivalry_history'] = rivalry_history
+                print(f"\n🏆 Added rivalry history to response")
+            
+            return jsonify(response_data)
             
         finally:
             loop.close()
@@ -1315,6 +1421,76 @@ def get_teams():
     except Exception as e:
         return jsonify({'error': f'Failed to load teams: {str(e)}'}), 500
 
+@app.route('/api/player-props/<team1>/<team2>', methods=['GET'])
+def get_player_props(team1, team2):
+    """Get player props for any matchup"""
+    try:
+        print(f"\n🎯 Player Props Request: {team1} vs {team2}")
+        
+        # Initialize props engine
+        props_engine = RealDataPlayerPropsEngine()
+        
+        # Generate props for both teams
+        team1_props = props_engine.generate_enhanced_props(team1, team2)
+        team2_props = props_engine.generate_enhanced_props(team2, team1)
+        
+        # Format response
+        response = {
+            'matchup': {
+                'team1': team1,
+                'team2': team2
+            },
+            'team1_props': [
+                {
+                    'player_name': prop.player_name,
+                    'player_team': prop.player_team,
+                    'position': prop.position,
+                    'prop_type': prop.prop_type,
+                    'line': prop.over_under_line,
+                    'over_under_line': prop.over_under_line,
+                    'confidence': prop.confidence,
+                    'recommendation': prop.recommendation,
+                    'reasoning': prop.reasoning,
+                    'season_average': prop.season_average,
+                    'weather_impact': prop.weather_impact,
+                    'game_logs': [asdict(log) for log in prop.game_logs],
+                    'trend_analysis': asdict(prop.trend_analysis),
+                    'defensive_matchup': asdict(prop.defensive_matchup),
+                    'key_insights': prop.key_insights
+                }
+                for prop in team1_props
+            ],
+            'team2_props': [
+                {
+                    'player_name': prop.player_name,
+                    'player_team': prop.player_team,
+                    'position': prop.position,
+                    'prop_type': prop.prop_type,
+                    'line': prop.over_under_line,
+                    'over_under_line': prop.over_under_line,
+                    'confidence': prop.confidence,
+                    'recommendation': prop.recommendation,
+                    'reasoning': prop.reasoning,
+                    'season_average': prop.season_average,
+                    'weather_impact': prop.weather_impact,
+                    'game_logs': [asdict(log) for log in prop.game_logs],
+                    'trend_analysis': asdict(prop.trend_analysis),
+                    'defensive_matchup': asdict(prop.defensive_matchup),
+                    'key_insights': prop.key_insights
+                }
+                for prop in team2_props
+            ],
+            'total_props': len(team1_props) + len(team2_props)
+        }
+        
+        return jsonify(response)
+        
+    except Exception as e:
+        print(f"❌ Error generating player props: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
+
 # Serve React Frontend
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -1332,4 +1508,21 @@ def serve_react_app(path):
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5002))  # Changed from 5001 to 5002
-    app.run(host='0.0.0.0', port=port)
+    debug = os.environ.get('FLASK_DEBUG', 'True').lower() == 'true'
+
+    print(f"\n{'='*60}")
+    print(f"🚀 Starting Flask Backend Server")
+    print(f"{'='*60}")
+    print(f"   Host: 0.0.0.0 (all interfaces)")
+    print(f"   Port: {port}")
+    print(f"   Debug: {debug}")
+    print(f"   CORS: Enabled for localhost:5173, localhost:3000")
+    print(f"{'='*60}\n")
+
+    app.run(
+        host='0.0.0.0',
+        port=port,
+        debug=debug,
+        threaded=True,
+        use_reloader=debug
+    )

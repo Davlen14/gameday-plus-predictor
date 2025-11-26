@@ -316,8 +316,8 @@ class LightningPredictor:
     
     def __init__(self, api_key: Optional[str] = None):
         self.current_year = 2025
-        self.current_week = 11
-        self.api_key = api_key or "9eeDfEKdAIQMnSP4W/QZ8r6nPKLyGYNj7hLKO/YxD5qhGWOGGxZF5pW+o1x5+8Ht"
+        self.current_week = 13
+        self.api_key = api_key or "T0iV2bfp8UKCf8rTV12qsS26USzyDYiVNA7x6WbaV3NOvewuDQnJlv3NfPzr3f/p"
         self.graphql_url = "https://graphql.collegefootballdata.com/v1/graphql"
         
         # OPTIMAL FEATURE WEIGHTS (Research-Based) - WITH POWER RANKINGS
@@ -422,13 +422,13 @@ class LightningPredictor:
                 # Load comprehensive player analysis files (QBs, RBs, WRs, TEs, DBs, DLs, LBs)
                 player_data = {}
                 player_files = {
-                    'qbs': 'comprehensive_qb_analysis_2025_20251103_004118.json',
-                    'rbs': 'comprehensive_rb_analysis_2025_20251103_004639.json', 
-                    'wrs': 'comprehensive_wr_analysis_2025_20251103_004752.json',
-                    'tes': 'comprehensive_te_analysis_2025_20251103_004907.json',
-                    'dbs': 'comprehensive_db_analysis_2025_20251103_005036.json',
-                    'dls': 'comprehensive_dl_analysis_2025_20251103_005326.json',
-                    'lbs': 'comprehensive_lb_analysis_2025_20251103_005148.json'
+                    'qbs': 'comprehensive_qb_analysis_2025_20251117_214112.json',
+                    'rbs': 'comprehensive_rb_analysis_2025_20251117_214112.json', 
+                    'wrs': 'comprehensive_wr_analysis_2025_20251117_214112.json',
+                    'tes': 'comprehensive_te_analysis_2025_20251117_214112.json',
+                    'dbs': 'comprehensive_db_analysis_2025_20251117_214112.json',
+                    'dls': 'comprehensive_dl_analysis_2025_20251117_214112.json',
+                    'lbs': 'comprehensive_lb_analysis_2025_20251117_214112.json'
                 }
                 
                 for position, filename in player_files.items():
@@ -930,7 +930,7 @@ class LightningPredictor:
         """Single game prediction using one GraphQL call - EXACT SAME LOGIC AS ORIGINAL"""
 
         query = """
-    query GamePredictorEnhanced($homeTeamId: Int!, $awayTeamId: Int!, $currentYear: smallint = 2025, $currentYearInt: Int = 2025, $currentWeek: smallint = 11) {
+    query GamePredictorEnhanced($homeTeamId: Int!, $awayTeamId: Int!, $currentYear: smallint = 2025, $currentYearInt: Int = 2025, $currentWeek: smallint = 13) {
             # Current season team metrics (ENHANCED with all available fields)
             homeTeamMetrics: adjustedTeamMetrics(where: {teamId: {_eq: $homeTeamId}, year: {_eq: $currentYear}}) {
                 epa epaAllowed explosiveness explosivenessAllowed success successAllowed
@@ -1368,8 +1368,8 @@ class LightningPredictor:
     def _extract_team_metrics(self, metrics_data: List[Dict], recent_games: List[Dict], season_games: List[Dict], historical_metrics: List[Dict], is_home: bool, team_id: int) -> TeamMetrics:
         """Extract comprehensive team metrics from GraphQL response"""
         if not metrics_data:
-            # Default values if no data
-            return TeamMetrics(0, 0, 0, 0.5, 0, 0, 1500, 0, 0, 0.5, 0)
+            # Fallback to backtesting data if GraphQL failed
+            return self._get_backtesting_metrics(team_id, is_home)
 
         metrics = metrics_data[0] if metrics_data else {}
 
@@ -1403,6 +1403,77 @@ class LightningPredictor:
             sos_rating=sos_rating,
             consistency_score=consistency_score,
             recent_vs_early_differential=recent_vs_early
+        )
+    
+    def _get_backtesting_metrics(self, team_id: int, is_home: bool) -> TeamMetrics:
+        """Fallback to backtesting data when GraphQL fails"""
+        # Get team name from ID
+        team_name = self._get_team_name(team_id)
+        
+        # Try backtesting ratings first
+        backtesting = self.static_data.get('backtesting_ratings', {})
+        if team_name in backtesting:
+            data = backtesting[team_name]
+            elo = data.get('elo', 1500)
+            fpi = data.get('fpi', 0.0)
+            sp_overall = data.get('sp_overall', 0.0)
+            
+            # Convert ratings to EPA-like metrics (rough approximation)
+            epa = fpi * 0.15  # FPI roughly correlates to EPA
+            epa_allowed = -fpi * 0.15  # Inverse for defense
+            success_rate = 0.5 + (sp_overall * 0.01)  # SP+ to success rate
+            
+            return TeamMetrics(
+                epa=epa,
+                epa_allowed=epa_allowed,
+                explosiveness=fpi * 0.1,
+                success_rate=success_rate,
+                talent_rating=0,
+                recent_form=0.5,
+                elo_rating=elo,
+                season_trend=0,
+                sos_rating=0,
+                consistency_score=0.5,
+                recent_vs_early_differential=0
+            )
+        
+        # Try power rankings as secondary fallback
+        power_rankings = self.static_data.get('power_rankings', {})
+        if team_name in power_rankings:
+            data = power_rankings[team_name]
+            overall_rank = data.get('overallRank', 65)
+            
+            # Convert rank to metrics (better rank = better metrics)
+            normalized_rank = (130 - overall_rank) / 130  # 0 to 1 scale
+            epa = (normalized_rank - 0.5) * 0.6  # -0.3 to +0.3 range
+            
+            return TeamMetrics(
+                epa=epa,
+                epa_allowed=-epa,
+                explosiveness=epa * 0.8,
+                success_rate=0.35 + (normalized_rank * 0.3),  # 0.35 to 0.65 range
+                talent_rating=0,
+                recent_form=0.5,
+                elo_rating=1500 + (normalized_rank * 300),  # 1500-1800 range
+                season_trend=0,
+                sos_rating=0,
+                consistency_score=0.5,
+                recent_vs_early_differential=0
+            )
+        
+        # Final fallback: default values with home field advantage
+        return TeamMetrics(
+            epa=0.05 if is_home else -0.05,
+            epa_allowed=-0.05 if is_home else 0.05,
+            explosiveness=0,
+            success_rate=0.5,
+            talent_rating=0,
+            recent_form=0.5,
+            elo_rating=1500,
+            season_trend=0,
+            sos_rating=0,
+            consistency_score=0.5,
+            recent_vs_early_differential=0
         )
         
     def _calculate_recent_form(self, recent_games: List[Dict], team_id: int) -> float:

@@ -9,6 +9,24 @@ const HorizontalBarChart = ({ data, awayTeam, homeTeam }: {
   awayTeam: any;
   homeTeam: any;
 }) => {
+  // Helper function to check if color is blue or black
+  const isBlueOrBlack = (color: string) => {
+    const hex = color.toLowerCase();
+    const isBlue = hex.includes('004') || hex.includes('003') || hex.includes('002') || hex.includes('001') || 
+                   hex === '#000080' || hex === '#003366' || hex === '#002244' || hex === '#041e42';
+    const isBlack = hex === '#000000' || hex === '#222222' || hex === '#1a1a1a' || hex === '#333333';
+    return isBlue || isBlack;
+  };
+
+  // Get display colors
+  const awayTeamColor = (awayTeam.primary_color && isBlueOrBlack(awayTeam.primary_color)) 
+    ? (awayTeam.alt_color || awayTeam.secondary_color || '#f97316') 
+    : (awayTeam.primary_color || '#3b82f6');
+    
+  const homeTeamColor = (homeTeam.primary_color && isBlueOrBlack(homeTeam.primary_color)) 
+    ? (homeTeam.alt_color || homeTeam.secondary_color || '#10b981') 
+    : (homeTeam.primary_color || '#f97316');
+
   const awayAbbr = generateTeamAbbr(awayTeam.name);
   const homeAbbr = generateTeamAbbr(homeTeam.name);
   
@@ -24,9 +42,9 @@ const HorizontalBarChart = ({ data, awayTeam, homeTeam }: {
             <div className="flex justify-between items-center">
               <span className="text-white font-medium text-sm">{item.metric}</span>
               <div className="flex items-center gap-4 text-xs">
-                <span className="font-mono font-bold" style={{ color: awayTeam.primary_color }}>{item.away}</span>
+                <span className="font-mono font-bold" style={{ color: awayTeamColor }}>{item.away}</span>
                 <span className="text-slate-400">vs</span>
-                <span className="font-mono font-bold" style={{ color: homeTeam.primary_color }}>{item.home}</span>
+                <span className="font-mono font-bold" style={{ color: homeTeamColor }}>{item.home}</span>
               </div>
             </div>
             
@@ -43,7 +61,7 @@ const HorizontalBarChart = ({ data, awayTeam, homeTeam }: {
                     className="h-full transition-all duration-1000 ease-out"
                     style={{ 
                       width: `${awayPercent}%`,
-                      background: `linear-gradient(to right, ${awayTeam.primary_color}, ${awayTeam.primary_color}80)`
+                      background: `linear-gradient(to right, ${awayTeamColor}, ${awayTeamColor}80)`
                     }}
                   />
                 </div>
@@ -61,7 +79,7 @@ const HorizontalBarChart = ({ data, awayTeam, homeTeam }: {
                     className="h-full transition-all duration-1000 ease-out"
                     style={{ 
                       width: `${homePercent}%`,
-                      background: `linear-gradient(to right, ${homeTeam.primary_color}, ${homeTeam.primary_color}80)`
+                      background: `linear-gradient(to right, ${homeTeamColor}, ${homeTeamColor}80)`
                     }}
                   />
                 </div>
@@ -73,9 +91,9 @@ const HorizontalBarChart = ({ data, awayTeam, homeTeam }: {
                 <span 
                   className="text-xs font-bold px-2 py-1 rounded-full border"
                   style={{
-                    backgroundColor: `${item.advantage === awayTeam.name ? awayTeam.primary_color : homeTeam.primary_color}20`,
-                    color: item.advantage === awayTeam.name ? awayTeam.primary_color : homeTeam.primary_color,
-                    borderColor: `${item.advantage === awayTeam.name ? awayTeam.primary_color : homeTeam.primary_color}30`
+                    backgroundColor: `${item.advantage === awayTeam.name ? awayTeamColor : homeTeamColor}20`,
+                    color: item.advantage === awayTeam.name ? awayTeamColor : homeTeamColor,
+                    borderColor: `${item.advantage === awayTeam.name ? awayTeamColor : homeTeamColor}30`
                   }}
                 >
                   {item.advantage} leads
@@ -95,6 +113,23 @@ const CircularProgressChart = ({ data, awayTeam, homeTeam }: {
   awayTeam: any;
   homeTeam: any;
 }) => {
+  // Helper function to check if color is blue or black
+  const isBlueOrBlack = (color: string) => {
+    const hex = color.toLowerCase();
+    const isBlue = hex.includes('004') || hex.includes('003') || hex.includes('002') || hex.includes('001') || 
+                   hex === '#000080' || hex === '#003366' || hex === '#002244' || hex === '#041e42';
+    const isBlack = hex === '#000000' || hex === '#222222' || hex === '#1a1a1a' || hex === '#333333';
+    return isBlue || isBlack;
+  };
+
+  // Get display colors
+  const awayTeamColor = (awayTeam.primary_color && isBlueOrBlack(awayTeam.primary_color)) 
+    ? (awayTeam.alt_color || awayTeam.secondary_color || '#f97316') 
+    : (awayTeam.primary_color || '#3b82f6');
+    
+  const homeTeamColor = (homeTeam.primary_color && isBlueOrBlack(homeTeam.primary_color)) 
+    ? (homeTeam.alt_color || homeTeam.secondary_color || '#10b981') 
+    : (homeTeam.primary_color || '#f97316');
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {data.map((item, index) => {
@@ -114,7 +149,7 @@ const CircularProgressChart = ({ data, awayTeam, homeTeam }: {
                   <circle cx="32" cy="32" r="28" stroke="#374151" strokeWidth="4" fill="transparent" />
                   <circle 
                     cx="32" cy="32" r="28" 
-                    stroke={awayTeam.primary_color} 
+                    stroke={awayTeamColor} 
                     strokeWidth="4" 
                     fill="transparent"
                     strokeDasharray={`${awayPercent * 1.76} 176`}
@@ -136,7 +171,7 @@ const CircularProgressChart = ({ data, awayTeam, homeTeam }: {
                   <circle cx="32" cy="32" r="28" stroke="#374151" strokeWidth="4" fill="transparent" />
                   <circle 
                     cx="32" cy="32" r="28" 
-                    stroke={homeTeam.primary_color} 
+                    stroke={homeTeamColor} 
                     strokeWidth="4" 
                     fill="transparent"
                     strokeDasharray={`${homePercent * 1.76} 176`}
@@ -155,13 +190,13 @@ const CircularProgressChart = ({ data, awayTeam, homeTeam }: {
             
             {/* Values */}
             <div className="flex justify-center gap-4 text-xs">
-              <span className="font-mono font-bold" style={{ color: awayTeam.primary_color }}>{item.away}</span>
-              <span className="font-mono font-bold" style={{ color: homeTeam.primary_color }}>{item.home}</span>
+              <span className="font-mono font-bold" style={{ color: awayTeamColor }}>{item.away}</span>
+              <span className="font-mono font-bold" style={{ color: homeTeamColor }}>{item.home}</span>
             </div>
             
             {item.advantage !== 'Even' && (
               <div className="text-xs font-bold" style={{ 
-                color: item.advantage === awayTeam.name ? awayTeam.primary_color : homeTeam.primary_color 
+                color: item.advantage === awayTeam.name ? awayTeamColor : homeTeamColor 
               }}>
                 {item.advantage === awayTeam.name ? generateTeamAbbr(awayTeam.name) : generateTeamAbbr(homeTeam.name)} +
               </div>
@@ -308,6 +343,24 @@ export function ComprehensiveTeamStats({ predictionData }: ComprehensiveTeamStat
   const awayAbbr = generateTeamAbbr(awayTeam.name);
   const homeAbbr = generateTeamAbbr(homeTeam.name);
 
+  // Helper function to check if color is blue or black
+  const isBlueOrBlack = (color: string) => {
+    const hex = color.toLowerCase();
+    const isBlue = hex.includes('004') || hex.includes('003') || hex.includes('002') || hex.includes('001') || 
+                   hex === '#000080' || hex === '#003366' || hex === '#002244' || hex === '#041e42';
+    const isBlack = hex === '#000000' || hex === '#222222' || hex === '#1a1a1a' || hex === '#333333';
+    return isBlue || isBlack;
+  };
+
+  // Get display colors - use alt_color if primary is blue/black
+  const awayTeamColor = (awayTeam.primary_color && isBlueOrBlack(awayTeam.primary_color)) 
+    ? (awayTeam.alt_color || awayTeam.secondary_color || '#f97316') 
+    : (awayTeam.primary_color || '#3b82f6');
+    
+  const homeTeamColor = (homeTeam.primary_color && isBlueOrBlack(homeTeam.primary_color)) 
+    ? (homeTeam.alt_color || homeTeam.secondary_color || '#10b981') 
+    : (homeTeam.primary_color || '#f97316');
+
   // Parse advanced offensive metrics from section [15] - ADVANCED OFFENSIVE METRICS
   const parseAdvancedOffensive = () => {
     const section = predictionData?.formatted_analysis ? extractSection(predictionData.formatted_analysis, 15) : null;
@@ -436,7 +489,8 @@ export function ComprehensiveTeamStats({ predictionData }: ComprehensiveTeamStat
     const parseRow = (metricName: string) => {
       // Pattern: "Metric                         Away (TeamName)                   Home (TeamName)                        Advantage"
       // Example: "Possession Time                158:46                              164:59                              Home"
-      const pattern = new RegExp(`${metricName}\\s+([\\d:+\\-]+)\\s+([\\d:+\\-]+)\\s+(\\w+)`, 'i');
+      // Example: "Drives Per Game                10.0                                9.3                                 Away"
+      const pattern = new RegExp(`${metricName}\\s+([\\d:+\\-.]+)\\s+([\\d:+\\-.]+)\\s+(\\w+)`, 'i');
       const match = section.match(pattern);
       
       if (match) {
@@ -541,7 +595,7 @@ export function ComprehensiveTeamStats({ predictionData }: ComprehensiveTeamStat
                 alt={awayAbbr} 
                 className="w-12 h-12 object-contain mx-auto mb-2"
               />
-              <span className="font-bold text-sm" style={{ color: awayTeam.primary_color }}>
+              <span className="font-bold text-sm" style={{ color: awayTeamColor }}>
                 {awayAbbr} leads {defensiveData.filter(d => d.advantage === awayTeam.name).length}
               </span>
             </div>
@@ -551,7 +605,7 @@ export function ComprehensiveTeamStats({ predictionData }: ComprehensiveTeamStat
                 alt={homeAbbr} 
                 className="w-12 h-12 object-contain mx-auto mb-2"
               />
-              <span className="font-bold text-sm" style={{ color: homeTeam.primary_color }}>
+              <span className="font-bold text-sm" style={{ color: homeTeamColor }}>
                 {homeAbbr} leads {defensiveData.filter(d => d.advantage === homeTeam.name).length}
               </span>
             </div>

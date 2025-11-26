@@ -3,10 +3,13 @@ import { Moon, Sun } from 'lucide-react';
 import { CONFIG } from './config';
 import { TeamSelector } from './components/figma/TeamSelector';
 import { Header } from './components/figma/Header';
+import { PredictionResults } from './components/figma/PredictionResults';
 import { PredictionCards } from './components/figma/PredictionCards';
 import { ConfidenceSection } from './components/figma/ConfidenceSection';
 import { MarketComparison } from './components/figma/MarketComparison';
 import { LineMovement } from './components/figma/LineMovement';
+import { ArbitrageOpportunities } from './components/figma/ArbitrageOpportunities';
+import { ArbitrageCalculator } from './components/figma/ArbitrageCalculator';
 import { ContextualAnalysis } from './components/figma/ContextualAnalysis';
 import { MediaInformation } from './components/figma/MediaInformation';
 import { EPAComparison } from './components/figma/EPAComparison';
@@ -33,6 +36,9 @@ import FieldVisualization from './components/figma/FieldVisualization';
 import WinProbabilityLive from './components/figma/WinProbabilityLive';
 import LivePlaysFeed from './components/figma/LivePlaysFeed';
 import ComprehensiveMetricsDashboard from './components/figma/ComprehensiveMetricsDashboard';
+import { ATSComparison } from './components/figma/ATSComparison';
+import { PlayerPropsPanel } from './components/figma/PlayerPropsPanel';
+import RivalryHistoryCard from './components/RivalryHistoryCard';
 
 // Import comprehensive power rankings data
 import powerRankingsData from './data/comprehensive_power_rankings.json';
@@ -120,8 +126,12 @@ export default function App() {
       }
 
       const data = await response.json();
-      // Pass the complete data structure including formatted_analysis
-      setPredictionData(data.ui_components ? { ...data.ui_components, formatted_analysis: data.formatted_analysis } : data);
+      // Pass the complete data structure including formatted_analysis and rivalry_history
+      setPredictionData(data.ui_components ? { 
+        ...data.ui_components, 
+        formatted_analysis: data.formatted_analysis,
+        rivalry_history: data.rivalry_history 
+      } : data);
       
       // Also check for live game data
       await fetchLiveData(homeTeam, awayTeam);
@@ -136,10 +146,25 @@ export default function App() {
     <div className={darkMode ? 'dark' : ''}>
       {/* Premium Glass Background */}
       <div className="min-h-screen relative overflow-hidden">
-        {/* Clean Dark Gradient Background */}
+        {/* Premium Textured Background */}
         <div className="absolute inset-0" style={{
-          background: 'linear-gradient(90deg, hsla(240, 5%, 10%, 1) 0%, hsla(240, 5%, 15%, 1) 50%, hsla(240, 5%, 8%, 1) 100%)'
+          background: `
+            radial-gradient(circle at 25% 25%, hsla(210, 15%, 25%, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, hsla(220, 20%, 30%, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 50% 100%, hsla(200, 12%, 20%, 0.06) 0%, transparent 70%),
+            linear-gradient(135deg, hsla(0, 0%, 8%, 1) 0%, hsla(210, 8%, 12%, 1) 25%, hsla(220, 6%, 15%, 1) 50%, hsla(200, 7%, 10%, 1) 75%, hsla(0, 0%, 6%, 1) 100%)
+          `,
+          backgroundSize: '400px 400px, 600px 600px, 800px 800px, 100% 100%'
         }}></div>
+        
+        {/* Subtle Noise Texture Overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundSize: '180px 180px'
+          }}
+        ></div>
         
         {/* Content */}
         <div className="relative z-10 px-3 py-4 sm:px-4 sm:py-6 md:p-8 lg:p-12 text-white">
@@ -209,19 +234,32 @@ export default function App() {
             isLoading={isLoading}
           />
           
-          {/* Header */}
+          {/* Header - Game Info & Teams */}
           <Header predictionData={predictionData} isLoading={isLoading} />
+          
+          {/* Rivalry History - Shows if this is a rivalry game */}
+          {predictionData?.rivalry_history && (
+            <>
+              {console.log('App.tsx: Rendering RivalryHistoryCard with data:', predictionData.rivalry_history)}
+              <RivalryHistoryCard rivalryData={predictionData.rivalry_history} />
+            </>
+          )}
+          
+          {/* Prediction Results - Shows after game is complete */}
+          {predictionData && (
+            <PredictionResults 
+              predictionData={predictionData}
+            />
+          )}
           
           {/* 🔴 LIVE GAME SECTION - Only shows when game is in progress */}
           {liveData?.game_info?.is_live && (
             <>
-              {/* Live Badge */}
               <LiveGameBadge 
                 period={liveData.game_state.period}
                 clock={liveData.game_state.clock}
               />
               
-              {/* Field Visualization - Tall and Wide */}
               <FieldVisualization
                 possession={{
                   team: liveData.game_state.possession === 'home' 
@@ -251,13 +289,11 @@ export default function App() {
                 situation={liveData.game_state.situation}
               />
               
-              {/* Win Probability Chart - Live vs Model */}
               <WinProbabilityLive
                 liveData={liveData}
                 predictionData={predictionData}
               />
               
-              {/* Live Plays Feed */}
               <LivePlaysFeed
                 plays={liveData.plays?.recent_plays || []}
                 showEPA={true}
@@ -266,92 +302,137 @@ export default function App() {
             </>
           )}
           
-          {/* 🎯 SECTION 1: CORE PREDICTIONS */}
-          {/* Prediction Cards - Main Results */}
+          {/* ========================================================================= */}
+          {/* 🎯 THE VERDICT: What You Need to Know First */}
+          {/* ========================================================================= */}
+          
+          {/* Main Prediction Results - Win%, Spread, Total */}
           <PredictionCards predictionData={predictionData} isLoading={isLoading} error={error || undefined} />
           
-          {/* Final Prediction Summary - Move up for immediate visibility */}
+          {/* Final Summary with Predicted Score & Key Factors */}
           <FinalPredictionSummary predictionData={predictionData} />
           
-          {/* 📈 MARKET ANALYSIS - RIGHT AFTER PREDICTIONS */}
-          {/* Market Comparison - Sportsbook lines and value analysis */}
-          <MarketComparison predictionData={predictionData} />
-          
-          {/* Line Movement - Shows how betting lines changed from open to close */}
-          <LineMovement predictionData={predictionData} />
-          
-          {/* Confidence & Market - COMMENTED OUT FOR NOW */}
+          {/* Confidence Score - HOW SURE IS THE MODEL? */}
           {/* <ConfidenceSection predictionData={predictionData} isLoading={isLoading} error={error || undefined} /> */}
           
-          {/* 🎲 PROBABILITY & PERFORMANCE */}
-          {/* Win Probability - Standalone Section */}
+          {/* ========================================================================= */}
+          {/* 💰 VALUE HUNTING: Where's the Edge? */}
+          {/* ========================================================================= */}
+          
+          {/* ATS Comparison - Against The Spread Performance */}
+          <ATSComparison predictionData={predictionData} />
+          
+          {/* Player Props - Top betting opportunities */}
+          <PlayerPropsPanel predictionData={predictionData} />
+          
+          {/* Market Comparison - Model vs Vegas Lines */}
+          <MarketComparison predictionData={predictionData} />
+          
+          {/* Line Movement - How the market is reacting */}
+          <LineMovement predictionData={predictionData} />
+          
+          {/* ========================================================================= */}
+          {/* 🧠 THE BRAIN: What Drives This Prediction? */}
+          {/* ========================================================================= */}
+          
+          {/* Model Weights - See what matters most in this matchup */}
+          {/* <WeightsBreakdown predictionData={predictionData} /> */}
+          
+          {/* Component Breakdown - How each factor contributed */}
+          {/* <ComponentBreakdown predictionData={predictionData} /> */}
+          
+          {/* ========================================================================= */}
+          {/* 👥 GAME CHANGERS: Player Impact */}
+          {/* ========================================================================= */}
+          
+          {/* Key Player Impact - QBs, WRs who move the needle */}
+          <KeyPlayerImpact predictionData={predictionData} />
+          
+          {/* ========================================================================= */}
+          {/* 📊 ADVANCED ANALYTICS: The Deep Dive */}
+          {/* ========================================================================= */}
+          
+          {/* EPA Comparison - Most important efficiency metric */}
+          <EPAComparison predictionData={predictionData} />
+          
+          {/* Win Probability Distribution */}
           <WinProbability predictionData={predictionData} />
           
-          {/* Situational Performance - Standalone Section */}
+          {/* Comprehensive Differential Analysis - Side-by-side comparison */}
+          <DifferentialAnalysis predictionData={predictionData} />
+          
+          {/* Advanced Metrics - Success rate, explosiveness, etc */}
+          <AdvancedMetrics predictionData={predictionData} />
+          
+          {/* Situational Performance - 3rd down, red zone, etc */}
           <SituationalPerformance predictionData={predictionData} />
           
-          {/* 🌤️ CONTEXTUAL FACTORS */}
-          {/* Weather, Poll & Bye Week Analysis */}
+          {/* Field Position Metrics - Starting field position advantage */}
+          <FieldPositionMetrics predictionData={predictionData} />
+          
+          {/* Drive Efficiency - Scoring drives, explosive plays, methodical drives */}
+          <DriveEfficiency predictionData={predictionData} />
+          
+          {/* ========================================================================= */}
+          {/* 🏆 TEAM PROFILES: Who Are These Teams? */}
+          {/* ========================================================================= */}
+          
+          {/* Season Records - Game-by-game results */}
+          <SeasonRecords predictionData={predictionData} />
+          
+          {/* Comprehensive Team Statistics - Full statistical profile */}
+          <ComprehensiveTeamStats predictionData={predictionData} />
+          
+          {/* Enhanced Team Stats - Offense, efficiency, special teams */}
+          <EnhancedTeamStats predictionData={predictionData} />
+          
+          {/* Extended Defensive Analytics - Defensive deep dive */}
+          <ExtendedDefensiveAnalytics predictionData={predictionData} />
+          
+          {/* Coaching Comparison - Experience, records, recruiting */}
+          <CoachingComparison predictionData={predictionData} />
+          
+          {/* ========================================================================= */}
+          {/* 🌍 CONTEXT MATTERS: External Factors */}
+          {/* ========================================================================= */}
+          
+          {/* Weather, Bye Weeks, Injuries */}
           <ContextualAnalysis predictionData={predictionData} />
           
           {/* AP Poll Rankings */}
           <APPollRankings predictionData={predictionData} />
           
-          {/* Media Information */}
-          <MediaInformation predictionData={predictionData} />
+          {/* Media Information - Network, time, excitement index */}
+          {/* <MediaInformation predictionData={predictionData} /> */}
           
-          {/* 🏈 SECTION 3: ADVANCED ANALYTICS */}
-          {/* EPA Comparison - Core advanced metric */}
-          <EPAComparison predictionData={predictionData} />
+          {/* ========================================================================= */}
+          {/* 🎯 RATINGS UNIVERSE: Every System's Take */}
+          {/* ========================================================================= */}
           
-          {/* Comprehensive Differential Analysis */}
-          <DifferentialAnalysis predictionData={predictionData} />
-          
-          {/* Advanced Metrics */}
-          <AdvancedMetrics predictionData={predictionData} />
-          
-          {/* Field Position Metrics */}
-          <FieldPositionMetrics predictionData={predictionData} />
-          
-          {/* Drive Efficiency & Game Flow */}
-          <DriveEfficiency predictionData={predictionData} />
-          
-          {/* Comprehensive Ratings Comparison - Advanced Rating Systems */}
+          {/* Comprehensive Ratings - FPI, SP+, SRS, etc */}
           <ComprehensiveRatingsComparison predictionData={predictionData} />
           
-          {/* 🎯 COMPREHENSIVE POWER RANKINGS - 167 Metrics Dashboard */}
+          {/* 167-Metric Power Rankings Dashboard */}
           <ComprehensiveMetricsDashboard 
             predictionData={predictionData} 
             powerRankingsData={powerRankingsData}
           />
           
-          {/* 👥 SECTION 4: TEAM & PLAYER ANALYSIS */}
-          {/* Key Player Impact */}
-          <KeyPlayerImpact predictionData={predictionData} />
+          {/* ========================================================================= */}
+          {/* 💸 ARBITRAGE: Advanced Betting Strategies */}
+          {/* ========================================================================= */}
           
-          {/* Comprehensive Team Statistics */}
-          <ComprehensiveTeamStats predictionData={predictionData} />
+          {/* Arbitrage Intelligence - Profit opportunities */}
+          <ArbitrageOpportunities predictionData={predictionData} />
           
-          {/* Enhanced Team Stats - NEW: Basic Offensive, Efficiency, Special Teams, Turnovers, Tempo, Red Zone, Momentum */}
-          <EnhancedTeamStats predictionData={predictionData} />
+          {/* Arbitrage Calculator - Calculate optimal stakes */}
+          <ArbitrageCalculator predictionData={predictionData} />
           
-          {/* Season Records */}
-          <SeasonRecords predictionData={predictionData} />
+          {/* ========================================================================= */}
+          {/* 📖 REFERENCE: Terms & Definitions */}
+          {/* ========================================================================= */}
           
-          {/* Coaching Staff Comparison */}
-          <CoachingComparison predictionData={predictionData} />
-          
-          {/* Extended Defensive Analytics & Season Summary */}
-          <ExtendedDefensiveAnalytics predictionData={predictionData} />
-          
-          {/* 🔧 SECTION 5: MODEL TRANSPARENCY */}
-          {/* Model Weights Breakdown */}
-          <WeightsBreakdown predictionData={predictionData} />
-          
-          {/* Weighted Component Breakdown */}
-          <ComponentBreakdown predictionData={predictionData} />
-          
-          {/* Glossary */}
+          {/* Glossary - What does EPA mean? What's success rate? */}
           <Glossary predictionData={predictionData} />
           
           {/* Footer */}
