@@ -1317,8 +1317,10 @@ class LightningPredictor:
     def _load_all_static_data(self) -> Dict:
         """Load all static JSON data files for comprehensive team analysis"""
         try:
-            # Base path for data files
+            # Base path for data files (week_14 for most stats)
             base_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_14')
+            # Coaching data path (load from main data folder for latest updates)
+            coaching_base_path = os.path.join(os.path.dirname(__file__), 'data')
             
             # Load comprehensive team stats
             with open(os.path.join(base_path, 'fbs_teams_stats_only.json'), 'r') as f:
@@ -1354,10 +1356,11 @@ class LightningPredictor:
             with open(os.path.join(base_path, 'team_season_summaries_clean.json'), 'r') as f:
                 season_summaries = json.load(f)
             
-            # Load elite coaching data with vs ranked stats
-            coaches_path = os.path.join(base_path, 'coaches_with_vsranked_stats.json')
+            # Load elite coaching data with vs ranked stats (from main data folder for latest updates)
+            coaches_path = os.path.join(coaching_base_path, 'coaches_with_vsranked_stats.json')
             with open(coaches_path, 'r') as f:
                 coaches_data = json.load(f)
+            print(f"✅ Loaded coaching data from: {coaches_path}")
             
             # ENHANCED DATA LOADING - New files for improved accuracy
             

@@ -418,36 +418,52 @@ def generate_confidence_explanation(prediction, details, home_team_name, away_te
     return explanations
 
 def extract_team_ratings(predictor, team_name):
-    """Extract comprehensive ratings for a specific team from backtesting data"""
-    if not hasattr(predictor, 'static_data') or not predictor.static_data:
-        print(f"⚠️  No static_data available for {team_name}")
-        return get_default_ratings()
-
-    backtesting_ratings = predictor.static_data.get('backtesting_ratings', {})
-
-    # Try exact match first
-    team_ratings = backtesting_ratings.get(team_name, {})
-
-    # If no exact match, try case-insensitive search
-    if not team_ratings:
-        for key in backtesting_ratings.keys():
-            if key.lower() == team_name.lower():
-                team_ratings = backtesting_ratings[key]
-                print(f"✅ Found team ratings for {team_name} (matched as '{key}')")
+    """Extract comprehensive ratings for a specific team from comprehensive_power_rankings.json"""
+    try:
+        # Load from comprehensive power rankings JSON
+        rankings_path = os.path.join(os.path.dirname(__file__), 'frontend', 'src', 'data', 'comprehensive_power_rankings.json')
+        with open(rankings_path, 'r') as f:
+            power_rankings = json.load(f)
+        
+        # Find team in the teams array
+        team_data = None
+        for team in power_rankings.get('teams', []):
+            if team.get('team', '').lower() == team_name.lower():
+                team_data = team
                 break
-
-    if not team_ratings:
-        print(f"⚠️  No ratings found for {team_name} in backtesting data")
-        print(f"   Available teams: {list(backtesting_ratings.keys())[:5]}...")
+        
+        if not team_data:
+            print(f"⚠️  No ratings found for {team_name} in power rankings")
+            return get_default_ratings()
+        
+        # Extract ratings from team data
+        team_ratings = {
+            'elo': team_data.get('elo', 1500),
+            'fpi': team_data.get('fpi', 0.0),
+            'sp_overall': team_data.get('sp_overall', 0.0),
+            'srs': team_data.get('srs', 0.0),
+            'composite_rating': team_data.get('composite_rating', 50.0),
+            'offensive_efficiency': team_data.get('offensive_efficiency', 50.0),
+            'defensive_efficiency': team_data.get('defensive_efficiency', 50.0),
+            'special_teams_efficiency': team_data.get('special_teams_efficiency', 50.0),
+            'fpi_components': team_data.get('fpi_components', {}),
+            'sp_components': team_data.get('sp_components', {}),
+            'fpi_rankings': team_data.get('fpi_rankings', {}),
+            'sos_rank': team_data.get('sos_rank', 65),
+            'resume_rank': team_data.get('resume_rank', 65),
+            'game_control_rank': team_data.get('game_control_rank', 65),
+            'rating_consistency': team_data.get('rating_consistency', 10.0),
+            'elite_tier': team_data.get('elite_tier', False),
+            'struggling_tier': team_data.get('struggling_tier', False),
+            'ratings_available': True
+        }
+        
+        print(f"✅ Extracted ratings for {team_name}: ELO={team_ratings['elo']}, FPI={team_ratings['fpi']}, SP+={team_ratings['sp_overall']}")
+        return team_ratings
+        
+    except Exception as e:
+        print(f"❌ Error loading ratings for {team_name}: {e}")
         return get_default_ratings()
-
-    # Ensure all required fields are present
-    # The ratings should already have ratings_available=True from _process_backtesting_data
-    if "ratings_available" not in team_ratings:
-        team_ratings["ratings_available"] = True
-
-    print(f"✅ Extracted ratings for {team_name}: ELO={team_ratings.get('elo', 'N/A')}, FPI={team_ratings.get('fpi', 'N/A')}")
-    return team_ratings
 
 def get_default_ratings():
     """Return default ratings when no data is available"""
@@ -596,6 +612,413 @@ def convert_drive_metrics_to_dict(drives):
     return {
         k: v for k, v in drives.__dict__.items()
     }
+
+def generate_game_summary_and_rationale(prediction, details, home_team_data, away_team_data, predictor, betting_analysis=None):
+    """
+    Generate comprehensive game summary explaining which team has the edge and why.
+    Calculates every component and provides clarity on critical stats.
+    Includes market line comparison and betting recommendations.
+    """
+    home_team = prediction.home_team
+    away_team = prediction.away_team
+    
+    # Calculate key metrics
+    home_win_prob = prediction.home_win_prob * 100
+    away_win_prob = (1 - prediction.home_win_prob) * 100
+    predicted_spread = prediction.predicted_spread
+    predicted_total = prediction.predicted_total
+    
+    # Determine favored team
+    if predicted_spread > 0:
+        favored_team = home_team
+        underdog_team = away_team
+        spread_margin = predicted_spread
+    else:
+        favored_team = away_team
+        underdog_team = home_team
+        spread_margin = abs(predicted_spread)
+    
+    # Get team stats
+    home_stats = getattr(prediction, 'home_team_stats', None)
+    away_stats = getattr(prediction, 'away_team_stats', None)
+    
+    # EPA Analysis - using correct attribute names
+    home_epa_offense = home_stats.epa_offense if home_stats else 0
+    home_epa_defense = home_stats.epa_defense if home_stats else 0
+    away_epa_offense = away_stats.epa_offense if away_stats else 0
+    away_epa_defense = away_stats.epa_defense if away_stats else 0
+    
+    home_total_epa = home_epa_offense + abs(home_epa_defense)
+    away_total_epa = away_epa_offense + abs(away_epa_defense)
+    epa_advantage = home_team if home_total_epa > away_total_epa else away_team
+    epa_diff = abs(home_total_epa - away_total_epa)
+    
+    # Power ratings comparison
+    home_ratings = extract_team_ratings(predictor, home_team)
+    away_ratings = extract_team_ratings(predictor, away_team)
+    
+    home_fpi = home_ratings.get('fpi', 0)
+    away_fpi = away_ratings.get('fpi', 0)
+    fpi_advantage = home_team if home_fpi > away_fpi else away_team
+    fpi_diff = abs(home_fpi - away_fpi)
+    
+    # Offensive/Defensive metrics - using correct attribute names
+    home_off_success = home_stats.success_rate_offense if home_stats else 0
+    away_off_success = away_stats.success_rate_offense if away_stats else 0
+    home_def_success = home_stats.success_rate_defense if home_stats else 0
+    away_def_success = away_stats.success_rate_defense if away_stats else 0
+    
+    offensive_edge = home_team if home_off_success > away_off_success else away_team
+    defensive_edge = home_team if home_def_success < away_def_success else away_team  # Lower is better for defense
+    
+    # Calculate overall edge score (0-100)
+    edge_factors = []
+    
+    # Win probability weight (30%)
+    if home_win_prob > away_win_prob:
+        edge_factors.append(('home', (home_win_prob - 50) * 0.6))  # Scale to 0-30
+    else:
+        edge_factors.append(('away', (away_win_prob - 50) * 0.6))
+    
+    # EPA weight (25%)
+    if epa_advantage == home_team:
+        edge_factors.append(('home', min(epa_diff * 5, 25)))
+    else:
+        edge_factors.append(('away', min(epa_diff * 5, 25)))
+    
+    # FPI weight (20%)
+    if fpi_advantage == home_team:
+        edge_factors.append(('home', min(fpi_diff * 0.5, 20)))
+    else:
+        edge_factors.append(('away', min(fpi_diff * 0.5, 20)))
+    
+    # Success rate weight (15%)
+    success_diff = (home_off_success - away_off_success) * 100
+    if success_diff > 0:
+        edge_factors.append(('home', min(abs(success_diff), 15)))
+    else:
+        edge_factors.append(('away', min(abs(success_diff), 15)))
+    
+    # Spread margin weight (10%)
+    spread_factor = min(spread_margin * 0.5, 10)
+    if favored_team == home_team:
+        edge_factors.append(('home', spread_factor))
+    else:
+        edge_factors.append(('away', spread_factor))
+    
+    # Calculate final edge scores
+    home_edge_score = sum(val for team, val in edge_factors if team == 'home')
+    away_edge_score = sum(val for team, val in edge_factors if team == 'away')
+    
+    # Build key advantages lists
+    home_advantages = []
+    away_advantages = []
+    
+    if home_epa_offense > away_epa_offense:
+        home_advantages.append(f"Superior offensive EPA: {home_epa_offense:+.3f} vs {away_epa_offense:+.3f}")
+    else:
+        away_advantages.append(f"Superior offensive EPA: {away_epa_offense:+.3f} vs {home_epa_offense:+.3f}")
+    
+    if home_epa_defense < away_epa_defense:  # Lower is better
+        home_advantages.append(f"Stronger defensive EPA: {home_epa_defense:+.3f} vs {away_epa_defense:+.3f}")
+    else:
+        away_advantages.append(f"Stronger defensive EPA: {away_epa_defense:+.3f} vs {home_epa_defense:+.3f}")
+    
+    if home_fpi > away_fpi:
+        home_advantages.append(f"Higher FPI rating: {home_fpi:.1f} vs {away_fpi:.1f}")
+    else:
+        away_advantages.append(f"Higher FPI rating: {away_fpi:.1f} vs {home_fpi:.1f}")
+    
+    if home_off_success > away_off_success:
+        home_advantages.append(f"Better offensive success rate: {home_off_success:.1%} vs {away_off_success:.1%}")
+    else:
+        away_advantages.append(f"Better offensive success rate: {away_off_success:.1%} vs {home_off_success:.1%}")
+    
+    if home_def_success < away_def_success:
+        home_advantages.append(f"Better defensive success rate: {home_def_success:.1%} vs {away_def_success:.1%}")
+    else:
+        away_advantages.append(f"Better defensive success rate: {away_def_success:.1%} vs {home_def_success:.1%}")
+    
+    # Home field advantage
+    home_advantages.append("Home field advantage")
+    
+    # Extract market lines from betting analysis
+    market_lines = []
+    consensus_spread = None
+    consensus_total = None
+    spread_edge = 0
+    total_edge = 0
+    best_spread_book = None
+    best_total_book = None
+    
+    if betting_analysis:
+        sportsbooks = betting_analysis.get('sportsbooks', {}).get('individual_books', [])
+        if sportsbooks:
+            spreads = []
+            totals = []
+            
+            for book in sportsbooks:
+                book_name = book.get('provider', 'Unknown')
+                spread = book.get('spread')
+                total = book.get('over_under')
+                odds = book.get('spread_odds', -110)
+                
+                if spread is not None:
+                    spreads.append(spread)
+                if total is not None:
+                    totals.append(total)
+                
+                market_lines.append({
+                    'sportsbook': book_name,
+                    'spread': spread,
+                    'total': total,
+                    'odds': odds
+                })
+            
+            # Calculate consensus lines (average)
+            if spreads:
+                consensus_spread = sum(spreads) / len(spreads)
+                
+                # Find best spread line (lowest absolute value = best for bettor)
+                if predicted_spread < 0:  # Away team favored - want smallest spread to lay
+                    best_spread_book = min(sportsbooks, key=lambda x: abs(x.get('spread', 0)))
+                else:  # Home team favored - want smallest spread to lay
+                    best_spread_book = max(sportsbooks, key=lambda x: abs(x.get('spread', 0)))
+                
+                # Calculate edge using BEST available line, not consensus
+                best_market_spread = best_spread_book.get('spread') if best_spread_book else consensus_spread
+                spread_edge = abs(predicted_spread) - abs(best_market_spread)
+            
+            if totals:
+                consensus_total = sum(totals) / len(totals)
+                
+                # Find best total line (lowest for over bets, highest for under bets)
+                if predicted_total > consensus_total:  # Model predicts over
+                    best_total_book = min(sportsbooks, key=lambda x: x.get('over_under', 999))
+                else:  # Model predicts under
+                    best_total_book = max(sportsbooks, key=lambda x: x.get('over_under', 0))
+                
+                # Calculate edge using BEST available line, not consensus
+                best_market_total = best_total_book.get('over_under') if best_total_book else consensus_total
+                total_edge = predicted_total - best_market_total
+    
+    # Determine bet recommendations with grading
+    recommendations = []
+    
+    # SMART BET FILTERING LOGIC
+    # Rule 1: If model spread < 3 points, game too close - skip or flip
+    # Rule 2: If model contradicts market direction, flip to other team
+    # Rule 3: If model spread < 0.5 * market spread, market knows something - flip or skip
+    
+    should_recommend_spread = True
+    flip_bet_side = False
+    
+    if best_spread_book:
+        best_market_spread = best_spread_book.get('spread')
+        model_spread_abs = abs(predicted_spread)
+        market_spread_abs = abs(best_market_spread)
+        
+        # Determine who each side favors
+        model_favors_away = predicted_spread < 0
+        market_favors_away = best_market_spread > 0  # Positive spread = home is underdog, away favored
+        
+        # Rule 1: Model projects game too close to call (< 3 points)
+        if model_spread_abs < 3:
+            # Check if we should flip to take the underdog with points
+            if market_spread_abs >= 2:  # Market giving significant points
+                flip_bet_side = True  # Take the underdog getting points
+            else:
+                should_recommend_spread = False  # Skip - too close
+        
+        # Rule 2: Model spread is less than half of market spread (market disagrees strongly)
+        elif model_spread_abs < (market_spread_abs * 0.5):
+            flip_bet_side = True  # Take opposite side
+        
+        # Rule 3: Model and market favor different teams entirely
+        if model_favors_away != market_favors_away:
+            flip_bet_side = True  # Market completely disagrees, trust the market
+        if model_favors_away != market_favors_away:
+            flip_bet_side = True  # Market completely disagrees, take their side
+    
+    # Spread recommendation with smart filtering
+    if abs(spread_edge) >= 3:
+        grade = "STRONG"
+        icon = "fire"
+    elif abs(spread_edge) >= 2:
+        grade = "GOOD"
+        icon = "star"
+    elif abs(spread_edge) >= 1:
+        grade = "SLIGHT"
+        icon = "warning"
+    else:
+        grade = None
+        icon = None
+    
+    if grade and best_spread_book and should_recommend_spread:
+        market_spread_value = best_spread_book.get('spread')
+        
+        # Determine which team to bet based on flip logic
+        # market_spread_value is from HOME team perspective:
+        #   Positive = home is underdog getting +points
+        #   Negative = home is favorite giving -points
+        
+        if flip_bet_side:
+            # FLIP: Always take the UNDERDOG getting points (safer bet when model uncertain)
+            if market_spread_value > 0:  # Home getting points -> BET HOME +points
+                bet_display = f"{home_team} +{abs(market_spread_value):.1f}"
+            else:  # Home giving points (is favorite), so away getting points -> BET AWAY +points  
+                bet_display = f"{away_team} +{abs(market_spread_value):.1f}"
+        else:
+            # NORMAL: Bet the model's favored team laying points
+            if predicted_spread < 0:  # Model favors away -> BET AWAY laying points
+                bet_display = f"{away_team} -{abs(market_spread_value):.1f}"
+            else:  # Model favors home -> BET HOME laying points
+                bet_display = f"{home_team} -{abs(market_spread_value):.1f}"
+        
+        recommendations.append({
+            'type': 'spread',
+            'grade': grade,
+            'icon': icon,
+            'bet': bet_display,
+            'sportsbook': best_spread_book.get('provider'),
+            'edge': round(spread_edge, 1),
+            'odds': best_spread_book.get('spread_odds', -110)
+        })
+    
+    # Total recommendation
+    if abs(total_edge) >= 5:
+        grade = "STRONG"
+        icon = "fire"
+    elif abs(total_edge) >= 3:
+        grade = "GOOD"
+        icon = "star"
+    elif abs(total_edge) >= 1.5:
+        grade = "SLIGHT"
+        icon = "warning"
+    else:
+        grade = None
+        icon = None
+    
+    if grade and best_total_book:
+        bet_direction = "OVER" if total_edge > 0 else "UNDER"
+        bet_line = best_total_book.get('over_under')
+        recommendations.append({
+            'type': 'total',
+            'grade': grade,
+            'icon': icon,
+            'bet': f"{bet_direction} {bet_line:.1f}",
+            'sportsbook': best_total_book.get('provider'),
+            'edge': round(total_edge, 1),
+            'odds': -110
+        })
+    
+    # Build summary
+    summary = {
+        "favored_team": favored_team,
+        "underdog_team": underdog_team,
+        "predicted_winner": home_team if home_win_prob > away_win_prob else away_team,
+        "win_probability": {
+            "home": round(home_win_prob, 1),
+            "away": round(away_win_prob, 1),
+            "favorite": round(max(home_win_prob, away_win_prob), 1)
+        },
+        "spread_analysis": {
+            "predicted_spread": predicted_spread,
+            "spread_display": f"{favored_team} -{spread_margin:.1f}",
+            "margin": round(spread_margin, 1),
+            "interpretation": (
+                f"{favored_team} is favored by {spread_margin:.1f} points. "
+                f"This indicates a {'decisive' if spread_margin > 14 else 'moderate' if spread_margin > 7 else 'close'} matchup."
+            )
+        },
+        "total_analysis": {
+            "predicted_total": round(predicted_total, 1),
+            "projected_score": {
+                "home": round(predicted_total / 2 + predicted_spread / 2, 1),
+                "away": round(predicted_total / 2 - predicted_spread / 2, 1)
+            },
+            "pace": "High-scoring" if predicted_total > 60 else "Moderate" if predicted_total > 50 else "Low-scoring"
+        },
+        "edge_analysis": {
+            "home_edge_score": round(home_edge_score, 1),
+            "away_edge_score": round(away_edge_score, 1),
+            "total_edge": round(abs(home_edge_score - away_edge_score), 1),
+            "edge_leader": home_team if home_edge_score > away_edge_score else away_team
+        },
+        "critical_stats": {
+            "epa": {
+                "home_offense": round(home_epa_offense, 3),
+                "home_defense": round(home_epa_defense, 3),
+                "away_offense": round(away_epa_offense, 3),
+                "away_defense": round(away_epa_defense, 3),
+                "advantage": epa_advantage,
+                "differential": round(epa_diff, 3)
+            },
+            "power_ratings": {
+                "home_fpi": round(home_fpi, 1),
+                "away_fpi": round(away_fpi, 1),
+                "advantage": fpi_advantage,
+                "differential": round(fpi_diff, 1)
+            },
+            "success_rates": {
+                "home_offense": round(home_off_success * 100, 1),
+                "away_offense": round(away_off_success * 100, 1),
+                "home_defense": round(home_def_success * 100, 1),
+                "away_defense": round(away_def_success * 100, 1),
+                "offensive_edge": offensive_edge,
+                "defensive_edge": defensive_edge
+            }
+        },
+        "key_advantages": {
+            "home": home_advantages,
+            "away": away_advantages
+        },
+        "bottom_line": {
+            "recommendation": (
+                recommendations[0]['bet'] + f" at {recommendations[0]['sportsbook']}" if recommendations else f"No strong edge (Model: {favored_team} {-spread_margin:.1f})"
+            ),
+            "recommendation_type": recommendations[0]['type'] if recommendations else None,
+            "recommendation_grade": recommendations[0]['grade'] if recommendations else None,
+            "recommendation_edge": recommendations[0]['edge'] if recommendations else 0,
+            "model_spread": f"{favored_team} {-spread_margin:.1f}",
+            "market_spread": f"{favored_team} {-abs(consensus_spread):.1f}" if consensus_spread else "N/A",
+            "confidence_level": "High" if prediction.confidence > 0.75 else "Moderate" if prediction.confidence > 0.60 else "Low",
+            "confidence_percentage": round(prediction.confidence * 100, 1),
+            "summary": (
+                f"{favored_team} holds the edge in this matchup with a {max(home_win_prob, away_win_prob):.1f}% win probability. "
+                f"The model projects a {spread_margin:.1f}-point margin of victory, driven primarily by "
+                f"{epa_advantage}'s superior EPA metrics ({epa_diff:.2f} differential) and "
+                f"{fpi_advantage}'s stronger power rating ({fpi_diff:.1f} point FPI advantage). "
+                + (f"Home field advantage further bolsters {home_team}'s " if home_edge_score > away_edge_score else f"{away_team} must overcome the road environment, but their ") +
+                f"position with an overall edge score of {max(home_edge_score, away_edge_score):.1f}/100."
+            ),
+            "key_factors": prediction.key_factors[:5] if hasattr(prediction, 'key_factors') else []
+        },
+        "market_analysis": {
+            "model_prediction": {
+                "spread": predicted_spread,
+                "total": predicted_total,
+                "spread_display": f"{favored_team} {-spread_margin:.1f}",
+                "total_display": f"{predicted_total:.1f}"
+            },
+            "market_consensus": {
+                "spread": round(consensus_spread, 1) if consensus_spread else None,
+                "total": round(consensus_total, 1) if consensus_total else None,
+                "spread_display": f"{favored_team} {-abs(consensus_spread):.1f}" if consensus_spread else "N/A",
+                "total_display": f"{consensus_total:.1f}" if consensus_total else "N/A"
+            },
+            "edge_detected": {
+                "spread_edge": round(spread_edge, 1),
+                "total_edge": round(total_edge, 1),
+                "has_spread_edge": abs(spread_edge) >= 1,
+                "has_total_edge": abs(total_edge) >= 1.5
+            },
+            "sportsbook_lines": market_lines,
+            "best_bets": recommendations
+        }
+    }
+    
+    return summary
 
 def generate_arbitrage_analysis(sportsbooks, model_spread, model_total, confidence, home_team, away_team):
     """Generate arbitrage opportunities using ArbitrageDetector"""
@@ -893,6 +1316,9 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
             "away": extract_team_season_games(details, 'awaySeasonGames', 'awayTeamId', prediction.away_team, away_team_data),
             "home": extract_team_season_games(details, 'homeSeasonGames', 'homeTeamId', prediction.home_team, home_team_data)
         },
+        "game_summary_and_rationale": generate_game_summary_and_rationale(
+            prediction, details, home_team_data, away_team_data, predictor, betting_analysis
+        ),
         "final_prediction": {
             "predicted_score": {
                 "away_score": away_score,
@@ -1011,6 +1437,7 @@ def predict_game():
         
         # Check if this is a rivalry game
         rivalry_history = None
+        print(f"🔍 Checking rivalry for: '{data['home_team']}' vs '{data['away_team']}'")
         if is_rivalry_game(data['home_team'], data['away_team']):
             rivalry_info = get_rivalry_info(data['home_team'], data['away_team'])
             print(f"🏆 RIVALRY DETECTED: {rivalry_info['name']}")
@@ -1020,10 +1447,29 @@ def predict_game():
             # Fetch rivalry history
             try:
                 analyzer = BatchRivalryAnalyzer()
-                games = analyzer.get_rivalry_games(data['home_team'], data['away_team'])
+                
+                # Get all-time series record from REST API
+                # NOTE: For display, away_team is team1 and home_team is team2 to match UI order
+                alltime_record = analyzer.get_alltime_series_record(data['away_team'], data['home_team'])
+                
+                # Get detailed recent games from GraphQL  
+                games = analyzer.get_rivalry_games(data['away_team'], data['home_team'])
                 if games:
+                    # Sort games by season and week (most recent first)
+                    games = sorted(games, key=lambda g: (g['season'], g['week']), reverse=True)
+                    
                     rankings = analyzer.get_rankings_for_games(games)
-                    stats = analyzer.analyze_rivalry(data['home_team'], data['away_team'], games, rankings)
+                    stats = analyzer.analyze_rivalry(data['away_team'], data['home_team'], games, rankings)
+                    
+                    # Merge all-time stats with recent game stats
+                    if alltime_record:
+                        stats['total_games_alltime'] = alltime_record.get('total_games_alltime', stats['total_games'])
+                        stats['team1_wins_alltime'] = alltime_record.get('team1_wins_alltime', stats['team1_wins'])
+                        stats['team2_wins_alltime'] = alltime_record.get('team2_wins_alltime', stats['team2_wins'])
+                        stats['ties_alltime'] = alltime_record.get('ties_alltime', 0)
+                        stats['series_record_alltime'] = alltime_record.get('series_record_alltime', f"{stats['team1_wins']}-{stats['team2_wins']}")
+                        if alltime_record.get('established'):
+                            rivalry_info['established'] = alltime_record['established']
                     
                     # Make stats JSON serializable
                     stats_serializable = {k: v for k, v in stats.items() if k not in ['closest_game', 'biggest_blowout']}
@@ -1046,18 +1492,23 @@ def predict_game():
                             'awayPoints': stats['biggest_blowout']['awayPoints']
                         }
                     
+                    # Use the formatted display name from rivalry_info
+                    display_name = rivalry_info.get('name_display', f"{data['home_team']} vs {data['away_team']}")
+                    
                     rivalry_history = {
-                        'name': rivalry_info['name'],
+                        'name': display_name,
                         'trophy': rivalry_info.get('trophy'),
                         'established': rivalry_info.get('established'),
                         'stats': stats_serializable,
-                        'recent_games': games[-10:]  # Last 10 games
+                        'recent_games': games[:10]  # First 10 games (now sorted most recent first)
                     }
                     print(f"   ✓ Loaded {stats['total_games']} historical games ({stats['team1_wins']}-{stats['team2_wins']} series)")
             except Exception as e:
                 print(f"   ⚠️ Could not load rivalry history: {e}")
                 import traceback
                 traceback.print_exc()
+        else:
+            print(f"   ℹ️  Not a rivalry game")
         
         # Run async prediction
         loop = asyncio.new_event_loop()
