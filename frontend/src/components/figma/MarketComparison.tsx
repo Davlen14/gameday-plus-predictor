@@ -100,7 +100,9 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
   // Primary team color for Model Projection and Market sections
   // Use the team that the MODEL favors (based on spread)
   const modelFavoredTeam = modelSpread < 0 ? awayTeam : homeTeam;
-  const primaryTeamColor = modelSpread < 0 ? awayTeamColor : homeTeamColor;  return (
+  const primaryTeamColor = modelSpread < 0 ? awayTeamColor : homeTeamColor;
+  
+  return (
     <GlassCard className="p-4 sm:p-6">
       {/* Upset Alert Banner - Team-Themed Design */}
       {isUpsetAlert && (
@@ -426,9 +428,10 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
               const total = book.overUnder || 0;
               const totalDiff = (total - modelTotal).toFixed(1);
               
-              // Determine badge for spread
-              const isConsensus = Math.abs(bookSpread - (marketSpread || 0)) < 0.3;
-              const spreadBadge = isConsensus ? 'CONSENSUS' : `${(bookSpread - (marketSpread || 0)) > 0 ? '+' : ''}${(bookSpread - (marketSpread || 0)).toFixed(1)}`;
+              // Determine badge for spread - extract marketSpreadValue for reuse
+              const marketSpreadValue = marketSpread || 0;
+              const isConsensus = Math.abs(bookSpread - marketSpreadValue) < 0.3;
+              const spreadBadge = isConsensus ? 'CONSENSUS' : `${(bookSpread - marketSpreadValue) > 0 ? '+' : ''}${(bookSpread - marketSpreadValue).toFixed(1)}`;
               const spreadBadgeColor = isConsensus ? 'emerald' : 'amber';
               
               return (
@@ -445,7 +448,7 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
                   valueEdge={valueEdge}
                   totalEdge={totalEdge}
                   modelSpreadDisplay={modelSpreadDisplay}
-                  marketSpreadDisplay={marketSpreadDisplay || 'N/A'}
+                  marketSpreadDisplay={marketSpreadDisplay}
                   modelTotal={modelTotal}
                   marketTotal={marketTotal || 0}
                   isUpsetAlert={isUpsetAlert}
