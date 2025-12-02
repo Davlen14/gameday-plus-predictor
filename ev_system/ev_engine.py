@@ -316,7 +316,7 @@ class EVDetectionEngine:
                     avg_home = sum(home_odds) // len(home_odds)
                     avg_away = sum(away_odds) // len(away_odds)
                     
-                    fair_probs, _ = self.no_vig_calculator.calculate_fair_odds_from_sharp_book(
+                    fair_probs, _ = NoVigCalculator.calculate_fair_odds_from_sharp_book(
                         [avg_home, avg_away]
                     )
                     
@@ -331,7 +331,7 @@ class EVDetectionEngine:
                     avg_over = sum(over_odds) // len(over_odds)
                     avg_under = sum(under_odds) // len(under_odds)
                     
-                    fair_probs, _ = self.no_vig_calculator.calculate_fair_odds_from_sharp_book(
+                    fair_probs, _ = NoVigCalculator.calculate_fair_odds_from_sharp_book(
                         [avg_over, avg_under]
                     )
                     
