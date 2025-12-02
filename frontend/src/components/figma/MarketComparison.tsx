@@ -27,6 +27,12 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
   // Get individual sportsbooks from API
   const individualBooks = bettingAnalysis?.sportsbooks?.individual_books || [];
   
+  // Check if we have actual market data (not null/undefined)
+  const hasMarketData = bettingAnalysis?.market_spread !== null && 
+                        bettingAnalysis?.market_spread !== undefined &&
+                        bettingAnalysis?.market_total !== null &&
+                        bettingAnalysis?.market_total !== undefined;
+  
   // Market comparison data - use real betting analysis when available
   const modelSpread = predictionData?.prediction_cards?.predicted_spread?.model_spread || 0;
   
@@ -44,17 +50,21 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
     }
   }
   
-  // Use real market data from betting analysis if available
-  const marketSpreadRaw = bettingAnalysis?.market_spread || predictionData?.prediction_cards?.predicted_spread?.market_spread || -3.5;
-  const marketSpread = Math.round(marketSpreadRaw * 2) / 2; // Round to nearest 0.5
-  const marketSpreadDisplay = bettingAnalysis?.formatted_spread || `${homeTeam.name} ${marketSpread >= 0 ? '+' : ''}${marketSpread.toFixed(1)}`;
-  const valueEdge = bettingAnalysis?.spread_edge || predictionData?.prediction_cards?.predicted_spread?.value_edge || 0;
+  // Use real market data from betting analysis ONLY if it exists
+  // Otherwise display "Market data unavailable"
+  const marketSpreadRaw = hasMarketData ? bettingAnalysis.market_spread : null;
+  const marketSpread = marketSpreadRaw !== null ? Math.round(marketSpreadRaw * 2) / 2 : null;
+  const marketSpreadDisplay = hasMarketData && bettingAnalysis?.formatted_spread 
+    ? bettingAnalysis.formatted_spread 
+    : 'Market data unavailable';
+  
+  const valueEdge = hasMarketData ? (bettingAnalysis?.spread_edge || 0) : 0;
   const spreadEdge = Math.abs(valueEdge);
   
   const modelTotal = predictionData?.prediction_cards?.predicted_total?.model_total || 52.5;
-  const marketTotalRaw = bettingAnalysis?.market_total || predictionData?.prediction_cards?.predicted_total?.market_total || 45.0;
-  const marketTotal = Math.round(marketTotalRaw * 2) / 2; // Round to nearest 0.5
-  const totalEdge = bettingAnalysis?.total_edge || predictionData?.prediction_cards?.predicted_total?.edge || 8.0;
+  const marketTotalRaw = hasMarketData ? bettingAnalysis.market_total : null;
+  const marketTotal = marketTotalRaw !== null ? Math.round(marketTotalRaw * 2) / 2 : null;
+  const totalEdge = hasMarketData ? (bettingAnalysis?.total_edge || 0) : 0;
   
   // Helper function to format spread display with team name
   const formatSpreadDisplay = (spread: number) => {
@@ -290,7 +300,9 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
                 textShadow: `0 0 8px ${primaryTeamColor}40`
               }}
             >
-              Model projection: {spreadEdge.toFixed(1)} point difference from market
+              {hasMarketData 
+                ? `Model projection: ${spreadEdge.toFixed(1)} point difference from market`
+                : 'Our advanced model prediction based on comprehensive analytics'}
             </p>
           </div>
         </div>
@@ -298,9 +310,11 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
         <div 
           className="relative overflow-hidden rounded-lg p-5 border backdrop-blur-sm"
           style={{
-            borderColor: `${primaryTeamColor}50`,
-            background: `linear-gradient(135deg, ${primaryTeamColor}25 0%, ${primaryTeamColor}10 50%, ${primaryTeamColor}05 100%)`,
-            boxShadow: `0 0 20px ${primaryTeamColor}15`
+            borderColor: hasMarketData ? `${primaryTeamColor}50` : 'rgba(156, 163, 175, 0.3)',
+            background: hasMarketData 
+              ? `linear-gradient(135deg, ${primaryTeamColor}25 0%, ${primaryTeamColor}10 50%, ${primaryTeamColor}05 100%)`
+              : 'linear-gradient(135deg, rgba(71, 85, 105, 0.15) 0%, rgba(51, 65, 85, 0.1) 100%)',
+            boxShadow: hasMarketData ? `0 0 20px ${primaryTeamColor}15` : '0 0 10px rgba(71, 85, 105, 0.2)'
           }}
         >
           <div className="flex items-center justify-between mb-3">
@@ -308,61 +322,75 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
               <BarChart3 
                 className="w-5 h-5"
                 style={{ 
-                  color: primaryTeamColor,
-                  filter: `drop-shadow(0 0 4px ${primaryTeamColor}60)`
+                  color: hasMarketData ? primaryTeamColor : '#94a3b8',
+                  filter: hasMarketData ? `drop-shadow(0 0 4px ${primaryTeamColor}60)` : 'none'
                 }}
               />
               <span 
                 className="font-semibold text-sm font-orbitron"
                 style={{ 
-                  color: primaryTeamColor,
-                  textShadow: `0 0 10px ${primaryTeamColor}40`
+                  color: hasMarketData ? primaryTeamColor : '#94a3b8',
+                  textShadow: hasMarketData ? `0 0 10px ${primaryTeamColor}40` : 'none'
                 }}
               >
                 Market Consensus
               </span>
             </div>
           </div>
-            <div className="grid grid-cols-2 gap-3">
-            <div>
-              <p className="text-gray-400 text-xs mb-1 font-orbitron">Spread</p>
-              <p 
-                className="text-3xl font-bold font-orbitron"
-                style={{ 
-                  color: primaryTeamColor,
-                  textShadow: `0 0 12px ${primaryTeamColor}50`
-                }}
+          {hasMarketData ? (
+            <>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <p className="text-gray-400 text-xs mb-1 font-orbitron">Spread</p>
+                  <p 
+                    className="text-3xl font-bold font-orbitron"
+                    style={{ 
+                      color: primaryTeamColor,
+                      textShadow: `0 0 12px ${primaryTeamColor}50`
+                    }}
+                  >
+                    {marketSpreadDisplay}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gray-400 text-xs mb-1 font-orbitron">Total</p>
+                  <p 
+                    className="text-3xl font-bold font-orbitron"
+                    style={{ 
+                      color: primaryTeamColor,
+                      textShadow: `0 0 12px ${primaryTeamColor}50`
+                    }}
+                  >
+                    {marketTotal}
+                  </p>
+                </div>
+              </div>
+              <div 
+                className="mt-3 pt-3 border-t"
+                style={{ borderColor: `${primaryTeamColor}30` }}
               >
-                {marketSpreadDisplay}
+                <p 
+                  className="text-xs font-semibold font-orbitron"
+                  style={{ 
+                    color: primaryTeamColor,
+                    textShadow: `0 0 8px ${primaryTeamColor}40`
+                  }}
+                >
+                  Value edge: {valueEdge >= 0 ? `+${valueEdge.toFixed(1)}` : valueEdge.toFixed(1)} points
+                </p>
+              </div>
+            </>
+          ) : (
+            <div className="flex flex-col items-center justify-center py-6">
+              <AlertTriangle className="w-12 h-12 text-slate-500 mb-3" />
+              <p className="text-slate-400 text-sm font-semibold text-center font-orbitron mb-1">
+                Market Data Unavailable
+              </p>
+              <p className="text-slate-500 text-xs text-center max-w-xs">
+                Betting lines for this matchup are not currently available. Use model projection for reference.
               </p>
             </div>
-            <div>
-              <p className="text-gray-400 text-xs mb-1 font-orbitron">Total</p>
-              <p 
-                className="text-3xl font-bold font-orbitron"
-                style={{ 
-                  color: primaryTeamColor,
-                  textShadow: `0 0 12px ${primaryTeamColor}50`
-                }}
-              >
-                {marketTotal}
-              </p>
-            </div>
-          </div>
-          <div 
-            className="mt-3 pt-3 border-t"
-            style={{ borderColor: `${primaryTeamColor}30` }}
-          >
-            <p 
-              className="text-xs font-semibold font-orbitron"
-              style={{ 
-                color: primaryTeamColor,
-                textShadow: `0 0 8px ${primaryTeamColor}40`
-              }}
-            >
-              Value edge: {valueEdge >= 0 ? `+${valueEdge.toFixed(1)}` : valueEdge.toFixed(1)} points
-            </p>
-          </div>
+          )}
         </div>
       </div>
 
@@ -384,9 +412,9 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
           />
           Live Sportsbook Lines
         </h4>
-        <div className="space-y-2 sm:space-y-3">
-          {individualBooks.length > 0 ? (
-            individualBooks.map((book: any, index: number) => {
+        {hasMarketData && individualBooks.length > 0 ? (
+          <div className="space-y-2 sm:space-y-3">
+            {individualBooks.map((book: any, index: number) => {
               const logo = book.provider === 'DraftKings' ? DraftKingsLogo :
                           book.provider === 'ESPN Bet' ? ESPNBetLogo :
                           book.provider === 'Bovada' ? BovadaLogo :
@@ -399,8 +427,8 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
               const totalDiff = (total - modelTotal).toFixed(1);
               
               // Determine badge for spread
-              const isConsensus = Math.abs(bookSpread - marketSpread) < 0.3;
-              const spreadBadge = isConsensus ? 'CONSENSUS' : `${(bookSpread - marketSpread) > 0 ? '+' : ''}${(bookSpread - marketSpread).toFixed(1)}`;
+              const isConsensus = Math.abs(bookSpread - (marketSpread || 0)) < 0.3;
+              const spreadBadge = isConsensus ? 'CONSENSUS' : `${(bookSpread - (marketSpread || 0)) > 0 ? '+' : ''}${(bookSpread - (marketSpread || 0)).toFixed(1)}`;
               const spreadBadgeColor = isConsensus ? 'emerald' : 'amber';
               
               return (
@@ -417,9 +445,9 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
                   valueEdge={valueEdge}
                   totalEdge={totalEdge}
                   modelSpreadDisplay={modelSpreadDisplay}
-                  marketSpreadDisplay={marketSpreadDisplay}
+                  marketSpreadDisplay={marketSpreadDisplay || 'N/A'}
                   modelTotal={modelTotal}
-                  marketTotal={marketTotal}
+                  marketTotal={marketTotal || 0}
                   isUpsetAlert={isUpsetAlert}
                   modelFavorite={modelFavorite}
                   marketFavorite={marketFavorite}
@@ -427,78 +455,32 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
                   awayTeamName={awayTeam.name}
                 />
               );
-            })
-          ) : (
-            // Fallback if no individual books data
-            <>
-              <SportsbookLine 
-                name="Bovada" 
-                logo={BovadaLogo}
-                spread={marketSpreadDisplay}
-                total={(marketTotal - 0.5).toString()} 
-                spreadBadge="CONSENSUS"
-                spreadBadgeColor="emerald"
-                totalDiff={`${(marketTotal - 0.5 - modelTotal).toFixed(1)}`}
-                spreadEdge={spreadEdge}
-                valueEdge={valueEdge}
-                totalEdge={totalEdge}
-                modelSpreadDisplay={modelSpreadDisplay}
-                marketSpreadDisplay={marketSpreadDisplay}
-                modelTotal={modelTotal}
-                marketTotal={marketTotal}
-                isUpsetAlert={isUpsetAlert}
-                modelFavorite={modelFavorite}
-                marketFavorite={marketFavorite}
-                homeTeamName={homeTeam.name}
-                awayTeamName={awayTeam.name}
-              />
-              <SportsbookLine 
-                name="ESPN Bet" 
-                logo={ESPNBetLogo}
-                spread={marketSpreadDisplay}
-                total={(marketTotal + 1.0).toString()} 
-                spreadBadge="+1.0"
-                spreadBadgeColor="amber"
-                totalDiff={`${(marketTotal + 1.0 - modelTotal).toFixed(1)}`}
-                spreadEdge={spreadEdge}
-                valueEdge={valueEdge}
-                totalEdge={totalEdge}
-                modelSpreadDisplay={modelSpreadDisplay}
-                marketSpreadDisplay={marketSpreadDisplay}
-                modelTotal={modelTotal}
-                marketTotal={marketTotal}
-                isUpsetAlert={isUpsetAlert}
-                modelFavorite={modelFavorite}
-                marketFavorite={marketFavorite}
-                homeTeamName={homeTeam.name}
-                awayTeamName={awayTeam.name}
-              />
-              <SportsbookLine 
-                name="DraftKings" 
-                logo={DraftKingsLogo}
-                spread={marketSpreadDisplay}
-                total={marketTotal.toString()} 
-                spreadBadge="CONSENSUS"
-                spreadBadgeColor="emerald"
-                totalDiff={`${(marketTotal - modelTotal).toFixed(1)}`}
-                spreadEdge={spreadEdge}
-                valueEdge={valueEdge}
-                totalEdge={totalEdge}
-                modelSpreadDisplay={modelSpreadDisplay}
-                marketSpreadDisplay={marketSpreadDisplay}
-                modelTotal={modelTotal}
-                marketTotal={marketTotal}
-                isUpsetAlert={isUpsetAlert}
-                modelFavorite={modelFavorite}
-                marketFavorite={marketFavorite}
-                homeTeamName={homeTeam.name}
-                awayTeamName={awayTeam.name}
-              />
-            </>
-          )}
-        </div>
+            })}
+          </div>
+        ) : (
+          // No market data available
+          <div className="rounded-lg p-6 border border-slate-600/30 backdrop-blur-sm bg-slate-800/20">
+            <div className="flex flex-col items-center justify-center text-center">
+              <AlertTriangle className="w-10 h-10 text-slate-500 mb-3" />
+              <p className="text-slate-400 font-semibold text-sm mb-2 font-orbitron">
+                Sportsbook Lines Unavailable
+              </p>
+              <p className="text-slate-500 text-xs max-w-md">
+                Betting lines from major sportsbooks (DraftKings, ESPN Bet, Bovada) are not currently available for this matchup. 
+                This may be because the game is too far in the future or the matchup hasn't been listed yet.
+              </p>
+              <div className="mt-4 p-3 bg-blue-500/10 border border-blue-400/30 rounded-lg">
+                <p className="text-blue-400 text-xs font-semibold">
+                  💡 Tip: Use our model's spread ({modelSpreadDisplay}) and total ({modelTotal}) for reference
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
 
         {/* Model's Line - Featured - Team Themed & Transparent */}
+        {hasMarketData && (
         <div 
           className="relative overflow-hidden rounded-xl p-6 border-2 backdrop-blur-sm mt-4 transition-all duration-500"
           style={{
@@ -718,13 +700,14 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
                 <span className="font-semibold text-emerald-400">Analysis:</span> 
                 Model: {modelSpreadDisplay} vs Market: {marketSpreadDisplay}. 
                 Value edge: {valueEdge >= 0 ? `+${valueEdge.toFixed(1)}` : valueEdge.toFixed(1)} points. 
-                Total model {modelTotal} vs market {marketTotal} ({totalEdge.toFixed(1)}pt edge). 
+                Total model {modelTotal} vs market {marketTotal || 'N/A'} ({totalEdge.toFixed(1)}pt edge). 
                 {valueBetSpread !== "No significant edge" ? `Recommended: ${valueBetSpread}` : "No spread value"} 
                 {valueBetTotal !== "No significant edge" ? ` and ${valueBetTotal}` : ""}.
               </p>
             </div>
           </div>
         </div>
+        )}
       </div>
 
       {/* Moneylines */}
@@ -754,34 +737,47 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
       </div>
 
       {/* Key Insights */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        <div className="relative overflow-hidden rounded-lg p-4 border border-red-500/50 backdrop-blur-sm bg-gradient-to-br from-red-500/20 to-red-500/5">
-          <div className="flex items-center gap-2 mb-2">
-            <AlertTriangle className="w-5 h-5 text-red-400" />
-            <p className="text-red-400 font-bold text-sm">
-              {spreadEdge >= 7 ? "Significant Market Disagreement" : 
-               spreadEdge >= 3 ? "Notable Market Difference" : 
-               "Minor Market Variance"}
+      {hasMarketData ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="relative overflow-hidden rounded-lg p-4 border border-red-500/50 backdrop-blur-sm bg-gradient-to-br from-red-500/20 to-red-500/5">
+            <div className="flex items-center gap-2 mb-2">
+              <AlertTriangle className="w-5 h-5 text-red-400" />
+              <p className="text-red-400 font-bold text-sm">
+                {spreadEdge >= 7 ? "Significant Market Disagreement" : 
+                 spreadEdge >= 3 ? "Notable Market Difference" : 
+                 "Minor Market Variance"}
+              </p>
+            </div>
+            <p className="text-gray-300 text-xs">
+              {valueEdge >= 2 ? `Market gives ${homeTeam.name} better odds than model suggests (${valueEdge.toFixed(1)}pt value)` :
+               valueEdge <= -2 ? `Market overvalues ${homeTeam.name} vs model projection (${Math.abs(valueEdge).toFixed(1)}pt difference)` :
+               `Model and market are in relative agreement (${spreadEdge.toFixed(1)}pt difference)`}
             </p>
           </div>
-          <p className="text-gray-300 text-xs">
-            {valueEdge >= 2 ? `Market gives ${homeTeam.name} better odds than model suggests (${valueEdge.toFixed(1)}pt value)` :
-             valueEdge <= -2 ? `Market overvalues ${homeTeam.name} vs model projection (${Math.abs(valueEdge).toFixed(1)}pt difference)` :
-             `Model and market are in relative agreement (${spreadEdge.toFixed(1)}pt difference)`}
-          </p>
+          <div className="relative overflow-hidden rounded-lg p-4 border border-amber-500/50 backdrop-blur-sm bg-gradient-to-br from-amber-500/20 to-amber-500/5">
+            <div className="flex items-center gap-2 mb-2">
+              <Info className="w-5 h-5 text-amber-400" />
+              <p className="text-amber-400 font-bold text-sm">Total Points Analysis</p>
+            </div>
+            <p className="text-gray-300 text-xs">
+              Model projects {modelTotal > (marketTotal || 0) ? `${(modelTotal - (marketTotal || 0)).toFixed(1)} more` : `${((marketTotal || 0) - modelTotal).toFixed(1)} fewer`} points than market consensus 
+              ({modelTotal} vs {marketTotal || 'N/A'})
+              {Math.abs(modelTotal - (marketTotal || 0)) >= 3 ? ` - significant edge detected` : ` - minor variance`}
+            </p>
+          </div>
         </div>
-        <div className="relative overflow-hidden rounded-lg p-4 border border-amber-500/50 backdrop-blur-sm bg-gradient-to-br from-amber-500/20 to-amber-500/5">
+      ) : (
+        <div className="rounded-lg p-4 border border-blue-500/30 backdrop-blur-sm bg-gradient-to-br from-blue-500/10 to-blue-500/5">
           <div className="flex items-center gap-2 mb-2">
-            <Info className="w-5 h-5 text-amber-400" />
-            <p className="text-amber-400 font-bold text-sm">Total Points Analysis</p>
+            <Info className="w-5 h-5 text-blue-400" />
+            <p className="text-blue-400 font-bold text-sm">Model-Only Analysis</p>
           </div>
           <p className="text-gray-300 text-xs">
-            Model projects {modelTotal > marketTotal ? `${(modelTotal - marketTotal).toFixed(1)} more` : `${(marketTotal - modelTotal).toFixed(1)} fewer`} points than market consensus 
-            ({modelTotal} vs {marketTotal})
-            {Math.abs(modelTotal - marketTotal) >= 3 ? ` - significant edge detected` : ` - minor variance`}
+            Without market data, we're showing only our model's projection. Our model predicts {modelSpreadDisplay} with a total of {modelTotal} points. 
+            Check back closer to game time for sportsbook lines and value betting opportunities.
           </p>
         </div>
-      </div>
+      )}
     </GlassCard>
   );
 }
