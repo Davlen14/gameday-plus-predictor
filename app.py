@@ -1978,6 +1978,371 @@ def get_current_week():
             'error': str(e)
         }), 500
 
+# ============================================
+# Sports Game Odds API - EV Tool Endpoints
+# ============================================
+
+@app.route('/api/ev/games', methods=['GET'])
+def get_ev_cfb_games():
+    """
+    Get CFB games with odds data from Sports Game Odds API.
+    
+    Query Parameters:
+        starts_after: ISO date string for earliest start time
+        starts_before: ISO date string for latest start time
+        limit: Maximum number of games (default 20)
+    
+    Returns:
+        JSON array of games with odds data
+    """
+    from sportsgameodds_api import get_sportsgameodds_client
+    
+    try:
+        client = get_sportsgameodds_client()
+        
+        starts_after = request.args.get('starts_after')
+        starts_before = request.args.get('starts_before')
+        limit = int(request.args.get('limit', 20))
+        
+        # Run async function in sync context
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            games = loop.run_until_complete(
+                client.get_cfb_events(
+                    starts_after=starts_after,
+                    starts_before=starts_before,
+                    include_odds=True,
+                    limit=limit
+                )
+            )
+        finally:
+            loop.close()
+        
+        return jsonify({
+            'success': True,
+            'count': len(games),
+            'games': [client.game_to_dict(g) for g in games],
+            'demo_mode': client.demo_mode
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+@app.route('/api/ev/calculate', methods=['POST'])
+def calculate_ev_opportunities():
+    """
+    Calculate EV opportunities for a CFB game based on model predictions.
+    
+    Request Body:
+        {
+            "home_team": "Ohio State",
+            "away_team": "Michigan",
+            "model_spread": 7.5,         # Positive = home favored
+            "model_total": 48.5,
+            "model_home_win_prob": 0.72, # 0-1
+            "min_ev": 2.0                # Minimum EV% threshold (optional)
+        }
+    
+    Returns:
+        JSON array of EV bet opportunities
+    """
+    from sportsgameodds_api import get_sportsgameodds_client, find_ev_opportunities
+    
+    try:
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({
+                'success': False,
+                'error': 'Request body is required'
+            }), 400
+            
+        home_team = data.get('home_team')
+        away_team = data.get('away_team')
+        model_spread = data.get('model_spread')
+        model_total = data.get('model_total')
+        model_home_win_prob = data.get('model_home_win_prob')
+        min_ev = data.get('min_ev', 2.0)
+        
+        # Validate required fields
+        if not all([home_team, away_team, model_spread is not None, 
+                   model_total is not None, model_home_win_prob is not None]):
+            return jsonify({
+                'success': False,
+                'error': 'Missing required fields: home_team, away_team, model_spread, model_total, model_home_win_prob'
+            }), 400
+        
+        # Run async function in sync context
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            ev_bets = loop.run_until_complete(
+                find_ev_opportunities(
+                    home_team=home_team,
+                    away_team=away_team,
+                    model_spread=float(model_spread),
+                    model_total=float(model_total),
+                    model_home_win_prob=float(model_home_win_prob),
+                    min_ev=float(min_ev)
+                )
+            )
+        finally:
+            loop.close()
+        
+        return jsonify({
+            'success': True,
+            'matchup': f"{away_team} @ {home_team}",
+            'model_inputs': {
+                'spread': model_spread,
+                'total': model_total,
+                'home_win_prob': model_home_win_prob
+            },
+            'ev_opportunities': ev_bets,
+            'count': len(ev_bets)
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+@app.route('/api/ev/analyze/<home_team>/<away_team>', methods=['GET'])
+def analyze_ev_for_prediction(home_team, away_team):
+    """
+    Analyze EV opportunities using our prediction model for a specific matchup.
+    Combines our LightningPredictor with Sports Game Odds data.
+    
+    URL Parameters:
+        home_team: Home team name
+        away_team: Away team name
+        
+    Query Parameters:
+        min_ev: Minimum EV% threshold (default 2.0)
+    
+    Returns:
+        Complete analysis with model predictions and EV opportunities
+    """
+    from sportsgameodds_api import get_sportsgameodds_client, find_ev_opportunities
+    
+    try:
+        min_ev = float(request.args.get('min_ev', 2.0))
+        
+        # First, get our model's prediction
+        home_id = get_team_id(home_team)
+        away_id = get_team_id(away_team)
+        
+        # Run prediction
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        
+        try:
+            predictor = LightningPredictor()
+            prediction, details = loop.run_until_complete(
+                predictor.predict_game(home_id, away_id)
+            )
+        except Exception as pred_error:
+            return jsonify({
+                'success': False,
+                'error': f'Prediction failed: {str(pred_error)}'
+            }), 500
+        
+        if not prediction:
+            return jsonify({
+                'success': False,
+                'error': 'Could not generate prediction for this matchup'
+            }), 400
+        
+        # Extract model predictions
+        model_spread = prediction.predicted_spread  # Positive = home favored
+        model_total = prediction.predicted_total
+        model_home_win_prob = prediction.home_win_probability / 100  # Convert from percentage
+        
+        # Get EV opportunities
+        try:
+            ev_bets = loop.run_until_complete(
+                find_ev_opportunities(
+                    home_team=home_team,
+                    away_team=away_team,
+                    model_spread=model_spread,
+                    model_total=model_total,
+                    model_home_win_prob=model_home_win_prob,
+                    min_ev=min_ev
+                )
+            )
+        finally:
+            loop.close()
+        
+        # Format response
+        response = {
+            'success': True,
+            'matchup': {
+                'home_team': home_team,
+                'away_team': away_team,
+                'home_id': home_id,
+                'away_id': away_id
+            },
+            'model_prediction': {
+                'spread': round(model_spread, 1),
+                'total': round(model_total, 1),
+                'home_win_probability': round(model_home_win_prob * 100, 1),
+                'away_win_probability': round((1 - model_home_win_prob) * 100, 1),
+                'predicted_winner': home_team if model_spread > 0 else away_team,
+                'confidence': prediction.confidence
+            },
+            'ev_analysis': {
+                'min_ev_threshold': min_ev,
+                'opportunities_found': len(ev_bets),
+                'bets': ev_bets
+            }
+        }
+        
+        # Add best bet recommendation
+        if ev_bets:
+            best_bet = ev_bets[0]  # Already sorted by EV%
+            response['recommended_bet'] = {
+                'selection': best_bet['selection'],
+                'bet_type': best_bet['bet_type'],
+                'odds': best_bet['odds'],
+                'bookmaker': best_bet['bookmaker'],
+                'ev_percentage': best_bet['ev_percentage'],
+                'confidence': best_bet['confidence'],
+                'kelly_stake': f"{best_bet['kelly_fraction']:.1f}% of bankroll"
+            }
+        
+        return jsonify(response), 200
+        
+    except ValueError as ve:
+        return jsonify({
+            'success': False,
+            'error': str(ve)
+        }), 400
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+@app.route('/api/ev/status', methods=['GET'])
+def get_ev_api_status():
+    """
+    Check Sports Game Odds API connection status.
+    
+    Returns:
+        API status and usage information
+    """
+    from sportsgameodds_api import test_api_connection
+    
+    try:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            result = loop.run_until_complete(test_api_connection())
+        finally:
+            loop.close()
+        
+        return jsonify({
+            'success': True,
+            'api_status': result['status'],
+            'message': result['message'],
+            'usage': result.get('usage', {})
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+@app.route('/api/ev/quick-calc', methods=['POST'])
+def quick_ev_calculation():
+    """
+    Quick EV calculation for a single bet.
+    
+    Request Body:
+        {
+            "probability": 0.55,    # Your estimated true probability
+            "odds": -110,           # American odds offered
+            "stake": 100            # Optional: stake amount (default 100)
+        }
+    
+    Returns:
+        EV amount, EV percentage, and Kelly fraction
+    """
+    from sportsgameodds_api import SportsGameOddsClient
+    
+    try:
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({
+                'success': False,
+                'error': 'Request body is required'
+            }), 400
+        
+        probability = data.get('probability')
+        odds = data.get('odds')
+        stake = data.get('stake', 100)
+        
+        if probability is None or odds is None:
+            return jsonify({
+                'success': False,
+                'error': 'Missing required fields: probability, odds'
+            }), 400
+        
+        client = SportsGameOddsClient()
+        
+        ev_amount, ev_percentage = client.calculate_ev(
+            model_probability=float(probability),
+            american_odds=int(odds),
+            stake=float(stake)
+        )
+        
+        kelly = client.calculate_kelly_fraction(
+            model_probability=float(probability),
+            american_odds=int(odds)
+        )
+        
+        implied_prob = client.american_to_implied_probability(int(odds))
+        decimal_odds = client.american_to_decimal(int(odds))
+        
+        return jsonify({
+            'success': True,
+            'input': {
+                'probability': probability,
+                'odds': odds,
+                'stake': stake
+            },
+            'calculations': {
+                'ev_amount': round(ev_amount, 2),
+                'ev_percentage': round(ev_percentage, 2),
+                'kelly_fraction': round(kelly * 100, 2),
+                'implied_probability': round(implied_prob * 100, 2),
+                'decimal_odds': round(decimal_odds, 3),
+                'edge': round((probability - implied_prob) * 100, 2)
+            },
+            'recommendation': {
+                'bet': ev_percentage > 0,
+                'confidence': 'High' if ev_percentage > 5 else 'Medium' if ev_percentage > 2 else 'Low',
+                'suggested_stake': f"{round(kelly * 100, 1)}% of bankroll" if kelly > 0 else "Do not bet"
+            }
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
 @app.route('/webhooks/n8n/data-update', methods=['POST'])
 def n8n_data_update_webhook():
     """
