@@ -1942,6 +1942,82 @@ def get_player_props(team1, team2):
         traceback.print_exc()
         return jsonify({'error': str(e)}), 500
 
+# n8n Integration Endpoints
+@app.route('/api/current-week', methods=['GET'])
+def get_current_week():
+    """
+    Return the current week number and game count
+    Useful for n8n workflows to determine what week to fetch
+    """
+    try:
+        # Load current week games
+        with open('Currentweekgames.json', 'r') as f:
+            games = json.load(f)
+        
+        # Determine current week
+        if games and len(games) > 0:
+            current_week = games[0].get('week', None)
+            return jsonify({
+                'current_week': current_week,
+                'games_count': len(games),
+                'last_updated': os.path.getmtime('Currentweekgames.json')
+            }), 200
+        else:
+            return jsonify({
+                'current_week': None,
+                'games_count': 0,
+                'message': 'No games data available'
+            }), 200
+            
+    except FileNotFoundError:
+        return jsonify({
+            'error': 'Currentweekgames.json not found'
+        }), 404
+    except Exception as e:
+        return jsonify({
+            'error': str(e)
+        }), 500
+
+@app.route('/webhooks/n8n/data-update', methods=['POST'])
+def n8n_data_update_webhook():
+    """
+    Webhook endpoint for n8n to trigger after data updates
+    
+    Expected payload:
+    {
+        "week": 12,
+        "games_count": 51,
+        "timestamp": "2025-12-02T06:00:00Z"
+    }
+    """
+    try:
+        data = request.get_json()
+        week = data.get('week')
+        games_count = data.get('games_count')
+        timestamp = data.get('timestamp')
+        
+        # Log the update
+        print(f"n8n Data Update Received - Week {week}: {games_count} games at {timestamp}")
+        
+        # You could add validation logic here
+        # For example, verify games_count is reasonable (20-60)
+        if games_count and (games_count < 20 or games_count > 60):
+            return jsonify({
+                'status': 'warning',
+                'message': f'Unusual game count: {games_count}'
+            }), 200
+        
+        return jsonify({
+            'status': 'success',
+            'message': f'Week {week} data update acknowledged'
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'status': 'error',
+            'message': str(e)
+        }), 400
+
 # Serve React Frontend
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
