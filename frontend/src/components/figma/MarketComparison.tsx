@@ -708,7 +708,6 @@ export function MarketComparison({ predictionData }: MarketComparisonProps) {
           </div>
         </div>
         )}
-      </div>
 
       {/* Moneylines */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
