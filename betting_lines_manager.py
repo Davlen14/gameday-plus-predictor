@@ -406,22 +406,26 @@ class BettingLinesManager:
             return f"Value: UNDER {market_total} (model projects {abs(edge):.1f}pts lower)"
     
     def _get_empty_betting_analysis(self) -> Dict[str, Any]:
-        """Return empty betting analysis structure"""
+        """Return empty betting analysis structure - indicates no market data exists"""
         return {
-            'market_spread': 0,
-            'market_total': 0,
-            'formatted_spread': 'N/A',
+            'market_spread': None,  # Changed from 0 to None to indicate no data
+            'market_total': None,   # Changed from 0 to None to indicate no data
+            'formatted_spread': None,  # Changed from 'N/A' to None
             'spread_edge': 0,
             'total_edge': 0,
             'spread_recommendation': 'No market data available',
             'total_recommendation': 'No market data available',
+            'is_upset_alert': False,
+            'model_favorite': None,
+            'market_favorite': None,
             'sportsbooks': {
                 'primary_provider': 'No data',
                 'all_providers': [],
                 'home_moneyline': 'N/A',
                 'away_moneyline': 'N/A',
                 'spread_open': 'N/A',
-                'total_open': 'N/A'
+                'total_open': 'N/A',
+                'individual_books': []  # Ensure this is always present
             },
             'data_source': 'No data available',
             'last_updated': 'N/A'
