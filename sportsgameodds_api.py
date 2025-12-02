@@ -136,11 +136,11 @@ class SportsGameOddsClient:
         if self.session and not self.session.closed:
             await self.session.close()
             
-    def _rate_limit(self):
-        """Enforce rate limiting between requests"""
+    async def _rate_limit_async(self):
+        """Enforce rate limiting between requests (async version)"""
         elapsed = time.time() - self.last_request_time
         if elapsed < RATE_LIMIT_DELAY:
-            time.sleep(RATE_LIMIT_DELAY - elapsed)
+            await asyncio.sleep(RATE_LIMIT_DELAY - elapsed)
         self.last_request_time = time.time()
         
     async def _make_request(self, endpoint: str, params: Optional[Dict] = None) -> Dict:
@@ -157,7 +157,7 @@ class SportsGameOddsClient:
         if self.demo_mode:
             return self._get_demo_data(endpoint, params)
             
-        self._rate_limit()
+        await self._rate_limit_async()
         await self._ensure_session()
         
         url = f"{self.BASE_URL}/{endpoint}"
