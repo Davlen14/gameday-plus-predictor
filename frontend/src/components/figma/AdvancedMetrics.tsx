@@ -60,7 +60,7 @@ const StatComparison = ({ label, awayValue, homeValue, awayLabel, homeLabel, hig
       </div>
 
       {/* Two-tone progress bar */}
-      <div className="flex h-2 rounded-full overflow-hidden bg-gray-800/40">
+      <div className="flex h-2 rounded-full overflow-hidden backdrop-blur-sm">
         {/* Away team bar - extends from left */}
         <div 
           className="transition-all duration-500"
@@ -245,7 +245,7 @@ export function AdvancedMetrics({ predictionData }: AdvancedMetricsProps) {
       </div>
 
       {/* Main Content - Two Column Layout */}
-      <div className="glass-card-light rounded-lg p-5">
+      <div className="rounded-lg p-5" style={{ background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left: Radar Chart */}
           <div className="space-y-4">
@@ -341,7 +341,7 @@ export function AdvancedMetrics({ predictionData }: AdvancedMetricsProps) {
             {/* Team Edge Cards */}
             <div className="mt-6 grid grid-cols-2 gap-3">
               {/* Away Team Edge Card */}
-              <div className="glass-card rounded-lg p-3" style={{border: `1px solid ${teams.away.color}30`}}>
+              <div className="rounded-lg p-3" style={{ background: 'rgba(255, 255, 255, 0.02)', backdropFilter: 'blur(16px)', border: `1px solid ${teams.away.color}30` }}>
                 <div className="flex items-center gap-2 mb-2">
                   <ImageWithFallback 
                     src={awayTeam.logo} 
@@ -363,7 +363,7 @@ export function AdvancedMetrics({ predictionData }: AdvancedMetricsProps) {
               </div>
 
               {/* Home Team Edge Card */}
-              <div className="glass-card rounded-lg p-3" style={{border: `1px solid ${teams.home.color}30`}}>
+              <div className="rounded-lg p-3" style={{ background: 'rgba(255, 255, 255, 0.02)', backdropFilter: 'blur(16px)', border: `1px solid ${teams.home.color}30` }}>
                 <div className="flex items-center gap-2 mb-2">
                   <ImageWithFallback 
                     src={homeTeam.logo} 

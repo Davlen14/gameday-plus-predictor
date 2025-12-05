@@ -262,31 +262,31 @@ html {
 
 /* Glassy card base - Space Gray */
 .glass-card {
-  background: rgba(42, 47, 56, 0.5);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(42, 47, 56, 0.85);
+  backdrop-filter: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 .glass-card-light {
-  background: rgba(53, 58, 69, 0.4);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(53, 58, 69, 0.75);
+  backdrop-filter: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* Enhanced glass cards with different opacity levels */
 .glass-card-strong {
-  background: rgba(42, 47, 56, 0.85);
-  backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(42, 47, 56, 0.95);
+  backdrop-filter: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
 }
 
 .glass-card-subtle {
-  background: rgba(42, 47, 56, 0.3);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(42, 47, 56, 0.65);
+  backdrop-filter: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.3);
 }
 

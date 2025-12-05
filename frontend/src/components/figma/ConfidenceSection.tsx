@@ -95,7 +95,7 @@ export function ConfidenceSection({ predictionData, isLoading, error }: Confiden
           </div>
           <span className="text-xl sm:text-2xl font-mono text-emerald-400 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">{confidence}%</span>
         </div>
-        <div className="relative h-3 bg-gray-800/40 rounded-full overflow-hidden border border-emerald-500/30">
+        <div className="relative h-3 backdrop-blur-sm rounded-full overflow-hidden border border-emerald-500/30">
           <div 
             className="absolute inset-y-0 left-0 bg-emerald-500 rounded-full transition-all duration-1000 ease-out shadow-lg shadow-emerald-500/50"
             style={{ width: `${confidence}%` }}
@@ -171,7 +171,7 @@ export function ConfidenceSection({ predictionData, isLoading, error }: Confiden
             </p>
             <p className="text-gray-400 text-xs mt-1">After Platt Scaling</p>
           </div>
-          <div className="bg-gray-800/40 rounded-lg p-2 sm:p-3 border border-gray-400/15 backdrop-blur-sm">
+          <div className="backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-gray-400/15 backdrop-blur-sm">
             <p className="text-gray-300 text-xs sm:text-sm font-semibold">Calibration Adjustment</p>
             <p className="text-white text-base sm:text-lg font-mono">
               {(confidenceData.calibration?.adjustment || 0) > 0 ? '+' : ''}

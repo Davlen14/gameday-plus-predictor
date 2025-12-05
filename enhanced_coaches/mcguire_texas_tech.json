@@ -1,0 +1,2797 @@
+{
+  "metadata": {
+    "generated": "2025-12-01 04:24:02.253709",
+    "coach": "Joey McGuire",
+    "school": "Texas Tech",
+    "era": "2015-2025",
+    "tenure_years": 11,
+    "description": "Comprehensive Joey McGuire coaching profile with all statistics, games, and analysis"
+  },
+  "summary": {
+    "generated": "2025-12-01 04:24:02.253747",
+    "overview": {
+      "coach": "Joey McGuire",
+      "era": "2015-2025",
+      "total_record": "72-64",
+      "win_pct": 52.6,
+      "total_games": 137
+    },
+    "coaching_records": [
+      {
+        "year": 2015,
+        "firstName": "Joey",
+        "lastName": "McGuire",
+        "school": "Texas Tech"
+      },
+      {
+        "year": 2016,
+        "firstName": "Joey",
+        "lastName": "McGuire",
+        "school": "Texas Tech"
+      },
+      {
+        "year": 2017,
+        "firstName": "Joey",
+        "lastName": "McGuire",
+        "school": "Texas Tech"
+      },
+      {
+        "year": 2018,
+        "firstName": "Joey",
+        "lastName": "McGuire",
+        "school": "Texas Tech"
+      },
+      {
+        "year": 2019,
+        "firstName": "Joey",
+        "lastName": "McGuire",
+        "school": "Texas Tech"
+      },
+      {
+        "year": 2020,
+        "firstName": "Joey",
+        "lastName": "McGuire",
+        "school": "Texas Tech"
+      },
+      {
+        "year": 2021,
+        "firstName": "Joey",
+        "lastName": "McGuire",
+        "school": "Texas Tech"
+      },
+      {
+        "year": 2022,
+        "firstName": "Joey",
+        "lastName": "McGuire",
+        "school": "Texas Tech"
+      },
+      {
+        "year": 2023,
+        "firstName": "Joey",
+        "lastName": "McGuire",
+        "school": "Texas Tech"
+      },
+      {
+        "year": 2024,
+        "firstName": "Joey",
+        "lastName": "McGuire",
+        "school": "Texas Tech"
+      },
+      {
+        "year": 2025,
+        "firstName": "Joey",
+        "lastName": "McGuire",
+        "school": "Texas Tech"
+      }
+    ]
+  },
+  "games": [
+    {
+      "id": 400763406,
+      "season": 2015,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Sam Houston",
+      "homePoints": 59,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 4.79691612629999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400763415,
+      "season": 2015,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "UTEP",
+      "homePoints": 69,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 1.16416720059999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400603851,
+      "season": 2015,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Arkansas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 24,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 4.8444808568,
+      "conferenceGame": false
+    },
+    {
+      "id": 400763425,
+      "season": 2015,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "TCU",
+      "homePoints": 52,
+      "awayPoints": 55,
+      "neutralSite": false,
+      "excitement": 9.5521472396,
+      "conferenceGame": true
+    },
+    {
+      "id": 400763431,
+      "season": 2015,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Baylor",
+      "awayTeam": "Texas Tech",
+      "homePoints": 63,
+      "awayPoints": 35,
+      "neutralSite": true,
+      "excitement": 1.01453187959999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400763435,
+      "season": 2015,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Iowa State",
+      "homePoints": 66,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 1.63395660689999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400763439,
+      "season": 2015,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Kansas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 20,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 1.8383820186,
+      "conferenceGame": true
+    },
+    {
+      "id": 400763442,
+      "season": 2015,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Oklahoma",
+      "awayTeam": "Texas Tech",
+      "homePoints": 63,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 2.0632195505,
+      "conferenceGame": true
+    },
+    {
+      "id": 400763448,
+      "season": 2015,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oklahoma State",
+      "homePoints": 53,
+      "awayPoints": 70,
+      "neutralSite": false,
+      "excitement": 8.250297305,
+      "conferenceGame": true
+    },
+    {
+      "id": 400763453,
+      "season": 2015,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "West Virginia",
+      "awayTeam": "Texas Tech",
+      "homePoints": 31,
+      "awayPoints": 26,
+      "neutralSite": false,
+      "excitement": 5.77680742029999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400763457,
+      "season": 2015,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kansas State",
+      "homePoints": 59,
+      "awayPoints": 44,
+      "neutralSite": false,
+      "excitement": 2.48823959519999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400763463,
+      "season": 2015,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Texas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 45,
+      "awayPoints": 48,
+      "neutralSite": false,
+      "excitement": 8.36791826729999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869625,
+      "season": 2016,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Stephen F. Austin",
+      "homePoints": 69,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 0.0359913067000012,
+      "conferenceGame": false
+    },
+    {
+      "id": 400869100,
+      "season": 2016,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Arizona State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 68,
+      "awayPoints": 55,
+      "neutralSite": false,
+      "excitement": 6.26885359529999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400869359,
+      "season": 2016,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Louisiana Tech",
+      "homePoints": 59,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 1.5708378563,
+      "conferenceGame": false
+    },
+    {
+      "id": 400869598,
+      "season": 2016,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kansas",
+      "homePoints": 55,
+      "awayPoints": 19,
+      "neutralSite": false,
+      "excitement": 0.5872647188,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869607,
+      "season": 2016,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Kansas State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 44,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 6.4983939981,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869627,
+      "season": 2016,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "West Virginia",
+      "homePoints": 17,
+      "awayPoints": 48,
+      "neutralSite": false,
+      "excitement": 3.38924650939999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869616,
+      "season": 2016,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oklahoma",
+      "homePoints": 59,
+      "awayPoints": 66,
+      "neutralSite": false,
+      "excitement": 4.2578220213,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869629,
+      "season": 2016,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "TCU",
+      "awayTeam": "Texas Tech",
+      "homePoints": 24,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 9.02079483859999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869630,
+      "season": 2016,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Texas",
+      "homePoints": 37,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 7.76602929119999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869622,
+      "season": 2016,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Oklahoma State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 45,
+      "awayPoints": 44,
+      "neutralSite": false,
+      "excitement": 5.3507928473,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869595,
+      "season": 2016,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Iowa State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 66,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 1.8666276887,
+      "conferenceGame": true
+    },
+    {
+      "id": 400868885,
+      "season": 2016,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Baylor",
+      "homePoints": 54,
+      "awayPoints": 35,
+      "neutralSite": true,
+      "excitement": 2.58010493349999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400934496,
+      "season": 2017,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Eastern Washington",
+      "homePoints": 56,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 2.1243679702,
+      "conferenceGame": false
+    },
+    {
+      "id": 400934512,
+      "season": 2017,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Arizona State",
+      "homePoints": 52,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 5.3014331465,
+      "conferenceGame": false
+    },
+    {
+      "id": 400934518,
+      "season": 2017,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Houston",
+      "awayTeam": "Texas Tech",
+      "homePoints": 24,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 7.63177271609999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400934520,
+      "season": 2017,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oklahoma State",
+      "homePoints": 34,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 6.118510861,
+      "conferenceGame": true
+    },
+    {
+      "id": 400934525,
+      "season": 2017,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Kansas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 19,
+      "awayPoints": 65,
+      "neutralSite": false,
+      "excitement": 0.8582255647,
+      "conferenceGame": true
+    },
+    {
+      "id": 400934529,
+      "season": 2017,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "West Virginia",
+      "awayTeam": "Texas Tech",
+      "homePoints": 46,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 5.849811763,
+      "conferenceGame": true
+    },
+    {
+      "id": 400934531,
+      "season": 2017,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Iowa State",
+      "homePoints": 13,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 4.0713644358,
+      "conferenceGame": true
+    },
+    {
+      "id": 400934539,
+      "season": 2017,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Oklahoma",
+      "awayTeam": "Texas Tech",
+      "homePoints": 49,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 2.29055481509999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400934543,
+      "season": 2017,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kansas State",
+      "homePoints": 35,
+      "awayPoints": 42,
+      "neutralSite": false,
+      "excitement": 7.7382570359,
+      "conferenceGame": true
+    },
+    {
+      "id": 400934549,
+      "season": 2017,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Baylor",
+      "awayTeam": "Texas Tech",
+      "homePoints": 24,
+      "awayPoints": 38,
+      "neutralSite": true,
+      "excitement": 2.89528034909999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400934555,
+      "season": 2017,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "TCU",
+      "homePoints": 3,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 4.1402140571,
+      "conferenceGame": true
+    },
+    {
+      "id": 400934557,
+      "season": 2017,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Texas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 23,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 6.9209429852,
+      "conferenceGame": true
+    },
+    {
+      "id": 401012253,
+      "season": 2018,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Ole Miss",
+      "homePoints": 27,
+      "awayPoints": 47,
+      "neutralSite": true,
+      "excitement": 3.6518173425,
+      "conferenceGame": false
+    },
+    {
+      "id": 401013322,
+      "season": 2018,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Lamar",
+      "homePoints": 77,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 0.0322535283999995,
+      "conferenceGame": false
+    },
+    {
+      "id": 401013323,
+      "season": 2018,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Houston",
+      "homePoints": 63,
+      "awayPoints": 49,
+      "neutralSite": false,
+      "excitement": 7.1749250703,
+      "conferenceGame": false
+    },
+    {
+      "id": 401013324,
+      "season": 2018,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Oklahoma State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 17,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 5.0046331384,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013325,
+      "season": 2018,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "West Virginia",
+      "homePoints": 34,
+      "awayPoints": 42,
+      "neutralSite": false,
+      "excitement": 3.1311461968,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013076,
+      "season": 2018,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "TCU",
+      "awayTeam": "Texas Tech",
+      "homePoints": 14,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 9.802518695,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013052,
+      "season": 2018,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kansas",
+      "homePoints": 48,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 1.33767011419999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013044,
+      "season": 2018,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Iowa State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 40,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 9.7844731661,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013069,
+      "season": 2018,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oklahoma",
+      "homePoints": 46,
+      "awayPoints": 51,
+      "neutralSite": false,
+      "excitement": 6.3843826731,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013321,
+      "season": 2018,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Texas",
+      "homePoints": 34,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 6.4809120183,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013064,
+      "season": 2018,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Kansas State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 21,
+      "awayPoints": 6,
+      "neutralSite": false,
+      "excitement": 4.8994656855,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013037,
+      "season": 2018,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Baylor",
+      "homePoints": 24,
+      "awayPoints": 35,
+      "neutralSite": true,
+      "excitement": 6.124318778,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112139,
+      "season": 2019,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Montana State",
+      "homePoints": 45,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 0.2871722958,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112140,
+      "season": 2019,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "UTEP",
+      "homePoints": 38,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 0.239048441799999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112141,
+      "season": 2019,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Arizona",
+      "awayTeam": "Texas Tech",
+      "homePoints": 28,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 7.32945220909999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112117,
+      "season": 2019,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Oklahoma",
+      "awayTeam": "Texas Tech",
+      "homePoints": 55,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 0.4136393925,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112126,
+      "season": 2019,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oklahoma State",
+      "homePoints": 45,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 4.7944356889,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112078,
+      "season": 2019,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Baylor",
+      "awayTeam": "Texas Tech",
+      "homePoints": 33,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 8.9465089293,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112090,
+      "season": 2019,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Iowa State",
+      "homePoints": 24,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 2.97636368289999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112103,
+      "season": 2019,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Kansas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 37,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 6.5011548771,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112142,
+      "season": 2019,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "West Virginia",
+      "awayTeam": "Texas Tech",
+      "homePoints": 17,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 1.6481161199,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112133,
+      "season": 2019,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "TCU",
+      "homePoints": 31,
+      "awayPoints": 33,
+      "neutralSite": false,
+      "excitement": 6.80301526119999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112113,
+      "season": 2019,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kansas State",
+      "homePoints": 27,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 7.22144631289999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112138,
+      "season": 2019,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Texas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 49,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 4.7509587964,
+      "conferenceGame": true
+    },
+    {
+      "id": 401236039,
+      "season": 2020,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Houston Christian",
+      "homePoints": 35,
+      "awayPoints": 33,
+      "neutralSite": false,
+      "excitement": 2.1597584691,
+      "conferenceGame": false
+    },
+    {
+      "id": 401235995,
+      "season": 2020,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Texas",
+      "homePoints": 56,
+      "awayPoints": 63,
+      "neutralSite": false,
+      "excitement": 6.1244761314,
+      "conferenceGame": true
+    },
+    {
+      "id": 401236001,
+      "season": 2020,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Kansas State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 31,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 7.3498425625,
+      "conferenceGame": true
+    },
+    {
+      "id": 401236003,
+      "season": 2020,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Iowa State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 31,
+      "awayPoints": 15,
+      "neutralSite": false,
+      "excitement": 3.3395836965,
+      "conferenceGame": true
+    },
+    {
+      "id": 401236012,
+      "season": 2020,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "West Virginia",
+      "homePoints": 34,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 9.3946335313,
+      "conferenceGame": true
+    },
+    {
+      "id": 401236016,
+      "season": 2020,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oklahoma",
+      "homePoints": 28,
+      "awayPoints": 62,
+      "neutralSite": false,
+      "excitement": 1.2207924149,
+      "conferenceGame": true
+    },
+    {
+      "id": 401236021,
+      "season": 2020,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "TCU",
+      "awayTeam": "Texas Tech",
+      "homePoints": 34,
+      "awayPoints": 18,
+      "neutralSite": false,
+      "excitement": 4.5133439544,
+      "conferenceGame": true
+    },
+    {
+      "id": 401236023,
+      "season": 2020,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Baylor",
+      "homePoints": 24,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 8.3133127248,
+      "conferenceGame": true
+    },
+    {
+      "id": 401236032,
+      "season": 2020,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Oklahoma State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 50,
+      "awayPoints": 44,
+      "neutralSite": false,
+      "excitement": 6.2689313242,
+      "conferenceGame": true
+    },
+    {
+      "id": 401236035,
+      "season": 2020,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kansas",
+      "homePoints": 16,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 2.7668628242,
+      "conferenceGame": true
+    },
+    {
+      "id": 401287886,
+      "season": 2021,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Houston",
+      "awayTeam": "Texas Tech",
+      "homePoints": 21,
+      "awayPoints": 38,
+      "neutralSite": true,
+      "excitement": 6.4519450646,
+      "conferenceGame": false
+    },
+    {
+      "id": 401287901,
+      "season": 2021,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Stephen F. Austin",
+      "homePoints": 28,
+      "awayPoints": 22,
+      "neutralSite": false,
+      "excitement": 3.7452917238,
+      "conferenceGame": false
+    },
+    {
+      "id": 401282197,
+      "season": 2021,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Florida International",
+      "homePoints": 54,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 2.5410941775,
+      "conferenceGame": false
+    },
+    {
+      "id": 401287911,
+      "season": 2021,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Texas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 70,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 2.1369984713,
+      "conferenceGame": true
+    },
+    {
+      "id": 401287916,
+      "season": 2021,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "West Virginia",
+      "awayTeam": "Texas Tech",
+      "homePoints": 20,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 7.472327173,
+      "conferenceGame": true
+    },
+    {
+      "id": 401287919,
+      "season": 2021,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "TCU",
+      "homePoints": 31,
+      "awayPoints": 52,
+      "neutralSite": false,
+      "excitement": 2.1307996775,
+      "conferenceGame": true
+    },
+    {
+      "id": 401287921,
+      "season": 2021,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Kansas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 14,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 0.8895833064,
+      "conferenceGame": true
+    },
+    {
+      "id": 401287928,
+      "season": 2021,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kansas State",
+      "homePoints": 24,
+      "awayPoints": 25,
+      "neutralSite": false,
+      "excitement": 6.2399888332,
+      "conferenceGame": true
+    },
+    {
+      "id": 401287931,
+      "season": 2021,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Oklahoma",
+      "awayTeam": "Texas Tech",
+      "homePoints": 52,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 1.9457612116,
+      "conferenceGame": true
+    },
+    {
+      "id": 401287942,
+      "season": 2021,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Iowa State",
+      "homePoints": 41,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 6.999129831,
+      "conferenceGame": true
+    },
+    {
+      "id": 401287946,
+      "season": 2021,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oklahoma State",
+      "homePoints": 0,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 3.1160564115,
+      "conferenceGame": true
+    },
+    {
+      "id": 401287948,
+      "season": 2021,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Baylor",
+      "awayTeam": "Texas Tech",
+      "homePoints": 27,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 4.7686563724,
+      "conferenceGame": true
+    },
+    {
+      "id": 401404055,
+      "season": 2022,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Murray State",
+      "homePoints": 63,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 1.0947733324,
+      "conferenceGame": false
+    },
+    {
+      "id": 401404063,
+      "season": 2022,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Houston",
+      "homePoints": 33,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 10.9707925617,
+      "conferenceGame": false
+    },
+    {
+      "id": 401404072,
+      "season": 2022,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 27,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 3.1428230837,
+      "conferenceGame": false
+    },
+    {
+      "id": 401404082,
+      "season": 2022,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Texas",
+      "homePoints": 37,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 7.6468343445,
+      "conferenceGame": true
+    },
+    {
+      "id": 401404085,
+      "season": 2022,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Kansas State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 37,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 5.4741208408,
+      "conferenceGame": true
+    },
+    {
+      "id": 401404091,
+      "season": 2022,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Oklahoma State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 41,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 9.628844577,
+      "conferenceGame": true
+    },
+    {
+      "id": 401404099,
+      "season": 2022,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "West Virginia",
+      "homePoints": 48,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 3.2082650393,
+      "conferenceGame": true
+    },
+    {
+      "id": 401404101,
+      "season": 2022,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Baylor",
+      "homePoints": 17,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 4.6107085516,
+      "conferenceGame": true
+    },
+    {
+      "id": 401404108,
+      "season": 2022,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "TCU",
+      "awayTeam": "Texas Tech",
+      "homePoints": 34,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 6.6735217728,
+      "conferenceGame": true
+    },
+    {
+      "id": 401404111,
+      "season": 2022,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kansas",
+      "homePoints": 43,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 6.5666744859,
+      "conferenceGame": true
+    },
+    {
+      "id": 401404115,
+      "season": 2022,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Iowa State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 10,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 5.3827606743,
+      "conferenceGame": true
+    },
+    {
+      "id": 401404122,
+      "season": 2022,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oklahoma",
+      "homePoints": 51,
+      "awayPoints": 48,
+      "neutralSite": false,
+      "excitement": 13.0223950294,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525825,
+      "season": 2023,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Wyoming",
+      "awayTeam": "Texas Tech",
+      "homePoints": 35,
+      "awayPoints": 33,
+      "neutralSite": false,
+      "excitement": 7.9085626634,
+      "conferenceGame": false
+    },
+    {
+      "id": 401524002,
+      "season": 2023,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oregon",
+      "homePoints": 30,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 9.8088079396,
+      "conferenceGame": false
+    },
+    {
+      "id": 401525841,
+      "season": 2023,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Tarleton State",
+      "homePoints": 41,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 2.8287634036,
+      "conferenceGame": false
+    },
+    {
+      "id": 401525850,
+      "season": 2023,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "West Virginia",
+      "awayTeam": "Texas Tech",
+      "homePoints": 20,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 7.2087152753,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525855,
+      "season": 2023,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Houston",
+      "homePoints": 49,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 5.4721004622,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525858,
+      "season": 2023,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Baylor",
+      "awayTeam": "Texas Tech",
+      "homePoints": 14,
+      "awayPoints": 39,
+      "neutralSite": false,
+      "excitement": 3.7109146884,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525866,
+      "season": 2023,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kansas State",
+      "homePoints": 21,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 5.4900438422,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525867,
+      "season": 2023,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "BYU",
+      "awayTeam": "Texas Tech",
+      "homePoints": 27,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 6.4450395257,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525879,
+      "season": 2023,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "TCU",
+      "homePoints": 35,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 7.5418781344,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525888,
+      "season": 2023,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Kansas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 13,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 6.5737871446,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525898,
+      "season": 2023,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "UCF",
+      "homePoints": 24,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 8.1386643652,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525901,
+      "season": 2023,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Texas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 57,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 3.5284810599,
+      "conferenceGame": true
+    },
+    {
+      "id": 401636613,
+      "season": 2024,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Abilene Christian",
+      "homePoints": 52,
+      "awayPoints": 51,
+      "neutralSite": false,
+      "excitement": 6.7717431708,
+      "conferenceGame": false
+    },
+    {
+      "id": 401636859,
+      "season": 2024,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Washington State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 37,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 5.208469346,
+      "conferenceGame": false
+    },
+    {
+      "id": 401636868,
+      "season": 2024,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "North Texas",
+      "homePoints": 66,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 4.5756445546,
+      "conferenceGame": false
+    },
+    {
+      "id": 401636877,
+      "season": 2024,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Arizona State",
+      "homePoints": 30,
+      "awayPoints": 22,
+      "neutralSite": false,
+      "excitement": 5.9004704465,
+      "conferenceGame": true
+    },
+    {
+      "id": 401636884,
+      "season": 2024,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Cincinnati",
+      "homePoints": 44,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 6.94809489,
+      "conferenceGame": true
+    },
+    {
+      "id": 401636887,
+      "season": 2024,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Arizona",
+      "awayTeam": "Texas Tech",
+      "homePoints": 22,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 6.9843712378,
+      "conferenceGame": true
+    },
+    {
+      "id": 401636902,
+      "season": 2024,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Baylor",
+      "homePoints": 35,
+      "awayPoints": 59,
+      "neutralSite": false,
+      "excitement": 4.0008700067,
+      "conferenceGame": true
+    },
+    {
+      "id": 401636910,
+      "season": 2024,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "TCU",
+      "awayTeam": "Texas Tech",
+      "homePoints": 35,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 7.7070856477,
+      "conferenceGame": true
+    },
+    {
+      "id": 401636914,
+      "season": 2024,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Iowa State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 22,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 6.4834102391,
+      "conferenceGame": true
+    },
+    {
+      "id": 401636921,
+      "season": 2024,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Colorado",
+      "homePoints": 27,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 5.6687912611,
+      "conferenceGame": true
+    },
+    {
+      "id": 401636934,
+      "season": 2024,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Oklahoma State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 48,
+      "awayPoints": 56,
+      "neutralSite": false,
+      "excitement": 7.5014400752,
+      "conferenceGame": true
+    },
+    {
+      "id": 401636945,
+      "season": 2024,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "West Virginia",
+      "homePoints": 52,
+      "awayPoints": 15,
+      "neutralSite": false,
+      "excitement": 2.9471723932,
+      "conferenceGame": true
+    },
+    {
+      "id": 401756877,
+      "season": 2025,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Arkansas-Pine Bluff",
+      "homePoints": 67,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 2.7990282330735847,
+      "conferenceGame": false
+    },
+    {
+      "id": 401756885,
+      "season": 2025,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kent State",
+      "homePoints": 62,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 2.845913821655414,
+      "conferenceGame": false
+    },
+    {
+      "id": 401752938,
+      "season": 2025,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oregon State",
+      "homePoints": 45,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 3.4678863962298885,
+      "conferenceGame": false
+    },
+    {
+      "id": 401756901,
+      "season": 2025,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Utah",
+      "awayTeam": "Texas Tech",
+      "homePoints": 10,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 5.001086331842076,
+      "conferenceGame": true
+    },
+    {
+      "id": 401756913,
+      "season": 2025,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Houston",
+      "awayTeam": "Texas Tech",
+      "homePoints": 11,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 4.3021884566467214,
+      "conferenceGame": true
+    },
+    {
+      "id": 401756921,
+      "season": 2025,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kansas",
+      "homePoints": 42,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 4.461073915587181,
+      "conferenceGame": true
+    },
+    {
+      "id": 401756923,
+      "season": 2025,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Arizona State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 26,
+      "awayPoints": 22,
+      "neutralSite": false,
+      "excitement": 8.938142610637891,
+      "conferenceGame": true
+    },
+    {
+      "id": 401756933,
+      "season": 2025,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oklahoma State",
+      "homePoints": 42,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 2.9263923453362275,
+      "conferenceGame": true
+    },
+    {
+      "id": 401756941,
+      "season": 2025,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Kansas State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 20,
+      "awayPoints": 43,
+      "neutralSite": false,
+      "excitement": 4.938054776568564,
+      "conferenceGame": true
+    },
+    {
+      "id": 401756945,
+      "season": 2025,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "BYU",
+      "homePoints": 29,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 3.917651770566797,
+      "conferenceGame": true
+    },
+    {
+      "id": 401756953,
+      "season": 2025,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "UCF",
+      "homePoints": 48,
+      "awayPoints": 9,
+      "neutralSite": false,
+      "excitement": 2.6824450368435704,
+      "conferenceGame": true
+    },
+    {
+      "id": 401756968,
+      "season": 2025,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "West Virginia",
+      "awayTeam": "Texas Tech",
+      "homePoints": 0,
+      "awayPoints": 49,
+      "neutralSite": false,
+      "excitement": 2.852444568793713,
+      "conferenceGame": true
+    },
+    {
+      "id": 401777327,
+      "season": 2025,
+      "week": 15,
+      "seasonType": "regular",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "BYU",
+      "homePoints": null,
+      "awayPoints": null,
+      "neutralSite": true,
+      "excitement": null,
+      "conferenceGame": true
+    },
+    {
+      "id": 400852726,
+      "season": 2015,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "LSU",
+      "homePoints": 27,
+      "awayPoints": 56,
+      "neutralSite": true,
+      "excitement": 4.0078149144,
+      "conferenceGame": false
+    },
+    {
+      "id": 400953390,
+      "season": 2017,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "South Florida",
+      "awayTeam": "Texas Tech",
+      "homePoints": 38,
+      "awayPoints": 34,
+      "neutralSite": true,
+      "excitement": 8.9052596686,
+      "conferenceGame": false
+    },
+    {
+      "id": 401331223,
+      "season": 2021,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Mississippi State",
+      "homePoints": 34,
+      "awayPoints": 7,
+      "neutralSite": true,
+      "excitement": 5.7571994254,
+      "conferenceGame": false
+    },
+    {
+      "id": 401442031,
+      "season": 2022,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Ole Miss",
+      "awayTeam": "Texas Tech",
+      "homePoints": 25,
+      "awayPoints": 42,
+      "neutralSite": true,
+      "excitement": 4.167516555,
+      "conferenceGame": false
+    },
+    {
+      "id": 401551753,
+      "season": 2023,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Texas Tech",
+      "awayTeam": "California",
+      "homePoints": 34,
+      "awayPoints": 14,
+      "neutralSite": true,
+      "excitement": 5.2445582352,
+      "conferenceGame": false
+    },
+    {
+      "id": 401677092,
+      "season": 2024,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Arkansas",
+      "awayTeam": "Texas Tech",
+      "homePoints": 39,
+      "awayPoints": 26,
+      "neutralSite": true,
+      "excitement": 4.7237799352,
+      "conferenceGame": false
+    }
+  ],
+  "rankings": [
+    {
+      "rank": 23,
+      "points": 274,
+      "poll": {
+        "season": 2025,
+        "week": 1
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 24,
+      "points": 247,
+      "poll": {
+        "season": 2025,
+        "week": 2
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 21,
+      "points": 347,
+      "poll": {
+        "season": 2025,
+        "week": 3
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 17,
+      "points": 538,
+      "poll": {
+        "season": 2025,
+        "week": 4
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 25,
+      "points": 106,
+      "poll": {
+        "season": 2018,
+        "week": 5
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 12,
+      "points": 890,
+      "poll": {
+        "season": 2025,
+        "week": 5
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 11,
+      "points": 967,
+      "poll": {
+        "season": 2025,
+        "week": 6
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 24,
+      "points": 105,
+      "poll": {
+        "season": 2017,
+        "week": 7
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 9,
+      "points": 1135,
+      "poll": {
+        "season": 2025,
+        "week": 7
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 7,
+      "points": 1266,
+      "poll": {
+        "season": 2025,
+        "week": 8
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 14,
+      "points": 782,
+      "poll": {
+        "season": 2025,
+        "week": 9
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 13,
+      "points": 876,
+      "poll": {
+        "season": 2025,
+        "week": 10
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 9,
+      "points": 1091,
+      "poll": {
+        "season": 2025,
+        "week": 11
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1211,
+      "poll": {
+        "season": 2025,
+        "week": 12
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 6,
+      "points": 1299,
+      "poll": {
+        "season": 2025,
+        "week": 13
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 7,
+      "points": 1295,
+      "poll": {
+        "season": 2025,
+        "week": 14
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "rank": 5,
+      "points": 1366,
+      "poll": {
+        "season": 2025,
+        "week": 15
+      },
+      "team": {
+        "school": "Texas Tech"
+      }
+    }
+  ],
+  "draft_picks": [
+    {
+      "year": 2016,
+      "round": 3,
+      "overall": 82,
+      "name": "Le'Raven Clark",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Indianapolis Colts"
+      },
+      "height": 77,
+      "weight": 316
+    },
+    {
+      "year": 2016,
+      "round": 5,
+      "overall": 143,
+      "name": "Deandre Washington",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Las Vegas Raiders"
+      },
+      "height": 68,
+      "weight": 204
+    },
+    {
+      "year": 2016,
+      "round": 6,
+      "overall": 186,
+      "name": "Jakeem Grant",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Miami Dolphins"
+      },
+      "height": 66,
+      "weight": 165
+    },
+    {
+      "year": 2017,
+      "round": 1,
+      "overall": 10,
+      "name": "Patrick Mahomes",
+      "position": {
+        "abbreviation": "QB"
+      },
+      "draftTeam": {
+        "displayName": "Kansas City Chiefs"
+      },
+      "height": 74,
+      "weight": 225
+    },
+    {
+      "year": 2018,
+      "round": 4,
+      "overall": 103,
+      "name": "Keke Coutee",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Houston Texans"
+      },
+      "height": 70,
+      "weight": 181
+    },
+    {
+      "year": 2018,
+      "round": 6,
+      "overall": 191,
+      "name": "Dylan Cantrell",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Los Angeles Chargers"
+      },
+      "height": 75,
+      "weight": 226
+    },
+    {
+      "year": 2019,
+      "round": 7,
+      "overall": 251,
+      "name": "Dakota Allen",
+      "position": {
+        "abbreviation": "ILB"
+      },
+      "draftTeam": {
+        "displayName": "Los Angeles Rams"
+      },
+      "height": 73,
+      "weight": 232
+    },
+    {
+      "year": 2020,
+      "round": 1,
+      "overall": 27,
+      "name": "Jordyn Brooks",
+      "position": {
+        "abbreviation": "OLB"
+      },
+      "draftTeam": {
+        "displayName": "Seattle Seahawks"
+      },
+      "height": 72,
+      "weight": 240
+    },
+    {
+      "year": 2020,
+      "round": 5,
+      "overall": 170,
+      "name": "Broderick Washington Jr",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Baltimore Ravens"
+      },
+      "height": 74,
+      "weight": 305
+    },
+    {
+      "year": 2021,
+      "round": 4,
+      "overall": 123,
+      "name": "Zech McPhearson",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "Philadelphia Eagles"
+      },
+      "height": 71,
+      "weight": 191
+    },
+    {
+      "year": 2021,
+      "round": 7,
+      "overall": 236,
+      "name": "Jack Anderson",
+      "position": {
+        "abbreviation": "OG"
+      },
+      "draftTeam": {
+        "displayName": "Buffalo Bills"
+      },
+      "height": 77,
+      "weight": 314
+    },
+    {
+      "year": 2022,
+      "round": 4,
+      "overall": 125,
+      "name": "Erik Ezukanma",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Miami Dolphins"
+      },
+      "height": 74,
+      "weight": 209
+    },
+    {
+      "year": 2022,
+      "round": 7,
+      "overall": 246,
+      "name": "Dawson Deaton",
+      "position": {
+        "abbreviation": "C"
+      },
+      "draftTeam": {
+        "displayName": "Cleveland Browns"
+      },
+      "height": 78,
+      "weight": 306
+    },
+    {
+      "year": 2023,
+      "round": 1,
+      "overall": 7,
+      "name": "Tyree Wilson",
+      "position": {
+        "abbreviation": "DE"
+      },
+      "draftTeam": {
+        "displayName": "Las Vegas Raiders"
+      },
+      "height": 78,
+      "weight": 271
+    },
+    {
+      "year": 2024,
+      "round": 4,
+      "overall": 104,
+      "name": "Dadrion Taylor-Demerson",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Arizona Cardinals"
+      },
+      "height": 71,
+      "weight": 195
+    },
+    {
+      "year": 2024,
+      "round": 7,
+      "overall": 236,
+      "name": "Myles Cole",
+      "position": {
+        "abbreviation": "EDGE"
+      },
+      "draftTeam": {
+        "displayName": "Jacksonville Jaguars"
+      },
+      "height": 78,
+      "weight": 278
+    },
+    {
+      "year": 2025,
+      "round": 3,
+      "overall": 98,
+      "name": "Caleb Rogers",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Las Vegas Raiders"
+      },
+      "height": 77,
+      "weight": 312
+    },
+    {
+      "year": 2025,
+      "round": 6,
+      "overall": 193,
+      "name": "Tahj Brooks",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Cincinnati Bengals"
+      },
+      "height": 69,
+      "weight": 214
+    }
+  ],
+  "talent_ratings": [
+    {
+      "year": 2015,
+      "talent": 641.07,
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "year": 2016,
+      "talent": 604.93,
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "year": 2017,
+      "talent": 574.93,
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "year": 2018,
+      "talent": 561.59,
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "year": 2019,
+      "talent": 577.21,
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "year": 2020,
+      "talent": 619.6,
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "year": 2021,
+      "talent": 607.1,
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "year": 2022,
+      "talent": 660.31,
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "year": 2023,
+      "talent": 694.26,
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "year": 2024,
+      "talent": 732.07,
+      "team": {
+        "school": "Texas Tech"
+      }
+    },
+    {
+      "year": 2025,
+      "talent": 757.49,
+      "team": {
+        "school": "Texas Tech"
+      }
+    }
+  ],
+  "betting_lines_2025": [
+    {
+      "id": 401756877,
+      "season": 2025,
+      "week": 1,
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Arkansas-Pine Bluff",
+      "homePoints": 67,
+      "awayPoints": 7,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": null,
+          "overUnder": 62.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -54.5,
+          "overUnder": 63.5
+        }
+      ]
+    },
+    {
+      "id": 401756885,
+      "season": 2025,
+      "week": 2,
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kent State",
+      "homePoints": 62,
+      "awayPoints": 14,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -48.5,
+          "overUnder": 60
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -47.5,
+          "overUnder": 59.5
+        }
+      ]
+    },
+    {
+      "id": 401752938,
+      "season": 2025,
+      "week": 3,
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oregon State",
+      "homePoints": 45,
+      "awayPoints": 14,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -24.5,
+          "overUnder": 61.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -24.0,
+          "overUnder": 61.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -23.5,
+          "overUnder": 61.5
+        }
+      ]
+    },
+    {
+      "id": 401756901,
+      "season": 2025,
+      "week": 4,
+      "homeTeam": "Utah",
+      "awayTeam": "Texas Tech",
+      "homePoints": 10,
+      "awayPoints": 34,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -3.5,
+          "overUnder": 58.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -3.5,
+          "overUnder": 58
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -3.5,
+          "overUnder": 58.5
+        }
+      ]
+    },
+    {
+      "id": 401756913,
+      "season": 2025,
+      "week": 6,
+      "homeTeam": "Houston",
+      "awayTeam": "Texas Tech",
+      "homePoints": 11,
+      "awayPoints": 35,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 13.5,
+          "overUnder": 51.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 13.0,
+          "overUnder": 51.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 11.5,
+          "overUnder": 51.5
+        }
+      ]
+    },
+    {
+      "id": 401756921,
+      "season": 2025,
+      "week": 7,
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Kansas",
+      "homePoints": 42,
+      "awayPoints": 17,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -13.5,
+          "overUnder": 58.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -13.5,
+          "overUnder": 58.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -13.5,
+          "overUnder": 58.5
+        }
+      ]
+    },
+    {
+      "id": 401756923,
+      "season": 2025,
+      "week": 8,
+      "homeTeam": "Arizona State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 26,
+      "awayPoints": 22,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 7.5,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 8.0,
+          "overUnder": 52
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 8.5,
+          "overUnder": 52.5
+        }
+      ]
+    },
+    {
+      "id": 401756933,
+      "season": 2025,
+      "week": 9,
+      "homeTeam": "Texas Tech",
+      "awayTeam": "Oklahoma State",
+      "homePoints": 42,
+      "awayPoints": 0,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -37.5,
+          "overUnder": 56.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -35.5,
+          "overUnder": 56.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -38.0,
+          "overUnder": 56
+        }
+      ]
+    },
+    {
+      "id": 401756941,
+      "season": 2025,
+      "week": 10,
+      "homeTeam": "Kansas State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 20,
+      "awayPoints": 43,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 7.5,
+          "overUnder": 51.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 7.5,
+          "overUnder": 51.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 7.0,
+          "overUnder": 52
+        }
+      ]
+    },
+    {
+      "id": 401756945,
+      "season": 2025,
+      "week": 11,
+      "homeTeam": "Texas Tech",
+      "awayTeam": "BYU",
+      "homePoints": 29,
+      "awayPoints": 7,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -13.5,
+          "overUnder": 50.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -13.5,
+          "overUnder": null
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -13.5,
+          "overUnder": 50
+        }
+      ]
+    },
+    {
+      "id": 401756953,
+      "season": 2025,
+      "week": 12,
+      "homeTeam": "Texas Tech",
+      "awayTeam": "UCF",
+      "homePoints": 48,
+      "awayPoints": 9,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -24.5,
+          "overUnder": 48.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -24.5,
+          "overUnder": 48.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -24.0,
+          "overUnder": 48.5
+        }
+      ]
+    },
+    {
+      "id": 401756968,
+      "season": 2025,
+      "week": 14,
+      "homeTeam": "West Virginia",
+      "awayTeam": "Texas Tech",
+      "homePoints": 0,
+      "awayPoints": 49,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 24.5,
+          "overUnder": 53.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 24.0,
+          "overUnder": 53
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 24.5,
+          "overUnder": 53.5
+        }
+      ]
+    },
+    {
+      "id": 401777327,
+      "season": 2025,
+      "week": 15,
+      "homeTeam": "Texas Tech",
+      "awayTeam": "BYU",
+      "homePoints": null,
+      "awayPoints": null,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -13.5,
+          "overUnder": null
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -13.5,
+          "overUnder": 50.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -13.5,
+          "overUnder": 50.5
+        }
+      ]
+    }
+  ]
+}

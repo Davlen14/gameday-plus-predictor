@@ -1,0 +1,3174 @@
+{
+  "metadata": {
+    "generated": "2025-12-01 04:16:47.050127",
+    "coach": "Dave Doeren",
+    "school": "NC State",
+    "era": "2015-2025",
+    "tenure_years": 11,
+    "description": "Comprehensive Dave Doeren coaching profile with all statistics, games, and analysis"
+  },
+  "summary": {
+    "generated": "2025-12-01 04:16:47.050163",
+    "overview": {
+      "coach": "Dave Doeren",
+      "era": "2015-2025",
+      "total_record": "83-56",
+      "win_pct": 59.7,
+      "total_games": 139
+    },
+    "coaching_records": [
+      {
+        "year": 2015,
+        "firstName": "Dave",
+        "lastName": "Doeren",
+        "school": "NC State"
+      },
+      {
+        "year": 2016,
+        "firstName": "Dave",
+        "lastName": "Doeren",
+        "school": "NC State"
+      },
+      {
+        "year": 2017,
+        "firstName": "Dave",
+        "lastName": "Doeren",
+        "school": "NC State"
+      },
+      {
+        "year": 2018,
+        "firstName": "Dave",
+        "lastName": "Doeren",
+        "school": "NC State"
+      },
+      {
+        "year": 2019,
+        "firstName": "Dave",
+        "lastName": "Doeren",
+        "school": "NC State"
+      },
+      {
+        "year": 2020,
+        "firstName": "Dave",
+        "lastName": "Doeren",
+        "school": "NC State"
+      },
+      {
+        "year": 2021,
+        "firstName": "Dave",
+        "lastName": "Doeren",
+        "school": "NC State"
+      },
+      {
+        "year": 2022,
+        "firstName": "Dave",
+        "lastName": "Doeren",
+        "school": "NC State"
+      },
+      {
+        "year": 2023,
+        "firstName": "Dave",
+        "lastName": "Doeren",
+        "school": "NC State"
+      },
+      {
+        "year": 2024,
+        "firstName": "Dave",
+        "lastName": "Doeren",
+        "school": "NC State"
+      },
+      {
+        "year": 2025,
+        "firstName": "Dave",
+        "lastName": "Doeren",
+        "school": "NC State"
+      }
+    ]
+  },
+  "games": [
+    {
+      "id": 400756901,
+      "season": 2015,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Troy",
+      "homePoints": 49,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 0.855163850399998,
+      "conferenceGame": false
+    },
+    {
+      "id": 400756914,
+      "season": 2015,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Eastern Kentucky",
+      "homePoints": 35,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 0.5146436348,
+      "conferenceGame": false
+    },
+    {
+      "id": 400756925,
+      "season": 2015,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Old Dominion",
+      "awayTeam": "NC State",
+      "homePoints": 14,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 2.2084970383,
+      "conferenceGame": false
+    },
+    {
+      "id": 400756936,
+      "season": 2015,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "South Alabama",
+      "awayTeam": "NC State",
+      "homePoints": 13,
+      "awayPoints": 63,
+      "neutralSite": false,
+      "excitement": 1.03407880809999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400756943,
+      "season": 2015,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Louisville",
+      "homePoints": 13,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 6.2405638397,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756946,
+      "season": 2015,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Virginia Tech",
+      "awayTeam": "NC State",
+      "homePoints": 28,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 4.6569867733,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756964,
+      "season": 2015,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Wake Forest",
+      "awayTeam": "NC State",
+      "homePoints": 17,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 1.6239566015,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756969,
+      "season": 2015,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Clemson",
+      "homePoints": 41,
+      "awayPoints": 56,
+      "neutralSite": false,
+      "excitement": 4.019665282,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756973,
+      "season": 2015,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "NC State",
+      "homePoints": 8,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 2.67763713359999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756982,
+      "season": 2015,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Florida State",
+      "awayTeam": "NC State",
+      "homePoints": 34,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 5.1302518163,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756993,
+      "season": 2015,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Syracuse",
+      "homePoints": 42,
+      "awayPoints": 29,
+      "neutralSite": false,
+      "excitement": 1.4248755844,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756997,
+      "season": 2015,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "North Carolina",
+      "homePoints": 34,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 1.93297187849999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869422,
+      "season": 2016,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "William & Mary",
+      "homePoints": 48,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 0.443644532799999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400869435,
+      "season": 2016,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "East Carolina",
+      "awayTeam": "NC State",
+      "homePoints": 33,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 8.4477685092,
+      "conferenceGame": false
+    },
+    {
+      "id": 400869360,
+      "season": 2016,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Old Dominion",
+      "homePoints": 49,
+      "awayPoints": 22,
+      "neutralSite": false,
+      "excitement": 1.15002121699999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400869456,
+      "season": 2016,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Wake Forest",
+      "homePoints": 33,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 1.91813375019999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400868951,
+      "season": 2016,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Notre Dame",
+      "homePoints": 10,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 5.8560827383,
+      "conferenceGame": false
+    },
+    {
+      "id": 400869462,
+      "season": 2016,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Clemson",
+      "awayTeam": "NC State",
+      "homePoints": 24,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 7.65089863539999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869469,
+      "season": 2016,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Louisville",
+      "awayTeam": "NC State",
+      "homePoints": 54,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 0.358807786099999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869472,
+      "season": 2016,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Boston College",
+      "homePoints": 14,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 6.1395238635,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869479,
+      "season": 2016,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Florida State",
+      "homePoints": 20,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 7.6575132614,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869488,
+      "season": 2016,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "NC State",
+      "homePoints": 20,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 5.51193005249999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869495,
+      "season": 2016,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Miami",
+      "homePoints": 13,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 5.0066538548,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869497,
+      "season": 2016,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "North Carolina",
+      "awayTeam": "NC State",
+      "homePoints": 21,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 4.859182615,
+      "conferenceGame": true
+    },
+    {
+      "id": 400933837,
+      "season": 2017,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "South Carolina",
+      "awayTeam": "NC State",
+      "homePoints": 35,
+      "awayPoints": 28,
+      "neutralSite": true,
+      "excitement": 5.2762581777,
+      "conferenceGame": false
+    },
+    {
+      "id": 400937458,
+      "season": 2017,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Marshall",
+      "homePoints": 37,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 3.17156651389999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400937465,
+      "season": 2017,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Furman",
+      "homePoints": 49,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 0.3999404804,
+      "conferenceGame": false
+    },
+    {
+      "id": 400937472,
+      "season": 2017,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Florida State",
+      "awayTeam": "NC State",
+      "homePoints": 21,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 6.6959705272,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937485,
+      "season": 2017,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Syracuse",
+      "homePoints": 33,
+      "awayPoints": 25,
+      "neutralSite": false,
+      "excitement": 2.2598103381,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937487,
+      "season": 2017,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Louisville",
+      "homePoints": 39,
+      "awayPoints": 25,
+      "neutralSite": false,
+      "excitement": 6.1815631769,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937497,
+      "season": 2017,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Pittsburgh",
+      "awayTeam": "NC State",
+      "homePoints": 17,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 4.8851171763,
+      "conferenceGame": true
+    },
+    {
+      "id": 400934579,
+      "season": 2017,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Notre Dame",
+      "awayTeam": "NC State",
+      "homePoints": 35,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 3.7639663886,
+      "conferenceGame": false
+    },
+    {
+      "id": 400937510,
+      "season": 2017,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Clemson",
+      "homePoints": 31,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 7.0697856769,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937515,
+      "season": 2017,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "NC State",
+      "homePoints": 14,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 7.7637980585,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937527,
+      "season": 2017,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Wake Forest",
+      "awayTeam": "NC State",
+      "homePoints": 30,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 8.46386152569999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937533,
+      "season": 2017,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "North Carolina",
+      "homePoints": 33,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 5.5916236191,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013091,
+      "season": 2018,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "James Madison",
+      "homePoints": 24,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 3.8739046233,
+      "conferenceGame": false
+    },
+    {
+      "id": 401013104,
+      "season": 2018,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Georgia State",
+      "homePoints": 41,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 3.38784482119999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401013126,
+      "season": 2018,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Marshall",
+      "awayTeam": "NC State",
+      "homePoints": 20,
+      "awayPoints": 37,
+      "neutralSite": false,
+      "excitement": 3.7684641234,
+      "conferenceGame": false
+    },
+    {
+      "id": 401013135,
+      "season": 2018,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Virginia",
+      "homePoints": 35,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 3.3594175977,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013139,
+      "season": 2018,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Boston College",
+      "homePoints": 28,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 2.80331567099999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013149,
+      "season": 2018,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Clemson",
+      "awayTeam": "NC State",
+      "homePoints": 41,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 0.663559830300001,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013159,
+      "season": 2018,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "NC State",
+      "homePoints": 51,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 6.98087763919999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013164,
+      "season": 2018,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Florida State",
+      "homePoints": 47,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 2.1513940918,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013167,
+      "season": 2018,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Wake Forest",
+      "homePoints": 23,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 4.07957927879999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013178,
+      "season": 2018,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Louisville",
+      "awayTeam": "NC State",
+      "homePoints": 10,
+      "awayPoints": 52,
+      "neutralSite": false,
+      "excitement": 1.6568154223,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013187,
+      "season": 2018,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "North Carolina",
+      "awayTeam": "NC State",
+      "homePoints": 28,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 8.55942840899999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401088766,
+      "season": 2018,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "East Carolina",
+      "homePoints": 58,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 0.364039675799999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112432,
+      "season": 2019,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "East Carolina",
+      "homePoints": 34,
+      "awayPoints": 6,
+      "neutralSite": false,
+      "excitement": 1.71210547749999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112444,
+      "season": 2019,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Western Carolina",
+      "homePoints": 41,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 0.1869684991,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112144,
+      "season": 2019,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "West Virginia",
+      "awayTeam": "NC State",
+      "homePoints": 44,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 5.74519081819999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112460,
+      "season": 2019,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Ball State",
+      "homePoints": 34,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 2.23201554679999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112468,
+      "season": 2019,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Florida State",
+      "awayTeam": "NC State",
+      "homePoints": 31,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 3.5654837899,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112477,
+      "season": 2019,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Syracuse",
+      "homePoints": 16,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 4.1611704525,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112484,
+      "season": 2019,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "NC State",
+      "homePoints": 45,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 3.26602125079999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112500,
+      "season": 2019,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Wake Forest",
+      "awayTeam": "NC State",
+      "homePoints": 44,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 1.2882286102,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112503,
+      "season": 2019,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Clemson",
+      "homePoints": 10,
+      "awayPoints": 55,
+      "neutralSite": false,
+      "excitement": 0.1186177687,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112512,
+      "season": 2019,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Louisville",
+      "homePoints": 20,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 4.04296856919999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112513,
+      "season": 2019,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Georgia Tech",
+      "awayTeam": "NC State",
+      "homePoints": 28,
+      "awayPoints": 26,
+      "neutralSite": false,
+      "excitement": 4.4098416873,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112524,
+      "season": 2019,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "North Carolina",
+      "homePoints": 10,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 4.506403188,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234570,
+      "season": 2020,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Wake Forest",
+      "homePoints": 45,
+      "awayPoints": 42,
+      "neutralSite": false,
+      "excitement": 9.813293487,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234566,
+      "season": 2020,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Virginia Tech",
+      "awayTeam": "NC State",
+      "homePoints": 45,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 2.5416915298,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234600,
+      "season": 2020,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Pittsburgh",
+      "awayTeam": "NC State",
+      "homePoints": 29,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 8.5382404333,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234608,
+      "season": 2020,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "NC State",
+      "homePoints": 21,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 4.6333302924,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234611,
+      "season": 2020,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Duke",
+      "homePoints": 31,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 8.1941919923,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234621,
+      "season": 2020,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "North Carolina",
+      "awayTeam": "NC State",
+      "homePoints": 48,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 2.3438845498,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234630,
+      "season": 2020,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Miami",
+      "homePoints": 41,
+      "awayPoints": 44,
+      "neutralSite": false,
+      "excitement": 8.4920874973,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234639,
+      "season": 2020,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Florida State",
+      "homePoints": 38,
+      "awayPoints": 22,
+      "neutralSite": false,
+      "excitement": 2.2775777341,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234647,
+      "season": 2020,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Liberty",
+      "homePoints": 15,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 9.8066912895,
+      "conferenceGame": false
+    },
+    {
+      "id": 401234655,
+      "season": 2020,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "NC State",
+      "homePoints": 29,
+      "awayPoints": 36,
+      "neutralSite": false,
+      "excitement": 7.4005602154,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234659,
+      "season": 2020,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Georgia Tech",
+      "homePoints": 23,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 5.6297965428,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282607,
+      "season": 2021,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "South Florida",
+      "homePoints": 45,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 1.7199176694,
+      "conferenceGame": false
+    },
+    {
+      "id": 401282064,
+      "season": 2021,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Mississippi State",
+      "awayTeam": "NC State",
+      "homePoints": 24,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 5.0970888546,
+      "conferenceGame": false
+    },
+    {
+      "id": 401282630,
+      "season": 2021,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Furman",
+      "homePoints": 45,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 1.321633163,
+      "conferenceGame": false
+    },
+    {
+      "id": 401282643,
+      "season": 2021,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Clemson",
+      "homePoints": 27,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 9.1422053589,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282220,
+      "season": 2021,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Louisiana Tech",
+      "homePoints": 34,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 4.2891146749,
+      "conferenceGame": false
+    },
+    {
+      "id": 401282658,
+      "season": 2021,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "NC State",
+      "homePoints": 7,
+      "awayPoints": 33,
+      "neutralSite": false,
+      "excitement": 3.3967373169,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282665,
+      "season": 2021,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Miami",
+      "awayTeam": "NC State",
+      "homePoints": 31,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 9.4725405277,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282672,
+      "season": 2021,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Louisville",
+      "homePoints": 28,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 7.0492604412,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282679,
+      "season": 2021,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Florida State",
+      "awayTeam": "NC State",
+      "homePoints": 14,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 4.1148713946,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282690,
+      "season": 2021,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Wake Forest",
+      "awayTeam": "NC State",
+      "homePoints": 45,
+      "awayPoints": 42,
+      "neutralSite": false,
+      "excitement": 9.9160874185,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282695,
+      "season": 2021,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Syracuse",
+      "homePoints": 41,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 3.198611212,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282699,
+      "season": 2021,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "North Carolina",
+      "homePoints": 34,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 6.8901899305,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411096,
+      "season": 2022,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "East Carolina",
+      "awayTeam": "NC State",
+      "homePoints": 20,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 5.5237324644,
+      "conferenceGame": false
+    },
+    {
+      "id": 401411106,
+      "season": 2022,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Charleston Southern",
+      "homePoints": 55,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 2.567353721,
+      "conferenceGame": false
+    },
+    {
+      "id": 401404072,
+      "season": 2022,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Texas Tech",
+      "homePoints": 27,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 3.1428230837,
+      "conferenceGame": false
+    },
+    {
+      "id": 401404150,
+      "season": 2022,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "UConn",
+      "homePoints": 41,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 1.0486818827,
+      "conferenceGame": false
+    },
+    {
+      "id": 401411125,
+      "season": 2022,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Clemson",
+      "awayTeam": "NC State",
+      "homePoints": 30,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 5.3471325493,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411134,
+      "season": 2022,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Florida State",
+      "homePoints": 19,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 7.8429390489,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411139,
+      "season": 2022,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "NC State",
+      "homePoints": 24,
+      "awayPoints": 9,
+      "neutralSite": false,
+      "excitement": 5.1217444777,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411146,
+      "season": 2022,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 22,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 7.6057577502,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411154,
+      "season": 2022,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Wake Forest",
+      "homePoints": 30,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 6.9143993476,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411161,
+      "season": 2022,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Boston College",
+      "homePoints": 20,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 4.4383299197,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411167,
+      "season": 2022,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Louisville",
+      "awayTeam": "NC State",
+      "homePoints": 25,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 6.031536858,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411172,
+      "season": 2022,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "North Carolina",
+      "awayTeam": "NC State",
+      "homePoints": 27,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 9.7306633285,
+      "conferenceGame": true
+    },
+    {
+      "id": 401520174,
+      "season": 2023,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "UConn",
+      "awayTeam": "NC State",
+      "homePoints": 14,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 3.6726577056,
+      "conferenceGame": false
+    },
+    {
+      "id": 401525436,
+      "season": 2023,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Notre Dame",
+      "homePoints": 24,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 4.8174883994,
+      "conferenceGame": false
+    },
+    {
+      "id": 401525502,
+      "season": 2023,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "VMI",
+      "homePoints": 45,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 2.3480485678,
+      "conferenceGame": false
+    },
+    {
+      "id": 401525505,
+      "season": 2023,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "NC State",
+      "homePoints": 21,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 6.312104538,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525512,
+      "season": 2023,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Louisville",
+      "homePoints": 10,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 7.705246583,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525521,
+      "season": 2023,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Marshall",
+      "homePoints": 48,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 8.326153411,
+      "conferenceGame": false
+    },
+    {
+      "id": 401525523,
+      "season": 2023,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "NC State",
+      "homePoints": 24,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 3.9268203457,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525534,
+      "season": 2023,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Clemson",
+      "homePoints": 24,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 6.7245778212,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525544,
+      "season": 2023,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Miami",
+      "homePoints": 20,
+      "awayPoints": 6,
+      "neutralSite": false,
+      "excitement": 5.9827309887,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525551,
+      "season": 2023,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Wake Forest",
+      "awayTeam": "NC State",
+      "homePoints": 6,
+      "awayPoints": 26,
+      "neutralSite": false,
+      "excitement": 2.1140792628,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525559,
+      "season": 2023,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Virginia Tech",
+      "awayTeam": "NC State",
+      "homePoints": 28,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 3.0165214223,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525562,
+      "season": 2023,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "North Carolina",
+      "homePoints": 39,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 3.6244593094,
+      "conferenceGame": true
+    },
+    {
+      "id": 401634299,
+      "season": 2024,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Western Carolina",
+      "homePoints": 38,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 7.4610249317,
+      "conferenceGame": false
+    },
+    {
+      "id": 401628346,
+      "season": 2024,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Tennessee",
+      "homePoints": 10,
+      "awayPoints": 51,
+      "neutralSite": true,
+      "excitement": 2.6876723747,
+      "conferenceGame": false
+    },
+    {
+      "id": 401635546,
+      "season": 2024,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Louisiana Tech",
+      "homePoints": 30,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 6.9656670091,
+      "conferenceGame": false
+    },
+    {
+      "id": 401635552,
+      "season": 2024,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Clemson",
+      "awayTeam": "NC State",
+      "homePoints": 59,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 2.0210250501,
+      "conferenceGame": true
+    },
+    {
+      "id": 401635564,
+      "season": 2024,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Northern Illinois",
+      "homePoints": 24,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 6.228092864,
+      "conferenceGame": false
+    },
+    {
+      "id": 401635638,
+      "season": 2024,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Wake Forest",
+      "homePoints": 30,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 7.0816037197,
+      "conferenceGame": true
+    },
+    {
+      "id": 401635574,
+      "season": 2024,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Syracuse",
+      "homePoints": 17,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 3.9177136803,
+      "conferenceGame": true
+    },
+    {
+      "id": 401635587,
+      "season": 2024,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "California",
+      "awayTeam": "NC State",
+      "homePoints": 23,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 7.188961357,
+      "conferenceGame": true
+    },
+    {
+      "id": 401635516,
+      "season": 2024,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Stanford",
+      "homePoints": 59,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 3.6194951636,
+      "conferenceGame": true
+    },
+    {
+      "id": 401635608,
+      "season": 2024,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Duke",
+      "homePoints": 19,
+      "awayPoints": 29,
+      "neutralSite": false,
+      "excitement": 4.7482868814,
+      "conferenceGame": true
+    },
+    {
+      "id": 401634772,
+      "season": 2024,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Georgia Tech",
+      "awayTeam": "NC State",
+      "homePoints": 30,
+      "awayPoints": 29,
+      "neutralSite": false,
+      "excitement": 7.9663405124,
+      "conferenceGame": true
+    },
+    {
+      "id": 401635624,
+      "season": 2024,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "North Carolina",
+      "awayTeam": "NC State",
+      "homePoints": 30,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 7.7781583966,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754373,
+      "season": 2025,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "East Carolina",
+      "homePoints": 24,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 4.6509769467251365,
+      "conferenceGame": false
+    },
+    {
+      "id": 401754524,
+      "season": 2025,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Virginia",
+      "homePoints": 35,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 8.126042888443141,
+      "conferenceGame": false
+    },
+    {
+      "id": 401754531,
+      "season": 2025,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Wake Forest",
+      "awayTeam": "NC State",
+      "homePoints": 24,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 5.133342505139144,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754538,
+      "season": 2025,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "NC State",
+      "homePoints": 45,
+      "awayPoints": 33,
+      "neutralSite": false,
+      "excitement": 6.954364216208502,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754548,
+      "season": 2025,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 21,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 6.646683052975088,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754557,
+      "season": 2025,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Campbell",
+      "homePoints": 56,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 3.478994264761209,
+      "conferenceGame": false
+    },
+    {
+      "id": 401754562,
+      "season": 2025,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Notre Dame",
+      "awayTeam": "NC State",
+      "homePoints": 36,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 4.771520212038678,
+      "conferenceGame": false
+    },
+    {
+      "id": 401754574,
+      "season": 2025,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Pittsburgh",
+      "awayTeam": "NC State",
+      "homePoints": 53,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 4.662732411692216,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754579,
+      "season": 2025,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Georgia Tech",
+      "homePoints": 48,
+      "awayPoints": 36,
+      "neutralSite": false,
+      "excitement": 5.721442235800005,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754595,
+      "season": 2025,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Miami",
+      "awayTeam": "NC State",
+      "homePoints": 41,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 3.570872354314906,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754598,
+      "season": 2025,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Florida State",
+      "homePoints": 21,
+      "awayPoints": 11,
+      "neutralSite": false,
+      "excitement": 4.720332964140075,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754612,
+      "season": 2025,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "North Carolina",
+      "homePoints": 42,
+      "awayPoints": 19,
+      "neutralSite": false,
+      "excitement": 3.756003950760385,
+      "conferenceGame": true
+    },
+    {
+      "id": 400852728,
+      "season": 2015,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Mississippi State",
+      "awayTeam": "NC State",
+      "homePoints": 51,
+      "awayPoints": 28,
+      "neutralSite": true,
+      "excitement": 2.55487489799999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400876092,
+      "season": 2016,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Vanderbilt",
+      "awayTeam": "NC State",
+      "homePoints": 17,
+      "awayPoints": 41,
+      "neutralSite": true,
+      "excitement": 2.9227266899,
+      "conferenceGame": false
+    },
+    {
+      "id": 400953417,
+      "season": 2017,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Arizona State",
+      "awayTeam": "NC State",
+      "homePoints": 31,
+      "awayPoints": 52,
+      "neutralSite": true,
+      "excitement": 2.62871825019999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401032082,
+      "season": 2018,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Texas A&M",
+      "awayTeam": "NC State",
+      "homePoints": 52,
+      "awayPoints": 13,
+      "neutralSite": true,
+      "excitement": 3.7789476752,
+      "conferenceGame": false
+    },
+    {
+      "id": 401256109,
+      "season": 2020,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Kentucky",
+      "awayTeam": "NC State",
+      "homePoints": 23,
+      "awayPoints": 21,
+      "neutralSite": true,
+      "excitement": 6.4005115484,
+      "conferenceGame": false
+    },
+    {
+      "id": 401442035,
+      "season": 2022,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "NC State",
+      "awayTeam": "Maryland",
+      "homePoints": 12,
+      "awayPoints": 16,
+      "neutralSite": true,
+      "excitement": 9.0729636541,
+      "conferenceGame": false
+    },
+    {
+      "id": 401551764,
+      "season": 2023,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Kansas State",
+      "awayTeam": "NC State",
+      "homePoints": 28,
+      "awayPoints": 19,
+      "neutralSite": true,
+      "excitement": 9.0020764478,
+      "conferenceGame": false
+    },
+    {
+      "id": 401677098,
+      "season": 2024,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "NC State",
+      "awayTeam": "East Carolina",
+      "homePoints": 21,
+      "awayPoints": 26,
+      "neutralSite": true,
+      "excitement": 7.0119358752,
+      "conferenceGame": false
+    }
+  ],
+  "rankings": [
+    {
+      "rank": 23,
+      "points": 232,
+      "poll": {
+        "season": 2017,
+        "week": 1
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 20,
+      "points": 382,
+      "poll": {
+        "season": 2021,
+        "week": 1
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 13,
+      "points": 752,
+      "poll": {
+        "season": 2022,
+        "week": 1
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 21,
+      "points": 244,
+      "poll": {
+        "season": 2023,
+        "week": 1
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 24,
+      "points": 171,
+      "poll": {
+        "season": 2024,
+        "week": 1
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 18,
+      "points": 513,
+      "poll": {
+        "season": 2022,
+        "week": 2
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 24,
+      "points": 142,
+      "poll": {
+        "season": 2024,
+        "week": 2
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 16,
+      "points": 623,
+      "poll": {
+        "season": 2022,
+        "week": 3
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 12,
+      "points": 781,
+      "poll": {
+        "season": 2022,
+        "week": 4
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 23,
+      "points": 145,
+      "poll": {
+        "season": 2021,
+        "week": 5
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 10,
+      "points": 920,
+      "poll": {
+        "season": 2022,
+        "week": 5
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 24,
+      "points": 149,
+      "poll": {
+        "season": 2017,
+        "week": 6
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 23,
+      "points": 118,
+      "poll": {
+        "season": 2018,
+        "week": 6
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 23,
+      "points": 279,
+      "poll": {
+        "season": 2021,
+        "week": 6
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 14,
+      "points": 691,
+      "poll": {
+        "season": 2022,
+        "week": 6
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 20,
+      "points": 421,
+      "poll": {
+        "season": 2017,
+        "week": 7
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 20,
+      "points": 342,
+      "poll": {
+        "season": 2018,
+        "week": 7
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 22,
+      "points": 265,
+      "poll": {
+        "season": 2021,
+        "week": 7
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 15,
+      "points": 746,
+      "poll": {
+        "season": 2022,
+        "week": 7
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 16,
+      "points": 573,
+      "poll": {
+        "season": 2017,
+        "week": 8
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 16,
+      "points": 592,
+      "poll": {
+        "season": 2018,
+        "week": 8
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 23,
+      "points": 199,
+      "poll": {
+        "season": 2020,
+        "week": 8
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 18,
+      "points": 485,
+      "poll": {
+        "season": 2021,
+        "week": 8
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 23,
+      "points": 155,
+      "poll": {
+        "season": 2022,
+        "week": 8
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 14,
+      "points": 666,
+      "poll": {
+        "season": 2017,
+        "week": 9
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 22,
+      "points": 186,
+      "poll": {
+        "season": 2018,
+        "week": 9
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 24,
+      "points": 169,
+      "poll": {
+        "season": 2022,
+        "week": 9
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 20,
+      "points": 333,
+      "poll": {
+        "season": 2017,
+        "week": 10
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 21,
+      "points": 285,
+      "poll": {
+        "season": 2022,
+        "week": 10
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 22,
+      "points": 264,
+      "poll": {
+        "season": 2018,
+        "week": 11
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 21,
+      "points": 268,
+      "poll": {
+        "season": 2021,
+        "week": 11
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 17,
+      "points": 547,
+      "poll": {
+        "season": 2022,
+        "week": 11
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 25,
+      "points": 178,
+      "poll": {
+        "season": 2017,
+        "week": 12
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 25,
+      "points": 95,
+      "poll": {
+        "season": 2021,
+        "week": 12
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 24,
+      "points": 141,
+      "poll": {
+        "season": 2021,
+        "week": 13
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 21,
+      "points": 310,
+      "poll": {
+        "season": 2021,
+        "week": 14
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 21,
+      "points": 269,
+      "poll": {
+        "season": 2023,
+        "week": 14
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 18,
+      "points": 404,
+      "poll": {
+        "season": 2021,
+        "week": 15
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 25,
+      "points": 59,
+      "poll": {
+        "season": 2022,
+        "week": 15
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 19,
+      "points": 377,
+      "poll": {
+        "season": 2023,
+        "week": 15
+      },
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "rank": 24,
+      "points": 137,
+      "poll": {
+        "season": 2020,
+        "week": 16
+      },
+      "team": {
+        "school": "NC State"
+      }
+    }
+  ],
+  "draft_picks": [
+    {
+      "year": 2016,
+      "round": 3,
+      "overall": 78,
+      "name": "Joe Thuney",
+      "position": {
+        "abbreviation": "OG"
+      },
+      "draftTeam": {
+        "displayName": "New England Patriots"
+      },
+      "height": 77,
+      "weight": 304
+    },
+    {
+      "year": 2016,
+      "round": 3,
+      "overall": 91,
+      "name": "Jacoby Brissett",
+      "position": {
+        "abbreviation": "QB"
+      },
+      "draftTeam": {
+        "displayName": "New England Patriots"
+      },
+      "height": 76,
+      "weight": 231
+    },
+    {
+      "year": 2016,
+      "round": 4,
+      "overall": 118,
+      "name": "Juston Burris",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "New York Jets"
+      },
+      "height": 72,
+      "weight": 212
+    },
+    {
+      "year": 2017,
+      "round": 2,
+      "overall": 61,
+      "name": "Josh Jones",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Green Bay Packers"
+      },
+      "height": 73,
+      "weight": 220
+    },
+    {
+      "year": 2017,
+      "round": 7,
+      "overall": 245,
+      "name": "Jack Tocho",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "Minnesota Vikings"
+      },
+      "height": 72,
+      "weight": 202
+    },
+    {
+      "year": 2017,
+      "round": 7,
+      "overall": 252,
+      "name": "Matthew Dayes",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Cleveland Browns"
+      },
+      "height": 69,
+      "weight": 205
+    },
+    {
+      "year": 2018,
+      "round": 1,
+      "overall": 5,
+      "name": "Bradley Chubb",
+      "position": {
+        "abbreviation": "DE"
+      },
+      "draftTeam": {
+        "displayName": "Denver Broncos"
+      },
+      "height": 76,
+      "weight": 269
+    },
+    {
+      "year": 2018,
+      "round": 3,
+      "overall": 69,
+      "name": "B.J. Hill",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "New York Giants"
+      },
+      "height": 75,
+      "weight": 311
+    },
+    {
+      "year": 2018,
+      "round": 3,
+      "overall": 84,
+      "name": "Justin Jones",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Los Angeles Chargers"
+      },
+      "height": 75,
+      "weight": 309
+    },
+    {
+      "year": 2018,
+      "round": 4,
+      "overall": 104,
+      "name": "Nyheim Hines",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Indianapolis Colts"
+      },
+      "height": 68,
+      "weight": 198
+    },
+    {
+      "year": 2018,
+      "round": 4,
+      "overall": 128,
+      "name": "Kentavius Street",
+      "position": {
+        "abbreviation": "DE"
+      },
+      "draftTeam": {
+        "displayName": "San Francisco 49ers"
+      },
+      "height": 74,
+      "weight": 280
+    },
+    {
+      "year": 2018,
+      "round": 4,
+      "overall": 129,
+      "name": "Will Richardson",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Jacksonville Jaguars"
+      },
+      "height": 78,
+      "weight": 306
+    },
+    {
+      "year": 2018,
+      "round": 5,
+      "overall": 165,
+      "name": "Jaylen Samuels",
+      "position": {
+        "abbreviation": "FB"
+      },
+      "draftTeam": {
+        "displayName": "Pittsburgh Steelers"
+      },
+      "height": 72,
+      "weight": 225
+    },
+    {
+      "year": 2019,
+      "round": 1,
+      "overall": 18,
+      "name": "Garrett Bradbury",
+      "position": {
+        "abbreviation": "C"
+      },
+      "draftTeam": {
+        "displayName": "Minnesota Vikings"
+      },
+      "height": 75,
+      "weight": 306
+    },
+    {
+      "year": 2019,
+      "round": 3,
+      "overall": 72,
+      "name": "Germaine Pratt",
+      "position": {
+        "abbreviation": "OLB"
+      },
+      "draftTeam": {
+        "displayName": "Cincinnati Bengals"
+      },
+      "height": 75,
+      "weight": 240
+    },
+    {
+      "year": 2019,
+      "round": 4,
+      "overall": 104,
+      "name": "Ryan Finley",
+      "position": {
+        "abbreviation": "QB"
+      },
+      "draftTeam": {
+        "displayName": "Cincinnati Bengals"
+      },
+      "height": 76,
+      "weight": 213
+    },
+    {
+      "year": 2019,
+      "round": 6,
+      "overall": 206,
+      "name": "Kelvin Harmon",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Washington"
+      },
+      "height": 75,
+      "weight": 221
+    },
+    {
+      "year": 2020,
+      "round": 5,
+      "overall": 174,
+      "name": "Larrell Murchison",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Tennessee Titans"
+      },
+      "height": 75,
+      "weight": 297
+    },
+    {
+      "year": 2020,
+      "round": 7,
+      "overall": 229,
+      "name": "James Smith-Williams",
+      "position": {
+        "abbreviation": "DE"
+      },
+      "draftTeam": {
+        "displayName": "Washington"
+      },
+      "height": 76,
+      "weight": 265
+    },
+    {
+      "year": 2021,
+      "round": 3,
+      "overall": 72,
+      "name": "Alim McNeill",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Detroit Lions"
+      },
+      "height": 74,
+      "weight": 317
+    },
+    {
+      "year": 2022,
+      "round": 1,
+      "overall": 6,
+      "name": "Ikem Ekwonu",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Carolina Panthers"
+      },
+      "height": 76,
+      "weight": 310
+    },
+    {
+      "year": 2022,
+      "round": 7,
+      "overall": 255,
+      "name": "Trenton Gill",
+      "position": {
+        "abbreviation": "P"
+      },
+      "draftTeam": {
+        "displayName": "Chicago Bears"
+      },
+      "height": 76,
+      "weight": 219
+    },
+    {
+      "year": 2023,
+      "round": 4,
+      "overall": 114,
+      "name": "Chandler Zavala",
+      "position": {
+        "abbreviation": "OG"
+      },
+      "draftTeam": {
+        "displayName": "Carolina Panthers"
+      },
+      "height": 75,
+      "weight": 322
+    },
+    {
+      "year": 2024,
+      "round": 3,
+      "overall": 98,
+      "name": "Payton Wilson",
+      "position": {
+        "abbreviation": "LB"
+      },
+      "draftTeam": {
+        "displayName": "Pittsburgh Steelers"
+      },
+      "height": 76,
+      "weight": 233
+    },
+    {
+      "year": 2024,
+      "round": 6,
+      "overall": 190,
+      "name": "Dylan McMahon",
+      "position": {
+        "abbreviation": "OG"
+      },
+      "draftTeam": {
+        "displayName": "Philadelphia Eagles"
+      },
+      "height": 75,
+      "weight": 299
+    },
+    {
+      "year": 2025,
+      "round": 2,
+      "overall": 54,
+      "name": "Anthony Belton",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Green Bay Packers"
+      },
+      "height": 78,
+      "weight": 336
+    }
+  ],
+  "talent_ratings": [
+    {
+      "year": 2015,
+      "talent": 610.33,
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "year": 2016,
+      "talent": 616.29,
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "year": 2017,
+      "talent": 609.76,
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "year": 2018,
+      "talent": 629.39,
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "year": 2019,
+      "talent": 668.85,
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "year": 2020,
+      "talent": 680.31,
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "year": 2021,
+      "talent": 700.36,
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "year": 2022,
+      "talent": 686.19,
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "year": 2023,
+      "talent": 700.85,
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "year": 2024,
+      "talent": 722.41,
+      "team": {
+        "school": "NC State"
+      }
+    },
+    {
+      "year": 2025,
+      "talent": 707.51,
+      "team": {
+        "school": "NC State"
+      }
+    }
+  ],
+  "betting_lines_2025": [
+    {
+      "id": 401754373,
+      "season": 2025,
+      "week": 1,
+      "homeTeam": "NC State",
+      "awayTeam": "East Carolina",
+      "homePoints": 24,
+      "awayPoints": 17,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -12.5,
+          "overUnder": 58.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -13.5,
+          "overUnder": 61.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -14.0,
+          "overUnder": 61
+        }
+      ]
+    },
+    {
+      "id": 401754524,
+      "season": 2025,
+      "week": 2,
+      "homeTeam": "NC State",
+      "awayTeam": "Virginia",
+      "homePoints": 35,
+      "awayPoints": 31,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -3.0,
+          "overUnder": 53
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -2.5,
+          "overUnder": 52.5
+        }
+      ]
+    },
+    {
+      "id": 401754531,
+      "season": 2025,
+      "week": 3,
+      "homeTeam": "Wake Forest",
+      "awayTeam": "NC State",
+      "homePoints": 24,
+      "awayPoints": 34,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 7.5,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 7.5,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 7.0,
+          "overUnder": 53
+        }
+      ]
+    },
+    {
+      "id": 401754538,
+      "season": 2025,
+      "week": 4,
+      "homeTeam": "Duke",
+      "awayTeam": "NC State",
+      "homePoints": 45,
+      "awayPoints": 33,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -3,
+          "overUnder": 57.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -3.0,
+          "overUnder": 57
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -3.5,
+          "overUnder": 57.5
+        }
+      ]
+    },
+    {
+      "id": 401754548,
+      "season": 2025,
+      "week": 5,
+      "homeTeam": "NC State",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 21,
+      "awayPoints": 23,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -10,
+          "overUnder": 57.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -10.0,
+          "overUnder": 57.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -10.5,
+          "overUnder": 56.5
+        }
+      ]
+    },
+    {
+      "id": 401754557,
+      "season": 2025,
+      "week": 6,
+      "homeTeam": "NC State",
+      "awayTeam": "Campbell",
+      "homePoints": 56,
+      "awayPoints": 10,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -42.5,
+          "overUnder": 61.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -42.5,
+          "overUnder": 61.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -41.5,
+          "overUnder": 60.5
+        }
+      ]
+    },
+    {
+      "id": 401754562,
+      "season": 2025,
+      "week": 7,
+      "homeTeam": "Notre Dame",
+      "awayTeam": "NC State",
+      "homePoints": 36,
+      "awayPoints": 7,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -23.5,
+          "overUnder": 59.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -23.5,
+          "overUnder": 59.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -24.5,
+          "overUnder": 59.5
+        }
+      ]
+    },
+    {
+      "id": 401754574,
+      "season": 2025,
+      "week": 9,
+      "homeTeam": "Pittsburgh",
+      "awayTeam": "NC State",
+      "homePoints": 53,
+      "awayPoints": 34,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -5.5,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -4.5,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -5.0,
+          "overUnder": 53
+        }
+      ]
+    },
+    {
+      "id": 401754579,
+      "season": 2025,
+      "week": 10,
+      "homeTeam": "NC State",
+      "awayTeam": "Georgia Tech",
+      "homePoints": 48,
+      "awayPoints": 36,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 4.5,
+          "overUnder": 58.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 4.5,
+          "overUnder": 58.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 4.0,
+          "overUnder": 58.5
+        }
+      ]
+    },
+    {
+      "id": 401754595,
+      "season": 2025,
+      "week": 12,
+      "homeTeam": "Miami",
+      "awayTeam": "NC State",
+      "homePoints": 41,
+      "awayPoints": 7,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -16.5,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -15.5,
+          "overUnder": 55
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -16.5,
+          "overUnder": 54.5
+        }
+      ]
+    },
+    {
+      "id": 401754598,
+      "season": 2025,
+      "week": 13,
+      "homeTeam": "NC State",
+      "awayTeam": "Florida State",
+      "homePoints": 21,
+      "awayPoints": 11,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 7,
+          "overUnder": 58.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 6.5,
+          "overUnder": 59.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 6.5,
+          "overUnder": 58.5
+        }
+      ]
+    },
+    {
+      "id": 401754612,
+      "season": 2025,
+      "week": 14,
+      "homeTeam": "NC State",
+      "awayTeam": "North Carolina",
+      "homePoints": 42,
+      "awayPoints": 19,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -7,
+          "overUnder": 48.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -7.0,
+          "overUnder": 49
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -7.5,
+          "overUnder": 49.5
+        }
+      ]
+    }
+  ]
+}

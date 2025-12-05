@@ -244,7 +244,7 @@ export function Glossary({ predictionData }: GlossaryProps) {
         >
           <div 
             ref={modalRef}
-            className="bg-slate-900/98 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl w-full max-w-[95vw] sm:w-[90vw] h-[90vh] sm:h-[85vh] flex flex-col animate-in fade-in zoom-in-95 duration-200"
+            className="backdrop-blur-2xl border-2 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl w-full max-w-[95vw] sm:w-[90vw] h-[90vh] sm:h-[85vh] flex flex-col animate-in fade-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
             style={{ 
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)', 
@@ -274,7 +274,7 @@ export function Glossary({ predictionData }: GlossaryProps) {
                   placeholder="Search glossary terms..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-slate-800/60 border border-white/10 rounded-lg pl-12 pr-4 py-4 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/40 focus:border-cyan-500/40 text-lg"
+                  className="w-full backdrop-blur-sm border border-white/10 rounded-lg pl-12 pr-4 py-4 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/40 focus:border-cyan-500/40 text-lg"
                   autoFocus
                 />
               </div>

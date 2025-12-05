@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "generated_at": "2025-12-03T04:59:58.633772",
+    "season": 2025,
+    "weeks_covered": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "total_drives": 11507,
+    "total_teams": 69,
+    "conferences": [
+      "ACC",
+      "Big Ten",
+      "Big 12",
+      "SEC",
+      "Pac-12"
+    ],
+    "api_calls_used": 14,
+    "api_percentage": 0.28
+  },
+  "summary_stats": {
+    "total_drives": 11507,
+    "conferences": [
+      "SEC",
+      "ACC",
+      "Big 12",
+      "Big Ten",
+      "Pac-12"
+    ],
+    "teams": [
+      "Alabama",
+      "Arizona",
+      "Arizona State",
+      "Arkansas",
+      "Auburn",
+      "BYU",
+      "Baylor",
+      "Boston College",
+      "California",
+      "Cincinnati",
+      "Clemson",
+      "Colorado",
+      "Duke",
+      "Florida",
+      "Florida State",
+      "Georgia",
+      "Georgia Tech",
+      "Houston",
+      "Illinois",
+      "Indiana",
+      "Iowa",
+      "Iowa State",
+      "Kansas",
+      "Kansas State",
+      "Kentucky",
+      "LSU",
+      "Louisville",
+      "Maryland",
+      "Miami",
+      "Michigan",
+      "Michigan State",
+      "Minnesota",
+      "Mississippi State",
+      "Missouri",
+      "NC State",
+      "Nebraska",
+      "North Carolina",
+      "Northwestern",
+      "Ohio State",
+      "Oklahoma",
+      "Oklahoma State",
+      "Ole Miss",
+      "Oregon",
+      "Oregon State",
+      "Penn State",
+      "Pittsburgh",
+      "Purdue",
+      "Rutgers",
+      "SMU",
+      "South Carolina",
+      "Stanford",
+      "Syracuse",
+      "TCU",
+      "Tennessee",
+      "Texas",
+      "Texas A&M",
+      "Texas Tech",
+      "UCF",
+      "UCLA",
+      "USC",
+      "Utah",
+      "Vanderbilt",
+      "Virginia",
+      "Virginia Tech",
+      "Wake Forest",
+      "Washington",
+      "Washington State",
+      "West Virginia",
+      "Wisconsin"
+    ],
+    "conference_breakdown": {
+      "SEC": {
+        "drives": 4459,
+        "scoring_drives": 1734
+      },
+      "ACC": {
+        "drives": 4809,
+        "scoring_drives": 1839
+      },
+      "Big 12": {
+        "drives": 4525,
+        "scoring_drives": 1713
+      },
+      "Big Ten": {
+        "drives": 4609,
+        "scoring_drives": 1828
+      },
+      "Pac-12": {
+        "drives": 559,
+        "scoring_drives": 178
+      }
+    }
+  }
+}

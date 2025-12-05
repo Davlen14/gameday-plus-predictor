@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiffin Metadata Test</title>
+    <style>
+        body {
+            font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, rgba(200, 16, 46, 0.15), rgba(15, 23, 42, 0.8));
+            border: 1px solid rgba(200, 16, 46, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #a0a0a0;
+            margin-bottom: 8px;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #C8102E;
+            margin-bottom: 4px;
+        }
+        .stat-detail {
+            font-size: 12px;
+            color: #888;
+        }
+        .metadata-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        .metadata-title {
+            color: #4fc3f7;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+        }
+        .success {
+            color: #4caf50;
+        }
+        .error {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏈 Lane Kiffin - Peak Talent Metadata Test</h1>
+        
+        <div class="stats-grid" id="stats-container">
+            <!-- Stats will be populated here -->
+        </div>
+
+        <div class="metadata-section">
+            <div class="metadata-title">📊 Full Metadata</div>
+            <pre id="metadata-output">Loading...</pre>
+        </div>
+
+        <div class="metadata-section">
+            <div class="metadata-title">✅ Test Results</div>
+            <div id="test-results">Running tests...</div>
+        </div>
+    </div>
+
+    <script>
+        async function loadAndTest() {
+            try {
+                // Load the FULL timeline data
+                const response = await fetch('frontend/src/data/coach_timelines/kiffin_ole_miss_FULL_timeline.json');
+                const data = await response.json();
+                
+                console.log('Loaded timeline data:', data);
+                
+                // Display stats
+                displayStats(data.metadata);
+                
+                // Display full metadata
+                document.getElementById('metadata-output').textContent = JSON.stringify(data.metadata, null, 2);
+                
+                // Run tests
+                runTests(data.metadata);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('metadata-output').textContent = `Error: ${error.message}`;
+                document.getElementById('test-results').innerHTML = `<span class="error">❌ Failed to load data: ${error.message}</span>`;
+            }
+        }
+
+        function displayStats(metadata) {
+            const statsHtml = `
+                <div class="stat-card">
+                    <div class="stat-label">Peak Talent</div>
+                    <div class="stat-value">${metadata.peak_talent?.talent?.toFixed(1) || '-'}</div>
+                    <div class="stat-detail">${metadata.peak_talent?.year || 'N/A'}</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-label">Top Draft Year</div>
+                    <div class="stat-value">${metadata.top_draft_years?.[0]?.total || 0} picks</div>
+                    <div class="stat-detail">
+                        ${metadata.top_draft_years?.[0]?.year || 'N/A'} 
+                        ${metadata.top_draft_years?.[0]?.round1 ? `(${metadata.top_draft_years[0].round1} Rd 1)` : ''}
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-label">#1 Rankings</div>
+                    <div class="stat-value">${metadata.top_rankings_count || 0}</div>
+                    <div class="stat-detail">
+                        ${(metadata.top_rankings_count || 0) > 0 ? 'weeks at #1' : 'never ranked #1'}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('stats-container').innerHTML = statsHtml;
+        }
+
+        function runTests(metadata) {
+            const tests = [];
+            
+            // Test 1: peak_talent exists and has correct structure
+            if (metadata.peak_talent && metadata.peak_talent.year && metadata.peak_talent.talent) {
+                tests.push(`<span class="success">✅ peak_talent exists with year (${metadata.peak_talent.year}) and talent (${metadata.peak_talent.talent})</span>`);
+            } else {
+                tests.push(`<span class="error">❌ peak_talent missing or incomplete</span>`);
+            }
+            
+            // Test 2: top_draft_years exists and has data
+            if (metadata.top_draft_years && metadata.top_draft_years.length > 0) {
+                const topYear = metadata.top_draft_years[0];
+                tests.push(`<span class="success">✅ top_draft_years has ${metadata.top_draft_years.length} entries (top: ${topYear.year} with ${topYear.total} picks)</span>`);
+            } else {
+                tests.push(`<span class="error">❌ top_draft_years missing or empty</span>`);
+            }
+            
+            // Test 3: top_rankings_count exists
+            if (typeof metadata.top_rankings_count === 'number') {
+                tests.push(`<span class="success">✅ top_rankings_count exists (${metadata.top_rankings_count} weeks at #1)</span>`);
+            } else {
+                tests.push(`<span class="error">❌ top_rankings_count missing</span>`);
+            }
+            
+            // Test 4: UI displays non-zero/non-N/A values
+            const hasValidPeakTalent = metadata.peak_talent?.talent > 0;
+            const hasValidDraftYear = metadata.top_draft_years?.[0]?.total > 0;
+            const hasValidRankingsCount = metadata.top_rankings_count >= 0;
+            
+            if (hasValidPeakTalent && hasValidDraftYear && hasValidRankingsCount) {
+                tests.push(`<span class="success">✅ All UI fields will display real data (no 0/N/A)</span>`);
+            } else {
+                tests.push(`<span class="error">❌ Some UI fields may show 0/N/A</span>`);
+            }
+            
+            document.getElementById('test-results').innerHTML = tests.join('<br>');
+        }
+
+        // Load on page load
+        loadAndTest();
+    </script>
+</body>
+</html>

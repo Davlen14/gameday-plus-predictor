@@ -143,6 +143,11 @@ export function Header({ predictionData, isLoading }: HeaderProps) {
               src={awayLogo}
               alt={awayTeam}
               className="relative w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 object-contain"
+              style={{
+                filter: `drop-shadow(0px 6px 16px ${awayTeamColors?.primary_color || 'rgba(239, 68, 68, 0.6)'}80) drop-shadow(0px 3px 8px rgba(0, 0, 0, 0.5)) drop-shadow(0px 1px 3px rgba(255, 255, 255, 0.2))`,
+                transform: 'perspective(200px) rotateX(8deg) translateZ(10px)',
+                transition: 'transform 0.3s ease'
+              }}
             />
           </div>
           <div className="flex flex-wrap items-center gap-2 justify-center md:justify-end">
@@ -176,6 +181,11 @@ export function Header({ predictionData, isLoading }: HeaderProps) {
               src={homeLogo}
               alt={homeTeam}
               className="relative w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 object-contain"
+              style={{
+                filter: `drop-shadow(0px 6px 16px ${homeTeamColors?.primary_color || 'rgba(249, 115, 22, 0.6)'}80) drop-shadow(0px 3px 8px rgba(0, 0, 0, 0.5)) drop-shadow(0px 1px 3px rgba(255, 255, 255, 0.2))`,
+                transform: 'perspective(200px) rotateX(8deg) translateZ(10px)',
+                transition: 'transform 0.3s ease'
+              }}
             />
           </div>
           <div className="flex flex-wrap items-center gap-2 justify-center md:justify-start">

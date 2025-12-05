@@ -207,7 +207,7 @@ export function WinProbability({ predictionData }: WinProbabilityProps) {
               </div>
               
               {/* Animated Progress Bar */}
-              <div className="h-2 bg-slate-800/50 rounded-full overflow-hidden relative">
+              <div className="h-2 backdrop-blur-sm rounded-full overflow-hidden relative">
                 <div 
                   className="h-full rounded-full transition-all duration-1500 ease-out relative overflow-hidden" 
                   style={{ 
@@ -570,7 +570,7 @@ export function WinProbability({ predictionData }: WinProbabilityProps) {
               </div>
               
               {/* Animated Progress Bar */}
-              <div className="h-2 bg-slate-800/50 rounded-full overflow-hidden relative">
+              <div className="h-2 backdrop-blur-sm rounded-full overflow-hidden relative">
                 <div 
                   className="h-full rounded-full transition-all duration-1500 ease-out relative overflow-hidden" 
                   style={{ 

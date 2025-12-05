@@ -286,7 +286,7 @@ const MetricsHeatMap: React.FC<MetricsHeatMapProps> = ({ className = '' }) => {
             <div key={metric.name} className="grid grid-cols-3 gap-4 items-center">
               {/* Metric Name */}
               <div className="text-center">
-                <div className="text-white font-medium text-sm bg-gray-800/50 rounded-lg p-3 border border-gray-700">
+                <div className="text-white font-medium text-sm backdrop-blur-sm rounded-lg p-3 border border-gray-700">
                   {metric.name}
                   {!metric.higherIsBetter && (
                     <div className="text-xs text-gray-400 mt-1">

@@ -1,0 +1,11 @@
+{
+    "errors": [
+        {
+            "message": "missing selection set for 'LinesProvider'",
+            "extensions": {
+                "path": "$.selectionSet.game.selectionSet.lines.selectionSet.provider.selectionSet",
+                "code": "validation-failed"
+            }
+        }
+    ]
+}

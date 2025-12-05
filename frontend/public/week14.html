@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameday Plus - Performance Report</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Google Font - Orbitron -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- SF Mono for numbers -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'strong-grade': 'rgb(196, 30, 58)',
+                        'good-grade': 'rgb(16, 185, 129)',
+                        'slight-grade': 'rgb(245, 158, 11)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* CSS Variables for Modern Gradients */
+        :root {
+            --gameday-red: #C41E3A;
+            --gameday-dark-red: #8B0000;
+            --gameday-light-red: #FF6B6B;
+            --gameday-metallic: linear-gradient(135deg, rgb(204,0,28), rgb(161,0,20), rgb(115,0,13), rgb(161,0,20), rgb(204,0,28));
+            --gameday-chrome: linear-gradient(135deg, rgb(204,0,28), rgb(161,0,20), rgb(115,0,13), rgb(161,0,20), rgb(204,0,28));
+            --silver-metallic: linear-gradient(135deg, rgb(229,231,235), rgb(156,163,175), rgb(107,114,128), rgb(156,163,175), rgb(229,231,235));
+            --green-metallic: linear-gradient(135deg, rgb(16,185,129), rgb(5,150,105), rgb(4,120,87), rgb(5,150,105), rgb(16,185,129));
+            --gold-metallic: linear-gradient(135deg, rgb(245,158,11), rgb(217,119,6), rgb(180,83,9), rgb(217,119,6), rgb(245,158,11));
+        }
+
+        /* Modern Textured Dark Background */
+        body {
+            font-family: 'Orbitron', 'Inter', system-ui, sans-serif;
+            background: 
+                linear-gradient(135deg, #050506 0%, #0a0a0b 25%, #060607 50%, #080809 75%, #050506 100%),
+                radial-gradient(ellipse at top left, rgba(12, 12, 14, 0.3), transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(10, 10, 12, 0.3), transparent 50%),
+                linear-gradient(180deg, #070708 0%, #030304 100%);
+            min-height: 100vh;
+            position: relative;
+            color: #e0e0e0;
+            /* Text rendering optimizations for sharp, crisp text */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-smooth: always;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 0.5px,
+                    rgba(255, 255, 255, 0.025) 0.5px,
+                    rgba(255, 255, 255, 0.025) 1px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 0.5px,
+                    rgba(255, 255, 255, 0.025) 0.5px,
+                    rgba(255, 255, 255, 0.025) 1px
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(255, 255, 255, 0.02) 0px,
+                    rgba(255, 255, 255, 0.02) 0.5px,
+                    transparent 0.5px,
+                    transparent 4px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    rgba(255, 255, 255, 0.02) 0px,
+                    rgba(255, 255, 255, 0.02) 0.5px,
+                    transparent 0.5px,
+                    transparent 4px
+                ),
+                repeating-linear-gradient(
+                    30deg,
+                    rgba(204, 0, 28, 0.035) 0px,
+                    rgba(204, 0, 28, 0.035) 1px,
+                    transparent 1px,
+                    transparent 16px
+                ),
+                repeating-linear-gradient(
+                    -30deg,
+                    rgba(161, 0, 20, 0.035) 0px,
+                    rgba(161, 0, 20, 0.035) 1px,
+                    transparent 1px,
+                    transparent 16px
+                ),
+                radial-gradient(
+                    ellipse at 25% 15%, 
+                    rgba(204, 0, 28, 0.12) 0%, 
+                    rgba(161, 0, 20, 0.08) 30%,
+                    transparent 60%
+                ),
+                radial-gradient(
+                    ellipse at 75% 85%, 
+                    rgba(115, 0, 13, 0.12) 0%, 
+                    rgba(161, 0, 20, 0.08) 30%,
+                    transparent 60%
+                ),
+                radial-gradient(
+                    circle at 50% 30%, 
+                    rgba(255, 255, 255, 0.06) 0%, 
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 70%, 
+                    rgba(204, 0, 28, 0.06) 0%, 
+                    transparent 25%
+                );
+            background-size: 
+                1px 1px,
+                1px 1px,
+                4px 4px,
+                4px 4px,
+                16px 16px,
+                16px 16px,
+                800px 800px,
+                700px 700px,
+                400px 400px,
+                300px 300px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.06) 0%,
+                    rgba(240, 250, 255, 0.02) 10%,
+                    transparent 25%,
+                    transparent 75%,
+                    rgba(0, 0, 0, 0.25) 100%
+                ),
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.04) 0%,
+                    transparent 30%,
+                    transparent 70%,
+                    rgba(0, 0, 0, 0.08) 100%
+                ),
+                radial-gradient(
+                    ellipse at 20% 20%, 
+                    rgba(255, 255, 255, 0.08) 0%, 
+                    transparent 40%
+                ),
+                radial-gradient(
+                    ellipse at 80% 80%, 
+                    rgba(0, 0, 0, 0.15) 0%, 
+                    transparent 50%
+                ),
+                radial-gradient(
+                    circle at 50% 50%, 
+                    transparent 0%, 
+                    rgba(0, 0, 0, 0.18) 100%
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Glass Card Effects - Smooth Rounded Design */
+        .glass-card {
+            background: transparent;
+            border: 1px solid rgba(148, 163, 184, 0.08);
+            border-radius: 0.75rem;
+            position: relative;
+            z-index: 10;
+            isolation: isolate;
+        }
+
+        .glass-card:hover {
+            background: transparent;
+            border: 1px solid rgba(148, 163, 184, 0.08);
+        }
+
+        .stat-card {
+            background: transparent;
+            border: 1px solid rgba(148, 163, 184, 0.05);
+            border-radius: 1rem;
+        }
+
+        tbody tr {
+            background: transparent;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        tbody tr:nth-child(even) {
+            background: transparent;
+        }
+
+        tbody tr:hover {
+            background: transparent;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.15);
+        }
+
+        tbody tr:hover td:first-child {
+            border-left-color: rgba(16, 185, 129, 0.4);
+        }
+
+        thead {
+            background: transparent;
+            color: #e4e6eb;
+        }
+
+        th {
+            color: #e2e8f0;
+            background: transparent;
+            border-bottom: 1px solid rgba(196, 30, 58, 0.15);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .table-wrapper::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .table-wrapper::-webkit-scrollbar-thumb {
+            background: transparent;
+        }
+
+        .table-wrapper::-webkit-scrollbar-thumb:hover {
+            background: transparent;
+        }
+
+        .filter-btn {
+            background: transparent;
+            color: #cbd5e1;
+            border: 1px solid rgba(71, 85, 105, 0.3);
+        }
+
+        .filter-btn.active {
+            background: transparent;
+            color: #fca5a5;
+            border: 1px solid rgba(196, 30, 58, 0.5);
+        }
+
+        .win-indicator {
+            background: transparent;
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+        .loss-indicator {
+            background: transparent;
+            color: #fca5a5;
+            border: 1px solid rgba(196, 30, 58, 0.4);
+        }
+
+        .grade-strong {
+            background: transparent;
+            color: #fca5a5;
+        }
+
+        .grade-good {
+            background: transparent;
+            color: #6ee7b7;
+        }
+
+        .grade-slight {
+            background: transparent;
+            color: #fcd34d;
+        }
+
+        td {
+            color: #cbd5e1;
+        }
+
+
+        .container {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        /* Global text rendering optimization */
+        *, *::before, *::after {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Specific optimization for number displays */
+        .number-display {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: 'tnum' 1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Optimize headings and text */
+        h1, h2, h3, h4, h5, h6, p, span, div {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Stats Cards - matching glass-card styling */
+        .stat-card:hover {
+            transform: translateY(-2px);
+            background: transparent;
+            border: 1px solid rgba(148, 163, 184, 0.15);
+        }
+
+        /* Custom scrollbar for table */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            scroll-behavior: smooth;
+        }
+
+        .table-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 4px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-thumb {
+            background: transparent;
+            border-radius: 4px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-thumb:hover {
+            background: transparent;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .table-wrapper {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Table styling with clean glass effect */
+        th {
+            position: sticky;
+            top: 0;
+            background: transparent;
+            color: rgb(203, 213, 225);
+            z-index: 10;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding: 1.25rem 1rem !important;
+            text-shadow: none;
+        }
+
+        th:first-child {
+            padding-left: 2rem !important;
+        }
+
+        th:last-child {
+            padding-right: 2rem !important;
+        }
+
+        /* tbody tr styles defined above */
+        tbody td {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: rgb(229, 231, 235);
+        }
+
+        tbody tr:nth-child(even) {
+            background: transparent;
+        }
+
+        tbody tr:hover {
+            background: transparent;
+            box-shadow: none;
+            transform: scale(1.005);
+        }
+
+        tbody td {
+            padding: 1.25rem 1rem !important;
+            vertical-align: middle;
+        }
+
+        tbody td:first-child {
+            padding-left: 2rem !important;
+            border-left: 3px solid transparent;
+        }
+
+        tbody tr:hover td:first-child {
+            border-left-color: rgba(196, 30, 58, 0.5);
+        }
+
+        tbody td:last-child {
+            padding-right: 2rem !important;
+        }
+
+        /* Win/Loss Indicators with Glass Effect */
+        .win-indicator {
+            background: transparent;
+            color: #065f46;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+        }
+
+        .loss-indicator {
+            background: transparent;
+            color: #991b1b;
+            border: 1px solid rgba(196, 30, 58, 0.3);
+            box-shadow: 0 2px 8px rgba(196, 30, 58, 0.2);
+        }
+
+        /* Grade Badges with Metallic Gradients */
+        .grade-badge {
+            font-weight: 700;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Removed shine animation */
+
+        .grade-strong {
+            background: transparent;
+            color: white;
+        }
+
+        .grade-good {
+            background: transparent;
+            color: white;
+        }
+
+        .grade-slight {
+            background: transparent;
+            color: white;
+        }
+
+        /* Team logo styling */
+        .team-logo {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            display: inline-block;
+            vertical-align: middle;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Sleek number styling - Apple/analytical look */
+        .number-display {
+            font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Courier New', monospace;
+            font-feature-settings: 'tnum' 1, 'zero' 1;
+            letter-spacing: -0.02em;
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .matchup-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Modern Filter Buttons - Sleek & Integrated */
+        .filter-btn {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .filter-btn:hover {
+            background: transparent;
+            color: #e2e8f0;
+            border-color: rgba(148, 163, 184, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .filter-btn.active {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(204,0,28, 0.5);
+            box-shadow: none;
+        }
+
+        .filter-btn.active:hover {
+            background: transparent;
+            box-shadow: none;
+            transform: translateY(-1px);
+        }
+
+        /* Removed shine animation from active button */
+
+        .hidden-row {
+            display: none;
+        }
+
+        /* Header with Metallic Accent */
+        .header-accent {
+            border-top: 4px solid transparent;
+            border-image: var(--gameday-metallic) 1;
+        }
+    </style>
+<body class="font-sans">
+
+    <div class="mx-auto p-4 md:p-6 lg:p-8" style="width: 98%; max-width: 98%;">
+        <!-- Modern Sleek Header -->
+        <header class="glass-card p-6 md:p-8 mb-8">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+                <!-- Left: Logo & Title -->
+                <div class="flex items-center gap-4">
+                    <img src="/GameDayDark.png" alt="Gameday Plus" class="w-16 h-16 rounded-xl shadow-lg" style="object-fit: contain; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; background: rgba(15, 23, 42, 0.3); padding: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);">
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-white" style="font-family: 'Orbitron', monospace;">
+                            Week 14 Performance Report
+                        </h1>
+                        <p class="text-xs text-slate-400 mt-1 font-medium">
+                            Spread Betting Analysis · <span id="generated-date" class="text-slate-500"></span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Right: Key Metrics Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
+                    <!-- Total Bets -->
+                    <div class="text-center">
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Bets</div>
+                        <div class="text-2xl font-bold text-white number-display" style="font-family: 'JetBrains Mono', monospace;">50</div>
+                    </div>
+                    <!-- Wins -->
+                    <div class="text-center">
+                        <div class="text-xs text-emerald-400/70 uppercase tracking-wider mb-1">Wins</div>
+                        <div class="text-2xl font-bold text-emerald-400 number-display" style="font-family: 'JetBrains Mono', monospace;">38</div>
+                    </div>
+                    <!-- Losses -->
+                    <div class="text-center">
+                        <div class="text-xs text-rose-400/70 uppercase tracking-wider mb-1">Losses</div>
+                        <div class="text-2xl font-bold text-rose-400 number-display" style="font-family: 'JetBrains Mono', monospace;">11</div>
+                    </div>
+                    <!-- Win Rate -->
+                    <div class="text-center">
+                        <div class="text-xs text-amber-400/70 uppercase tracking-wider mb-1">Win Rate</div>
+                        <div class="text-2xl font-bold text-amber-400 number-display" style="font-family: 'JetBrains Mono', monospace;">76%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subtle Note -->
+            <div class="mt-4 pt-4 border-t border-slate-700/30">
+                <p class="text-xs text-slate-500 text-center">
+                    Analysis excludes 17 games with no calculated edge
+                </p>
+            </div>
+        </header>
+
+        <!-- Summary Statistics -->
+        <div id="summary-stats" class="grid grid-cols-2 md:grid-cols-5 gap-6 mb-8">
+            <!-- Stats will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Record Types Breakdown -->
+        <div class="rounded-2xl overflow-hidden mb-8" style="background: transparent; border: 1px solid rgba(148, 163, 184, 0.08);">
+            <div class="p-6">
+                <h2 class="text-xl font-black text-white mb-6 uppercase tracking-tight" style="font-family: 'Orbitron', monospace; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">⚡ Performance Breakdown by Record Type</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Spread Betting (EDGE Only) -->
+                    <div class="rounded-xl p-6 relative overflow-hidden transition-all duration-300 hover:scale-[1.02]" style="background: transparent; border: 1px solid rgba(148, 163, 184, 0.08); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-4">
+                                <h3 class="text-xs font-medium text-slate-200 uppercase tracking-widest" style="font-family: 'Orbitron', monospace;">Spread Betting (EDGE Only)</h3>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-4 font-mono">50 Games (Excluding "NO EDGE")</p>
+                            <div class="flex items-baseline gap-3 mb-3">
+                                <span class="text-3xl font-bold text-emerald-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 600; text-shadow: 0 2px 10px rgba(16, 185, 129, 0.5);">38</span>
+                                <span class="text-xl font-normal text-slate-300">-</span>
+                                <span class="text-3xl font-bold text-rose-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 600; text-shadow: 0 2px 10px rgba(244, 63, 94, 0.5);">11</span>
+                                <span class="text-xl font-normal text-slate-300">-</span>
+                                <span class="text-3xl font-bold text-amber-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 600; text-shadow: 0 2px 10px rgba(245, 158, 11, 0.5);">1</span>
+                            </div>
+                            <div class="inline-block px-3 py-1 rounded-md mb-3" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05)); border: 1px solid rgba(245, 158, 11, 0.3); box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);">
+                                <p class="text-base text-amber-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 500; text-shadow: 0 2px 10px rgba(245, 158, 11, 0.4);">76.0%</p>
+                            </div>
+                            <p class="text-xs text-slate-400 font-medium leading-relaxed">Hardest metric; factored in the point spread.</p>
+                        </div>
+                    </div>
+
+                    <!-- Outright Winner (EDGE Only) -->
+                    <div class="rounded-xl p-6 relative overflow-hidden transition-all duration-300 hover:scale-[1.02]" style="background: transparent; border: 1px solid rgba(148, 163, 184, 0.08); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-4">
+                                <h3 class="text-xs font-medium text-slate-200 uppercase tracking-widest" style="font-family: 'Orbitron', monospace;">Outright Winner (EDGE Only)</h3>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-4 font-mono">50 Games (Excluding "NO EDGE")</p>
+                            <div class="flex items-baseline gap-3 mb-3">
+                                <span class="text-3xl font-bold text-emerald-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 600; text-shadow: 0 2px 10px rgba(16, 185, 129, 0.5);">44</span>
+                                <span class="text-xl font-normal text-slate-300">-</span>
+                                <span class="text-3xl font-bold text-rose-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 600; text-shadow: 0 2px 10px rgba(244, 63, 94, 0.5);">6</span>
+                                <span class="text-xl font-normal text-slate-300">-</span>
+                                <span class="text-3xl font-bold text-amber-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 600; text-shadow: 0 2px 10px rgba(245, 158, 11, 0.5);">0</span>
+                            </div>
+                            <div class="inline-block px-3 py-1 rounded-md mb-3" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);">
+                                <p class="text-base text-emerald-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 500; text-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);">88.0%</p>
+                            </div>
+                            <p class="text-xs text-slate-400 font-medium leading-relaxed">Predicted the outright winner in games with a calculated edge.</p>
+                        </div>
+                    </div>
+
+                    <!-- Outright Winner (All Games) -->
+                    <div class="rounded-xl p-6 relative overflow-hidden transition-all duration-300 hover:scale-[1.02]" style="background: transparent; border: 1px solid rgba(148, 163, 184, 0.08); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-4">
+                                <h3 class="text-xs font-medium text-slate-200 uppercase tracking-widest" style="font-family: 'Orbitron', monospace;">Outright Winner (All Games)</h3>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-4 font-mono">67 Games (Including "NO EDGE")</p>
+                            <div class="flex items-baseline gap-3 mb-3">
+                                <span class="text-3xl font-bold text-emerald-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 600; text-shadow: 0 2px 10px rgba(16, 185, 129, 0.5);">55</span>
+                                <span class="text-xl font-normal text-slate-300">-</span>
+                                <span class="text-3xl font-bold text-rose-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 600; text-shadow: 0 2px 10px rgba(244, 63, 94, 0.5);">12</span>
+                                <span class="text-xl font-normal text-slate-300">-</span>
+                                <span class="text-3xl font-bold text-amber-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 600; text-shadow: 0 2px 10px rgba(245, 158, 11, 0.5);">0</span>
+                            </div>
+                            <div class="inline-block px-3 py-1 rounded-md mb-3" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);">
+                                <p class="text-base text-emerald-400 number-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 500; text-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);">82.1%</p>
+                            </div>
+                            <p class="text-xs text-slate-400 font-medium leading-relaxed">Predicted the outright winner for every recommendation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Report -->
+        <div class="glass-card overflow-hidden shadow-sm" style="background: rgba(15, 23, 42, 0.3); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(148, 163, 184, 0.08); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);">
+            <div class="table-wrapper">
+                <table class="min-w-full">
+                    <thead style="font-family: 'Orbitron', monospace;">
+                        <tr>
+                            <th colspan="10" class="px-6 py-6" style="border-bottom: 1px solid rgba(148, 163, 184, 0.08);">
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                    <h2 class="text-xl font-bold text-white tracking-tight" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Recommendation Results Breakdown</h2>
+                                    <div class="flex gap-2 flex-wrap">
+                                        <button id="filter-all" class="filter-btn active px-4 py-2 rounded-lg font-semibold text-xs transition-all" style="font-family: 'Orbitron', monospace;" onclick="filterResults('all')">
+                                            All <span class="opacity-80">(50)</span>
+                                        </button>
+                                        <button id="filter-wins" class="filter-btn px-4 py-2 rounded-lg font-semibold text-xs transition-all" style="font-family: 'Orbitron', monospace;" onclick="filterResults('wins')">
+                                            Wins <span class="opacity-80">(38)</span>
+                                        </button>
+                                        <button id="filter-losses" class="filter-btn px-4 py-2 rounded-lg font-semibold text-xs transition-all" style="font-family: 'Orbitron', monospace;" onclick="filterResults('losses')">
+                                            Losses <span class="opacity-80">(11)</span>
+                                        </button>
+                                        <button id="filter-pushes" class="filter-btn px-4 py-2 rounded-lg font-semibold text-xs transition-all" style="font-family: 'Orbitron', monospace;" onclick="filterResults('pushes')">
+                                            Pushes <span class="opacity-80">(1)</span>
+                                        </button>
+                                        <button id="filter-ranked" class="filter-btn px-4 py-2 rounded-lg font-semibold text-xs transition-all" style="font-family: 'Orbitron', monospace;" onclick="filterResults('ranked')">
+                                            Top 25 <span class="opacity-80" id="ranked-count"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="px-4 py-5 text-center text-xs uppercase tracking-wider">#</th>
+                            <th class="px-4 py-5 text-left text-xs uppercase tracking-wider">Matchup</th>
+                            <th class="px-4 py-5 text-left text-xs uppercase tracking-wider">Bet Recommendation</th>
+                            <th class="px-4 py-5 text-center text-xs uppercase tracking-wider">Grade</th>
+                            <th class="px-4 py-5 text-center text-xs uppercase tracking-wider">Edge</th>
+                            <th class="px-4 py-5 text-center text-xs uppercase tracking-wider">Model Spread</th>
+                            <th class="px-4 py-5 text-center text-xs uppercase tracking-wider">Actual Result</th>
+                            <th class="px-4 py-5 text-center text-xs uppercase tracking-wider">Actual Margin</th>
+                            <th class="px-4 py-5 text-center text-xs uppercase tracking-wider">Bet Spread</th>
+                            <th class="px-4 py-5 text-center text-xs uppercase tracking-wider">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-table-body">
+                        <!-- Rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        // Embedded team data from fbs.json
+        const teamsData = [{"id":2005,"school":"Air Force","mascot":"Falcons","abbreviation":"AF","conference":"Mountain West","primary_color":"#004a7b","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2005.png"]},{"id":2006,"school":"Akron","mascot":"Zips","abbreviation":"AKR","conference":"Mid-American","primary_color":"#00285e","alt_color":"#84754e","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2006.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2006.png"]},{"id":333,"school":"Alabama","mascot":"Crimson Tide","abbreviation":"ALA","conference":"SEC","primary_color":"#9e1632","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/333.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/333.png"]},{"id":2026,"school":"App State","mascot":"Mountaineers","abbreviation":"APP","conference":"Sun Belt","primary_color":"#ffcc00","alt_color":"#222222","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2026.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2026.png"]},{"id":12,"school":"Arizona","mascot":"Wildcats","abbreviation":"ARIZ","conference":"Big 12","primary_color":"#0c234b","alt_color":"#ab0520","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/12.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/12.png"]},{"id":9,"school":"Arizona State","mascot":"Sun Devils","abbreviation":"ASU","conference":"Big 12","primary_color":"#8e0c3a","alt_color":"#ffc72c","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/9.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/9.png"]},{"id":8,"school":"Arkansas","mascot":"Razorbacks","abbreviation":"ARK","conference":"SEC","primary_color":"#a41f35","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/8.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/8.png"]},{"id":2032,"school":"Arkansas State","mascot":"Red Wolves","abbreviation":"ARST","conference":"Sun Belt","primary_color":"#e81018","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2032.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2032.png"]},{"id":349,"school":"Army","mascot":"Black Knights","abbreviation":"ARMY","conference":"American Athletic","primary_color":"#ce9c00","alt_color":"#231f20","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/349.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/349.png"]},{"id":2,"school":"Auburn","mascot":"Tigers","abbreviation":"AUB","conference":"SEC","primary_color":"#002b5c","alt_color":"#f26522","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2.png"]},{"id":252,"school":"BYU","mascot":"Cougars","abbreviation":"BYU","conference":"Big 12","primary_color":"#003da5","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/252.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/252.png"]},{"id":2050,"school":"Ball State","mascot":"Cardinals","abbreviation":"BALL","conference":"Mid-American","primary_color":"#DA0000","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2050.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2050.png"]},{"id":239,"school":"Baylor","mascot":"Bears","abbreviation":"BAY","conference":"Big 12","primary_color":"#154734","alt_color":"#ffb81c","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/239.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/239.png"]},{"id":68,"school":"Boise State","mascot":"Broncos","abbreviation":"BOIS","conference":"Mountain West","primary_color":"#0033a0","alt_color":"#fa4616","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/68.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/68.png"]},{"id":103,"school":"Boston College","mascot":"Eagles","abbreviation":"BC","conference":"ACC","primary_color":"#8c2232","alt_color":"#dbcca6","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/103.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/103.png"]},{"id":189,"school":"Bowling Green","mascot":"Falcons","abbreviation":"BGSU","conference":"Mid-American","primary_color":"#2b1000","alt_color":"#492000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/189.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/189.png"]},{"id":2084,"school":"Buffalo","mascot":"Bulls","abbreviation":"BUF","conference":"Mid-American","primary_color":"#041A9B","alt_color":"#ebebeb","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2084.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2084.png"]},{"id":25,"school":"California","mascot":"Golden Bears","abbreviation":"CAL","conference":"ACC","primary_color":"#031522","alt_color":"#ffc423","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/25.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/25.png"]},{"id":2117,"school":"Central Michigan","mascot":"Chippewas","abbreviation":"CMU","conference":"Mid-American","primary_color":"#6a0032","alt_color":"#ffc82e","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2117.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2117.png"]},{"id":2429,"school":"Charlotte","mascot":"49ers","abbreviation":"CLT","conference":"American Athletic","primary_color":"#046A38","alt_color":"#B9975B","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2429.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2429.png"]},{"id":2132,"school":"Cincinnati","mascot":"Bearcats","abbreviation":"CIN","conference":"Big 12","primary_color":"#E00122","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2132.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2132.png"]},{"id":228,"school":"Clemson","mascot":"Tigers","abbreviation":"CLEM","conference":"ACC","primary_color":"#f56600","alt_color":"#522d80","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/228.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/228.png"]},{"id":324,"school":"Coastal Carolina","mascot":"Chanticleers","abbreviation":"CCU","conference":"Sun Belt","primary_color":"#007073","alt_color":"#876447","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/324.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/324.png"]},{"id":38,"school":"Colorado","mascot":"Buffaloes","abbreviation":"COLO","conference":"Big 12","primary_color":"#CFB87C","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/38.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/38.png"]},{"id":36,"school":"Colorado State","mascot":"Rams","abbreviation":"CSU","conference":"Mountain West","primary_color":"#1e4d2b","alt_color":"#c8c372","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/36.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/36.png"]},{"id":48,"school":"Delaware","mascot":"Blue Hens","abbreviation":"DEL","conference":"Conference USA","primary_color":"#033594","alt_color":"#e8ce31","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/48.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/48.png"]},{"id":150,"school":"Duke","mascot":"Blue Devils","abbreviation":"DUKE","conference":"ACC","primary_color":"#013088","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/150.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/150.png"]},{"id":151,"school":"East Carolina","mascot":"Pirates","abbreviation":"ECU","conference":"American Athletic","primary_color":"#4b1869","alt_color":"#f0907b","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/151.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/151.png"]},{"id":2199,"school":"Eastern Michigan","mascot":"Eagles","abbreviation":"EMU","conference":"Mid-American","primary_color":"#00331b","alt_color":"#f0f0f0","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2199.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2199.png"]},{"id":57,"school":"Florida","mascot":"Gators","abbreviation":"FLA","conference":"SEC","primary_color":"#0021a5","alt_color":"#fa4616","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/57.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/57.png"]},{"id":2226,"school":"Florida Atlantic","mascot":"Owls","abbreviation":"FAU","conference":"American Athletic","primary_color":"#00447c","alt_color":"#d31245","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2226.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2226.png"]},{"id":2229,"school":"Florida International","mascot":"Panthers","abbreviation":"FIU","conference":"Conference USA","primary_color":"#001538","alt_color":"#c5960c","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2229.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2229.png"]},{"id":52,"school":"Florida State","mascot":"Seminoles","abbreviation":"FSU","conference":"ACC","primary_color":"#782f40","alt_color":"#ceb888","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/52.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/52.png"]},{"id":278,"school":"Fresno State","mascot":"Bulldogs","abbreviation":"FRES","conference":"Mountain West","primary_color":"#db0032","alt_color":"#002e6d","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/278.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/278.png"]},{"id":61,"school":"Georgia","mascot":"Bulldogs","abbreviation":"UGA","conference":"SEC","primary_color":"#ba0c2f","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/61.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/61.png"]},{"id":290,"school":"Georgia Southern","mascot":"Eagles","abbreviation":"GASO","conference":"Sun Belt","primary_color":"#003775","alt_color":"#f0f0f0","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/290.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/290.png"]},{"id":2247,"school":"Georgia State","mascot":"Panthers","abbreviation":"GAST","conference":"Sun Belt","primary_color":"#1e539a","alt_color":"#ebebeb","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2247.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2247.png"]},{"id":59,"school":"Georgia Tech","mascot":"Yellow Jackets","abbreviation":"GT","conference":"ACC","primary_color":"#003057","alt_color":"#b3a369","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/59.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/59.png"]},{"id":62,"school":"Hawai'i","mascot":"Rainbow Warriors","abbreviation":"HAW","conference":"Mountain West","primary_color":"#003420","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/62.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/62.png"]},{"id":248,"school":"Houston","mascot":"Cougars","abbreviation":"HOU","conference":"Big 12","primary_color":"#c92a39","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/248.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/248.png"]},{"id":356,"school":"Illinois","mascot":"Fighting Illini","abbreviation":"ILL","conference":"Big Ten","primary_color":"#ff5f05","alt_color":"#13294b","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/356.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/356.png"]},{"id":84,"school":"Indiana","mascot":"Hoosiers","abbreviation":"IU","conference":"Big Ten","primary_color":"#990000","alt_color":"#edebeb","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/84.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/84.png"]},{"id":2294,"school":"Iowa","mascot":"Hawkeyes","abbreviation":"IOWA","conference":"Big Ten","primary_color":"#000000","alt_color":"#FFCD00","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2294.png"]},{"id":66,"school":"Iowa State","mascot":"Cyclones","abbreviation":"ISU","conference":"Big 12","primary_color":"#822433","alt_color":"#fdca2f","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/66.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/66.png"]},{"id":55,"school":"Jacksonville State","mascot":"Gamecocks","abbreviation":"JXST","conference":"Conference USA","primary_color":"#b50500","alt_color":"#b5b7ba","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/55.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/55.png"]},{"id":256,"school":"James Madison","mascot":"Dukes","abbreviation":"JMU","conference":"Sun Belt","primary_color":"#450084","alt_color":"#b5a068","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/256.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/256.png"]},{"id":2305,"school":"Kansas","mascot":"Jayhawks","abbreviation":"KU","conference":"Big 12","primary_color":"#0051ba","alt_color":"#e8000d","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2305.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2305.png"]},{"id":2306,"school":"Kansas State","mascot":"Wildcats","abbreviation":"KSU","conference":"Big 12","primary_color":"#3c0969","alt_color":"#e2e3e4","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2306.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2306.png"]},{"id":338,"school":"Kennesaw State","mascot":"Owls","abbreviation":"KENN","conference":"Conference USA","primary_color":"#fdbb30","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/338.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/338.png"]},{"id":2309,"school":"Kent State","mascot":"Golden Flashes","abbreviation":"KENT","conference":"Mid-American","primary_color":"#003976","alt_color":"#efab00","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2309.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2309.png"]},{"id":96,"school":"Kentucky","mascot":"Wildcats","abbreviation":"UK","conference":"SEC","primary_color":"#0033a0","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/96.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/96.png"]},{"id":99,"school":"LSU","mascot":"Tigers","abbreviation":"LSU","conference":"SEC","primary_color":"#461d7c","alt_color":"#fdd023","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/99.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/99.png"]},{"id":2335,"school":"Liberty","mascot":"Flames","abbreviation":"LIB","conference":"Conference USA","primary_color":"#071740","alt_color":"#a61f21","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2335.png"]},{"id":309,"school":"Louisiana","mascot":"Ragin' Cajuns","abbreviation":"UL","conference":"Sun Belt","primary_color":"#ce181e","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/309.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/309.png"]},{"id":2348,"school":"Louisiana Tech","mascot":"Bulldogs","abbreviation":"LT","conference":"Conference USA","primary_color":"#002d65","alt_color":"#d3313a","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2348.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2348.png"]},{"id":97,"school":"Louisville","mascot":"Cardinals","abbreviation":"LOU","conference":"ACC","primary_color":"#c9001f","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/97.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/97.png"]},{"id":276,"school":"Marshall","mascot":"Thundering Herd","abbreviation":"MRSH","conference":"Sun Belt","primary_color":"#00ae42","alt_color":"#be854c","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/276.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/276.png"]},{"id":120,"school":"Maryland","mascot":"Terrapins","abbreviation":"MD","conference":"Big Ten","primary_color":"#D5002B","alt_color":"#ffcd00","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/120.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/120.png"]},{"id":113,"school":"Massachusetts","mascot":"Minutemen","abbreviation":"MASS","conference":"Mid-American","primary_color":"#971B2F","alt_color":"#B1B3B3","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/113.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/113.png"]},{"id":235,"school":"Memphis","mascot":"Tigers","abbreviation":"MEM","conference":"American Athletic","primary_color":"#004991","alt_color":"#8e908f","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/235.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/235.png"]},{"id":2390,"school":"Miami","mascot":"Hurricanes","abbreviation":"MIA","conference":"ACC","primary_color":"#005030","alt_color":"#f47321","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2390.png"]},{"id":193,"school":"Miami (OH)","mascot":"RedHawks","abbreviation":"M-OH","conference":"Mid-American","primary_color":"#a4000c","alt_color":"#f0f0f0","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/193.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/193.png"]},{"id":130,"school":"Michigan","mascot":"Wolverines","abbreviation":"MICH","conference":"Big Ten","primary_color":"#00274c","alt_color":"#ffcb05","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/130.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/130.png"]},{"id":127,"school":"Michigan State","mascot":"Spartans","abbreviation":"MSU","conference":"Big Ten","primary_color":"#18453b","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/127.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/127.png"]},{"id":2393,"school":"Middle Tennessee","mascot":"Blue Raiders","abbreviation":"MTSU","conference":"Conference USA","primary_color":"#006db6","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2393.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2393.png"]},{"id":135,"school":"Minnesota","mascot":"Golden Gophers","abbreviation":"MINN","conference":"Big Ten","primary_color":"#5e0a2f","alt_color":"#fab41c","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/135.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/135.png"]},{"id":344,"school":"Mississippi State","mascot":"Bulldogs","abbreviation":"MSST","conference":"SEC","primary_color":"#5d1725","alt_color":"#c1c6c8","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/344.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/344.png"]},{"id":142,"school":"Missouri","mascot":"Tigers","abbreviation":"MIZ","conference":"SEC","primary_color":"#f1b82d","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/142.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/142.png"]},{"id":2623,"school":"Missouri State","mascot":"Bears","abbreviation":"MOST","conference":"Conference USA","primary_color":"#5F0000","alt_color":"#e8e8e8","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2623.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2623.png"]},{"id":152,"school":"NC State","mascot":"Wolfpack","abbreviation":"NCSU","conference":"ACC","primary_color":"#cc0000","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/152.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/152.png"]},{"id":2426,"school":"Navy","mascot":"Midshipmen","abbreviation":"NAVY","conference":"American Athletic","primary_color":"#00225b","alt_color":"#b5a67c","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2426.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2426.png"]},{"id":158,"school":"Nebraska","mascot":"Cornhuskers","abbreviation":"NEB","conference":"Big Ten","primary_color":"#d00000","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/158.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/158.png"]},{"id":2440,"school":"Nevada","mascot":"Wolf Pack","abbreviation":"NEV","conference":"Mountain West","primary_color":"#002d62","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2440.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2440.png"]},{"id":167,"school":"New Mexico","mascot":"Lobos","abbreviation":"UNM","conference":"Mountain West","primary_color":"#BA0C2F","alt_color":"#a7a8aa","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/167.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/167.png"]},{"id":166,"school":"New Mexico State","mascot":"Aggies","abbreviation":"NMSU","conference":"Conference USA","primary_color":"#891216","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/166.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/166.png"]},{"id":153,"school":"North Carolina","mascot":"Tar Heels","abbreviation":"UNC","conference":"ACC","primary_color":"#7bafd4","alt_color":"#13294b","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/153.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/153.png"]},{"id":249,"school":"North Texas","mascot":"Mean Green","abbreviation":"UNT","conference":"American Athletic","primary_color":"#00853E","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/249.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/249.png"]},{"id":2459,"school":"Northern Illinois","mascot":"Huskies","abbreviation":"NIU","conference":"Mid-American","primary_color":"#F1122C","alt_color":"#cc0000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2459.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2459.png"]},{"id":77,"school":"Northwestern","mascot":"Wildcats","abbreviation":"NU","conference":"Big Ten","primary_color":"#582c83","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/77.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/77.png"]},{"id":87,"school":"Notre Dame","mascot":"Fighting Irish","abbreviation":"ND","conference":"FBS Independents","primary_color":"#0c2340","alt_color":"#c99700","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/87.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/87.png"]},{"id":195,"school":"Ohio","mascot":"Bobcats","abbreviation":"OHIO","conference":"Mid-American","primary_color":"#295A29","alt_color":"#e4bb85","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/195.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/195.png"]},{"id":194,"school":"Ohio State","mascot":"Buckeyes","abbreviation":"OSU","conference":"Big Ten","primary_color":"#ce1141","alt_color":"#505056","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/194.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/194.png"]},{"id":201,"school":"Oklahoma","mascot":"Sooners","abbreviation":"OU","conference":"SEC","primary_color":"#a32036","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/201.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/201.png"]},{"id":197,"school":"Oklahoma State","mascot":"Cowboys","abbreviation":"OKST","conference":"Big 12","primary_color":"#FF7300","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/197.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/197.png"]},{"id":295,"school":"Old Dominion","mascot":"Monarchs","abbreviation":"ODU","conference":"Sun Belt","primary_color":"#00507d","alt_color":"#a1d2f1","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/295.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/295.png"]},{"id":145,"school":"Ole Miss","mascot":"Rebels","abbreviation":"MISS","conference":"SEC","primary_color":"#13294b","alt_color":"#c8102e","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/145.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/145.png"]},{"id":2483,"school":"Oregon","mascot":"Ducks","abbreviation":"ORE","conference":"Big Ten","primary_color":"#007030","alt_color":"#fee11a","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2483.png"]},{"id":204,"school":"Oregon State","mascot":"Beavers","abbreviation":"ORST","conference":"Pac-12","primary_color":"#231f20","alt_color":"#d73f09","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/204.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/204.png"]},{"id":213,"school":"Penn State","mascot":"Nittany Lions","abbreviation":"PSU","conference":"Big Ten","primary_color":"#041E42","alt_color":"#FFFFFF","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/213.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/213.png"]},{"id":221,"school":"Pittsburgh","mascot":"Panthers","abbreviation":"PITT","conference":"ACC","primary_color":"#003263","alt_color":"#231f20","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/221.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/221.png"]},{"id":2509,"school":"Purdue","mascot":"Boilermakers","abbreviation":"PUR","conference":"Big Ten","primary_color":"#000000","alt_color":"#ceb888","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2509.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2509.png"]},{"id":242,"school":"Rice","mascot":"Owls","abbreviation":"RICE","conference":"American Athletic","primary_color":"#d1d5d8","alt_color":"#003d7d","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/242.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/242.png"]},{"id":164,"school":"Rutgers","mascot":"Scarlet Knights","abbreviation":"RUTG","conference":"Big Ten","primary_color":"#d21034","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/164.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/164.png"]},{"id":2567,"school":"SMU","mascot":"Mustangs","abbreviation":"SMU","conference":"ACC","primary_color":"#354ca1","alt_color":"#cc0035","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2567.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2567.png"]},{"id":2534,"school":"Sam Houston","mascot":"Bearkats","abbreviation":"SHSU","conference":"Conference USA","primary_color":"#fe5000","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2534.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2534.png"]},{"id":21,"school":"San Diego State","mascot":"Aztecs","abbreviation":"SDSU","conference":"Mountain West","primary_color":"#c41230","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/21.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/21.png"]},{"id":23,"school":"San José State","mascot":"Spartans","abbreviation":"SJSU","conference":"Mountain West","primary_color":"#005893","alt_color":"#fdba31","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/23.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/23.png"]},{"id":6,"school":"South Alabama","mascot":"Jaguars","abbreviation":"USA","conference":"Sun Belt","primary_color":"#00205B","alt_color":"#BF0D3E","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/6.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/6.png"]},{"id":2579,"school":"South Carolina","mascot":"Gamecocks","abbreviation":"SC","conference":"SEC","primary_color":"#73000a","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2579.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2579.png"]},{"id":58,"school":"South Florida","mascot":"Bulls","abbreviation":"USF","conference":"American Athletic","primary_color":"#004A36","alt_color":"#231f20","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/58.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/58.png"]},{"id":2572,"school":"Southern Miss","mascot":"Golden Eagles","abbreviation":"USM","conference":"Sun Belt","primary_color":"#FFAA3C","alt_color":"#ffc423","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2572.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2572.png"]},{"id":24,"school":"Stanford","mascot":"Cardinal","abbreviation":"STAN","conference":"ACC","primary_color":"#8c1515","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/24.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/24.png"]},{"id":183,"school":"Syracuse","mascot":"Orange","abbreviation":"SYR","conference":"ACC","primary_color":"#ff6500","alt_color":"#000e54","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/183.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/183.png"]},{"id":2628,"school":"TCU","mascot":"Horned Frogs","abbreviation":"TCU","conference":"Big 12","primary_color":"#4d1979","alt_color":"#f1f2f3","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2628.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2628.png"]},{"id":218,"school":"Temple","mascot":"Owls","abbreviation":"TEM","conference":"American Athletic","primary_color":"#A80532","alt_color":"#a7a9ac","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/218.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/218.png"]},{"id":2633,"school":"Tennessee","mascot":"Volunteers","abbreviation":"TENN","conference":"SEC","primary_color":"#ff8200","alt_color":"#58595b","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2633.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2633.png"]},{"id":251,"school":"Texas","mascot":"Longhorns","abbreviation":"TEX","conference":"SEC","primary_color":"#c15d26","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/251.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/251.png"]},{"id":245,"school":"Texas A&M","mascot":"Aggies","abbreviation":"TA&M","conference":"SEC","primary_color":"#500000","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/245.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/245.png"]},{"id":326,"school":"Texas State","mascot":"Bobcats","abbreviation":"TXST","conference":"Sun Belt","primary_color":"#4e1719","alt_color":"#b4975a","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/326.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/326.png"]},{"id":2641,"school":"Texas Tech","mascot":"Red Raiders","abbreviation":"TTU","conference":"Big 12","primary_color":"#CC0000","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2641.png"]},{"id":2649,"school":"Toledo","mascot":"Rockets","abbreviation":"TOL","conference":"Mid-American","primary_color":"#0a2240","alt_color":"#ffcd00","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2649.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2649.png"]},{"id":2653,"school":"Troy","mascot":"Trojans","abbreviation":"TROY","conference":"Sun Belt","primary_color":"#AE0210","alt_color":"#88898c","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2653.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2653.png"]},{"id":2655,"school":"Tulane","mascot":"Green Wave","abbreviation":"TULN","conference":"American Athletic","primary_color":"#006547","alt_color":"#468ac9","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2655.png"]},{"id":202,"school":"Tulsa","mascot":"Golden Hurricane","abbreviation":"TLSA","conference":"American Athletic","primary_color":"#003595","alt_color":"#d0b787","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/202.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/202.png"]},{"id":5,"school":"UAB","mascot":"Blazers","abbreviation":"UAB","conference":"American Athletic","primary_color":"#003b28","alt_color":"#ffc845","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/5.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/5.png"]},{"id":2116,"school":"UCF","mascot":"Knights","abbreviation":"UCF","conference":"Big 12","primary_color":"#ba9b37","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2116.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2116.png"]},{"id":26,"school":"UCLA","mascot":"Bruins","abbreviation":"UCLA","conference":"Big Ten","primary_color":"#2774ae","alt_color":"#f2a900","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/26.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/26.png"]},{"id":41,"school":"UConn","mascot":"Huskies","abbreviation":"CONN","conference":"FBS Independents","primary_color":"#0c2340","alt_color":"#f1f2f3","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/41.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/41.png"]},{"id":2433,"school":"UL Monroe","mascot":"Warhawks","abbreviation":"ULM","conference":"Sun Belt","primary_color":"#231F20","alt_color":"#b18445","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2433.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2433.png"]},{"id":2439,"school":"UNLV","mascot":"Rebels","abbreviation":"UNLV","conference":"Mountain West","primary_color":"#b10202","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2439.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2439.png"]},{"id":30,"school":"USC","mascot":"Trojans","abbreviation":"USC","conference":"Big Ten","primary_color":"#9e2237","alt_color":"#ffcc00","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/30.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/30.png"]},{"id":2638,"school":"UTEP","mascot":"Miners","abbreviation":"UTEP","conference":"Conference USA","primary_color":"#ff8200","alt_color":"#041e42","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2638.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2638.png"]},{"id":2636,"school":"UTSA","mascot":"Roadrunners","abbreviation":"UTSA","conference":"American Athletic","primary_color":"#002A5C","alt_color":"#f47321","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2636.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2636.png"]},{"id":254,"school":"Utah","mascot":"Utes","abbreviation":"UTAH","conference":"Big 12","primary_color":"#ea002a","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/254.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/254.png"]},{"id":328,"school":"Utah State","mascot":"Aggies","abbreviation":"USU","conference":"Mountain West","primary_color":"#00263a","alt_color":"#949ca1","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/328.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/328.png"]},{"id":238,"school":"Vanderbilt","mascot":"Commodores","abbreviation":"VAN","conference":"SEC","primary_color":"#866d4b","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/238.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/238.png"]},{"id":258,"school":"Virginia","mascot":"Cavaliers","abbreviation":"UVA","conference":"ACC","primary_color":"#232d4b","alt_color":"#f84c1e","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/258.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/258.png"]},{"id":259,"school":"Virginia Tech","mascot":"Hokies","abbreviation":"VT","conference":"ACC","primary_color":"#630031","alt_color":"#cf4520","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/259.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/259.png"]},{"id":154,"school":"Wake Forest","mascot":"Demon Deacons","abbreviation":"WAKE","conference":"ACC","primary_color":"#9E7E38","alt_color":"#000000","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/154.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/154.png"]},{"id":264,"school":"Washington","mascot":"Huskies","abbreviation":"WASH","conference":"Big Ten","primary_color":"#33006f","alt_color":"#e8d3a2","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/264.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/264.png"]},{"id":265,"school":"Washington State","mascot":"Cougars","abbreviation":"WSU","conference":"Pac-12","primary_color":"#981e32","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/265.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/265.png"]},{"id":277,"school":"West Virginia","mascot":"Mountaineers","abbreviation":"WVU","conference":"Big 12","primary_color":"#002855","alt_color":"#eaaa00","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/277.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/277.png"]},{"id":98,"school":"Western Kentucky","mascot":"Hilltoppers","abbreviation":"WKU","conference":"Conference USA","primary_color":"#F32026","alt_color":"#b3b5b8","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/98.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/98.png"]},{"id":2711,"school":"Western Michigan","mascot":"Broncos","abbreviation":"WMU","conference":"Mid-American","primary_color":"#532e1f","alt_color":"#8b7f79","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2711.png"]},{"id":275,"school":"Wisconsin","mascot":"Badgers","abbreviation":"WIS","conference":"Big Ten","primary_color":"#c4012f","alt_color":"#ffffff","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/275.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/275.png"]},{"id":2751,"school":"Wyoming","mascot":"Cowboys","abbreviation":"WYO","conference":"Mountain West","primary_color":"#492f24","alt_color":"#ffc425","logos":["https://a.espncdn.com/i/teamlogos/ncaa/500/2751.png","https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2751.png"]}];
+
+        // Team name aliases for better matching
+        const teamAliases = {
+            'app state': 'appalachian state',
+            'miami': 'miami',
+            'miami (oh)': 'miami (oh)',
+            'ole miss': 'mississippi',
+            'texas a&m': 'texas a&m',
+            'utsa': 'utsa',
+            'uab': 'uab',
+            'ucf': 'central florida',
+            'byu': 'byu',
+            'ul monroe': 'louisiana monroe',
+            'ull': 'louisiana'
+        };
+
+        // Get team logo URL by school name
+        function getTeamLogo(schoolName) {
+            let searchName = schoolName.toLowerCase().trim();
+            
+            // Check aliases first
+            if (teamAliases[searchName]) {
+                searchName = teamAliases[searchName];
+            }
+            
+            const team = teamsData.find(t => {
+                const teamSchool = t.school.toLowerCase();
+                const teamAbbr = t.abbreviation?.toLowerCase() || '';
+                const teamMascot = t.mascot?.toLowerCase() || '';
+                
+                return teamSchool === searchName || 
+                       teamAbbr === searchName ||
+                       teamSchool.includes(searchName) ||
+                       searchName.includes(teamSchool) ||
+                       (teamSchool + ' ' + teamMascot).includes(searchName);
+            });
+            
+            return team ? team.logos[0] : '';
+        }
+
+        // Parse matchup string to get team names
+        function parseMatchup(matchup) {
+            const parts = matchup.split(' @ ');
+            return {
+                away: parts[0].trim(),
+                home: parts[1].trim()
+            };
+        }
+
+        // Raw JSON data provided by the user
+        const rawData = {
+            "generated_at": "2025-11-30T05:40:00.000000",
+            "total_recommendations": 50,
+            "hits": 38,
+            "misses": 11,
+            "pushes": 1,
+            "no_result": 0,
+            "win_rate": 76.0,
+            "results": [
+                {
+                    "matchup": "Ohio State @ Michigan",
+                    "recommendation": "Ohio State -9.5 at ESPN Bet",
+                    "grade": "GOOD",
+                    "edge": 2.7,
+                    "model_spread": "Ohio State -12.2",
+                    "actual_result": "27-9",
+                    "actual_margin": 18,
+                    "bet_spread": -9.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Indiana @ Purdue",
+                    "recommendation": "Indiana -28.5 at DraftKings",
+                    "grade": "STRONG",
+                    "edge": 6.5,
+                    "model_spread": "Indiana -35.0",
+                    "actual_result": "56-3",
+                    "actual_margin": 53,
+                    "bet_spread": -28.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Texas A&M @ Texas",
+                    "recommendation": "Texas +2.0 at Bovada",
+                    "grade": "SLIGHT",
+                    "edge": -1.7,
+                    "model_spread": "Texas A&M -0.3",
+                    "actual_result": "17-27",
+                    "actual_margin": -10,
+                    "bet_spread": 2.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Georgia @ Georgia Tech",
+                    "recommendation": "Georgia -13.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 12.5,
+                    "model_spread": "Georgia -26.0",
+                    "actual_result": "16-9",
+                    "actual_margin": 7,
+                    "bet_spread": -13.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Oregon @ Washington",
+                    "recommendation": "Oregon -6.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 7.1,
+                    "model_spread": "Oregon -13.6",
+                    "actual_result": "26-14",
+                    "actual_margin": 12,
+                    "bet_spread": -6.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Ole Miss @ Mississippi State",
+                    "recommendation": "Ole Miss -7.0 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 18.4,
+                    "model_spread": "Ole Miss -25.4",
+                    "actual_result": "38-19",
+                    "actual_margin": 19,
+                    "bet_spread": -7.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Texas Tech @ West Virginia",
+                    "recommendation": "Texas Tech -24.0 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 5.1,
+                    "model_spread": "Texas Tech -29.1",
+                    "actual_result": "49-0",
+                    "actual_margin": 49,
+                    "bet_spread": -24.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "LSU @ Oklahoma",
+                    "recommendation": "Oklahoma -10.5 at ESPN Bet",
+                    "grade": "SLIGHT",
+                    "edge": -1.9,
+                    "model_spread": "Oklahoma -8.6",
+                    "actual_result": "13-17",
+                    "actual_margin": -4,
+                    "bet_spread": -10.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "UCF @ BYU",
+                    "recommendation": "BYU -17.5 at Bovada",
+                    "grade": "SLIGHT",
+                    "edge": 1.8,
+                    "model_spread": "BYU -19.3",
+                    "actual_result": "21-41",
+                    "actual_margin": -20,
+                    "bet_spread": -17.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Vanderbilt @ Tennessee",
+                    "recommendation": "Vanderbilt +3.5 at ESPN Bet",
+                    "grade": "SLIGHT",
+                    "edge": -1.0,
+                    "model_spread": "Tennessee -2.5",
+                    "actual_result": "45-24",
+                    "actual_margin": 21,
+                    "bet_spread": 3.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Miami @ Pittsburgh",
+                    "recommendation": "Miami -6.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 3.7,
+                    "model_spread": "Miami -10.2",
+                    "actual_result": "38-7",
+                    "actual_margin": 31,
+                    "bet_spread": -6.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Utah @ Kansas",
+                    "recommendation": "Utah -11.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 11.2,
+                    "model_spread": "Utah -22.7",
+                    "actual_result": "31-21",
+                    "actual_margin": 10,
+                    "bet_spread": -11.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Temple @ North Texas",
+                    "recommendation": "North Texas -20.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 10.0,
+                    "model_spread": "North Texas -30.5",
+                    "actual_result": "25-52",
+                    "actual_margin": -27,
+                    "bet_spread": -20.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Troy @ Southern Miss",
+                    "recommendation": "Troy +6.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": -3.7,
+                    "model_spread": "Troy -2.8",
+                    "actual_result": "28-18",
+                    "actual_margin": 10,
+                    "bet_spread": 6.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Oregon State @ Washington State",
+                    "recommendation": "Washington State -13.5 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 7.0,
+                    "model_spread": "Washington State -20.5",
+                    "actual_result": "8-32",
+                    "actual_margin": -24,
+                    "bet_spread": -13.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Maryland @ Michigan State",
+                    "recommendation": "Maryland +4.0 at Bovada",
+                    "grade": "SLIGHT",
+                    "edge": -1.2,
+                    "model_spread": "Michigan State -2.8",
+                    "actual_result": "28-38",
+                    "actual_margin": -10,
+                    "bet_spread": 4.0,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Rice @ South Florida",
+                    "recommendation": "South Florida -28.5 at DraftKings",
+                    "grade": "STRONG",
+                    "edge": 3.8,
+                    "model_spread": "South Florida -32.3",
+                    "actual_result": "3-52",
+                    "actual_margin": -49,
+                    "bet_spread": -28.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Northwestern @ Illinois",
+                    "recommendation": "Illinois -7.0 at DraftKings",
+                    "grade": "GOOD",
+                    "edge": -2.6,
+                    "model_spread": "Illinois -4.4",
+                    "actual_result": "13-20",
+                    "actual_margin": -7,
+                    "bet_spread": -7.0,
+                    "won": "push",
+                    "result_icon": "➖"
+                },
+                {
+                    "matchup": "Navy @ Memphis",
+                    "recommendation": "Memphis -5.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 3.4,
+                    "model_spread": "Memphis -8.9",
+                    "actual_result": "28-17",
+                    "actual_margin": 11,
+                    "bet_spread": -5.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Ohio @ Buffalo",
+                    "recommendation": "Ohio -7.0 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 8.3,
+                    "model_spread": "Ohio -15.3",
+                    "actual_result": "31-26",
+                    "actual_margin": 5,
+                    "bet_spread": -7.0,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Kent State @ Northern Illinois",
+                    "recommendation": "Northern Illinois -5.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 11.9,
+                    "model_spread": "Northern Illinois -17.4",
+                    "actual_result": "35-31",
+                    "actual_margin": 4,
+                    "bet_spread": -5.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Air Force @ Colorado State",
+                    "recommendation": "Air Force -2.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 5.1,
+                    "model_spread": "Air Force -7.6",
+                    "actual_result": "42-21",
+                    "actual_margin": 21,
+                    "bet_spread": -2.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Boise State @ Utah State",
+                    "recommendation": "Boise State -3.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 4.3,
+                    "model_spread": "Boise State -7.8",
+                    "actual_result": "25-24",
+                    "actual_margin": 1,
+                    "bet_spread": -3.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Houston @ Baylor",
+                    "recommendation": "Baylor -2.5 at ESPN Bet",
+                    "grade": "SLIGHT",
+                    "edge": 1.7,
+                    "model_spread": "Baylor -4.2",
+                    "actual_result": "31-24",
+                    "actual_margin": 7,
+                    "bet_spread": -2.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Kentucky @ Louisville",
+                    "recommendation": "Kentucky +3.5 at ESPN Bet",
+                    "grade": "GOOD",
+                    "edge": -2.8,
+                    "model_spread": "Louisville -0.7",
+                    "actual_result": "0-41",
+                    "actual_margin": -41,
+                    "bet_spread": 3.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Clemson @ South Carolina",
+                    "recommendation": "Clemson +3.0 at Bovada",
+                    "grade": "GOOD",
+                    "edge": -2.7,
+                    "model_spread": "South Carolina -0.3",
+                    "actual_result": "28-14",
+                    "actual_margin": 14,
+                    "bet_spread": 3.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Colorado @ Kansas State",
+                    "recommendation": "Kansas State -17.0 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 3.7,
+                    "model_spread": "Kansas State -20.7",
+                    "actual_result": "14-24",
+                    "actual_margin": -10,
+                    "bet_spread": -17.0,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Iowa State @ Oklahoma State",
+                    "recommendation": "Iowa State -14.0 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 12.2,
+                    "model_spread": "Iowa State -26.2",
+                    "actual_result": "20-13",
+                    "actual_margin": 7,
+                    "bet_spread": -14.0,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "East Carolina @ Florida Atlantic",
+                    "recommendation": "East Carolina -6.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 3.1,
+                    "model_spread": "East Carolina -9.6",
+                    "actual_result": "42-3",
+                    "actual_margin": 39,
+                    "bet_spread": -6.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Toledo @ Central Michigan",
+                    "recommendation": "Toledo -10.0 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 4.2,
+                    "model_spread": "Toledo -14.2",
+                    "actual_result": "21-3",
+                    "actual_margin": 18,
+                    "bet_spread": -10.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Ball State @ Miami (OH)",
+                    "recommendation": "Miami (OH) -17.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 5.4,
+                    "model_spread": "Miami (OH) -22.9",
+                    "actual_result": "24-45",
+                    "actual_margin": -21,
+                    "bet_spread": -17.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Florida International @ Sam Houston",
+                    "recommendation": "Florida International -9.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 4.9,
+                    "model_spread": "Florida International -14.4",
+                    "actual_result": "56-16",
+                    "actual_margin": 40,
+                    "bet_spread": -9.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Georgia Southern @ Marshall",
+                    "recommendation": "Marshall -9.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 3.1,
+                    "model_spread": "Marshall -12.6",
+                    "actual_result": "24-19",
+                    "actual_margin": 5,
+                    "bet_spread": -9.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Western Kentucky @ Jacksonville State",
+                    "recommendation": "Jacksonville State +2.5 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 4.7,
+                    "model_spread": "Jacksonville State -7.2",
+                    "actual_result": "34-37",
+                    "actual_margin": -3,
+                    "bet_spread": 2.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Georgia State @ Old Dominion",
+                    "recommendation": "Old Dominion -27.5 at Bovada",
+                    "grade": "SLIGHT",
+                    "edge": -1.7,
+                    "model_spread": "Old Dominion -25.8",
+                    "actual_result": "10-27",
+                    "actual_margin": -17,
+                    "bet_spread": -27.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Arkansas State @ App State",
+                    "recommendation": "Arkansas State +2.5 at ESPN Bet",
+                    "grade": "SLIGHT",
+                    "edge": -1.4,
+                    "model_spread": "Arkansas State -1.1",
+                    "actual_result": "30-29",
+                    "actual_margin": 1,
+                    "bet_spread": 2.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "UL Monroe @ Louisiana",
+                    "recommendation": "Louisiana -9.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 11.0,
+                    "model_spread": "Louisiana -20.5",
+                    "actual_result": "27-30",
+                    "actual_margin": -3,
+                    "bet_spread": -9.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "South Alabama @ Texas State",
+                    "recommendation": "Texas State -9.5 at ESPN Bet",
+                    "grade": "SLIGHT",
+                    "edge": 1.1,
+                    "model_spread": "Texas State -10.6",
+                    "actual_result": "26-49",
+                    "actual_margin": -23,
+                    "bet_spread": -9.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Penn State @ Rutgers",
+                    "recommendation": "Penn State -13.0 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 15.6,
+                    "model_spread": "Penn State -28.6",
+                    "actual_result": "40-36",
+                    "actual_margin": 4,
+                    "bet_spread": -13.0,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "UAB @ Tulsa",
+                    "recommendation": "UAB +7.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": -5.6,
+                    "model_spread": "UAB -1.9",
+                    "actual_result": "31-24",
+                    "actual_margin": 7,
+                    "bet_spread": 7.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Bowling Green @ Massachusetts",
+                    "recommendation": "Bowling Green -14.0 at DraftKings",
+                    "grade": "STRONG",
+                    "edge": 8.3,
+                    "model_spread": "Bowling Green -22.3",
+                    "actual_result": "45-14",
+                    "actual_margin": 31,
+                    "bet_spread": -14.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Western Michigan @ Eastern Michigan",
+                    "recommendation": "Western Michigan -9.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": -3.9,
+                    "model_spread": "Western Michigan -5.6",
+                    "actual_result": "31-21",
+                    "actual_margin": 10,
+                    "bet_spread": -9.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Army @ UTSA",
+                    "recommendation": "UTSA -7.5 at ESPN Bet",
+                    "grade": "SLIGHT",
+                    "edge": -1.8,
+                    "model_spread": "UTSA -5.7",
+                    "actual_result": "27-24",
+                    "actual_margin": 3,
+                    "bet_spread": -7.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Iowa @ Nebraska",
+                    "recommendation": "Iowa -6.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 6.8,
+                    "model_spread": "Iowa -13.3",
+                    "actual_result": "40-16",
+                    "actual_margin": 24,
+                    "bet_spread": -6.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Charlotte @ Tulane",
+                    "recommendation": "No strong edge (Tulane -29.6)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "Tulane -29.6",
+                    "actual_result": "0-27",
+                    "actual_margin": -27,
+                    "bet_spread": 0.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Florida State @ Florida",
+                    "recommendation": "No strong edge (Florida State -0.4)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "Florida State -0.4",
+                    "actual_result": "21-40",
+                    "actual_margin": -19,
+                    "bet_spread": 0.0,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "San Diego State @ New Mexico",
+                    "recommendation": "No strong edge (New Mexico -2.1)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "New Mexico -2.1",
+                    "actual_result": "17-23",
+                    "actual_margin": -6,
+                    "bet_spread": 0.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Arizona @ Arizona State",
+                    "recommendation": "No strong edge (Arizona State -1.6)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "Arizona State -1.6",
+                    "actual_result": "23-7",
+                    "actual_margin": 16,
+                    "bet_spread": 0.0,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "UTEP @ Delaware",
+                    "recommendation": "No strong edge (Delaware -4.7)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "Delaware -4.7",
+                    "actual_result": "31-61",
+                    "actual_margin": -30,
+                    "bet_spread": 0.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Louisiana Tech @ Missouri State",
+                    "recommendation": "No strong edge (Missouri State -1.8)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "Missouri State -1.8",
+                    "actual_result": "42-30",
+                    "actual_margin": 12,
+                    "bet_spread": 0.0,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Boston College @ Syracuse",
+                    "recommendation": "No strong edge (Boston College -3.2)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "Boston College -3.2",
+                    "actual_result": "34-12",
+                    "actual_margin": 22,
+                    "bet_spread": 0.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Wisconsin @ Minnesota",
+                    "recommendation": "No strong edge (Wisconsin -2.4)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "Wisconsin -2.4",
+                    "actual_result": "7-17",
+                    "actual_margin": -10,
+                    "bet_spread": 0.0,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Wake Forest @ Duke",
+                    "recommendation": "No strong edge (Duke -2.9)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "Duke -2.9",
+                    "actual_result": "32-49",
+                    "actual_margin": -17,
+                    "bet_spread": 0.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "North Carolina @ NC State",
+                    "recommendation": "No strong edge (NC State -8.1)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "NC State -8.1",
+                    "actual_result": "19-42",
+                    "actual_margin": -23,
+                    "bet_spread": 0.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Alabama @ Auburn",
+                    "recommendation": "Alabama -5.5 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 8.1,
+                    "model_spread": "Alabama -14.1",
+                    "actual_result": "27-20",
+                    "actual_margin": 7,
+                    "bet_spread": -5.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Cincinnati @ TCU",
+                    "recommendation": "TCU -4.5 at ESPN Bet",
+                    "grade": "SLIGHT",
+                    "edge": -1.1,
+                    "model_spread": "TCU -2.7",
+                    "actual_result": "23-45",
+                    "actual_margin": -22,
+                    "bet_spread": 4.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Fresno State @ San José State",
+                    "recommendation": "Fresno State -3.0 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 11.3,
+                    "model_spread": "Fresno State -14.5",
+                    "actual_result": "41-14",
+                    "actual_margin": 27,
+                    "bet_spread": -3.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "James Madison @ Coastal Carolina",
+                    "recommendation": "James Madison -21.5 at ESPN Bet",
+                    "grade": "STRONG",
+                    "edge": 9.6,
+                    "model_spread": "James Madison -31.8",
+                    "actual_result": "59-10",
+                    "actual_margin": 49,
+                    "bet_spread": -21.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Kennesaw State @ Liberty",
+                    "recommendation": "Liberty +2.5 at ESPN Bet",
+                    "grade": "GOOD",
+                    "edge": 2.8,
+                    "model_spread": "Liberty -5.1",
+                    "actual_result": "48-42",
+                    "actual_margin": 6,
+                    "bet_spread": 2.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Middle Tennessee @ New Mexico State",
+                    "recommendation": "No strong edge (New Mexico State -3.3)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "New Mexico State -3.3",
+                    "actual_result": "23-17",
+                    "actual_margin": 6,
+                    "bet_spread": 0.0,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "Missouri @ Arkansas",
+                    "recommendation": "Missouri -2.5 at ESPN Bet",
+                    "grade": "SLIGHT",
+                    "edge": 1.9,
+                    "model_spread": "Missouri -4.6",
+                    "actual_result": "31-17",
+                    "actual_margin": 14,
+                    "bet_spread": -2.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Notre Dame @ Stanford",
+                    "recommendation": "Notre Dame -32.5 at Bovada",
+                    "grade": "GOOD",
+                    "edge": 2.5,
+                    "model_spread": "Notre Dame -35.0",
+                    "actual_result": "49-20",
+                    "actual_margin": 29,
+                    "bet_spread": -32.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "SMU @ California",
+                    "recommendation": "SMU -13.5 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 13.6,
+                    "model_spread": "SMU -27.1",
+                    "actual_result": "31-38",
+                    "actual_margin": -7,
+                    "bet_spread": -13.5,
+                    "won": false,
+                    "result_icon": "\u274c"
+                },
+                {
+                    "matchup": "UCLA @ USC",
+                    "recommendation": "USC -22.5 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 7.6,
+                    "model_spread": "USC -29.8",
+                    "actual_result": "10-29",
+                    "actual_margin": -19,
+                    "bet_spread": -22.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "UNLV @ Nevada",
+                    "recommendation": "UNLV -7.5 at Bovada",
+                    "grade": "STRONG",
+                    "edge": 8.0,
+                    "model_spread": "UNLV -15.5",
+                    "actual_result": "42-17",
+                    "actual_margin": 25,
+                    "bet_spread": -7.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Virginia Tech @ Virginia",
+                    "recommendation": "No strong edge (Virginia -8.3)",
+                    "grade": "NO EDGE",
+                    "edge": 0.0,
+                    "model_spread": "Virginia -8.3",
+                    "actual_result": "7-27",
+                    "actual_margin": -20,
+                    "bet_spread": 0.0,
+                    "won": true,
+                    "result_icon": "\u2705"
+                },
+                {
+                    "matchup": "Wyoming @ Hawai'i",
+                    "recommendation": "Hawai'i -8.5 at ESPN Bet",
+                    "grade": "SLIGHT",
+                    "edge": -1.4,
+                    "model_spread": "Hawai'i -6.4",
+                    "actual_result": "7-27",
+                    "actual_margin": -20,
+                    "bet_spread": 8.5,
+                    "won": true,
+                    "result_icon": "\u2705"
+                }
+            ]
+        };
+
+        /**
+         * Converts the JSON date string to a readable format.
+         * @param {string} dateString
+         * @returns {string} Formatted date string.
+         */
+        function formatGeneratedDate(dateString) {
+            try {
+                const date = new Date(dateString);
+                return date.toLocaleString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short', 
+                    day: 'numeric', 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    timeZoneName: 'short'
+                });
+            } catch (e) {
+                return 'Date unavailable';
+            }
+        }
+
+        /**
+         * Generates the grade badge HTML with appropriate Tailwind classes.
+         * @param {string} grade - The recommendation grade (STRONG, GOOD, SLIGHT).
+         * @returns {string} HTML for the grade badge.
+         */
+        function getGradeBadgeHtml(grade) {
+            let colorClass = '';
+            switch (grade) {
+                case 'STRONG':
+                    colorClass = 'bg-green-500 bg-opacity-20 text-green-400 border border-green-500 border-opacity-30';
+                    break;
+                case 'GOOD':
+                    colorClass = 'bg-yellow-500 bg-opacity-20 text-yellow-400 border border-yellow-500 border-opacity-30';
+                    break;
+                case 'SLIGHT':
+                    colorClass = 'bg-red-500 bg-opacity-20 text-red-400 border border-red-500 border-opacity-30';
+                    break;
+                default:
+                    colorClass = 'bg-gray-500 bg-opacity-20 text-gray-400 border border-gray-500 border-opacity-30';
+            }
+            return `<span class="grade-badge ${colorClass} px-3 py-1 rounded-md text-xs font-bold uppercase" style="font-family: 'Orbitron', monospace;">${grade}</span>`;
+        }
+
+        /**
+         * Renders the summary statistics cards.
+         */
+        function renderSummaryStats() {
+            const container = document.getElementById('summary-stats');
+            const { total_recommendations, hits, misses, pushes, no_result, win_rate } = rawData;
+            
+            const stats = [
+                { title: 'Total Bets', value: total_recommendations, icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+                { title: 'Wins', value: hits, icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
+                { title: 'Losses', value: misses, icon: 'M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z' },
+                { title: 'Pushes', value: pushes || 0, icon: 'M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+                { title: 'Win Rate', value: `${win_rate.toFixed(1)}%`, icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' }
+            ];
+
+            container.innerHTML = stats.map(stat => `
+                <div class="stat-card p-6 flex flex-col items-center justify-center relative overflow-hidden">
+                    <div class="relative z-10 w-full text-center">
+                        <div class="flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5 text-slate-500 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${stat.icon}"></path>
+                            </svg>
+                        </div>
+                        <p class="text-4xl font-bold text-white tracking-tight number-display mb-2" style="font-family: 'JetBrains Mono', monospace;">${stat.value}</p>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider font-medium">${stat.title}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /**
+         * Renders the main results table.
+         */
+        function renderResultsTable() {
+            const tbody = document.getElementById('results-table-body');
+            tbody.innerHTML = ''; // Clear existing content
+
+            // Manual logo mapping for all teams in the data
+            const teamAbbreviations = {
+                'Ohio State': 'OSU', 'Michigan': 'MICH', 'Indiana': 'IU', 'Purdue': 'PUR',
+                'Texas A&M': 'TA&M', 'Texas': 'TEX', 'Georgia': 'UGA', 'Georgia Tech': 'GT',
+                'Oregon': 'ORE', 'Washington': 'WASH', 'Ole Miss': 'MISS', 'Mississippi State': 'MSST',
+                'Texas Tech': 'TTU', 'West Virginia': 'WVU', 'LSU': 'LSU', 'Oklahoma': 'OU',
+                'UCF': 'UCF', 'BYU': 'BYU', 'Miami': 'MIA', 'Pittsburgh': 'PITT',
+                'Utah': 'UTAH', 'Kansas': 'KU', 'East Carolina': 'ECU', 'Florida Atlantic': 'FAU',
+                'Toledo': 'TOL', 'Central Michigan': 'CMU', 'Ball State': 'BALL', 'Miami (OH)': 'M-OH',
+                'Florida International': 'FIU', 'Sam Houston': 'SHSU', 'Georgia Southern': 'GASO',
+                'Marshall': 'MRSH', 'Western Kentucky': 'WKU', 'Jacksonville State': 'JXST',
+                'Georgia State': 'GAST', 'Old Dominion': 'ODU', 'Arkansas State': 'ARST',
+                'App State': 'APP', 'UL Monroe': 'ULM', 'Louisiana': 'UL', 'South Alabama': 'USA',
+                'Texas State': 'TXST', 'Missouri': 'MIZ', 'Arkansas': 'ARK', 'Wisconsin': 'WIS',
+                'Minnesota': 'MINN', 'Penn State': 'PSU', 'Rutgers': 'RUTG', 'Wake Forest': 'WAKE',
+                'Duke': 'DUKE', 'UAB': 'UAB', 'Tulsa': 'TLSA', 'Bowling Green': 'BGSU',
+                'Massachusetts': 'MASS', 'Western Michigan': 'WMU', 'Eastern Michigan': 'EMU',
+                'Army': 'ARMY', 'UTSA': 'UTSA', 'Iowa': 'IOWA', 'Nebraska': 'NEB',
+                'Vanderbilt': 'VAN', 'Tennessee': 'TENN', 'Maryland': 'MD', 'Michigan State': 'MSU',
+                'Rice': 'RICE', 'South Florida': 'USF', 'Northwestern': 'NU', 'Illinois': 'ILL',
+                'Temple': 'TEM', 'North Texas': 'UNT', 'Troy': 'TROY', 'Southern Miss': 'USM',
+                'Oregon State': 'OSU', 'Washington State': 'WSU', 'Navy': 'NAVY', 'Memphis': 'MEM',
+                'Ohio': 'OHIO', 'Buffalo': 'BUFF', 'Kent State': 'KENT', 'Northern Illinois': 'NIU',
+                'Air Force': 'AF', 'Colorado State': 'CSU', 'Boise State': 'BSU', 'Utah State': 'USU',
+                'Houston': 'HOU', 'Baylor': 'BAY', 'Kentucky': 'UK', 'Louisville': 'LOU',
+                'Clemson': 'CLEM', 'South Carolina': 'SC', 'Colorado': 'COL', 'Kansas State': 'KSU',
+                'Iowa State': 'ISU', 'Oklahoma State': 'OKST', 'Middle Tennessee': 'MTSU', 'New Mexico State': 'NMSU'
+            };
+
+            // Team rankings (Week 14 2025 AP Poll)
+            const teamRankings = {
+                'Ohio State': 1,
+                'Indiana': 2,
+                'Texas A&M': 3,
+                'Georgia': 4,
+                'Texas Tech': 5,
+                'Oregon': 6,
+                'Ole Miss': 7,
+                'Oklahoma': 8,
+                'Notre Dame': 9,
+                'Alabama': 10,
+                'BYU': 11,
+                'Miami': 12,
+                'Utah': 13,
+                'Vanderbilt': 14,
+                'Michigan': 15,
+                'Texas': 16,
+                'USC': 17,
+                'Virginia': 18,
+                'Tennessee': 19,
+                'Arizona State': 20,
+                'SMU': 21,
+                'Pittsburgh': 22,
+                'Georgia Tech': 23,
+                'Tulane': 24,
+                'Arizona': 25
+            };
+
+            const logoMap = {
+                'Ohio State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/194.png',
+                'Michigan': 'https://a.espncdn.com/i/teamlogos/ncaa/500/130.png',
+                'Indiana': 'https://a.espncdn.com/i/teamlogos/ncaa/500/84.png',
+                'Purdue': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2509.png',
+                'Texas A&M': 'https://a.espncdn.com/i/teamlogos/ncaa/500/245.png',
+                'Texas': 'https://a.espncdn.com/i/teamlogos/ncaa/500/251.png',
+                'Georgia': 'https://a.espncdn.com/i/teamlogos/ncaa/500/61.png',
+                'Georgia Tech': 'https://a.espncdn.com/i/teamlogos/ncaa/500/59.png',
+                'Oregon': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png',
+                'Washington': 'https://a.espncdn.com/i/teamlogos/ncaa/500/264.png',
+                'Ole Miss': 'https://a.espncdn.com/i/teamlogos/ncaa/500/145.png',
+                'Mississippi State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/344.png',
+                'Texas Tech': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png',
+                'West Virginia': 'https://a.espncdn.com/i/teamlogos/ncaa/500/277.png',
+                'LSU': 'https://a.espncdn.com/i/teamlogos/ncaa/500/99.png',
+                'Oklahoma': 'https://a.espncdn.com/i/teamlogos/ncaa/500/201.png',
+                'UCF': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2116.png',
+                'BYU': 'https://a.espncdn.com/i/teamlogos/ncaa/500/252.png',
+                'Miami': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png',
+                'Pittsburgh': 'https://a.espncdn.com/i/teamlogos/ncaa/500/221.png',
+                'Utah': 'https://a.espncdn.com/i/teamlogos/ncaa/500/254.png',
+                'Kansas': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2305.png',
+                'Vanderbilt': 'https://a.espncdn.com/i/teamlogos/ncaa/500/238.png',
+                'Tennessee': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2633.png',
+                'Maryland': 'https://a.espncdn.com/i/teamlogos/ncaa/500/120.png',
+                'Michigan State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/127.png',
+                'Rice': 'https://a.espncdn.com/i/teamlogos/ncaa/500/242.png',
+                'South Florida': 'https://a.espncdn.com/i/teamlogos/ncaa/500/58.png',
+                'Northwestern': 'https://a.espncdn.com/i/teamlogos/ncaa/500/77.png',
+                'Illinois': 'https://a.espncdn.com/i/teamlogos/ncaa/500/356.png',
+                'Temple': 'https://a.espncdn.com/i/teamlogos/ncaa/500/218.png',
+                'North Texas': 'https://a.espncdn.com/i/teamlogos/ncaa/500/249.png',
+                'Troy': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2653.png',
+                'Southern Miss': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2572.png',
+                'Oregon State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/204.png',
+                'Washington State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/265.png',
+                'Navy': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2426.png',
+                'Memphis': 'https://a.espncdn.com/i/teamlogos/ncaa/500/235.png',
+                'Ohio': 'https://a.espncdn.com/i/teamlogos/ncaa/500/195.png',
+                'Buffalo': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2084.png',
+                'Kent State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2309.png',
+                'Northern Illinois': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2459.png',
+                'Air Force': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png',
+                'Colorado State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/36.png',
+                'Boise State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/68.png',
+                'Utah State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/328.png',
+                'Houston': 'https://a.espncdn.com/i/teamlogos/ncaa/500/248.png',
+                'Baylor': 'https://a.espncdn.com/i/teamlogos/ncaa/500/239.png',
+                'Kentucky': 'https://a.espncdn.com/i/teamlogos/ncaa/500/96.png',
+                'Louisville': 'https://a.espncdn.com/i/teamlogos/ncaa/500/97.png',
+                'Clemson': 'https://a.espncdn.com/i/teamlogos/ncaa/500/228.png',
+                'South Carolina': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2579.png',
+                'Colorado': 'https://a.espncdn.com/i/teamlogos/ncaa/500/38.png',
+                'Kansas State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2306.png',
+                'Iowa State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/66.png',
+                'Oklahoma State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/197.png',
+                'East Carolina': 'https://a.espncdn.com/i/teamlogos/ncaa/500/151.png',
+                'Florida Atlantic': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2226.png',
+                'Toledo': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2649.png',
+                'Central Michigan': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2117.png',
+                'Ball State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2050.png',
+                'Miami (OH)': 'https://a.espncdn.com/i/teamlogos/ncaa/500/193.png',
+                'Florida International': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2229.png',
+                'Sam Houston': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2534.png',
+                'Georgia Southern': 'https://a.espncdn.com/i/teamlogos/ncaa/500/290.png',
+                'Marshall': 'https://a.espncdn.com/i/teamlogos/ncaa/500/276.png',
+                'Western Kentucky': 'https://a.espncdn.com/i/teamlogos/ncaa/500/98.png',
+                'Jacksonville State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/55.png',
+                'Georgia State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2247.png',
+                'Old Dominion': 'https://a.espncdn.com/i/teamlogos/ncaa/500/295.png',
+                'Arkansas State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2032.png',
+                'App State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2026.png',
+                'UL Monroe': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2433.png',
+                'Louisiana': 'https://a.espncdn.com/i/teamlogos/ncaa/500/309.png',
+                'South Alabama': 'https://a.espncdn.com/i/teamlogos/ncaa/500/6.png',
+                'Texas State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/326.png',
+                'Missouri': 'https://a.espncdn.com/i/teamlogos/ncaa/500/142.png',
+                'Arkansas': 'https://a.espncdn.com/i/teamlogos/ncaa/500/8.png',
+                'Wisconsin': 'https://a.espncdn.com/i/teamlogos/ncaa/500/275.png',
+                'Minnesota': 'https://a.espncdn.com/i/teamlogos/ncaa/500/135.png',
+                'Penn State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/213.png',
+                'Rutgers': 'https://a.espncdn.com/i/teamlogos/ncaa/500/164.png',
+                'Wake Forest': 'https://a.espncdn.com/i/teamlogos/ncaa/500/154.png',
+                'Duke': 'https://a.espncdn.com/i/teamlogos/ncaa/500/150.png',
+                'UAB': 'https://a.espncdn.com/i/teamlogos/ncaa/500/5.png',
+                'Tulsa': 'https://a.espncdn.com/i/teamlogos/ncaa/500/202.png',
+                'Bowling Green': 'https://a.espncdn.com/i/teamlogos/ncaa/500/189.png',
+                'Massachusetts': 'https://a.espncdn.com/i/teamlogos/ncaa/500/113.png',
+                'Western Michigan': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png',
+                'Eastern Michigan': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2199.png',
+                'Army': 'https://a.espncdn.com/i/teamlogos/ncaa/500/349.png',
+                'UTSA': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2636.png',
+                'Iowa': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png',
+                'Nebraska': 'https://a.espncdn.com/i/teamlogos/ncaa/500/158.png',
+                'Charlotte': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2429.png',
+                'Tulane': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png',
+                'Florida State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/52.png',
+                'Florida': 'https://a.espncdn.com/i/teamlogos/ncaa/500/57.png',
+                'San Diego State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/21.png',
+                'New Mexico': 'https://a.espncdn.com/i/teamlogos/ncaa/500/167.png',
+                'Arizona': 'https://a.espncdn.com/i/teamlogos/ncaa/500/12.png',
+                'Arizona State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/9.png',
+                'UTEP': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2638.png',
+                'Delaware': 'https://a.espncdn.com/i/teamlogos/ncaa/500/48.png',
+                'Louisiana Tech': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2348.png',
+                'Missouri State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2623.png',
+                'Boston College': 'https://a.espncdn.com/i/teamlogos/ncaa/500/103.png',
+                'Syracuse': 'https://a.espncdn.com/i/teamlogos/ncaa/500/183.png',
+                'North Carolina': 'https://a.espncdn.com/i/teamlogos/ncaa/500/153.png',
+                'NC State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/152.png',
+                'UNLV': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2439.png',
+                'Nevada': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2440.png',
+                'Wyoming': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2751.png',
+                'Hawai\'i': 'https://a.espncdn.com/i/teamlogos/ncaa/500/62.png',
+                'Alabama': 'https://a.espncdn.com/i/teamlogos/ncaa/500/333.png',
+                'Auburn': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2.png',
+                'Notre Dame': 'https://a.espncdn.com/i/teamlogos/ncaa/500/87.png',
+                'Stanford': 'https://a.espncdn.com/i/teamlogos/ncaa/500/24.png',
+                'Virginia Tech': 'https://a.espncdn.com/i/teamlogos/ncaa/500/259.png',
+                'Virginia': 'https://a.espncdn.com/i/teamlogos/ncaa/500/258.png',
+                'UCLA': 'https://a.espncdn.com/i/teamlogos/ncaa/500/26.png',
+                'USC': 'https://a.espncdn.com/i/teamlogos/ncaa/500/30.png',
+                'James Madison': 'https://a.espncdn.com/i/teamlogos/ncaa/500/256.png',
+                'Coastal Carolina': 'https://a.espncdn.com/i/teamlogos/ncaa/500/324.png',
+                'SMU': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2567.png',
+                'California': 'https://a.espncdn.com/i/teamlogos/ncaa/500/25.png',
+                'Cincinnati': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2132.png',
+                'TCU': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2628.png',
+                'Kennesaw State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/338.png',
+                'Liberty': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png',
+                'Fresno State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/278.png',
+                'San José State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/23.png',
+                'Middle Tennessee': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2393.png',
+                'New Mexico State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/166.png'
+            };
+
+            // Sportsbook logos
+            const sportsbookLogos = {
+                'ESPN Bet': '<img src="/espnbet.svg" class="inline-block w-5 h-5 mr-1" alt="ESPN Bet">',
+                'DraftKings': '<img src="/Draftking.svg" class="inline-block w-5 h-5 mr-1" alt="DraftKings">',
+                'Bovada': '<img src="/Bovada-Casino-Logo.svg" class="inline-block w-5 h-5 mr-1" alt="Bovada">',
+                'FanDuel': '<svg class="inline-block w-5 h-5 mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5h3V8h4v4h3l-5 5z"/></svg>'
+            };
+
+            function formatRecommendation(recommendation) {
+                // Check if it's a "No strong edge" recommendation (e.g., "No strong edge (Team Name -X.X)")
+                const noEdgeMatch = recommendation.match(/No strong edge \((.+?)\s+([-+]?\d+\.?\d*)\)/);
+                if (noEdgeMatch) {
+                    const teamName = noEdgeMatch[1].trim();
+                    const spread = noEdgeMatch[2];
+                    const teamLogo = logoMap[teamName] || '';
+                    
+                    return `
+                        <div class="flex items-center gap-2">
+                            ${teamLogo ? `<img src="${teamLogo}" class="team-logo" alt="${teamName}" title="${teamName}" onerror="this.style.display='none'">` : ''}
+                            <span class="font-bold number-display">${spread}</span>
+                        </div>
+                    `;
+                }
+                
+                // Check if it's a "Model:" recommendation (e.g., "Model: Team Name -X.X")
+                const modelMatch = recommendation.match(/Model:\s+(.+?)\s+([-+]?\d+\.?\d*)/);
+                if (modelMatch) {
+                    const teamName = modelMatch[1].trim();
+                    const spread = modelMatch[2];
+                    const teamLogo = logoMap[teamName] || '';
+                    
+                    return `
+                        <div class="flex items-center gap-2">
+                            ${teamLogo ? `<img src="${teamLogo}" class="team-logo" alt="${teamName}" title="${teamName}" onerror="this.style.display='none'">` : ''}
+                            <span class="font-bold number-display">${spread}</span>
+                        </div>
+                    `;
+                }
+                
+                // Extract team and spread from recommendation (e.g., "Ohio State -9.5 at ESPN Bet")
+                const parts = recommendation.split(' at ');
+                const betInfo = parts[0]; // e.g., "Ohio State -9.5"
+                const bookName = parts[1]; // e.g., "ESPN Bet"
+                
+                // Get sportsbook logo
+                const bookLogo = sportsbookLogos[bookName] || '';
+                
+                // Parse team name and spread
+                const match = betInfo.match(/^(.+?)\s+([-+]?\d+\.?\d*)$/);
+                if (match) {
+                    const teamName = match[1].trim();
+                    const spread = match[2];
+                    const teamLogo = logoMap[teamName] || '';
+                    
+                    return `
+                        <div class="flex items-center gap-2">
+                            ${teamLogo ? `<img src="${teamLogo}" class="team-logo" alt="${teamName}" title="${teamName}" onerror="this.style.display='none'">` : ''}
+                            <span class="font-bold number-display">${spread}</span>
+                            ${bookLogo}
+                        </div>
+                    `;
+                }
+                
+                return recommendation;
+            }
+
+            function formatModelSpread(modelSpread) {
+                // Extract team and spread from model spread (e.g., "Ohio State -12.2")
+                const match = modelSpread.match(/^(.+?)\s+([-+]?\d+\.?\d*)$/);
+                if (match) {
+                    const teamName = match[1].trim();
+                    const spread = match[2];
+                    const teamLogo = logoMap[teamName] || '';
+                    
+                    return `
+                        <div class="flex items-center justify-center gap-2">
+                            ${teamLogo ? `<img src="${teamLogo}" class="team-logo" alt="${teamName}" title="${teamName}" onerror="this.style.display='none'">` : ''}
+                            <span class="font-bold number-display">${spread}</span>
+                        </div>
+                    `;
+                }
+                
+                return modelSpread;
+            }
+
+            // Separate NO EDGE games from regular bets
+            const regularBets = rawData.results.filter(r => r.grade !== 'NO EDGE');
+            const noEdgeBets = rawData.results.filter(r => r.grade === 'NO EDGE');
+            
+            let rowNumber = 0;
+            
+            // Render regular bets first
+            regularBets.forEach((result) => {
+                rowNumber++;
+                // Determine the status badge (Win/Loss/Push)
+                let statusClass, statusText;
+                if (result.won === 'push') {
+                    statusClass = 'bg-gray-200 text-gray-900';
+                    statusText = 'PUSH';
+                } else {
+                    statusClass = result.won ? 'win-indicator' : 'loss-indicator';
+                    statusText = result.won ? 'WIN' : 'LOSS';
+                }
+                
+                // Determine edge color (Positive/Negative)
+                const edgeColor = result.edge >= 0 ? 'text-green-400' : 'text-red-400';
+                
+                // Parse matchup to get team names
+                const teams = parseMatchup(result.matchup);
+                const awayLogo = logoMap[teams.away] || '';
+                const homeLogo = logoMap[teams.home] || '';
+                const awayRank = teamRankings[teams.away];
+                const homeRank = teamRankings[teams.home];
+                const isRankedGame = awayRank || homeRank;
+                
+                // Build matchup HTML with logos and rankings
+                const matchupHtml = `
+                    <div class="matchup-cell" style="font-family: 'Orbitron', monospace;">
+                        <div class="flex items-center gap-1 relative">
+                            ${awayLogo ? `
+                                <div class="relative">
+                                    ${awayRank ? `<span class="absolute -top-1 -left-1 text-[8px] font-bold text-white px-1 rounded" style="font-family: 'Orbitron', monospace; z-index: 10; background: linear-gradient(135deg, rgb(204,0,28), rgb(161,0,20), rgb(115,0,13), rgb(161,0,20), rgb(204,0,28));">${awayRank}</span>` : ''}
+                                    <img src="${awayLogo}" class="team-logo" alt="${teams.away}" title="${teams.away}" onerror="this.style.display='none'">
+                                </div>
+                            ` : (awayRank ? `<span class="text-xs font-bold text-amber-400" style="font-family: 'Orbitron', monospace;">#${awayRank}</span>` : '')}
+                        </div>
+                        <span class="text-gray-400 text-xs" style="font-family: 'Orbitron', monospace;">@</span>
+                        <div class="flex items-center gap-1 relative">
+                            ${homeLogo ? `
+                                <div class="relative">
+                                    ${homeRank ? `<span class="absolute -top-1 -left-1 text-[8px] font-bold text-white px-1 rounded" style="font-family: 'Orbitron', monospace; z-index: 10; background: linear-gradient(135deg, rgb(204,0,28), rgb(161,0,20), rgb(115,0,13), rgb(161,0,20), rgb(204,0,28));">${homeRank}</span>` : ''}
+                                    <img src="${homeLogo}" class="team-logo" alt="${teams.home}" title="${teams.home}" onerror="this.style.display='none'">
+                                </div>
+                            ` : (homeRank ? `<span class="text-xs font-bold text-amber-400" style="font-family: 'Orbitron', monospace;">#${homeRank}</span>` : '')}
+                        </div>
+                    </div>
+                `;
+                
+                // Build the table row
+                const row = document.createElement('tr');
+                row.className = 'transition-all duration-200';
+                row.dataset.status = result.won === 'push' ? 'push' : (result.won ? 'win' : 'loss');
+                row.dataset.isNoEdge = 'false';
+                row.dataset.isRanked = isRankedGame ? 'true' : 'false';
+                row.innerHTML = `
+                    <td class="px-4 py-4 whitespace-nowrap text-center text-sm font-bold text-gray-200 number-display">${rowNumber}</td>
+                    <td class="px-4 py-4 text-sm font-semibold text-gray-900">${matchupHtml}</td>
+                    <td class="px-4 py-4 text-sm font-medium text-white">${formatRecommendation(result.recommendation)}</td>
+                    <td class="px-4 py-4 whitespace-nowrap text-center text-sm">${getGradeBadgeHtml(result.grade)}</td>
+                    <td class="px-4 py-4 whitespace-nowrap text-center text-sm font-bold ${edgeColor} number-display">${result.edge.toFixed(1)}</td>
+                    <td class="px-4 py-4 whitespace-nowrap text-center text-sm text-gray-100">${formatModelSpread(result.model_spread)}</td>
+                    <td class="px-4 py-4 whitespace-nowrap text-center text-sm font-semibold text-white">
+                        <div class="flex items-center justify-center gap-1">
+                            ${awayLogo ? `<img src="${awayLogo}" class="w-4 h-4 opacity-30" alt="${teams.away}" title="${teams.away}">` : ''}
+                            <span class="number-display">${result.actual_result}</span>
+                            ${homeLogo ? `<img src="${homeLogo}" class="w-4 h-4 opacity-30" alt="${teams.home}" title="${teams.home}">` : ''}
+                        </div>
+                    </td>
+                    <td class="px-4 py-4 whitespace-nowrap text-center text-sm font-medium text-gray-100">
+                        <div class="flex items-center justify-center gap-1">
+                            ${result.actual_margin > 0 ? (awayLogo ? `<img src="${awayLogo}" class="w-4 h-4 opacity-30" alt="${teams.away}" title="${teams.away}">` : '') : (homeLogo ? `<img src="${homeLogo}" class="w-4 h-4 opacity-30" alt="${teams.home}" title="${teams.home}">` : '')}
+                            <span class="number-display">${result.actual_margin}</span>
+                        </div>
+                    </td>
+                    <td class="px-4 py-4 whitespace-nowrap text-center text-sm font-medium text-gray-100">
+                        <div class="flex items-center justify-center gap-1">
+                            ${result.bet_spread < 0 ? (awayLogo ? `<img src="${awayLogo}" class="w-4 h-4 opacity-30" alt="${teams.away}" title="${teams.away}">` : '') : (homeLogo ? `<img src="${homeLogo}" class="w-4 h-4 opacity-30" alt="${teams.home}" title="${teams.home}">` : '')}
+                            <span class="number-display">${result.bet_spread > 0 ? `+${result.bet_spread}` : result.bet_spread}</span>
+                        </div>
+                    </td>
+                    <td class="px-4 py-4 whitespace-nowrap text-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase ${statusClass}">
+                            ${statusText}
+                        </span>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            // Add separator row if there are NO EDGE games
+            if (noEdgeBets.length > 0) {
+                const separatorRow = document.createElement('tr');
+                separatorRow.id = 'no-edge-separator';
+                separatorRow.className = 'cursor-pointer hover:bg-slate-800/30 transition-all duration-200';
+                separatorRow.innerHTML = `
+                    <td colspan="10" class="px-4 py-4 text-center border-t border-slate-700/30">
+                        <div class="flex items-center justify-center gap-3">
+                            <div class="flex-1 h-px bg-gradient-to-r from-transparent via-slate-600/30 to-transparent"></div>
+                            <button onclick="toggleNoEdgeGames()" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 uppercase tracking-wider transition-all duration-200 hover:text-slate-300" style="background: rgba(15, 23, 42, 0.3); backdrop-filter: blur(8px); border: 1px solid rgba(148, 163, 184, 0.1);">
+                                <svg id="no-edge-icon" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                                <span>⚠️ NO EDGE GAMES (Excluded) - ${noEdgeBets.length} Games</span>
+                            </button>
+                            <div class="flex-1 h-px bg-gradient-to-r from-transparent via-slate-600/30 to-transparent"></div>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(separatorRow);
+                
+                // Render NO EDGE games with grayed-out styling
+                noEdgeBets.forEach((result) => {
+                    rowNumber++;
+                    // Determine the status badge (Win/Loss/Push)
+                    let statusClass, statusText;
+                    if (result.won === 'push') {
+                        statusClass = 'bg-gray-200 text-gray-400';
+                        statusText = 'PUSH';
+                    } else {
+                        statusClass = result.won ? 'bg-green-100 text-green-400' : 'bg-red-100 text-red-400';
+                        statusText = result.won ? 'WIN' : 'LOSS';
+                    }
+                    
+                    // Parse matchup to get team names
+                    const teams = parseMatchup(result.matchup);
+                    const awayLogo = logoMap[teams.away] || '';
+                    const homeLogo = logoMap[teams.home] || '';
+                    
+                    // Build matchup HTML with logos only
+                    const matchupHtml = `
+                        <div class="matchup-cell">
+                            ${awayLogo ? `<img src="${awayLogo}" class="team-logo opacity-40" alt="${teams.away}" title="${teams.away}" onerror="this.style.display='none'">` : ''}
+                            <span class="text-gray-300">@</span>
+                            ${homeLogo ? `<img src="${homeLogo}" class="team-logo opacity-40" alt="${teams.home}" title="${teams.home}" onerror="this.style.display='none'">` : ''}
+                        </div>
+                    `;
+                    
+                    // Build the grayed-out table row
+                    const row = document.createElement('tr');
+                    row.className = 'no-edge-game transition-all duration-200 opacity-50 bg-gray-50 hidden';
+                    row.dataset.status = 'noedge';
+                    row.dataset.isNoEdge = 'true';
+                    row.innerHTML = `
+                        <td class="px-4 py-4 whitespace-nowrap text-center text-sm font-bold text-gray-400 number-display">${rowNumber}</td>
+                        <td class="px-4 py-4 text-sm font-semibold text-gray-400">${matchupHtml}</td>
+                        <td class="px-4 py-4 text-sm font-medium text-gray-400">${formatRecommendation(result.recommendation)}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-center text-sm">${getGradeBadgeHtml(result.grade)}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-center text-sm font-bold text-gray-400 number-display">${result.edge.toFixed(1)}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-center text-sm text-gray-400">${formatModelSpread(result.model_spread)}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-center text-sm font-semibold text-gray-400">
+                            <div class="flex items-center justify-center gap-1">
+                                ${awayLogo ? `<img src="${awayLogo}" class="w-4 h-4 opacity-20" alt="${teams.away}" title="${teams.away}">` : ''}
+                                <span class="number-display">${result.actual_result}</span>
+                                ${homeLogo ? `<img src="${homeLogo}" class="w-4 h-4 opacity-20" alt="${teams.home}" title="${teams.home}">` : ''}
+                            </div>
+                        </td>
+                        <td class="px-4 py-4 whitespace-nowrap text-center text-sm font-medium text-gray-400">
+                            <div class="flex items-center justify-center gap-1">
+                                ${result.actual_margin > 0 ? (awayLogo ? `<img src="${awayLogo}" class="w-4 h-4 opacity-20" alt="${teams.away}" title="${teams.away}">` : '') : (homeLogo ? `<img src="${homeLogo}" class="w-4 h-4 opacity-20" alt="${teams.home}" title="${teams.home}">` : '')}
+                                <span class="number-display">${result.actual_margin}</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-4 whitespace-nowrap text-center text-sm font-medium text-gray-400">
+                            <div class="flex items-center justify-center gap-1">
+                                <span class="number-display">N/A</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-4 whitespace-nowrap text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase ${statusClass}">
+                                ${statusText}
+                            </span>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+        }
+
+        /**
+         * Filter results by win/loss status
+         */
+        function filterResults(filter) {
+            const allRows = document.querySelectorAll('#results-table-body tr');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`filter-${filter}`).classList.add('active');
+            
+            // Filter rows based on data attributes
+            allRows.forEach((row) => {
+                // Skip separator row
+                if (row.querySelector('td[colspan="10"]')) {
+                    return; // Always show separator
+                }
+                
+                // Always show NO EDGE games (grayed out at bottom)
+                if (row.dataset.isNoEdge === 'true') {
+                    return;
+                }
+                
+                // Filter regular bets
+                const rowStatus = row.dataset.status;
+                const isRanked = row.dataset.isRanked === 'true';
+                
+                if (filter === 'all') {
+                    row.classList.remove('hidden-row');
+                } else if (filter === 'wins' && rowStatus === 'win') {
+                    row.classList.remove('hidden-row');
+                } else if (filter === 'losses' && rowStatus === 'loss') {
+                    row.classList.remove('hidden-row');
+                } else if (filter === 'pushes' && rowStatus === 'push') {
+                    row.classList.remove('hidden-row');
+                } else if (filter === 'ranked' && isRanked) {
+                    row.classList.remove('hidden-row');
+                } else {
+                    row.classList.add('hidden-row');
+                }
+            });
+        }
+
+        // Toggle NO EDGE games visibility
+        function toggleNoEdgeGames() {
+            const noEdgeRows = document.querySelectorAll('.no-edge-game');
+            const icon = document.getElementById('no-edge-icon');
+            const isHidden = noEdgeRows[0]?.classList.contains('hidden');
+            
+            noEdgeRows.forEach(row => {
+                if (isHidden) {
+                    row.classList.remove('hidden');
+                } else {
+                    row.classList.add('hidden');
+                }
+            });
+            
+            // Rotate icon
+            if (isHidden) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Initialize report generation on load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Loaded', teamsData.length, 'teams');
+            
+            // Set the generated date in the header
+            document.getElementById('generated-date').textContent = formatGeneratedDate(rawData.generated_at);
+            
+            // Render the summary statistics
+            renderSummaryStats();
+
+            // Render the main table
+            renderResultsTable();
+            
+            // Count and display ranked games
+            const rankedGamesCount = rawData.results.filter(r => {
+                const teams = parseMatchup(r.matchup);
+                const awayRank = teamRankings[teams.away];
+                const homeRank = teamRankings[teams.home];
+                return (awayRank || homeRank) && r.grade !== 'NO EDGE';
+            }).length;
+            const rankedCountEl = document.getElementById('ranked-count');
+            if (rankedCountEl) {
+                rankedCountEl.textContent = `(${rankedGamesCount})`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,883 @@
+{
+  "analysis_date": "2025-12-03T05:39:34.626160",
+  "total_teams": 123,
+  "statistics": {
+    "min": 1.062,
+    "max": 1.497,
+    "mean": 1.2509837398373984,
+    "median": 1.246
+  },
+  "benchmarks_raw": {
+    "elite": 1.327,
+    "average": 1.246,
+    "below_avg": 1.201
+  },
+  "benchmarks_percentage": {
+    "elite": 132.7,
+    "average": 124.6,
+    "below_avg": 120.1
+  },
+  "rankings": [
+    {
+      "team": "Notre Dame",
+      "rank": 6,
+      "conference": "FBS Independents",
+      "raw_coefficient": 1.497,
+      "as_percentage": 149.70000000000002
+    },
+    {
+      "team": "Wake Forest",
+      "rank": 49,
+      "conference": "ACC",
+      "raw_coefficient": 1.471,
+      "as_percentage": 147.10000000000002
+    },
+    {
+      "team": "Missouri State",
+      "rank": 73,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.466,
+      "as_percentage": 146.6
+    },
+    {
+      "team": "UTEP",
+      "rank": 95,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.452,
+      "as_percentage": 145.2
+    },
+    {
+      "team": "Kansas State",
+      "rank": 44,
+      "conference": "Big 12",
+      "raw_coefficient": 1.406,
+      "as_percentage": 140.6
+    },
+    {
+      "team": "Vanderbilt",
+      "rank": 4,
+      "conference": "SEC",
+      "raw_coefficient": 1.401,
+      "as_percentage": 140.1
+    },
+    {
+      "team": "Florida Atlantic",
+      "rank": 87,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.399,
+      "as_percentage": 139.9
+    },
+    {
+      "team": "SMU",
+      "rank": 15,
+      "conference": "ACC",
+      "raw_coefficient": 1.392,
+      "as_percentage": 139.2
+    },
+    {
+      "team": "Pittsburgh",
+      "rank": 40,
+      "conference": "ACC",
+      "raw_coefficient": 1.381,
+      "as_percentage": 138.1
+    },
+    {
+      "team": "Colorado",
+      "rank": 110,
+      "conference": "Big 12",
+      "raw_coefficient": 1.377,
+      "as_percentage": 137.7
+    },
+    {
+      "team": "Kennesaw State",
+      "rank": 58,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.369,
+      "as_percentage": 136.9
+    },
+    {
+      "team": "UCF",
+      "rank": 65,
+      "conference": "Big 12",
+      "raw_coefficient": 1.368,
+      "as_percentage": 136.8
+    },
+    {
+      "team": "UL Monroe",
+      "rank": 108,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.368,
+      "as_percentage": 136.8
+    },
+    {
+      "team": "UNLV",
+      "rank": 19,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.366,
+      "as_percentage": 136.60000000000002
+    },
+    {
+      "team": "NC State",
+      "rank": 66,
+      "conference": "ACC",
+      "raw_coefficient": 1.361,
+      "as_percentage": 136.1
+    },
+    {
+      "team": "UConn",
+      "rank": 25,
+      "conference": "FBS Independents",
+      "raw_coefficient": 1.36,
+      "as_percentage": 136.0
+    },
+    {
+      "team": "Florida State",
+      "rank": 17,
+      "conference": "ACC",
+      "raw_coefficient": 1.356,
+      "as_percentage": 135.60000000000002
+    },
+    {
+      "team": "Duke",
+      "rank": 41,
+      "conference": "ACC",
+      "raw_coefficient": 1.352,
+      "as_percentage": 135.20000000000002
+    },
+    {
+      "team": "Texas",
+      "rank": 50,
+      "conference": "SEC",
+      "raw_coefficient": 1.348,
+      "as_percentage": 134.8
+    },
+    {
+      "team": "Utah State",
+      "rank": 63,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.348,
+      "as_percentage": 134.8
+    },
+    {
+      "team": "Texas State",
+      "rank": 39,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.347,
+      "as_percentage": 134.7
+    },
+    {
+      "team": "Hawai'i",
+      "rank": 81,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.346,
+      "as_percentage": 134.60000000000002
+    },
+    {
+      "team": "Arkansas",
+      "rank": 35,
+      "conference": "SEC",
+      "raw_coefficient": 1.334,
+      "as_percentage": 133.4
+    },
+    {
+      "team": "Southern Miss",
+      "rank": 59,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.33,
+      "as_percentage": 133.0
+    },
+    {
+      "team": "USC",
+      "rank": 12,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.327,
+      "as_percentage": 132.7
+    },
+    {
+      "team": "Texas Tech",
+      "rank": 3,
+      "conference": "Big 12",
+      "raw_coefficient": 1.325,
+      "as_percentage": 132.5
+    },
+    {
+      "team": "South Carolina",
+      "rank": 57,
+      "conference": "SEC",
+      "raw_coefficient": 1.324,
+      "as_percentage": 132.4
+    },
+    {
+      "team": "Memphis",
+      "rank": 21,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.323,
+      "as_percentage": 132.29999999999998
+    },
+    {
+      "team": "South Florida",
+      "rank": 13,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.32,
+      "as_percentage": 132.0
+    },
+    {
+      "team": "UTSA",
+      "rank": 60,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.32,
+      "as_percentage": 132.0
+    },
+    {
+      "team": "North Texas",
+      "rank": 7,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.317,
+      "as_percentage": 131.7
+    },
+    {
+      "team": "Florida International",
+      "rank": 53,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.315,
+      "as_percentage": 131.5
+    },
+    {
+      "team": "Cincinnati",
+      "rank": 31,
+      "conference": "Big 12",
+      "raw_coefficient": 1.305,
+      "as_percentage": 130.5
+    },
+    {
+      "team": "Oregon",
+      "rank": 5,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.303,
+      "as_percentage": 130.29999999999998
+    },
+    {
+      "team": "Ole Miss",
+      "rank": 20,
+      "conference": "SEC",
+      "raw_coefficient": 1.303,
+      "as_percentage": 130.29999999999998
+    },
+    {
+      "team": "UAB",
+      "rank": 101,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.297,
+      "as_percentage": 129.7
+    },
+    {
+      "team": "Maryland",
+      "rank": 107,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.294,
+      "as_percentage": 129.4
+    },
+    {
+      "team": "Boise State",
+      "rank": 64,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.293,
+      "as_percentage": 129.29999999999998
+    },
+    {
+      "team": "Navy",
+      "rank": 32,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.289,
+      "as_percentage": 128.9
+    },
+    {
+      "team": "Mississippi State",
+      "rank": 72,
+      "conference": "SEC",
+      "raw_coefficient": 1.289,
+      "as_percentage": 128.9
+    },
+    {
+      "team": "Troy",
+      "rank": 83,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.285,
+      "as_percentage": 128.5
+    },
+    {
+      "team": "Baylor",
+      "rank": 78,
+      "conference": "Big 12",
+      "raw_coefficient": 1.282,
+      "as_percentage": 128.2
+    },
+    {
+      "team": "James Madison",
+      "rank": 16,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.281,
+      "as_percentage": 128.1
+    },
+    {
+      "team": "Virginia",
+      "rank": 29,
+      "conference": "ACC",
+      "raw_coefficient": 1.275,
+      "as_percentage": 127.49999999999999
+    },
+    {
+      "team": "Old Dominion",
+      "rank": 11,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.273,
+      "as_percentage": 127.3
+    },
+    {
+      "team": "Arizona",
+      "rank": 28,
+      "conference": "Big 12",
+      "raw_coefficient": 1.27,
+      "as_percentage": 127.0
+    },
+    {
+      "team": "Delaware",
+      "rank": 82,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.268,
+      "as_percentage": 126.8
+    },
+    {
+      "team": "TCU",
+      "rank": 52,
+      "conference": "Big 12",
+      "raw_coefficient": 1.266,
+      "as_percentage": 126.6
+    },
+    {
+      "team": "New Mexico",
+      "rank": 45,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.264,
+      "as_percentage": 126.4
+    },
+    {
+      "team": "Arizona State",
+      "rank": 51,
+      "conference": "Big 12",
+      "raw_coefficient": 1.264,
+      "as_percentage": 126.4
+    },
+    {
+      "team": "Coastal Carolina",
+      "rank": 112,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.264,
+      "as_percentage": 126.4
+    },
+    {
+      "team": "Alabama",
+      "rank": 27,
+      "conference": "SEC",
+      "raw_coefficient": 1.26,
+      "as_percentage": 126.0
+    },
+    {
+      "team": "Jacksonville State",
+      "rank": 56,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.26,
+      "as_percentage": 126.0
+    },
+    {
+      "team": "Tulsa",
+      "rank": 86,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.258,
+      "as_percentage": 125.8
+    },
+    {
+      "team": "Sam Houston",
+      "rank": 121,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.252,
+      "as_percentage": 125.2
+    },
+    {
+      "team": "Tennessee",
+      "rank": 10,
+      "conference": "SEC",
+      "raw_coefficient": 1.251,
+      "as_percentage": 125.1
+    },
+    {
+      "team": "New Mexico State",
+      "rank": 104,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.251,
+      "as_percentage": 125.1
+    },
+    {
+      "team": "California",
+      "rank": 103,
+      "conference": "ACC",
+      "raw_coefficient": 1.25,
+      "as_percentage": 125.0
+    },
+    {
+      "team": "Georgia Southern",
+      "rank": 88,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.249,
+      "as_percentage": 124.9
+    },
+    {
+      "team": "Georgia State",
+      "rank": 120,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.248,
+      "as_percentage": 124.8
+    },
+    {
+      "team": "Texas A&M",
+      "rank": 24,
+      "conference": "SEC",
+      "raw_coefficient": 1.247,
+      "as_percentage": 124.70000000000002
+    },
+    {
+      "team": "San Jos\u00e9 State",
+      "rank": 96,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.246,
+      "as_percentage": 124.6
+    },
+    {
+      "team": "Utah",
+      "rank": 8,
+      "conference": "Big 12",
+      "raw_coefficient": 1.245,
+      "as_percentage": 124.50000000000001
+    },
+    {
+      "team": "Virginia Tech",
+      "rank": 102,
+      "conference": "ACC",
+      "raw_coefficient": 1.244,
+      "as_percentage": 124.4
+    },
+    {
+      "team": "Washington",
+      "rank": 18,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.237,
+      "as_percentage": 123.70000000000002
+    },
+    {
+      "team": "Oklahoma",
+      "rank": 46,
+      "conference": "SEC",
+      "raw_coefficient": 1.229,
+      "as_percentage": 122.9
+    },
+    {
+      "team": "Houston",
+      "rank": 69,
+      "conference": "Big 12",
+      "raw_coefficient": 1.227,
+      "as_percentage": 122.7
+    },
+    {
+      "team": "Charlotte",
+      "rank": 122,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.226,
+      "as_percentage": 122.6
+    },
+    {
+      "team": "Missouri",
+      "rank": 14,
+      "conference": "SEC",
+      "raw_coefficient": 1.224,
+      "as_percentage": 122.39999999999999
+    },
+    {
+      "team": "Clemson",
+      "rank": 43,
+      "conference": "ACC",
+      "raw_coefficient": 1.221,
+      "as_percentage": 122.10000000000001
+    },
+    {
+      "team": "Purdue",
+      "rank": 109,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.221,
+      "as_percentage": 122.10000000000001
+    },
+    {
+      "team": "Louisiana Tech",
+      "rank": 68,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.22,
+      "as_percentage": 122.0
+    },
+    {
+      "team": "Middle Tennessee",
+      "rank": 92,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.22,
+      "as_percentage": 122.0
+    },
+    {
+      "team": "Rutgers",
+      "rank": 98,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.22,
+      "as_percentage": 122.0
+    },
+    {
+      "team": "Fresno State",
+      "rank": 62,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.218,
+      "as_percentage": 121.8
+    },
+    {
+      "team": "Stanford",
+      "rank": 115,
+      "conference": "ACC",
+      "raw_coefficient": 1.218,
+      "as_percentage": 121.8
+    },
+    {
+      "team": "West Virginia",
+      "rank": 100,
+      "conference": "Big 12",
+      "raw_coefficient": 1.217,
+      "as_percentage": 121.7
+    },
+    {
+      "team": "App State",
+      "rank": 77,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.216,
+      "as_percentage": 121.6
+    },
+    {
+      "team": "Boston College",
+      "rank": 99,
+      "conference": "ACC",
+      "raw_coefficient": 1.214,
+      "as_percentage": 121.39999999999999
+    },
+    {
+      "team": "Louisiana",
+      "rank": 91,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.212,
+      "as_percentage": 121.2
+    },
+    {
+      "team": "Colorado State",
+      "rank": 116,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.211,
+      "as_percentage": 121.10000000000001
+    },
+    {
+      "team": "Iowa State",
+      "rank": 47,
+      "conference": "Big 12",
+      "raw_coefficient": 1.209,
+      "as_percentage": 120.9
+    },
+    {
+      "team": "Tulane",
+      "rank": 48,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.209,
+      "as_percentage": 120.9
+    },
+    {
+      "team": "Nevada",
+      "rank": 114,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.208,
+      "as_percentage": 120.8
+    },
+    {
+      "team": "Liberty",
+      "rank": 85,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.207,
+      "as_percentage": 120.7
+    },
+    {
+      "team": "Louisville",
+      "rank": 33,
+      "conference": "ACC",
+      "raw_coefficient": 1.206,
+      "as_percentage": 120.6
+    },
+    {
+      "team": "Air Force",
+      "rank": 79,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.201,
+      "as_percentage": 120.10000000000001
+    },
+    {
+      "team": "South Alabama",
+      "rank": 93,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.201,
+      "as_percentage": 120.10000000000001
+    },
+    {
+      "team": "Michigan State",
+      "rank": 94,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.201,
+      "as_percentage": 120.10000000000001
+    },
+    {
+      "team": "Indiana",
+      "rank": 1,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.2,
+      "as_percentage": 120.0
+    },
+    {
+      "team": "BYU",
+      "rank": 22,
+      "conference": "Big 12",
+      "raw_coefficient": 1.198,
+      "as_percentage": 119.8
+    },
+    {
+      "team": "Temple",
+      "rank": 97,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.197,
+      "as_percentage": 119.7
+    },
+    {
+      "team": "Wisconsin",
+      "rank": 105,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.197,
+      "as_percentage": 119.7
+    },
+    {
+      "team": "Penn State",
+      "rank": 36,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.183,
+      "as_percentage": 118.30000000000001
+    },
+    {
+      "team": "Illinois",
+      "rank": 37,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.182,
+      "as_percentage": 118.19999999999999
+    },
+    {
+      "team": "LSU",
+      "rank": 74,
+      "conference": "SEC",
+      "raw_coefficient": 1.181,
+      "as_percentage": 118.10000000000001
+    },
+    {
+      "team": "Syracuse",
+      "rank": 118,
+      "conference": "ACC",
+      "raw_coefficient": 1.177,
+      "as_percentage": 117.7
+    },
+    {
+      "team": "Rice",
+      "rank": 119,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.177,
+      "as_percentage": 117.7
+    },
+    {
+      "team": "Northwestern",
+      "rank": 71,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.173,
+      "as_percentage": 117.30000000000001
+    },
+    {
+      "team": "Western Kentucky",
+      "rank": 67,
+      "conference": "Conference USA",
+      "raw_coefficient": 1.171,
+      "as_percentage": 117.10000000000001
+    },
+    {
+      "team": "Georgia Tech",
+      "rank": 42,
+      "conference": "ACC",
+      "raw_coefficient": 1.169,
+      "as_percentage": 116.9
+    },
+    {
+      "team": "Oklahoma State",
+      "rank": 123,
+      "conference": "Big 12",
+      "raw_coefficient": 1.169,
+      "as_percentage": 116.9
+    },
+    {
+      "team": "Wyoming",
+      "rank": 111,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.168,
+      "as_percentage": 116.8
+    },
+    {
+      "team": "UCLA",
+      "rank": 117,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.168,
+      "as_percentage": 116.8
+    },
+    {
+      "team": "North Carolina",
+      "rank": 106,
+      "conference": "ACC",
+      "raw_coefficient": 1.162,
+      "as_percentage": 116.19999999999999
+    },
+    {
+      "team": "Auburn",
+      "rank": 38,
+      "conference": "SEC",
+      "raw_coefficient": 1.154,
+      "as_percentage": 115.39999999999999
+    },
+    {
+      "team": "San Diego State",
+      "rank": 54,
+      "conference": "Mountain West",
+      "raw_coefficient": 1.152,
+      "as_percentage": 115.19999999999999
+    },
+    {
+      "team": "East Carolina",
+      "rank": 26,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.147,
+      "as_percentage": 114.7
+    },
+    {
+      "team": "Minnesota",
+      "rank": 84,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.145,
+      "as_percentage": 114.5
+    },
+    {
+      "team": "Miami",
+      "rank": 9,
+      "conference": "ACC",
+      "raw_coefficient": 1.142,
+      "as_percentage": 114.19999999999999
+    },
+    {
+      "team": "Kentucky",
+      "rank": 75,
+      "conference": "SEC",
+      "raw_coefficient": 1.139,
+      "as_percentage": 113.9
+    },
+    {
+      "team": "Kansas",
+      "rank": 55,
+      "conference": "Big 12",
+      "raw_coefficient": 1.136,
+      "as_percentage": 113.6
+    },
+    {
+      "team": "Marshall",
+      "rank": 76,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.134,
+      "as_percentage": 113.39999999999999
+    },
+    {
+      "team": "Michigan",
+      "rank": 30,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.133,
+      "as_percentage": 113.3
+    },
+    {
+      "team": "Ohio State",
+      "rank": 2,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.13,
+      "as_percentage": 112.99999999999999
+    },
+    {
+      "team": "Georgia",
+      "rank": 23,
+      "conference": "SEC",
+      "raw_coefficient": 1.127,
+      "as_percentage": 112.7
+    },
+    {
+      "team": "Arkansas State",
+      "rank": 90,
+      "conference": "Sun Belt",
+      "raw_coefficient": 1.126,
+      "as_percentage": 112.6
+    },
+    {
+      "team": "Army",
+      "rank": 89,
+      "conference": "American Athletic",
+      "raw_coefficient": 1.125,
+      "as_percentage": 112.5
+    },
+    {
+      "team": "Florida",
+      "rank": 80,
+      "conference": "SEC",
+      "raw_coefficient": 1.102,
+      "as_percentage": 110.2
+    },
+    {
+      "team": "Nebraska",
+      "rank": 61,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.097,
+      "as_percentage": 109.7
+    },
+    {
+      "team": "Washington State",
+      "rank": 70,
+      "conference": "Pac-12",
+      "raw_coefficient": 1.088,
+      "as_percentage": 108.80000000000001
+    },
+    {
+      "team": "Oregon State",
+      "rank": 113,
+      "conference": "Pac-12",
+      "raw_coefficient": 1.075,
+      "as_percentage": 107.5
+    },
+    {
+      "team": "Iowa",
+      "rank": 34,
+      "conference": "Big Ten",
+      "raw_coefficient": 1.062,
+      "as_percentage": 106.2
+    }
+  ]
+}

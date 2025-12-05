@@ -27,7 +27,7 @@ export function WeightsBreakdown({ predictionData }: WeightsBreakdownProps) {
               <span className="text-gray-300 text-xs sm:text-sm truncate">{weight.name}</span>
               <span className="text-white font-bold text-sm sm:text-base whitespace-nowrap">{weight.value}%</span>
             </div>
-            <div className="relative h-2 bg-gray-800/40 rounded-full overflow-hidden border border-gray-400/15">
+            <div className="relative h-2 backdrop-blur-sm rounded-full overflow-hidden border border-gray-400/15">
               <div 
                 className={`absolute inset-y-0 left-0 rounded-full transition-all duration-500 ${weight.color}`}
                 style={{ width: `${weight.value}%` }}

@@ -57,7 +57,7 @@ export function InsightBox({
         <div className="space-y-4 animate-in slide-in-from-top-2 duration-200">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* What It Means */}
-            <div className="bg-slate-800/40 border border-slate-600/40 rounded-lg p-4">
+            <div className="backdrop-blur-sm border border-slate-600/40 rounded-lg p-4">
               <div className="flex items-center gap-2 mb-3">
                 <AlertCircle className="w-4 h-4 text-blue-400" />
                 <span className="text-blue-400 font-semibold text-sm">What It Means</span>
@@ -66,7 +66,7 @@ export function InsightBox({
             </div>
 
             {/* Why It Matters */}
-            <div className="bg-slate-800/40 border border-slate-600/40 rounded-lg p-4">
+            <div className="backdrop-blur-sm border border-slate-600/40 rounded-lg p-4">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="w-4 h-4 text-emerald-400" />
                 <span className="text-emerald-400 font-semibold text-sm">Why It Matters</span>

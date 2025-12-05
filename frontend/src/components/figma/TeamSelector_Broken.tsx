@@ -128,7 +128,7 @@ export function TeamSelector({ onMatchupChange }: TeamSelectorProps) {
             <label className="text-gray-400 text-xs mb-2 block">Away Team</label>
             <button
               onClick={() => setShowAwayDropdown(!showAwayDropdown)}
-              className="w-full bg-gray-800/40 border border-gray-400/15 rounded-lg p-4 hover:border-gray-400/25 hover:bg-gray-700/60 transition-all duration-300 group"
+              className="w-full backdrop-blur-sm border border-gray-400/15 rounded-lg p-4 hover:border-gray-400/25 hover:bg-white/10 transition-all duration-300 group"
             >
               <div className="flex items-center gap-3">
                 <div className="relative">
@@ -160,7 +160,7 @@ export function TeamSelector({ onMatchupChange }: TeamSelectorProps) {
                       placeholder="Search teams..."
                       value={awaySearch}
                       onChange={(e) => setAwaySearch(e.target.value)}
-                      className="w-full bg-gray-800/40 border border-gray-400/15 rounded-lg pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300/25 focus:border-gray-300/35"
+                      className="w-full backdrop-blur-sm border border-gray-400/15 rounded-lg pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300/25 focus:border-gray-300/35"
                       autoFocus
                     />
                   </div>
@@ -176,7 +176,7 @@ export function TeamSelector({ onMatchupChange }: TeamSelectorProps) {
                           console.log('Team button clicked:', team.school);
                           handleAwayTeamSelect(team);
                         }}
-                        className="flex items-center gap-3 p-3 bg-gray-800/40 hover:bg-gray-700/60 transition-colors rounded-lg border border-gray-400/15 hover:border-gray-400/25 cursor-pointer text-left"
+                        className="flex items-center gap-3 p-3 backdrop-blur-sm hover:bg-white/10 transition-colors rounded-lg border border-gray-400/15 hover:border-gray-400/25 cursor-pointer text-left"
                       >
                         <ImageWithFallback
                           src={team.logos[1] || team.logos[0]}
@@ -219,7 +219,7 @@ export function TeamSelector({ onMatchupChange }: TeamSelectorProps) {
                         placeholder="Search teams..."
                         value={awaySearch}
                         onChange={(e) => setAwaySearch(e.target.value)}
-                        className="w-full bg-gray-800/40 border border-gray-400/15 rounded-lg pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300/25 focus:border-gray-300/35"
+                        className="w-full backdrop-blur-sm border border-gray-400/15 rounded-lg pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300/25 focus:border-gray-300/35"
                         autoFocus
                       />
                     </div>
@@ -247,7 +247,7 @@ export function TeamSelector({ onMatchupChange }: TeamSelectorProps) {
                             console.log('Team button clicked:', team.school);
                             handleAwayTeamSelect(team);
                           }}
-                          className="flex flex-col items-center gap-2 p-4 bg-gray-800/40 hover:bg-gray-700/60 transition-colors rounded-lg border border-gray-400/15 hover:border-gray-400/25 cursor-pointer"
+                          className="flex flex-col items-center gap-2 p-4 backdrop-blur-sm hover:bg-white/10 transition-colors rounded-lg border border-gray-400/15 hover:border-gray-400/25 cursor-pointer"
                           style={{ 
                             zIndex: 1000003,
                             position: 'relative'
@@ -274,7 +274,7 @@ export function TeamSelector({ onMatchupChange }: TeamSelectorProps) {
           {/* Swap Button */}
           <button
             onClick={handleSwapTeams}
-            className="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-gray-800/40 border border-gray-400/15 hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all duration-300 group"
+            className="hidden md:flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm border border-gray-400/15 hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all duration-300 group"
             title="Swap teams"
           >
             <ArrowLeftRight className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
@@ -285,7 +285,7 @@ export function TeamSelector({ onMatchupChange }: TeamSelectorProps) {
             <label className="text-gray-400 text-xs mb-2 block">Home Team</label>
             <button
               onClick={() => setShowHomeDropdown(!showHomeDropdown)}
-              className="w-full bg-gray-800/40 border border-gray-400/15 rounded-lg p-4 hover:border-gray-400/25 hover:bg-gray-700/60 transition-all duration-300 group"
+              className="w-full backdrop-blur-sm border border-gray-400/15 rounded-lg p-4 hover:border-gray-400/25 hover:bg-white/10 transition-all duration-300 group"
             >
               <div className="flex items-center gap-3">
                 <div className="relative">
@@ -348,7 +348,7 @@ export function TeamSelector({ onMatchupChange }: TeamSelectorProps) {
                         placeholder="Search teams..."
                         value={homeSearch}
                         onChange={(e) => setHomeSearch(e.target.value)}
-                        className="w-full bg-gray-800/40 border border-gray-400/15 rounded-lg pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300/25 focus:border-gray-300/35"
+                        className="w-full backdrop-blur-sm border border-gray-400/15 rounded-lg pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300/25 focus:border-gray-300/35"
                         autoFocus
                       />
                     </div>
@@ -376,7 +376,7 @@ export function TeamSelector({ onMatchupChange }: TeamSelectorProps) {
                             console.log('Home team button clicked:', team.school);
                             handleHomeTeamSelect(team);
                           }}
-                          className="flex flex-col items-center gap-2 p-4 bg-gray-800/40 hover:bg-gray-700/60 transition-colors rounded-lg border border-gray-400/15 hover:border-gray-400/25 cursor-pointer"
+                          className="flex flex-col items-center gap-2 p-4 backdrop-blur-sm hover:bg-white/10 transition-colors rounded-lg border border-gray-400/15 hover:border-gray-400/25 cursor-pointer"
                           style={{ 
                             zIndex: 1000003,
                             position: 'relative'
@@ -404,7 +404,7 @@ export function TeamSelector({ onMatchupChange }: TeamSelectorProps) {
         {/* Mobile Swap Button */}
         <button
           onClick={handleSwapTeams}
-          className="md:hidden flex items-center justify-center gap-2 w-full py-2 rounded-lg bg-gray-800/40 border border-gray-400/15 hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all duration-300 group"
+          className="md:hidden flex items-center justify-center gap-2 w-full py-2 rounded-lg backdrop-blur-sm border border-gray-400/15 hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all duration-300 group"
         >
           <ArrowLeftRight className="w-4 h-4 text-gray-400 group-hover:text-cyan-400 transition-colors" />
           <span className="text-gray-400 group-hover:text-cyan-400 text-sm transition-colors">Swap Teams</span>

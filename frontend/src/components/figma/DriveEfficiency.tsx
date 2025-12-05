@@ -1305,7 +1305,7 @@ export function DriveEfficiency({ team1Data, team2Data, predictionData }: DriveE
             </thead>
             <tbody>
               {fieldPositionData.team1.map((position, index) => (
-                <tr key={position.zone} className="border-b border-slate-700/30 hover:bg-slate-800/20 transition-colors">
+                <tr key={position.zone} className="border-b border-slate-700/30 hover:bg-white/5 transition-colors">
                   <td className="py-3 px-4 text-slate-300 font-medium">{position.zone}</td>
                   <td className="py-3 px-4 text-center">
                     <div className="text-white font-semibold">{position.drives} drives</div>

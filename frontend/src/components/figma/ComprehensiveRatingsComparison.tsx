@@ -107,6 +107,7 @@ const ComprehensiveRatingsComparison: React.FC<ComponentProps> = ({ predictionDa
   const ratingsData = predictionData?.comprehensive_ratings;
   const teamData = predictionData?.team_selector;
   const [expandedMetric, setExpandedMetric] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<'core' | 'efficiency' | 'rankings'>('core');
 
   if (!ratingsData?.away_team?.ratings_available || !ratingsData?.home_team?.ratings_available) {
     return (
@@ -129,88 +130,96 @@ const ComprehensiveRatingsComparison: React.FC<ComponentProps> = ({ predictionDa
     return (team as any)[newFieldName] ?? (team as any)[fieldName] ?? 0;
   };
 
-  // Metrics configuration with descriptions
+  // Get detailed metrics from the actual team data
+  const getDetailedMetrics = (teamName: string) => {
+    try {
+      // Load the comprehensive ratings data
+      const rankings = predictionData?.comprehensive_ratings || [];
+      const teamData = rankings.find((team: any) => 
+        team.team?.toLowerCase() === teamName.toLowerCase()
+      );
+      
+      if (teamData?.detailed_metrics) {
+        return teamData.detailed_metrics;
+      }
+    } catch (error) {
+      console.log('Could not load detailed metrics');
+    }
+    return null;
+  };
+
+  const awayDetailedMetrics = getDetailedMetrics(away?.name || '');
+  const homeDetailedMetrics = getDetailedMetrics(home?.name || '');
+
+  // Create comprehensive metrics from detailed data
+  const createComprehensiveMetrics = (category: string) => {
+    const metrics: MetricConfig[] = [];
+    
+    if (awayDetailedMetrics && homeDetailedMetrics) {
+      const awayData = awayDetailedMetrics[category] || {};
+      const homeData = homeDetailedMetrics[category] || {};
+      
+      // Get all unique metric names
+      const allMetrics = new Set([...Object.keys(awayData), ...Object.keys(homeData)]);
+      
+      Array.from(allMetrics).forEach(metricName => {
+        const awayValue = awayData[metricName] || 0;
+        const homeValue = homeData[metricName] || 0;
+        
+        metrics.push({
+          name: metricName.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+          awayValue: typeof awayValue === 'number' ? awayValue : 0,
+          homeValue: typeof homeValue === 'number' ? homeValue : 0,
+          category: category,
+          description: `${metricName.replace(/_/g, ' ')} metric for detailed team analysis`
+        });
+      });
+    }
+    
+    return metrics.sort((a, b) => a.name.localeCompare(b.name));
+  };
+
+  // Metrics configuration with comprehensive data
   const coreRatings: MetricConfig[] = [
+    {
+      name: 'Overall Score',
+      awayValue: getRating(away_team, 'composite_rating'),
+      homeValue: getRating(home_team, 'composite_rating'),
+      category: 'Core Systems',
+      description: 'Comprehensive composite score using all available offensive and defensive metrics with 55% offensive weighting and 45% defensive weighting.'
+    },
     {
       name: 'ELO Rating',
       awayValue: getRating(away_team, 'elo_rating'),
       homeValue: getRating(home_team, 'elo_rating'),
       category: 'Core Systems',
-      description: 'ELO is a rating system that measures team strength based on game results and opponent quality. Higher values indicate stronger teams with better win records against quality opponents.'
+      description: 'ELO rating system measuring team strength based on game results and opponent quality.'
     },
     {
       name: 'FPI Rating',
       awayValue: getRating(away_team, 'fpi_rating'),
       homeValue: getRating(home_team, 'fpi_rating'),
       category: 'Core Systems',
-      description: 'ESPN\'s Football Power Index predicts team performance using efficiency metrics and strength of schedule. Positive values indicate above-average teams expected to perform well.'
+      description: 'ESPN\'s Football Power Index predicting team performance using efficiency metrics and strength of schedule.'
     },
     {
-      name: 'SP+ Overall',
-      awayValue: getRating(away_team, 'sp_rating'),
-      homeValue: getRating(home_team, 'sp_rating'),
+      name: 'Offensive Score',
+      awayValue: getRating(away_team, 'offensive_efficiency'),
+      homeValue: getRating(home_team, 'offensive_efficiency'),
       category: 'Core Systems',
-      description: 'SP+ measures team efficiency on a per-play basis, adjusted for opponent strength. It combines offensive, defensive, and special teams performance into a comprehensive rating.'
+      description: 'Offensive composite score from all offensive metrics including EPA, success rates, and explosiveness.'
     },
     {
-      name: 'SRS Rating',
-      awayValue: getRating(away_team, 'srs_rating'),
-      homeValue: getRating(home_team, 'srs_rating'),
+      name: 'Defensive Score',
+      awayValue: getRating(away_team, 'defensive_efficiency'),
+      homeValue: getRating(home_team, 'defensive_efficiency'),
       category: 'Core Systems',
-      description: 'Simple Rating System combines average point differential with strength of schedule. Positive values indicate teams that beat opponents by larger margins against tougher competition.'
+      description: 'Defensive composite score from all defensive metrics including havoc rate, success rate, and points allowed.'
     }
   ];
 
-  const efficiencyMetrics: MetricConfig[] = [
-    {
-      name: 'Offensive Efficiency',
-      awayValue: away_team.offensive_efficiency ?? away_team.fpi_components?.offensive_efficiency ?? 50,
-      homeValue: home_team.offensive_efficiency ?? home_team.fpi_components?.offensive_efficiency ?? 50,
-      category: 'Efficiency',
-      description: 'Measures how effectively a team moves the ball and scores points per drive. Higher percentages indicate explosive, consistent offenses that convert opportunities into points.'
-    },
-    {
-      name: 'Defensive Efficiency',
-      awayValue: away_team.defensive_efficiency ?? away_team.fpi_components?.defensive_efficiency ?? 50,
-      homeValue: home_team.defensive_efficiency ?? home_team.fpi_components?.defensive_efficiency ?? 50,
-      category: 'Efficiency',
-      description: 'Evaluates how well a defense prevents scoring and limits opponent yards per play. Higher values mean the defense forces more punts, turnovers, and field goals.'
-    },
-    {
-      name: 'Special Teams',
-      awayValue: away_team.special_teams_efficiency ?? away_team.fpi_components?.special_teams_efficiency ?? 50,
-      homeValue: home_team.special_teams_efficiency ?? home_team.fpi_components?.special_teams_efficiency ?? 50,
-      category: 'Efficiency',
-      description: 'Accounts for field position gained through kickoffs, punts, returns, and field goal accuracy. Elite special teams can swing field position and momentum significantly.'
-    }
-  ];
-
-  const rankings: MetricConfig[] = [
-    {
-      name: 'SOS Rank',
-      awayValue: away_team.sos_rank ?? away_team.fpi_rankings?.sos_rank ?? 65,
-      homeValue: home_team.sos_rank ?? home_team.fpi_rankings?.sos_rank ?? 65,
-      category: 'Rankings',
-      description: 'Strength of Schedule ranking measures difficulty of opponents faced. Lower ranks (#1-25) indicate teams that have played tougher competition.',
-      isRanking: true
-    },
-    {
-      name: 'Resume Rank',
-      awayValue: away_team.resume_rank ?? away_team.fpi_rankings?.resume_rank ?? 65,
-      homeValue: home_team.resume_rank ?? home_team.fpi_rankings?.resume_rank ?? 65,
-      category: 'Rankings',
-      description: 'Resume ranking evaluates the quality and impressiveness of a team\'s wins and losses. Considers margin of victory and opponent strength.',
-      isRanking: true
-    },
-    {
-      name: 'Game Control',
-      awayValue: away_team.game_control_rank ?? away_team.fpi_rankings?.game_control_rank ?? 65,
-      homeValue: home_team.game_control_rank ?? home_team.fpi_rankings?.game_control_rank ?? 65,
-      category: 'Rankings',
-      description: 'Measures how often teams control games from start to finish. Elite teams dominate time of possession, limit opponent scoring chances, and avoid close finishes.',
-      isRanking: true
-    }
-  ];
+  const offensiveMetrics = createComprehensiveMetrics('offensive_normalized');
+  const defensiveMetrics = createComprehensiveMetrics('defensive_normalized');
 
   // Calculate bar width for visual representation
   const getBarWidth = (value: number, metric: MetricConfig) => {
@@ -430,7 +439,46 @@ const ComprehensiveRatingsComparison: React.FC<ComponentProps> = ({ predictionDa
         </div>
       </div>
 
+      {/* Tab Navigation */}
+      <div className="flex justify-center gap-6 mt-8 mb-8">
+        <button
+          onClick={() => setActiveTab('core')}
+          className={`px-6 py-3 rounded-xl font-medium text-sm transition-all duration-300 whitespace-nowrap min-w-[120px] relative border-2 ${
+            activeTab === 'core'
+              ? 'border-emerald-400 text-emerald-400 bg-emerald-400/10 shadow-lg shadow-emerald-400/20'
+              : 'border-gray-600 text-gray-400 hover:text-emerald-400 hover:border-emerald-400/50'
+          }`}
+        >
+          Core Ratings
+        </button>
+        
+        <button
+          onClick={() => setActiveTab('efficiency')}
+          className={`px-6 py-3 rounded-xl font-medium text-sm transition-all duration-300 whitespace-nowrap min-w-[140px] relative border-2 ${
+            activeTab === 'efficiency'
+              ? 'border-amber-400 text-amber-400 bg-amber-400/10 shadow-lg shadow-amber-400/20'
+              : 'border-gray-600 text-gray-400 hover:text-amber-400 hover:border-amber-400/50'
+          }`}
+        >
+          <span className="hidden sm:inline">Offensive Metrics</span>
+          <span className="sm:hidden">Offense</span>
+        </button>
+        
+        <button
+          onClick={() => setActiveTab('rankings')}
+          className={`px-6 py-3 rounded-xl font-medium text-sm transition-all duration-300 whitespace-nowrap min-w-[140px] relative border-2 ${
+            activeTab === 'rankings'
+              ? 'border-red-400 text-red-400 bg-red-400/10 shadow-lg shadow-red-400/20'
+              : 'border-gray-600 text-gray-400 hover:text-red-400 hover:border-red-400/50'
+          }`}
+        >
+          <span className="hidden sm:inline">Defensive Metrics</span>
+          <span className="sm:hidden">Defense</span>
+        </button>
+      </div>
+
       {/* Core Rating Systems Section */}
+      {activeTab === 'core' && (
       <div className="space-y-4">
         <div className="flex items-center gap-2 pb-2">
           <div className="w-1 h-5 rounded-full" style={{ backgroundColor: homeColor }} />
@@ -445,7 +493,7 @@ const ComprehensiveRatingsComparison: React.FC<ComponentProps> = ({ predictionDa
             return (
               <div key={metric.name} className="space-y-0">
                 <div 
-                  className="bg-gray-800/40 backdrop-blur-sm p-4 rounded-lg border border-white/10 hover:border-white/20 transition-all cursor-pointer hover:bg-gray-800/60"
+                  className="backdrop-blur-sm p-4 rounded-lg border border-white/10 hover:border-white/20 transition-all cursor-pointer hover:bg-white/5"
                   onClick={() => setExpandedMetric(isExpanded ? null : metric.name)}
                   style={{
                     boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3)',
@@ -455,7 +503,7 @@ const ComprehensiveRatingsComparison: React.FC<ComponentProps> = ({ predictionDa
                     {/* Away Team Value (Left) */}
                     <div className="text-right space-y-1">
                       <div 
-                        className="analytical-number font-bold" 
+                        className="analytical-number font-bold"
                         style={{ 
                           fontSize: '1.25rem',
                           color: awayColor,
@@ -537,23 +585,25 @@ const ComprehensiveRatingsComparison: React.FC<ComponentProps> = ({ predictionDa
           })}
         </div>
       </div>
+      )}
 
       {/* Efficiency Metrics Section */}
+      {activeTab === 'efficiency' && (
       <div className="space-y-4">
         <div className="flex items-center gap-2 pb-2">
           <div className="w-1 h-5 rounded-full" style={{ backgroundColor: awayColor }} />
-          <h3 className="text-white">Efficiency Metrics</h3>
+          <h3 className="text-white">Offensive Metrics ({offensiveMetrics.length} total)</h3>
         </div>
 
         <div className="space-y-3">
-          {efficiencyMetrics.map((metric) => {
+          {offensiveMetrics.map((metric) => {
             const diff = getDifference(metric);
             const isExpanded = expandedMetric === metric.name;
 
             return (
               <div key={metric.name} className="space-y-0">
                 <div 
-                  className="bg-gray-800/40 backdrop-blur-sm p-4 rounded-lg border border-white/10 hover:border-white/20 transition-all cursor-pointer hover:bg-gray-800/60"
+                  className="backdrop-blur-sm p-4 rounded-lg border border-white/10 hover:border-white/20 transition-all cursor-pointer hover:bg-white/5"
                   onClick={() => setExpandedMetric(isExpanded ? null : metric.name)}
                   style={{
                     boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3)',
@@ -563,7 +613,7 @@ const ComprehensiveRatingsComparison: React.FC<ComponentProps> = ({ predictionDa
                     {/* Away Team Value (Left) */}
                     <div className="text-right space-y-1">
                       <div 
-                        className="analytical-number font-bold" 
+                        className="analytical-number font-bold"
                         style={{ 
                           fontSize: '1.25rem',
                           color: awayColor,
@@ -645,23 +695,25 @@ const ComprehensiveRatingsComparison: React.FC<ComponentProps> = ({ predictionDa
           })}
         </div>
       </div>
+      )}
 
       {/* FPI Rankings Section */}
+      {activeTab === 'rankings' && (
       <div className="space-y-4">
         <div className="flex items-center gap-2 pb-2">
           <div className="w-1 h-5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500" />
-          <h3 className="text-white">FPI Rankings</h3>
+          <h3 className="text-white">Defensive Metrics ({defensiveMetrics.length} total)</h3>
         </div>
 
         <div className="space-y-3">
-          {rankings.map((metric) => {
+          {defensiveMetrics.map((metric) => {
             const diff = getDifference(metric);
             const isExpanded = expandedMetric === metric.name;
 
             return (
               <div key={metric.name} className="space-y-0">
                 <div 
-                  className="bg-gray-800/40 backdrop-blur-sm p-4 rounded-lg border border-white/10 hover:border-white/20 transition-all cursor-pointer hover:bg-gray-800/60"
+                  className="backdrop-blur-sm p-4 rounded-lg border border-white/10 hover:border-white/20 transition-all cursor-pointer hover:bg-white/5"
                   onClick={() => setExpandedMetric(isExpanded ? null : metric.name)}
                   style={{
                     boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3)',
@@ -671,7 +723,7 @@ const ComprehensiveRatingsComparison: React.FC<ComponentProps> = ({ predictionDa
                     {/* Away Team Value (Left) */}
                     <div className="text-right space-y-1">
                       <div 
-                        className="analytical-number font-bold" 
+                        className="analytical-number font-bold"
                         style={{ 
                           fontSize: '1.25rem',
                           color: awayColor,
@@ -753,6 +805,7 @@ const ComprehensiveRatingsComparison: React.FC<ComponentProps> = ({ predictionDa
           })}
         </div>
       </div>
+      )}
 
       {/* Analysis Summary */}
       <div className="space-y-4 pt-4 border-t border-white/10">

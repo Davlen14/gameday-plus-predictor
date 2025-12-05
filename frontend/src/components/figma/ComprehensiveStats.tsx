@@ -56,7 +56,7 @@ const HorizontalBarChart = ({ data, awayTeam, homeTeam }: {
                   alt={awayAbbr} 
                   className="w-5 h-5 object-contain"
                 />
-                <div className="flex-1 bg-slate-800/50 rounded-full h-2 overflow-hidden">
+                <div className="flex-1 backdrop-blur-sm rounded-full h-2 overflow-hidden">
                   <div 
                     className="h-full transition-all duration-1000 ease-out"
                     style={{ 
@@ -74,7 +74,7 @@ const HorizontalBarChart = ({ data, awayTeam, homeTeam }: {
                   alt={homeAbbr} 
                   className="w-5 h-5 object-contain"
                 />
-                <div className="flex-1 bg-slate-800/50 rounded-full h-2 overflow-hidden">
+                <div className="flex-1 backdrop-blur-sm rounded-full h-2 overflow-hidden">
                   <div 
                     className="h-full transition-all duration-1000 ease-out"
                     style={{ 
@@ -259,7 +259,7 @@ const RadarStyleChart = ({ data, awayTeam, homeTeam }: {
             </div>
             
             {/* Proportional comparison bar */}
-            <div className="relative h-12 bg-slate-800/50 rounded-full overflow-hidden border-2 border-slate-600/30 shadow-xl">
+            <div className="relative h-12 backdrop-blur-sm rounded-full overflow-hidden border-2 border-slate-600/30 shadow-xl">
               <div className="absolute inset-0 flex">
                 <div 
                   className="h-full flex items-center justify-center transition-all duration-1500 ease-out"
@@ -565,7 +565,7 @@ export function ComprehensiveTeamStats({ predictionData }: ComprehensiveTeamStat
           </div>
         </div>
         
-        <div className="bg-gradient-to-br from-slate-900/60 to-slate-800/40 rounded-2xl p-8 border border-white/10 backdrop-blur-md">
+        <div className="backdrop-blur-xl rounded-2xl p-8 border border-white/5">
           <HorizontalBarChart data={advancedOffensiveData} awayTeam={awayTeam} homeTeam={homeTeam} />
         </div>
       </GlassCard>
@@ -612,7 +612,7 @@ export function ComprehensiveTeamStats({ predictionData }: ComprehensiveTeamStat
           </div>
         </div>
         
-        <div className="bg-gradient-to-br from-slate-900/60 to-slate-800/40 rounded-2xl p-8 border border-white/10 backdrop-blur-md">
+        <div className="backdrop-blur-xl rounded-2xl p-8 border border-white/5">
           <CircularProgressChart data={defensiveData} awayTeam={awayTeam} homeTeam={homeTeam} />
         </div>
       </GlassCard>
@@ -659,7 +659,7 @@ export function ComprehensiveTeamStats({ predictionData }: ComprehensiveTeamStat
           </div>
         </div>
         
-        <div className="bg-gradient-to-br from-slate-900/60 to-slate-800/40 rounded-2xl p-8 border border-white/10 backdrop-blur-md">
+        <div className="backdrop-blur-xl rounded-2xl p-8 border border-white/5">
           <RadarStyleChart data={gameControlData} awayTeam={awayTeam} homeTeam={homeTeam} />
         </div>
       </GlassCard>

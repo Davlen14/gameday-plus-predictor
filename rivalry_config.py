@@ -210,8 +210,40 @@ RIVALRY_GAMES = {
 
 def is_rivalry_game(team1: str, team2: str) -> bool:
     """Check if two teams have a rivalry"""
-    return (team1, team2) in RIVALRY_GAMES
+    # Normalize team names (strip whitespace, handle case)
+    team1_clean = team1.strip()
+    team2_clean = team2.strip()
+    
+    # Try exact match first
+    if (team1_clean, team2_clean) in RIVALRY_GAMES:
+        return True
+    
+    # Try case-insensitive match
+    for (t1, t2), info in RIVALRY_GAMES.items():
+        if (t1.lower() == team1_clean.lower() and t2.lower() == team2_clean.lower()):
+            return True
+    
+    return False
 
 def get_rivalry_info(team1: str, team2: str) -> dict:
     """Get rivalry information for two teams"""
-    return RIVALRY_GAMES.get((team1, team2))
+    # Normalize team names
+    team1_clean = team1.strip()
+    team2_clean = team2.strip()
+    
+    # Try exact match first
+    result = RIVALRY_GAMES.get((team1_clean, team2_clean))
+    if result:
+        # Add the normalized name for display
+        result['name_display'] = f"{team1_clean} vs {team2_clean}"
+        return result
+    
+    # Try case-insensitive match
+    for (t1, t2), info in RIVALRY_GAMES.items():
+        if (t1.lower() == team1_clean.lower() and t2.lower() == team2_clean.lower()):
+            # Add the normalized name for display
+            rivalry_info = info.copy()
+            rivalry_info['name_display'] = f"{team1_clean} vs {team2_clean}"
+            return rivalry_info
+    
+    return None

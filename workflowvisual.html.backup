@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEDAY+ Detailed Workflow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Orbitron', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+        }
+        
+        #workflow-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px, rgba(255,255,255,0.03) 41px),
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px, rgba(255,255,255,0.03) 41px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            transform-origin: 0 0;
+            transition: transform 0.3s ease-out;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            transform: translateY(-2px);
+        }
+        
+        .glass-card-header {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-card-success {
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        
+        .glass-card-success:hover {
+            border-color: rgba(34, 197, 94, 0.5);
+            box-shadow: 0 0 40px rgba(34, 197, 94, 0.2), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        
+        .glass-card-warning {
+            border-color: rgba(234, 179, 8, 0.3);
+        }
+        
+        .glass-card-warning:hover {
+            border-color: rgba(234, 179, 8, 0.5);
+            box-shadow: 0 0 40px rgba(234, 179, 8, 0.2), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        
+        .glass-card-error {
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+        
+        .glass-card-error:hover {
+            border-color: rgba(239, 68, 68, 0.5);
+            box-shadow: 0 0 40px rgba(239, 68, 68, 0.2), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        
+        .glass-card-primary {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%);
+            border: 2px solid rgba(59, 130, 246, 0.4);
+        }
+        
+        .glass-card-primary:hover {
+            box-shadow: 0 0 60px rgba(59, 130, 246, 0.4), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+
+        .connector {
+            position: absolute;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .arrow-tip::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid rgba(59, 130, 246, 0.8);
+            border-right: 2px solid rgba(59, 130, 246, 0.8);
+            transform: rotate(45deg);
+            right: -6px;
+            top: 50%;
+            margin-top: -5px;
+            filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.6));
+        }
+
+        .arrow-tip-down::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid rgba(59, 130, 246, 0.8);
+            border-right: 2px solid rgba(59, 130, 246, 0.8);
+            right: auto;
+            left: 50%;
+            top: auto;
+            bottom: -6px;
+            transform: rotate(135deg);
+            margin-top: 0;
+            margin-left: -5px;
+            filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.6));
+        }
+
+        .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(147, 51, 234, 0.2) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .svg-icon {
+            width: 24px;
+            height: 24px;
+            stroke: rgba(59, 130, 246, 1);
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                opacity: 1; 
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            }
+            50% { 
+                opacity: 0.8; 
+                box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+            }
+        }
+        
+        .pulse {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            background-size: 1000px 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        .data-label {
+            font-size: 9px;
+            line-height: 1.2;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #1f2937;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 100;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 11px;
+        }
+
+        .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #1f2937 transparent transparent transparent;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10 font-sans bg-gray-50">
+
+    <div class="max-w-full mx-auto mb-6">
+        <h1 class="text-4xl font-bold text-gray-800 mb-2">🏈 GAMEDAY+ Detailed Prediction Workflow</h1>
+        <p class="text-gray-600">Complete data lineage from source to output - Michigan vs Ohio State Example</p>
+        <div class="mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-sm text-blue-800"><strong>How to use:</strong> Hover over nodes to see detailed data descriptions. Follow the colored lines to trace data flow.</p>
+        </div>
+    </div>
+
+    <div id="workflow-container" class="relative overflow-auto shadow-xl rounded-xl border border-gray-200 p-8 max-w-full mx-auto">
+        
+        <!-- ============================================ -->
+        <!-- LAYER 1: INPUT TRIGGER -->
+        <!-- ============================================ -->
+        
+        <div class="absolute" style="top: 30px; left: 50%; transform: translateX(-50%);">
+            <div class="bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-3 rounded-lg shadow-xl text-center font-bold">
+                <p class="text-lg">⚡ WORKFLOW TRIGGER</p>
+                <p class="text-sm font-normal mt-1">User selects teams to analyze</p>
+            </div>
+        </div>
+
+        <!-- Team Selection -->
+        <div class="absolute w-72 tooltip" style="top: 120px; left: 50%; transform: translateX(-50%);">
+            <span class="tooltiptext">Selected Away Team: Michigan (ID: 130)<br>Selected Home Team: Ohio State (ID: 194)<br>Triggers parallel data collection from all APIs</span>
+            <div class="bg-white border-4 border-blue-500 shadow-2xl rounded-xl p-4 text-center pulse">
+                <div class="flex justify-center items-center space-x-4 mb-2">
+                    <div class="text-center">
+                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/130.png" class="w-16 h-16 mx-auto" alt="Michigan">
+                        <p class="text-xs font-bold mt-1">Michigan #130</p>
+                        <p class="text-xxs text-gray-500">Away (9-3)</p>
+                    </div>
+                    <p class="text-2xl font-bold">VS</p>
+                    <div class="text-center">
+                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" class="w-16 h-16 mx-auto" alt="Ohio State">
+                        <p class="text-xs font-bold mt-1">Ohio State #194</p>
+                        <p class="text-xxs text-gray-500">Home (12-0)</p>
+                    </div>
+                </div>
+                <p class="text-xs font-semibold text-blue-700 mt-2">📅 October 19, 2025 | 7:30 PM ET</p>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- LAYER 2: DATA COLLECTION (10 PARALLEL SOURCES) -->
+        <!-- ============================================ -->
+
+        <div class="absolute" style="top: 300px; left: 50%; transform: translateX(-50%);">
+            <div class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg text-center font-bold text-sm">
+                📊 DATA COLLECTION LAYER (Parallel Queries)
+            </div>
+        </div>
+
+        <!-- SOURCE 1: ESPN API -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 50px;">
+            <span class="tooltiptext">ESPN CDN API<br>Provides: Team logos (500px), team names, colors, branding assets<br>Example: https://a.espncdn.com/i/teamlogos/ncaa/500/130.png</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-green-400 hover:shadow-2xl transition">
+                <div class="bg-green-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-800">📺 ESPN API</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-gray-700">✓ Away Logo: .../130.png</div>
+                    <div class="data-label text-gray-700">✓ Home Logo: .../194.png</div>
+                    <div class="data-label text-gray-700">✓ Team Names</div>
+                    <div class="data-label text-gray-700">✓ Team IDs</div>
+                    <div class="data-label text-gray-700">✓ School Colors</div>
+                    <div class="text-xxs text-green-600 font-semibold mt-2">→ Component 1, 2</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 2: College Football Data API -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 320px;">
+            <span class="tooltiptext">CFB Data API - Play-by-play analytics<br>EPA (Expected Points Added), Success Rates, Field Position, Explosiveness<br>Michigan EPA: +0.224 | Ohio State: +0.298</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-green-400 hover:shadow-2xl transition">
+                <div class="bg-green-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-800">📊 CFB Data API</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-gray-700">✓ Overall EPA: +0.224 vs +0.298</div>
+                    <div class="data-label text-gray-700">✓ EPA Allowed: +0.094 vs +0.015</div>
+                    <div class="data-label text-gray-700">✓ Passing EPA: +0.269 vs +0.495</div>
+                    <div class="data-label text-gray-700">✓ Rushing EPA: +0.200 vs +0.112</div>
+                    <div class="data-label text-gray-700">✓ Success Rate: 47.7% vs 55.4%</div>
+                    <div class="data-label text-gray-700">✓ Explosiveness: 0.966 vs 0.895</div>
+                    <div class="data-label text-gray-700">✓ Plays: 714 vs 691</div>
+                    <div class="text-xxs text-green-600 font-semibold mt-2">→ Components 7, 8, 9</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 3: Weather Service -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 590px;">
+            <span class="tooltiptext">Weather API - Game day conditions<br>Temperature: 59.4°F<br>Wind: 3.6 mph<br>Precipitation: 0.0 in<br>Weather Factor: 0.0</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-green-400 hover:shadow-2xl transition">
+                <div class="bg-green-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-800">🌤️ Weather Service</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-gray-700">✓ Temperature: 59.4°F</div>
+                    <div class="data-label text-gray-700">✓ Wind Speed: 3.6 mph</div>
+                    <div class="data-label text-gray-700">✓ Wind Direction: N/A</div>
+                    <div class="data-label text-gray-700">✓ Precipitation: 0.0 in</div>
+                    <div class="data-label text-gray-700">✓ Humidity: N/A</div>
+                    <div class="data-label text-gray-700">✓ Weather Factor: 0.0</div>
+                    <div class="text-xxs text-green-600 font-semibold mt-2">→ Component 6</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 4: Betting Lines API -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 860px;">
+            <span class="tooltiptext">Sports Betting APIs<br>Market Spread: N/A (not available)<br>Market Total: N/A<br>Would provide consensus betting data</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-yellow-400 hover:shadow-2xl transition">
+                <div class="bg-yellow-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-yellow-800">💰 Betting Lines</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-red-500">⚠️ Market Spread: N/A</div>
+                    <div class="data-label text-red-500">⚠️ Market Total: N/A</div>
+                    <div class="data-label text-gray-400">○ ESPN Bet</div>
+                    <div class="data-label text-gray-400">○ DraftKings</div>
+                    <div class="data-label text-gray-400">○ Bovada</div>
+                    <div class="data-label text-gray-500">No market data for this matchup</div>
+                    <div class="text-xxs text-yellow-600 font-semibold mt-2">→ Component 5</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 5: Historical Database -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 1130px;">
+            <span class="tooltiptext">Rivalry History Database<br>Established: 1897<br>Total Games: 121<br>Series Record: Ohio State 62-53-6<br>Recent: OSU won 27-9 (2025)</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-green-400 hover:shadow-2xl transition">
+                <div class="bg-green-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-800">📚 Historical DB</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-gray-700">✓ Established: 1897</div>
+                    <div class="data-label text-gray-700">✓ Total Games: 121</div>
+                    <div class="data-label text-gray-700">✓ Series: 62-53-6 (OSU)</div>
+                    <div class="data-label text-gray-700">✓ Recent Games: 10</div>
+                    <div class="data-label text-gray-700">✓ Points: 2124 vs 1853</div>
+                    <div class="data-label text-gray-700">✓ Last: OSU 27-9 (2025)</div>
+                    <div class="text-xxs text-green-600 font-semibold mt-2">→ Rivalry Context</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 6: AP Poll Data -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 1400px;">
+            <span class="tooltiptext">AP Poll Rankings System<br>ERROR: File not found<br>Path: /Users/davlenswain/.../ap.json<br>Would provide weekly rankings progression</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-red-400 hover:shadow-2xl transition">
+                <div class="bg-red-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-red-800">🏆 AP Poll Data</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-red-600">❌ Data Source Error</div>
+                    <div class="data-label text-gray-500 text-xxs">Missing: ap.json</div>
+                    <div class="data-label text-gray-700">Current: Unranked (both)</div>
+                    <div class="data-label text-gray-500 text-xxs">Would provide:</div>
+                    <div class="data-label text-gray-400">○ Weekly rankings</div>
+                    <div class="data-label text-gray-400">○ Poll momentum</div>
+                    <div class="data-label text-gray-400">○ Season progression</div>
+                    <div class="text-xxs text-red-600 font-semibold mt-2">→ Component 6</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 7: Coaching Stats Database -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 50px;">
+            <span class="tooltiptext">Coaching Performance Database<br>Sherrone Moore: 16-7 (69.6%), 3-5 vs Ranked<br>Ryan Day: 81-10 (89.0%), 26-9 vs Ranked<br>Includes big game performance metrics</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-green-400 hover:shadow-2xl transition">
+                <div class="bg-green-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-800">👔 Coaching Stats DB</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-gray-700">Michigan: Sherrone Moore</div>
+                    <div class="data-label text-gray-600">• Career: 16-7 (69.6%)</div>
+                    <div class="data-label text-gray-600">• 2025: 8-2 (#17 rank)</div>
+                    <div class="data-label text-gray-600">• vs Ranked: 3-5-0 (37.5%)</div>
+                    <div class="data-label text-gray-600">• vs Top 10: 1-3-0</div>
+                    <div class="data-label text-gray-700 mt-2">Ohio State: Ryan Day</div>
+                    <div class="data-label text-gray-600">• Career: 81-10 (89.0%)</div>
+                    <div class="data-label text-gray-600">• 2025: 11-0 (#2 rank)</div>
+                    <div class="data-label text-gray-600">• vs Ranked: 26-9-0 (74.3%)</div>
+                    <div class="data-label text-gray-600">• vs Top 10: 17-8-0</div>
+                    <div class="text-xxs text-green-600 font-semibold mt-2">→ Component 16</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 8: Player Metrics API -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 320px;">
+            <span class="tooltiptext">Individual Player Stats API<br>Player EPA ratings by position<br>QB, RB, WR, TE performance metrics<br>Projected performance for game day</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-green-400 hover:shadow-2xl transition">
+                <div class="bg-green-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-800">🏃 Player Metrics API</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-gray-700">Michigan Key Players:</div>
+                    <div class="data-label text-gray-600">• QB: ~0.58 passing EPA</div>
+                    <div class="data-label text-gray-600">• RB: ~0.50 rushing EPA</div>
+                    <div class="data-label text-gray-600">• WR1: ~0.55 receiving</div>
+                    <div class="data-label text-gray-700 mt-2">Ohio State Key Players:</div>
+                    <div class="data-label text-gray-600">• QB: ~0.60 passing EPA</div>
+                    <div class="data-label text-gray-600">• WR1: ~0.45 receiving</div>
+                    <div class="data-label text-gray-600">• RB: ~0.38 rushing EPA</div>
+                    <div class="data-label text-gray-700 mt-2">Defense Stats:</div>
+                    <div class="data-label text-gray-600">• Tackles, INTs, Sacks</div>
+                    <div class="text-xxs text-green-600 font-semibold mt-2">→ Component 11</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 9: Drive Analytics Database -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 590px;">
+            <span class="tooltiptext">Drive-by-Drive Analytics<br>Michigan: 113 drives, 46.9% scoring<br>Ohio State: 97 drives, 67.0% scoring<br>Tempo, time management, situational performance</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-green-400 hover:shadow-2xl transition">
+                <div class="bg-green-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-800">🚗 Drive Analytics DB</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-gray-700">Michigan Drives:</div>
+                    <div class="data-label text-gray-600">• Total: 113 drives</div>
+                    <div class="data-label text-gray-600">• TDs: 41 (36.3%)</div>
+                    <div class="data-label text-gray-600">• FGs: 12 (10.6%)</div>
+                    <div class="data-label text-gray-600">• Scoring: 46.9%</div>
+                    <div class="data-label text-gray-600">• Avg Time: 2:39</div>
+                    <div class="data-label text-gray-700 mt-2">Ohio State Drives:</div>
+                    <div class="data-label text-gray-600">• Total: 97 drives</div>
+                    <div class="data-label text-gray-600">• TDs: 52 (53.6%)</div>
+                    <div class="data-label text-gray-600">• FGs: 13 (13.4%)</div>
+                    <div class="data-label text-gray-600">• Scoring: 67.0%</div>
+                    <div class="data-label text-gray-600">• Avg Time: 3:17</div>
+                    <div class="text-xxs text-green-600 font-semibold mt-2">→ Component 17</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 10: ELO/FPI/Talent Ratings -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 860px;">
+            <span class="tooltiptext">Composite Rating Systems<br>ELO: Michigan 1590 vs OSU 1645<br>FPI: Michigan 7.47 vs OSU 9.59<br>Talent: Michigan 715.56 vs OSU 669.18</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-green-400 hover:shadow-2xl transition">
+                <div class="bg-green-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-800">⭐ Composite Ratings</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-gray-700">ELO Ratings:</div>
+                    <div class="data-label text-gray-600">• Michigan: 1590</div>
+                    <div class="data-label text-gray-600">• Ohio State: 1645</div>
+                    <div class="data-label text-gray-600">• Gap: +55 (Home)</div>
+                    <div class="data-label text-gray-700 mt-2">FPI Ratings:</div>
+                    <div class="data-label text-gray-600">• Michigan: 7.47</div>
+                    <div class="data-label text-gray-600">• Ohio State: 9.59</div>
+                    <div class="data-label text-gray-600">• Gap: +2.12</div>
+                    <div class="data-label text-gray-700 mt-2">Talent Ratings:</div>
+                    <div class="data-label text-gray-600">• Michigan: 715.56</div>
+                    <div class="data-label text-gray-600">• Ohio State: 669.18</div>
+                    <div class="text-xxs text-green-600 font-semibold mt-2">→ Component 12</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 11: Advanced Team Stats -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 1130px;">
+            <span class="tooltiptext">Comprehensive Team Statistics<br>Offensive: yards, TDs, efficiency<br>Defensive: PPA, success rates, havoc<br>Special teams and field position data</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-green-400 hover:shadow-2xl transition">
+                <div class="bg-green-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-800">📈 Team Stats DB</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-gray-700">Offensive Stats:</div>
+                    <div class="data-label text-gray-600">• Total Yards: 4637 vs 4849</div>
+                    <div class="data-label text-gray-600">• Rush Yards: 2471 vs 1878</div>
+                    <div class="data-label text-gray-600">• Pass Yards: 2166 vs 2971</div>
+                    <div class="data-label text-gray-600">• Rush TDs: 32 vs 24</div>
+                    <div class="data-label text-gray-600">• Pass TDs: 9 vs 28</div>
+                    <div class="data-label text-gray-700 mt-2">Defensive Stats:</div>
+                    <div class="data-label text-gray-600">• Sacks: 28 vs 29</div>
+                    <div class="data-label text-gray-600">• INTs: 6 vs 4</div>
+                    <div class="data-label text-gray-600">• TFLs: 67 vs 67</div>
+                    <div class="data-label text-gray-600">• Def PPA: 0.073 vs -0.032</div>
+                    <div class="text-xxs text-green-600 font-semibold mt-2">→ Component 15</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 12: Field Position & Special Teams -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 1400px;">
+            <span class="tooltiptext">Field Position Metrics<br>Line Yards, Second Level, Open Field<br>Special teams performance<br>Average starting field position</span>
+            <div class="bg-white shadow-lg rounded-xl border-2 border-green-400 hover:shadow-2xl transition">
+                <div class="bg-green-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-800">🏟️ Field Position</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-gray-700">Line Yards:</div>
+                    <div class="data-label text-gray-600">• Michigan: 3.219</div>
+                    <div class="data-label text-gray-600">• Ohio State: 2.964</div>
+                    <div class="data-label text-gray-700 mt-1">Second Level:</div>
+                    <div class="data-label text-gray-600">• Michigan: 1.152</div>
+                    <div class="data-label text-gray-600">• Ohio State: 1.081</div>
+                    <div class="data-label text-gray-700 mt-1">Open Field:</div>
+                    <div class="data-label text-gray-600">• Michigan: 1.560</div>
+                    <div class="data-label text-gray-600">• Ohio State: 1.137</div>
+                    <div class="data-label text-gray-700 mt-1">Avg Field Pos:</div>
+                    <div class="data-label text-gray-600">• Michigan: 69.1</div>
+                    <div class="data-label text-gray-600">• Ohio State: 70.0</div>
+                    <div class="text-xxs text-green-600 font-semibold mt-2">→ Component 10</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- LAYER 3: PROCESSING MODULES -->
+        <!-- ============================================ -->
+
+        <div class="absolute" style="top: 940px; left: 50%; transform: translateX(-50%);">
+            <div class="bg-orange-600 text-white px-4 py-2 rounded-lg shadow-lg text-center font-bold text-sm">
+                ⚙️ PROCESSING & CALCULATION LAYER
+            </div>
+        </div>
+
+        <!-- PROCESSOR 1: EPA Calculation Engine -->
+        <div class="absolute w-64 tooltip" style="top: 1000px; left: 50px;">
+            <span class="tooltiptext">EPA Calculation Engine<br>Processes play-by-play data<br>Calculates offensive/defensive EPA<br>Applies opponent adjustments</span>
+            <div class="bg-white shadow-xl rounded-xl border-4 border-orange-400">
+                <div class="bg-orange-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-sm font-bold text-orange-900">⚡ EPA Engine</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-xs font-semibold text-gray-800">INPUT SOURCES:</div>
+                    <div class="data-label text-gray-600">← CFB Data API (plays)</div>
+                    <div class="data-label text-gray-600">← Team Stats DB</div>
+                    <div class="text-xs font-semibold text-gray-800 mt-2">CALCULATIONS:</div>
+                    <div class="data-label text-gray-600">• Overall EPA Differential: +0.074</div>
+                    <div class="data-label text-gray-600">• Passing EPA Diff: +0.225</div>
+                    <div class="data-label text-gray-600">• Rushing EPA Diff: -0.088</div>
+                    <div class="data-label text-gray-600">• EPA Allowed Analysis</div>
+                    <div class="text-xs font-semibold text-orange-700 mt-2">OUTPUT:</div>
+                    <div class="data-label text-orange-600">→ Component 7 (EPA)</div>
+                    <div class="data-label text-orange-600">→ Prediction Model Input</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCESSOR 2: Advanced Metrics Calculator -->
+        <div class="absolute w-64 tooltip" style="top: 1000px; left: 340px;">
+            <span class="tooltiptext">Advanced Metrics Calculator<br>Success rates, explosiveness, situational<br>Field position analysis<br>Down and distance performance</span>
+            <div class="bg-white shadow-xl rounded-xl border-4 border-orange-400">
+                <div class="bg-orange-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-sm font-bold text-orange-900">📊 Advanced Metrics</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-xs font-semibold text-gray-800">INPUT SOURCES:</div>
+                    <div class="data-label text-gray-600">← CFB Data API</div>
+                    <div class="data-label text-gray-600">← Field Position Data</div>
+                    <div class="text-xs font-semibold text-gray-800 mt-2">CALCULATIONS:</div>
+                    <div class="data-label text-gray-600">• Success Rate: 47.7% vs 55.4%</div>
+                    <div class="data-label text-gray-600">• Explosiveness: 0.966 vs 0.895</div>
+                    <div class="data-label text-gray-600">• Passing Downs: 0.307 vs 0.339</div>
+                    <div class="data-label text-gray-600">• Standard Downs: 0.519 vs 0.548</div>
+                    <div class="data-label text-gray-600">• Power Success, Stuff Rate</div>
+                    <div class="text-xs font-semibold text-orange-700 mt-2">OUTPUT:</div>
+                    <div class="data-label text-orange-600">→ Component 8, 9, 10</div>
+                    <div class="data-label text-orange-600">→ Prediction Model Input</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCESSOR 3: CORE PREDICTION MODEL -->
+        <div class="absolute w-72 tooltip" style="top: 1000px; left: 630px;">
+            <span class="tooltiptext">CORE PREDICTION ALGORITHM<br>Weighted composite model<br>50% Opponent-Adjusted (EPA, SoS)<br>20% Market Consensus<br>15% Composite Ratings<br>10% Key Players<br>5% Contextual Factors</span>
+            <div class="bg-gradient-to-br from-purple-400 to-blue-400 shadow-2xl rounded-xl border-4 border-purple-600">
+                <div class="bg-purple-200 px-4 py-3 rounded-t-xl">
+                    <p class="text-base font-bold text-purple-900">🧠 PREDICTION MODEL</p>
+                    <p class="text-xs text-purple-700">Weighted Composite Algorithm</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-xs font-bold text-white">WEIGHT ALLOCATION:</div>
+                    
+                    <div class="bg-white bg-opacity-90 rounded p-2 mb-1">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-semibold">Opponent-Adjusted</span>
+                            <span class="text-xs font-bold text-purple-700">50%</span>
+                        </div>
+                        <div class="data-label text-gray-600">EPA, Success, Field Pos</div>
+                        <div class="data-label text-purple-600">Value: +0.108</div>
+                    </div>
+
+                    <div class="bg-white bg-opacity-90 rounded p-2 mb-1">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-semibold">Market Consensus</span>
+                            <span class="text-xs font-bold text-purple-700">20%</span>
+                        </div>
+                        <div class="data-label text-gray-600">Betting Lines</div>
+                        <div class="data-label text-purple-600">Value: +0.030</div>
+                    </div>
+
+                    <div class="bg-white bg-opacity-90 rounded p-2 mb-1">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-semibold">Composite Ratings</span>
+                            <span class="text-xs font-bold text-purple-700">15%</span>
+                        </div>
+                        <div class="data-label text-gray-600">ELO, FPI, Talent</div>
+                        <div class="data-label text-purple-600">Value: -1.914</div>
+                    </div>
+
+                    <div class="bg-white bg-opacity-90 rounded p-2 mb-1">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-semibold">Key Player Impact</span>
+                            <span class="text-xs font-bold text-purple-700">10%</span>
+                        </div>
+                        <div class="data-label text-gray-600">Individual EPA</div>
+                        <div class="data-label text-purple-600">Value: +0.003</div>
+                    </div>
+
+                    <div class="bg-white bg-opacity-90 rounded p-2 mb-1">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-semibold">Contextual Factors</span>
+                            <span class="text-xs font-bold text-purple-700">5%</span>
+                        </div>
+                        <div class="data-label text-gray-600">Weather, Bye, Travel</div>
+                        <div class="data-label text-purple-600">Value: -0.038</div>
+                    </div>
+
+                    <div class="bg-yellow-100 rounded p-2 mt-2 border-2 border-yellow-400">
+                        <div class="text-xs font-bold text-gray-800">CALCULATION:</div>
+                        <div class="data-label">Raw Differential: -1.810</div>
+                        <div class="data-label">+ Home Field: +2.5</div>
+                        <div class="data-label">+ Conference: +1.0</div>
+                        <div class="data-label">- Weather: -0.0</div>
+                        <div class="data-label font-bold text-green-700 mt-1">= Adjusted: +1.521</div>
+                    </div>
+
+                    <div class="text-xs font-semibold text-white mt-2">OUTPUT:</div>
+                    <div class="data-label text-white">→ All 18 Components</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCESSOR 4: Confidence Calculator -->
+        <div class="absolute w-64 tooltip" style="top: 1000px; left: 930px;">
+            <span class="tooltiptext">Confidence Calculator<br>Uses Platt Scaling for probability calibration<br>Base: 88% data quality<br>Adjustments: consistency, differential, trend, weather</span>
+            <div class="bg-white shadow-xl rounded-xl border-4 border-orange-400">
+                <div class="bg-orange-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-sm font-bold text-orange-900">✓ Confidence Calc</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-xs font-semibold text-gray-800">INPUT SOURCES:</div>
+                    <div class="data-label text-gray-600">← Prediction Model Output</div>
+                    <div class="data-label text-gray-600">← Data Quality Metrics</div>
+                    <div class="text-xs font-semibold text-gray-800 mt-2">BREAKDOWN:</div>
+                    <div class="data-label text-gray-600">• Base Data Quality: 88%</div>
+                    <div class="data-label text-gray-600">• Consistency Factor: +3%</div>
+                    <div class="data-label text-gray-600">• Differential Strength: +8%</div>
+                    <div class="data-label text-gray-600">• Trend Factor: +5%</div>
+                    <div class="data-label text-gray-600">• Weather/Calendar: +5%</div>
+                    <div class="text-xs font-semibold text-gray-800 mt-2">PLATT SCALING:</div>
+                    <div class="data-label text-gray-600">• Raw Probability: 82.3%</div>
+                    <div class="data-label text-gray-600">• Calibrated: 82.3%</div>
+                    <div class="data-label text-gray-600">• Adjustment: +0.0 pts</div>
+                    <div class="text-xs font-semibold text-orange-700 mt-2">OUTPUT:</div>
+                    <div class="data-label text-orange-600 font-bold">→ 95% Confidence</div>
+                    <div class="data-label text-orange-600">→ Component 4</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCESSOR 5: UI Component Generator -->
+        <div class="absolute w-64 tooltip" style="top: 1000px; left: 1220px;">
+            <span class="tooltiptext">UI Component Generator<br>Formats all data into 18 display components<br>Creates structured JSON output<br>Generates formatted analysis text</span>
+            <div class="bg-white shadow-xl rounded-xl border-4 border-orange-400">
+                <div class="bg-orange-100 px-3 py-2 rounded-t-xl">
+                    <p class="text-sm font-bold text-orange-900">🎨 UI Generator</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-xs font-semibold text-gray-800">INPUT SOURCES:</div>
+                    <div class="data-label text-gray-600">← All Data Sources</div>
+                    <div class="data-label text-gray-600">← All Processors</div>
+                    <div class="text-xs font-semibold text-gray-800 mt-2">GENERATES:</div>
+                    <div class="data-label text-gray-600">1. Team Selector Data</div>
+                    <div class="data-label text-gray-600">2. Header Component</div>
+                    <div class="data-label text-gray-600">3. Prediction Cards (3)</div>
+                    <div class="data-label text-gray-600">4. Confidence Section</div>
+                    <div class="data-label text-gray-600">5-18. Analysis Components</div>
+                    <div class="text-xs font-semibold text-gray-800 mt-2">FORMATTING:</div>
+                    <div class="data-label text-gray-600">• JSON Structure</div>
+                    <div class="data-label text-gray-600">• Text Formatting</div>
+                    <div class="data-label text-gray-600">• Data Organization</div>
+                    <div class="text-xs font-semibold text-orange-700 mt-2">OUTPUT:</div>
+                    <div class="data-label text-orange-600">→ 18 UI Components</div>
+                    <div class="data-label text-orange-600">→ formatted_analysis</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- LAYER 4: OUTPUT COMPONENTS (18 Components) -->
+        <!-- ============================================ -->
+
+        <div class="absolute" style="top: 1520px; left: 50%; transform: translateX(-50%);">
+            <div class="bg-purple-600 text-white px-4 py-2 rounded-lg shadow-lg text-center font-bold text-sm">
+                📱 OUTPUT COMPONENTS (18 Total)
+            </div>
+        </div>
+
+        <!-- Component Grid - Row 1 -->
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 50px;">
+            <span class="tooltiptext">Component 1: Team Selector Data<br>Source: ESPN API<br>Michigan #130 vs Ohio State #194<br>Logos, names, records</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">1️⃣ Team Selector</p>
+                <p class="text-xxs text-gray-600 mt-1">← ESPN API</p>
+                <p class="text-xxs text-gray-500">Logos, Names, IDs</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 210px;">
+            <span class="tooltiptext">Component 2: Header Component<br>Game info, date, time, network<br>Excitement Index: 4.0/5<br>Team records and rankings</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">2️⃣ Header</p>
+                <p class="text-xxs text-gray-600 mt-1">← ESPN + Multiple</p>
+                <p class="text-xxs text-gray-500">Oct 19, 2025, 7:30 PM</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 370px;">
+            <span class="tooltiptext">Component 3: Prediction Cards<br>Win Probability: OSU 82.3%, UM 17.7%<br>Spread: OSU -16.9<br>Total: 68.2 points</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">3️⃣ Prediction Cards</p>
+                <p class="text-xxs text-gray-600 mt-1">← Prediction Model</p>
+                <p class="text-xxs text-gray-500">Win%, Spread, Total</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 530px;">
+            <span class="tooltiptext">Component 4: Confidence Section<br>Overall: 95%<br>Base: 88%, Consistency: +3%<br>Differential: +8%, Trend: +5%</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">4️⃣ Confidence</p>
+                <p class="text-xxs text-gray-600 mt-1">← Confidence Calc</p>
+                <p class="text-xxs text-gray-500">95% Overall</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 690px;">
+            <span class="tooltiptext">Component 5: Market Comparison<br>Model vs Market analysis<br>Spread/Total discrepancies<br>(No market data available)</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">5️⃣ Market</p>
+                <p class="text-xxs text-gray-600 mt-1">← Betting Lines API</p>
+                <p class="text-xxs text-gray-500">Model vs Market</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 850px;">
+            <span class="tooltiptext">Component 6: Contextual Analysis<br>Weather: 59.4°F, 3.6 mph wind<br>Rankings: Both unranked<br>Bye weeks: -2.5 point advantage</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">6️⃣ Context</p>
+                <p class="text-xxs text-gray-600 mt-1">← Weather + Rankings</p>
+                <p class="text-xxs text-gray-500">Weather, Bye, Polls</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 1010px;">
+            <span class="tooltiptext">Component 7: EPA Comparison<br>Overall: +0.224 vs +0.298<br>Passing: +0.269 vs +0.495<br>Rushing: +0.200 vs +0.112</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">7️⃣ EPA</p>
+                <p class="text-xxs text-gray-600 mt-1">← EPA Engine</p>
+                <p class="text-xxs text-gray-500">Offense/Defense EPA</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 1170px;">
+            <span class="tooltiptext">Component 8: Differential Analysis<br>EPA Diff: +0.074<br>Success Rate: +0.046<br>Explosiveness: -0.070</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">8️⃣ Differentials</p>
+                <p class="text-xxs text-gray-600 mt-1">← Advanced Metrics</p>
+                <p class="text-xxs text-gray-500">Team Comparisons</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 1330px;">
+            <span class="tooltiptext">Component 9: Win Probability<br>OSU: 82.3%, UM: 17.7%<br>Margin: 64.6 points<br>Situational performance breakdown</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">9️⃣ Win Prob</p>
+                <p class="text-xxs text-gray-600 mt-1">← Prediction Model</p>
+                <p class="text-xxs text-gray-500">82.3% vs 17.7%</p>
+            </div>
+        </div>
+
+        <!-- Component Grid - Row 2 -->
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 50px;">
+            <span class="tooltiptext">Component 10: Field Position<br>Line Yards: 3.219 vs 2.964<br>Second Level: 1.152 vs 1.081<br>Open Field: 1.560 vs 1.137</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">🔟 Field Position</p>
+                <p class="text-xxs text-gray-600 mt-1">← Field Position DB</p>
+                <p class="text-xxs text-gray-500">Line/Level/Open Yards</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 210px;">
+            <span class="tooltiptext">Component 11: Key Player Impact<br>QB, RB, WR, TE projections<br>Individual EPA ratings<br>League top performers reference</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">1️⃣1️⃣ Players</p>
+                <p class="text-xxs text-gray-600 mt-1">← Player Metrics API</p>
+                <p class="text-xxs text-gray-500">Individual EPA</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 370px;">
+            <span class="tooltiptext">Component 12: Advanced Metrics<br>ELO: 1590 vs 1645<br>FPI: 7.47 vs 9.59<br>Talent: 715.56 vs 669.18<br>Success Rate, Explosiveness</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">1️⃣2️⃣ Advanced</p>
+                <p class="text-xxs text-gray-600 mt-1">← Composite Ratings</p>
+                <p class="text-xxs text-gray-500">ELO, FPI, Talent</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 530px;">
+            <span class="tooltiptext">Component 13: Weights Breakdown<br>50% Opponent-Adjusted<br>20% Market Consensus<br>15% Composite, 10% Players, 5% Context</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">1️⃣3️⃣ Weights</p>
+                <p class="text-xxs text-gray-600 mt-1">← Algorithm Config</p>
+                <p class="text-xxs text-gray-500">50-20-15-10-5</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 690px;">
+            <span class="tooltiptext">Component 14: Component Breakdown<br>Raw Differential: -1.810<br>+ Home Field: +2.5<br>+ Conference: +1.0<br>= Adjusted: +1.521</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">1️⃣4️⃣ Breakdown</p>
+                <p class="text-xxs text-gray-600 mt-1">← Prediction Model</p>
+                <p class="text-xxs text-gray-500">Calculation Steps</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 850px;">
+            <span class="tooltiptext">Component 15: Team Stats<br>Comprehensive offensive/defensive stats<br>4637 vs 4849 total yards<br>Complete season comparison tables</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">1️⃣5️⃣ Team Stats</p>
+                <p class="text-xxs text-gray-600 mt-1">← Team Stats DB</p>
+                <p class="text-xxs text-gray-500">Full Season Stats</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 1010px;">
+            <span class="tooltiptext">Component 16: Coaching Comparison<br>Moore: 16-7 (69.6%)<br>Day: 81-10 (89.0%)<br>vs Ranked performance analysis</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">1️⃣6️⃣ Coaching</p>
+                <p class="text-xxs text-gray-600 mt-1">← Coaching Stats DB</p>
+                <p class="text-xxs text-gray-500">Career Records</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 1170px;">
+            <span class="tooltiptext">Component 17: Drive Analytics<br>113 drives vs 97 drives<br>Scoring %: 46.9% vs 67.0%<br>Tempo and time management</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">1️⃣7️⃣ Drive Analytics</p>
+                <p class="text-xxs text-gray-600 mt-1">← Drive Analytics DB</p>
+                <p class="text-xxs text-gray-500">Possession Data</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 1330px;">
+            <span class="tooltiptext">Component 18: Final Summary<br>Michigan 43, Ohio State 26<br>Total: 68 points<br>Confidence: 95%</span>
+            <div class="bg-gradient-to-br from-purple-100 to-blue-100 shadow-md rounded-lg border-2 border-purple-400 p-2">
+                <p class="text-xs font-bold text-purple-900">1️⃣8️⃣ Final Summary</p>
+                <p class="text-xxs text-gray-600 mt-1">← All Processors</p>
+                <p class="text-xxs text-gray-500">Final Prediction</p>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- LAYER 5: FINAL OUTPUT -->
+        <!-- ============================================ -->
+
+        <div class="absolute" style="top: 1780px; left: 50%; transform: translateX(-50%);">
+            <div class="bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg text-center font-bold text-sm">
+                🎯 FINAL JSON OUTPUT
+            </div>
+        </div>
+
+        <!-- JSON Output -->
+        <div class="absolute w-96 tooltip" style="top: 1840px; left: 400px;">
+            <span class="tooltiptext">formatted_analysis Object<br>Contains: rivalry_history, ui_components, success flag<br>Structure: Nested JSON with all 18 components<br>Ready for N8N consumption</span>
+            <div class="bg-gradient-to-br from-red-100 to-pink-100 shadow-2xl rounded-xl border-4 border-red-500 p-6">
+                <div class="text-center mb-4">
+                    <div class="inline-block bg-red-200 text-red-800 px-4 py-2 rounded-full font-bold text-lg">
+                        📄 JSON OUTPUT
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg p-4 font-mono text-xs">
+                    <div class="text-gray-700">{</div>
+                    <div class="ml-4 text-blue-600">"formatted_analysis": {...},</div>
+                    <div class="ml-4 text-blue-600">"rivalry_history": {...},</div>
+                    <div class="ml-4 text-green-600">"success": true,</div>
+                    <div class="ml-4 text-blue-600">"ui_components": [18]</div>
+                    <div class="text-gray-700">}</div>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-sm font-semibold text-gray-800">Output Size: 83,228 bytes</p>
+                    <p class="text-xs text-gray-600 mt-1">Processing Time: 25.204 seconds</p>
+                    <p class="text-xs text-green-600 font-bold mt-2">✅ Success Status</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- N8N Results -->
+        <div class="absolute w-80 tooltip" style="top: 1840px; left: 820px;">
+            <span class="tooltiptext">N8N Workflow Results<br>Receives formatted JSON output<br>Can trigger downstream actions<br>Stored as N8N_RESULTS.md</span>
+            <div class="bg-gradient-to-br from-indigo-100 to-purple-100 shadow-2xl rounded-xl border-4 border-indigo-600 p-6 pulse">
+                <div class="text-center mb-4">
+                    <div class="inline-block bg-indigo-200 text-indigo-800 px-4 py-2 rounded-full font-bold text-lg">
+                        ⚡ N8N RESULTS
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="bg-white rounded-lg p-3">
+                        <p class="text-xs font-semibold text-gray-800">Workflow: Get Game Prediction</p>
+                        <p class="text-xs text-green-600 mt-1">✓ Success in 25.204s</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-3">
+                        <p class="text-xs font-semibold text-gray-800">Output Items:</p>
+                        <ul class="text-xxs text-gray-600 mt-1 space-y-1">
+                            <li>• formatted_analysis</li>
+                            <li>• rivalry_history</li>
+                            <li>• ui_components (18)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg p-3">
+                        <p class="text-xs font-semibold text-gray-800">Saved To:</p>
+                        <p class="text-xxs text-gray-600 mt-1">N8N_RESULTS.md (83KB)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- CONNECTORS - Detailed Flow Lines -->
+        <!-- ============================================ -->
+
+        <!-- Input to Data Collection -->
+        <div class="connector w-1 h-20 bg-blue-500" style="top: 250px; left: 50%; transform: translateX(-50%);"></div>
+        
+        <!-- Data Sources Vertical Drops -->
+        <div class="connector w-0.5 h-40 bg-green-500" style="top: 520px; left: 126px;"></div>
+        <div class="connector w-0.5 h-40 bg-green-500" style="top: 520px; left: 396px;"></div>
+        <div class="connector w-0.5 h-40 bg-green-500" style="top: 520px; left: 666px;"></div>
+        <div class="connector w-0.5 h-40 bg-green-500" style="top: 520px; left: 936px;"></div>
+        <div class="connector w-0.5 h-40 bg-green-500" style="top: 520px; left: 1206px;"></div>
+        <div class="connector w-0.5 h-40 bg-green-500" style="top: 520px; left: 1476px;"></div>
+
+        <!-- Data to Processing Horizontal -->
+        <div class="connector h-1 bg-orange-500" style="top: 970px; left: 126px; width: 1350px;"></div>
+        
+        <!-- Processing Vertical Drops -->
+        <div class="connector w-0.5 h-30 bg-orange-500 arrow-tip-down" style="top: 970px; left: 180px;"></div>
+        <div class="connector w-0.5 h-30 bg-orange-500 arrow-tip-down" style="top: 970px; left: 470px;"></div>
+        <div class="connector w-1 h-30 bg-purple-500 arrow-tip-down" style="top: 970px; left: 765px;"></div>
+        <div class="connector w-0.5 h-30 bg-orange-500 arrow-tip-down" style="top: 970px; left: 1060px;"></div>
+        <div class="connector w-0.5 h-30 bg-orange-500 arrow-tip-down" style="top: 970px; left: 1350px;"></div>
+
+        <!-- Processing to Components -->
+        <div class="connector w-1 h-50 bg-purple-500" style="top: 1480px; left: 765px;"></div>
+        <div class="connector h-1 bg-purple-500" style="top: 1550px; left: 126px; width: 1350px;"></div>
+        
+        <!-- Components Vertical Drops -->
+        <div class="connector w-0.5 h-30 bg-purple-500 arrow-tip-down" style="top: 1550px; left: 122px;"></div>
+        <div class="connector w-0.5 h-30 bg-purple-500 arrow-tip-down" style="top: 1550px; left: 282px;"></div>
+        <div class="connector w-0.5 h-30 bg-purple-500 arrow-tip-down" style="top: 1550px; left: 442px;"></div>
+        <div class="connector w-0.5 h-30 bg-purple-500 arrow-tip-down" style="top: 1550px; left: 602px;"></div>
+        <div class="connector w-0.5 h-30 bg-purple-500 arrow-tip-down" style="top: 1550px; left: 762px;"></div>
+        <div class="connector w-0.5 h-30 bg-purple-500 arrow-tip-down" style="top: 1550px; left: 922px;"></div>
+        <div class="connector w-0.5 h-30 bg-purple-500 arrow-tip-down" style="top: 1550px; left: 1082px;"></div>
+        <div class="connector w-0.5 h-30 bg-purple-500 arrow-tip-down" style="top: 1550px; left: 1242px;"></div>
+        <div class="connector w-0.5 h-30 bg-purple-500 arrow-tip-down" style="top: 1550px; left: 1402px;"></div>
+
+        <!-- Components to Final Output -->
+        <div class="connector w-1 h-50 bg-red-500" style="top: 1750px; left: 765px;"></div>
+        <div class="connector h-1 bg-red-500 arrow-tip" style="top: 1810px; left: 600px; width: 170px;"></div>
+
+        <!-- JSON to N8N -->
+        <div class="connector h-1 bg-indigo-500 arrow-tip" style="top: 1900px; left: 790px; width: 40px;"></div>
+
+        <!-- Legend Box -->
+        <div class="absolute bg-white rounded-xl shadow-2xl p-6 border-4 border-gray-400" style="top: 1780px; left: 50px; width: 320px;">
+            <p class="font-bold text-gray-900 mb-4 text-lg">📖 Legend & Data Flow</p>
+            <div class="space-y-3 text-xs">
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-blue-500 rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Blue:</strong> Input/Trigger</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-green-500 rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Green:</strong> Data Sources (Parallel)</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-orange-500 rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Orange:</strong> Processing Modules</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-purple-500 rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Purple:</strong> Core Prediction Model</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-red-500 rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Red:</strong> Final JSON Output</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-indigo-500 rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Indigo:</strong> N8N Results</span>
+                </div>
+            </div>
+            <div class="mt-6 pt-4 border-t-2 border-gray-300">
+                <p class="text-sm font-bold text-gray-800 mb-2">📊 Final Results:</p>
+                <div class="space-y-1 text-xs">
+                    <p class="text-green-600 font-semibold">✅ Success (25.2s)</p>
+                    <p class="text-gray-700">🎯 Confidence: <strong>95%</strong></p>
+                    <p class="text-gray-700">🏈 OSU Win Prob: <strong>82.3%</strong></p>
+                    <p class="text-gray-700">📉 UM Win Prob: <strong>17.7%</strong></p>
+                    <p class="text-gray-700">📊 Spread: <strong>OSU -16.9</strong></p>
+                    <p class="text-gray-700">🎲 Total: <strong>68.2 pts</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Processing Time Indicator -->
+        <div class="absolute bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-4 rounded-xl shadow-2xl" style="top: 2050px; left: 50%; transform: translateX(-50%);">
+            <p class="text-center text-2xl font-bold">⏱️ Total Processing Time: 25.204 seconds</p>
+            <p class="text-center text-sm mt-2">Parallel API calls → Sequential processing → JSON output</p>
+        </div>
+
+        <!-- Spacer for scroll -->
+        <div class="w-full" style="min-width: 1700px; min-height: 2150px;"></div>
+    </div>
+
+</body>
+</html>

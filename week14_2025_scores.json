@@ -1,0 +1,1750 @@
+{
+  "week": 14,
+  "season": 2025,
+  "completed_games_count": 67,
+  "games": [
+    {
+      "date": "2025-11-25T21:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Massachusetts Minutemen",
+        "abbreviation": "MASS",
+        "score": "14",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/113.png",
+        "color": "880007",
+        "id": "113"
+      },
+      "away_team": {
+        "name": "Bowling Green Falcons",
+        "abbreviation": "BGSU",
+        "score": "45",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/189.png",
+        "color": "2b1000",
+        "id": "189"
+      },
+      "venue": "Warren McGuirk Alumni Stadium",
+      "attendance": 6043
+    },
+    {
+      "date": "2025-11-26T00:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Eastern Michigan Eagles",
+        "abbreviation": "EMU",
+        "score": "21",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2199.png",
+        "color": "00331b",
+        "id": "2199"
+      },
+      "away_team": {
+        "name": "Western Michigan Broncos",
+        "abbreviation": "WMU",
+        "score": "31",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png",
+        "color": "532e1f",
+        "id": "2711"
+      },
+      "venue": "Rynearson Stadium",
+      "attendance": 11818
+    },
+    {
+      "date": "2025-11-28T00:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Memphis Tigers",
+        "abbreviation": "MEM",
+        "score": "17",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/235.png",
+        "color": "004991",
+        "id": "235"
+      },
+      "away_team": {
+        "name": "Navy Midshipmen",
+        "abbreviation": "NAVY",
+        "score": "28",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2426.png",
+        "color": "00225b",
+        "id": "2426"
+      },
+      "venue": "Simmons Bank Liberty Stadium",
+      "attendance": 27082
+    },
+    {
+      "date": "2025-11-29T00:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Purdue Boilermakers",
+        "abbreviation": "PUR",
+        "score": "3",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2509.png",
+        "color": "000000",
+        "id": "2509"
+      },
+      "away_team": {
+        "name": "Indiana Hoosiers",
+        "abbreviation": "IU",
+        "score": "56",
+        "rank": 2,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+        "color": "990000",
+        "id": "84"
+      },
+      "venue": "Ross-Ade Stadium",
+      "attendance": 59807
+    },
+    {
+      "date": "2025-11-29T00:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Texas Longhorns",
+        "abbreviation": "TEX",
+        "score": "27",
+        "rank": 16,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+        "color": "c15d26",
+        "id": "251"
+      },
+      "away_team": {
+        "name": "Texas A&M Aggies",
+        "abbreviation": "TA&M",
+        "score": "17",
+        "rank": 3,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/245.png",
+        "color": "500000",
+        "id": "245"
+      },
+      "venue": "DKR-Texas Memorial Stadium",
+      "attendance": 103632
+    },
+    {
+      "date": "2025-11-28T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Georgia Tech Yellow Jackets",
+        "abbreviation": "GT",
+        "score": "9",
+        "rank": 23,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/59.png",
+        "color": "003057",
+        "id": "59"
+      },
+      "away_team": {
+        "name": "Georgia Bulldogs",
+        "abbreviation": "UGA",
+        "score": "16",
+        "rank": 4,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/61.png",
+        "color": "ba0c2f",
+        "id": "61"
+      },
+      "venue": "Mercedes-Benz Stadium",
+      "attendance": 73728
+    },
+    {
+      "date": "2025-11-28T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Mississippi State Bulldogs",
+        "abbreviation": "MSST",
+        "score": "19",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/344.png",
+        "color": "5d1725",
+        "id": "344"
+      },
+      "away_team": {
+        "name": "Ole Miss Rebels",
+        "abbreviation": "MISS",
+        "score": "38",
+        "rank": 7,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/145.png",
+        "color": "13294b",
+        "id": "145"
+      },
+      "venue": "Davis Wade Stadium",
+      "attendance": 60417
+    },
+    {
+      "date": "2025-11-28T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Kansas Jayhawks",
+        "abbreviation": "KU",
+        "score": "21",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2305.png",
+        "color": "0051ba",
+        "id": "2305"
+      },
+      "away_team": {
+        "name": "Utah Utes",
+        "abbreviation": "UTAH",
+        "score": "31",
+        "rank": 13,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/254.png",
+        "color": "ea002a",
+        "id": "254"
+      },
+      "venue": "David Booth Kansas Memorial Stadium",
+      "attendance": 32811
+    },
+    {
+      "date": "2025-11-29T02:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Arizona State Sun Devils",
+        "abbreviation": "ASU",
+        "score": "7",
+        "rank": 20,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/9.png",
+        "color": "8e0c3a",
+        "id": "9"
+      },
+      "away_team": {
+        "name": "Arizona Wildcats",
+        "abbreviation": "ARIZ",
+        "score": "23",
+        "rank": 25,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/12.png",
+        "color": "0c234b",
+        "id": "12"
+      },
+      "venue": "Mountain America Stadium",
+      "attendance": 54037
+    },
+    {
+      "date": "2025-11-28T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Nebraska Cornhuskers",
+        "abbreviation": "NEB",
+        "score": "16",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/158.png",
+        "color": "d00000",
+        "id": "158"
+      },
+      "away_team": {
+        "name": "Iowa Hawkeyes",
+        "abbreviation": "IOWA",
+        "score": "40",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png",
+        "color": "000000",
+        "id": "2294"
+      },
+      "venue": "Memorial Stadium (Lincoln, NE)",
+      "attendance": 86410
+    },
+    {
+      "date": "2025-11-28T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Buffalo Bulls",
+        "abbreviation": "BUFF",
+        "score": "26",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2084.png",
+        "color": "041A9B",
+        "id": "2084"
+      },
+      "away_team": {
+        "name": "Ohio Bobcats",
+        "abbreviation": "OHIO",
+        "score": "31",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/195.png",
+        "color": "295A29",
+        "id": "195"
+      },
+      "venue": "UB Stadium",
+      "attendance": 11096
+    },
+    {
+      "date": "2025-11-28T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Northern Illinois Huskies",
+        "abbreviation": "NIU",
+        "score": "31",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2459.png",
+        "color": "F1122C",
+        "id": "2459"
+      },
+      "away_team": {
+        "name": "Kent State Golden Flashes",
+        "abbreviation": "KENT",
+        "score": "35",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2309.png",
+        "color": "003976",
+        "id": "2309"
+      },
+      "venue": "Huskie Stadium",
+      "attendance": 3090
+    },
+    {
+      "date": "2025-11-28T20:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Colorado State Rams",
+        "abbreviation": "CSU",
+        "score": "21",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/36.png",
+        "color": "1e4d2b",
+        "id": "36"
+      },
+      "away_team": {
+        "name": "Air Force Falcons",
+        "abbreviation": "AFA",
+        "score": "42",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png",
+        "color": "003594",
+        "id": "2005"
+      },
+      "venue": "Canvas Stadium",
+      "attendance": 25873
+    },
+    {
+      "date": "2025-11-28T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "New Mexico Lobos",
+        "abbreviation": "UNM",
+        "score": "23",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/167.png",
+        "color": "000000",
+        "id": "167"
+      },
+      "away_team": {
+        "name": "San Diego State Aztecs",
+        "abbreviation": "SDSU",
+        "score": "17",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/21.png",
+        "color": "c41230",
+        "id": "21"
+      },
+      "venue": "University Stadium (NM)",
+      "attendance": 30575
+    },
+    {
+      "date": "2025-11-28T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "North Texas Mean Green",
+        "abbreviation": "UNT",
+        "score": "52",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/249.png",
+        "color": "ffffff",
+        "id": "249"
+      },
+      "away_team": {
+        "name": "Temple Owls",
+        "abbreviation": "TEM",
+        "score": "25",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/218.png",
+        "color": "A80532",
+        "id": "218"
+      },
+      "venue": "DATCU Stadium",
+      "attendance": 24492
+    },
+    {
+      "date": "2025-11-28T21:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Utah State Aggies",
+        "abbreviation": "USU",
+        "score": "24",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/328.png",
+        "color": "00263a",
+        "id": "328"
+      },
+      "away_team": {
+        "name": "Boise State Broncos",
+        "abbreviation": "BOIS",
+        "score": "25",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/68.png",
+        "color": "0033a0",
+        "id": "68"
+      },
+      "venue": "Maverik Stadium",
+      "attendance": 21115
+    },
+    {
+      "date": "2025-11-29T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Michigan Wolverines",
+        "abbreviation": "MICH",
+        "score": "9",
+        "rank": 15,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/130.png",
+        "color": "00274c",
+        "id": "130"
+      },
+      "away_team": {
+        "name": "Ohio State Buckeyes",
+        "abbreviation": "OSU",
+        "score": "27",
+        "rank": 1,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+        "color": "ce1141",
+        "id": "194"
+      },
+      "venue": "Michigan Stadium",
+      "attendance": 111373
+    },
+    {
+      "date": "2025-11-29T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "West Virginia Mountaineers",
+        "abbreviation": "WVU",
+        "score": "0",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/277.png",
+        "color": "002855",
+        "id": "277"
+      },
+      "away_team": {
+        "name": "Texas Tech Red Raiders",
+        "abbreviation": "TTU",
+        "score": "49",
+        "rank": 5,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png",
+        "color": "000000",
+        "id": "2641"
+      },
+      "venue": "Milan Puskar Stadium",
+      "attendance": 44250
+    },
+    {
+      "date": "2025-11-29T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Washington Huskies",
+        "abbreviation": "WASH",
+        "score": "14",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/264.png",
+        "color": "33006f",
+        "id": "264"
+      },
+      "away_team": {
+        "name": "Oregon Ducks",
+        "abbreviation": "ORE",
+        "score": "26",
+        "rank": 6,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png",
+        "color": "007030",
+        "id": "2483"
+      },
+      "venue": "Husky Stadium",
+      "attendance": 72376
+    },
+    {
+      "date": "2025-11-29T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Oklahoma Sooners",
+        "abbreviation": "OU",
+        "score": "17",
+        "rank": 8,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/201.png",
+        "color": "a32036",
+        "id": "201"
+      },
+      "away_team": {
+        "name": "LSU Tigers",
+        "abbreviation": "LSU",
+        "score": "13",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/99.png",
+        "color": "461d7c",
+        "id": "99"
+      },
+      "venue": "Memorial Stadium (Norman, OK)",
+      "attendance": 83734
+    },
+    {
+      "date": "2025-11-30T03:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Stanford Cardinal",
+        "abbreviation": "STAN",
+        "score": "20",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/24.png",
+        "color": "8c1515",
+        "id": "24"
+      },
+      "away_team": {
+        "name": "Notre Dame Fighting Irish",
+        "abbreviation": "ND",
+        "score": "49",
+        "rank": 9,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+        "color": "0c2340",
+        "id": "87"
+      },
+      "venue": "Stanford Stadium",
+      "attendance": 27456
+    },
+    {
+      "date": "2025-11-30T00:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Auburn Tigers",
+        "abbreviation": "AUB",
+        "score": "20",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2.png",
+        "color": "002b5c",
+        "id": "2"
+      },
+      "away_team": {
+        "name": "Alabama Crimson Tide",
+        "abbreviation": "ALA",
+        "score": "27",
+        "rank": 10,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png",
+        "color": "9e1632",
+        "id": "333"
+      },
+      "venue": "Jordan-Hare Stadium",
+      "attendance": 88043
+    },
+    {
+      "date": "2025-11-29T18:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "BYU Cougars",
+        "abbreviation": "BYU",
+        "score": "41",
+        "rank": 11,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/252.png",
+        "color": "003da5",
+        "id": "252"
+      },
+      "away_team": {
+        "name": "UCF Knights",
+        "abbreviation": "UCF",
+        "score": "21",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2116.png",
+        "color": "000000",
+        "id": "2116"
+      },
+      "venue": "LaVell Edwards Stadium",
+      "attendance": 60389
+    },
+    {
+      "date": "2025-11-29T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Pittsburgh Panthers",
+        "abbreviation": "PITT",
+        "score": "7",
+        "rank": 22,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/221.png",
+        "color": "003263",
+        "id": "221"
+      },
+      "away_team": {
+        "name": "Miami Hurricanes",
+        "abbreviation": "MIA",
+        "score": "38",
+        "rank": 12,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png",
+        "color": "005030",
+        "id": "2390"
+      },
+      "venue": "Acrisure Stadium",
+      "attendance": 49845
+    },
+    {
+      "date": "2025-11-29T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Tennessee Volunteers",
+        "abbreviation": "TENN",
+        "score": "24",
+        "rank": 19,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2633.png",
+        "color": "ff8200",
+        "id": "2633"
+      },
+      "away_team": {
+        "name": "Vanderbilt Commodores",
+        "abbreviation": "VAN",
+        "score": "45",
+        "rank": 14,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/238.png",
+        "color": "000000",
+        "id": "238"
+      },
+      "venue": "Neyland Stadium",
+      "attendance": 101915
+    },
+    {
+      "date": "2025-11-30T00:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "USC Trojans",
+        "abbreviation": "USC",
+        "score": "29",
+        "rank": 17,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/30.png",
+        "color": "9e2237",
+        "id": "30"
+      },
+      "away_team": {
+        "name": "UCLA Bruins",
+        "abbreviation": "UCLA",
+        "score": "10",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/26.png",
+        "color": "2774ae",
+        "id": "26"
+      },
+      "venue": "Los Angeles Memorial Coliseum",
+      "attendance": 69614
+    },
+    {
+      "date": "2025-11-30T00:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Virginia Cavaliers",
+        "abbreviation": "UVA",
+        "score": "27",
+        "rank": 18,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/258.png",
+        "color": "232d4b",
+        "id": "258"
+      },
+      "away_team": {
+        "name": "Virginia Tech Hokies",
+        "abbreviation": "VT",
+        "score": "7",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/259.png",
+        "color": "630031",
+        "id": "259"
+      },
+      "venue": "Scott Stadium",
+      "attendance": 58832
+    },
+    {
+      "date": "2025-11-30T01:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "California Golden Bears",
+        "abbreviation": "CAL",
+        "score": "38",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/25.png",
+        "color": "031522",
+        "id": "25"
+      },
+      "away_team": {
+        "name": "SMU Mustangs",
+        "abbreviation": "SMU",
+        "score": "35",
+        "rank": 21,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2567.png",
+        "color": "354ca1",
+        "id": "2567"
+      },
+      "venue": "California Memorial Stadium",
+      "attendance": 28956
+    },
+    {
+      "date": "2025-11-30T00:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Tulane Green Wave",
+        "abbreviation": "TULN",
+        "score": "27",
+        "rank": 24,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png",
+        "color": "006547",
+        "id": "2655"
+      },
+      "away_team": {
+        "name": "Charlotte 49ers",
+        "abbreviation": "CLT",
+        "score": "0",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2429.png",
+        "color": "ffffff",
+        "id": "2429"
+      },
+      "venue": "Yulman Stadium",
+      "attendance": 22245
+    },
+    {
+      "date": "2025-11-29T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Louisville Cardinals",
+        "abbreviation": "LOU",
+        "score": "41",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/97.png",
+        "color": "c9001f",
+        "id": "97"
+      },
+      "away_team": {
+        "name": "Kentucky Wildcats",
+        "abbreviation": "UK",
+        "score": "0",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/96.png",
+        "color": "0033a0",
+        "id": "96"
+      },
+      "venue": "L&N Federal Credit Union Stadium",
+      "attendance": 50634
+    },
+    {
+      "date": "2025-11-29T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "South Carolina Gamecocks",
+        "abbreviation": "SC",
+        "score": "14",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2579.png",
+        "color": "73000a",
+        "id": "2579"
+      },
+      "away_team": {
+        "name": "Clemson Tigers",
+        "abbreviation": "CLEM",
+        "score": "28",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/228.png",
+        "color": "f56600",
+        "id": "228"
+      },
+      "venue": "Williams-Brice Stadium",
+      "attendance": 79827
+    },
+    {
+      "date": "2025-11-29T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Baylor Bears",
+        "abbreviation": "BAY",
+        "score": "24",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/239.png",
+        "color": "154734",
+        "id": "239"
+      },
+      "away_team": {
+        "name": "Houston Cougars",
+        "abbreviation": "HOU",
+        "score": "31",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/248.png",
+        "color": "c92a39",
+        "id": "248"
+      },
+      "venue": "McLane Stadium",
+      "attendance": 34720
+    },
+    {
+      "date": "2025-11-29T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Kansas State Wildcats",
+        "abbreviation": "KSU",
+        "score": "24",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2306.png",
+        "color": "3c0969",
+        "id": "2306"
+      },
+      "away_team": {
+        "name": "Colorado Buffaloes",
+        "abbreviation": "COLO",
+        "score": "14",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/38.png",
+        "color": "000000",
+        "id": "38"
+      },
+      "venue": "Bill Snyder Family Stadium",
+      "attendance": 49549
+    },
+    {
+      "date": "2025-11-29T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Oklahoma State Cowboys",
+        "abbreviation": "OKST",
+        "score": "13",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/197.png",
+        "color": "000000",
+        "id": "197"
+      },
+      "away_team": {
+        "name": "Iowa State Cyclones",
+        "abbreviation": "ISU",
+        "score": "20",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/66.png",
+        "color": "822433",
+        "id": "66"
+      },
+      "venue": "Boone Pickens Stadium",
+      "attendance": 0
+    },
+    {
+      "date": "2025-11-29T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Florida Atlantic Owls",
+        "abbreviation": "FAU",
+        "score": "3",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2226.png",
+        "color": "00447c",
+        "id": "2226"
+      },
+      "away_team": {
+        "name": "East Carolina Pirates",
+        "abbreviation": "ECU",
+        "score": "42",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/151.png",
+        "color": "4b1869",
+        "id": "151"
+      },
+      "venue": "Flagler Credit Union Stadium",
+      "attendance": 14712
+    },
+    {
+      "date": "2025-11-29T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Central Michigan Chippewas",
+        "abbreviation": "CMU",
+        "score": "3",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2117.png",
+        "color": "6a0032",
+        "id": "2117"
+      },
+      "away_team": {
+        "name": "Toledo Rockets",
+        "abbreviation": "TOL",
+        "score": "21",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2649.png",
+        "color": "0a2240",
+        "id": "2649"
+      },
+      "venue": "Kelly/Shorts Stadium",
+      "attendance": 6673
+    },
+    {
+      "date": "2025-11-29T17:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Miami (OH) RedHawks",
+        "abbreviation": "M-OH",
+        "score": "45",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/193.png",
+        "color": "a4000c",
+        "id": "193"
+      },
+      "away_team": {
+        "name": "Ball State Cardinals",
+        "abbreviation": "BALL",
+        "score": "24",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2050.png",
+        "color": "DA0000",
+        "id": "2050"
+      },
+      "venue": "Yager Stadium",
+      "attendance": 11137
+    },
+    {
+      "date": "2025-11-29T18:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Delaware Blue Hens",
+        "abbreviation": "DEL",
+        "score": "61",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/48.png",
+        "color": "033594",
+        "id": "48"
+      },
+      "away_team": {
+        "name": "UTEP Miners",
+        "abbreviation": "UTEP",
+        "score": "31",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2638.png",
+        "color": "ff8200",
+        "id": "2638"
+      },
+      "venue": "Delaware Stadium",
+      "attendance": 13560
+    },
+    {
+      "date": "2025-11-29T18:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Sam Houston Bearkats",
+        "abbreviation": "SHSU",
+        "score": "16",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2534.png",
+        "color": "fe5000",
+        "id": "2534"
+      },
+      "away_team": {
+        "name": "Florida International Panthers",
+        "abbreviation": "FIU",
+        "score": "56",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2229.png",
+        "color": "001538",
+        "id": "2229"
+      },
+      "venue": "Shell Energy Stadium",
+      "attendance": 4237
+    },
+    {
+      "date": "2025-11-29T18:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Marshall Thundering Herd",
+        "abbreviation": "MRSH",
+        "score": "19",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/276.png",
+        "color": "00ae42",
+        "id": "276"
+      },
+      "away_team": {
+        "name": "Georgia Southern Eagles",
+        "abbreviation": "GASO",
+        "score": "24",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/290.png",
+        "color": "003775",
+        "id": "290"
+      },
+      "venue": "Joan C. Edwards Stadium",
+      "attendance": 21524
+    },
+    {
+      "date": "2025-11-29T19:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Jacksonville State Gamecocks",
+        "abbreviation": "JVST",
+        "score": "37",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/55.png",
+        "color": "b50500",
+        "id": "55"
+      },
+      "away_team": {
+        "name": "Western Kentucky Hilltoppers",
+        "abbreviation": "WKU",
+        "score": "34",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/98.png",
+        "color": "F32026",
+        "id": "98"
+      },
+      "venue": "AmFirst Stadium",
+      "attendance": 16733
+    },
+    {
+      "date": "2025-11-29T19:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Missouri State Bears",
+        "abbreviation": "MOST",
+        "score": "30",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2623.png",
+        "color": "5F0000",
+        "id": "2623"
+      },
+      "away_team": {
+        "name": "Louisiana Tech Bulldogs",
+        "abbreviation": "LT",
+        "score": "42",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2348.png",
+        "color": "002d65",
+        "id": "2348"
+      },
+      "venue": "Robert W. Plaster Stadium",
+      "attendance": 7656
+    },
+    {
+      "date": "2025-11-29T19:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Old Dominion Monarchs",
+        "abbreviation": "ODU",
+        "score": "27",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/295.png",
+        "color": "00507d",
+        "id": "295"
+      },
+      "away_team": {
+        "name": "Georgia State Panthers",
+        "abbreviation": "GAST",
+        "score": "10",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2247.png",
+        "color": "1e539a",
+        "id": "2247"
+      },
+      "venue": "S.B. Ballard Stadium",
+      "attendance": 17126
+    },
+    {
+      "date": "2025-11-29T19:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "App State Mountaineers",
+        "abbreviation": "APP",
+        "score": "29",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2026.png",
+        "color": "000000",
+        "id": "2026"
+      },
+      "away_team": {
+        "name": "Arkansas State Red Wolves",
+        "abbreviation": "ARST",
+        "score": "30",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2032.png",
+        "color": "e81018",
+        "id": "2032"
+      },
+      "venue": "Kidd Brewer Stadium",
+      "attendance": 23876
+    },
+    {
+      "date": "2025-11-29T20:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Syracuse Orange",
+        "abbreviation": "SYR",
+        "score": "12",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/183.png",
+        "color": "ff6500",
+        "id": "183"
+      },
+      "away_team": {
+        "name": "Boston College Eagles",
+        "abbreviation": "BC",
+        "score": "34",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/103.png",
+        "color": "8c2232",
+        "id": "103"
+      },
+      "venue": "JMA Wireless Dome",
+      "attendance": 32457
+    },
+    {
+      "date": "2025-11-29T20:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "New Mexico State Aggies",
+        "abbreviation": "NMSU",
+        "score": "24",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/166.png",
+        "color": "891216",
+        "id": "166"
+      },
+      "away_team": {
+        "name": "Middle Tennessee Blue Raiders",
+        "abbreviation": "MTSU",
+        "score": "31",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2393.png",
+        "color": "006db6",
+        "id": "2393"
+      },
+      "venue": "Aggie Memorial Stadium",
+      "attendance": 7381
+    },
+    {
+      "date": "2025-11-29T20:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Louisiana Ragin' Cajuns",
+        "abbreviation": "UL",
+        "score": "30",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/309.png",
+        "color": "ce181e",
+        "id": "309"
+      },
+      "away_team": {
+        "name": "UL Monroe Warhawks",
+        "abbreviation": "ULM",
+        "score": "27",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2433.png",
+        "color": "231F20",
+        "id": "2433"
+      },
+      "venue": "Cajun Field",
+      "attendance": 16270
+    },
+    {
+      "date": "2025-11-29T20:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Texas State Bobcats",
+        "abbreviation": "TXST",
+        "score": "49",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/326.png",
+        "color": "4e1719",
+        "id": "326"
+      },
+      "away_team": {
+        "name": "South Alabama Jaguars",
+        "abbreviation": "USA",
+        "score": "26",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/6.png",
+        "color": "003E7E",
+        "id": "6"
+      },
+      "venue": "UFCU Stadium",
+      "attendance": 0
+    },
+    {
+      "date": "2025-11-29T20:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Tulsa Golden Hurricane",
+        "abbreviation": "TLSA",
+        "score": "24",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/202.png",
+        "color": "003595",
+        "id": "202"
+      },
+      "away_team": {
+        "name": "UAB Blazers",
+        "abbreviation": "UAB",
+        "score": "31",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/5.png",
+        "color": "003b28",
+        "id": "5"
+      },
+      "venue": "Chapman Stadium",
+      "attendance": 13026
+    },
+    {
+      "date": "2025-11-29T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Arkansas Razorbacks",
+        "abbreviation": "ARK",
+        "score": "17",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/8.png",
+        "color": "a41f35",
+        "id": "8"
+      },
+      "away_team": {
+        "name": "Missouri Tigers",
+        "abbreviation": "MIZ",
+        "score": "31",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/142.png",
+        "color": "f1b82d",
+        "id": "142"
+      },
+      "venue": "Razorback Stadium",
+      "attendance": 61508
+    },
+    {
+      "date": "2025-11-29T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Minnesota Golden Gophers",
+        "abbreviation": "MINN",
+        "score": "17",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/135.png",
+        "color": "5e0a2f",
+        "id": "135"
+      },
+      "away_team": {
+        "name": "Wisconsin Badgers",
+        "abbreviation": "WIS",
+        "score": "7",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/275.png",
+        "color": "c4012f",
+        "id": "275"
+      },
+      "venue": "Huntington Bank Stadium",
+      "attendance": 46038
+    },
+    {
+      "date": "2025-11-29T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Rutgers Scarlet Knights",
+        "abbreviation": "RUTG",
+        "score": "36",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/164.png",
+        "color": "d21034",
+        "id": "164"
+      },
+      "away_team": {
+        "name": "Penn State Nittany Lions",
+        "abbreviation": "PSU",
+        "score": "40",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+        "color": "00265D",
+        "id": "213"
+      },
+      "venue": "SHI Stadium",
+      "attendance": 55212
+    },
+    {
+      "date": "2025-11-29T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Duke Blue Devils",
+        "abbreviation": "DUKE",
+        "score": "49",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/150.png",
+        "color": "013088",
+        "id": "150"
+      },
+      "away_team": {
+        "name": "Wake Forest Demon Deacons",
+        "abbreviation": "WAKE",
+        "score": "32",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/154.png",
+        "color": "000000",
+        "id": "154"
+      },
+      "venue": "Wallace Wade Stadium",
+      "attendance": 21045
+    },
+    {
+      "date": "2025-11-29T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "TCU Horned Frogs",
+        "abbreviation": "TCU",
+        "score": "45",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2628.png",
+        "color": "4d1979",
+        "id": "2628"
+      },
+      "away_team": {
+        "name": "Cincinnati Bearcats",
+        "abbreviation": "CIN",
+        "score": "23",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2132.png",
+        "color": "000000",
+        "id": "2132"
+      },
+      "venue": "Amon G. Carter Stadium",
+      "attendance": 37259
+    },
+    {
+      "date": "2025-11-29T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Liberty Flames",
+        "abbreviation": "LIB",
+        "score": "42",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png",
+        "color": "071740",
+        "id": "2335"
+      },
+      "away_team": {
+        "name": "Kennesaw State Owls",
+        "abbreviation": "KENN",
+        "score": "48",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/338.png",
+        "color": "fdbb30",
+        "id": "338"
+      },
+      "venue": "Williams Stadium (VA)",
+      "attendance": 12695
+    },
+    {
+      "date": "2025-11-29T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Southern Miss Golden Eagles",
+        "abbreviation": "USM",
+        "score": "18",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2572.png",
+        "color": "FFAA3C",
+        "id": "2572"
+      },
+      "away_team": {
+        "name": "Troy Trojans",
+        "abbreviation": "TROY",
+        "score": "28",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2653.png",
+        "color": "AE0210",
+        "id": "2653"
+      },
+      "venue": "M. M. Roberts Stadium",
+      "attendance": 25987
+    },
+    {
+      "date": "2025-11-29T20:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "UTSA Roadrunners",
+        "abbreviation": "UTSA",
+        "score": "24",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2636.png",
+        "color": "002A5C",
+        "id": "2636"
+      },
+      "away_team": {
+        "name": "Army Black Knights",
+        "abbreviation": "ARMY",
+        "score": "27",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/349.png",
+        "color": "ce9c00",
+        "id": "349"
+      },
+      "venue": "Alamodome",
+      "attendance": 22620
+    },
+    {
+      "date": "2025-11-29T20:45Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Coastal Carolina Chanticleers",
+        "abbreviation": "CCU",
+        "score": "10",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/324.png",
+        "color": "007073",
+        "id": "324"
+      },
+      "away_team": {
+        "name": "James Madison Dukes",
+        "abbreviation": "JMU",
+        "score": "59",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/256.png",
+        "color": "450084",
+        "id": "256"
+      },
+      "venue": "Brooks Stadium (SC)",
+      "attendance": 15137
+    },
+    {
+      "date": "2025-11-29T21:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Florida Gators",
+        "abbreviation": "FLA",
+        "score": "40",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/57.png",
+        "color": "0021a5",
+        "id": "57"
+      },
+      "away_team": {
+        "name": "Florida State Seminoles",
+        "abbreviation": "FSU",
+        "score": "21",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/52.png",
+        "color": "782f40",
+        "id": "52"
+      },
+      "venue": "Ben Hill Griffin Stadium",
+      "attendance": 90007
+    },
+    {
+      "date": "2025-11-29T23:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Washington State Cougars",
+        "abbreviation": "WSU",
+        "score": "32",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/265.png",
+        "color": "981e32",
+        "id": "265"
+      },
+      "away_team": {
+        "name": "Oregon State Beavers",
+        "abbreviation": "ORST",
+        "score": "8",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/204.png",
+        "color": "231f20",
+        "id": "204"
+      },
+      "venue": "Martin Stadium",
+      "attendance": 24806
+    },
+    {
+      "date": "2025-11-30T00:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Michigan State Spartans",
+        "abbreviation": "MSU",
+        "score": "38",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/127.png",
+        "color": "18453b",
+        "id": "127"
+      },
+      "away_team": {
+        "name": "Maryland Terrapins",
+        "abbreviation": "MD",
+        "score": "28",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+        "color": "D5002B",
+        "id": "120"
+      },
+      "venue": "Ford Field",
+      "attendance": 30317
+    },
+    {
+      "date": "2025-11-30T00:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "South Florida Bulls",
+        "abbreviation": "USF",
+        "score": "52",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/58.png",
+        "color": "004A36",
+        "id": "58"
+      },
+      "away_team": {
+        "name": "Rice Owls",
+        "abbreviation": "RICE",
+        "score": "3",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/242.png",
+        "color": "00205b",
+        "id": "242"
+      },
+      "venue": "Raymond James Stadium",
+      "attendance": 28813
+    },
+    {
+      "date": "2025-11-30T00:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Illinois Fighting Illini",
+        "abbreviation": "ILL",
+        "score": "20",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/356.png",
+        "color": "ff5f05",
+        "id": "356"
+      },
+      "away_team": {
+        "name": "Northwestern Wildcats",
+        "abbreviation": "NU",
+        "score": "13",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/77.png",
+        "color": "582c83",
+        "id": "77"
+      },
+      "venue": "Memorial Stadium (Champaign, IL)",
+      "attendance": 0
+    },
+    {
+      "date": "2025-11-30T00:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "NC State Wolfpack",
+        "abbreviation": "NCSU",
+        "score": "42",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/152.png",
+        "color": "cc0000",
+        "id": "152"
+      },
+      "away_team": {
+        "name": "North Carolina Tar Heels",
+        "abbreviation": "UNC",
+        "score": "19",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/153.png",
+        "color": "7bafd4",
+        "id": "153"
+      },
+      "venue": "Carter-Finley Stadium",
+      "attendance": 56919
+    },
+    {
+      "date": "2025-11-30T02:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Nevada Wolf Pack",
+        "abbreviation": "NEV",
+        "score": "17",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2440.png",
+        "color": "002d62",
+        "id": "2440"
+      },
+      "away_team": {
+        "name": "UNLV Rebels",
+        "abbreviation": "UNLV",
+        "score": "42",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2439.png",
+        "color": "b10202",
+        "id": "2439"
+      },
+      "venue": "Mackay Stadium",
+      "attendance": 0
+    },
+    {
+      "date": "2025-11-30T03:30Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "San Jos\u00e9 State Spartans",
+        "abbreviation": "SJSU",
+        "score": "14",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/23.png",
+        "color": "005893",
+        "id": "23"
+      },
+      "away_team": {
+        "name": "Fresno State Bulldogs",
+        "abbreviation": "FRES",
+        "score": "41",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/278.png",
+        "color": "c41230",
+        "id": "278"
+      },
+      "venue": "CEFCU Stadium",
+      "attendance": 14194
+    },
+    {
+      "date": "2025-11-30T04:00Z",
+      "week": 14,
+      "season": 2025,
+      "status": "Final",
+      "home_team": {
+        "name": "Hawai'i Rainbow Warriors",
+        "abbreviation": "HAW",
+        "score": "27",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/62.png",
+        "color": "003420",
+        "id": "62"
+      },
+      "away_team": {
+        "name": "Wyoming Cowboys",
+        "abbreviation": "WYO",
+        "score": "7",
+        "rank": null,
+        "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2751.png",
+        "color": "492f24",
+        "id": "2751"
+      },
+      "venue": "Clarence T.C. Ching Athletics Complex",
+      "attendance": 15194
+    }
+  ],
+  "fetched_at": "2025-11-30T05:09:08.922802"
+}

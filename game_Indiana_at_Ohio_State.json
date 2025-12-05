@@ -1,0 +1,4464 @@
+{
+  "eventID": "p9GjWETENAKHoxgVwwuE",
+  "sportID": "FOOTBALL",
+  "leagueID": "NCAAF",
+  "type": "match",
+  "players": {
+    "NICOLAS_RADICIC_1_NCAAF": {
+      "playerID": "NICOLAS_RADICIC_1_NCAAF",
+      "name": "Nicolas Radicic",
+      "teamID": "INDIANA_NCAAF",
+      "alias": "NICOLAS_RADICIC_INDIANA_NCAAF",
+      "firstName": "Nicolas",
+      "lastName": "Radicic"
+    },
+    "EMEKA_EGBUKA_1_NCAAF": {
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "name": "Emeka Egbuka",
+      "teamID": "OHIO_STATE_NCAAF",
+      "alias": "EMEKA_EGBUKA_OHIO_STATE_NCAAF",
+      "firstName": "Emeka",
+      "lastName": "Egbuka"
+    },
+    "OMAR_COOPER_1_NCAAF": {
+      "playerID": "OMAR_COOPER_1_NCAAF",
+      "name": "Omar Cooper",
+      "teamID": "INDIANA_NCAAF",
+      "alias": "OMAR_COOPER_INDIANA_NCAAF",
+      "firstName": "Omar",
+      "lastName": "Cooper"
+    },
+    "BENNETT_CHRISTIAN_1_NCAAF": {
+      "playerID": "BENNETT_CHRISTIAN_1_NCAAF",
+      "name": "Bennett Christian",
+      "teamID": "OHIO_STATE_NCAAF",
+      "alias": "BENNETT_CHRISTIAN_OHIO_STATE_NCAAF",
+      "firstName": "Bennett",
+      "lastName": "Christian"
+    },
+    "TREVEYON_HENDERSON_1_NCAAF": {
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "name": "TreVeyon Henderson",
+      "teamID": "OHIO_STATE_NCAAF",
+      "alias": "TREVEYON_HENDERSON_OHIO_STATE_NCAAF",
+      "firstName": "TreVeyon",
+      "lastName": "Henderson"
+    },
+    "GEE_SCOTT_1_NCAAF": {
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "name": "Gee Scott Jr.",
+      "teamID": "OHIO_STATE_NCAAF",
+      "alias": "GEE_SCOTT_OHIO_STATE_NCAAF",
+      "firstName": "Gee",
+      "lastName": "Scott"
+    },
+    "JAYDEN_FIELDING_1_NCAAF": {
+      "playerID": "JAYDEN_FIELDING_1_NCAAF",
+      "name": "Jayden Fielding",
+      "teamID": "OHIO_STATE_NCAAF",
+      "alias": "JAYDEN_FIELDING_OHIO_STATE_NCAAF",
+      "firstName": "Jayden",
+      "lastName": "Fielding"
+    },
+    "JAMES_BOMBA_1_NCAAF": {
+      "playerID": "JAMES_BOMBA_1_NCAAF",
+      "name": "James Bomba",
+      "teamID": "INDIANA_NCAAF",
+      "alias": "JAMES_BOMBA_INDIANA_NCAAF",
+      "firstName": "James",
+      "lastName": "Bomba"
+    },
+    "JAYDEN_BALLARD_1_NCAAF": {
+      "playerID": "JAYDEN_BALLARD_1_NCAAF",
+      "name": "Jayden Ballard",
+      "teamID": "OHIO_STATE_NCAAF",
+      "alias": "JAYDEN_BALLARD_OHIO_STATE_NCAAF",
+      "firstName": "Jayden",
+      "lastName": "Ballard"
+    },
+    "ANDISON_COBY_1_NCAAF": {
+      "playerID": "ANDISON_COBY_1_NCAAF",
+      "name": "Andison Coby",
+      "teamID": "INDIANA_NCAAF",
+      "alias": "ANDISON_COBY_INDIANA_NCAAF",
+      "firstName": "Andison",
+      "lastName": "Coby"
+    },
+    "SAM_WEST_1_NCAAF": {
+      "playerID": "SAM_WEST_1_NCAAF",
+      "name": "Sam West",
+      "teamID": "INDIANA_NCAAF",
+      "alias": "SAM_WEST_INDIANA_NCAAF",
+      "firstName": "Sam",
+      "lastName": "West"
+    }
+  },
+  "info": {
+    "seasonWeek": "13"
+  },
+  "teams": {
+    "home": {
+      "statEntityID": "home",
+      "names": {
+        "short": "OSU",
+        "medium": "Ohio State",
+        "long": "Ohio State"
+      },
+      "teamID": "OHIO_STATE_NCAAF",
+      "colors": {
+        "primaryContrast": "#FFFFFF",
+        "primary": "#374DF5"
+      },
+      "score": 38
+    },
+    "away": {
+      "statEntityID": "away",
+      "names": {
+        "short": "IND",
+        "medium": "Indiana",
+        "long": "Indiana"
+      },
+      "teamID": "INDIANA_NCAAF",
+      "colors": {
+        "primaryContrast": "#FFFFFF",
+        "primary": "#374DF5"
+      },
+      "score": 15
+    }
+  },
+  "odds": {
+    "points-away-1q-ou-over": {
+      "oddID": "points-away-1q-ou-over",
+      "opposingOddID": "points-away-1q-ou-under",
+      "marketName": "Indiana 1st Quarter Points Over/Under",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "1q",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-134",
+      "bookOdds": "-159",
+      "fairOverUnder": "0.5",
+      "bookOverUnder": "0.5",
+      "score": 7,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-159",
+          "overUnder": "0.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-1q-ou-under": {
+      "oddID": "points-all-1q-ou-under",
+      "opposingOddID": "points-all-1q-ou-over",
+      "marketName": "1st Quarter Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "1q",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-112",
+      "fairOverUnder": "12.5",
+      "bookOverUnder": "12.5",
+      "score": 7,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-112",
+          "overUnder": "12.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-1q-sp-home": {
+      "oddID": "points-home-1q-sp-home",
+      "opposingOddID": "points-away-1q-sp-away",
+      "marketName": "1st Quarter Spread",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "1q",
+      "betTypeID": "sp",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-122",
+      "fairSpread": "+1",
+      "bookSpread": "-2.5",
+      "score": 0,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-122",
+          "spread": "-2.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-1q-ou-under": {
+      "oddID": "points-away-1q-ou-under",
+      "opposingOddID": "points-away-1q-ou-over",
+      "marketName": "Indiana 1st Quarter Points Over/Under",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "1q",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+134",
+      "bookOdds": "+119",
+      "fairOverUnder": "0.5",
+      "bookOverUnder": "0.5",
+      "score": 7,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+119",
+          "overUnder": "0.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-1q-sp-away": {
+      "oddID": "points-away-1q-sp-away",
+      "opposingOddID": "points-home-1q-sp-home",
+      "marketName": "1st Quarter Spread",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "1q",
+      "betTypeID": "sp",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-103",
+      "fairSpread": "-1",
+      "bookSpread": "+2.5",
+      "score": 7,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-103",
+          "spread": "+2.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-1q-ou-over": {
+      "oddID": "points-home-1q-ou-over",
+      "opposingOddID": "points-home-1q-ou-under",
+      "marketName": "Ohio State 1st Quarter Points Over/Under",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "1q",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+138",
+      "bookOdds": "+122",
+      "fairOverUnder": "7.5",
+      "bookOverUnder": "7.5",
+      "score": 0,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+122",
+          "overUnder": "7.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-1q-ou-under": {
+      "oddID": "points-home-1q-ou-under",
+      "opposingOddID": "points-home-1q-ou-over",
+      "marketName": "Ohio State 1st Quarter Points Over/Under",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "1q",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-138",
+      "bookOdds": "-164",
+      "fairOverUnder": "7.5",
+      "bookOverUnder": "7.5",
+      "score": 0,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-164",
+          "overUnder": "7.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-1q-ou-over": {
+      "oddID": "points-all-1q-ou-over",
+      "opposingOddID": "points-all-1q-ou-under",
+      "marketName": "1st Quarter Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "1q",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-112",
+      "fairOverUnder": "12.5",
+      "bookOverUnder": "12.5",
+      "score": 7,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-112",
+          "overUnder": "12.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-1q-ml-home": {
+      "oddID": "points-home-1q-ml-home",
+      "opposingOddID": "points-away-1q-ml-away",
+      "marketName": "1st Quarter Moneyline",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "1q",
+      "betTypeID": "ml",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+2583",
+      "bookOdds": "+2500",
+      "score": 0,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+2500",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-1q-ml-away": {
+      "oddID": "points-away-1q-ml-away",
+      "opposingOddID": "points-home-1q-ml-home",
+      "marketName": "1st Quarter Moneyline",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "1q",
+      "betTypeID": "ml",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-2583",
+      "bookOdds": "-15000",
+      "score": 7,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-15000",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-1h-ou-under": {
+      "oddID": "points-away-1h-ou-under",
+      "opposingOddID": "points-away-1h-ou-over",
+      "marketName": "Indiana 1st Half Points Over/Under",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "1h",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-154",
+      "bookOdds": "-180",
+      "fairOverUnder": "7.5",
+      "bookOverUnder": "7.5",
+      "score": 7,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-180",
+          "overUnder": "7.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-1h-ou-under": {
+      "oddID": "points-home-1h-ou-under",
+      "opposingOddID": "points-home-1h-ou-over",
+      "marketName": "Ohio State 1st Half Points Over/Under",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "1h",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+123",
+      "bookOdds": "+110",
+      "fairOverUnder": "9.5",
+      "bookOverUnder": "9.5",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+110",
+          "overUnder": "9.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-1h-ou-over": {
+      "oddID": "points-home-1h-ou-over",
+      "opposingOddID": "points-home-1h-ou-under",
+      "marketName": "Ohio State 1st Half Points Over/Under",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "1h",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-123",
+      "bookOdds": "-140",
+      "fairOverUnder": "9.5",
+      "bookOverUnder": "9.5",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-140",
+          "overUnder": "9.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-1h-ou-over": {
+      "oddID": "points-away-1h-ou-over",
+      "opposingOddID": "points-away-1h-ou-under",
+      "marketName": "Indiana 1st Half Points Over/Under",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "1h",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+154",
+      "bookOdds": "+140",
+      "fairOverUnder": "7.5",
+      "bookOverUnder": "7.5",
+      "score": 7,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+140",
+          "overUnder": "7.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-2q-ml-away": {
+      "oddID": "points-away-2q-ml-away",
+      "opposingOddID": "points-home-2q-ml-home",
+      "marketName": "2nd Quarter Moneyline",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "2q",
+      "betTypeID": "ml",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+2272",
+      "bookOdds": "+2200",
+      "score": 0,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+2200",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-1h-ou-under": {
+      "oddID": "points-all-1h-ou-under",
+      "opposingOddID": "points-all-1h-ou-over",
+      "marketName": "1st Half Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "1h",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-124",
+      "fairOverUnder": "37.5",
+      "bookOverUnder": "27.5",
+      "score": 21,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-124",
+          "overUnder": "27.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-1h-ou-over": {
+      "oddID": "points-all-1h-ou-over",
+      "opposingOddID": "points-all-1h-ou-under",
+      "marketName": "1st Half Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "1h",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "+100",
+      "fairOverUnder": "37.5",
+      "bookOverUnder": "27.5",
+      "score": 21,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+100",
+          "overUnder": "27.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-2q-sp-home": {
+      "oddID": "points-home-2q-sp-home",
+      "opposingOddID": "points-away-2q-sp-away",
+      "marketName": "2nd Quarter Spread",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "2q",
+      "betTypeID": "sp",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+108",
+      "bookOdds": "-108",
+      "fairSpread": "-3.5",
+      "bookSpread": "-3.5",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-108",
+          "spread": "-3.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-2q-ml-home": {
+      "oddID": "points-home-2q-ml-home",
+      "opposingOddID": "points-away-2q-ml-away",
+      "marketName": "2nd Quarter Moneyline",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "2q",
+      "betTypeID": "ml",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-2272",
+      "bookOdds": "-8000",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-8000",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-2q-sp-away": {
+      "oddID": "points-away-2q-sp-away",
+      "opposingOddID": "points-home-2q-sp-home",
+      "marketName": "2nd Quarter Spread",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "2q",
+      "betTypeID": "sp",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-108",
+      "bookOdds": "-129",
+      "fairSpread": "+3.5",
+      "bookSpread": "+3.5",
+      "score": 0,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-129",
+          "spread": "+3.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-1h-ml-away": {
+      "oddID": "points-away-1h-ml-away",
+      "opposingOddID": "points-home-1h-ml-home",
+      "marketName": "1st Half Moneyline",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "1h",
+      "betTypeID": "ml",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+237",
+      "bookOdds": "+220",
+      "score": 7,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+220",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-1h-sp-away": {
+      "oddID": "points-away-1h-sp-away",
+      "opposingOddID": "points-home-1h-sp-home",
+      "marketName": "1st Half Spread",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "1h",
+      "betTypeID": "sp",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-105",
+      "fairSpread": "+3",
+      "bookSpread": "+6.5",
+      "score": 7,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-105",
+          "spread": "+6.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-2q-ou-over": {
+      "oddID": "points-all-2q-ou-over",
+      "opposingOddID": "points-all-2q-ou-under",
+      "marketName": "2nd Quarter Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "2q",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-109",
+      "fairOverUnder": "56.5",
+      "bookOverUnder": "14.5",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-109",
+          "overUnder": "14.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-1h-ml-home": {
+      "oddID": "points-home-1h-ml-home",
+      "opposingOddID": "points-away-1h-ml-away",
+      "marketName": "1st Half Moneyline",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "1h",
+      "betTypeID": "ml",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-237",
+      "bookOdds": "-286",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-286",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-1h-sp-home": {
+      "oddID": "points-home-1h-sp-home",
+      "opposingOddID": "points-away-1h-sp-away",
+      "marketName": "1st Half Spread",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "1h",
+      "betTypeID": "sp",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-124",
+      "fairSpread": "-3",
+      "bookSpread": "-6.5",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-124",
+          "spread": "-6.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-2q-ou-under": {
+      "oddID": "points-all-2q-ou-under",
+      "opposingOddID": "points-all-2q-ou-over",
+      "marketName": "2nd Quarter Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "2q",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-129",
+      "fairOverUnder": "56.5",
+      "bookOverUnder": "14.5",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-129",
+          "overUnder": "14.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-3q-ou-over": {
+      "oddID": "points-all-3q-ou-over",
+      "opposingOddID": "points-all-3q-ou-under",
+      "marketName": "3rd Quarter Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "3q",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-118",
+      "fairOverUnder": "12",
+      "bookOverUnder": "12.5",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-118",
+          "overUnder": "12.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-3q-ou-under": {
+      "oddID": "points-all-3q-ou-under",
+      "opposingOddID": "points-all-3q-ou-over",
+      "marketName": "3rd Quarter Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "3q",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-118",
+      "fairOverUnder": "12",
+      "bookOverUnder": "12.5",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-118",
+          "overUnder": "12.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-3q-sp-away": {
+      "oddID": "points-away-3q-sp-away",
+      "opposingOddID": "points-home-3q-sp-home",
+      "marketName": "3rd Quarter Spread",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "3q",
+      "betTypeID": "sp",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+108",
+      "bookOdds": "-109",
+      "fairSpread": "+2.5",
+      "bookSpread": "+2.5",
+      "score": 0,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-109",
+          "spread": "+2.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-3q-sp-home": {
+      "oddID": "points-home-3q-sp-home",
+      "opposingOddID": "points-away-3q-sp-away",
+      "marketName": "3rd Quarter Spread",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "3q",
+      "betTypeID": "sp",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-108",
+      "bookOdds": "-129",
+      "fairSpread": "-2.5",
+      "bookSpread": "-2.5",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-129",
+          "spread": "-2.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-3q-ml-home": {
+      "oddID": "points-home-3q-ml-home",
+      "opposingOddID": "points-away-3q-ml-away",
+      "marketName": "3rd Quarter Moneyline",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "3q",
+      "betTypeID": "ml",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-3085",
+      "bookOdds": "-20000",
+      "score": 14,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-20000",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-3q-ml-away": {
+      "oddID": "points-away-3q-ml-away",
+      "opposingOddID": "points-home-3q-ml-home",
+      "marketName": "3rd Quarter Moneyline",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "3q",
+      "betTypeID": "ml",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+3085",
+      "bookOdds": "+3000",
+      "score": 0,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+3000",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-game-ou-over": {
+      "oddID": "points-away-game-ou-over",
+      "opposingOddID": "points-away-game-ou-under",
+      "marketName": "Indiana Points Over/Under",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-130",
+      "fairOverUnder": "11.5",
+      "bookOverUnder": "12.5",
+      "score": 15,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-130",
+          "overUnder": "12.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-reg-ml3way-home": {
+      "oddID": "points-home-reg-ml3way-home",
+      "opposingOddID": "points-away-reg-ml3way-away+draw",
+      "marketName": "Regulation 3-Way Moneyline",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "reg",
+      "betTypeID": "ml3way",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-364",
+      "bookOdds": "-400",
+      "score": 38,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-400",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-game-ml-home": {
+      "oddID": "points-home-game-ml-home",
+      "opposingOddID": "points-away-game-ml-away",
+      "marketName": "Moneyline",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "game",
+      "betTypeID": "ml",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-1102",
+      "bookOdds": "-1851",
+      "score": 38,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "betfairexchange": {
+          "odds": "-435",
+          "lastUpdatedAt": "2024-11-23T20:11:07.000Z"
+        },
+        "nordicbet": {
+          "odds": "-100000",
+          "lastUpdatedAt": "2024-11-23T20:17:22.000Z"
+        },
+        "betmgm": {
+          "odds": "-10000",
+          "lastUpdatedAt": "2024-11-23T20:19:55.000Z"
+        },
+        "gtbets": {
+          "odds": "-980",
+          "lastUpdatedAt": "2024-11-23T20:24:53.000Z"
+        }
+      }
+    },
+    "points-home-2h-ou-under": {
+      "oddID": "points-home-2h-ou-under",
+      "opposingOddID": "points-home-2h-ou-over",
+      "marketName": "Ohio State 2nd Half Points Over/Under",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "2h",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-110",
+      "bookOdds": "-124",
+      "fairOverUnder": "14.5",
+      "bookOverUnder": "14.5",
+      "score": 24,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-124",
+          "overUnder": "14.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-4q-sp-home": {
+      "oddID": "points-home-4q-sp-home",
+      "opposingOddID": "points-away-4q-sp-away",
+      "marketName": "4th Quarter Spread",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "4q",
+      "betTypeID": "sp",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-112",
+      "bookOdds": "-134",
+      "fairSpread": "-2.5",
+      "bookSpread": "-2.5",
+      "score": 10,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-134",
+          "spread": "-2.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-2h-ou-over": {
+      "oddID": "points-all-2h-ou-over",
+      "opposingOddID": "points-all-2h-ou-under",
+      "marketName": "2nd Half Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "2h",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+108",
+      "bookOdds": "-105",
+      "fairOverUnder": "20.5",
+      "bookOverUnder": "20.5",
+      "score": 32,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-105",
+          "overUnder": "20.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-4q-ml-home": {
+      "oddID": "points-home-4q-ml-home",
+      "opposingOddID": "points-away-4q-ml-away",
+      "marketName": "4th Quarter Moneyline",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "4q",
+      "betTypeID": "ml",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+104",
+      "bookOdds": "-110",
+      "score": 10,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-110",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-4q-sp-away": {
+      "oddID": "points-away-4q-sp-away",
+      "opposingOddID": "points-home-4q-sp-home",
+      "marketName": "4th Quarter Spread",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "4q",
+      "betTypeID": "sp",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+112",
+      "bookOdds": "-105",
+      "fairSpread": "+2.5",
+      "bookSpread": "+2.5",
+      "score": 8,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-105",
+          "spread": "+2.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-game-ou-under": {
+      "oddID": "points-away-game-ou-under",
+      "opposingOddID": "points-away-game-ou-over",
+      "marketName": "Indiana Points Over/Under",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "+100",
+      "fairOverUnder": "11.5",
+      "bookOverUnder": "12.5",
+      "score": 15,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+100",
+          "overUnder": "12.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-4q-ml-away": {
+      "oddID": "points-away-4q-ml-away",
+      "opposingOddID": "points-home-4q-ml-home",
+      "marketName": "4th Quarter Moneyline",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "4q",
+      "betTypeID": "ml",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-104",
+      "bookOdds": "-120",
+      "score": 8,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-120",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-reg-ml3way-away": {
+      "oddID": "points-away-reg-ml3way-away",
+      "opposingOddID": "points-home-reg-ml3way-home+draw",
+      "marketName": "Regulation 3-Way Moneyline",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "reg",
+      "betTypeID": "ml3way",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+352",
+      "bookOdds": "+320",
+      "score": 15,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+320",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-game-sp-home": {
+      "oddID": "points-home-game-sp-home",
+      "opposingOddID": "points-away-game-sp-away",
+      "marketName": "Spread",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "game",
+      "betTypeID": "sp",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-130",
+      "bookOdds": "-156",
+      "fairSpread": "-17.5",
+      "bookSpread": "-17.5",
+      "score": 38,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unibet": {
+          "odds": "-155",
+          "spread": "-17.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "fliff": {
+          "spread": "-18.5",
+          "odds": "-120",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "leovegas": {
+          "odds": "-167",
+          "spread": "-17.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "tabtouch": {
+          "odds": "-157",
+          "spread": "-17.5",
+          "lastUpdatedAt": "2024-11-23T20:13:40.000Z"
+        },
+        "grosvenor": {
+          "odds": "-159",
+          "spread": "-17.5",
+          "lastUpdatedAt": "2024-11-23T20:13:40.000Z"
+        },
+        "casumo": {
+          "odds": "-155",
+          "spread": "-17.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "fanduel": {
+          "spread": "-17.5",
+          "lastUpdatedAt": "2024-11-23T20:12:20.000Z",
+          "odds": "+235"
+        },
+        "caesars": {
+          "odds": "-110",
+          "spread": "-16",
+          "lastUpdatedAt": "2024-11-23T20:17:22.000Z"
+        },
+        "gtbets": {
+          "spread": "-23.5",
+          "odds": "-141",
+          "lastUpdatedAt": "2024-11-23T20:24:53.000Z"
+        }
+      }
+    },
+    "points-home-reg-ml3way-home+draw": {
+      "oddID": "points-home-reg-ml3way-home+draw",
+      "opposingOddID": "points-away-reg-ml3way-away",
+      "marketName": "Regulation 3-Way Moneyline",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "reg",
+      "betTypeID": "ml3way",
+      "sideID": "home+draw",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-352",
+      "score": 38,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-352",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-2h-ml-away": {
+      "oddID": "points-away-2h-ml-away",
+      "opposingOddID": "points-home-2h-ml-home",
+      "marketName": "2nd Half Moneyline",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "2h",
+      "betTypeID": "ml",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+3593",
+      "bookOdds": "+3500",
+      "score": 8,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+3500",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-game-ou-over": {
+      "oddID": "points-home-game-ou-over",
+      "opposingOddID": "points-home-game-ou-under",
+      "marketName": "Ohio State Points Over/Under",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+450",
+      "bookOdds": "+417",
+      "fairOverUnder": "31.5",
+      "bookOverUnder": "31.5",
+      "score": 38,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+417",
+          "overUnder": "31.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-2h-ou-under": {
+      "oddID": "points-away-2h-ou-under",
+      "opposingOddID": "points-away-2h-ou-over",
+      "marketName": "Indiana 2nd Half Points Over/Under",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "2h",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-128",
+      "bookOdds": "-146",
+      "fairOverUnder": "10.5",
+      "bookOverUnder": "10.5",
+      "score": 8,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-146",
+          "overUnder": "10.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-reg-ml3way-away+draw": {
+      "oddID": "points-away-reg-ml3way-away+draw",
+      "opposingOddID": "points-home-reg-ml3way-home",
+      "marketName": "Regulation 3-Way Moneyline",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "reg",
+      "betTypeID": "ml3way",
+      "sideID": "away+draw",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+364",
+      "score": 15,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+364",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-2h-ml-home": {
+      "oddID": "points-home-2h-ml-home",
+      "opposingOddID": "points-away-2h-ml-away",
+      "marketName": "2nd Half Moneyline",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "2h",
+      "betTypeID": "ml",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-3593",
+      "bookOdds": "-50000",
+      "score": 24,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-50000",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-2h-ou-under": {
+      "oddID": "points-all-2h-ou-under",
+      "opposingOddID": "points-all-2h-ou-over",
+      "marketName": "2nd Half Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "2h",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-108",
+      "bookOdds": "-125",
+      "fairOverUnder": "20.5",
+      "bookOverUnder": "20.5",
+      "score": 32,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-125",
+          "overUnder": "20.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-4q-ou-over": {
+      "oddID": "points-all-4q-ou-over",
+      "opposingOddID": "points-all-4q-ou-under",
+      "marketName": "4th Quarter Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "4q",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-152",
+      "fairOverUnder": "6",
+      "bookOverUnder": "13.5",
+      "score": 18,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-152",
+          "overUnder": "13.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-2h-sp-away": {
+      "oddID": "points-away-2h-sp-away",
+      "opposingOddID": "points-home-2h-sp-home",
+      "marketName": "2nd Half Spread",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "2h",
+      "betTypeID": "sp",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+192",
+      "bookOdds": "+175",
+      "fairSpread": "+16.5",
+      "bookSpread": "+16.5",
+      "score": 8,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+175",
+          "spread": "+16.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-game-ou-under": {
+      "oddID": "points-home-game-ou-under",
+      "opposingOddID": "points-home-game-ou-over",
+      "marketName": "Ohio State Points Over/Under",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-450",
+      "bookOdds": "-668",
+      "fairOverUnder": "31.5",
+      "bookOverUnder": "31.5",
+      "score": 38,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-668",
+          "overUnder": "31.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-away-game-ml-away": {
+      "oddID": "points-away-game-ml-away",
+      "opposingOddID": "points-home-game-ml-home",
+      "marketName": "Moneyline",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "game",
+      "betTypeID": "ml",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+1102",
+      "bookOdds": "+1062",
+      "score": 15,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "betfairexchange": {
+          "odds": "+300",
+          "lastUpdatedAt": "2024-11-23T20:11:07.000Z"
+        },
+        "nordicbet": {
+          "odds": "+10900",
+          "lastUpdatedAt": "2024-11-23T20:17:22.000Z"
+        },
+        "betmgm": {
+          "odds": "+3300",
+          "lastUpdatedAt": "2024-11-23T20:19:55.000Z"
+        },
+        "gtbets": {
+          "odds": "+601",
+          "lastUpdatedAt": "2024-11-23T20:24:53.000Z"
+        }
+      }
+    },
+    "points-home-2h-ou-over": {
+      "oddID": "points-home-2h-ou-over",
+      "opposingOddID": "points-home-2h-ou-under",
+      "marketName": "Ohio State 2nd Half Points Over/Under",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "2h",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+110",
+      "bookOdds": "-101",
+      "fairOverUnder": "14.5",
+      "bookOverUnder": "14.5",
+      "score": 24,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-101",
+          "overUnder": "14.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-home-2h-sp-home": {
+      "oddID": "points-home-2h-sp-home",
+      "opposingOddID": "points-away-2h-sp-away",
+      "marketName": "2nd Half Spread",
+      "statID": "points",
+      "statEntityID": "home",
+      "periodID": "2h",
+      "betTypeID": "sp",
+      "sideID": "home",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-192",
+      "bookOdds": "-230",
+      "fairSpread": "-16.5",
+      "bookSpread": "-16.5",
+      "score": 24,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-230",
+          "spread": "-16.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-4q-ou-under": {
+      "oddID": "points-all-4q-ou-under",
+      "opposingOddID": "points-all-4q-ou-over",
+      "marketName": "4th Quarter Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "4q",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "+110",
+      "fairOverUnder": "6",
+      "bookOverUnder": "13.5",
+      "score": 18,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+110",
+          "overUnder": "13.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-game-ou-over": {
+      "oddID": "points-all-game-ou-over",
+      "opposingOddID": "points-all-game-ou-under",
+      "marketName": "Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+103",
+      "bookOdds": "-113",
+      "fairOverUnder": "44.5",
+      "bookOverUnder": "44.5",
+      "score": 53,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unibet": {
+          "odds": "-112",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "leovegas": {
+          "odds": "-120",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "tabtouch": {
+          "odds": "-114",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:13:40.000Z"
+        },
+        "grosvenor": {
+          "odds": "-115",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:13:40.000Z"
+        },
+        "casumo": {
+          "odds": "-112",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "gtbets": {
+          "odds": "+118",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:24:53.000Z"
+        }
+      }
+    },
+    "points-away-game-sp-away": {
+      "oddID": "points-away-game-sp-away",
+      "opposingOddID": "points-home-game-sp-home",
+      "marketName": "Spread",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "game",
+      "betTypeID": "sp",
+      "sideID": "away",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+130",
+      "bookOdds": "+114",
+      "fairSpread": "+17.5",
+      "bookSpread": "+17.5",
+      "score": 15,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unibet": {
+          "odds": "+118",
+          "spread": "+17.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "fliff": {
+          "spread": "+18.5",
+          "odds": "-120",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "leovegas": {
+          "odds": "+110",
+          "spread": "+17.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "tabtouch": {
+          "odds": "+115",
+          "spread": "+17.5",
+          "lastUpdatedAt": "2024-11-23T20:13:40.000Z"
+        },
+        "grosvenor": {
+          "odds": "+114",
+          "spread": "+17.5",
+          "lastUpdatedAt": "2024-11-23T20:13:40.000Z"
+        },
+        "casumo": {
+          "odds": "+118",
+          "spread": "+17.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "fanduel": {
+          "spread": "+17.5",
+          "lastUpdatedAt": "2024-11-23T20:12:20.000Z",
+          "odds": "-330"
+        },
+        "caesars": {
+          "odds": "-120",
+          "spread": "+16",
+          "lastUpdatedAt": "2024-11-23T20:17:22.000Z"
+        },
+        "gtbets": {
+          "spread": "+23.5",
+          "odds": "+109",
+          "lastUpdatedAt": "2024-11-23T20:24:53.000Z"
+        }
+      }
+    },
+    "points-all-game-ou-under": {
+      "oddID": "points-all-game-ou-under",
+      "opposingOddID": "points-all-game-ou-over",
+      "marketName": "Over/Under",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-103",
+      "bookOdds": "-120",
+      "fairOverUnder": "44.5",
+      "bookOverUnder": "44.5",
+      "score": 53,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unibet": {
+          "odds": "-117",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "leovegas": {
+          "odds": "-125",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "tabtouch": {
+          "odds": "-120",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:13:40.000Z"
+        },
+        "grosvenor": {
+          "odds": "-121",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:13:40.000Z"
+        },
+        "casumo": {
+          "odds": "-117",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:13:39.000Z"
+        },
+        "gtbets": {
+          "odds": "-153",
+          "overUnder": "44.5",
+          "lastUpdatedAt": "2024-11-23T20:24:53.000Z"
+        }
+      }
+    },
+    "points-away-2h-ou-over": {
+      "oddID": "points-away-2h-ou-over",
+      "opposingOddID": "points-away-2h-ou-under",
+      "marketName": "Indiana 2nd Half Points Over/Under",
+      "statID": "points",
+      "statEntityID": "away",
+      "periodID": "2h",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+128",
+      "bookOdds": "+115",
+      "fairOverUnder": "10.5",
+      "bookOverUnder": "10.5",
+      "score": 8,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+115",
+          "overUnder": "10.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "fieldGoals_made-NICOLAS_RADICIC_1_NCAAF-game-ou-under": {
+      "oddID": "fieldGoals_made-NICOLAS_RADICIC_1_NCAAF-game-ou-under",
+      "opposingOddID": "fieldGoals_made-NICOLAS_RADICIC_1_NCAAF-game-ou-over",
+      "marketName": "Nicolas Radicic Field Goals Made Over/Under",
+      "statID": "fieldGoals_made",
+      "statEntityID": "NICOLAS_RADICIC_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "NICOLAS_RADICIC_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+196",
+      "bookOdds": "+170",
+      "fairOverUnder": "0.5",
+      "bookOverUnder": "0.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+170",
+          "overUnder": "0.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-no": {
+      "oddID": "lastTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-no",
+      "opposingOddID": "lastTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-yes",
+      "marketName": "Emeka Egbuka To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-825",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-825",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "fieldGoals_made-NICOLAS_RADICIC_1_NCAAF-game-ou-over": {
+      "oddID": "fieldGoals_made-NICOLAS_RADICIC_1_NCAAF-game-ou-over",
+      "opposingOddID": "fieldGoals_made-NICOLAS_RADICIC_1_NCAAF-game-ou-under",
+      "marketName": "Nicolas Radicic Field Goals Made Over/Under",
+      "statID": "fieldGoals_made",
+      "statEntityID": "NICOLAS_RADICIC_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "NICOLAS_RADICIC_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-196",
+      "bookOdds": "-265",
+      "fairOverUnder": "0.5",
+      "bookOverUnder": "0.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-265",
+          "overUnder": "0.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_yards-OMAR_COOPER_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_yards-OMAR_COOPER_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_yards-OMAR_COOPER_1_NCAAF-game-ou-over",
+      "marketName": "Omar Cooper Receiving Yards Over/Under",
+      "statID": "receiving_yards",
+      "statEntityID": "OMAR_COOPER_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "OMAR_COOPER_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-117",
+      "fairOverUnder": "29.5",
+      "bookOverUnder": "29.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-117",
+          "overUnder": "29.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-BENNETT_CHRISTIAN_1_NCAAF-game-yn-no": {
+      "oddID": "touchdowns-BENNETT_CHRISTIAN_1_NCAAF-game-yn-no",
+      "opposingOddID": "touchdowns-BENNETT_CHRISTIAN_1_NCAAF-game-yn-yes",
+      "marketName": "Bennett Christian Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "BENNETT_CHRISTIAN_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "BENNETT_CHRISTIAN_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-660",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-660",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-NICOLAS_RADICIC_1_NCAAF-game-ou-over": {
+      "oddID": "points-NICOLAS_RADICIC_1_NCAAF-game-ou-over",
+      "opposingOddID": "points-NICOLAS_RADICIC_1_NCAAF-game-ou-under",
+      "marketName": "Nicolas Radicic Points Over/Under",
+      "statID": "points",
+      "statEntityID": "NICOLAS_RADICIC_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "NICOLAS_RADICIC_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+111",
+      "bookOdds": "-110",
+      "fairOverUnder": "5.5",
+      "bookOverUnder": "5.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-110",
+          "overUnder": "5.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "rushing_attempts-TREVEYON_HENDERSON_1_NCAAF-game-ou-under": {
+      "oddID": "rushing_attempts-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "opposingOddID": "rushing_attempts-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "marketName": "TreVeyon Henderson Rushing Attempts Over/Under",
+      "statID": "rushing_attempts",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-118",
+      "bookOdds": "-145",
+      "fairOverUnder": "9.5",
+      "bookOverUnder": "9.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-145",
+          "overUnder": "9.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-GEE_SCOTT_1_NCAAF-game-yn-yes": {
+      "oddID": "lastTouchdown-GEE_SCOTT_1_NCAAF-game-yn-yes",
+      "opposingOddID": "lastTouchdown-GEE_SCOTT_1_NCAAF-game-yn-no",
+      "marketName": "Gee Scott Jr. To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+2200",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+2200",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_longestReception-EMEKA_EGBUKA_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_longestReception-EMEKA_EGBUKA_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_longestReception-EMEKA_EGBUKA_1_NCAAF-game-ou-over",
+      "marketName": "Emeka Egbuka Longest Reception Over/Under",
+      "statID": "receiving_longestReception",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-114",
+      "fairOverUnder": "23.5",
+      "bookOverUnder": "23.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-114",
+          "overUnder": "23.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "fieldGoals_made-JAYDEN_FIELDING_1_NCAAF-game-ou-under": {
+      "oddID": "fieldGoals_made-JAYDEN_FIELDING_1_NCAAF-game-ou-under",
+      "opposingOddID": "fieldGoals_made-JAYDEN_FIELDING_1_NCAAF-game-ou-over",
+      "marketName": "Jayden Fielding Field Goals Made Over/Under",
+      "statID": "fieldGoals_made",
+      "statEntityID": "JAYDEN_FIELDING_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "JAYDEN_FIELDING_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-196",
+      "bookOdds": "-250",
+      "fairOverUnder": "1.5",
+      "bookOverUnder": "1.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-250",
+          "overUnder": "1.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_receptions-TREVEYON_HENDERSON_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_receptions-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_receptions-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "marketName": "TreVeyon Henderson Receptions Over/Under",
+      "statID": "receiving_receptions",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+112",
+      "bookOdds": "-105",
+      "fairOverUnder": "1.5",
+      "bookOverUnder": "1.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-105",
+          "overUnder": "1.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "firstTouchdown-JAMES_BOMBA_1_NCAAF-game-yn-yes": {
+      "oddID": "firstTouchdown-JAMES_BOMBA_1_NCAAF-game-yn-yes",
+      "opposingOddID": "firstTouchdown-JAMES_BOMBA_1_NCAAF-game-yn-no",
+      "marketName": "James Bomba To Record First Touchdown Yes/No",
+      "statID": "firstTouchdown",
+      "statEntityID": "JAMES_BOMBA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "JAMES_BOMBA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+4500",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+4500",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_longestReception-EMEKA_EGBUKA_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_longestReception-EMEKA_EGBUKA_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_longestReception-EMEKA_EGBUKA_1_NCAAF-game-ou-under",
+      "marketName": "Emeka Egbuka Longest Reception Over/Under",
+      "statID": "receiving_longestReception",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-114",
+      "fairOverUnder": "23.5",
+      "bookOverUnder": "23.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-114",
+          "overUnder": "23.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "rushing_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-under": {
+      "oddID": "rushing_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "opposingOddID": "rushing_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "marketName": "TreVeyon Henderson Rushing Yards Over/Under",
+      "statID": "rushing_yards",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-112",
+      "fairOverUnder": "43.5",
+      "bookOverUnder": "48.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-112",
+          "overUnder": "48.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_yards-GEE_SCOTT_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_yards-GEE_SCOTT_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_yards-GEE_SCOTT_1_NCAAF-game-ou-over",
+      "marketName": "Gee Scott Jr. Receiving Yards Over/Under",
+      "statID": "receiving_yards",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-115",
+      "fairOverUnder": "10.5",
+      "bookOverUnder": "10.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-115",
+          "overUnder": "10.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-BENNETT_CHRISTIAN_1_NCAAF-game-yn-no": {
+      "oddID": "lastTouchdown-BENNETT_CHRISTIAN_1_NCAAF-game-yn-no",
+      "opposingOddID": "lastTouchdown-BENNETT_CHRISTIAN_1_NCAAF-game-yn-yes",
+      "marketName": "Bennett Christian To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "BENNETT_CHRISTIAN_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "BENNETT_CHRISTIAN_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-JAYDEN_BALLARD_1_NCAAF-game-yn-yes": {
+      "oddID": "touchdowns-JAYDEN_BALLARD_1_NCAAF-game-yn-yes",
+      "opposingOddID": "touchdowns-JAYDEN_BALLARD_1_NCAAF-game-yn-no",
+      "marketName": "Jayden Ballard Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "JAYDEN_BALLARD_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "JAYDEN_BALLARD_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+5500",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+5500",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_longestReception-GEE_SCOTT_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_longestReception-GEE_SCOTT_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_longestReception-GEE_SCOTT_1_NCAAF-game-ou-over",
+      "marketName": "Gee Scott Jr. Longest Reception Over/Under",
+      "statID": "receiving_longestReception",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-115",
+      "fairOverUnder": "8.5",
+      "bookOverUnder": "8.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-115",
+          "overUnder": "8.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_longestReception-OMAR_COOPER_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_longestReception-OMAR_COOPER_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_longestReception-OMAR_COOPER_1_NCAAF-game-ou-under",
+      "marketName": "Omar Cooper Longest Reception Over/Under",
+      "statID": "receiving_longestReception",
+      "statEntityID": "OMAR_COOPER_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "OMAR_COOPER_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-114",
+      "fairOverUnder": "21.5",
+      "bookOverUnder": "21.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-114",
+          "overUnder": "21.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_yards-EMEKA_EGBUKA_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_yards-EMEKA_EGBUKA_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_yards-EMEKA_EGBUKA_1_NCAAF-game-ou-under",
+      "marketName": "Emeka Egbuka Receiving Yards Over/Under",
+      "statID": "receiving_yards",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-101",
+      "bookOdds": "-117",
+      "fairOverUnder": "55.5",
+      "bookOverUnder": "55.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-117",
+          "overUnder": "55.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-BENNETT_CHRISTIAN_1_NCAAF-game-yn-yes": {
+      "oddID": "touchdowns-BENNETT_CHRISTIAN_1_NCAAF-game-yn-yes",
+      "opposingOddID": "touchdowns-BENNETT_CHRISTIAN_1_NCAAF-game-yn-no",
+      "marketName": "Bennett Christian Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "BENNETT_CHRISTIAN_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "BENNETT_CHRISTIAN_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+660",
+      "bookOdds": "+600",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+600",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-yes": {
+      "oddID": "lastTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-yes",
+      "opposingOddID": "lastTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-no",
+      "marketName": "Emeka Egbuka To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+825",
+      "bookOdds": "+750",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+750",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-reg-ml3way-draw": {
+      "oddID": "points-all-reg-ml3way-draw",
+      "opposingOddID": "points-all-reg-ml3way-not_draw",
+      "marketName": "Regulation 3-Way Moneyline",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "reg",
+      "betTypeID": "ml3way",
+      "sideID": "draw",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+2000",
+      "score": 23,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+2000",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "rushing_longestRush-TREVEYON_HENDERSON_1_NCAAF-game-ou-over": {
+      "oddID": "rushing_longestRush-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "opposingOddID": "rushing_longestRush-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "marketName": "TreVeyon Henderson Longest Rush Over/Under",
+      "statID": "rushing_longestRush",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+104",
+      "bookOdds": "-115",
+      "fairOverUnder": "15.5",
+      "bookOverUnder": "15.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-115",
+          "overUnder": "15.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_yards-OMAR_COOPER_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_yards-OMAR_COOPER_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_yards-OMAR_COOPER_1_NCAAF-game-ou-under",
+      "marketName": "Omar Cooper Receiving Yards Over/Under",
+      "statID": "receiving_yards",
+      "statEntityID": "OMAR_COOPER_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "OMAR_COOPER_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-117",
+      "fairOverUnder": "29.5",
+      "bookOverUnder": "29.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-117",
+          "overUnder": "29.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-ANDISON_COBY_1_NCAAF-game-yn-yes": {
+      "oddID": "lastTouchdown-ANDISON_COBY_1_NCAAF-game-yn-yes",
+      "opposingOddID": "lastTouchdown-ANDISON_COBY_1_NCAAF-game-yn-no",
+      "marketName": "Andison Coby To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "ANDISON_COBY_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "ANDISON_COBY_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+3300",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+3300",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "rushing_longestRush-TREVEYON_HENDERSON_1_NCAAF-game-ou-under": {
+      "oddID": "rushing_longestRush-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "opposingOddID": "rushing_longestRush-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "marketName": "TreVeyon Henderson Longest Rush Over/Under",
+      "statID": "rushing_longestRush",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-104",
+      "bookOdds": "-125",
+      "fairOverUnder": "15.5",
+      "bookOverUnder": "15.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-125",
+          "overUnder": "15.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_receptions-EMEKA_EGBUKA_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_receptions-EMEKA_EGBUKA_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_receptions-EMEKA_EGBUKA_1_NCAAF-game-ou-under",
+      "marketName": "Emeka Egbuka Receptions Over/Under",
+      "statID": "receiving_receptions",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+115",
+      "bookOdds": "+100",
+      "fairOverUnder": "4.5",
+      "bookOverUnder": "4.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+100",
+          "overUnder": "4.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_receptions-EMEKA_EGBUKA_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_receptions-EMEKA_EGBUKA_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_receptions-EMEKA_EGBUKA_1_NCAAF-game-ou-over",
+      "marketName": "Emeka Egbuka Receptions Over/Under",
+      "statID": "receiving_receptions",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-115",
+      "bookOdds": "-136",
+      "fairOverUnder": "4.5",
+      "bookOverUnder": "4.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-136",
+          "overUnder": "4.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "firstTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-no": {
+      "oddID": "firstTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-no",
+      "opposingOddID": "firstTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-yes",
+      "marketName": "Emeka Egbuka To Record First Touchdown Yes/No",
+      "statID": "firstTouchdown",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-880",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-880",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_receptions-OMAR_COOPER_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_receptions-OMAR_COOPER_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_receptions-OMAR_COOPER_1_NCAAF-game-ou-over",
+      "marketName": "Omar Cooper Receptions Over/Under",
+      "statID": "receiving_receptions",
+      "statEntityID": "OMAR_COOPER_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "OMAR_COOPER_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+143",
+      "bookOdds": "+125",
+      "fairOverUnder": "1.5",
+      "bookOverUnder": "1.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+125",
+          "overUnder": "1.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_receptions-GEE_SCOTT_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_receptions-GEE_SCOTT_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_receptions-GEE_SCOTT_1_NCAAF-game-ou-over",
+      "marketName": "Gee Scott Jr. Receptions Over/Under",
+      "statID": "receiving_receptions",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-179",
+      "bookOdds": "-215",
+      "fairOverUnder": "1.5",
+      "bookOverUnder": "1.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-215",
+          "overUnder": "1.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-JAMES_BOMBA_1_NCAAF-game-yn-no": {
+      "oddID": "touchdowns-JAMES_BOMBA_1_NCAAF-game-yn-no",
+      "opposingOddID": "touchdowns-JAMES_BOMBA_1_NCAAF-game-yn-yes",
+      "marketName": "James Bomba Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "JAMES_BOMBA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "JAMES_BOMBA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-ANDISON_COBY_1_NCAAF-game-yn-no": {
+      "oddID": "touchdowns-ANDISON_COBY_1_NCAAF-game-yn-no",
+      "opposingOddID": "touchdowns-ANDISON_COBY_1_NCAAF-game-yn-yes",
+      "marketName": "Andison Coby Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "ANDISON_COBY_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "ANDISON_COBY_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-ANDISON_COBY_1_NCAAF-game-yn-no": {
+      "oddID": "lastTouchdown-ANDISON_COBY_1_NCAAF-game-yn-no",
+      "opposingOddID": "lastTouchdown-ANDISON_COBY_1_NCAAF-game-yn-yes",
+      "marketName": "Andison Coby To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "ANDISON_COBY_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "ANDISON_COBY_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "firstTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-yes": {
+      "oddID": "firstTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-yes",
+      "opposingOddID": "firstTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-no",
+      "marketName": "Jayden Ballard To Record First Touchdown Yes/No",
+      "statID": "firstTouchdown",
+      "statEntityID": "JAYDEN_BALLARD_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "JAYDEN_BALLARD_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+3000",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+3000",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-JAYDEN_FIELDING_1_NCAAF-game-ou-under": {
+      "oddID": "points-JAYDEN_FIELDING_1_NCAAF-game-ou-under",
+      "opposingOddID": "points-JAYDEN_FIELDING_1_NCAAF-game-ou-over",
+      "marketName": "Jayden Fielding Points Over/Under",
+      "statID": "points",
+      "statEntityID": "JAYDEN_FIELDING_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "JAYDEN_FIELDING_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-118",
+      "bookOdds": "-140",
+      "fairOverUnder": "7.5",
+      "bookOverUnder": "7.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-140",
+          "overUnder": "7.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-NICOLAS_RADICIC_1_NCAAF-game-ou-under": {
+      "oddID": "points-NICOLAS_RADICIC_1_NCAAF-game-ou-under",
+      "opposingOddID": "points-NICOLAS_RADICIC_1_NCAAF-game-ou-over",
+      "marketName": "Nicolas Radicic Points Over/Under",
+      "statID": "points",
+      "statEntityID": "NICOLAS_RADICIC_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "NICOLAS_RADICIC_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-111",
+      "bookOdds": "-140",
+      "fairOverUnder": "5.5",
+      "bookOverUnder": "5.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-140",
+          "overUnder": "5.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_receptions-GEE_SCOTT_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_receptions-GEE_SCOTT_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_receptions-GEE_SCOTT_1_NCAAF-game-ou-under",
+      "marketName": "Gee Scott Jr. Receptions Over/Under",
+      "statID": "receiving_receptions",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+179",
+      "bookOdds": "+162",
+      "fairOverUnder": "1.5",
+      "bookOverUnder": "1.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+162",
+          "overUnder": "1.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-EMEKA_EGBUKA_1_NCAAF-game-yn-yes": {
+      "oddID": "touchdowns-EMEKA_EGBUKA_1_NCAAF-game-yn-yes",
+      "opposingOddID": "touchdowns-EMEKA_EGBUKA_1_NCAAF-game-yn-no",
+      "marketName": "Emeka Egbuka Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+137",
+      "bookOdds": "+125",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+125",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-BENNETT_CHRISTIAN_1_NCAAF-game-yn-yes": {
+      "oddID": "lastTouchdown-BENNETT_CHRISTIAN_1_NCAAF-game-yn-yes",
+      "opposingOddID": "lastTouchdown-BENNETT_CHRISTIAN_1_NCAAF-game-yn-no",
+      "marketName": "Bennett Christian To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "BENNETT_CHRISTIAN_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "BENNETT_CHRISTIAN_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+2200",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+2200",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_longestReception-GEE_SCOTT_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_longestReception-GEE_SCOTT_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_longestReception-GEE_SCOTT_1_NCAAF-game-ou-under",
+      "marketName": "Gee Scott Jr. Longest Reception Over/Under",
+      "statID": "receiving_longestReception",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-115",
+      "fairOverUnder": "8.5",
+      "bookOverUnder": "8.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-115",
+          "overUnder": "8.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_yards-EMEKA_EGBUKA_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_yards-EMEKA_EGBUKA_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_yards-EMEKA_EGBUKA_1_NCAAF-game-ou-over",
+      "marketName": "Emeka Egbuka Receiving Yards Over/Under",
+      "statID": "receiving_yards",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+101",
+      "bookOdds": "-115",
+      "fairOverUnder": "55.5",
+      "bookOverUnder": "55.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-115",
+          "overUnder": "55.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-TREVEYON_HENDERSON_1_NCAAF-game-yn-no": {
+      "oddID": "touchdowns-TREVEYON_HENDERSON_1_NCAAF-game-yn-no",
+      "opposingOddID": "touchdowns-TREVEYON_HENDERSON_1_NCAAF-game-yn-yes",
+      "marketName": "TreVeyon Henderson Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-143",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-143",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "fieldGoals_made-JAYDEN_FIELDING_1_NCAAF-game-ou-over": {
+      "oddID": "fieldGoals_made-JAYDEN_FIELDING_1_NCAAF-game-ou-over",
+      "opposingOddID": "fieldGoals_made-JAYDEN_FIELDING_1_NCAAF-game-ou-under",
+      "marketName": "Jayden Fielding Field Goals Made Over/Under",
+      "statID": "fieldGoals_made",
+      "statEntityID": "JAYDEN_FIELDING_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "JAYDEN_FIELDING_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+196",
+      "bookOdds": "+175",
+      "fairOverUnder": "1.5",
+      "bookOverUnder": "1.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+175",
+          "overUnder": "1.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "firstTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-yes": {
+      "oddID": "firstTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-yes",
+      "opposingOddID": "firstTouchdown-EMEKA_EGBUKA_1_NCAAF-game-yn-no",
+      "marketName": "Emeka Egbuka To Record First Touchdown Yes/No",
+      "statID": "firstTouchdown",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+880",
+      "bookOdds": "+800",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+800",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-JAYDEN_BALLARD_1_NCAAF-game-yn-no": {
+      "oddID": "touchdowns-JAYDEN_BALLARD_1_NCAAF-game-yn-no",
+      "opposingOddID": "touchdowns-JAYDEN_BALLARD_1_NCAAF-game-yn-yes",
+      "marketName": "Jayden Ballard Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "JAYDEN_BALLARD_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "JAYDEN_BALLARD_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_longestReception-TREVEYON_HENDERSON_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_longestReception-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_longestReception-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "marketName": "TreVeyon Henderson Longest Reception Over/Under",
+      "statID": "receiving_longestReception",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-104",
+      "bookOdds": "-125",
+      "fairOverUnder": "8.5",
+      "bookOverUnder": "8.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-125",
+          "overUnder": "8.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-GEE_SCOTT_1_NCAAF-game-yn-no": {
+      "oddID": "touchdowns-GEE_SCOTT_1_NCAAF-game-yn-no",
+      "opposingOddID": "touchdowns-GEE_SCOTT_1_NCAAF-game-yn-yes",
+      "marketName": "Gee Scott Jr. Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-SAM_WEST_1_NCAAF-game-yn-yes": {
+      "oddID": "touchdowns-SAM_WEST_1_NCAAF-game-yn-yes",
+      "opposingOddID": "touchdowns-SAM_WEST_1_NCAAF-game-yn-no",
+      "marketName": "Sam West Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "SAM_WEST_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "SAM_WEST_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+605",
+      "bookOdds": "+550",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+550",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_longestReception-OMAR_COOPER_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_longestReception-OMAR_COOPER_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_longestReception-OMAR_COOPER_1_NCAAF-game-ou-over",
+      "marketName": "Omar Cooper Longest Reception Over/Under",
+      "statID": "receiving_longestReception",
+      "statEntityID": "OMAR_COOPER_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "OMAR_COOPER_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-114",
+      "fairOverUnder": "21.5",
+      "bookOverUnder": "21.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-114",
+          "overUnder": "21.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "firstTouchdown-GEE_SCOTT_1_NCAAF-game-yn-no": {
+      "oddID": "firstTouchdown-GEE_SCOTT_1_NCAAF-game-yn-no",
+      "opposingOddID": "firstTouchdown-GEE_SCOTT_1_NCAAF-game-yn-yes",
+      "marketName": "Gee Scott Jr. To Record First Touchdown Yes/No",
+      "statID": "firstTouchdown",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-all-reg-ml3way-not_draw": {
+      "oddID": "points-all-reg-ml3way-not_draw",
+      "opposingOddID": "points-all-reg-ml3way-draw",
+      "marketName": "Regulation 3-Way Moneyline",
+      "statID": "points",
+      "statEntityID": "all",
+      "periodID": "reg",
+      "betTypeID": "ml3way",
+      "sideID": "not_draw",
+      "started": true,
+      "ended": true,
+      "cancelled": false,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "score": 23,
+      "scoringSupported": true,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_yards-GEE_SCOTT_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_yards-GEE_SCOTT_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_yards-GEE_SCOTT_1_NCAAF-game-ou-under",
+      "marketName": "Gee Scott Jr. Receiving Yards Over/Under",
+      "statID": "receiving_yards",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-115",
+      "fairOverUnder": "10.5",
+      "bookOverUnder": "10.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-115",
+          "overUnder": "10.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "firstTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-yes": {
+      "oddID": "firstTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-yes",
+      "opposingOddID": "firstTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-no",
+      "marketName": "TreVeyon Henderson To Record First Touchdown Yes/No",
+      "statID": "firstTouchdown",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+715",
+      "bookOdds": "+650",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+650",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-GEE_SCOTT_1_NCAAF-game-yn-yes": {
+      "oddID": "touchdowns-GEE_SCOTT_1_NCAAF-game-yn-yes",
+      "opposingOddID": "touchdowns-GEE_SCOTT_1_NCAAF-game-yn-no",
+      "marketName": "Gee Scott Jr. Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+4500",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+4500",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "marketName": "TreVeyon Henderson Receiving Yards Over/Under",
+      "statID": "receiving_yards",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-115",
+      "fairOverUnder": "6.5",
+      "bookOverUnder": "8.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-115",
+          "overUnder": "8.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-GEE_SCOTT_1_NCAAF-game-yn-no": {
+      "oddID": "lastTouchdown-GEE_SCOTT_1_NCAAF-game-yn-no",
+      "opposingOddID": "lastTouchdown-GEE_SCOTT_1_NCAAF-game-yn-yes",
+      "marketName": "Gee Scott Jr. To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-no": {
+      "oddID": "lastTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-no",
+      "opposingOddID": "lastTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-yes",
+      "marketName": "TreVeyon Henderson To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-715",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-715",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "rushing_attempts-TREVEYON_HENDERSON_1_NCAAF-game-ou-over": {
+      "oddID": "rushing_attempts-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "opposingOddID": "rushing_attempts-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "marketName": "TreVeyon Henderson Rushing Attempts Over/Under",
+      "statID": "rushing_attempts",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+118",
+      "bookOdds": "+100",
+      "fairOverUnder": "9.5",
+      "bookOverUnder": "9.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+100",
+          "overUnder": "9.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-ANDISON_COBY_1_NCAAF-game-yn-yes": {
+      "oddID": "touchdowns-ANDISON_COBY_1_NCAAF-game-yn-yes",
+      "opposingOddID": "touchdowns-ANDISON_COBY_1_NCAAF-game-yn-no",
+      "marketName": "Andison Coby Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "ANDISON_COBY_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "ANDISON_COBY_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+1200",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+1200",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-JAMES_BOMBA_1_NCAAF-game-yn-yes": {
+      "oddID": "touchdowns-JAMES_BOMBA_1_NCAAF-game-yn-yes",
+      "opposingOddID": "touchdowns-JAMES_BOMBA_1_NCAAF-game-yn-no",
+      "marketName": "James Bomba Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "JAMES_BOMBA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "JAMES_BOMBA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+2500",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+2500",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_receptions-OMAR_COOPER_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_receptions-OMAR_COOPER_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_receptions-OMAR_COOPER_1_NCAAF-game-ou-under",
+      "marketName": "Omar Cooper Receptions Over/Under",
+      "statID": "receiving_receptions",
+      "statEntityID": "OMAR_COOPER_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "OMAR_COOPER_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-143",
+      "bookOdds": "-175",
+      "fairOverUnder": "1.5",
+      "bookOverUnder": "1.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-175",
+          "overUnder": "1.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "firstTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-no": {
+      "oddID": "firstTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-no",
+      "opposingOddID": "firstTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-yes",
+      "marketName": "TreVeyon Henderson To Record First Touchdown Yes/No",
+      "statID": "firstTouchdown",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-715",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-715",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-yes": {
+      "oddID": "lastTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-yes",
+      "opposingOddID": "lastTouchdown-TREVEYON_HENDERSON_1_NCAAF-game-yn-no",
+      "marketName": "TreVeyon Henderson To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+715",
+      "bookOdds": "+650",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+650",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "marketName": "TreVeyon Henderson Receiving Yards Over/Under",
+      "statID": "receiving_yards",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-112",
+      "fairOverUnder": "6.5",
+      "bookOverUnder": "8.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-112",
+          "overUnder": "8.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "firstTouchdown-GEE_SCOTT_1_NCAAF-game-yn-yes": {
+      "oddID": "firstTouchdown-GEE_SCOTT_1_NCAAF-game-yn-yes",
+      "opposingOddID": "firstTouchdown-GEE_SCOTT_1_NCAAF-game-yn-no",
+      "marketName": "Gee Scott Jr. To Record First Touchdown Yes/No",
+      "statID": "firstTouchdown",
+      "statEntityID": "GEE_SCOTT_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "GEE_SCOTT_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+2500",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+2500",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-EMEKA_EGBUKA_1_NCAAF-game-yn-no": {
+      "oddID": "touchdowns-EMEKA_EGBUKA_1_NCAAF-game-yn-no",
+      "opposingOddID": "touchdowns-EMEKA_EGBUKA_1_NCAAF-game-yn-yes",
+      "marketName": "Emeka Egbuka Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "EMEKA_EGBUKA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "EMEKA_EGBUKA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-137",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-137",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_longestReception-TREVEYON_HENDERSON_1_NCAAF-game-ou-over": {
+      "oddID": "receiving_longestReception-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "opposingOddID": "receiving_longestReception-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "marketName": "TreVeyon Henderson Longest Reception Over/Under",
+      "statID": "receiving_longestReception",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+104",
+      "bookOdds": "-115",
+      "fairOverUnder": "8.5",
+      "bookOverUnder": "8.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-115",
+          "overUnder": "8.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-TREVEYON_HENDERSON_1_NCAAF-game-yn-yes": {
+      "oddID": "touchdowns-TREVEYON_HENDERSON_1_NCAAF-game-yn-yes",
+      "opposingOddID": "touchdowns-TREVEYON_HENDERSON_1_NCAAF-game-yn-no",
+      "marketName": "TreVeyon Henderson Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+143",
+      "bookOdds": "+130",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+130",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-no": {
+      "oddID": "lastTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-no",
+      "opposingOddID": "lastTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-yes",
+      "marketName": "Jayden Ballard To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "JAYDEN_BALLARD_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "JAYDEN_BALLARD_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "lastTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-yes": {
+      "oddID": "lastTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-yes",
+      "opposingOddID": "lastTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-no",
+      "marketName": "Jayden Ballard To Record Last Touchdown Yes/No",
+      "statID": "lastTouchdown",
+      "statEntityID": "JAYDEN_BALLARD_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "yes",
+      "playerID": "JAYDEN_BALLARD_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "bookOdds": "+3300",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+3300",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "receiving_receptions-TREVEYON_HENDERSON_1_NCAAF-game-ou-under": {
+      "oddID": "receiving_receptions-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "opposingOddID": "receiving_receptions-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "marketName": "TreVeyon Henderson Receptions Over/Under",
+      "statID": "receiving_receptions",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "under",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-112",
+      "bookOdds": "-135",
+      "fairOverUnder": "1.5",
+      "bookOverUnder": "1.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-135",
+          "overUnder": "1.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "points-JAYDEN_FIELDING_1_NCAAF-game-ou-over": {
+      "oddID": "points-JAYDEN_FIELDING_1_NCAAF-game-ou-over",
+      "opposingOddID": "points-JAYDEN_FIELDING_1_NCAAF-game-ou-under",
+      "marketName": "Jayden Fielding Points Over/Under",
+      "statID": "points",
+      "statEntityID": "JAYDEN_FIELDING_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "JAYDEN_FIELDING_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+118",
+      "bookOdds": "+103",
+      "fairOverUnder": "7.5",
+      "bookOverUnder": "7.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "+103",
+          "overUnder": "7.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "touchdowns-SAM_WEST_1_NCAAF-game-yn-no": {
+      "oddID": "touchdowns-SAM_WEST_1_NCAAF-game-yn-no",
+      "opposingOddID": "touchdowns-SAM_WEST_1_NCAAF-game-yn-yes",
+      "marketName": "Sam West Any Touchdowns Yes/No",
+      "statID": "touchdowns",
+      "statEntityID": "SAM_WEST_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "SAM_WEST_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "-605",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-605",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "firstTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-no": {
+      "oddID": "firstTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-no",
+      "opposingOddID": "firstTouchdown-JAYDEN_BALLARD_1_NCAAF-game-yn-yes",
+      "marketName": "Jayden Ballard To Record First Touchdown Yes/No",
+      "statID": "firstTouchdown",
+      "statEntityID": "JAYDEN_BALLARD_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "JAYDEN_BALLARD_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "firstTouchdown-JAMES_BOMBA_1_NCAAF-game-yn-no": {
+      "oddID": "firstTouchdown-JAMES_BOMBA_1_NCAAF-game-yn-no",
+      "opposingOddID": "firstTouchdown-JAMES_BOMBA_1_NCAAF-game-yn-yes",
+      "marketName": "James Bomba To Record First Touchdown Yes/No",
+      "statID": "firstTouchdown",
+      "statEntityID": "JAMES_BOMBA_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "yn",
+      "sideID": "no",
+      "playerID": "JAMES_BOMBA_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    },
+    "rushing_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-over": {
+      "oddID": "rushing_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-over",
+      "opposingOddID": "rushing_yards-TREVEYON_HENDERSON_1_NCAAF-game-ou-under",
+      "marketName": "TreVeyon Henderson Rushing Yards Over/Under",
+      "statID": "rushing_yards",
+      "statEntityID": "TREVEYON_HENDERSON_1_NCAAF",
+      "periodID": "game",
+      "betTypeID": "ou",
+      "sideID": "over",
+      "playerID": "TREVEYON_HENDERSON_1_NCAAF",
+      "started": true,
+      "ended": true,
+      "cancelled": true,
+      "bookOddsAvailable": false,
+      "fairOddsAvailable": false,
+      "fairOdds": "+100",
+      "bookOdds": "-118",
+      "fairOverUnder": "43.5",
+      "bookOverUnder": "48.5",
+      "scoringSupported": false,
+      "byBookmaker": {
+        "unknown": {
+          "bookmakerID": "unknown",
+          "odds": "-118",
+          "overUnder": "48.5",
+          "available": false,
+          "isMainLine": true,
+          "lastUpdatedAt": "2025-01-31T12:25:16.489Z"
+        }
+      }
+    }
+  },
+  "results": {
+    "1q": {
+      "home": {
+        "points": 0
+      },
+      "away": {
+        "points": 7
+      }
+    },
+    "2q": {
+      "away": {
+        "points": 0
+      },
+      "home": {
+        "points": 14
+      }
+    },
+    "3q": {
+      "away": {
+        "points": 0
+      },
+      "home": {
+        "points": 14
+      }
+    },
+    "game": {
+      "away": {
+        "points": 15
+      },
+      "home": {
+        "points": 38
+      }
+    },
+    "4q": {
+      "away": {
+        "points": 8
+      },
+      "home": {
+        "points": 10
+      }
+    },
+    "reg": {
+      "home": {
+        "points": 38
+      },
+      "away": {
+        "points": 15
+      }
+    }
+  },
+  "status": {
+    "hardStart": true,
+    "delayed": false,
+    "cancelled": false,
+    "startsAt": "2024-11-23T17:00:00.000Z",
+    "started": true,
+    "displayShort": "F",
+    "completed": true,
+    "displayLong": "Final",
+    "ended": true,
+    "periods": {
+      "started": [
+        "1q",
+        "2q",
+        "3q",
+        "4q",
+        "ot",
+        "1h",
+        "game",
+        "reg"
+      ],
+      "ended": [
+        "1q",
+        "2q",
+        "3q",
+        "4q",
+        "ot",
+        "1h",
+        "game",
+        "reg"
+      ]
+    },
+    "live": false,
+    "finalized": true,
+    "currentPeriodID": "",
+    "previousPeriodID": "",
+    "oddsPresent": true,
+    "oddsAvailable": false
+  }
+}

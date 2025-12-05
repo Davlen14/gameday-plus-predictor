@@ -221,6 +221,10 @@ class ComprehensiveTeamStats:
     # Season context
     games_played: int
     conference: str
+    
+    # Ratings data
+    elo_rating: float = 1500
+    fpi_rating: float = 0.0
 
 @dataclass
 class CoachingMetrics:
@@ -1278,7 +1282,7 @@ class LightningPredictor:
     def __init__(self, api_key: str):
         self.api_key = api_key
         self.base_url = "https://graphql.collegefootballdata.com/v1/graphql"
-        self.current_week = 8
+        self.current_week = 15
         self.current_year = 2025
         
         # Dixon-Coles decay parameter (tuned via cross-validation)
@@ -1317,8 +1321,8 @@ class LightningPredictor:
     def _load_all_static_data(self) -> Dict:
         """Load all static JSON data files for comprehensive team analysis"""
         try:
-            # Base path for data files (week_14 for most stats)
-            base_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_14')
+            # Base path for data files (week_15 for most stats)
+            base_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_15')
             # Coaching data path (load from main data folder for latest updates)
             coaching_base_path = os.path.join(os.path.dirname(__file__), 'data')
             
@@ -1356,11 +1360,11 @@ class LightningPredictor:
             with open(os.path.join(base_path, 'team_season_summaries_clean.json'), 'r') as f:
                 season_summaries = json.load(f)
             
-            # Load elite coaching data with vs ranked stats (from main data folder for latest updates)
-            coaches_path = os.path.join(coaching_base_path, 'coaches_with_vsranked_stats.json')
+            # Load elite coaching data with ADVANCED RANKINGS (talent context, trends, big game performance)
+            coaches_path = os.path.join(coaching_base_path, 'coaches_advanced_rankings.json')
             with open(coaches_path, 'r') as f:
                 coaches_data = json.load(f)
-            print(f"✅ Loaded coaching data from: {coaches_path}")
+            print(f"✅ Loaded ADVANCED coaching rankings from: {coaches_path}")
             
             # ENHANCED DATA LOADING - New files for improved accuracy
             
@@ -1379,23 +1383,25 @@ class LightningPredictor:
             # Load backtesting data if available for enhanced calibration
             backtesting_data = {}
             try:
-                # Use weekly_updates/week_14 comprehensive ratings
-                backtesting_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_14')
-                ratings_file = 'all_fbs_ratings_comprehensive_2025_20251125_021912.json'
+                # Use weekly_updates/week_15 comprehensive ratings
+                backtesting_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_15')
+                ratings_file = 'all_fbs_ratings_comprehensive_2025_20251203_054653.json'
                 
                 ratings_path = os.path.join(backtesting_path, ratings_file)
                 if os.path.exists(ratings_path):
                     with open(ratings_path, 'r') as f:
                         backtesting_data = json.load(f)
-                    print(f"✅ Loaded Week 14 ratings data from {ratings_file}")
+                    print(f"✅ Loaded Week 15 ratings data from {ratings_file}")
                 else:
-                    print(f"⚠️  Week 14 ratings file not found at {ratings_path}")
+                    print(f"⚠️  Week 15 ratings file not found at {ratings_path}")
             except Exception as e:
-                print(f"⚠️  Week 14 ratings data not found - using standard calibration: {e}")
+                print(f"⚠️  Week 15 ratings data not found - using standard calibration: {e}")
             
             # Process and organize data
+            processed_backtesting = self._process_backtesting_data(backtesting_data)
+            
             return {
-                'team_stats': self._process_team_stats(fbs_stats),
+                'team_stats': self._process_team_stats(fbs_stats, processed_backtesting),
                 'efficiency': power5_efficiency,
                 'drives': self._process_drive_data(drive_data),
                 'historical_probs': historical_probs,
@@ -1411,7 +1417,7 @@ class LightningPredictor:
                 'power5_teams_drives': self._process_team_drives(power5_teams_drives),
                 'structured_offensive': self._process_structured_offensive(structured_offensive_stats),
                 'structured_defensive': self._process_structured_defensive(structured_defensive_stats),
-                'backtesting_ratings': self._process_backtesting_data(backtesting_data)
+                'backtesting_ratings': processed_backtesting
             }
         except Exception as e:
             print(f"⚠️  Warning: Could not load static data files: {e}")
@@ -1523,13 +1529,21 @@ class LightningPredictor:
         
         return weights
 
-    def _process_team_stats(self, fbs_stats: List[Dict]) -> Dict[str, ComprehensiveTeamStats]:
+    def _process_team_stats(self, fbs_stats: List[Dict], backtesting_ratings: Dict = None) -> Dict[str, ComprehensiveTeamStats]:
         """Process FBS team stats into comprehensive team objects"""
         processed_stats = {}
+        
+        if backtesting_ratings is None:
+            backtesting_ratings = {}
         
         for team_data in fbs_stats:
             team_name = team_data['team']
             stats = team_data['stats']
+            
+            # Get ratings data for this team
+            team_ratings = backtesting_ratings.get(team_name, {})
+            team_elo = team_ratings.get('elo', 1500)
+            team_fpi = team_ratings.get('fpi', 0.0)
             
             # Calculate derived metrics
             third_down_pct = stats.get('thirdDownConversions', 0) / max(stats.get('thirdDowns', 1), 1)
@@ -1726,7 +1740,11 @@ class LightningPredictor:
                 
                 # Season context
                 games_played=stats.get('games', 0),
-                conference=team_data.get('conference', '')
+                conference=team_data.get('conference', ''),
+                
+                # Ratings from backtesting data
+                elo_rating=team_elo,
+                fpi_rating=team_fpi
             )
         
         return processed_stats
@@ -2667,7 +2685,7 @@ class LightningPredictor:
         """Single game prediction using one GraphQL call"""
 
         query = """
-        query GamePredictorEnhanced($homeTeamId: Int!, $awayTeamId: Int!, $currentYear: smallint = 2025, $currentYearInt: Int = 2025, $currentWeek: smallint = 8) {
+        query GamePredictorEnhanced($homeTeamId: Int!, $awayTeamId: Int!, $currentYear: smallint = 2025, $currentYearInt: Int = 2025, $currentWeek: smallint = 15) {
             # Current season team metrics (ENHANCED with all available fields)
             homeTeamMetrics: adjustedTeamMetrics(where: {teamId: {_eq: $homeTeamId}, year: {_eq: $currentYear}}) {
                 epa epaAllowed explosiveness explosivenessAllowed success successAllowed
@@ -2781,6 +2799,10 @@ class LightningPredictor:
                     windGust
                     snowfall
                 }
+                mediaInfo {
+                    mediaType
+                    name
+                }
             }
             
             # 4. Legacy weather data fallback - get recent weather data
@@ -2828,6 +2850,10 @@ class LightningPredictor:
                 week: {_eq: $currentWeek}
             }) {
                 id homeTeam awayTeam startDate
+                mediaInfo {
+                    mediaType
+                    name
+                }
             }
         }
         """
@@ -3385,7 +3411,7 @@ class LightningPredictor:
         print(f"   Contextual Factors ({self.WEIGHTS['contextual_factors']:.0%}): {contextual_score * self.WEIGHTS['contextual_factors']:.3f}")
         print(f"\n   🎯 RAW DIFFERENTIAL: {raw_differential:.3f}")
 
-        # Week 8 specific adjustments
+        # Current week adjustments
         home_field_advantage = 2.5  # Standard 2.5 point home field
         conference_game_bonus = self._check_conference_rivalry(data)
         
@@ -3401,7 +3427,7 @@ class LightningPredictor:
         weather_penalty = self._calculate_enhanced_weather_impact(weather_data)
         trend_differential = home_metrics.season_trend - away_metrics.season_trend
 
-        # Apply Week 8 adjustments
+        # Apply current week adjustments
         adjusted_differential = (
             raw_differential +
             home_field_advantage +
@@ -3482,7 +3508,7 @@ class LightningPredictor:
         # Apply enhancement to the differential
         adjusted_differential += enhancement_factor
 
-        # Apply situational modifiers for Week 8 context
+        # Apply situational modifiers for current week context
         adjusted_differential = self._apply_situational_modifiers(adjusted_differential, data)
 
         print(f"   🏠 Home Field Advantage: +{home_field_advantage:.1f}")
@@ -3559,7 +3585,8 @@ class LightningPredictor:
         
         # MARKET VALIDATION: Check if prediction is significantly off from consensus
         if market_lines and len(market_lines) > 0:
-            avg_market_spread = sum([line.get('spread', 0) for line in market_lines]) / len(market_lines)
+            valid_spreads = [line.get('spread') for line in market_lines if line.get('spread') is not None]
+            avg_market_spread = sum(valid_spreads) / len(valid_spreads) if valid_spreads else 0
             spread_difference = abs(predicted_spread - avg_market_spread)
             
             if spread_difference > 15:
@@ -4202,7 +4229,19 @@ class LightningPredictor:
                 "quarterbacks_analyzed": len(player_data.get('qbs', [])),
                 "running_backs_analyzed": len(player_data.get('rbs', [])),
                 "wide_receivers_analyzed": len(player_data.get('wrs', [])),
-                "defensive_backs_analyzed": len(player_data.get('dbs', []))
+                "tight_ends_analyzed": len(player_data.get('tes', [])),
+                "defensive_backs_analyzed": len(player_data.get('dbs', [])),
+                "linebackers_analyzed": len(player_data.get('lbs', [])),
+                "defensive_linemen_analyzed": len(player_data.get('dls', [])),
+                "total_players_analyzed": sum([
+                    len(player_data.get('qbs', [])),
+                    len(player_data.get('rbs', [])),
+                    len(player_data.get('wrs', [])),
+                    len(player_data.get('tes', [])),
+                    len(player_data.get('dbs', [])),
+                    len(player_data.get('lbs', [])),
+                    len(player_data.get('dls', []))
+                ])
             }
         }
         
@@ -4215,13 +4254,24 @@ class LightningPredictor:
         
         player_data = {}
         json_files = {
-            'qbs': 'weekly_updates/week_14/comprehensive_qb_analysis_2025_20251125_022527.json',
+            'qbs': 'weekly_updates/week_15/comprehensive_qb_analysis_2025_20251201_110305.json',
             'rbs': 'player_metrics/rb/comprehensive_rb_analysis_2025_20251125_023445.json', 
             'wrs': 'player_metrics/wr/comprehensive_wr_analysis_2025_20251125_135657.json',
             'tes': 'player_metrics/te/comprehensive_te_analysis_2025_20251125_135843.json',
             'dbs': 'player_metrics/db/comprehensive_db_analysis_2025_20251125_140358.json',
             'lbs': 'player_metrics/lb/comprehensive_lb_analysis_2025_20251125_140138.json',
             'dls': 'player_metrics/dl/comprehensive_dl_analysis_2025_20251125_140201.json'
+        }
+        
+        # Map of correct JSON keys for each position
+        json_keys = {
+            'qbs': 'quarterbacks',
+            'rbs': 'running_backs',
+            'wrs': 'all_wrs',
+            'tes': 'all_tes',
+            'dbs': 'dbs',
+            'lbs': 'lbs',
+            'dls': 'all_dls'
         }
         
         # Try to load actual data files first
@@ -4231,20 +4281,7 @@ class LightningPredictor:
                 if os.path.exists(file_path):
                     with open(file_path, 'r') as f:
                         data = json.load(f)
-                        if position == 'qbs':
-                            player_data[position] = data.get('quarterbacks', [])
-                        elif position == 'rbs':
-                            player_data[position] = data.get('running_backs', [])
-                        elif position == 'wrs':
-                            player_data[position] = data.get('all_wrs', [])
-                        elif position == 'tes':
-                            player_data[position] = data.get('tight_ends', [])
-                        elif position == 'dbs':
-                            player_data[position] = data.get('dbs', [])
-                        elif position == 'lbs':
-                            player_data[position] = data.get('linebackers', [])
-                        elif position == 'dls':
-                            player_data[position] = data.get('defensive_linemen', [])
+                        player_data[position] = data.get(json_keys[position], [])
                         files_loaded += 1
                 else:
                     player_data[position] = []
@@ -4467,11 +4504,11 @@ class LightningPredictor:
                 dl['position_type'] = 'DL'
                 team_players['defense'].append(dl)
         
-        # Sort players by efficiency
-        team_players['rbs'].sort(key=lambda x: x.get('efficiency_metrics', {}).get('comprehensive_efficiency_score', 0), reverse=True)
-        team_players['wrs'].sort(key=lambda x: x.get('efficiency_metrics', {}).get('comprehensive_efficiency_score', 0), reverse=True)
-        team_players['tes'].sort(key=lambda x: x.get('efficiency_metrics', {}).get('comprehensive_efficiency_score', 0), reverse=True)
-        team_players['defense'].sort(key=lambda x: x.get('efficiency_metrics', {}).get('comprehensive_efficiency_score', 0), reverse=True)
+        # Sort players by efficiency (QBs use nested efficiency_metrics, others use root level comprehensive_efficiency_score)
+        team_players['rbs'].sort(key=lambda x: x.get('comprehensive_efficiency_score', x.get('efficiency_metrics', {}).get('comprehensive_efficiency_score', 0)), reverse=True)
+        team_players['wrs'].sort(key=lambda x: x.get('comprehensive_efficiency_score', x.get('efficiency_metrics', {}).get('comprehensive_efficiency_score', 0)), reverse=True)
+        team_players['tes'].sort(key=lambda x: x.get('comprehensive_efficiency_score', x.get('efficiency_metrics', {}).get('comprehensive_efficiency_score', 0)), reverse=True)
+        team_players['defense'].sort(key=lambda x: x.get('comprehensive_efficiency_score', x.get('efficiency_metrics', {}).get('comprehensive_efficiency_score', 0)), reverse=True)
         
         return team_players
     
@@ -4799,11 +4836,11 @@ class LightningPredictor:
                 
         for game in away_games:
             week = game.get('week')
-            if week and week <= 8:
+            if week and week < self.current_week:
                 away_played_weeks.add(week)
         
-        # Expected weeks through Week 8
-        expected_weeks = {1, 2, 3, 4, 5, 6, 7}  # Week 8 is current game
+        # Expected weeks through current week
+        expected_weeks = set(range(1, self.current_week))  # Current week is the game being predicted
         
         # Find bye weeks
         home_bye_weeks = expected_weeks - home_played_weeks
@@ -4812,14 +4849,17 @@ class LightningPredictor:
         # Calculate bye week advantage
         bye_advantage = 0.0
         
-        # Recent bye week (Week 6) = maximum advantage
-        if 6 in home_bye_weeks:
-            bye_advantage += 3.0  # Coming off bye week
-        if 6 in away_bye_weeks:
-            bye_advantage -= 3.0  # Opponent coming off bye week
+        # Recent bye week (previous week or 2 weeks ago) = maximum advantage
+        recent_bye_threshold = self.current_week - 2
+        for bye_week in home_bye_weeks:
+            if bye_week >= recent_bye_threshold:
+                bye_advantage += 3.0  # Coming off recent bye week
+        for bye_week in away_bye_weeks:
+            if bye_week >= recent_bye_threshold:
+                bye_advantage -= 3.0  # Opponent coming off recent bye week
             
         # Earlier bye weeks = less advantage but still matters
-        early_home_byes = home_bye_weeks - {6}
+        early_home_byes = {w for w in home_bye_weeks if w < recent_bye_threshold}
         early_away_byes = away_bye_weeks - {6}
         
         if early_home_byes:
@@ -4866,8 +4906,8 @@ class LightningPredictor:
         return 0.0
 
     def _check_bye_week_advantage(self, data: Dict) -> float:
-        """Check for bye week advantage (enhanced Week 8 analysis)"""
-        # Enhanced bye week detection for Week 8
+        """Check for bye week advantage (dynamic week analysis)"""
+        # Enhanced bye week detection for current week
         home_games = data.get('homeSeasonGames', [])
         away_games = data.get('awaySeasonGames', [])
         
@@ -4875,15 +4915,16 @@ class LightningPredictor:
         away_bye_advantage = 0
         
         # Check if either team has fewer than expected games (indicating bye week)
-        if len(home_games) < 7:  # Expected 7 games by Week 8
+        expected_games = self.current_week - 1  # Games played before current week
+        if len(home_games) < expected_games:
             home_bye_advantage = 1.5  # Bye week rest advantage
-        if len(away_games) < 6:
+        if len(away_games) < expected_games:
             away_bye_advantage = 1.5
             
         return home_bye_advantage - away_bye_advantage
 
     def _apply_situational_modifiers(self, differential: float, data: Dict) -> float:
-        """Apply Week 8 specific situational modifiers"""
+        """Apply current week situational modifiers"""
         
         # Rivalry game detection and impact
         if self._is_rivalry_game(data):
@@ -4938,7 +4979,7 @@ class LightningPredictor:
 
     def _assess_conference_stakes(self, data: Dict) -> float:
         """Assess conference championship implications"""
-        # Week 8 = critical conference games in full swing
+        # Mid-to-late season = critical conference games in full swing
         if self._check_conference_rivalry(data) > 0:
             home_games = data.get('homeSeasonGames', [])
             away_games = data.get('awaySeasonGames', [])

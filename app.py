@@ -12,6 +12,7 @@ from real_data_props_generator import RealDataPlayerPropsEngine
 from dataclasses import asdict
 from rivalry_config import is_rivalry_game, get_rivalry_info
 from batch_rivalry_analyzer import BatchRivalryAnalyzer
+from espn_player_service import ESPNPlayerService
 
 app = Flask(__name__)
 # Configure CORS - allow same origin and local development
@@ -310,6 +311,32 @@ def calculate_differential_strength(prediction, details):
     
     return min(15, max(0, strength))
 
+def enrich_players_with_headshots(player_analysis, home_team, away_team):
+    """
+    Enrich player data with ESPN headshot URLs
+    """
+    try:
+        espn = get_espn_service()
+        
+        # Get home and away player groups
+        home_players = player_analysis.get('home_players', {})
+        away_players = player_analysis.get('away_players', {})
+        
+        # Enrich home team players
+        if home_players:
+            espn.enrich_player_data(home_players, home_team)
+        
+        # Enrich away team players
+        if away_players:
+            espn.enrich_player_data(away_players, away_team)
+        
+        print(f"✅ Added ESPN headshots for {home_team} vs {away_team}")
+        
+    except Exception as e:
+        print(f"⚠️  Could not fetch ESPN headshots: {e}")
+    
+    return player_analysis
+
 def generate_confidence_explanation(prediction, details, home_team_name, away_team_name):
     """
     Generate detailed, game-specific confidence explanation based on matchup analysis
@@ -417,45 +444,78 @@ def generate_confidence_explanation(prediction, details, home_team_name, away_te
     
     return explanations
 
+def load_comprehensive_power_rankings():
+    """Load the comprehensive power rankings data"""
+    try:
+        rankings_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_15', 'comprehensive_power_rankings_20251203_053934.json')
+        with open(rankings_path, 'r') as f:
+            power_rankings = json.load(f)
+        return power_rankings.get('rankings', [])
+    except Exception as e:
+        print(f"❌ Error loading comprehensive power rankings: {e}")
+        return []
+
 def extract_team_ratings(predictor, team_name):
     """Extract comprehensive ratings for a specific team from comprehensive_power_rankings.json"""
     try:
-        # Load from comprehensive power rankings JSON
-        rankings_path = os.path.join(os.path.dirname(__file__), 'frontend', 'src', 'data', 'comprehensive_power_rankings.json')
+        print(f"🔍 DEBUG: Looking for team '{team_name}'")
+        # Load from comprehensive power rankings JSON in weekly_updates/week_15
+        rankings_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_15', 'comprehensive_power_rankings_20251203_053934.json')
+        print(f"🔍 DEBUG: Loading from path: {rankings_path}")
         with open(rankings_path, 'r') as f:
             power_rankings = json.load(f)
         
-        # Find team in the teams array
+        print(f"🔍 DEBUG: Found {len(power_rankings.get('rankings', []))} teams in rankings")
+        
+        # Find team in the rankings array
         team_data = None
-        for team in power_rankings.get('teams', []):
-            if team.get('team', '').lower() == team_name.lower():
+        for team in power_rankings.get('rankings', []):
+            team_name_in_file = team.get('team', '')
+            print(f"🔍 DEBUG: Comparing '{team_name.lower()}' with '{team_name_in_file.lower()}'")
+            if team_name_in_file.lower() == team_name.lower():
                 team_data = team
+                print(f"✅ DEBUG: Found match for {team_name}!")
                 break
         
         if not team_data:
             print(f"⚠️  No ratings found for {team_name} in power rankings")
             return get_default_ratings()
         
-        # Extract ratings from team data
+        # Extract ratings from team data - using actual field names from the JSON
         team_ratings = {
-            'elo': team_data.get('elo', 1500),
-            'fpi': team_data.get('fpi', 0.0),
-            'sp_overall': team_data.get('sp_overall', 0.0),
-            'srs': team_data.get('srs', 0.0),
-            'composite_rating': team_data.get('composite_rating', 50.0),
-            'offensive_efficiency': team_data.get('offensive_efficiency', 50.0),
-            'defensive_efficiency': team_data.get('defensive_efficiency', 50.0),
-            'special_teams_efficiency': team_data.get('special_teams_efficiency', 50.0),
-            'fpi_components': team_data.get('fpi_components', {}),
-            'sp_components': team_data.get('sp_components', {}),
-            'fpi_rankings': team_data.get('fpi_rankings', {}),
-            'sos_rank': team_data.get('sos_rank', 65),
-            'resume_rank': team_data.get('resume_rank', 65),
-            'game_control_rank': team_data.get('game_control_rank', 65),
-            'rating_consistency': team_data.get('rating_consistency', 10.0),
-            'elite_tier': team_data.get('elite_tier', False),
-            'struggling_tier': team_data.get('struggling_tier', False),
-            'ratings_available': True
+            'team': team_data.get('team', team_name),
+            'conference': team_data.get('conference', ''),
+            'ratings_available': True,
+            'elo': 1500 + (team_data.get('overall_score', 50) - 50) * 10,  # Convert overall score to ELO scale
+            'fpi': team_data.get('overall_score', 50) - 50,  # Use overall score as FPI
+            'sp_overall': team_data.get('defensive_score', 50) - team_data.get('offensive_score', 50),  # SP+ style diff
+            'srs': (team_data.get('overall_score', 50) - 50) * 0.8,  # Scaled overall score
+            'composite_rating': team_data.get('overall_score', 50),
+            'offensive_efficiency': team_data.get('offensive_score', 50),
+            'defensive_efficiency': team_data.get('defensive_score', 50),
+            'special_teams_efficiency': 50.0,  # Default since not in this data
+            'fpi_components': {
+                'offensive_efficiency': team_data.get('offensive_score', 50),
+                'defensive_efficiency': team_data.get('defensive_score', 50),
+                'special_teams_efficiency': 50.0,
+                'overall_efficiency': team_data.get('overall_score', 50)
+            },
+            'sp_components': {
+                'offense': team_data.get('offensive_score', 50),
+                'defense': team_data.get('defensive_score', 50),
+                'special_teams': 50.0
+            },
+            'fpi_rankings': {
+                'sos_rank': team_data.get('rank', 65),
+                'remaining_sos_rank': team_data.get('rank', 65),
+                'strength_of_record_rank': team_data.get('rank', 65),
+                'resume_rank': team_data.get('rank', 65),
+                'game_control_rank': team_data.get('rank', 65),
+                'avg_win_probability_rank': team_data.get('rank', 65)
+            },
+            'rating_consistency': 85.0,  # Default high consistency
+            'elite_tier': team_data.get('rank', 65) <= 10,
+            'struggling_tier': team_data.get('rank', 65) >= 100
         }
         
         print(f"✅ Extracted ratings for {team_name}: ELO={team_ratings['elo']}, FPI={team_ratings['fpi']}, SP+={team_ratings['sp_overall']}")
@@ -1312,6 +1372,7 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
             "home_team": extract_team_ratings(predictor, prediction.home_team),
             "comparison": calculate_ratings_comparison(predictor, prediction.away_team, prediction.home_team)
         },
+        "comprehensive_power_rankings": load_comprehensive_power_rankings(),
         "season_records": {
             "away": extract_team_season_games(details, 'awaySeasonGames', 'awayTeamId', prediction.away_team, away_team_data),
             "home": extract_team_season_games(details, 'homeSeasonGames', 'homeTeamId', prediction.home_team, home_team_data)
@@ -1334,7 +1395,11 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
             }
         },
         "detailed_analysis": {
-            "enhanced_player_analysis": details.get('enhanced_player_analysis', {}),
+            "enhanced_player_analysis": enrich_players_with_headshots(
+                details.get('enhanced_player_analysis', {}),
+                home_team=prediction.home_team,
+                away_team=prediction.away_team
+            ),
             "betting_analysis": getattr(prediction, 'detailed_analysis', {}).get('betting_analysis', details.get('betting_analysis', {}))
         },
         # NEW: Arbitrage Analysis
@@ -1369,6 +1434,7 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
 # Predictor will be initialized lazily within the endpoint
 api_key = os.environ.get('CFB_API_KEY', 'T0iV2bfp8UKCf8rTV12qsS26USzyDYiVNA7x6WbaV3NOvewuDQnJlv3NfPzr3f/p')
 predictor = None
+espn_service = None
 
 def get_predictor():
     """Initializes and returns a single instance of the predictor."""
@@ -1376,6 +1442,13 @@ def get_predictor():
     if predictor is None:
         predictor = LightningPredictor(api_key)
     return predictor
+
+def get_espn_service():
+    """Initializes and returns a single instance of ESPN player service."""
+    global espn_service
+    if espn_service is None:
+        espn_service = ESPNPlayerService()
+    return espn_service
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -1819,19 +1892,16 @@ def get_live_game():
                 'error': 'Both home and away team names are required'
             }), 400
         
-        # Import the live data fetcher
-        import sys
-        import importlib.util
-        
-        # Load the test script as a module
-        spec = importlib.util.spec_from_file_location("live_fetcher", "test_iowa_state_live.py")
-        live_fetcher = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(live_fetcher)
-        
-        # Fetch live data
-        live_data = live_fetcher.get_complete_live_data(home_team, away_team)
-        
-        return jsonify(live_data)
+        # NOTE: Live game data feature is currently disabled
+        # This endpoint would fetch real-time game data from College Football Data API
+        # For now, return a placeholder response
+        return jsonify({
+            'status': 'unavailable',
+            'message': 'Live game data feature is currently unavailable',
+            'home_team': home_team,
+            'away_team': away_team,
+            'note': 'Use the /predict endpoint for pre-game analysis'
+        }), 503
         
     except Exception as e:
         print(f"Error fetching live game data: {e}")

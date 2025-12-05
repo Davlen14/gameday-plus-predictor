@@ -38,10 +38,10 @@ const ComprehensiveMetricsDashboard: React.FC<ComprehensiveMetricsProps> = ({
   const awayTeam = predictionData.away_team || away?.name || 'Away';
 
   // Find team data in power rankings
-  const homeRankingData = powerRankingsData.rankings?.find(
+  const homeRankingData = powerRankingsData.teams?.find(
     (team: any) => team.team === homeTeam
   );
-  const awayRankingData = powerRankingsData.rankings?.find(
+  const awayRankingData = powerRankingsData.teams?.find(
     (team: any) => team.team === awayTeam
   );
 
@@ -215,7 +215,7 @@ const ComprehensiveMetricsDashboard: React.FC<ComprehensiveMetricsProps> = ({
             return (
               <div key={metric.name} className="space-y-0">
                 <div 
-                  className="bg-gray-800/40 backdrop-blur-sm p-4 rounded-lg border border-white/10 hover:border-white/20 transition-all cursor-pointer hover:bg-gray-800/60"
+                  className="backdrop-blur-sm backdrop-blur-sm p-4 rounded-lg border border-white/10 hover:border-white/20 transition-all cursor-pointer hover:bg-white/5"
                   onClick={() => setExpandedMetric(isExpanded ? null : metric.name)}
                   style={{
                     boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3)',

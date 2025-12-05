@@ -81,7 +81,7 @@ def format_prediction_output(prediction, home_team_data, away_team_data):
             ap_data = json.load(f)
         
         # Find current rankings for both teams
-        current_week = 'week_8'  # Current week
+        current_week = 'week_15'  # Current week
         
         if current_week in ap_data:
             for rank_entry in ap_data[current_week]['ranks']:
@@ -247,9 +247,11 @@ def format_prediction_output(prediction, home_team_data, away_team_data):
         print("Sportsbook Lines:")
         for i, line in enumerate(market_lines[:3]):
             sportsbook = line.get('sportsbook', 'Unknown')
-            spread = line.get('spread', 0)
-            total = line.get('total', 0) or line.get('overUnder', 0)
-            print(f"  {sportsbook}: Spread {spread:+.1f}, Total {total:.1f}")
+            spread = line.get('spread')
+            total = line.get('total') or line.get('overUnder')
+            spread_str = f"{spread:+.1f}" if spread is not None else "N/A"
+            total_str = f"{total:.1f}" if total is not None else "N/A"
+            print(f"  {sportsbook}: Spread {spread_str}, Total {total_str}")
     
     print()
     if prediction.value_spread_pick:
@@ -1006,13 +1008,48 @@ def format_prediction_output(prediction, home_team_data, away_team_data):
     
     if home_stats and away_stats:
         
-        # Enhanced Defensive Statistics Section - Similar to Air Force example
+        # Enhanced Defensive Statistics Section - EPA Analysis Format for React Component
         print("\nEXTENDED DEFENSIVE ANALYTICS:")
         print("=" * 110)
-        print(f"{'Metric':<30} {'Away (' + prediction.away_team + ')':<35} {'Home (' + prediction.home_team + ')':<35} {'Advantage':<10}")
+        
+        # EPA Analysis Format - Matches ExtendedDefensiveAnalytics.tsx regex patterns
+        if hasattr(away_stats, 'defense_ppa') and hasattr(home_stats, 'defense_ppa'):
+            print(f"Overall EPA: {prediction.away_team}: {away_stats.defense_ppa:+.3f} {prediction.home_team}: {home_stats.defense_ppa:+.3f}")
+        
+        if hasattr(away_stats, 'defense_total_ppa') and hasattr(home_stats, 'defense_total_ppa') and hasattr(away_stats, 'defense_plays') and hasattr(home_stats, 'defense_plays'):
+            away_epa_allowed = -away_stats.defense_total_ppa / away_stats.defense_plays if away_stats.defense_plays > 0 else 0
+            home_epa_allowed = -home_stats.defense_total_ppa / home_stats.defense_plays if home_stats.defense_plays > 0 else 0
+            print(f"EPA Allowed: {prediction.away_team}: {away_epa_allowed:+.3f} {prediction.home_team}: {home_epa_allowed:+.3f}")
+        
+        if hasattr(away_stats, 'defense_passing_plays_ppa') and hasattr(home_stats, 'defense_passing_plays_ppa'):
+            print(f"Passing EPA: {prediction.away_team}: {away_stats.defense_passing_plays_ppa:+.3f} {prediction.home_team}: {home_stats.defense_passing_plays_ppa:+.3f}")
+        
+        if hasattr(away_stats, 'defense_rushing_plays_ppa') and hasattr(home_stats, 'defense_rushing_plays_ppa'):
+            print(f"Rushing EPA: {prediction.away_team}: {away_stats.defense_rushing_plays_ppa:+.3f} {prediction.home_team}: {home_stats.defense_rushing_plays_ppa:+.3f}")
+        
+        # Advanced Metrics for Season Summary
+        print(f"\nAdvanced Metrics:")
+        
+        # Generate ELO and FPI from available data - using composite ratings as proxies
+        away_elo = getattr(away_stats, 'elo_rating', 1500)
+        home_elo = getattr(home_stats, 'elo_rating', 1500)
+        print(f"ELO Ratings: {prediction.away_team}: {away_elo} {prediction.home_team}: {home_elo}")
+        
+        away_fpi = getattr(away_stats, 'fpi_rating', 0.0)
+        home_fpi = getattr(home_stats, 'fpi_rating', 0.0)
+        print(f"FPI Ratings: {prediction.away_team}: {away_fpi:.1f} {prediction.home_team}: {home_fpi:.1f}")
+        
+        if hasattr(away_stats, 'defense_success_rate') and hasattr(home_stats, 'defense_success_rate'):
+            print(f"Success Rate: {prediction.away_team}: {away_stats.defense_success_rate:.3f} {prediction.home_team}: {home_stats.defense_success_rate:.3f}")
+        
+        if hasattr(away_stats, 'defense_explosiveness') and hasattr(home_stats, 'defense_explosiveness'):
+            print(f"Explosiveness: {prediction.away_team}: {away_stats.defense_explosiveness:.3f} {prediction.home_team}: {home_stats.defense_explosiveness:.3f}")
+        
+        # Traditional Defensive Table Format (for backwards compatibility)
+        print(f"\n{'Metric':<30} {'Away (' + prediction.away_team + ')':<35} {'Home (' + prediction.home_team + ')':<35} {'Advantage':<10}")
         print("-" * 110)
         
-        # Defensive Play Volume & Efficiency (for defense, lower is usually better for most metrics)
+        # Defensive Play Volume & Efficiency 
         if hasattr(away_stats, 'defense_plays') and hasattr(home_stats, 'defense_plays'):
             print(f"{'Defense Plays':<30} {away_stats.defense_plays:<35} {home_stats.defense_plays:<35} {def_advantage(away_stats.defense_plays, home_stats.defense_plays):<10}")
         if hasattr(away_stats, 'defense_drives') and hasattr(home_stats, 'defense_drives'):
@@ -1088,7 +1125,7 @@ def format_prediction_output(prediction, home_team_data, away_team_data):
             ap_data = json.load(f)
         
         # Find current rankings for both teams
-        current_week = 'week_8'  # Current week
+        current_week = 'week_15'  # Current week
         home_ranking = None
         away_ranking = None
         
@@ -1161,6 +1198,69 @@ def format_prediction_output(prediction, home_team_data, away_team_data):
     print("Key Factors:")
     for factor in prediction.key_factors[:5]:
         print(f"  - {factor}")
+    print()
+    
+    # =================================================================
+    # COMPREHENSIVE RATINGS COMPARISON
+    # =================================================================
+    print("=" * 80)
+    print("🎯 [18] COMPREHENSIVE RATINGS COMPARISON")
+    print("=" * 80)
+    
+    # Get team comprehensive stats for ratings
+    home_comprehensive = getattr(prediction, 'home_comprehensive', None)
+    away_comprehensive = getattr(prediction, 'away_comprehensive', None)
+    
+    if home_comprehensive and away_comprehensive:
+        print("COMPREHENSIVE RATINGS COMPARISON:")
+        print("Away Team Ratings:")
+        print(f"ELO: {getattr(away_comprehensive, 'elo_rating', 1500):.1f}")
+        print(f"FPI: {getattr(away_comprehensive, 'fpi_rating', 0):.1f}")
+        print(f"SP+: {getattr(away_comprehensive, 'sp_plus_rating', 0):.1f}")
+        print(f"SRS: {getattr(away_comprehensive, 'srs_rating', 0):.1f}")
+        print(f"Offensive Efficiency: {getattr(away_comprehensive, 'offensive_efficiency_pct', 50.0):.1f}%")
+        print(f"Defensive Efficiency: {getattr(away_comprehensive, 'defensive_efficiency_pct', 50.0):.1f}%")
+        print(f"Special Teams Efficiency: {getattr(away_comprehensive, 'special_teams_efficiency', 50.0):.1f}%")
+        
+        print("Home Team Ratings:")
+        print(f"ELO: {getattr(home_comprehensive, 'elo_rating', 1500):.1f}")
+        print(f"FPI: {getattr(home_comprehensive, 'fpi_rating', 0):.1f}")
+        print(f"SP+: {getattr(home_comprehensive, 'sp_plus_rating', 0):.1f}")
+        print(f"SRS: {getattr(home_comprehensive, 'srs_rating', 0):.1f}")
+        print(f"Offensive Efficiency: {getattr(home_comprehensive, 'offensive_efficiency_pct', 50.0):.1f}%")
+        print(f"Defensive Efficiency: {getattr(home_comprehensive, 'defensive_efficiency_pct', 50.0):.1f}%")
+        print(f"Special Teams Efficiency: {getattr(home_comprehensive, 'special_teams_efficiency', 50.0):.1f}%")
+        
+        # Rating Differentials
+        elo_diff = getattr(home_comprehensive, 'elo_rating', 1500) - getattr(away_comprehensive, 'elo_rating', 1500)
+        fpi_diff = getattr(home_comprehensive, 'fpi_rating', 0) - getattr(away_comprehensive, 'fpi_rating', 0)
+        sp_diff = getattr(home_comprehensive, 'sp_plus_rating', 0) - getattr(away_comprehensive, 'sp_plus_rating', 0)
+        srs_diff = getattr(home_comprehensive, 'srs_rating', 0) - getattr(away_comprehensive, 'srs_rating', 0)
+        off_eff_diff = getattr(home_comprehensive, 'offensive_efficiency_pct', 50.0) - getattr(away_comprehensive, 'offensive_efficiency_pct', 50.0)
+        def_eff_diff = getattr(home_comprehensive, 'defensive_efficiency_pct', 50.0) - getattr(away_comprehensive, 'defensive_efficiency_pct', 50.0)
+        st_eff_diff = getattr(home_comprehensive, 'special_teams_efficiency', 50.0) - getattr(away_comprehensive, 'special_teams_efficiency', 50.0)
+        
+        print("Rating Differentials (Home - Away):")
+        print(f"ELO Differential: {elo_diff:+.1f}")
+        print(f"FPI Differential: {fpi_diff:+.1f}")
+        print(f"SP+ Differential: {sp_diff:+.1f}")
+        print(f"SRS Differential: {srs_diff:+.1f}")
+        print(f"Offensive Efficiency Differential: {off_eff_diff:+.1f}%")
+        print(f"Defensive Efficiency Differential: {def_eff_diff:+.1f}%")
+        print(f"Special Teams Differential: {st_eff_diff:+.1f}%")
+        
+        # Composite analysis
+        avg_rating_diff = (elo_diff/100 + fpi_diff + sp_diff/10 + srs_diff) / 4
+        elite_matchup = abs(avg_rating_diff) < 2 and (getattr(home_comprehensive, 'elo_rating', 1500) + getattr(away_comprehensive, 'elo_rating', 1500))/2 > 1550
+        talent_gap = "minimal" if abs(avg_rating_diff) < 3 else "moderate" if abs(avg_rating_diff) < 8 else "significant"
+        
+        print(f"Elite Matchup: {'Yes' if elite_matchup else 'No'}")
+        print(f"Talent Gap: {talent_gap}")
+        print(f"Ranking Advantage: {prediction.home_team if avg_rating_diff > 1 else prediction.away_team if avg_rating_diff < -1 else 'Even'}")
+        print(f"Composite Rating Differential: {avg_rating_diff:+.2f}")
+    else:
+        print("Comprehensive ratings data not available")
+    
     print()
     
     print(f"Overall Confidence: {prediction.confidence * 100:.1f}%")

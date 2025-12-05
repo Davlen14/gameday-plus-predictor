@@ -6,23 +6,107 @@ Loads and processes betting lines from week8.json for Flask API integration
 
 import json
 import os
+import requests
 from typing import Dict, List, Any, Optional
 
 class BettingLinesManager:
-    """Manages betting lines data from week8.json"""
+    """Manages betting lines data from GraphQL API"""
     
-    def __init__(self, lines_file: str = "week9.json", current_week_file: str = "Currentweekgames.json"):
+    def __init__(self, lines_file: str = "week15.json", current_week_file: str = "Currentweekgames.json"):
         self.lines_file = lines_file
         self.current_week_file = current_week_file
+        self.api_key = "T0iV2bfp8UKCf8rTV12qsS26USzyDYiVNA7x6WbaV3NOvewuDQnJlv3NfPzr3f/p"
+        self.graphql_url = "https://graphql.collegefootballdata.com/v1/graphql"
         self.games_data = self._load_games_data()
         self.current_week_data = self._load_current_week_data()
+    
+    def _fetch_live_betting_lines(self, week: int = 15, year: int = 2025) -> List[Dict[str, Any]]:
+        """Fetch live betting lines from GraphQL API"""
+        import requests
+        
+        query = """
+        query {
+          game(where: {season: {_eq: %d}, week: {_eq: %d}}) {
+            id
+            homeTeam
+            awayTeam
+            lines {
+              provider { name }
+              spread
+              overUnder
+            }
+          }
+        }
+        """ % (year, week)
+        
+        try:
+            print(f"🔍 DEBUG: Calling GraphQL with week={week}, year={year}")
+            response = requests.post(
+                self.graphql_url,
+                json={"query": query},
+                headers={
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {self.api_key}"
+                },
+                timeout=10
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                print(f"🔍 DEBUG: GraphQL response status: {response.status_code}")
+                print(f"🔍 DEBUG: Response keys: {list(data.keys())}")
+                
+                # Check for errors
+                if 'errors' in data:
+                    import json as json_lib
+                    print(f"❌ GraphQL errors: {json_lib.dumps(data['errors'], indent=2)}")
+                    return {}
+                
+                games = data.get('data', {}).get('game', [])
+                print(f"🔍 DEBUG: Found {len(games)} games in response")
+                
+                # Transform to expected format
+                formatted_games = []
+                for game in games:
+                    formatted_lines = []
+                    for line in game.get('lines', []):
+                        formatted_lines.append({
+                            'provider': line.get('provider', {}).get('name', 'Unknown'),
+                            'spread': line.get('spread'),
+                            'overUnder': line.get('overUnder')
+                        })
+                    
+                    formatted_games.append({
+                        'id': game.get('id'),
+                        'homeTeam': game.get('homeTeam'),
+                        'awayTeam': game.get('awayTeam'),
+                        'lines': formatted_lines
+                    })
+                
+                print(f"✅ Fetched {len(formatted_games)} games with live betting lines from GraphQL")
+                return {'games': formatted_games}  # Return dict format to match expected structure
+            else:
+                print(f"⚠️  GraphQL API returned status {response.status_code}")
+                return []
+        except Exception as e:
+            print(f"❌ Error fetching live betting lines: {e}")
+            return {}  # Return empty dict instead of list
         
     def _load_games_data(self) -> Dict[str, Any]:
-        """Load games and betting lines data from JSON file"""
+        """Load games data from GraphQL API (live) or fallback to JSON file"""
+        
+        # First try to fetch live data from GraphQL
+        live_data = self._fetch_live_betting_lines()
+        if live_data:
+            print(f"✅ Using live data from GraphQL API")
+            return live_data
+        
+        # Fallback to JSON file
         try:
             if os.path.exists(self.lines_file):
                 with open(self.lines_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
+                    print(f"⚠️  Using cached data from {self.lines_file}")
                     return data
             else:
                 print(f"⚠️  Betting lines file {self.lines_file} not found")
@@ -64,8 +148,13 @@ class BettingLinesManager:
             if game_home == home_team_clean and game_away == away_team_clean:
                 return game
         
-        # Fallback to week9.json format
-        for game in self.games_data.get('games', []):
+        # Fallback to week15.json format (can be list or dict)
+        if isinstance(self.games_data, list):
+            games_list = self.games_data
+        else:
+            games_list = self.games_data.get('games', [])
+            
+        for game in games_list:
             game_home = self._clean_team_name(game.get('homeTeam', ''))
             game_away = self._clean_team_name(game.get('awayTeam', ''))
             
@@ -217,8 +306,34 @@ class BettingLinesManager:
         if not game:
             return self._get_empty_betting_analysis()
         
-        # Handle Currentweekgames.json format
-        if 'bettingLines' in game:
+        # Handle GraphQL live data format (lines array)
+        if 'lines' in game:
+            lines_data = game['lines']
+            
+            # Calculate consensus from lines
+            spreads = [line.get('spread') for line in lines_data if line.get('spread') is not None]
+            totals = [line.get('overUnder') for line in lines_data if line.get('overUnder') is not None]
+            
+            avg_spread = sum(spreads) / len(spreads) if spreads else 0
+            avg_total = sum(totals) / len(totals) if totals else 0
+            
+            # Format spread display
+            if avg_spread > 0:
+                formatted_spread = f"{game['awayTeam']} -{avg_spread:.1f}"
+            elif avg_spread < 0:
+                formatted_spread = f"{game['homeTeam']} {abs(avg_spread):.1f}"
+            else:
+                formatted_spread = "Pick'em"
+            
+            # Use lines directly as providers
+            providers_data = lines_data
+            providers_list = lines_data
+            
+            # Use first provider for specific line info
+            first_provider = providers_data[0] if providers_data else {}
+            
+        # Handle Currentweekgames.json format (fallback)
+        elif 'bettingLines' in game:
             betting_lines = game['bettingLines']
             
             # Get consensus data (already calculated in JSON)
@@ -316,14 +431,17 @@ class BettingLinesManager:
         # Build individual sportsbook lines for UI display
         individual_sportsbooks = []
         for provider in providers_data:
+            # Handle both GraphQL format (lines) and JSON format (allProviders)
+            provider_name = provider.get('provider', {}).get('name') if isinstance(provider.get('provider'), dict) else provider.get('provider', 'Unknown')
+            
             individual_sportsbooks.append({
-                'provider': provider.get('provider', 'Unknown'),
+                'provider': provider_name,
                 'spread': provider.get('spread', 0),
                 'spreadOpen': provider.get('spreadOpen', 0),
                 'overUnder': provider.get('overUnder', 0),
                 'overUnderOpen': provider.get('overUnderOpen', 0),
-                'moneylineHome': provider.get('homeMoneyline', 'N/A'),
-                'moneylineAway': provider.get('awayMoneyline', 'N/A')
+                'moneylineHome': provider.get('moneylineHome', 'N/A'),
+                'moneylineAway': provider.get('moneylineAway', 'N/A')
             })
         
         return {
@@ -418,6 +536,7 @@ class BettingLinesManager:
             'sportsbooks': {
                 'primary_provider': 'No data',
                 'all_providers': [],
+                'individual_books': [],  # Fix: Frontend expects this field
                 'home_moneyline': 'N/A',
                 'away_moneyline': 'N/A',
                 'spread_open': 'N/A',

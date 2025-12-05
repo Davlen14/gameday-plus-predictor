@@ -6,8 +6,8 @@
 
 .live-game-badge {
   background: rgba(30, 30, 40, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border-radius: 12px;
   padding: 16px 24px;
   display: inline-flex;

@@ -63,7 +63,7 @@ const ComprehensiveDefensiveMetrics: React.FC<ComprehensiveDefensiveMetricsProps
 }) => {
   if (!homeMetrics || !awayMetrics) {
     return (
-      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+      <div className="backdrop-blur-lg rounded-2xl p-6 border border-white/20">
         <h3 className="text-xl font-bold text-white mb-4">Comprehensive Defensive Metrics</h3>
         <p className="text-gray-300">Metrics not available</p>
       </div>
@@ -197,7 +197,7 @@ const ComprehensiveDefensiveMetrics: React.FC<ComprehensiveDefensiveMetricsProps
   };
 
   return (
-    <div className="bg-gradient-to-br from-red-900/30 to-orange-900/30 backdrop-blur-xl rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
+    <div className="backdrop-blur-xl rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-4 sm:mb-6 gap-2">
         <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">

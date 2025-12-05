@@ -9,13 +9,13 @@ interface GlassCardProps {
 export function GlassCard({ children, className = '', glowColor }: GlassCardProps) {
   return (
     <div className="relative group">
-      {glowColor && (
-        <div className={`absolute -inset-1 bg-gradient-to-br ${glowColor} rounded-xl blur-2xl opacity-60 group-hover:opacity-90 transition-all duration-500`}></div>
-      )}
       <div 
-        className={`relative overflow-hidden bg-slate-900/98 backdrop-blur-xl border border-white/20 rounded-lg transition-all duration-300 ${className}`}
+        className={`relative overflow-hidden rounded-xl transition-all duration-300 hover:scale-[1.01] ${className}`}
         style={{ 
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
+          background: 'transparent',
+          border: '1px solid rgba(148, 163, 184, 0.12)',
+          boxShadow: 'none',
+          backdropFilter: 'none'
         }}
       >
         <div className="relative z-10">

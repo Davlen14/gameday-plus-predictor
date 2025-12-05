@@ -50,7 +50,7 @@ export function MediaInformation({ predictionData }: MediaInformationProps) {
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* TV Coverage */}
-        <div className="bg-gray-800/40 border border-gray-600/40 rounded-lg p-4">
+        <div className="backdrop-blur-sm border border-gray-600/40 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-2">
             <Tv className="w-4 h-4 text-violet-400" />
             <span className="text-sm text-gray-300">Television</span>
@@ -60,7 +60,7 @@ export function MediaInformation({ predictionData }: MediaInformationProps) {
         </div>
 
         {/* Radio Coverage */}
-        <div className="bg-gray-800/40 border border-gray-600/40 rounded-lg p-4">
+        <div className="backdrop-blur-sm border border-gray-600/40 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-2">
             <Radio className="w-4 h-4 text-violet-400" />
             <span className="text-sm text-gray-300">Radio</span>
@@ -70,7 +70,7 @@ export function MediaInformation({ predictionData }: MediaInformationProps) {
         </div>
 
         {/* Streaming */}
-        <div className="bg-gray-800/40 border border-gray-600/40 rounded-lg p-4">
+        <div className="backdrop-blur-sm border border-gray-600/40 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-2">
             <Globe className="w-4 h-4 text-violet-400" />
             <span className="text-sm text-gray-300">Streaming</span>

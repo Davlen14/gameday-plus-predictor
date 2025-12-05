@@ -278,14 +278,14 @@ export function PredictionResults({ predictionData, actualScore: providedActualS
             </div>
             
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
+              <div className="backdrop-blur-sm rounded-lg p-3 border border-gray-700/50">
                 <p className="text-gray-400 text-xs mb-1">Predicted</p>
                 <div className="flex items-center gap-2">
                   {awayLogo && <img src={awayLogo} alt={awayTeam} className="w-6 h-6 object-contain" />}
                   <p className="text-2xl font-mono font-bold" style={{ color: awayColor }}>{predictedAwayScore}</p>
                 </div>
               </div>
-              <div className="bg-gray-800/50 rounded-lg p-3 border border-green-500/30">
+              <div className="backdrop-blur-sm rounded-lg p-3 border border-green-500/30">
                 <p className="text-gray-400 text-xs mb-1">Actual</p>
                 <div className="flex items-center gap-2">
                   {awayLogo && <img src={awayLogo} alt={awayTeam} className="w-6 h-6 object-contain" />}
@@ -319,14 +319,14 @@ export function PredictionResults({ predictionData, actualScore: providedActualS
             </div>
             
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
+              <div className="backdrop-blur-sm rounded-lg p-3 border border-gray-700/50">
                 <p className="text-gray-400 text-xs mb-1">Predicted</p>
                 <div className="flex items-center gap-2">
                   {homeLogo && <img src={homeLogo} alt={homeTeam} className="w-6 h-6 object-contain" />}
                   <p className="text-2xl font-mono font-bold" style={{ color: homeColor }}>{predictedHomeScore}</p>
                 </div>
               </div>
-              <div className="bg-gray-800/50 rounded-lg p-3 border border-green-500/30">
+              <div className="backdrop-blur-sm rounded-lg p-3 border border-green-500/30">
                 <p className="text-gray-400 text-xs mb-1">Actual</p>
                 <div className="flex items-center gap-2">
                   {homeLogo && <img src={homeLogo} alt={homeTeam} className="w-6 h-6 object-contain" />}
@@ -364,7 +364,7 @@ export function PredictionResults({ predictionData, actualScore: providedActualS
                   const bookName = book?.name || 'Unknown';
                   const logoPath = sportsbookLogos[bookName];
                   return (
-                    <div key={idx} className="flex items-center gap-2 bg-gray-800/50 rounded px-2 py-1 border border-gray-700/50">
+                    <div key={idx} className="flex items-center gap-2 backdrop-blur-sm rounded px-2 py-1 border border-gray-700/50">
                       {logoPath ? (
                         <img 
                           src={logoPath} 
@@ -557,7 +557,7 @@ export function PredictionResults({ predictionData, actualScore: providedActualS
         </div>
 
         {/* Summary */}
-        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/50">
+        <div className="backdrop-blur-sm rounded-lg p-4 border border-gray-700/50">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-white font-semibold mb-1">Prediction Summary</p>

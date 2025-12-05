@@ -3,13 +3,34 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { GlassCard } from './GlassCard';
 import { InsightBox } from './InsightBox';
 
-// Custom Tooltip Component with Team Logos (same as original)
+// Custom Tooltip Component with Team Status Icons
 const CustomTooltip = ({ active, payload, label, awayTeam, homeTeam, awayAbbr, homeAbbr }: any) => {
   if (active && payload && payload.length) {
     const awayValue = payload.find((p: any) => p.dataKey === awayAbbr)?.value;
     const homeValue = payload.find((p: any) => p.dataKey === homeAbbr)?.value;
     const isAwayWinning = awayValue > homeValue;
     const isHomeWinning = homeValue > awayValue;
+
+    // Determine benchmarks based on metric
+    const getBenchmarks = (metricName: string) => {
+      switch(metricName) {
+        case 'Success Rate': return { elite: 47.1, avg: 42.9, below: 40.5 };
+        case 'Explosiveness': return { elite: 130, avg: 120, below: 115 };
+        case 'Passing Downs': return { elite: 34.7, avg: 30.8, below: 28.2 };
+        case 'Standard Downs': return { elite: 52.2, avg: 48.6, below: 46.2 };
+        default: return { elite: 50, avg: 42, below: 35 };
+      }
+    };
+
+    const getStatus = (value: number, metricName: string) => {
+      const { elite, avg, below } = getBenchmarks(metricName);
+      if (value >= elite) return { icon: '▲', color: '#22c55e', text: 'Elite', bg: 'rgba(34, 197, 94, 0.15)' };
+      if (value >= avg) return { icon: '●', color: '#eab308', text: 'Avg', bg: 'rgba(234, 179, 8, 0.15)' };
+      return { icon: '▼', color: '#ef4444', text: 'Below', bg: 'rgba(239, 68, 68, 0.15)' };
+    };
+
+    const awayStatus = getStatus(awayValue, label);
+    const homeStatus = getStatus(homeValue, label);
 
     return (
       <div 
@@ -19,7 +40,7 @@ const CustomTooltip = ({ active, payload, label, awayTeam, homeTeam, awayAbbr, h
           borderRadius: '8px',
           padding: '12px',
           fontFamily: "'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace",
-          minWidth: '180px'
+          minWidth: '200px'
         }}
       >
         <p style={{ 
@@ -53,14 +74,29 @@ const CustomTooltip = ({ active, payload, label, awayTeam, homeTeam, awayAbbr, h
               {awayAbbr}
             </span>
           </div>
-          <span style={{ 
-            color: isAwayWinning ? '#10b981' : '#94a3b8', 
-            fontSize: '12px', 
-            fontWeight: 700,
-            fontFamily: "'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace"
-          }}>
-            {awayValue?.toFixed(1)}%
-          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ 
+              fontSize: '10px', 
+              color: awayStatus.color,
+              backgroundColor: awayStatus.bg,
+              padding: '2px 6px',
+              borderRadius: '3px',
+              fontWeight: 700,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}>
+              {awayStatus.icon}
+            </span>
+            <span style={{ 
+              color: isAwayWinning ? '#10b981' : '#94a3b8', 
+              fontSize: '12px', 
+              fontWeight: 700,
+              fontFamily: "'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace"
+            }}>
+              {awayValue?.toFixed(1)}%
+            </span>
+          </div>
         </div>
         
         {/* Home Team */}
@@ -82,14 +118,29 @@ const CustomTooltip = ({ active, payload, label, awayTeam, homeTeam, awayAbbr, h
               {homeAbbr}
             </span>
           </div>
-          <span style={{ 
-            color: isHomeWinning ? '#10b981' : '#94a3b8', 
-            fontSize: '12px', 
-            fontWeight: 700,
-            fontFamily: "'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace"
-          }}>
-            {homeValue?.toFixed(1)}%
-          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ 
+              fontSize: '10px', 
+              color: homeStatus.color,
+              backgroundColor: homeStatus.bg,
+              padding: '2px 6px',
+              borderRadius: '3px',
+              fontWeight: 700,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}>
+              {homeStatus.icon}
+            </span>
+            <span style={{ 
+              color: isHomeWinning ? '#10b981' : '#94a3b8', 
+              fontSize: '12px', 
+              fontWeight: 700,
+              fontFamily: "'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace"
+            }}>
+              {homeValue?.toFixed(1)}%
+            </span>
+          </div>
         </div>
       </div>
     );
@@ -153,7 +204,7 @@ const PerformanceCard = ({ title, awayValue, homeValue, winner, awayTeam, homeTe
   const isHomeWinner = winner === homeAbbr;
 
   return (
-    <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-3">
+    <div className="border rounded-lg p-3" style={{ background: 'rgba(255, 255, 255, 0.02)', backdropFilter: 'blur(16px)', borderColor: 'rgba(255, 255, 255, 0.08)' }}>
       <div className="text-xs text-gray-400 mb-2 font-medium">{title}</div>
       <div className="space-y-2">
         <div className={`flex items-center justify-between p-2 rounded ${isAwayWinner ? 'bg-emerald-900/30 border border-emerald-500/30' : 'bg-slate-700/30'}`}>
@@ -280,39 +331,41 @@ export function SituationalPerformance({ predictionData }: SituationalPerformanc
   const awayAbbr = generateAbbr(awayTeam.name);
   const homeAbbr = generateAbbr(homeTeam.name);
 
-  // Dynamic situational performance data with the correct structure
+  // Dynamic situational performance data with FBS national benchmarks
+  // Calculated from 123 FBS teams (Week 15, 2025 season) using raw percentage data
+  // Elite = 80th percentile, Average = 50th percentile, Below Avg = 30th percentile
   const situationalPerformanceData = [
     {
       metric: "Success Rate",
       [awayAbbr]: 46.0,
       [homeAbbr]: 48.0,
-      Elite: 50,
-      Average: 42.5,
-      BelowAvg: 39
+      Elite: 47.1,    // Top 20% of FBS teams
+      Average: 42.9,  // Median FBS performance
+      BelowAvg: 40.5  // Bottom 30%
     },
     {
       metric: "Explosiveness",
-      [awayAbbr]: 15.0,
-      [homeAbbr]: 13.0,
-      Elite: 17,
-      Average: 13,
-      BelowAvg: 10.5
+      [awayAbbr]: 120.0,  // Indiana coefficient 1.2 = 120%
+      [homeAbbr]: 113.0,  // OSU coefficient 1.13 = 113%
+      Elite: 130.0,       // Top 20%: 1.30+ coefficient = 130%+
+      Average: 120.0,     // Median: 1.20 coefficient = 120%
+      BelowAvg: 115.0     // Bottom 30%: 1.15 coefficient = 115%
     },
     {
       metric: "Passing Downs",
       [awayAbbr]: situationalPerformance.away_passing_downs,
       [homeAbbr]: situationalPerformance.home_passing_downs,
-      Elite: 41,
-      Average: 34.5,
-      BelowAvg: 31
+      Elite: 34.7,    // Top 20% 3rd down conversion
+      Average: 30.8,  // Median 3rd down success
+      BelowAvg: 28.2  // Struggles on passing downs
     },
     {
       metric: "Standard Downs",
       [awayAbbr]: situationalPerformance.away_standard_downs,
       [homeAbbr]: situationalPerformance.home_standard_downs,
-      Elite: 56.5,
-      Average: 49,
-      BelowAvg: 44
+      Elite: 52.2,    // Top 20% early down efficiency
+      Average: 48.6,  // Median standard downs success
+      BelowAvg: 46.2  // Below average on 1st/2nd down
     }
   ];
 
@@ -332,79 +385,123 @@ export function SituationalPerformance({ predictionData }: SituationalPerformanc
         <h3 className="text-white font-semibold text-lg">Situational Performance</h3>
       </div>
       
-      <div className="grid grid-cols-1 gap-8">
-        {/* Performance Indicators Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-6">
-          {situationalPerformanceData.map((data) => {
-            const awayValue = Number(data[awayAbbr]) || 0;
-            const homeValue = Number(data[homeAbbr]) || 0;
-            const winner = awayValue > homeValue ? awayAbbr : homeAbbr;
-            return (
-              <PerformanceCard 
-                key={data.metric}
-                title={data.metric} 
-                awayValue={`${awayValue.toFixed(1)}%`} 
-                homeValue={`${homeValue.toFixed(1)}%`} 
-                winner={winner}
-                awayTeam={awayTeam}
-                homeTeam={homeTeam}
-                awayAbbr={awayAbbr}
-                homeAbbr={homeAbbr}
-              />
-            );
-          })}
-        </div>
+      <div className="grid grid-cols-1 gap-6">
+        {/* Legend - Team Logos and Metric Benchmarks */}
+        <div className="space-y-4 mb-6">
+          {/* Team Logos Row */}
+          <div className="flex items-center justify-center gap-6 flex-wrap">
+            <div className="flex items-center gap-3 px-4 py-2 rounded-lg border shadow-lg" style={{ background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(16px)', borderColor: `${awayTeam.primary_color}40` }}>
+              <div className="relative">
+                <img 
+                  src={awayTeam.logo} 
+                  alt={awayTeam.name} 
+                  className="w-10 h-10 object-contain"
+                  style={{ 
+                    filter: `drop-shadow(0px 4px 8px ${awayTeam.primary_color}60) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4))`,
+                    transform: 'perspective(100px) rotateX(10deg) rotateY(-5deg)'
+                  }}
+                />
+              </div>
+              <span className="font-bold text-sm" style={{ color: awayTeam.primary_color }}>{awayAbbr}</span>
+            </div>
+            <div className="flex items-center gap-3 px-4 py-2 rounded-lg border shadow-lg" style={{ background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(16px)', borderColor: `${homeTeam.primary_color}40` }}>
+              <div className="relative">
+                <img 
+                  src={homeTeam.logo} 
+                  alt={homeTeam.name} 
+                  className="w-10 h-10 object-contain"
+                  style={{ 
+                    filter: `drop-shadow(0px 4px 8px ${homeTeam.primary_color}60) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4))`,
+                    transform: 'perspective(100px) rotateX(10deg) rotateY(5deg)'
+                  }}
+                />
+              </div>
+              <span className="font-bold text-sm" style={{ color: homeTeam.primary_color }}>{homeAbbr}</span>
+            </div>
+          </div>
 
-        {/* Legend - Floating without container */}
-        <div className="flex items-center justify-center gap-6 mb-6 flex-wrap">
-          <div className="flex items-center gap-3 px-4 py-2 bg-[#2a3140] rounded-lg border shadow-lg" style={{ borderColor: `${awayTeam.primary_color}40` }}>
-            <div className="relative">
-              <img 
-                src={awayTeam.logo} 
-                alt={awayTeam.name} 
-                className="w-10 h-10 object-contain"
-                style={{ 
-                  filter: `drop-shadow(0px 4px 8px ${awayTeam.primary_color}60) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4))`,
-                  transform: 'perspective(100px) rotateX(10deg) rotateY(-5deg)'
-                }}
-              />
+          {/* Benchmarks Grid - Color Coded by Metric */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {/* Success Rate */}
+            <div className="rounded-lg p-3 border" style={{ background: 'rgba(16, 185, 129, 0.05)', backdropFilter: 'blur(16px)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
+              <div className="text-emerald-400 text-xs font-bold mb-2">Success Rate</div>
+              <div className="space-y-1 text-xs">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Elite:</span>
+                  <span className="text-emerald-300 font-mono">47.1%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Avg:</span>
+                  <span className="text-gray-300 font-mono">42.9%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Below:</span>
+                  <span className="text-gray-500 font-mono">40.5%</span>
+                </div>
+              </div>
             </div>
-            <span className="font-bold text-sm" style={{ color: awayTeam.primary_color }}>{awayAbbr}</span>
-          </div>
-          <div className="flex items-center gap-3 px-4 py-2 bg-[#2a3140] rounded-lg border shadow-lg" style={{ borderColor: `${homeTeam.primary_color}40` }}>
-            <div className="relative">
-              <img 
-                src={homeTeam.logo} 
-                alt={homeTeam.name} 
-                className="w-10 h-10 object-contain"
-                style={{ 
-                  filter: `drop-shadow(0px 4px 8px ${homeTeam.primary_color}60) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4))`,
-                  transform: 'perspective(100px) rotateX(10deg) rotateY(5deg)'
-                }}
-              />
+
+            {/* Explosiveness */}
+            <div className="rounded-lg p-3 border" style={{ background: 'rgba(245, 158, 11, 0.05)', backdropFilter: 'blur(16px)', borderColor: 'rgba(245, 158, 11, 0.3)' }}>
+              <div className="text-amber-400 text-xs font-bold mb-2">Explosiveness</div>
+              <div className="space-y-1 text-xs">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Elite:</span>
+                  <span className="text-amber-300 font-mono">130%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Avg:</span>
+                  <span className="text-gray-300 font-mono">120%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Below:</span>
+                  <span className="text-gray-500 font-mono">115%</span>
+                </div>
+              </div>
             </div>
-            <span className="font-bold text-sm" style={{ color: homeTeam.primary_color }}>{homeAbbr}</span>
-          </div>
-          <div className="h-8 w-px bg-[#3a4252]"></div>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-1 bg-emerald-500 rounded-full" style={{ borderTop: '3px dashed rgba(16, 185, 129, 0.8)' }}></div>
-            <span className="text-emerald-400 text-sm font-bold tracking-wide">Elite</span>
-            <span className="text-emerald-300 text-xs ml-1">(49%+)</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-1 bg-amber-500 rounded-full" style={{ borderTop: '3px dashed rgba(245, 158, 11, 0.8)' }}></div>
-            <span className="text-amber-400 text-sm font-bold tracking-wide">Average</span>
-            <span className="text-amber-300 text-xs ml-1">(42.5%)</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-1 bg-red-500 rounded-full" style={{ borderTop: '3px dashed rgba(239, 68, 68, 0.7)' }}></div>
-            <span className="text-red-400 text-sm font-bold tracking-wide">Below Avg</span>
-            <span className="text-red-300 text-xs ml-1">(39%)</span>
+
+            {/* Passing Downs */}
+            <div className="rounded-lg p-3 border" style={{ background: 'rgba(139, 92, 246, 0.05)', backdropFilter: 'blur(16px)', borderColor: 'rgba(139, 92, 246, 0.3)' }}>
+              <div className="text-violet-400 text-xs font-bold mb-2">Passing Downs</div>
+              <div className="space-y-1 text-xs">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Elite:</span>
+                  <span className="text-violet-300 font-mono">34.7%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Avg:</span>
+                  <span className="text-gray-300 font-mono">30.8%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Below:</span>
+                  <span className="text-gray-500 font-mono">28.2%</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Standard Downs */}
+            <div className="rounded-lg p-3 border" style={{ background: 'rgba(59, 130, 246, 0.05)', backdropFilter: 'blur(16px)', borderColor: 'rgba(59, 130, 246, 0.3)' }}>
+              <div className="text-blue-400 text-xs font-bold mb-2">Standard Downs</div>
+              <div className="space-y-1 text-xs">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Elite:</span>
+                  <span className="text-blue-300 font-mono">52.2%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Avg:</span>
+                  <span className="text-gray-300 font-mono">48.6%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Below:</span>
+                  <span className="text-gray-500 font-mono">46.2%</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Enhanced Line Chart - Clean without reference line labels */}
-        <div style={{ height: '380px', width: '100%', position: 'relative', boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.3)', borderRadius: '12px', background: 'rgba(37, 43, 54, 0.5)', backdropFilter: 'blur(10px)', padding: '15px' }}>
+        <div style={{ height: '360px', width: '100%', position: 'relative', boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.2)', borderRadius: '10px', background: 'rgba(255, 255, 255, 0.02)', backdropFilter: 'blur(16px)', padding: '12px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart 
               data={situationalPerformanceData} 
@@ -453,25 +550,18 @@ export function SituationalPerformance({ predictionData }: SituationalPerformanc
               {/* Custom Tooltip */}
               <Tooltip content={<CustomTooltip awayTeam={awayTeam} homeTeam={homeTeam} awayAbbr={awayAbbr} homeAbbr={homeAbbr} />} />
               
-              {/* Reference Lines - Thicker and more visible */}
-              <ReferenceLine 
-                y={39} 
-                stroke="rgba(239, 68, 68, 0.8)" 
-                strokeDasharray="8 4" 
-                strokeWidth={3}
-              />
-              <ReferenceLine 
-                y={42.5} 
-                stroke="rgba(245, 158, 11, 0.9)" 
-                strokeDasharray="8 4" 
-                strokeWidth={3}
-              />
-              <ReferenceLine 
-                y={49} 
-                stroke="rgba(16, 185, 129, 0.8)" 
-                strokeDasharray="8 4" 
-                strokeWidth={3}
-              />
+              {/* Reference Lines - Color-coded: Green=High Good, Yellow=Medium, Red=Low Bad, Gray=Neutral */}
+              {/* Success Rate Average - Green (higher is better) */}
+              <ReferenceLine y={42.9} stroke="rgba(34, 197, 94, 0.7)" strokeDasharray="8 4" strokeWidth={2.5} label={{ value: '42.9%', position: 'right', fill: '#22c55e', fontSize: 10, fontWeight: 600 }} />
+              
+              {/* Explosiveness Average - Yellow (higher is better) */}
+              <ReferenceLine y={120.0} stroke="rgba(234, 179, 8, 0.7)" strokeDasharray="8 4" strokeWidth={2.5} label={{ value: '120%', position: 'right', fill: '#eab308', fontSize: 10, fontWeight: 600 }} />
+              
+              {/* Passing Downs Average - Red (critical metric) */}
+              <ReferenceLine y={30.8} stroke="rgba(239, 68, 68, 0.7)" strokeDasharray="8 4" strokeWidth={2.5} label={{ value: '30.8%', position: 'right', fill: '#ef4444', fontSize: 10, fontWeight: 600 }} />
+              
+              {/* Standard Downs Average - Gray (baseline metric) */}
+              <ReferenceLine y={48.6} stroke="rgba(156, 163, 175, 0.7)" strokeDasharray="8 4" strokeWidth={2.5} label={{ value: '48.6%', position: 'right', fill: '#9ca3af', fontSize: 10, fontWeight: 600 }} />
               
               {/* Team Lines with Enhanced Styling and Logo Dots */}
               <Line 
@@ -506,64 +596,28 @@ export function SituationalPerformance({ predictionData }: SituationalPerformanc
           </ResponsiveContainer>
         </div>
 
-        {/* Edge Summary - Enhanced with 3D logos */}
-        <div className="grid grid-cols-2 gap-3">
-          {/* Away Team Edges */}
-          <div className="flex items-start gap-3 p-4 rounded-lg border" style={{ 
-            background: `linear-gradient(to right, ${awayTeam.primary_color}10, transparent)`,
-            borderColor: `${awayTeam.primary_color}20`
+        {/* Edge Summary - Condensed */}
+        <div className="flex items-center justify-center gap-6 flex-wrap">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ 
+            background: `linear-gradient(135deg, ${awayTeam.primary_color}15, transparent)`,
+            border: `1px solid ${awayTeam.primary_color}30`
           }}>
-            <div className="relative">
-              <img 
-                src={awayTeam.logo} 
-                alt={awayTeam.name} 
-                className="w-8 h-8 object-contain"
-                style={{ 
-                  filter: `drop-shadow(0px 4px 8px ${awayTeam.primary_color}60) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4)) drop-shadow(0px 1px 2px rgba(255, 255, 255, 0.2))`,
-                  transform: 'perspective(150px) rotateX(12deg) rotateY(-8deg) translateZ(5px)'
-                }}
-              />
-            </div>
-            <div className="flex-1">
-              <div className="font-semibold text-sm mb-2" style={{ color: awayTeam.primary_color }}>
-                {awayTeam.name} Edge
-              </div>
-              <div className="text-gray-400 text-xs">
-                {situationalPerformanceData
-                  .filter(d => d[awayAbbr] > d[homeAbbr])
-                  .map(d => d.metric)
-                  .join(', ') || 'None identified'}
-              </div>
-            </div>
+            <img src={awayTeam.logo} alt={awayTeam.name} className="w-6 h-6 object-contain" />
+            <span className="text-xs font-semibold" style={{ color: awayTeam.primary_color }}>{awayAbbr} Edge</span>
+            <span className="text-xs text-gray-400">
+              {situationalPerformanceData.filter(d => d[awayAbbr] > d[homeAbbr]).map(d => d.metric).join(', ') || 'None'}
+            </span>
           </div>
           
-          {/* Home Team Edges */}
-          <div className="flex items-start gap-3 p-4 rounded-lg border" style={{ 
-            background: `linear-gradient(to left, ${homeTeam.primary_color}10, transparent)`,
-            borderColor: `${homeTeam.primary_color}20`
+          <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{ 
+            background: `linear-gradient(135deg, ${homeTeam.primary_color}15, transparent)`,
+            border: `1px solid ${homeTeam.primary_color}30`
           }}>
-            <div className="relative">
-              <img 
-                src={homeTeam.logo} 
-                alt={homeTeam.name} 
-                className="w-8 h-8 object-contain"
-                style={{ 
-                  filter: `drop-shadow(0px 4px 8px ${homeTeam.primary_color}60) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4)) drop-shadow(0px 1px 2px rgba(255, 255, 255, 0.2))`,
-                  transform: 'perspective(150px) rotateX(12deg) rotateY(8deg) translateZ(5px)'
-                }}
-              />
-            </div>
-            <div className="flex-1">
-              <div className="font-semibold text-sm mb-2" style={{ color: homeTeam.primary_color }}>
-                {homeTeam.name} Edge
-              </div>
-              <div className="text-gray-400 text-xs">
-                {situationalPerformanceData
-                  .filter(d => d[homeAbbr] > d[awayAbbr])
-                  .map(d => d.metric)
-                  .join(', ') || 'None identified'}
-              </div>
-            </div>
+            <img src={homeTeam.logo} alt={homeTeam.name} className="w-6 h-6 object-contain" />
+            <span className="text-xs font-semibold" style={{ color: homeTeam.primary_color }}>{homeAbbr} Edge</span>
+            <span className="text-xs text-gray-400">
+              {situationalPerformanceData.filter(d => d[homeAbbr] > d[awayAbbr]).map(d => d.metric).join(', ') || 'None'}
+            </span>
           </div>
         </div>
       </div>

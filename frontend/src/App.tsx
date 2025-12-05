@@ -1,23 +1,24 @@
 import { useState, useEffect, useRef } from 'react';
-import { Moon, Sun } from 'lucide-react';
+import { BarChart3, TrendingUp, Users } from 'lucide-react';
 import { CONFIG } from './config';
+import fbsData from './fbs.json';
+import { EVPlusPage } from './components/figma/EVPlusPage';
+import { CoachAnalysisPage } from './components/figma/CoachAnalysisPage';
 import { TeamSelector } from './components/figma/TeamSelector';
 import { Header } from './components/figma/Header';
 import { PredictionResults } from './components/figma/PredictionResults';
 import { PredictionCards } from './components/figma/PredictionCards';
+import { PredictionLoader } from './components/figma/PredictionLoader';
 import { ConfidenceSection } from './components/figma/ConfidenceSection';
-import { MarketComparison } from './components/figma/MarketComparison';
-import { LineMovement } from './components/figma/LineMovement';
+import { CompactMarketAnalysis } from './components/figma/CompactMarketAnalysis';
 import { ArbitrageOpportunities } from './components/figma/ArbitrageOpportunities';
 import { ArbitrageCalculator } from './components/figma/ArbitrageCalculator';
-import { ContextualAnalysis } from './components/figma/ContextualAnalysis';
 import { MediaInformation } from './components/figma/MediaInformation';
 import { EPAComparison } from './components/figma/EPAComparison';
 import { DifferentialAnalysis } from './components/figma/DifferentialAnalysis';
 import { WinProbability } from './components/figma/WinProbability';
 import { SituationalPerformance } from './components/figma/SituationalPerformance';
 import { FieldPositionMetrics } from './components/figma/FieldPositionMetrics';
-import { KeyPlayerImpact } from './components/figma/KeyPlayerImpact';
 import { AdvancedMetrics } from './components/figma/AdvancedMetrics';
 import { WeightsBreakdown } from './components/figma/WeightsBreakdown';
 import { ComponentBreakdown } from './components/figma/ComponentBreakdown';
@@ -26,9 +27,9 @@ import { CoachingComparison } from './components/figma/CoachingComparison';
 import { DriveEfficiency } from './components/figma/DriveEfficiency';
 import { ExtendedDefensiveAnalytics } from './components/figma/ExtendedDefensiveAnalytics';
 import ComprehensiveRatingsComparison from './components/figma/ComprehensiveRatingsComparison';
-import { APPollRankings } from './components/figma/APPollRankings';
 import { SeasonRecords } from './components/figma/SeasonRecords';
 import { FinalPredictionSummary } from './components/figma/FinalPredictionSummary';
+import { GameSummaryRationale } from './components/figma/GameSummaryRationale';
 import { Glossary } from './components/figma/Glossary';
 import { EnhancedTeamStats } from './components/figma/EnhancedTeamStats';
 import LiveGameBadge from './components/figma/LiveGameBadge';
@@ -36,24 +37,46 @@ import FieldVisualization from './components/figma/FieldVisualization';
 import WinProbabilityLive from './components/figma/WinProbabilityLive';
 import LivePlaysFeed from './components/figma/LivePlaysFeed';
 import ComprehensiveMetricsDashboard from './components/figma/ComprehensiveMetricsDashboard';
-import { ATSComparison } from './components/figma/ATSComparison';
 import { PlayerPropsPanel } from './components/figma/PlayerPropsPanel';
-import RivalryHistoryCard from './components/RivalryHistoryCard';
+import { CommonOpponents } from './components/figma/CommonOpponents';
+import { KeyPlayerImpact } from './components/figma/KeyPlayerImpact';
 
-// Import comprehensive power rankings data
-import powerRankingsData from './data/comprehensive_power_rankings.json';
+interface Team {
+  id: number;
+  school: string;
+  mascot: string;
+  abbreviation: string;
+  conference: string;
+  primary_color: string;
+  alt_color: string;
+  logos: string[];
+}
+
+const teams: Team[] = fbsData as Team[];
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [currentPage, setCurrentPage] = useState<'main' | 'evplus' | 'coach'>('main');
   const [predictionData, setPredictionData] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [liveData, setLiveData] = useState<any | null>(null);
   const [selectedTeams, setSelectedTeams] = useState<{ home: string; away: string } | null>(null);
+  const [currentMatchup, setCurrentMatchup] = useState<{ home: string; away: string } | null>(null);
+  const [insightMode, setInsightMode] = useState(false);
+  const [batchMode, setBatchMode] = useState(false);
+  const [batchPredictions, setBatchPredictions] = useState<any[]>([]);
+  const [batchLoading, setBatchLoading] = useState(false);
   const intervalRef = useRef<number | null>(null);
+  const gameSummaryRef = useRef<HTMLDivElement | null>(null);
   
   // Fetch live game data
+  // NOTE: Live game data feature is currently disabled
   const fetchLiveData = async (homeTeam: string, awayTeam: string) => {
+    // Live game endpoint is currently unavailable (503)
+    // Commenting out to prevent console errors
+    // When the feature is re-enabled, uncomment the code below
+    
+    /*
     try {
       const response = await fetch(
         `${CONFIG.API.BASE_URL}/api/live-game?home=${encodeURIComponent(homeTeam)}&away=${encodeURIComponent(awayTeam)}`
@@ -75,6 +98,10 @@ export default function App() {
     } catch (error) {
       console.error('Error fetching live data:', error);
     }
+    */
+    
+    // Set live data to null since feature is disabled
+    setLiveData(null);
   };
   
   // Auto-refresh effect for live data
@@ -142,29 +169,142 @@ export default function App() {
     }
   };
 
+  const handleQuickInsight = async () => {
+    // Check if we already have prediction data for the current matchup
+    const hasMatchingPrediction = predictionData && 
+                                   selectedTeams?.home === currentMatchup?.home && 
+                                   selectedTeams?.away === currentMatchup?.away;
+    
+    // Only run prediction if we don't have data for current matchup
+    if (!hasMatchingPrediction && currentMatchup) {
+      await handlePrediction(currentMatchup.home, currentMatchup.away);
+    }
+    
+    // Enable insight mode to show only the Game Summary & Rationale
+    setInsightMode(true);
+  };
+
+  const handleBatchPredictions = async () => {
+    setBatchLoading(true);
+    setBatchMode(true);
+    setInsightMode(false);
+    
+    try {
+      // Fetch current week games
+      const gamesResponse = await fetch('/Currentweekgames.json');
+      const gamesData = await gamesResponse.json();
+      const games = gamesData.games?.all || [];
+      
+      // Limit to top 10 games to avoid overwhelming the system
+      const gamesToPredict = games.slice(0, 10);
+      
+      const predictions = [];
+      
+      for (const game of gamesToPredict) {
+        try {
+          const response = await fetch(`${CONFIG.API.BASE_URL}${CONFIG.API.ENDPOINTS.PREDICT}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              home_team: game.homeTeam.name,
+              away_team: game.awayTeam.name
+            })
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            predictions.push({
+              homeTeam: game.homeTeam.name,
+              awayTeam: game.awayTeam.name,
+              data: data.ui_components ? { 
+                ...data.ui_components, 
+                formatted_analysis: data.formatted_analysis,
+                rivalry_history: data.rivalry_history 
+              } : data
+            });
+          }
+        } catch (err) {
+          console.error(`Failed to predict ${game.awayTeam.name} @ ${game.homeTeam.name}:`, err);
+        }
+      }
+      
+      setBatchPredictions(predictions);
+    } catch (error) {
+      console.error('Batch prediction error:', error);
+    } finally {
+      setBatchLoading(false);
+    }
+  };
+
+  // Handle page navigation
+  if (currentPage === 'evplus') {
+    return <EVPlusPage onBack={() => setCurrentPage('main')} />;
+  }
+
+  if (currentPage === 'coach') {
+    return <CoachAnalysisPage onBack={() => setCurrentPage('main')} />;
+  }
+
   return (
-    <div className={darkMode ? 'dark' : ''}>
-      {/* Premium Glass Background */}
-      <div className="min-h-screen relative overflow-hidden">
-        {/* Premium Textured Background */}
-        <div className="absolute inset-0" style={{
-          background: `
-            radial-gradient(circle at 25% 25%, hsla(210, 15%, 25%, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 75% 75%, hsla(220, 20%, 30%, 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 50% 100%, hsla(200, 12%, 20%, 0.06) 0%, transparent 70%),
-            linear-gradient(135deg, hsla(0, 0%, 8%, 1) 0%, hsla(210, 8%, 12%, 1) 25%, hsla(220, 6%, 15%, 1) 50%, hsla(200, 7%, 10%, 1) 75%, hsla(0, 0%, 6%, 1) 100%)
+    <div className="dark">
+      {/* Modern Team Logos Loading Animation */}
+      {isLoading && selectedTeams && (
+        <PredictionLoader
+          awayTeam={{
+            name: selectedTeams.away,
+            logo: teams.find(t => t.school === selectedTeams.away)?.logos[1] || '',
+            color: teams.find(t => t.school === selectedTeams.away)?.primary_color || '#3b82f6'
+          }}
+          homeTeam={{
+            name: selectedTeams.home,
+            logo: teams.find(t => t.school === selectedTeams.home)?.logos[1] || '',
+            color: teams.find(t => t.school === selectedTeams.home)?.primary_color || '#8b5cf6'
+          }}
+        />
+      )}
+
+      {/* Modern Textured Background - Exact Mirror of week14.html */}
+      <div className="min-h-screen relative overflow-hidden" style={{
+        background: `
+          linear-gradient(135deg, #050506 0%, #0a0a0b 25%, #060607 50%, #080809 75%, #050506 100%),
+          radial-gradient(ellipse at top left, rgba(12, 12, 14, 0.3), transparent 50%),
+          radial-gradient(ellipse at bottom right, rgba(10, 10, 12, 0.3), transparent 50%),
+          linear-gradient(180deg, #070708 0%, #030304 100%)
+        `,
+        WebkitFontSmoothing: 'antialiased',
+        MozOsxFontSmoothing: 'grayscale',
+        textRendering: 'optimizeLegibility'
+      }}>
+        
+        {/* Layered Texture Pattern - Exact from week14.html body::before */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: `
+            repeating-linear-gradient(0deg, transparent, transparent 0.5px, rgba(255, 255, 255, 0.025) 0.5px, rgba(255, 255, 255, 0.025) 1px),
+            repeating-linear-gradient(90deg, transparent, transparent 0.5px, rgba(255, 255, 255, 0.025) 0.5px, rgba(255, 255, 255, 0.025) 1px),
+            repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 0.5px, transparent 0.5px, transparent 4px),
+            repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 0.5px, transparent 0.5px, transparent 4px),
+            repeating-linear-gradient(30deg, rgba(204, 0, 28, 0.035) 0px, rgba(204, 0, 28, 0.035) 1px, transparent 1px, transparent 16px),
+            repeating-linear-gradient(-30deg, rgba(161, 0, 20, 0.035) 0px, rgba(161, 0, 20, 0.035) 1px, transparent 1px, transparent 16px),
+            radial-gradient(ellipse at 25% 15%, rgba(204, 0, 28, 0.12) 0%, rgba(161, 0, 20, 0.08) 30%, transparent 60%),
+            radial-gradient(ellipse at 75% 85%, rgba(115, 0, 13, 0.12) 0%, rgba(161, 0, 20, 0.08) 30%, transparent 60%),
+            radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 35%),
+            radial-gradient(circle at 80% 70%, rgba(204, 0, 28, 0.06) 0%, transparent 25%)
           `,
-          backgroundSize: '400px 400px, 600px 600px, 800px 800px, 100% 100%'
+          backgroundSize: '1px 1px, 1px 1px, 4px 4px, 4px 4px, 16px 16px, 16px 16px, 800px 800px, 700px 700px, 400px 400px, 300px 300px',
+          zIndex: 0,
+          opacity: 1
         }}></div>
         
-        {/* Subtle Noise Texture Overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            backgroundSize: '180px 180px'
-          }}
-        ></div>
+        {/* Lighting Effects - Uniform darkness */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: `
+            linear-gradient(180deg, transparent 0%, transparent 75%, rgba(0, 0, 0, 0.25) 100%),
+            linear-gradient(135deg, transparent 0%, transparent 70%, rgba(0, 0, 0, 0.08) 100%),
+            radial-gradient(ellipse at 80% 80%, rgba(0, 0, 0, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.18) 100%)
+          `,
+          zIndex: 0
+        }}></div>
         
         {/* Content */}
         <div className="relative z-10 px-3 py-4 sm:px-4 sm:py-6 md:p-8 lg:p-12 text-white">
@@ -172,18 +312,45 @@ export default function App() {
           
           {/* Modern Header */}
           <div className="relative text-center mb-8 sm:mb-12">
-            {/* Theme Toggle - Top Right */}
-            <div className="absolute top-0 right-0">
-              <button 
-                onClick={() => setDarkMode(!darkMode)}
-                className="p-2 sm:p-3 md:p-4 bg-slate-900/70 backdrop-blur-xl border border-white/20 hover:border-white/40 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 hover:bg-slate-800/80 shadow-lg hover:shadow-xl"
-                aria-label="Toggle theme"
+            {/* Theme Toggle & Week 14 Recap - Top Right */}
+            <div className="absolute top-0 right-0 flex items-center gap-2">
+              {/* Week 14 Recap Button */}
+              <a
+                href="/week14.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-2 sm:p-3 md:p-4 backdrop-blur-sm backdrop-blur-xl border border-red-500/30 hover:border-red-500/50 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 hover:bg-red-900/30 shadow-lg hover:shadow-xl"
+                aria-label="Week 14 Recap"
               >
-                {darkMode ? (
-                  <Sun className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-yellow-400 drop-shadow-sm" />
-                ) : (
-                  <Moon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-slate-300 drop-shadow-sm" />
-                )}
+                <svg 
+                  className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-red-400 group-hover:text-red-300 transition-colors duration-300" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </a>
+              
+              {/* EV+ Button */}
+              <button 
+                onClick={() => setCurrentPage('evplus')}
+                className="p-2 sm:p-3 md:p-4 backdrop-blur-sm backdrop-blur-xl border border-white/20 hover:border-green-400/40 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 hover:bg-green-500/10 shadow-lg hover:shadow-xl"
+                aria-label="EV+ Betting Tools"
+                title="EV+ Betting Tools"
+              >
+                <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-green-400 drop-shadow-sm" />
+              </button>
+
+              {/* Coach Analysis Button */}
+              <button 
+                onClick={() => setCurrentPage('coach')}
+                className="p-2 sm:p-3 md:p-4 backdrop-blur-sm backdrop-blur-xl border border-white/20 hover:border-blue-400/40 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 hover:bg-blue-500/10 shadow-lg hover:shadow-xl"
+                aria-label="Coach Analysis"
+                title="Coach Analysis"
+              >
+                <Users className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-blue-400 drop-shadow-sm" />
               </button>
             </div>
 
@@ -204,10 +371,10 @@ export default function App() {
               
               {/* Version and Status */}
               <div className="flex items-center justify-center gap-4 mt-4 text-sm font-mono">
-                <span className="text-slate-300 bg-slate-900/70 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full shadow-lg">
+                <span className="text-slate-300 backdrop-blur-sm backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full shadow-lg">
                   v 0.2.1
                 </span>
-                <div className="flex items-center gap-3 text-slate-300 bg-slate-900/70 backdrop-blur-sm border border-emerald-500/30 px-4 py-2 rounded-full shadow-lg">
+                <div className="flex items-center gap-3 text-slate-300 backdrop-blur-sm backdrop-blur-sm border border-emerald-500/30 px-4 py-2 rounded-full shadow-lg">
                   <div className="relative">
                     <div 
                       className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]"
@@ -228,31 +395,209 @@ export default function App() {
             </h1>
           </div>
 
-          {/* Team Selector */}
+          {/* ========================================================================= */}
+          {/* 🎯 TIER 1: HERO & INSTANT DECISION (0-30 seconds) */}
+          {/* First impression - what bettors need immediately */}
+          {/* ========================================================================= */}
+          
+          {/* 1-2. Team Selector - Select matchup */}
           <TeamSelector 
             onPrediction={handlePrediction}
             isLoading={isLoading}
+            onQuickInsight={handleQuickInsight}
+            onMatchupChange={(away, home) => {
+              setCurrentMatchup({ home: home.school, away: away.school });
+            }}
           />
           
-          {/* Header - Game Info & Teams */}
-          <Header predictionData={predictionData} isLoading={isLoading} />
+          {/* Batch Predictions Button */}
+          <div className="mb-6 flex justify-center">
+            <button
+              onClick={handleBatchPredictions}
+              disabled={batchLoading}
+              className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl 
+                       transform hover:scale-[1.02] transition-all duration-300 ease-out
+                       disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{
+                background: `linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15))`,
+                border: `1px solid rgba(59, 130, 246, 0.3)`,
+              }}
+            >
+              <div className="relative px-8 py-3 flex items-center justify-center gap-2">
+                <BarChart3 
+                  className="w-5 h-5 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" 
+                  strokeWidth={2}
+                />
+                <span className="text-base font-semibold text-blue-100 group-hover:text-white transition-colors duration-300">
+                  {batchLoading ? 'Loading All Predictions...' : 'Get All Predictions'}
+                </span>
+              </div>
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            </button>
+          </div>
           
-          {/* Rivalry History - Shows if this is a rivalry game */}
-          {predictionData?.rivalry_history && (
+          {/* Batch Predictions Mode - Show all game insights */}
+          {batchMode && batchPredictions.length > 0 ? (
             <>
-              {console.log('App.tsx: Rendering RivalryHistoryCard with data:', predictionData.rivalry_history)}
-              <RivalryHistoryCard rivalryData={predictionData.rivalry_history} />
+              {/* Exit Batch Mode Button */}
+              <div className="mb-6 flex justify-center">
+                <button
+                  onClick={() => {
+                    setBatchMode(false);
+                    setBatchPredictions([]);
+                  }}
+                  className="px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 
+                           hover:from-blue-500/30 hover:to-purple-500/30
+                           border border-blue-400/30 hover:border-blue-400/50
+                           rounded-xl text-white font-semibold transition-all duration-300
+                           shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                >
+                  ← Back to Single Game
+                </button>
+              </div>
+              
+              {/* Display all predictions */}
+              <div className="space-y-8">
+                {batchPredictions.map((prediction, index) => (
+                  <div key={index}>
+                    <h2 className="text-2xl font-bold text-white mb-4 text-center">
+                      {prediction.awayTeam} @ {prediction.homeTeam}
+                    </h2>
+                    <GameSummaryRationale predictionData={prediction.data} />
+                  </div>
+                ))}
+              </div>
             </>
-          )}
+          ) : insightMode && predictionData ? (
+            <>
+              {/* Exit Insight Mode Button */}
+              <div className="mb-6 flex justify-center">
+                <button
+                  onClick={() => setInsightMode(false)}
+                  className="px-6 py-3 bg-gradient-to-r from-purple-500/20 to-blue-500/20 
+                           hover:from-purple-500/30 hover:to-blue-500/30
+                           border border-purple-400/30 hover:border-purple-400/50
+                           rounded-xl text-white font-semibold transition-all duration-300
+                           shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                >
+                  ← Back to Full Analysis
+                </button>
+              </div>
+              
+              <GameSummaryRationale predictionData={predictionData} />
+            </>
+          ) : (
+            <>
+              {/* 3-6. Header - Selected Teams, Game Details, Rivalry Banner */}
+              <Header predictionData={predictionData} isLoading={isLoading} />
+              
+              {/* Rivalry History - Shows if this is a rivalry game */}
+              {predictionData?.rivalry_history && (
+                <>
+  
+                </>
+              )}
+              
+              {/* 7-11. Win Probability, Final Score, Confidence, Spread vs Market, Recommended Bets */}
+              <PredictionCards predictionData={predictionData} isLoading={isLoading} error={error || undefined} />
           
-          {/* Prediction Results - Shows after game is complete */}
-          {predictionData && (
-            <PredictionResults 
-              predictionData={predictionData}
-            />
-          )}
+          {/* Final Summary with Predicted Score & Key Factors */}
+          <FinalPredictionSummary predictionData={predictionData} />
           
+          {/* ========================================================================= */}
+          {/* 📊 TIER 2: CRITICAL BETTING INTEL (30 sec - 2 min) */}
+          {/* Core data that influences betting decisions */}
+          {/* ========================================================================= */}
+          
+          {/* 12-15. Compact Market Analysis (ATS Performance, Market Comparison, Line Movement) */}
+          <CompactMarketAnalysis predictionData={predictionData} />
+          
+          {/* 16. Elite vs Ranked Performance (Coaching Comparison) */}
+          <CoachingComparison predictionData={predictionData} />
+          
+          {/* 17. Key Player Impact Analysis */}
+          <KeyPlayerImpact predictionData={predictionData} />
+          
+          {/* 18. Player Props (Top 8-10 opportunities) */}
+          <PlayerPropsPanel predictionData={predictionData} />
+          
+          {/* ========================================================================= */}
+          {/* 🧠 TIER 3: ADVANCED ANALYTICS (2-5 minutes) */}
+          {/* Deep performance analysis for serious bettors */}
+          {/* ========================================================================= */}
+          
+          {/* 19. EPA Comparison */}
+          <EPAComparison predictionData={predictionData} />
+          
+          {/* 20. Win Probability Analysis */}
+          <WinProbability predictionData={predictionData} />
+          
+          {/* 21. Comprehensive Differential Analysis */}
+          <DifferentialAnalysis predictionData={predictionData} />
+          
+          {/* 22-23. Advanced Offensive Metrics & Situational Performance */}
+          <AdvancedMetrics predictionData={predictionData} />
+          
+          {/* 24. Situational Performance */}
+          <SituationalPerformance predictionData={predictionData} />
+          
+          {/* 25. Field Position Metrics */}
+          <FieldPositionMetrics predictionData={predictionData} />
+          
+          {/* 26. Drive Efficiency & Game Flow */}
+          <DriveEfficiency predictionData={predictionData} />
+          
+          {/* 27-28. Defensive Statistics & Game Control Metrics */}
+          <ExtendedDefensiveAnalytics predictionData={predictionData} />
+          
+          {/* ========================================================================= */}
+          {/* 📈 TIER 4: CONTEXTUAL BACKGROUND (5+ minutes) */}
+          {/* Historical and seasonal context */}
+          {/* ========================================================================= */}
+          
+          {/* 29. 2025 Season Records */}
+          <SeasonRecords predictionData={predictionData} />
+          
+          {/* 30. Common Opponents Analysis - 2025 Season */}
+          <CommonOpponents predictionData={predictionData} />
+          
+          {/* 31. Extended Team Statistics */}
+          <ComprehensiveTeamStats predictionData={predictionData} />
+          
+          {/* Enhanced Team Stats */}
+          <EnhancedTeamStats predictionData={predictionData} />
+          
+          {/* ========================================================================= */}
+          {/* 📊 TIER 5: ADVANCED RATINGS & RANKINGS (Deep dive) */}
+          {/* For analytics enthusiasts */}
+          {/* ========================================================================= */}
+          
+          {/* 35-37. Team Ratings, Power Rankings, Match Quality */}
+          <ComprehensiveRatingsComparison predictionData={predictionData} />
+          
+          {/* 167-Metric Power Rankings Dashboard */}
+          <ComprehensiveMetricsDashboard 
+            predictionData={predictionData} 
+
+          />
+          
+          {/* ========================================================================= */}
+          {/* 🛠️ TIER 6: SPECIALIZED TOOLS (Advanced users) */}
+          {/* Professional betting tools */}
+          {/* ========================================================================= */}
+          
+          {/* COMMENTED OUT: Arbitrage components - temporarily hidden */}
+          {/* 38. Arbitrage Intelligence */}
+          {/* <ArbitrageOpportunities predictionData={predictionData} /> */}
+          
+          {/* 40. Arbitrage Calculator */}
+          {/* <ArbitrageCalculator predictionData={predictionData} /> */}
+          
+          {/* ========================================================================= */}
           {/* 🔴 LIVE GAME SECTION - Only shows when game is in progress */}
+          {/* Overlays above content when game is live */}
+          {/* ========================================================================= */}
+          
           {liveData?.game_info?.is_live && (
             <>
               <LiveGameBadge 
@@ -302,142 +647,34 @@ export default function App() {
             </>
           )}
           
-          {/* ========================================================================= */}
-          {/* 🎯 THE VERDICT: What You Need to Know First */}
-          {/* ========================================================================= */}
-          
-          {/* Main Prediction Results - Win%, Spread, Total */}
-          <PredictionCards predictionData={predictionData} isLoading={isLoading} error={error || undefined} />
-          
-          {/* Final Summary with Predicted Score & Key Factors */}
-          <FinalPredictionSummary predictionData={predictionData} />
-          
-          {/* Confidence Score - HOW SURE IS THE MODEL? */}
-          {/* <ConfidenceSection predictionData={predictionData} isLoading={isLoading} error={error || undefined} /> */}
+          {/* Prediction Results - Shows after game is complete */}
+          {predictionData && (
+            <PredictionResults 
+              predictionData={predictionData}
+            />
+          )}
           
           {/* ========================================================================= */}
-          {/* 💰 VALUE HUNTING: Where's the Edge? */}
+          {/* 📖 TIER 6 CONTINUED: REFERENCE - Terms & Definitions */}
           {/* ========================================================================= */}
           
-          {/* ATS Comparison - Against The Spread Performance */}
-          <ATSComparison predictionData={predictionData} />
+          {/* Game Summary & Prediction Rationale - Comprehensive breakdown */}
+          <div id="game-summary-rationale">
+            <GameSummaryRationale predictionData={predictionData} />
+          </div>
           
-          {/* Player Props - Top betting opportunities */}
-          <PlayerPropsPanel predictionData={predictionData} />
-          
-          {/* Market Comparison - Model vs Vegas Lines */}
-          <MarketComparison predictionData={predictionData} />
-          
-          {/* Line Movement - How the market is reacting */}
-          <LineMovement predictionData={predictionData} />
-          
-          {/* ========================================================================= */}
-          {/* 🧠 THE BRAIN: What Drives This Prediction? */}
-          {/* ========================================================================= */}
-          
-          {/* Model Weights - See what matters most in this matchup */}
-          {/* <WeightsBreakdown predictionData={predictionData} /> */}
-          
-          {/* Component Breakdown - How each factor contributed */}
-          {/* <ComponentBreakdown predictionData={predictionData} /> */}
-          
-          {/* ========================================================================= */}
-          {/* 👥 GAME CHANGERS: Player Impact */}
-          {/* ========================================================================= */}
-          
-          {/* Key Player Impact - QBs, WRs who move the needle */}
-          <KeyPlayerImpact predictionData={predictionData} />
-          
-          {/* ========================================================================= */}
-          {/* 📊 ADVANCED ANALYTICS: The Deep Dive */}
-          {/* ========================================================================= */}
-          
-          {/* EPA Comparison - Most important efficiency metric */}
-          <EPAComparison predictionData={predictionData} />
-          
-          {/* Win Probability Distribution */}
-          <WinProbability predictionData={predictionData} />
-          
-          {/* Comprehensive Differential Analysis - Side-by-side comparison */}
-          <DifferentialAnalysis predictionData={predictionData} />
-          
-          {/* Advanced Metrics - Success rate, explosiveness, etc */}
-          <AdvancedMetrics predictionData={predictionData} />
-          
-          {/* Situational Performance - 3rd down, red zone, etc */}
-          <SituationalPerformance predictionData={predictionData} />
-          
-          {/* Field Position Metrics - Starting field position advantage */}
-          <FieldPositionMetrics predictionData={predictionData} />
-          
-          {/* Drive Efficiency - Scoring drives, explosive plays, methodical drives */}
-          <DriveEfficiency predictionData={predictionData} />
-          
-          {/* ========================================================================= */}
-          {/* 🏆 TEAM PROFILES: Who Are These Teams? */}
-          {/* ========================================================================= */}
-          
-          {/* Season Records - Game-by-game results */}
-          <SeasonRecords predictionData={predictionData} />
-          
-          {/* Comprehensive Team Statistics - Full statistical profile */}
-          <ComprehensiveTeamStats predictionData={predictionData} />
-          
-          {/* Enhanced Team Stats - Offense, efficiency, special teams */}
-          <EnhancedTeamStats predictionData={predictionData} />
-          
-          {/* Extended Defensive Analytics - Defensive deep dive */}
-          <ExtendedDefensiveAnalytics predictionData={predictionData} />
-          
-          {/* Coaching Comparison - Experience, records, recruiting */}
-          <CoachingComparison predictionData={predictionData} />
-          
-          {/* ========================================================================= */}
-          {/* 🌍 CONTEXT MATTERS: External Factors */}
-          {/* ========================================================================= */}
-          
-          {/* Weather, Bye Weeks, Injuries */}
-          <ContextualAnalysis predictionData={predictionData} />
-          
-          {/* AP Poll Rankings */}
-          <APPollRankings predictionData={predictionData} />
-          
-          {/* Media Information - Network, time, excitement index */}
-          {/* <MediaInformation predictionData={predictionData} /> */}
-          
-          {/* ========================================================================= */}
-          {/* 🎯 RATINGS UNIVERSE: Every System's Take */}
-          {/* ========================================================================= */}
-          
-          {/* Comprehensive Ratings - FPI, SP+, SRS, etc */}
-          <ComprehensiveRatingsComparison predictionData={predictionData} />
-          
-          {/* 167-Metric Power Rankings Dashboard */}
-          <ComprehensiveMetricsDashboard 
-            predictionData={predictionData} 
-            powerRankingsData={powerRankingsData}
-          />
-          
-          {/* ========================================================================= */}
-          {/* 💸 ARBITRAGE: Advanced Betting Strategies */}
-          {/* ========================================================================= */}
-          
-          {/* Arbitrage Intelligence - Profit opportunities */}
-          <ArbitrageOpportunities predictionData={predictionData} />
-          
-          {/* Arbitrage Calculator - Calculate optimal stakes */}
-          <ArbitrageCalculator predictionData={predictionData} />
-          
-          {/* ========================================================================= */}
-          {/* 📖 REFERENCE: Terms & Definitions */}
-          {/* ========================================================================= */}
-          
-          {/* Glossary - What does EPA mean? What's success rate? */}
+          {/* 41. Metrics Glossary - Educational resource */}
           <Glossary predictionData={predictionData} />
+            </>
+          )}
+          
+          {/* ========================================================================= */}
+          {/* 📱 FOOTER */}
+          {/* ========================================================================= */}
           
           {/* Footer */}
           <div className="text-center text-slate-400 text-sm py-8">
-            <div className="bg-slate-900/60 backdrop-blur-sm border border-white/10 rounded-lg p-4 shadow-lg">
+            <div className="backdrop-blur-xl backdrop-blur-sm border border-white/10 rounded-lg p-4 shadow-lg">
               <p>Analytics Dashboard • Data-Driven Predictions • For Educational Purposes Only</p>
             </div>
           </div>

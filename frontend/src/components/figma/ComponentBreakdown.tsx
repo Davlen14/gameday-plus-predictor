@@ -182,7 +182,7 @@ export function ComponentBreakdown({ predictionData }: ComponentBreakdownProps) 
             </div>
             
             {/* Raw Differential */}
-            <div className="flex justify-between items-center pt-3 bg-slate-800/50 rounded-lg p-4 border border-slate-600/40">
+            <div className="flex justify-between items-center pt-3 backdrop-blur-sm rounded-lg p-4 border border-slate-600/40">
               <span className="text-white font-bold text-lg">RAW DIFFERENTIAL:</span>
               <span className={`text-3xl font-bold font-mono drop-shadow-lg ${getValueColor(data.raw_differential)}`}>
                 {formatValue(data.raw_differential)}

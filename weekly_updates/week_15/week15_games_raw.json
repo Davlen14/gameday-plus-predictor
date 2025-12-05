@@ -1,0 +1,589 @@
+{
+  "data": {
+    "game": [
+      {
+        "id": 401777352,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T00:00:00",
+        "homeTeam": "James Madison",
+        "awayTeam": "Troy",
+        "homeTeamId": 256,
+        "awayTeamId": 2653,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 27.7,
+          "windSpeed": 9.2,
+          "precipitation": 0.0,
+          "humidity": 58.0
+        }
+      },
+      {
+        "id": 401777325,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T00:00:00",
+        "homeTeam": "Jacksonville State",
+        "awayTeam": "Kennesaw State",
+        "homeTeamId": 55,
+        "awayTeamId": 338,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 50.9,
+          "windSpeed": 16.8,
+          "precipitation": 0.0,
+          "humidity": 96.0
+        }
+      },
+      {
+        "id": 401777324,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T01:00:00",
+        "homeTeam": "Tulane",
+        "awayTeam": "North Texas",
+        "homeTeamId": 2655,
+        "awayTeamId": 249,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 60.8,
+          "windSpeed": 8.1,
+          "precipitation": 0.0,
+          "humidity": 90.0
+        }
+      },
+      {
+        "id": 401777326,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T01:00:00",
+        "homeTeam": "Boise State",
+        "awayTeam": "UNLV",
+        "homeTeamId": 68,
+        "awayTeamId": 2439,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 44.1,
+          "windSpeed": 5.8,
+          "precipitation": 0.0,
+          "humidity": 69.0
+        }
+      },
+      {
+        "id": 401837095,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T17:00:00",
+        "homeTeam": "Johns Hopkins University",
+        "awayTeam": "Salisbury",
+        "homeTeamId": 118,
+        "awayTeamId": 2532,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 39.7,
+          "windSpeed": 8.1,
+          "precipitation": 0.0,
+          "humidity": 64.0
+        }
+      },
+      {
+        "id": 401777327,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T17:00:00",
+        "homeTeam": "Texas Tech",
+        "awayTeam": "BYU",
+        "homeTeamId": 2641,
+        "awayTeamId": 252,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 54.7,
+          "windSpeed": 8.1,
+          "precipitation": 0.0,
+          "humidity": 49.0
+        }
+      },
+      {
+        "id": 401777329,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T17:00:00",
+        "homeTeam": "Western Michigan",
+        "awayTeam": "Miami (OH)",
+        "homeTeamId": 2711,
+        "awayTeamId": 193,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 26.6,
+          "windSpeed": 8.5,
+          "precipitation": 0.0,
+          "humidity": 78.0
+        }
+      },
+      {
+        "id": 401833978,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T17:00:00",
+        "homeTeam": "Lehigh",
+        "awayTeam": "Villanova",
+        "homeTeamId": 2329,
+        "awayTeamId": 222,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 36.5,
+          "windSpeed": 4.7,
+          "precipitation": 0.0,
+          "humidity": 86.0
+        }
+      },
+      {
+        "id": 401836218,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T17:00:00",
+        "homeTeam": "Mercer",
+        "awayTeam": "South Dakota",
+        "homeTeamId": 2382,
+        "awayTeamId": 233,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 59.9,
+          "windSpeed": 8.1,
+          "precipitation": 0.0,
+          "humidity": 98.0
+        }
+      },
+      {
+        "id": 401837035,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T17:00:00",
+        "homeTeam": "Kutztown University",
+        "awayTeam": "Frostburg State",
+        "homeTeamId": 2315,
+        "awayTeamId": 341,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 39.0,
+          "windSpeed": 6.3,
+          "precipitation": 0.0,
+          "humidity": 86.0
+        }
+      },
+      {
+        "id": 401836850,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T17:00:00",
+        "homeTeam": "University of Mount Union",
+        "awayTeam": "John Carroll University",
+        "homeTeamId": 426,
+        "awayTeamId": 2302,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 31.8,
+          "windSpeed": 11.6,
+          "precipitation": 0.0,
+          "humidity": 89.0
+        }
+      },
+      {
+        "id": 401837096,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T17:00:00",
+        "homeTeam": "Susquehanna",
+        "awayTeam": "Eastern University",
+        "homeTeamId": 216,
+        "awayTeamId": 127954,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 41.7,
+          "windSpeed": 6.0,
+          "precipitation": 0.0,
+          "humidity": 82.0
+        }
+      },
+      {
+        "id": 401837055,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T18:00:00",
+        "homeTeam": "Ferris State",
+        "awayTeam": "Minnesota State Mankato",
+        "homeTeamId": 2222,
+        "awayTeamId": 2364,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 27.1,
+          "windSpeed": 8.9,
+          "precipitation": 0.0,
+          "humidity": 70.0
+        }
+      },
+      {
+        "id": 401836198,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T18:00:00",
+        "homeTeam": "North Dakota State",
+        "awayTeam": "Illinois State",
+        "homeTeamId": 2449,
+        "awayTeamId": 2287,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 8.1,
+          "windSpeed": 13.8,
+          "precipitation": 0.0,
+          "humidity": 72.0
+        }
+      },
+      {
+        "id": 401836216,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T18:00:00",
+        "homeTeam": "Stephen F. Austin",
+        "awayTeam": "Abilene Christian",
+        "homeTeamId": 2617,
+        "awayTeamId": 2000,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 53.4,
+          "windSpeed": 7.1,
+          "precipitation": 0.0,
+          "humidity": 51.0
+        }
+      },
+      {
+        "id": 401836217,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T18:00:00",
+        "homeTeam": "Tarleton State",
+        "awayTeam": "North Dakota",
+        "homeTeamId": 2627,
+        "awayTeamId": 155,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": null
+      },
+      {
+        "id": 401836852,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T18:00:00",
+        "homeTeam": "Wisconsin-River Falls",
+        "awayTeam": "Saint John's (MN)",
+        "homeTeamId": 2723,
+        "awayTeamId": 2600,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 11.5,
+          "windSpeed": 3.4,
+          "precipitation": 0.0,
+          "humidity": 73.0
+        }
+      },
+      {
+        "id": 401836851,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T18:00:00",
+        "homeTeam": "Depauw",
+        "awayTeam": "Wheaton",
+        "homeTeamId": 83,
+        "awayTeamId": 396,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": null
+      },
+      {
+        "id": 401837075,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T18:00:00",
+        "homeTeam": "Albany State GA",
+        "awayTeam": "Newberry",
+        "homeTeamId": 2013,
+        "awayTeamId": 2444,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 58.8,
+          "windSpeed": 9.2,
+          "precipitation": 0.0,
+          "humidity": 79.0
+        }
+      },
+      {
+        "id": 401836537,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T18:00:00",
+        "homeTeam": "Arkansas Tech",
+        "awayTeam": "West Texas A&M",
+        "homeTeamId": 2033,
+        "awayTeamId": 2704,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": null
+      },
+      {
+        "id": 401837097,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T18:00:00",
+        "homeTeam": "Trinity University TX",
+        "awayTeam": "Berry College",
+        "homeTeamId": 386,
+        "awayTeamId": 2757,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 61.7,
+          "windSpeed": 4.5,
+          "precipitation": 0.0,
+          "humidity": 41.0
+        }
+      },
+      {
+        "id": 401836854,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T18:00:00",
+        "homeTeam": "Bethel (MN)",
+        "awayTeam": "Wisconsin-Platteville",
+        "homeTeamId": 2802,
+        "awayTeamId": 272,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 11.1,
+          "windSpeed": 3.4,
+          "precipitation": 0.0,
+          "humidity": 74.0
+        }
+      },
+      {
+        "id": 401836853,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T18:00:00",
+        "homeTeam": "North Central College",
+        "awayTeam": "Wisconsin-Lacrosse",
+        "homeTeamId": 3071,
+        "awayTeamId": 2740,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 21.9,
+          "windSpeed": 8.1,
+          "precipitation": 0.0,
+          "humidity": 78.0
+        }
+      },
+      {
+        "id": 401837115,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T19:00:00",
+        "homeTeam": "Harding University",
+        "awayTeam": "UT Permian Basin",
+        "homeTeamId": 2264,
+        "awayTeamId": 110243,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": null
+      },
+      {
+        "id": 401836536,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T19:00:00",
+        "homeTeam": "Hillsdale",
+        "awayTeam": "Upper Iowa University",
+        "homeTeamId": 2273,
+        "awayTeamId": 389,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": null
+      },
+      {
+        "id": 401777350,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T19:00:00",
+        "homeTeam": "Jackson State",
+        "awayTeam": "Prairie View A&M",
+        "homeTeamId": 2296,
+        "awayTeamId": 2504,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 55.8,
+          "windSpeed": 9.2,
+          "precipitation": 0.0,
+          "humidity": 60.0
+        }
+      },
+      {
+        "id": 401836196,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T19:00:00",
+        "homeTeam": "Montana State",
+        "awayTeam": "Yale",
+        "homeTeamId": 147,
+        "awayTeamId": 43,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 32.7,
+          "windSpeed": 2.7,
+          "precipitation": 0.0,
+          "humidity": 87.0
+        }
+      },
+      {
+        "id": 401836197,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T19:00:00",
+        "homeTeam": "Montana",
+        "awayTeam": "South Dakota State",
+        "homeTeamId": 149,
+        "awayTeamId": 2571,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 37.8,
+          "windSpeed": 10.3,
+          "precipitation": 0.0,
+          "humidity": 76.0
+        }
+      },
+      {
+        "id": 401777351,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-06T21:00:00",
+        "homeTeam": "Alabama",
+        "awayTeam": "Georgia",
+        "homeTeamId": 333,
+        "awayTeamId": 61,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 44.4,
+          "windSpeed": 9.2,
+          "precipitation": 0.0,
+          "humidity": 97.0
+        }
+      },
+      {
+        "id": 401777328,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-07T01:00:00",
+        "homeTeam": "Virginia",
+        "awayTeam": "Duke",
+        "homeTeamId": 258,
+        "awayTeamId": 150,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 41.4,
+          "windSpeed": 3.4,
+          "precipitation": 0.0,
+          "humidity": 87.0
+        }
+      },
+      {
+        "id": 401777353,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-07T01:00:00",
+        "homeTeam": "Ohio State",
+        "awayTeam": "Indiana",
+        "homeTeamId": 194,
+        "awayTeamId": 84,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 31.8,
+          "windSpeed": 5.8,
+          "precipitation": 0.0,
+          "humidity": 87.0
+        }
+      },
+      {
+        "id": 401833977,
+        "season": 2025,
+        "week": 15,
+        "seasonType": "regular",
+        "startDate": "2025-12-07T03:00:00",
+        "homeTeam": "UC Davis",
+        "awayTeam": "Rhode Island",
+        "homeTeamId": 302,
+        "awayTeamId": 227,
+        "homePoints": null,
+        "awayPoints": null,
+        "weather": {
+          "temperature": 46.0,
+          "windSpeed": 3.1,
+          "precipitation": 0.0,
+          "humidity": 87.0
+        }
+      }
+    ]
+  }
+}

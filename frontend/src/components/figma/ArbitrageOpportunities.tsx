@@ -89,7 +89,7 @@ export function ArbitrageOpportunities({ predictionData }: ArbitrageOpportunitie
               relative overflow-hidden rounded-xl border transition-all duration-300 cursor-pointer
               ${selectedOpportunity === idx 
                 ? 'bg-emerald-500/10 border-emerald-500/50 shadow-lg shadow-emerald-500/20' 
-                : 'bg-gray-800/40 border-gray-600/40 hover:border-emerald-500/30'
+                : 'backdrop-blur-sm border-gray-600/40 hover:border-emerald-500/30'
               }
             `}
             onClick={() => setSelectedOpportunity(selectedOpportunity === idx ? null : idx)}

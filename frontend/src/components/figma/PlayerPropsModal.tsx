@@ -430,12 +430,15 @@ export function PlayerPropsModal({ prop, isOpen, onClose, teamLogo, teamColor = 
                               }}
                             />
                             
-                            {/* Stat value on bar */}
+                            {/* Stat value on bar - ALWAYS VISIBLE */}
                             <div 
-                              className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs font-bold font-orbitron whitespace-nowrap"
+                              className="absolute -top-8 left-1/2 -translate-x-1/2 text-sm font-bold font-orbitron whitespace-nowrap px-2 py-1 rounded-md backdrop-blur-sm"
                               style={{ 
-                                color: opponentColor,
-                                textShadow: `0 0 10px ${opponentColor}80, 0 2px 4px rgba(0,0,0,0.5)`
+                                color: '#FFFFFF',
+                                backgroundColor: `${opponentColor}40`,
+                                border: `1px solid ${opponentColor}80`,
+                                textShadow: `0 0 10px ${opponentColor}FF, 0 2px 4px rgba(0,0,0,0.8), 0 0 20px ${opponentColor}80`,
+                                boxShadow: `0 0 15px ${opponentColor}60, inset 0 1px 2px rgba(255,255,255,0.2)`
                               }}
                             >
                               {statValue.toFixed(0)}

@@ -205,7 +205,7 @@ function FieldMetric({
   homeAbbr: string;
 }) {
   return (
-    <div className="bg-gray-800/40 rounded-lg p-3 border border-gray-400/15 backdrop-blur-sm">
+    <div className="backdrop-blur-sm rounded-lg p-3 border border-gray-400/20" style={{ backdropFilter: 'none' }}>
       <div className="flex items-center justify-between mb-2">
         <span className="text-gray-400 text-xs">{title}</span>
         {advantage !== 'EVEN' && (

@@ -104,10 +104,19 @@ export function PredictionCards({ predictionData, isLoading, error }: Prediction
   
   const total = cardsData.predicted_total?.model_total || 0;
   // Use betting analysis market data if available, otherwise fall back to prediction_cards
-  const marketSpread = bettingAnalysis?.market_spread || cardsData.predicted_spread?.market_spread;
-  const marketTotal = bettingAnalysis?.market_total || cardsData.predicted_total?.market_total;
-  const spreadEdge = bettingAnalysis?.spread_edge || cardsData.predicted_spread?.edge;
-  const totalEdge = bettingAnalysis?.total_edge || cardsData.predicted_total?.edge;
+  // Check for !== undefined to handle 0 values correctly
+  const marketSpread = bettingAnalysis?.market_spread !== undefined 
+    ? bettingAnalysis.market_spread 
+    : cardsData.predicted_spread?.market_spread;
+  const marketTotal = bettingAnalysis?.market_total !== undefined 
+    ? bettingAnalysis.market_total 
+    : cardsData.predicted_total?.market_total;
+  const spreadEdge = bettingAnalysis?.spread_edge !== undefined 
+    ? bettingAnalysis.spread_edge 
+    : cardsData.predicted_spread?.edge;
+  const totalEdge = bettingAnalysis?.total_edge !== undefined 
+    ? bettingAnalysis.total_edge 
+    : cardsData.predicted_total?.edge;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
@@ -167,10 +176,10 @@ export function PredictionCards({ predictionData, isLoading, error }: Prediction
           </div>
           <div className="space-y-1">
             <p className="text-gray-400 text-xs sm:text-sm font-mono">Model: {total.toFixed(1)}</p>
-            {marketTotal && (
+            {marketTotal !== undefined && marketTotal !== null && (
               <div className="flex justify-between text-xs text-gray-500">
                 <span>Market: {marketTotal.toFixed(1)}</span>
-                {totalEdge && (
+                {totalEdge !== undefined && totalEdge !== null && (
                   <span className="text-green-400">Edge: {totalEdge > 0 ? '+' : ''}{totalEdge.toFixed(1)}</span>
                 )}
               </div>

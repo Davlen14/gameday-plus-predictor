@@ -89,7 +89,7 @@ export function LineMovement({ predictionData }: LineMovementProps) {
                           DraftKingsLogo;
               
               return (
-              <div key={idx} className="bg-gray-800/40 border border-gray-600/40 rounded-lg p-3">
+              <div key={idx} className="backdrop-blur-sm border border-gray-600/40 rounded-lg p-3">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     <img src={logo} alt={book.provider} className="w-8 h-8 object-contain" />
@@ -127,7 +127,7 @@ export function LineMovement({ predictionData }: LineMovementProps) {
                           DraftKingsLogo;
               
               return (
-              <div key={idx} className="bg-gray-800/40 border border-gray-600/40 rounded-lg p-3">
+              <div key={idx} className="backdrop-blur-sm border border-gray-600/40 rounded-lg p-3">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     <img src={logo} alt={book.provider} className="w-8 h-8 object-contain" />

@@ -66,7 +66,7 @@ export function ArbitrageCalculator({ predictionData }: ArbitrageCalculatorProps
         {/* Input Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Total Investment */}
-          <div className="bg-gray-800/40 border border-gray-600/40 rounded-lg p-4">
+          <div className="backdrop-blur-sm border border-gray-600/40 rounded-lg p-4">
             <label className="text-xs font-semibold text-purple-400 mb-2 block">
               Total Investment
             </label>
@@ -84,7 +84,7 @@ export function ArbitrageCalculator({ predictionData }: ArbitrageCalculatorProps
           </div>
 
           {/* Book 1 Odds */}
-          <div className="bg-gray-800/40 border border-gray-600/40 rounded-lg p-4">
+          <div className="backdrop-blur-sm border border-gray-600/40 rounded-lg p-4">
             <label className="text-xs font-semibold text-cyan-400 mb-2 block">
               Sportsbook 1 Odds
             </label>
@@ -98,7 +98,7 @@ export function ArbitrageCalculator({ predictionData }: ArbitrageCalculatorProps
           </div>
 
           {/* Book 2 Odds */}
-          <div className="bg-gray-800/40 border border-gray-600/40 rounded-lg p-4">
+          <div className="backdrop-blur-sm border border-gray-600/40 rounded-lg p-4">
             <label className="text-xs font-semibold text-emerald-400 mb-2 block">
               Sportsbook 2 Odds
             </label>
@@ -201,7 +201,7 @@ export function ArbitrageCalculator({ predictionData }: ArbitrageCalculatorProps
                 </div>
 
                 {/* Visual Flow */}
-                <div className="bg-gray-800/40 border border-gray-600/40 rounded-lg p-4">
+                <div className="backdrop-blur-sm border border-gray-600/40 rounded-lg p-4">
                   <div className="flex items-center justify-between text-sm">
                     <div className="text-center flex-1">
                       <div className="text-gray-400 mb-1">Total Investment</div>
@@ -232,7 +232,7 @@ export function ArbitrageCalculator({ predictionData }: ArbitrageCalculatorProps
               {scenarios.map((scenario: any, idx: number) => (
                 <div
                   key={idx}
-                  className="bg-gray-800/40 border border-gray-600/40 rounded-lg p-3 hover:border-purple-500/30 transition-colors"
+                  className="backdrop-blur-sm border border-gray-600/40 rounded-lg p-3 hover:border-purple-500/30 transition-colors"
                 >
                   <div className="text-xs font-semibold text-white mb-1">
                     {scenario.scenario}

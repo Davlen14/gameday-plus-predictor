@@ -43,13 +43,43 @@ export function SeasonRecords({ predictionData }: SeasonRecordsProps) {
   
   console.log('SeasonRecords - Rendering component!');
 
+  // Get team colors for glowColor
+  const team1Color = away?.primaryColor || '#6366f1';
+  const team2Color = home?.primaryColor || '#8b5cf6';
+
   return (
-    <GlassCard className="p-6">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg border border-blue-400/30">
-          <Calendar className="w-5 h-5 text-blue-400" />
+    <GlassCard glowColor={`from-[${team1Color}]/20 to-[${team2Color}]/20`} className="p-4 sm:p-6 border-gray-500/40">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="p-1.5 sm:p-2 rounded-lg bg-slate-500/20 border border-gray-500/40">
+            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+          </div>
+          <h3 className="text-white font-semibold text-sm sm:text-base">2025 Season Records</h3>
         </div>
-        <h3 className="text-white font-semibold text-xl">2025 Season Records</h3>
+        
+        {/* Team Legend */}
+        <div className="flex items-center gap-4">
+          {away && (
+            <div className="flex items-center gap-2">
+              <ImageWithFallback 
+                src={away.logo}
+                alt={away.team}
+                className="w-6 h-6 object-contain"
+              />
+              <span className="text-xs font-bold" style={{ color: team1Color }}>{away.team}</span>
+            </div>
+          )}
+          {home && (
+            <div className="flex items-center gap-2">
+              <ImageWithFallback 
+                src={home.logo}
+                alt={home.team}
+                className="w-6 h-6 object-contain"
+              />
+              <span className="text-xs font-bold" style={{ color: team2Color }}>{home.team}</span>
+            </div>
+          )}
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Away Team */}

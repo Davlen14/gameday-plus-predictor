@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lane Kiffin Career Timeline Test</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <style>
+        body {
+            font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+        }
+        #chart-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .debug-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .debug-title {
+            color: #4fc3f7;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .school-info {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-title">🏈 Multi-School Coach Timelines</h1>
+        <p class="subtitle">Dynamic Career Journey Visualization with Team Color Zones</p>
+        
+        <div style="text-align: center; margin-bottom: 30px;">
+            <select id="coach-selector" style="padding: 12px 24px; font-size: 16px; border-radius: 8px; background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3); cursor: pointer;">
+                <option value="">Loading coaches...</option>
+            </select>
+        </div>
+        
+        <div id="chart-container"></div>
+        
+        <div class="debug-section">
+            <div class="debug-title">📊 Debug Information</div>
+            <div id="debug-output"></div>
+        </div>
+    </div>
+
+    <script>
+        let allCoachesData = null;
+        let teamMap = null;
+
+        // Load data dynamically from JSON files
+        async function loadData() {
+            try {
+                // Load both JSON files
+                const [coachData, teamsData] = await Promise.all([
+                    fetch('coach_career_schools.json').then(r => r.json()),
+                    fetch('fbs.json').then(r => r.json())
+                ]);
+
+                allCoachesData = coachData.coaches;
+
+                // Create team lookup map
+                teamMap = new Map();
+                teamsData.forEach(team => {
+                    teamMap.set(team.school, {
+                        color: team.primary_color,
+                        logo: team.logos[0],
+                        alt_color: team.alt_color
+                    });
+                });
+
+                // Populate coach selector with multi-school coaches only
+                const selector = document.getElementById('coach-selector');
+                const multiSchoolCoaches = allCoachesData
+                    .filter(coach => coach.career.length > 1)
+                    .sort((a, b) => b.career.length - a.career.length);
+                
+                selector.innerHTML = multiSchoolCoaches.map(coach => 
+                    `<option value="${coach.name}">${coach.name} (${coach.career.length} schools)</option>`
+                ).join('');
+
+                // Auto-select first coach and render
+                if (multiSchoolCoaches.length > 0) {
+                    selector.value = multiSchoolCoaches[0].name;
+                    renderSelectedCoach();
+                }
+
+                // Add change listener
+                selector.addEventListener('change', renderSelectedCoach);
+
+                return true;
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('debug-output').innerHTML = `<div style="color: #ff6b6b;">Error: ${error.message}</div>`;
+                throw error;
+            }
+        }
+
+        function getCoachData(coachName) {
+            const coach = allCoachesData.find(c => c.name === coachName);
+            if (!coach) return null;
+
+            // Enrich career data with team colors
+            const enrichedCareer = coach.career.map(school => {
+                const teamData = teamMap.get(school.school) || {};
+                return {
+                    ...school,
+                    color: teamData.color || '#666666',
+                    logo: teamData.logo || '',
+                    alt_color: teamData.alt_color || teamData.color
+                };
+            });
+
+            // Generate mock AP Poll data
+            const apPollData = generateMockAPPollData(enrichedCareer);
+
+            return { coach, career: enrichedCareer, apPollData };
+        }
+
+        function generateMockAPPollData(career) {
+            const data = [];
+            career.forEach(school => {
+                const years = school.end_year - school.start_year + 1;
+                for (let i = 0; i < years; i++) {
+                    const year = school.start_year + i;
+                    // Generate semi-realistic ranking data
+                    const ranking = Math.floor(Math.random() * 15) + 5; // Ranks 5-20
+                    data.push([Date.UTC(year, 8, 1), ranking]); // Sept 1 of each year
+                    data.push([Date.UTC(year, 11, 31), ranking - Math.floor(Math.random() * 5)]); // End of year
+                }
+            });
+            return data.sort((a, b) => a[0] - b[0]);
+        }
+
+        function createZones(career) {
+            return career.map((school, index) => {
+                const isLast = index === career.length - 1;
+                let zoneValue;
+                
+                if (!isLast) {
+                    const nextSchool = career[index + 1];
+                    zoneValue = Date.UTC(nextSchool.start_year, 0, 1);
+                } else {
+                    zoneValue = undefined;
+                }
+
+                return {
+                    value: zoneValue,
+                    color: school.color,
+                    fillColor: {
+                        linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+                        stops: [
+                            [0, `${school.color}cc`],
+                            [0.5, `${school.color}66`],
+                            [1, `${school.color}1a`]
+                        ]
+                    }
+                };
+            });
+        }
+
+        function displayDebugInfo(data) {
+            const debugHtml = data.career.map((school, index) => `
+                <div class="school-info" style="border-color: ${school.color};">
+                    <strong>Zone ${index}:</strong> ${school.school} (${school.years})<br>
+                    <strong>Color:</strong> ${school.color}<br>
+                    <strong>Years:</strong> ${school.start_year} - ${school.end_year}<br>
+                    <strong>Logo:</strong> ${school.logo ? '✓' : '✗'}
+                </div>
+            `).join('');
+
+            document.getElementById('debug-output').innerHTML = debugHtml;
+        }
+
+        async function renderChart(data) {
+            displayDebugInfo(data);
+
+            const zones = createZones(data.career);
+            console.log('🎨 Zones created:', zones);
+
+            const minYear = Math.min(...data.career.map(s => s.start_year));
+            const maxYear = Math.max(...data.career.map(s => s.end_year));
+
+            Highcharts.chart('chart-container', {
+                chart: {
+                    type: 'area',
+                    backgroundColor: 'transparent',
+                    height: 600,
+                    events: {
+                        load: function() {
+                            const chart = this;
+                            
+                            // Add school logos dynamically after chart loads
+                            data.career.forEach((school, index) => {
+                                const isLast = index === data.career.length - 1;
+                                const startX = Date.UTC(school.start_year, 0, 1);
+                                const endX = isLast ? Date.UTC(school.end_year + 1, 0, 1) : Date.UTC(data.career[index + 1].start_year, 0, 1);
+                                const midX = (startX + endX) / 2;
+                                
+                                // Convert to pixel position
+                                const xPos = chart.xAxis[0].toPixels(midX);
+                                const yPos = chart.plotTop + chart.plotHeight - 150;
+                                
+                                // Add logo image
+                                if (school.logo) {
+                                    chart.renderer.image(
+                                        school.logo,
+                                        xPos - 25, // Center the 50px image
+                                        yPos,
+                                        50,
+                                        50
+                                    ).attr({
+                                        zIndex: 5
+                                    }).add();
+                                    
+                                    // Add school name below logo
+                                    chart.renderer.text(
+                                        school.school,
+                                        xPos,
+                                        yPos + 60
+                                    ).css({
+                                        color: school.color,
+                                        fontSize: '12px',
+                                        fontWeight: 'bold',
+                                        textAlign: 'center'
+                                    }).attr({
+                                        zIndex: 5,
+                                        align: 'center'
+                                    }).add();
+                                    
+                                    // Add years below school name
+                                    chart.renderer.text(
+                                        school.years,
+                                        xPos,
+                                        yPos + 75
+                                    ).css({
+                                        color: '#999',
+                                        fontSize: '10px',
+                                        textAlign: 'center'
+                                    }).attr({
+                                        zIndex: 5,
+                                        align: 'center'
+                                    }).add();
+                                }
+                            });
+                        }
+                    }
+                },
+                title: {
+                    text: `${data.coach.name} - Career Timeline`,
+                    style: { color: '#fff', fontSize: '24px' }
+                },
+                subtitle: {
+                    text: `${data.career.length} Schools • ${minYear} - ${maxYear}`,
+                    style: { color: '#a0a0a0' }
+                },
+                xAxis: {
+                    type: 'datetime',
+                    min: Date.UTC(minYear, 0, 1),
+                    max: Date.UTC(maxYear + 1, 0, 1),
+                    labels: { 
+                        style: { color: '#fff' },
+                        y: 20
+                    },
+                    gridLineColor: 'rgba(255, 255, 255, 0.1)',
+                    lineColor: 'rgba(255, 255, 255, 0.2)'
+                },
+                yAxis: {
+                    title: { text: 'AP Poll Ranking', style: { color: '#fff' } },
+                    reversed: false,
+                    min: 1,
+                    max: 25,
+                    labels: { 
+                        style: { color: '#fff' },
+                        formatter: function() {
+                            return this.value === 1 ? '#1 🏆' : `#${this.value}`;
+                        }
+                    },
+                    gridLineColor: 'rgba(255, 255, 255, 0.1)'
+                },
+                legend: { enabled: false },
+                tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    style: { color: '#fff' },
+                    formatter: function() {
+                        const date = new Date(this.x);
+                        const year = date.getFullYear();
+                        const school = data.career.find(s => 
+                            year >= s.start_year && year <= s.end_year
+                        );
+                        return `<b>${school?.school || 'Unknown'}</b><br>` +
+                               `Year: ${year}<br>` +
+                               `Ranking: #${this.y}`;
+                    }
+                },
+                plotOptions: {
+                    area: {
+                        marker: {
+                            enabled: true,
+                            radius: 3,
+                            fillColor: '#fff'
+                        }
+                    }
+                },
+                series: [{
+                    name: 'AP Poll Ranking',
+                    data: data.apPollData,
+                    lineWidth: 3,
+                    zoneAxis: 'x',
+                    zones: zones
+                }],
+                credits: { enabled: false }
+            });
+
+            console.log('✅ Chart rendered with', zones.length, 'zones');
+        }
+
+        function renderSelectedCoach() {
+            const selector = document.getElementById('coach-selector');
+            const coachName = selector.value;
+            
+            if (!coachName) return;
+
+            const data = getCoachData(coachName);
+            if (!data) {
+                document.getElementById('debug-output').innerHTML = `<div style="color: #ff6b6b;">Coach not found: ${coachName}</div>`;
+                return;
+            }
+
+            // Update title
+            document.getElementById('main-title').textContent = `🏈 ${coachName} Career Timeline`;
+
+            renderChart(data);
+        }
+
+        // Initialize on page load
+        loadData().catch(err => {
+            console.error('Failed to load data:', err);
+        });
+    </script>
+</body>
+</html>

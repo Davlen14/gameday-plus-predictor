@@ -13,6 +13,7 @@ class BatchRivalryAnalyzer:
     def __init__(self):
         self.api_key = "T0iV2bfp8UKCf8rTV12qsS26USzyDYiVNA7x6WbaV3NOvewuDQnJlv3NfPzr3f/p"
         self.graphql_url = "https://graphql.collegefootballdata.com/v1/graphql"
+        self.rest_api_url = "https://api.collegefootballdata.com"
         self.headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
@@ -36,8 +37,45 @@ class BatchRivalryAnalyzer:
                     'info': info
                 })
     
-    def get_rivalry_games(self, team1_name: str, team2_name: str, start_year: int = 2000) -> List[Dict]:
-        """Get all games between two rivals since start_year"""
+    def get_alltime_series_record(self, team1_name: str, team2_name: str) -> Dict:
+        """Get all-time series record using REST API matchups endpoint"""
+        try:
+            url = f"{self.rest_api_url}/teams/matchup"
+            params = {
+                'team1': team1_name,
+                'team2': team2_name
+            }
+            
+            response = requests.get(url, headers=self.headers, params=params)
+            
+            if response.status_code == 200:
+                data = response.json()
+                games = data.get('games', [])
+                
+                team1_wins = sum(1 for g in games if g.get('winner') == team1_name)
+                team2_wins = sum(1 for g in games if g.get('winner') == team2_name)
+                ties = sum(1 for g in games if g.get('winner') is None)
+                
+                # Find earliest game for "established" year
+                earliest_year = min(g['season'] for g in games) if games else None
+                
+                return {
+                    'total_games_alltime': len(games),
+                    'team1_wins_alltime': team1_wins,
+                    'team2_wins_alltime': team2_wins,
+                    'ties_alltime': ties,
+                    'established': earliest_year,
+                    'series_record_alltime': f"{team1_wins}-{team2_wins}-{ties}"
+                }
+            else:
+                print(f"❌ Matchups API request failed: {response.status_code}")
+                return {}
+        except Exception as e:
+            print(f"❌ Error fetching all-time record: {e}")
+            return {}
+    
+    def get_rivalry_games(self, team1_name: str, team2_name: str, start_year: int = 1869) -> List[Dict]:
+        """Get all games between two rivals since start_year (default: 1869, the first college football game)"""
         team1_id = self.team_ids.get(team1_name)
         team2_id = self.team_ids.get(team2_name)
         

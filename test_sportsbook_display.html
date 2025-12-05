@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportsbook Lines Test - Gameday+</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #10b981;
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+        
+        .controls {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        input, button {
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: rgba(15, 23, 42, 0.8);
+            color: #e2e8f0;
+            font-size: 16px;
+        }
+        
+        input {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+        
+        .status {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .status.loading {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            color: #60a5fa;
+        }
+        
+        .status.success {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            color: #10b981;
+        }
+        
+        .status.error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            color: #ef4444;
+        }
+        
+        .sportsbook-section {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: #10b981;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sportsbook-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        
+        .sportsbook-card:hover {
+            border-color: rgba(16, 185, 129, 0.5);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+        
+        .sportsbook-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(100, 116, 139, 0.3);
+        }
+        
+        .sportsbook-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            background: white;
+            border-radius: 6px;
+            padding: 4px;
+        }
+        
+        .sportsbook-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e2e8f0;
+        }
+        
+        .betting-lines {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .line-item {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(100, 116, 139, 0.2);
+        }
+        
+        .line-label {
+            font-size: 12px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        
+        .line-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #10b981;
+        }
+        
+        .line-value.spread {
+            color: #3b82f6;
+        }
+        
+        .line-value.total {
+            color: #f59e0b;
+        }
+        
+        .line-value.moneyline {
+            color: #8b5cf6;
+        }
+        
+        .raw-data {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        pre {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 12px;
+            color: #10b981;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        
+        .badge.consensus {
+            background: rgba(16, 185, 129, 0.3);
+            color: #10b981;
+        }
+        
+        .badge.diff {
+            background: rgba(251, 191, 36, 0.3);
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏈 Sportsbook Lines Display Test</h1>
+        
+        <div class="controls">
+            <div class="input-group">
+                <input type="text" id="awayTeam" placeholder="Away Team (e.g., Georgia)" value="Georgia">
+                <input type="text" id="homeTeam" placeholder="Home Team (e.g., Alabama)" value="Alabama">
+                <button onclick="fetchPrediction()">Fetch Lines</button>
+            </div>
+        </div>
+        
+        <div id="status"></div>
+        <div id="results"></div>
+        <div id="rawData"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5002';
+        
+        async function fetchPrediction() {
+            const awayTeam = document.getElementById('awayTeam').value;
+            const homeTeam = document.getElementById('homeTeam').value;
+            const statusDiv = document.getElementById('status');
+            const resultsDiv = document.getElementById('results');
+            const rawDataDiv = document.getElementById('rawData');
+            
+            statusDiv.className = 'status loading';
+            statusDiv.innerHTML = '⏳ Fetching prediction data from Flask API...';
+            resultsDiv.innerHTML = '';
+            rawDataDiv.innerHTML = '';
+            
+            try {
+                const response = await fetch(`${API_BASE}/predict/${awayTeam}/${homeTeam}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                console.log('Full API Response:', data);
+                
+                statusDiv.className = 'status success';
+                statusDiv.innerHTML = '✅ Data fetched successfully!';
+                
+                // Extract betting analysis
+                const bettingAnalysis = data?.detailed_analysis?.betting_analysis;
+                
+                if (!bettingAnalysis) {
+                    resultsDiv.innerHTML = `
+                        <div class="sportsbook-section">
+                            <div class="section-title">⚠️ No Betting Analysis Found</div>
+                            <p>The API response did not contain betting analysis data.</p>
+                        </div>
+                    `;
+                    displayRawData(data);
+                    return;
+                }
+                
+                displayBettingLines(bettingAnalysis, awayTeam, homeTeam);
+                displayRawData(data);
+                
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = `❌ Error: ${error.message}`;
+                console.error('Fetch error:', error);
+            }
+        }
+        
+        function displayBettingLines(bettingAnalysis, awayTeam, homeTeam) {
+            const resultsDiv = document.getElementById('results');
+            
+            // Get individual sportsbooks
+            const individualBooks = bettingAnalysis?.sportsbooks?.individual_books || [];
+            
+            console.log('Individual Books:', individualBooks);
+            console.log('Individual Books Count:', individualBooks.length);
+            
+            let html = `
+                <div class="sportsbook-section">
+                    <div class="section-title">
+                        📊 Market Overview
+                    </div>
+                    <div class="betting-lines">
+                        <div class="line-item">
+                            <div class="line-label">Market Spread</div>
+                            <div class="line-value spread">${bettingAnalysis.formatted_spread || 'N/A'}</div>
+                        </div>
+                        <div class="line-item">
+                            <div class="line-label">Market Total</div>
+                            <div class="line-value total">${bettingAnalysis.market_total || 'N/A'}</div>
+                        </div>
+                        <div class="line-item">
+                            <div class="line-label">Spread Edge</div>
+                            <div class="line-value">${bettingAnalysis.spread_edge?.toFixed(1) || '0.0'} pts</div>
+                        </div>
+                        <div class="line-item">
+                            <div class="line-label">Data Source</div>
+                            <div class="line-value" style="font-size: 14px; color: #94a3b8;">${bettingAnalysis.data_source || 'Unknown'}</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sportsbook-section">
+                    <div class="section-title">
+                        💰 Individual Sportsbooks (${individualBooks.length} found)
+                    </div>
+            `;
+            
+            if (individualBooks.length === 0) {
+                html += `
+                    <div class="line-item">
+                        <p style="color: #ef4444;">⚠️ No individual sportsbook data found in API response</p>
+                        <p style="color: #94a3b8; margin-top: 10px; font-size: 14px;">
+                            Expected path: detailed_analysis.betting_analysis.sportsbooks.individual_books
+                        </p>
+                    </div>
+                `;
+            } else {
+                individualBooks.forEach(book => {
+                    const logoMap = {
+                        'Bovada': '/Bovada-Casino-Logo.svg',
+                        'ESPN Bet': '/espnbet.svg',
+                        'DraftKings': '/Draftking.svg'
+                    };
+                    
+                    const logo = logoMap[book.provider] || '';
+                    
+                    html += `
+                        <div class="sportsbook-card">
+                            <div class="sportsbook-header">
+                                ${logo ? `<img src="${logo}" alt="${book.provider}" class="sportsbook-logo" onerror="this.style.display='none'">` : ''}
+                                <div class="sportsbook-name">${book.provider || 'Unknown'}</div>
+                            </div>
+                            <div class="betting-lines">
+                                <div class="line-item">
+                                    <div class="line-label">Spread</div>
+                                    <div class="line-value spread">
+                                        ${book.spread !== undefined && book.spread !== null ? 
+                                          (book.spread > 0 ? `${homeTeam} +${book.spread}` : `${homeTeam} ${book.spread}`) : 
+                                          'N/A'}
+                                    </div>
+                                    ${book.spreadOpen ? `<div style="font-size: 12px; color: #64748b; margin-top: 4px;">Open: ${book.spreadOpen}</div>` : ''}
+                                </div>
+                                <div class="line-item">
+                                    <div class="line-label">Total (O/U)</div>
+                                    <div class="line-value total">
+                                        ${book.overUnder !== undefined && book.overUnder !== null ? book.overUnder : 'N/A'}
+                                    </div>
+                                    ${book.overUnderOpen ? `<div style="font-size: 12px; color: #64748b; margin-top: 4px;">Open: ${book.overUnderOpen}</div>` : ''}
+                                </div>
+                                <div class="line-item">
+                                    <div class="line-label">Moneyline</div>
+                                    <div class="line-value moneyline">
+                                        ${homeTeam}: ${book.moneylineHome !== undefined && book.moneylineHome !== 'N/A' ? book.moneylineHome : 'N/A'}
+                                        <br>
+                                        ${awayTeam}: ${book.moneylineAway !== undefined && book.moneylineAway !== 'N/A' ? book.moneylineAway : 'N/A'}
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(100, 116, 139, 0.3);">
+                                <pre style="margin: 0; font-size: 11px; background: none; padding: 0;">${JSON.stringify(book, null, 2)}</pre>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            html += `</div>`;
+            
+            // Add recommendations section
+            html += `
+                <div class="sportsbook-section">
+                    <div class="section-title">💡 Betting Recommendations</div>
+                    <div class="betting-lines">
+                        <div class="line-item">
+                            <div class="line-label">Spread Bet</div>
+                            <div class="line-value" style="font-size: 16px; color: #10b981;">
+                                ${bettingAnalysis.spread_recommendation || 'No recommendation'}
+                            </div>
+                        </div>
+                        <div class="line-item">
+                            <div class="line-label">Total Bet</div>
+                            <div class="line-value" style="font-size: 16px; color: #f59e0b;">
+                                ${bettingAnalysis.total_recommendation || 'No recommendation'}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            resultsDiv.innerHTML = html;
+        }
+        
+        function displayRawData(data) {
+            const rawDataDiv = document.getElementById('rawData');
+            
+            const bettingAnalysis = data?.detailed_analysis?.betting_analysis;
+            
+            rawDataDiv.innerHTML = `
+                <div class="raw-data">
+                    <h3 style="color: #10b981; margin-bottom: 15px;">🔍 Raw API Response (Betting Analysis)</h3>
+                    <pre>${JSON.stringify(bettingAnalysis, null, 2)}</pre>
+                </div>
+            `;
+        }
+        
+        // Auto-fetch on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchPrediction();
+        });
+    </script>
+</body>
+</html>

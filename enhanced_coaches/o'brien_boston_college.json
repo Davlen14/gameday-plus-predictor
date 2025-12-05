@@ -1,0 +1,2662 @@
+{
+  "metadata": {
+    "generated": "2025-12-01 04:12:34.667758",
+    "coach": "Bill O'Brien",
+    "school": "Boston College",
+    "era": "2015-2025",
+    "tenure_years": 11,
+    "description": "Comprehensive Bill O'Brien coaching profile with all statistics, games, and analysis"
+  },
+  "summary": {
+    "generated": "2025-12-01 04:12:34.667783",
+    "overview": {
+      "coach": "Bill O'Brien",
+      "era": "2015-2025",
+      "total_record": "61-75",
+      "win_pct": 44.9,
+      "total_games": 136
+    },
+    "coaching_records": [
+      {
+        "year": 2015,
+        "firstName": "Bill",
+        "lastName": "O'Brien",
+        "school": "Boston College"
+      },
+      {
+        "year": 2016,
+        "firstName": "Bill",
+        "lastName": "O'Brien",
+        "school": "Boston College"
+      },
+      {
+        "year": 2017,
+        "firstName": "Bill",
+        "lastName": "O'Brien",
+        "school": "Boston College"
+      },
+      {
+        "year": 2018,
+        "firstName": "Bill",
+        "lastName": "O'Brien",
+        "school": "Boston College"
+      },
+      {
+        "year": 2019,
+        "firstName": "Bill",
+        "lastName": "O'Brien",
+        "school": "Boston College"
+      },
+      {
+        "year": 2020,
+        "firstName": "Bill",
+        "lastName": "O'Brien",
+        "school": "Boston College"
+      },
+      {
+        "year": 2021,
+        "firstName": "Bill",
+        "lastName": "O'Brien",
+        "school": "Boston College"
+      },
+      {
+        "year": 2022,
+        "firstName": "Bill",
+        "lastName": "O'Brien",
+        "school": "Boston College"
+      },
+      {
+        "year": 2023,
+        "firstName": "Bill",
+        "lastName": "O'Brien",
+        "school": "Boston College"
+      },
+      {
+        "year": 2024,
+        "firstName": "Bill",
+        "lastName": "O'Brien",
+        "school": "Boston College"
+      },
+      {
+        "year": 2025,
+        "firstName": "Bill",
+        "lastName": "O'Brien",
+        "school": "Boston College"
+      }
+    ]
+  },
+  "games": [
+    {
+      "id": 400756897,
+      "season": 2015,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Maine",
+      "homePoints": 24,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 4.65380828879999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400756906,
+      "season": 2015,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Howard",
+      "homePoints": 76,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 0.0203404688000006,
+      "conferenceGame": false
+    },
+    {
+      "id": 400756920,
+      "season": 2015,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Florida State",
+      "homePoints": 0,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 3.08192837469999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756932,
+      "season": 2015,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Northern Illinois",
+      "homePoints": 17,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 6.5275712608,
+      "conferenceGame": false
+    },
+    {
+      "id": 400756939,
+      "season": 2015,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Boston College",
+      "homePoints": 9,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 5.784181788,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756947,
+      "season": 2015,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Wake Forest",
+      "homePoints": 0,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 9.2178737519,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756953,
+      "season": 2015,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Clemson",
+      "awayTeam": "Boston College",
+      "homePoints": 34,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 2.5743403728,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756959,
+      "season": 2015,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Louisville",
+      "awayTeam": "Boston College",
+      "homePoints": 17,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 6.08542324659999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756968,
+      "season": 2015,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 10,
+      "awayPoints": 26,
+      "neutralSite": false,
+      "excitement": 2.82257466759999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756973,
+      "season": 2015,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "NC State",
+      "homePoints": 8,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 2.67763713359999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400756986,
+      "season": 2015,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Notre Dame",
+      "awayTeam": "Boston College",
+      "homePoints": 19,
+      "awayPoints": 16,
+      "neutralSite": true,
+      "excitement": 2.56232585939999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400756995,
+      "season": 2015,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "Boston College",
+      "homePoints": 20,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 9.9543440931,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869424,
+      "season": 2016,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Georgia Tech",
+      "homePoints": 14,
+      "awayPoints": 17,
+      "neutralSite": true,
+      "excitement": 5.9947649536,
+      "conferenceGame": true
+    },
+    {
+      "id": 400868958,
+      "season": 2016,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Massachusetts",
+      "awayTeam": "Boston College",
+      "homePoints": 7,
+      "awayPoints": 26,
+      "neutralSite": false,
+      "excitement": 4.3889189598,
+      "conferenceGame": false
+    },
+    {
+      "id": 400869437,
+      "season": 2016,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Virginia Tech",
+      "awayTeam": "Boston College",
+      "homePoints": 49,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 1.69007279219999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869447,
+      "season": 2016,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Wagner",
+      "homePoints": 42,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 0.306565896599999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400869294,
+      "season": 2016,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Buffalo",
+      "homePoints": 35,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 1.2202223956,
+      "conferenceGame": false
+    },
+    {
+      "id": 400869457,
+      "season": 2016,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Clemson",
+      "homePoints": 10,
+      "awayPoints": 56,
+      "neutralSite": false,
+      "excitement": 1.26210189449999,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869468,
+      "season": 2016,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Syracuse",
+      "homePoints": 20,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 7.5327197019,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869472,
+      "season": 2016,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Boston College",
+      "homePoints": 14,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 6.1395238635,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869476,
+      "season": 2016,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Louisville",
+      "homePoints": 7,
+      "awayPoints": 52,
+      "neutralSite": false,
+      "excitement": 0.416053936,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869484,
+      "season": 2016,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Florida State",
+      "awayTeam": "Boston College",
+      "homePoints": 45,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 0.5809392465,
+      "conferenceGame": true
+    },
+    {
+      "id": 400869490,
+      "season": 2016,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "UConn",
+      "homePoints": 30,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 2.5797415853,
+      "conferenceGame": false
+    },
+    {
+      "id": 400869498,
+      "season": 2016,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Wake Forest",
+      "awayTeam": "Boston College",
+      "homePoints": 14,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 7.7725236715,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937446,
+      "season": 2017,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Northern Illinois",
+      "awayTeam": "Boston College",
+      "homePoints": 20,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 9.9766619052,
+      "conferenceGame": false
+    },
+    {
+      "id": 400937453,
+      "season": 2017,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Wake Forest",
+      "homePoints": 10,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 4.2553350648,
+      "conferenceGame": true
+    },
+    {
+      "id": 400934574,
+      "season": 2017,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Notre Dame",
+      "homePoints": 20,
+      "awayPoints": 49,
+      "neutralSite": false,
+      "excitement": 4.1881834487,
+      "conferenceGame": false
+    },
+    {
+      "id": 400937470,
+      "season": 2017,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Clemson",
+      "awayTeam": "Boston College",
+      "homePoints": 34,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 1.8311772956,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937480,
+      "season": 2017,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Central Michigan",
+      "homePoints": 28,
+      "awayPoints": 8,
+      "neutralSite": false,
+      "excitement": 2.3955674474,
+      "conferenceGame": false
+    },
+    {
+      "id": 400937488,
+      "season": 2017,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 10,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 2.3355986807,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937494,
+      "season": 2017,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Louisville",
+      "awayTeam": "Boston College",
+      "homePoints": 42,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 6.3856882866,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937498,
+      "season": 2017,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Boston College",
+      "homePoints": 10,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 2.8608547409,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937504,
+      "season": 2017,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Florida State",
+      "homePoints": 35,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 3.0468562457,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937515,
+      "season": 2017,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "NC State",
+      "homePoints": 14,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 7.7637980585,
+      "conferenceGame": true
+    },
+    {
+      "id": 400937520,
+      "season": 2017,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "UConn",
+      "awayTeam": "Boston College",
+      "homePoints": 16,
+      "awayPoints": 39,
+      "neutralSite": true,
+      "excitement": 1.88968200699999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400937531,
+      "season": 2017,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "Boston College",
+      "homePoints": 14,
+      "awayPoints": 42,
+      "neutralSite": false,
+      "excitement": 2.63164171139999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013087,
+      "season": 2018,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Massachusetts",
+      "homePoints": 55,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 0.6622090949,
+      "conferenceGame": false
+    },
+    {
+      "id": 401013097,
+      "season": 2018,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Holy Cross",
+      "homePoints": 62,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 1.1977079913,
+      "conferenceGame": false
+    },
+    {
+      "id": 401013109,
+      "season": 2018,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Wake Forest",
+      "awayTeam": "Boston College",
+      "homePoints": 34,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 7.3553324104,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013119,
+      "season": 2018,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Purdue",
+      "awayTeam": "Boston College",
+      "homePoints": 30,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 3.38818230569999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401013130,
+      "season": 2018,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Temple",
+      "homePoints": 45,
+      "awayPoints": 35,
+      "neutralSite": false,
+      "excitement": 6.2946471165,
+      "conferenceGame": false
+    },
+    {
+      "id": 401013139,
+      "season": 2018,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Boston College",
+      "homePoints": 28,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 2.80331567099999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013144,
+      "season": 2018,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Louisville",
+      "homePoints": 38,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 4.2367518017,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013154,
+      "season": 2018,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Miami",
+      "homePoints": 27,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 5.19898850479999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013161,
+      "season": 2018,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Virginia Tech",
+      "awayTeam": "Boston College",
+      "homePoints": 21,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 6.38444906499999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013169,
+      "season": 2018,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Clemson",
+      "homePoints": 7,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 2.5754384699,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013175,
+      "season": 2018,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Florida State",
+      "awayTeam": "Boston College",
+      "homePoints": 22,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 8.3189792929,
+      "conferenceGame": true
+    },
+    {
+      "id": 401013184,
+      "season": 2018,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Syracuse",
+      "homePoints": 21,
+      "awayPoints": 42,
+      "neutralSite": false,
+      "excitement": 5.55928285799999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112435,
+      "season": 2019,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 35,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 6.4579152991,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112438,
+      "season": 2019,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Richmond",
+      "homePoints": 45,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 0.1143686059,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112098,
+      "season": 2019,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Kansas",
+      "homePoints": 24,
+      "awayPoints": 48,
+      "neutralSite": false,
+      "excitement": 3.3195390474,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112265,
+      "season": 2019,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Rutgers",
+      "awayTeam": "Boston College",
+      "homePoints": 16,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 4.39039864389999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112466,
+      "season": 2019,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Wake Forest",
+      "homePoints": 24,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 6.9560529739,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112473,
+      "season": 2019,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Louisville",
+      "awayTeam": "Boston College",
+      "homePoints": 41,
+      "awayPoints": 39,
+      "neutralSite": false,
+      "excitement": 8.0445029579,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112484,
+      "season": 2019,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "NC State",
+      "homePoints": 45,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 3.26602125079999,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112490,
+      "season": 2019,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Clemson",
+      "awayTeam": "Boston College",
+      "homePoints": 59,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 0.153416513,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112495,
+      "season": 2019,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "Boston College",
+      "homePoints": 27,
+      "awayPoints": 58,
+      "neutralSite": false,
+      "excitement": 2.9331158085,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112502,
+      "season": 2019,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Florida State",
+      "homePoints": 31,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 6.8279083539,
+      "conferenceGame": true
+    },
+    {
+      "id": 401112514,
+      "season": 2019,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Notre Dame",
+      "awayTeam": "Boston College",
+      "homePoints": 40,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 1.7027356911,
+      "conferenceGame": false
+    },
+    {
+      "id": 401112522,
+      "season": 2019,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Pittsburgh",
+      "awayTeam": "Boston College",
+      "homePoints": 19,
+      "awayPoints": 26,
+      "neutralSite": false,
+      "excitement": 7.1390107262,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234567,
+      "season": 2020,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Boston College",
+      "homePoints": 6,
+      "awayPoints": 26,
+      "neutralSite": false,
+      "excitement": 4.6771712511,
+      "conferenceGame": true
+    },
+    {
+      "id": 401241303,
+      "season": 2020,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Texas State",
+      "homePoints": 24,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 8.0038186235,
+      "conferenceGame": false
+    },
+    {
+      "id": 401234597,
+      "season": 2020,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "North Carolina",
+      "homePoints": 22,
+      "awayPoints": 26,
+      "neutralSite": false,
+      "excitement": 4.1123972836,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234603,
+      "season": 2020,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Pittsburgh",
+      "homePoints": 31,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 10.9292246396,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234609,
+      "season": 2020,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Virginia Tech",
+      "awayTeam": "Boston College",
+      "homePoints": 40,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 4.1545237356,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234617,
+      "season": 2020,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Georgia Tech",
+      "homePoints": 48,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 2.6090561879,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234624,
+      "season": 2020,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Clemson",
+      "awayTeam": "Boston College",
+      "homePoints": 34,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 6.9484339574,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234631,
+      "season": 2020,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "Boston College",
+      "homePoints": 13,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 3.5986083669,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234637,
+      "season": 2020,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Notre Dame",
+      "homePoints": 31,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 2.8411675074,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234649,
+      "season": 2020,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Louisville",
+      "homePoints": 34,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 5.1526806357,
+      "conferenceGame": true
+    },
+    {
+      "id": 401234656,
+      "season": 2020,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Boston College",
+      "homePoints": 43,
+      "awayPoints": 32,
+      "neutralSite": false,
+      "excitement": 4.8846435798,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282609,
+      "season": 2021,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Colgate",
+      "homePoints": 51,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 1.0793145235,
+      "conferenceGame": false
+    },
+    {
+      "id": 401282623,
+      "season": 2021,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Massachusetts",
+      "awayTeam": "Boston College",
+      "homePoints": 28,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 0.316378231,
+      "conferenceGame": false
+    },
+    {
+      "id": 401282634,
+      "season": 2021,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Temple",
+      "awayTeam": "Boston College",
+      "homePoints": 3,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 1.3586991974,
+      "conferenceGame": false
+    },
+    {
+      "id": 401282086,
+      "season": 2021,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Missouri",
+      "homePoints": 41,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 7.8927897972,
+      "conferenceGame": false
+    },
+    {
+      "id": 401282647,
+      "season": 2021,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Clemson",
+      "awayTeam": "Boston College",
+      "homePoints": 19,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 6.0991604034,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282658,
+      "season": 2021,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "NC State",
+      "homePoints": 7,
+      "awayPoints": 33,
+      "neutralSite": false,
+      "excitement": 3.3967373169,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282664,
+      "season": 2021,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Louisville",
+      "awayTeam": "Boston College",
+      "homePoints": 28,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 5.0311725099,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282675,
+      "season": 2021,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "Boston College",
+      "homePoints": 21,
+      "awayPoints": 6,
+      "neutralSite": false,
+      "excitement": 5.9260954264,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282677,
+      "season": 2021,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 17,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 3.8000128382,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282686,
+      "season": 2021,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Georgia Tech",
+      "awayTeam": "Boston College",
+      "homePoints": 30,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 5.6296930762,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282692,
+      "season": 2021,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Florida State",
+      "homePoints": 23,
+      "awayPoints": 26,
+      "neutralSite": false,
+      "excitement": 5.6677825964,
+      "conferenceGame": true
+    },
+    {
+      "id": 401282700,
+      "season": 2021,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Wake Forest",
+      "homePoints": 10,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 2.3900245014,
+      "conferenceGame": true
+    },
+    {
+      "id": 401405069,
+      "season": 2022,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Rutgers",
+      "homePoints": 21,
+      "awayPoints": 22,
+      "neutralSite": false,
+      "excitement": 4.8580219149,
+      "conferenceGame": false
+    },
+    {
+      "id": 401411108,
+      "season": 2022,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Virginia Tech",
+      "awayTeam": "Boston College",
+      "homePoints": 27,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 4.648108288,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411110,
+      "season": 2022,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Maine",
+      "homePoints": 38,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 1.7585986454,
+      "conferenceGame": false
+    },
+    {
+      "id": 401411118,
+      "season": 2022,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Florida State",
+      "awayTeam": "Boston College",
+      "homePoints": 44,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 1.2808562171,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411124,
+      "season": 2022,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Louisville",
+      "homePoints": 34,
+      "awayPoints": 33,
+      "neutralSite": false,
+      "excitement": 6.4149729161,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411131,
+      "season": 2022,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Clemson",
+      "homePoints": 3,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 2.4413208062,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411145,
+      "season": 2022,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Wake Forest",
+      "awayTeam": "Boston College",
+      "homePoints": 43,
+      "awayPoints": 15,
+      "neutralSite": false,
+      "excitement": 2.3114850699,
+      "conferenceGame": true
+    },
+    {
+      "id": 401404154,
+      "season": 2022,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "UConn",
+      "awayTeam": "Boston College",
+      "homePoints": 13,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 6.6611131357,
+      "conferenceGame": false
+    },
+    {
+      "id": 401411151,
+      "season": 2022,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Duke",
+      "homePoints": 31,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 3.3389316101,
+      "conferenceGame": true
+    },
+    {
+      "id": 401411161,
+      "season": 2022,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Boston College",
+      "homePoints": 20,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 4.4383299197,
+      "conferenceGame": true
+    },
+    {
+      "id": 401404132,
+      "season": 2022,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Notre Dame",
+      "awayTeam": "Boston College",
+      "homePoints": 44,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 1.3981145578,
+      "conferenceGame": false
+    },
+    {
+      "id": 401411173,
+      "season": 2022,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Syracuse",
+      "homePoints": 23,
+      "awayPoints": 32,
+      "neutralSite": false,
+      "excitement": 7.8556058036,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525464,
+      "season": 2023,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Northern Illinois",
+      "homePoints": 24,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 7.6619910082,
+      "conferenceGame": false
+    },
+    {
+      "id": 401525490,
+      "season": 2023,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Holy Cross",
+      "homePoints": 31,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 7.6746563619,
+      "conferenceGame": false
+    },
+    {
+      "id": 401525500,
+      "season": 2023,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Florida State",
+      "homePoints": 29,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 5.9223797755,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525506,
+      "season": 2023,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Louisville",
+      "awayTeam": "Boston College",
+      "homePoints": 56,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 2.5720674912,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525513,
+      "season": 2023,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Virginia",
+      "homePoints": 27,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 7.7712128168,
+      "conferenceGame": true
+    },
+    {
+      "id": 401520298,
+      "season": 2023,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Army",
+      "awayTeam": "Boston College",
+      "homePoints": 24,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 5.562111154,
+      "conferenceGame": false
+    },
+    {
+      "id": 401525528,
+      "season": 2023,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Georgia Tech",
+      "awayTeam": "Boston College",
+      "homePoints": 23,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 6.1802090635,
+      "conferenceGame": true
+    },
+    {
+      "id": 401520351,
+      "season": 2023,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "UConn",
+      "homePoints": 21,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 6.5701295806,
+      "conferenceGame": false
+    },
+    {
+      "id": 401525540,
+      "season": 2023,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "Boston College",
+      "homePoints": 10,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 8.4639708844,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525547,
+      "season": 2023,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 22,
+      "awayPoints": 48,
+      "neutralSite": false,
+      "excitement": 2.3267878305,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525553,
+      "season": 2023,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Pittsburgh",
+      "awayTeam": "Boston College",
+      "homePoints": 24,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 7.2886063305,
+      "conferenceGame": true
+    },
+    {
+      "id": 401525560,
+      "season": 2023,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Miami",
+      "homePoints": 20,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 2.5931293829,
+      "conferenceGame": true
+    },
+    {
+      "id": 401634306,
+      "season": 2024,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Florida State",
+      "awayTeam": "Boston College",
+      "homePoints": 13,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 3.1169184692,
+      "conferenceGame": true
+    },
+    {
+      "id": 401635531,
+      "season": 2024,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Duquesne",
+      "homePoints": 56,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 2.4533237493,
+      "conferenceGame": false
+    },
+    {
+      "id": 401628357,
+      "season": 2024,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Missouri",
+      "awayTeam": "Boston College",
+      "homePoints": 27,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 5.8006475504,
+      "conferenceGame": false
+    },
+    {
+      "id": 401628490,
+      "season": 2024,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Michigan State",
+      "homePoints": 23,
+      "awayPoints": 19,
+      "neutralSite": false,
+      "excitement": 7.9665974973,
+      "conferenceGame": false
+    },
+    {
+      "id": 401635560,
+      "season": 2024,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Western Kentucky",
+      "homePoints": 21,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 5.6916084438,
+      "conferenceGame": false
+    },
+    {
+      "id": 401635567,
+      "season": 2024,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Boston College",
+      "homePoints": 24,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 6.6243461073,
+      "conferenceGame": true
+    },
+    {
+      "id": 401634768,
+      "season": 2024,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Virginia Tech",
+      "awayTeam": "Boston College",
+      "homePoints": 42,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 3.8724888286,
+      "conferenceGame": true
+    },
+    {
+      "id": 401634771,
+      "season": 2024,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Louisville",
+      "homePoints": 27,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 6.229607411,
+      "conferenceGame": true
+    },
+    {
+      "id": 401635606,
+      "season": 2024,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Syracuse",
+      "homePoints": 37,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 7.5663226546,
+      "conferenceGame": true
+    },
+    {
+      "id": 401635580,
+      "season": 2024,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "SMU",
+      "awayTeam": "Boston College",
+      "homePoints": 38,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 7.8413553085,
+      "conferenceGame": true
+    },
+    {
+      "id": 401635612,
+      "season": 2024,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "North Carolina",
+      "homePoints": 41,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 4.4230952661,
+      "conferenceGame": true
+    },
+    {
+      "id": 401635620,
+      "season": 2024,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Pittsburgh",
+      "homePoints": 34,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 6.4826142012,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754518,
+      "season": 2025,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Fordham",
+      "homePoints": 66,
+      "awayPoints": 10,
+      "neutralSite": false,
+      "excitement": 2.976087307715974,
+      "conferenceGame": false
+    },
+    {
+      "id": 401752816,
+      "season": 2025,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Michigan State",
+      "awayTeam": "Boston College",
+      "homePoints": 42,
+      "awayPoints": 40,
+      "neutralSite": false,
+      "excitement": 12.584589323403991,
+      "conferenceGame": false
+    },
+    {
+      "id": 401754533,
+      "season": 2025,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Stanford",
+      "awayTeam": "Boston College",
+      "homePoints": 30,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 5.304368767390675,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754544,
+      "season": 2025,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "California",
+      "homePoints": 24,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 6.918061132137002,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754550,
+      "season": 2025,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Pittsburgh",
+      "awayTeam": "Boston College",
+      "homePoints": 48,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 3.2821533939051295,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754558,
+      "season": 2025,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Clemson",
+      "homePoints": 10,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 3.6232546541892043,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754569,
+      "season": 2025,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "UConn",
+      "homePoints": 23,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 5.78784419663085,
+      "conferenceGame": false
+    },
+    {
+      "id": 401754570,
+      "season": 2025,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Louisville",
+      "awayTeam": "Boston College",
+      "homePoints": 38,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 5.755154180508504,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754583,
+      "season": 2025,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Notre Dame",
+      "homePoints": 10,
+      "awayPoints": 25,
+      "neutralSite": false,
+      "excitement": 5.266984922724491,
+      "conferenceGame": false
+    },
+    {
+      "id": 401754584,
+      "season": 2025,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "SMU",
+      "homePoints": 13,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 4.415965398815328,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754592,
+      "season": 2025,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Georgia Tech",
+      "homePoints": 34,
+      "awayPoints": 36,
+      "neutralSite": false,
+      "excitement": 7.421454423157309,
+      "conferenceGame": true
+    },
+    {
+      "id": 401754608,
+      "season": 2025,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "Boston College",
+      "homePoints": 12,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 4.428296929054098,
+      "conferenceGame": true
+    },
+    {
+      "id": 400876091,
+      "season": 2016,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Boston College",
+      "awayTeam": "Maryland",
+      "homePoints": 36,
+      "awayPoints": 30,
+      "neutralSite": true,
+      "excitement": 5.09625332109999,
+      "conferenceGame": false
+    },
+    {
+      "id": 400953398,
+      "season": 2017,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Boston College",
+      "awayTeam": "Iowa",
+      "homePoints": 20,
+      "awayPoints": 27,
+      "neutralSite": true,
+      "excitement": 7.81745090989999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401135290,
+      "season": 2019,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Cincinnati",
+      "awayTeam": "Boston College",
+      "homePoints": 38,
+      "awayPoints": 6,
+      "neutralSite": true,
+      "excitement": 1.89150441959999,
+      "conferenceGame": false
+    },
+    {
+      "id": 401551750,
+      "season": 2023,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Boston College",
+      "awayTeam": "SMU",
+      "homePoints": 23,
+      "awayPoints": 14,
+      "neutralSite": true,
+      "excitement": 7.1336885033,
+      "conferenceGame": false
+    },
+    {
+      "id": 401677095,
+      "season": 2024,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Nebraska",
+      "awayTeam": "Boston College",
+      "homePoints": 20,
+      "awayPoints": 15,
+      "neutralSite": true,
+      "excitement": 4.8080961029,
+      "conferenceGame": false
+    }
+  ],
+  "rankings": [
+    {
+      "rank": 24,
+      "points": 116,
+      "poll": {
+        "season": 2024,
+        "week": 3
+      },
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "rank": 23,
+      "points": 130,
+      "poll": {
+        "season": 2018,
+        "week": 4
+      },
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "rank": 24,
+      "points": 169,
+      "poll": {
+        "season": 2018,
+        "week": 10
+      },
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "rank": 17,
+      "points": 490,
+      "poll": {
+        "season": 2018,
+        "week": 11
+      },
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "rank": 22,
+      "points": 254,
+      "poll": {
+        "season": 2018,
+        "week": 12
+      },
+      "team": {
+        "school": "Boston College"
+      }
+    }
+  ],
+  "draft_picks": [
+    {
+      "year": 2016,
+      "round": 3,
+      "overall": 98,
+      "name": "Justin Simmons",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Denver Broncos"
+      },
+      "height": 74,
+      "weight": 202
+    },
+    {
+      "year": 2016,
+      "round": 7,
+      "overall": 232,
+      "name": "Steven Daniels",
+      "position": {
+        "abbreviation": "ILB"
+      },
+      "draftTeam": {
+        "displayName": "Washington"
+      },
+      "height": 72,
+      "weight": 243
+    },
+    {
+      "year": 2017,
+      "round": 3,
+      "overall": 91,
+      "name": "John Johnson",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Los Angeles Rams"
+      },
+      "height": 73,
+      "weight": 208
+    },
+    {
+      "year": 2017,
+      "round": 5,
+      "overall": 163,
+      "name": "Matt Milano",
+      "position": {
+        "abbreviation": "OLB"
+      },
+      "draftTeam": {
+        "displayName": "Buffalo Bills"
+      },
+      "height": 73,
+      "weight": 223
+    },
+    {
+      "year": 2018,
+      "round": 2,
+      "overall": 41,
+      "name": "Harold Landry",
+      "position": {
+        "abbreviation": "OLB"
+      },
+      "draftTeam": {
+        "displayName": "Tennessee Titans"
+      },
+      "height": 74,
+      "weight": 252
+    },
+    {
+      "year": 2018,
+      "round": 3,
+      "overall": 99,
+      "name": "Isaac Yiadom",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "Denver Broncos"
+      },
+      "height": 73,
+      "weight": 190
+    },
+    {
+      "year": 2018,
+      "round": 6,
+      "overall": 189,
+      "name": "Kamrin Moore",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "New Orleans Saints"
+      },
+      "height": 71,
+      "weight": 202
+    },
+    {
+      "year": 2019,
+      "round": 1,
+      "overall": 14,
+      "name": "Chris Lindstrom",
+      "position": {
+        "abbreviation": "OG"
+      },
+      "draftTeam": {
+        "displayName": "Atlanta Falcons"
+      },
+      "height": 76,
+      "weight": 308
+    },
+    {
+      "year": 2019,
+      "round": 3,
+      "overall": 65,
+      "name": "Zach Allen",
+      "position": {
+        "abbreviation": "DE"
+      },
+      "draftTeam": {
+        "displayName": "Arizona Cardinals"
+      },
+      "height": 76,
+      "weight": 281
+    },
+    {
+      "year": 2019,
+      "round": 3,
+      "overall": 81,
+      "name": "Will Harris",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Detroit Lions"
+      },
+      "height": 73,
+      "weight": 207
+    },
+    {
+      "year": 2019,
+      "round": 7,
+      "overall": 228,
+      "name": "Tommy Sweeney",
+      "position": {
+        "abbreviation": "TE"
+      },
+      "draftTeam": {
+        "displayName": "Buffalo Bills"
+      },
+      "height": 77,
+      "weight": 251
+    },
+    {
+      "year": 2020,
+      "round": 2,
+      "overall": 62,
+      "name": "AJ Dillon",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Green Bay Packers"
+      },
+      "height": 72,
+      "weight": 247
+    },
+    {
+      "year": 2021,
+      "round": 3,
+      "overall": 81,
+      "name": "Hunter Long",
+      "position": {
+        "abbreviation": "TE"
+      },
+      "draftTeam": {
+        "displayName": "Miami Dolphins"
+      },
+      "height": 77,
+      "weight": 254
+    },
+    {
+      "year": 2021,
+      "round": 6,
+      "overall": 220,
+      "name": "Isaiah McDuffie",
+      "position": {
+        "abbreviation": "ILB"
+      },
+      "draftTeam": {
+        "displayName": "Green Bay Packers"
+      },
+      "height": 73,
+      "weight": 227
+    },
+    {
+      "year": 2022,
+      "round": 1,
+      "overall": 17,
+      "name": "Zion Johnson",
+      "position": {
+        "abbreviation": "OG"
+      },
+      "draftTeam": {
+        "displayName": "Los Angeles Chargers"
+      },
+      "height": 75,
+      "weight": 312
+    },
+    {
+      "year": 2023,
+      "round": 1,
+      "overall": 22,
+      "name": "Zay Flowers",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Baltimore Ravens"
+      },
+      "height": 69,
+      "weight": 182
+    },
+    {
+      "year": 2024,
+      "round": 3,
+      "overall": 90,
+      "name": "Elijah Jones",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "Arizona Cardinals"
+      },
+      "height": 74,
+      "weight": 185
+    },
+    {
+      "year": 2024,
+      "round": 6,
+      "overall": 210,
+      "name": "Christian Mahogany",
+      "position": {
+        "abbreviation": "OG"
+      },
+      "draftTeam": {
+        "displayName": "Detroit Lions"
+      },
+      "height": 75,
+      "weight": 314
+    },
+    {
+      "year": 2025,
+      "round": 2,
+      "overall": 44,
+      "name": "Donovan Ezeiruaku",
+      "position": {
+        "abbreviation": "EDGE"
+      },
+      "draftTeam": {
+        "displayName": "Dallas Cowboys"
+      },
+      "height": 75,
+      "weight": 248
+    },
+    {
+      "year": 2025,
+      "round": 2,
+      "overall": 56,
+      "name": "Ozzy Trapilo",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Chicago Bears"
+      },
+      "height": 80,
+      "weight": 316
+    },
+    {
+      "year": 2025,
+      "round": 5,
+      "overall": 168,
+      "name": "Drew Kendall",
+      "position": {
+        "abbreviation": "C"
+      },
+      "draftTeam": {
+        "displayName": "Philadelphia Eagles"
+      },
+      "height": 76,
+      "weight": 308
+    }
+  ],
+  "talent_ratings": [
+    {
+      "year": 2015,
+      "talent": 534.6,
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "year": 2016,
+      "talent": 533.39,
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "year": 2017,
+      "talent": 535.21,
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "year": 2018,
+      "talent": 533.43,
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "year": 2019,
+      "talent": 564.95,
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "year": 2020,
+      "talent": 602.69,
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "year": 2021,
+      "talent": 636.46,
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "year": 2022,
+      "talent": 664.63,
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "year": 2023,
+      "talent": 650.23,
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "year": 2024,
+      "talent": 667.91,
+      "team": {
+        "school": "Boston College"
+      }
+    },
+    {
+      "year": 2025,
+      "talent": 650.12,
+      "team": {
+        "school": "Boston College"
+      }
+    }
+  ],
+  "betting_lines_2025": [
+    {
+      "id": 401754518,
+      "season": 2025,
+      "week": 1,
+      "homeTeam": "Boston College",
+      "awayTeam": "Fordham",
+      "homePoints": 66,
+      "awayPoints": 10,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -35.0,
+          "overUnder": 53.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -34.5,
+          "overUnder": 52.5
+        }
+      ]
+    },
+    {
+      "id": 401752816,
+      "season": 2025,
+      "week": 2,
+      "homeTeam": "Michigan State",
+      "awayTeam": "Boston College",
+      "homePoints": 42,
+      "awayPoints": 40,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -3.5,
+          "overUnder": 45.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -3.5,
+          "overUnder": 45.5
+        }
+      ]
+    },
+    {
+      "id": 401754533,
+      "season": 2025,
+      "week": 3,
+      "homeTeam": "Stanford",
+      "awayTeam": "Boston College",
+      "homePoints": 30,
+      "awayPoints": 20,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 14.0,
+          "overUnder": 44.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 14,
+          "overUnder": 44.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 13.5,
+          "overUnder": 46.5
+        }
+      ]
+    },
+    {
+      "id": 401754544,
+      "season": 2025,
+      "week": 5,
+      "homeTeam": "Boston College",
+      "awayTeam": "California",
+      "homePoints": 24,
+      "awayPoints": 28,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -6,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -6.0,
+          "overUnder": 53.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -6.5,
+          "overUnder": 54.5
+        }
+      ]
+    },
+    {
+      "id": 401754550,
+      "season": 2025,
+      "week": 6,
+      "homeTeam": "Pittsburgh",
+      "awayTeam": "Boston College",
+      "homePoints": 48,
+      "awayPoints": 7,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -6.5,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -7,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -6.5,
+          "overUnder": 55
+        }
+      ]
+    },
+    {
+      "id": 401754558,
+      "season": 2025,
+      "week": 7,
+      "homeTeam": "Boston College",
+      "awayTeam": "Clemson",
+      "homePoints": 10,
+      "awayPoints": 41,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 14,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 14.0,
+          "overUnder": 54
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 13.5,
+          "overUnder": 54.5
+        }
+      ]
+    },
+    {
+      "id": 401754569,
+      "season": 2025,
+      "week": 8,
+      "homeTeam": "Boston College",
+      "awayTeam": "UConn",
+      "homePoints": 23,
+      "awayPoints": 38,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 2.5,
+          "overUnder": 58.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 2.5,
+          "overUnder": 58
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 2.5,
+          "overUnder": 58.5
+        }
+      ]
+    },
+    {
+      "id": 401754570,
+      "season": 2025,
+      "week": 9,
+      "homeTeam": "Louisville",
+      "awayTeam": "Boston College",
+      "homePoints": 38,
+      "awayPoints": 24,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -25.5,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -25.5,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -25.5,
+          "overUnder": 54.5
+        }
+      ]
+    },
+    {
+      "id": 401754583,
+      "season": 2025,
+      "week": 10,
+      "homeTeam": "Boston College",
+      "awayTeam": "Notre Dame",
+      "homePoints": 10,
+      "awayPoints": 25,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 31.5,
+          "overUnder": 55.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 30.5,
+          "overUnder": 55.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 31.0,
+          "overUnder": 55
+        }
+      ]
+    },
+    {
+      "id": 401754584,
+      "season": 2025,
+      "week": 11,
+      "homeTeam": "Boston College",
+      "awayTeam": "SMU",
+      "homePoints": 13,
+      "awayPoints": 45,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 10.5,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 10.5,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 10.5,
+          "overUnder": 54.5
+        }
+      ]
+    },
+    {
+      "id": 401754592,
+      "season": 2025,
+      "week": 12,
+      "homeTeam": "Boston College",
+      "awayTeam": "Georgia Tech",
+      "homePoints": 34,
+      "awayPoints": 36,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 16.5,
+          "overUnder": 61.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 16.5,
+          "overUnder": 61
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 16.5,
+          "overUnder": 61.5
+        }
+      ]
+    },
+    {
+      "id": 401754608,
+      "season": 2025,
+      "week": 14,
+      "homeTeam": "Syracuse",
+      "awayTeam": "Boston College",
+      "homePoints": 12,
+      "awayPoints": 34,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 2.5,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 3.0,
+          "overUnder": 54
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 3,
+          "overUnder": 53.5
+        }
+      ]
+    }
+  ]
+}

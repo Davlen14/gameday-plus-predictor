@@ -42,7 +42,7 @@ class PredictionFormatter:
     
     def get_team_rankings(self, prediction, ap_data: Dict[str, Any]) -> Tuple[Optional[Dict], Optional[Dict]]:
         """Get current AP Poll rankings for both teams"""
-        current_week = 'week_8'  # Current week
+        current_week = 'week_15'  # Current week
         home_ranking = None
         away_ranking = None
         
@@ -1152,7 +1152,7 @@ class PredictionFormatter:
             with open('frontend/src/data/ap.json', 'r') as f:
                 ap_data = json.load(f)
             
-            current_week = 'week_11'
+            current_week = 'week_15'
             home_rank_display = 'Unranked'
             away_rank_display = 'Unranked'
             home_points = 'N/A'
@@ -1193,7 +1193,7 @@ class PredictionFormatter:
         
         # Build weekly progression from ap.json data
         try:
-            weeks_to_show = ['week_1', 'week_2', 'week_3', 'week_4', 'week_5', 'week_6', 'week_7', 'week_8', 'week_9', 'week_10', 'week_11']
+            weeks_to_show = ['week_1', 'week_2', 'week_3', 'week_4', 'week_5', 'week_6', 'week_7', 'week_8', 'week_9', 'week_10', 'week_11', 'week_12', 'week_13', 'week_14', 'week_15']
             for i, week_key in enumerate(weeks_to_show, 1):
                 if week_key in ap_data:
                     home_week_rank = 'NR'

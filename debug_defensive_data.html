@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defensive Analytics Data Debugging</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .problem {
+            border-left: 4px solid #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+        .solution {
+            border-left: 4px solid #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+        }
+        .code {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .current-output {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        .expected-format {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        h1, h2, h3 {
+            color: #3b82f6;
+        }
+        .highlight {
+            background: rgba(245, 158, 11, 0.3);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐛 ExtendedDefensiveAnalytics Data Mismatch Debug</h1>
+        
+        <div class="section problem">
+            <h2>❌ The Problem</h2>
+            <p>Your <strong>ExtendedDefensiveAnalytics.tsx</strong> component is showing fewer stats because there's a <span class="highlight">format mismatch</span> between what the React component expects and what the backend is generating.</p>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Data Flow Analysis</h2>
+            
+            <div class="comparison">
+                <div class="section current-output">
+                    <h3>❌ Current Backend Output</h3>
+                    <p><strong>From run.py formatter:</strong></p>
+                    <div class="code">EXTENDED DEFENSIVE ANALYTICS:
+======================================
+Metric                        Away (Ohio State)              Home (Michigan)                Advantage
+--------------------------------------
+Defense Plays                 647                            589                            Home
+Defense Drives                118                            105                            Home  
+Defense Total PPA             -26.49                         -18.23                         Away
+Defense Points Per Opp        2.34                          3.15                           Away</div>
+                    <p>The backend generates <span class="highlight">defensive play statistics</span> but not EPA format.</p>
+                </div>
+
+                <div class="section expected-format">
+                    <h3>✅ Expected React Format</h3>
+                    <p><strong>What ExtendedDefensiveAnalytics.tsx looks for:</strong></p>
+                    <div class="code">Overall EPA: Ohio State: +0.425 Michigan: -0.127
+EPA Allowed: Ohio State: -0.385 Michigan: +0.234  
+Passing EPA: Ohio State: +0.312 Michigan: -0.089
+Rushing EPA: Ohio State: +0.198 Michigan: -0.156
+
+ELO Ratings: Ohio State: 1847 Michigan: 1523
+FPI Ratings: Ohio State: 18.3 Michigan: 4.7
+Success Rate: Ohio State: 0.641 Michigan: 0.428</div>
+                    <p>The component expects <span class="highlight">EPA analysis format</span> with specific regex patterns.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Exact Pattern Matching Issue</h2>
+            
+            <h3>React Component Regex Patterns:</h3>
+            <div class="code">// ExtendedDefensiveAnalytics.tsx - Lines 35-38
+const epaMatch = analysis.match(/Overall EPA:\s*([^:]+):\s*([\+\-\d\.]+)\s*([^:]+):\s*([\+\-\d\.]+)/);
+const epaAllowedMatch = analysis.match(/EPA Allowed:\s*([^:]+):\s*([\+\-\d\.]+)\s*([^:]+):\s*([\+\-\d\.]+)/);  
+const passEpaMatch = analysis.match(/Passing EPA:\s*([^:]+):\s*([\+\-\d\.]+)\s*([^:]+):\s*([\+\-\d\.]+)/);
+const rushEpaMatch = analysis.match(/Rushing EPA:\s*([^:]+):\s*([\+\-\d\.]+)\s*([^:]+):\s*([\+\-\d\.]+)/);</div>
+
+            <h3>Current Backend Output Pattern:</h3>
+            <div class="code">// run.py - Lines 45-52  
+print(f"{'Defense Plays':<30} {away_stats.defense_plays:<35} {home_stats.defense_plays:<35}")
+print(f"{'Defense Drives':<30} {away_stats.defense_drives:<35} {home_stats.defense_drives:<35}")
+print(f"{'Defense Total PPA':<30} {away_stats.defense_total_ppa:.2f} {home_stats.defense_total_ppa:.2f}")</div>
+
+            <p><strong>Result:</strong> <span style="color: #ef4444;">REGEX PATTERNS DON'T MATCH!</span> React component gets empty arrays.</p>
+        </div>
+
+        <div class="section">
+            <h2>📊 Available Data vs. Displayed Data</h2>
+            
+            <h3>✅ Available in weekly_updates/week_15/fbs_defensive_stats.json:</h3>
+            <div class="code">{
+  "team": "Ohio State", 
+  "defense_plays": 647,
+  "defense_drives": 118, 
+  "defense_ppa": -0.041,           // ← This is EPA-equivalent!
+  "defense_totalPPA": -26.49,
+  "defense_successRate": 0.494,
+  "defense_explosiveness": 1.367,
+  "defense_passingPlays": {
+    "ppa": 0.509,                  // ← Passing EPA equivalent! 
+    "successRate": 0.536
+  },
+  "defense_rushingPlays": {
+    "ppa": 0.293,                  // ← Rushing EPA equivalent!
+    "successRate": 0.453  
+  }
+}</div>
+
+            <h3>❌ What Actually Gets Displayed:</h3>
+            <div class="code">// Only fallback values because regex fails
+[
+  { metric: 'Overall EPA', away: '0.000', home: '0.000', advantage: 'Tied' },
+  { metric: 'EPA Allowed (Defense)', away: '0.000', home: '0.000', advantage: 'Tied' },
+  { metric: 'Passing EPA', away: '0.000', home: '0.000', advantage: 'Tied' },
+  { metric: 'Rushing EPA', away: '0.000', home: '0.000', advantage: 'Tied' }
+]</div>
+        </div>
+
+        <div class="section solution">
+            <h2>🔧 Solution Options</h2>
+            
+            <h3>Option 1: Fix Backend Formatter (Recommended)</h3>
+            <p>Update <strong>run.py</strong> to generate EPA-format output that matches React component expectations:</p>
+            <div class="code">// Add to run.py - Generate EPA-style output
+print(f"Overall EPA: {prediction.away_team}: {away_stats.defense_ppa:+.3f} {prediction.home_team}: {home_stats.defense_ppa:+.3f}")
+print(f"EPA Allowed: {prediction.away_team}: {-away_stats.defense_total_ppa/away_stats.defense_plays:+.3f} {prediction.home_team}: {-home_stats.defense_total_ppa/home_stats.defense_plays:+.3f}")
+print(f"Passing EPA: {prediction.away_team}: {away_stats.defense_passing_plays_ppa:+.3f} {prediction.home_team}: {home_stats.defense_passing_plays_ppa:+.3f}")
+print(f"Rushing EPA: {prediction.away_team}: {away_stats.defense_rushing_plays_ppa:+.3f} {prediction.home_team}: {home_stats.defense_rushing_plays_ppa:+.3f}")</div>
+
+            <h3>Option 2: Update React Component</h3>
+            <p>Modify <strong>ExtendedDefensiveAnalytics.tsx</strong> to parse the current "Defense Plays" format:</p>
+            <div class="code">// Update regex patterns in component
+const defensePlayMatch = analysis.match(/Defense Plays\s+(\d+)\s+(\d+)\s+(\w+)/);
+const defensePpaMatch = analysis.match(/Defense Total PPA\s+([\d\.\-]+)\s+([\d\.\-]+)/);
+const defenseDriveMatch = analysis.match(/Defense Drives\s+(\d+)\s+(\d+)\s+(\w+)/);</div>
+
+            <h3>Option 3: Hybrid Approach</h3>
+            <p>Generate BOTH formats - defensive stats for existing users + EPA format for component compatibility.</p>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Quick Fix Implementation</h2>
+            
+            <p>The fastest solution is to modify the formatter to output EPA-style analysis. The data is already there in the JSON files - it just needs to be formatted correctly!</p>
+            
+            <div class="code">// Data mapping from JSON to EPA format:
+// defense_ppa → Overall EPA  
+// defense_passingPlays.ppa → Passing EPA
+// defense_rushingPlays.ppa → Rushing EPA 
+// -defense_total_ppa/defense_plays → EPA Allowed (Defense)</div>
+
+            <p><strong>Root Cause:</strong> Your cleanup moved data files but the formatter logic didn't get updated to generate the EPA analysis format that your React component expects.</p>
+        </div>
+
+        <div class="section">
+            <h2>💡 Key Insight</h2>
+            <p>The data is there, the component is built, but there's a <span class="highlight">communication gap</span> between backend formatting and frontend parsing. Both PPA (Predicted Points Added) and EPA (Expected Points Added) are essentially the same metric - just different naming conventions!</p>
+        </div>
+    </div>
+</body>
+</html>

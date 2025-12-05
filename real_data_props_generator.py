@@ -270,6 +270,165 @@ class RealDataPlayerPropsEngine:
         
         self._defense_rankings_cache = rankings
         return rankings
+    
+    def get_real_player_game_logs(self, player_name: str, team: str, stat_type: str) -> List[GameLog]:
+        """Get REAL per-game player stats from the /games/players API endpoint"""
+        print(f"📊 Fetching REAL game-by-game stats for {player_name}...")
+        
+        # Get player stats from games/players endpoint
+        player_game_data = self._make_request("games/players", {
+            'year': self.year,
+            'team': team,
+            'seasonType': 'regular'
+        })
+        
+        if not player_game_data:
+            print(f"⚠️ No game data found for {team}")
+            return []
+        
+        # Get schedule for week/opponent info
+        schedule_data = self._make_request("games", {
+            'year': self.year,
+            'team': team,
+            'seasonType': 'regular'
+        })
+        
+        if not schedule_data:
+            print(f"⚠️ No schedule data found for {team}")
+            return []
+        
+        # Create schedule lookup
+        schedule_dict = {g['id']: g for g in schedule_data}
+        
+        # Get defense rankings
+        defense_rankings = self.get_all_defense_rankings()
+        
+        game_logs = []
+        
+        # Process each game
+        for game in player_game_data:
+            game_id = game.get('id')
+            sched = schedule_dict.get(game_id, {})
+            week = sched.get('week', 0)
+            
+            # Get opponent and location
+            home = sched.get('home_team', sched.get('homeTeam', ''))
+            away = sched.get('away_team', sched.get('awayTeam', ''))
+            
+            if home == team:
+                opponent = away
+                opponent_id = sched.get('away_id', sched.get('awayId'))
+                home_away = 'home'
+                our_points = sched.get('home_points', sched.get('homePoints', 0)) or 0
+                opp_points = sched.get('away_points', sched.get('awayPoints', 0)) or 0
+            else:
+                opponent = home
+                opponent_id = sched.get('home_id', sched.get('homeId'))
+                home_away = 'away'
+                our_points = sched.get('away_points', sched.get('awayPoints', 0)) or 0
+                opp_points = sched.get('home_points', sched.get('homePoints', 0)) or 0
+            
+            # Skip unplayed games
+            if our_points == 0 and opp_points == 0:
+                continue
+            
+            result = 'W' if our_points > opp_points else 'L'
+            
+            # Get opponent logo and color
+            opponent_logo = None
+            opponent_color = None
+            if opponent_id and opponent_id in self.teams_database:
+                team_info = self.teams_database[opponent_id]
+                opponent_logo = team_info.get('logos', [None])[0]
+                opponent_color = team_info.get('primary_color', '#1a1f26')
+            
+            if not opponent_logo and opponent_id:
+                opponent_logo = f"http://a.espncdn.com/i/teamlogos/ncaa/500/{opponent_id}.png"
+            
+            # Get defense rank
+            defense_rank = defense_rankings.get(opponent)
+            
+            # Find this player's stats in this game
+            player_stat_value = 0
+            
+            for team_data in game.get('teams', []):
+                if team_data.get('team') == team:
+                    for category in team_data.get('categories', []):
+                        # Map stat_type to category
+                        category_name = category.get('name', '')
+                        
+                        # Determine which category to look in
+                        if stat_type in ['passing_yards', 'passing_tds', 'completions', 'attempts', 'interceptions']:
+                            if category_name != 'passing':
+                                continue
+                        elif stat_type in ['rushing_yards', 'rushing_tds', 'rushing_attempts']:
+                            if category_name != 'rushing':
+                                continue
+                        elif stat_type in ['receiving_yards', 'receiving_tds', 'receptions']:
+                            if category_name != 'receiving':
+                                continue
+                        else:
+                            continue
+                        
+                        # Find the stat type in the API response
+                        api_stat_name = None
+                        if stat_type == 'passing_yards':
+                            api_stat_name = 'YDS'
+                        elif stat_type == 'passing_tds':
+                            api_stat_name = 'TD'
+                        elif stat_type == 'completions':
+                            api_stat_name = 'C/ATT'  # Need to parse
+                        elif stat_type == 'rushing_yards':
+                            api_stat_name = 'YDS'
+                        elif stat_type == 'rushing_tds':
+                            api_stat_name = 'TD'
+                        elif stat_type == 'rushing_attempts':
+                            api_stat_name = 'CAR'
+                        elif stat_type == 'receiving_yards':
+                            api_stat_name = 'YDS'
+                        elif stat_type == 'receiving_tds':
+                            api_stat_name = 'TD'
+                        elif stat_type == 'receptions':
+                            api_stat_name = 'REC'
+                        
+                        if not api_stat_name:
+                            continue
+                        
+                        # Find the player's stat
+                        for stat_type_data in category.get('types', []):
+                            if stat_type_data.get('name') == api_stat_name:
+                                for athlete in stat_type_data.get('athletes', []):
+                                    if athlete.get('name') == player_name:
+                                        stat_value = athlete.get('stat', '0')
+                                        try:
+                                            player_stat_value = int(stat_value)
+                                        except ValueError:
+                                            # Handle C/ATT format for completions
+                                            if '/' in str(stat_value):
+                                                player_stat_value = int(str(stat_value).split('/')[0])
+                                            else:
+                                                player_stat_value = 0
+                                        break
+            
+            # Only create game log if player had stats in this game
+            if player_stat_value > 0 or True:  # Include all games even with 0 stats
+                game_log = GameLog(
+                    week=week,
+                    opponent=opponent,
+                    home_away=home_away,
+                    result=result,
+                    stats={stat_type: player_stat_value},
+                    defense_rank=defense_rank,
+                    opponent_logo=opponent_logo,
+                    opponent_color=opponent_color
+                )
+                game_logs.append(game_log)
+        
+        # Sort by week
+        game_logs.sort(key=lambda x: x.week)
+        
+        print(f"✅ Found {len(game_logs)} games for {player_name}")
+        return game_logs
 
     def generate_realistic_game_logs(self, season_stats: Dict, team_games: List[Dict], 
                                    position: str, stat_type: str) -> List[GameLog]:
@@ -515,8 +674,8 @@ class RealDataPlayerPropsEngine:
         ]
         
         for stat_type, base_line, prop_name in prop_configs:
-            # Generate realistic game logs
-            game_logs = self.generate_realistic_game_logs(season_stats, team_games, 'QB', stat_type)
+            # Get REAL game-by-game logs from API
+            game_logs = self.get_real_player_game_logs(player_name, team, stat_type)
             
             # Analyze trends
             trend_analysis = self.analyze_trends(game_logs, stat_type)
@@ -593,7 +752,8 @@ class RealDataPlayerPropsEngine:
         ]
         
         for stat_type, base_line, prop_name in prop_configs:
-            game_logs = self.generate_realistic_game_logs(season_stats, team_games, 'WR', stat_type)
+            # Get REAL game-by-game logs from API
+            game_logs = self.get_real_player_game_logs(player_name, team, stat_type)
             trend_analysis = self.analyze_trends(game_logs, stat_type)
             
             season_avg = trend_analysis.season_avg
@@ -643,7 +803,8 @@ class RealDataPlayerPropsEngine:
         ]
         
         for stat_type, base_line, prop_name in prop_configs:
-            game_logs = self.generate_realistic_game_logs(season_stats, team_games, 'RB', stat_type)
+            # Get REAL game-by-game logs from API
+            game_logs = self.get_real_player_game_logs(player_name, team, stat_type)
             trend_analysis = self.analyze_trends(game_logs, stat_type)
             
             season_avg = trend_analysis.season_avg

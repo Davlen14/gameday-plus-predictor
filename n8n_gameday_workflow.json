@@ -1,0 +1,431 @@
+{
+  "name": "Gameday+ College Football Predictor - Enhanced",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "🏈 Gameday+ Prediction",
+        "formDescription": "Select two teams for a game prediction",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Home Team",
+              "fieldType": "text",
+              "requiredField": true,
+              "placeholder": "e.g. Alabama"
+            },
+            {
+              "fieldLabel": "Away Team", 
+              "fieldType": "text",
+              "requiredField": true,
+              "placeholder": "e.g. Georgia"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Team Selection Form",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2,
+      "position": [250, 400],
+      "webhookId": "gameday-predictor-form"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graphqlmodel-production.up.railway.app/predict",
+        "authentication": "none",
+        "options": {
+          "timeout": 60000
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ home_team: $json['Home Team'], away_team: $json['Away Team'] }) }}"
+      },
+      "name": "Get Game Prediction",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [500, 400]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "name": "Merge All Data",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [1000, 400]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "game",
+              "value": "={{ $json.ui_components.header.teams.home.name }} vs {{ $json.ui_components.header.teams.away.name }}",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "spread",
+              "value": "={{ $json.ui_components.prediction_cards.predicted_spread.model_spread }}",
+              "type": "number"
+            },
+            {
+              "id": "3",
+              "name": "spread_display",
+              "value": "={{ $json.ui_components.prediction_cards.predicted_spread.model_spread_display }}",
+              "type": "string"
+            },
+            {
+              "id": "4",
+              "name": "total",
+              "value": "={{ $json.ui_components.prediction_cards.predicted_total.model_total }}",
+              "type": "number"
+            },
+            {
+              "id": "5",
+              "name": "home_win_probability",
+              "value": "={{ Math.round($json.ui_components.prediction_cards.win_probability.home_team_prob * 10) / 10 }}%",
+              "type": "string"
+            },
+            {
+              "id": "6",
+              "name": "away_win_probability",
+              "value": "={{ Math.round($json.ui_components.prediction_cards.win_probability.away_team_prob * 10) / 10 }}%",
+              "type": "string"
+            },
+            {
+              "id": "7",
+              "name": "confidence",
+              "value": "={{ $json.ui_components.confidence.overall_confidence }}%",
+              "type": "string"
+            },
+            {
+              "id": "8",
+              "name": "predicted_score",
+              "value": "={{ $json.ui_components.final_prediction.predicted_score.home_score }} - {{ $json.ui_components.final_prediction.predicted_score.away_score }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "📊 Basic Prediction",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [750, 200]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "market_spread",
+              "value": "={{ $json.ui_components.game_summary_and_rationale.market_analysis.market_consensus.spread_display }}",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "market_total",
+              "value": "={{ $json.ui_components.game_summary_and_rationale.market_analysis.market_consensus.total_display }}",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "spread_edge",
+              "value": "={{ $json.ui_components.prediction_cards.predicted_spread.edge }} points",
+              "type": "string"
+            },
+            {
+              "id": "4",
+              "name": "total_edge",
+              "value": "={{ $json.ui_components.prediction_cards.predicted_total.edge }} points",
+              "type": "string"
+            },
+            {
+              "id": "5",
+              "name": "best_bet",
+              "value": "={{ $json.ui_components.game_summary_and_rationale.market_analysis.best_bets[0]?.bet || 'No edge detected' }}",
+              "type": "string"
+            },
+            {
+              "id": "6",
+              "name": "best_bet_edge",
+              "value": "={{ $json.ui_components.game_summary_and_rationale.market_analysis.best_bets[0]?.edge || 0 }} points",
+              "type": "string"
+            },
+            {
+              "id": "7",
+              "name": "sportsbook",
+              "value": "={{ $json.ui_components.game_summary_and_rationale.market_analysis.best_bets[0]?.sportsbook || 'N/A' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "💰 Market Analysis",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [750, 350]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "home_qb",
+              "value": "={{ $json.ui_components.detailed_analysis.enhanced_player_analysis.home_players.qb?.name || 'N/A' }}",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "home_qb_rating",
+              "value": "={{ $json.ui_components.detailed_analysis.enhanced_player_analysis.home_players.qb?.passing_stats?.qbr || 'N/A' }}",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "away_qb",
+              "value": "={{ $json.ui_components.detailed_analysis.enhanced_player_analysis.away_players.qb?.name || 'N/A' }}",
+              "type": "string"
+            },
+            {
+              "id": "4",
+              "name": "away_qb_rating",
+              "value": "={{ $json.ui_components.detailed_analysis.enhanced_player_analysis.away_players.qb?.passing_stats?.qbr || 'N/A' }}",
+              "type": "string"
+            },
+            {
+              "id": "5",
+              "name": "qb_advantage",
+              "value": "={{ $json.ui_components.detailed_analysis.enhanced_player_analysis.positional_advantages?.quarterback > 0 ? 'Home' : 'Away' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "🏈 Player Impact",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [750, 500]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "home_epa_offense",
+              "value": "={{ $json.ui_components.team_statistics.home.epa_offense }}",
+              "type": "number"
+            },
+            {
+              "id": "2",
+              "name": "away_epa_offense",
+              "value": "={{ $json.ui_components.team_statistics.away.epa_offense }}",
+              "type": "number"
+            },
+            {
+              "id": "3",
+              "name": "home_epa_defense",
+              "value": "={{ $json.ui_components.team_statistics.home.epa_defense }}",
+              "type": "number"
+            },
+            {
+              "id": "4",
+              "name": "away_epa_defense",
+              "value": "={{ $json.ui_components.team_statistics.away.epa_defense }}",
+              "type": "number"
+            },
+            {
+              "id": "5",
+              "name": "home_success_rate",
+              "value": "={{ Math.round($json.ui_components.team_statistics.home.success_rate_offense * 1000) / 10 }}%",
+              "type": "string"
+            },
+            {
+              "id": "6",
+              "name": "away_success_rate",
+              "value": "={{ Math.round($json.ui_components.team_statistics.away.success_rate_offense * 1000) / 10 }}%",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "📈 Advanced Metrics",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [750, 650]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "game",
+              "value": "={{ $json.game }}",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "spread",
+              "value": "={{ $json.spread }}",
+              "type": "number"
+            },
+            {
+              "id": "3",
+              "name": "total",
+              "value": "={{ $json.total }}",
+              "type": "number"
+            },
+            {
+              "id": "4",
+              "name": "win_probability",
+              "value": "={{ $json.win_probability }}",
+              "type": "string"
+            },
+            {
+              "id": "5",
+              "name": "confidence",
+              "value": "={{ $json.confidence }}",
+              "type": "string"
+            },
+            {
+              "id": "6",
+              "name": "betting_recommendation",
+              "value": "={{ $json.betting_recommendation }}",
+              "type": "string"
+            },
+            {
+              "id": "7",
+              "name": "qb_advantage",
+              "value": "={{ $json.qb_advantage }}",
+              "type": "string"
+            },
+            {
+              "id": "8",
+              "name": "epa_advantage",
+              "value": "={{ $json.epa_advantage }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "📋 Combined Summary",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [1200, 400]
+    }
+  ],
+  "connections": {
+    "Team Selection Form": {
+      "main": [
+        [
+          {
+            "node": "Get Game Prediction",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Game Prediction": {
+      "main": [
+        [
+          {
+            "node": "📊 Basic Prediction",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "💰 Market Analysis",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "🏈 Player Impact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "📈 Advanced Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Basic Prediction": {
+      "main": [
+        [
+          {
+            "node": "Merge All Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💰 Market Analysis": {
+      "main": [
+        [
+          {
+            "node": "Merge All Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "🏈 Player Impact": {
+      "main": [
+        [
+          {
+            "node": "Merge All Data",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "📈 Advanced Metrics": {
+      "main": [
+        [
+          {
+            "node": "Merge All Data",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge All Data": {
+      "main": [
+        [
+          {
+            "node": "📋 Combined Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-03T07:30:00.000Z",
+  "versionId": "2"
+}

@@ -77,7 +77,7 @@ export const DataTable = ({ headers, rows, className = '' }) => {
                         {headers.map((header, index) => (
                             <th 
                                 key={index} 
-                                className="border border-slate-600 p-3 text-left text-slate-300 font-bold text-sm bg-slate-800/50"
+                                className="border border-slate-600 p-3 text-left text-slate-300 font-bold text-sm backdrop-blur-sm"
                             >
                                 {header}
                             </th>

@@ -1,8 +1,15 @@
-import React from 'react';
-import { GlassCard } from './GlassCard';
-import { Trophy, Target, TrendingUp, Users, CheckCircle, XCircle } from 'lucide-react';
+import React, { useMemo, useState, useEffect } from 'react';
+import { Users, Trophy, Target, TrendingUp, Award, TrendingDown, GraduationCap, Activity, DollarSign, BarChart3, CheckCircle2, AlertTriangle, Zap, Star } from 'lucide-react';
+import { ClearGlassCard } from './ClearGlassCard';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { generateTeamAbbr, extractSection, parseTeamValue } from '../../utils/teamUtils';
+import { RankBadge, getRankCategory } from './RankBadge';
+import { FactorCard } from './FactorCard';
+import { ComparisonBar } from './ComparisonBar';
+import { CoachTimeline } from './CoachTimeline';
+import coachRankings from '../../data/coaches_advanced_rankings.json';
+import coachHeadshots from '../../data/power5_coaches_headshots.json';
+import type { CoachRanking } from '../../types/coaching.types';
+import './CoachingComponents.css';
 
 interface CoachingComparisonProps {
   coach1Data?: any;
@@ -10,147 +17,260 @@ interface CoachingComparisonProps {
   predictionData?: any;
 }
 
-// Mock coaching data
-const mockCoachingData = {
-  coach1: {
-    name: 'Ryan Day',
-    team: 'Ohio State',
-    logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/194.png',
-    color: '#ce1141',
-    vsRanked: { wins: 25, losses: 9, total: 34, percentage: 73.5 },
-    vsTop10: { wins: 17, losses: 8, total: 25, percentage: 68.0 },
-    vsTop5: { wins: 8, losses: 6, total: 14, percentage: 57.1 },
-    conferenceVsRanked: {
-      'ACC': { wins: 1, losses: 1, total: 2 },
-      'Big Ten': { wins: 16, losses: 5, total: 21 },
-      'Big 12': { wins: 2, losses: 0, total: 2 },
-      'SEC': { wins: 3, losses: 3, total: 6 }
+// Get coach headshot from power5_coaches_headshots.json
+const getCoachHeadshotUrl = (coachName: string, teamName: string): string | null => {
+  if (!coachName || !teamName) return null;
+  
+  const allCoaches = [
+    ...(coachHeadshots as any).big12 || [],
+    ...(coachHeadshots as any).acc || [],
+    ...(coachHeadshots as any).big_ten || [],
+    ...(coachHeadshots as any).sec || []
+  ];
+  
+  const coach = allCoaches.find((c: any) => {
+    if (!c.coach || !c.school) return false;
+    const coachLower = c.coach.toLowerCase();
+    const schoolLower = c.school.toLowerCase();
+    const nameLower = coachName.toLowerCase();
+    const teamLower = teamName.toLowerCase();
+    
+    return coachLower.includes(nameLower) ||
+           nameLower.includes(coachLower) ||
+           schoolLower === teamLower;
+  });
+  
+  return coach?.headshot_url || null;
+};
+
+const findCoachData = (teamName: string, coachName?: string): CoachRanking | undefined => {
+  if (!teamName && !coachName) return undefined;
+  
+  // Primary: Look up by team name (most reliable)
+  if (teamName) {
+    const searchTeam = teamName.toLowerCase();
+    const byTeam = (coachRankings as any[]).find(coach => {
+      const team = coach?.team?.toLowerCase();
+      return team && team === searchTeam;
+    }) as CoachRanking | undefined;
+    
+    if (byTeam) return byTeam;
+  }
+  
+  // Fallback: Look up by coach name if team lookup fails
+  if (coachName) {
+    const searchName = coachName.toLowerCase();
+    return (coachRankings as any[]).find(coach => {
+      const name = coach?.name?.toLowerCase();
+      return name && (name.includes(searchName) || searchName.includes(name));
+    }) as CoachRanking | undefined;
+  }
+  
+  return undefined;
+};
+
+const removeEmojis = (text: string): string => {
+  if (!text) return text;
+  return text.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
+};
+
+const calculateBigGameRating = (bigGameAnalysis: any): number => {
+  return bigGameAnalysis?.big_game_score || 0;
+};
+
+// Load timeline data for a coach
+const loadCoachTimeline = async (coachName: string, teamName: string): Promise<any> => {
+  try {
+    // Convert name to file format (e.g., "Brian Kelly" -> "kelly_lsu")
+    const lastName = coachName.split(' ').pop()?.toLowerCase() || '';
+    const schoolSlug = teamName.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z_]/g, '');
+    
+    // Try to load FULL career timeline first (multi-school data)
+    try {
+      const fullTimelineModule = await import(`../../data/coach_timelines/${lastName}_${schoolSlug}_FULL_timeline.json`);
+      console.log(`Loaded FULL career timeline for ${coachName}`);
+      return fullTimelineModule.default || fullTimelineModule;
+    } catch {
+      // If FULL doesn't exist, fall back to single-school timeline
+      const timelineModule = await import(`../../data/coach_timelines/${lastName}_${schoolSlug}_timeline.json`);
+      return timelineModule.default || timelineModule;
     }
-  },
-  coach2: {
-    name: 'Bret Bielema',
-    team: 'Illinois',
-    logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/356.png',
-    color: '#ff5f05',
-    vsRanked: { wins: 23, losses: 45, total: 68, percentage: 33.8 },
-    vsTop10: { wins: 7, losses: 24, total: 31, percentage: 22.6 },
-    vsTop5: { wins: 1, losses: 9, total: 10, percentage: 10.0 },
-    conferenceVsRanked: {
-      'ACC': { wins: 1, losses: 1, total: 2 },
-      'Big Ten': { wins: 11, losses: 19, total: 30 },
-      'Big 12': { wins: 2, losses: 2, total: 4 },
-      'SEC': { wins: 8, losses: 23, total: 31 }
-    }
+  } catch (error) {
+    console.warn(`Timeline data not found for ${coachName} at ${teamName}`, error);
+    return null;
   }
 };
 
-// Performance Indicator Component
-const PerformanceIndicator = ({ 
-  percentage, 
-  threshold = 50, 
-  label 
-}: { 
-  percentage: number, 
-  threshold?: number, 
-  label: string 
-}) => {
-  const isElite = percentage >= threshold;
-  return (
-    <div className="flex items-center gap-2">
-      {isElite ? (
-        <CheckCircle className="w-4 h-4 text-green-400" />
-      ) : (
-        <XCircle className="w-4 h-4 text-red-400" />
-      )}
-      <span className={`text-sm font-medium ${isElite ? 'text-green-400' : 'text-red-400'}`}>
-        {label}
-      </span>
-    </div>
-  );
-};
-
-// Team Header Component
-const TeamHeader = ({ coach, isElite }: { coach: any, isElite: boolean }) => (
-  <div className={`flex items-center justify-center gap-3 p-4 rounded-lg border ${
-    isElite 
-      ? 'bg-gradient-to-br from-green-900/30 to-emerald-800/30 border-green-500/40' 
-      : 'bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-gray-600/30'
-  }`} style={{
-    backgroundColor: `${coach.color}10`,
-    borderColor: `${coach.color}40`
-  }}>
-    <div className="relative">
-      <ImageWithFallback 
-        src={coach.logo}
-        alt={coach.team}
-        className="w-10 h-10 object-contain opacity-90"
-        style={{
-          filter: `drop-shadow(0 4px 8px rgba(0,0,0,0.3)) drop-shadow(0 0 8px ${coach.color}40)`
-        }}
-      />
-      {isElite && (
-        <div className="absolute -top-1 -right-1">
-          <CheckCircle className="w-5 h-5 text-green-400 bg-gray-900 rounded-full" />
-        </div>
-      )}
-    </div>
-    <div>
-      <h5 className="font-bold text-white">{coach.name}</h5>
-      <p className="text-xs" style={{ color: coach.color }}>{coach.team}</p>
-    </div>
-  </div>
-);
-
-// Performance Comparison Row
-const PerformanceRow = ({ 
-  label, 
-  coach1Data, 
-  coach2Data, 
-  icon: Icon,
-  coach1Color,
-  coach2Color 
-}: { 
-  label: string, 
-  coach1Data: any, 
-  coach2Data: any, 
-  icon: any,
-  coach1Color: string,
-  coach2Color: string
-}) => {
-  const coach1Better = coach1Data.percentage > coach2Data.percentage;
+const CoachProfileCard = ({ coach, coachData }: { coach: any, coachData: any }) => {
+  const category = getRankCategory(coachData.composite_rank);
+  const analysis = coachData.enhanced_analysis;
+  const season2025 = analysis.season_2025;
+  const isTopTier = coachData.composite_rank <= 10;
+  const teamColor = coach.primary_color || coach.color || '#6366f1';
   
   return (
-    <tr className="border-b border-gray-700/30 hover:bg-gray-800/20 transition-colors">
-      <td className="py-3 sm:py-4 px-2 sm:px-4">
-        <div className="flex items-center gap-1 sm:gap-2 text-gray-300 font-medium text-xs sm:text-sm">
-          <Icon className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-          <span className="truncate">{label}</span>
-        </div>
-      </td>
-      <td className="py-3 sm:py-4 px-2 sm:px-4 text-center">
-        <div className={`space-y-1 ${coach1Better ? 'text-green-400' : 'text-white'}`}>
-          <div className="font-bold text-base sm:text-lg">{coach1Data.percentage}%</div>
-          <div className="text-xs text-gray-400">
-            {coach1Data.wins}-{coach1Data.losses}-0 <span className="hidden sm:inline">({coach1Data.total} games)</span>
+    <div 
+      className="relative rounded-xl overflow-hidden"
+      style={{
+        background: `linear-gradient(135deg, ${teamColor}08 0%, ${teamColor}03 100%)`
+      }}
+    >
+      {/* Watermark Logo */}
+      <div className="absolute top-0 right-0 w-48 h-48 opacity-5 overflow-hidden">
+        <ImageWithFallback 
+          src={coach.logo || coach.logos?.[0] || ''} 
+          alt={coach.school || 'Team'} 
+          className="w-full h-full object-contain scale-150"
+        />
+      </div>
+
+      {/* Rank Badge with Glow */}
+      <div className="absolute top-4 left-4 z-10">
+        <div 
+          className="px-3 py-1.5 rounded-lg font-bold text-sm"
+          style={{
+            background: `linear-gradient(135deg, ${teamColor}20, ${teamColor}10)`,
+            boxShadow: `0 0 20px ${teamColor}25`,
+            color: teamColor
+          }}
+        >
+          <div className="flex items-center gap-1.5">
+            {isTopTier ? <Star className="w-3.5 h-3.5" /> : <Target className="w-3.5 h-3.5" />}
+            <span>#{coachData.composite_rank} {category.label}</span>
           </div>
-          {coach1Better && <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 mx-auto" />}
         </div>
-      </td>
-      <td className="py-3 sm:py-4 px-2 sm:px-4 text-center">
-        <div className={`space-y-1 ${!coach1Better ? 'text-green-400' : 'text-white'}`}>
-          <div className="font-bold text-base sm:text-lg">{coach2Data.percentage}%</div>
-          <div className="text-xs text-gray-400">
-            {coach2Data.wins}-{coach2Data.losses}-0 <span className="hidden sm:inline">({coach2Data.total} games)</span>
+      </div>
+
+      {/* Score Badge */}
+      <div className="absolute top-4 right-4 z-10">
+        <div 
+          className="text-3xl font-black"
+          style={{ 
+            color: teamColor,
+            textShadow: `0 0 20px ${teamColor}80, 0 0 40px ${teamColor}40`
+          }}
+        >
+          {coachData.composite_score.toFixed(1)}/100
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 pt-16 pb-6 px-6">
+        {/* Coach Headshot - No Container, Direct Integration */}
+        <div className="flex items-center gap-4 mb-6">
+          <div className="relative w-24 h-24">
+            <ImageWithFallback 
+              src={getCoachHeadshotUrl(coachData.name, coach.school || coachData.team) || coach.logo || coach.logos?.[0]}
+              alt={coachData.name}
+              className="w-full h-full object-cover rounded-full"
+              style={{ 
+                filter: 'brightness(1.1) contrast(1.15)',
+                boxShadow: `0 0 30px ${teamColor}40, 0 0 60px ${teamColor}20`
+              }}
+            />
           </div>
-          {!coach1Better && <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 mx-auto" />}
+          
+          <div className="flex-1">
+            <h5 className="font-black text-white text-xl mb-1 drop-shadow-lg">{coachData.name}</h5>
+            <p 
+              className="text-base font-bold mb-1 drop-shadow-md"
+              style={{ color: teamColor }}
+            >
+              {coachData.team}
+            </p>
+            <p className="text-xs text-gray-400 font-medium">{coachData.conference}</p>
+          </div>
         </div>
-      </td>
-    </tr>
+
+        {/* 2025 Season Stats */}
+        <div 
+          className="mb-5 p-4 rounded-lg"
+          style={{
+            background: `linear-gradient(135deg, ${teamColor}15, ${teamColor}06)`
+          }}
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="text-xs text-gray-400 font-semibold tracking-wide">2025 SEASON</div>
+            <div 
+              className="text-xs font-bold px-2 py-1 rounded"
+              style={{ 
+                color: teamColor,
+                background: `${teamColor}20`
+              }}
+            >
+              {removeEmojis(season2025.rating)}
+            </div>
+          </div>
+          <div className="flex items-baseline gap-2">
+            <div 
+              className="text-3xl font-black"
+              style={{ color: teamColor }}
+            >
+              {coachData['2025Record']}
+            </div>
+            <div className="text-sm text-gray-300">
+              ({season2025.win_pct.toFixed(1)}% Win Rate)
+            </div>
+          </div>
+        </div>
+
+        {/* Recent Momentum */}
+        <div className="mb-5">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-xs text-gray-400 font-semibold tracking-wide">RECENT MOMENTUM</span>
+            <span 
+              className="text-lg font-black"
+              style={{ color: teamColor }}
+            >
+              {(analysis.recent_trend?.weighted_win_pct || 0).toFixed(1)}%
+            </span>
+          </div>
+          <div className="w-full bg-gray-800/30 rounded-full h-2.5 overflow-hidden">
+            <div 
+              className="h-full rounded-full transition-all duration-1000"
+              style={{ 
+                width: `${analysis.recent_trend.weighted_win_pct}%`,
+                background: `linear-gradient(90deg, ${teamColor}, ${teamColor}80)`,
+                boxShadow: `0 0 10px ${teamColor}60`
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Career Stats Grid */}
+        <div className="grid grid-cols-2 gap-3">
+          <div 
+            className="p-3 rounded-lg"
+            style={{
+              background: 'rgba(15, 23, 42, 0.3)'
+            }}
+          >
+            <div className="text-xs text-gray-400 mb-1 font-medium">CAREER</div>
+            <div className="font-black text-white text-lg">{coachData.careerRecord}</div>
+            <div 
+              className="text-sm font-bold mt-0.5"
+              style={{ color: teamColor }}
+            >
+              {(coachData.careerWinPct || 0).toFixed(1)}%
+            </div>
+          </div>
+          <div 
+            className="p-3 rounded-lg"
+            style={{
+              background: 'rgba(15, 23, 42, 0.3)'
+            }}
+          >
+            <div className="text-xs text-gray-400 mb-1 font-medium">CLASSIFICATION</div>
+            <div className="font-black text-white text-lg">Rank {coachData.composite_rank}</div>
+            <div className="text-sm text-gray-300 mt-0.5">{category.label}</div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
 export function CoachingComparison({ coach1Data, coach2Data, predictionData }: CoachingComparisonProps) {
-  // Get dynamic team data from predictionData
   const awayTeam = predictionData?.team_selector?.away_team;
   const homeTeam = predictionData?.team_selector?.home_team;
 
@@ -158,349 +278,316 @@ export function CoachingComparison({ coach1Data, coach2Data, predictionData }: C
     return null;
   }
 
-  // Parse coaching data from section [16] - ELITE COACHING STAFF COMPARISON & VS RANKED PERFORMANCE
-  const parseCoachingData = (team: any, isAway: boolean) => {
-    const section = predictionData?.formatted_analysis ? extractSection(predictionData.formatted_analysis, 16) : null;
-    
-    if (!section) {
-      return {
-        name: team.coach || 'Head Coach',
-        team: team.name,
-        logo: team.logo,
-        color: team.primary_color,
-        vsRanked: { wins: 0, losses: 0, total: 0, percentage: 0 },
-        vsTop10: { wins: 0, losses: 0, total: 0, percentage: 0 },
-        vsTop5: { wins: 0, losses: 0, total: 0, percentage: 0 },
-        conferenceVsRanked: {
-          'ACC': { wins: 0, losses: 0, total: 0 },
-          'Big Ten': { wins: 0, losses: 0, total: 0 },
-          'Big 12': { wins: 0, losses: 0, total: 0 },
-          'SEC': { wins: 0, losses: 0, total: 0 }
-        }
-      };
-    }
-
-    // Helper to parse record strings like "11-16-0 (40.7%)" or "4-8-0 (12 games)"
-    const parseRecord = (text: string, pattern: RegExp) => {
-      const match = text.match(pattern);
-      if (match) {
-        const wins = parseInt(match[1]);
-        const losses = parseInt(match[2]);
-        const total = wins + losses;
-        const percentage = total > 0 ? parseFloat(((wins / total) * 100).toFixed(1)) : 0;
-        return { wins, losses, total, percentage };
-      }
-      return { wins: 0, losses: 0, total: 0, percentage: 0 };
-    };
-
-    // Get coach name from the section - format: "Coach Name                Jeff Brohm                          Mario Cristobal"
-    const coachNameLine = section.match(/Coach Name\s+([A-Za-z\s]+?)\s{2,}([A-Za-z\s]+?)\s+/);
-    const coachName = coachNameLine 
-      ? (isAway ? coachNameLine[1].trim() : coachNameLine[2].trim())
-      : (team.coach || 'Head Coach');
-
-    // Parse vs Ranked Teams - pattern: "11-16-0 (40.7%)" or "11-18-0 (37.9%)"
-    const vsRankedPattern = isAway
-      ? /Vs Ranked Teams\s+(\d+)-(\d+)-\d+\s*\([\d.]+%\)/
-      : /Vs Ranked Teams\s+\d+-\d+-\d+\s*\([\d.]+%\)\s+(\d+)-(\d+)-\d+\s*\([\d.]+%\)/;
-    const vsRanked = parseRecord(section, vsRankedPattern);
-
-    // Parse vs Top 10 - pattern: "4-8-0 (12 games)" or "4-7-0 (11 games)"
-    const vsTop10Pattern = isAway
-      ? /Vs Top 10 Teams\s+(\d+)-(\d+)-\d+/
-      : /Vs Top 10 Teams\s+\d+-\d+-\d+.*?(\d+)-(\d+)-\d+/;
-    const vsTop10 = parseRecord(section, vsTop10Pattern);
-
-    // Parse vs Top 5 - pattern: "3-4-0 (7 games)" or "2-3-0 (5 games)"
-    const vsTop5Pattern = isAway
-      ? /Vs Top 5 Teams\s+(\d+)-(\d+)-\d+/
-      : /Vs Top 5 Teams\s+\d+-\d+-\d+.*?(\d+)-(\d+)-\d+/;
-    const vsTop5 = parseRecord(section, vsTop5Pattern);
-
-    // Parse conference records
-    const parseConferenceRecord = (conf: string) => {
-      const confPattern = isAway
-        ? new RegExp(`vs Ranked ${conf}\\s+(\\d+)-(\\d+)-\\d+`)
-        : new RegExp(`vs Ranked ${conf}\\s+\\d+-\\d+-\\d+.*?(\\d+)-(\\d+)-\\d+`);
-      const match = section.match(confPattern);
-      if (match) {
-        const wins = parseInt(match[1]);
-        const losses = parseInt(match[2]);
-        return { wins, losses, total: wins + losses };
-      }
-      return { wins: 0, losses: 0, total: 0 };
-    };
-
-    return {
-      name: coachName,
-      team: team.name,
-      logo: team.logo,
-      color: team.primary_color,
-      vsRanked,
-      vsTop10,
-      vsTop5,
-      conferenceVsRanked: {
-        'ACC': parseConferenceRecord('ACC'),
-        'Big Ten': parseConferenceRecord('Big Ten'),
-        'Big 12': parseConferenceRecord('Big 12'),
-        'SEC': parseConferenceRecord('SEC')
-      }
-    };
-  };
-
-  const coach1 = parseCoachingData(awayTeam, true);
-  const coach2 = parseCoachingData(homeTeam, false);
+  // Get team names and coach names for lookup
+  const awayTeamName = awayTeam.name;
+  const homeTeamName = homeTeam.name;
+  const apiCoach1Name = predictionData?.coaching_data?.away?.coach_name || awayTeam.coach;
+  const apiCoach2Name = predictionData?.coaching_data?.home?.coach_name || homeTeam.coach;
   
-  const coach1IsElite = coach1.vsRanked.percentage > 65;
-  const coach2IsElite = coach2.vsRanked.percentage > 65;
+  // Look up coaches by TEAM NAME first (more reliable), fallback to coach name
+  const coach1Advanced = useMemo(() => 
+    findCoachData(awayTeamName, apiCoach1Name), 
+    [awayTeamName, apiCoach1Name]
+  );
+  const coach2Advanced = useMemo(() => 
+    findCoachData(homeTeamName, apiCoach2Name), 
+    [homeTeamName, apiCoach2Name]
+  );  // Load timeline data
+  const [coach1Timeline, setCoach1Timeline] = useState<any>(null);
+  const [coach2Timeline, setCoach2Timeline] = useState<any>(null);
+
+  useEffect(() => {
+    if (coach1Advanced) {
+      loadCoachTimeline(coach1Advanced.name, coach1Advanced.team).then(setCoach1Timeline);
+    }
+    if (coach2Advanced) {
+      loadCoachTimeline(coach2Advanced.name, coach2Advanced.team).then(setCoach2Timeline);
+    }
+  }, [coach1Advanced, coach2Advanced]);
+
+  if (!coach1Advanced || !coach2Advanced) {
+    return (
+      <ClearGlassCard className="p-6">
+        <div className="text-center text-gray-400">
+          <p>Advanced coaching analysis not available for these coaches.</p>
+          <p className="text-sm mt-2">Looking for: {apiCoach1Name} vs {apiCoach2Name}</p>
+        </div>
+      </ClearGlassCard>
+    );
+  }
 
   return (
-    <GlassCard className="p-4 sm:p-6">
-      <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-        <div className="p-1.5 sm:p-2 rounded-lg border" style={{
-          background: `linear-gradient(135deg, ${coach1.color}20, ${coach2.color}15)`,
-          borderColor: `${coach1.color}40`
-        }}>
-          <Users className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: `${coach1.color}` }} />
+    <ClearGlassCard className="p-4 sm:p-6">
+      <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+        <div className="p-1.5 sm:p-2 rounded-lg" style={{ background: 'rgba(148, 163, 184, 0.08)' }}>
+          <Users className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
         </div>
-        <h3 className="text-white font-semibold text-sm sm:text-base">
-          <span className="hidden sm:inline">Elite vs Ranked Performance Analysis</span>
-          <span className="sm:hidden">Coaching Analysis</span>
-        </h3>
+        <div>
+          <h3 className="text-white font-semibold text-sm sm:text-base">
+            Advanced Coaching Analysis
+          </h3>
+          <p className="text-xs text-gray-400 font-medium mt-0.5">
+            Comprehensive 9-Factor Performance Evaluation
+          </p>
+        </div>
       </div>
 
-      {/* Coach Headers */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
-        <TeamHeader coach={coach1} isElite={coach1IsElite} />
-        <TeamHeader coach={coach2} isElite={coach2IsElite} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <CoachProfileCard coach={awayTeam} coachData={coach1Advanced} />
+        <CoachProfileCard coach={homeTeam} coachData={coach2Advanced} />
       </div>
 
-      {/* Big Game Performance Summary */}
       <div className="mb-6 sm:mb-8">
-        <h4 className="text-gray-300 font-semibold mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
-          <Trophy className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
-          Big Game Performance Summary
+        <h4 className="text-gray-300 font-medium mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
+          <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400" />
+          Head-to-Head Comparison
         </h4>
-        
-        <div className="rounded-xl p-4 sm:p-6 border backdrop-blur-lg shadow-xl" style={{
-          background: `linear-gradient(to bottom right, ${coach1.color}10, ${coach2.color}10, ${coach1.color}08)`,
-          borderColor: `${coach1.color}20`,
-          backdropFilter: 'blur(16px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(16px) saturate(180%)'
-        }}>
-          <div className="overflow-x-auto -mx-2 sm:mx-0">
-            <table className="w-full min-w-[580px]">
-              <thead>
-                <tr className="border-b border-gray-600/40">
-                  <th className="text-left py-2 sm:py-3 px-2 sm:px-4 text-gray-300 font-medium text-xs sm:text-sm">Performance Level</th>
-                  <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">
-                    <div className="flex items-center justify-center gap-1 sm:gap-2">
-                      <ImageWithFallback 
-                        src={coach1.logo}
-                        alt={coach1.team}
-                        className="w-5 h-5 sm:w-6 sm:h-6 object-contain opacity-90"
-                      />
-                      <span style={{ color: coach1.color }} className="truncate max-w-[80px] sm:max-w-none">{coach1.name}</span>
-                    </div>
-                  </th>
-                  <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">
-                    <div className="flex items-center justify-center gap-1 sm:gap-2">
-                      <ImageWithFallback 
-                        src={coach2.logo}
-                        alt={coach2.team}
-                        className="w-5 h-5 sm:w-6 sm:h-6 object-contain opacity-90"
-                      />
-                      <span style={{ color: coach2.color }} className="truncate max-w-[80px] sm:max-w-none">{coach2.name}</span>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <PerformanceRow
-                  label="vs Top 5 Teams"
-                  coach1Data={coach1.vsTop5}
-                  coach2Data={coach2.vsTop5}
-                  coach1Color={coach1.color}
-                  coach2Color={coach2.color}
-                  icon={Trophy}
-                />
-                <PerformanceRow
-                  label="vs Top 10 Teams"
-                  coach1Data={coach1.vsTop10}
-                  coach2Data={coach2.vsTop10}
-                  coach1Color={coach1.color}
-                  coach2Color={coach2.color}
-                  icon={Target}
-                />
-                <PerformanceRow
-                  label="vs All Ranked"
-                  coach1Data={coach1.vsRanked}
-                  coach2Data={coach2.vsRanked}
-                  coach1Color={coach1.color}
-                  coach2Color={coach2.color}
-                  icon={TrendingUp}
-                />
-              </tbody>
-            </table>
-          </div>
+        <div className="rounded-lg p-4 sm:p-6" style={{ background: 'rgba(15, 23, 42, 0.2)' }}>
+          <ComparisonBar
+            label="Overall Rank"
+            coach1Value={coach1Advanced.composite_rank}
+            coach2Value={coach2Advanced.composite_rank}
+            max={72}
+            inverse={true}
+            coach1Name={coach1Advanced.name}
+            coach2Name={coach2Advanced.name}
+            coach1Color={awayTeam.primary_color || awayTeam.color || '#6366f1'}
+            coach2Color={homeTeam.primary_color || homeTeam.color || '#3b82f6'}
+          />
+          <ComparisonBar
+            label="Composite Score"
+            coach1Value={coach1Advanced.composite_score}
+            coach2Value={coach2Advanced.composite_score}
+            max={100}
+            coach1Name={coach1Advanced.name}
+            coach2Name={coach2Advanced.name}
+            coach1Color={awayTeam.primary_color || awayTeam.color || '#6366f1'}
+            coach2Color={homeTeam.primary_color || homeTeam.color || '#3b82f6'}
+          />
+          <ComparisonBar
+            label="2025 Win %"
+            coach1Value={coach1Advanced.enhanced_analysis.season_2025.win_pct}
+            coach2Value={coach2Advanced.enhanced_analysis.season_2025.win_pct}
+            max={100}
+            coach1Name={coach1Advanced.name}
+            coach2Name={coach2Advanced.name}
+            coach1Color={awayTeam.primary_color || awayTeam.color || '#6366f1'}
+            coach2Color={homeTeam.primary_color || homeTeam.color || '#3b82f6'}
+          />
+          <ComparisonBar
+            label="Career Win %"
+            coach1Value={coach1Advanced.careerWinPct}
+            coach2Value={coach2Advanced.careerWinPct}
+            max={100}
+            coach1Name={coach1Advanced.name}
+            coach2Name={coach2Advanced.name}
+            coach1Color={awayTeam.primary_color || awayTeam.color || '#6366f1'}
+            coach2Color={homeTeam.primary_color || homeTeam.color || '#3b82f6'}
+          />
+          <ComparisonBar
+            label="Recent Momentum"
+            coach1Value={coach1Advanced.enhanced_analysis.recent_trend.weighted_win_pct}
+            coach2Value={coach2Advanced.enhanced_analysis.recent_trend.weighted_win_pct}
+            max={100}
+            coach1Name={coach1Advanced.name}
+            coach2Name={coach2Advanced.name}
+            coach1Color={awayTeam.primary_color || awayTeam.color || '#6366f1'}
+            coach2Color={homeTeam.primary_color || homeTeam.color || '#3b82f6'}
+          />
+          <ComparisonBar
+            label="NFL Draft Picks"
+            coach1Value={coach1Advanced.enhanced_analysis.draft_analysis?.total_picks || 0}
+            coach2Value={coach2Advanced.enhanced_analysis.draft_analysis?.total_picks || 0}
+            max={Math.max(
+              coach1Advanced.enhanced_analysis.draft_analysis?.total_picks || 0,
+              coach2Advanced.enhanced_analysis.draft_analysis?.total_picks || 0,
+              1
+            ) * 1.2}
+            coach1Name={coach1Advanced.name}
+            coach2Name={coach2Advanced.name}
+            coach1Color={awayTeam.primary_color || awayTeam.color || '#6366f1'}
+            coach2Color={homeTeam.primary_color || homeTeam.color || '#3b82f6'}
+          />
         </div>
       </div>
 
-      {/* Conference vs Ranked Breakdown */}
-      <div className="mb-8">
-        <h4 className="text-gray-300 font-semibold mb-4 flex items-center gap-2">
-          <Target className="w-4 h-4 text-blue-400" />
-          Conference vs Ranked Breakdown
-        </h4>
-        
+      {[
+        { name: coach1Advanced.name, data: coach1Advanced, color: awayTeam.primary_color || awayTeam.color || '#6366f1' },
+        { name: coach2Advanced.name, data: coach2Advanced, color: homeTeam.primary_color || homeTeam.color || '#3b82f6' }
+      ].map((coachInfo, idx) => (
+        <div key={idx} className="mb-6 sm:mb-8">
+          <h4 className="text-gray-300 font-medium mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
+            <Award className={`w-3 h-3 sm:w-4 sm:h-4 ${idx === 0 ? 'text-purple-400' : 'text-blue-400'}`} style={{ filter: `drop-shadow(0 0 6px ${idx === 0 ? 'rgba(168,85,247,0.7)' : 'rgba(59,130,246,0.7)'})` }} />
+            {coachInfo.name} - 9-Factor Analysis
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            <FactorCard
+              title="2025 Season"
+              weight="25%"
+              rating={coachInfo.data.enhanced_analysis.season_2025.season_score}
+              icon={<Trophy className="w-5 h-5" style={{ color: coachInfo.color }} />}
+              stats={[
+                { label: 'Record', value: coachInfo.data.enhanced_analysis.season_2025.record },
+                { label: 'Win %', value: `${(coachInfo.data.enhanced_analysis.season_2025?.win_pct || 0).toFixed(1)}%` },
+                { label: 'Quality Wins', value: coachInfo.data.enhanced_analysis.season_2025.quality_wins },
+                { label: 'Blowout Wins', value: coachInfo.data.enhanced_analysis.season_2025.blowout_wins }
+              ]}
+              badge={removeEmojis(coachInfo.data.enhanced_analysis.season_2025.rating)}
+            />
+
+            <FactorCard
+              title="Recent Momentum"
+              weight="15%"
+              rating={coachInfo.data.enhanced_analysis.recent_trend.weighted_win_pct}
+              icon={<TrendingUp className="w-5 h-5" style={{ color: coachInfo.color }} />}
+              stats={[
+                { label: 'Weighted Win%', value: `${(coachInfo.data.enhanced_analysis.recent_trend?.weighted_win_pct || 0).toFixed(1)}%` },
+                { label: 'Trend', value: (coachInfo.data.enhanced_analysis.recent_trend?.avg_trend || 0) >= 0
+                    ? `+${(coachInfo.data.enhanced_analysis.recent_trend?.avg_trend || 0).toFixed(1)}%`
+                    : `${(coachInfo.data.enhanced_analysis.recent_trend?.avg_trend || 0).toFixed(1)}%`,
+                  className: (coachInfo.data.enhanced_analysis.recent_trend?.avg_trend || 0) >= 0 ? 'text-green-400' : 'text-red-400'
+                }
+              ]}
+            />
+
+            <FactorCard
+              title="Career Success"
+              weight="15%"
+              rating={coachInfo.data.careerWinPct}
+              icon={<BarChart3 className="w-5 h-5" style={{ color: coachInfo.color }} />}
+              stats={[
+                { label: 'Record', value: coachInfo.data.careerRecord },
+                { label: 'Win%', value: `${(coachInfo.data.careerWinPct || 0).toFixed(1)}%` },
+                { label: 'Total Wins', value: coachInfo.data.totalWins || 0 }
+              ]}
+            />
+
+            <FactorCard
+              title="Talent Management"
+              weight="15%"
+              rating={Math.max(0, 50 + coachInfo.data.enhanced_analysis.talent_context.performance_delta)}
+              icon={coachInfo.data.enhanced_analysis.talent_context.classification.includes('Miracle') ? <Zap className="w-5 h-5" style={{ color: coachInfo.color }} /> :
+                    coachInfo.data.enhanced_analysis.talent_context.classification.includes('Underachieving') ? <AlertTriangle className="w-5 h-5" style={{ color: coachInfo.color }} /> : <CheckCircle2 className="w-5 h-5" style={{ color: coachInfo.color }} />}
+              stats={[
+                { label: 'Tier', value: coachInfo.data.enhanced_analysis.talent_context.tier },
+              { label: 'Expected', value: `${coachInfo.data.enhanced_analysis.talent_context.expected_win_pct}%` },
+              { label: 'Actual', value: `${(coachInfo.data.enhanced_analysis.talent_context?.actual_win_pct || 0).toFixed(1)}%` },
+              { label: 'Delta', value: (coachInfo.data.enhanced_analysis.talent_context?.performance_delta || 0) >= 0
+                    ? `+${(coachInfo.data.enhanced_analysis.talent_context?.performance_delta || 0).toFixed(1)}%`
+                    : `${(coachInfo.data.enhanced_analysis.talent_context?.performance_delta || 0).toFixed(1)}%`,
+                  className: coachInfo.data.enhanced_analysis.talent_context.performance_delta >= 0 ? 'text-green-400' : 'text-red-400'
+                }
+              ]}
+              badge={removeEmojis(coachInfo.data.enhanced_analysis.talent_context.classification)}
+            />
+
+            <FactorCard
+              title="Big Games"
+              weight="12%"
+              rating={calculateBigGameRating(coachInfo.data.enhanced_analysis.big_game_analysis)}
+              icon={<Award className="w-5 h-5" style={{ color: coachInfo.color }} />}
+              stats={[
+                { label: 'vs Top 5', value: coachInfo.data.enhanced_analysis.big_game_analysis.vs_top5_record || '0-0' },
+                { label: 'Clutch Rating', value: removeEmojis(coachInfo.data.enhanced_analysis.big_game_analysis.clutch_rating) },
+                { label: 'Big Games', value: coachInfo.data.enhanced_analysis.big_game_analysis.big_games_total || 0 }
+              ]}
+            />
+
+            <FactorCard
+              title="Recruiting"
+              weight="12%"
+              rating={coachInfo.data.enhanced_analysis.recruiting?.talent_rating || 50}
+              icon={<GraduationCap className="w-5 h-5" style={{ color: coachInfo.color }} />}
+              stats={[
+                { label: 'Career Avg', value: coachInfo.data.enhanced_analysis.recruiting?.avg_talent_composite ? coachInfo.data.enhanced_analysis.recruiting.avg_talent_composite.toFixed(1) : 'Coming Soon' },
+                { label: 'Recent Avg', value: coachInfo.data.enhanced_analysis.recruiting?.recent_avg_composite ? coachInfo.data.enhanced_analysis.recruiting.recent_avg_composite.toFixed(1) : 'Coming Soon' },
+                { label: 'Rating', value: coachInfo.data.enhanced_analysis.recruiting?.talent_rating ? `${coachInfo.data.enhanced_analysis.recruiting.talent_rating}/100` : 'In Progress' }
+              ]}
+            />
+
+            <FactorCard
+              title="NFL Development"
+              weight="8%"
+              rating={coachInfo.data.enhanced_analysis.draft_analysis?.score || 0}
+              icon={<Activity className="w-5 h-5" style={{ color: coachInfo.color }} />}
+              stats={[
+                { label: 'Total Picks', value: coachInfo.data.enhanced_analysis.draft_analysis?.total_picks || 0 },
+                { label: '1st Rounders', value: coachInfo.data.enhanced_analysis.draft_analysis?.first_rounders || 0 },
+                { label: 'Top 10', value: coachInfo.data.enhanced_analysis.draft_analysis?.top10_picks || 0 },
+                { label: 'Draft Score', value: coachInfo.data.enhanced_analysis.draft_analysis?.score || 0 }
+              ]}
+            />
+
+            <FactorCard
+              title="Betting Performance 2025"
+              weight="10%"
+              rating={coachInfo.data.enhanced_analysis.betting_2025?.cover_rate || 0}
+              icon={<DollarSign className="w-5 h-5" style={{ color: coachInfo.color }} />}
+              stats={[
+                { label: 'Games', value: coachInfo.data.enhanced_analysis.betting_2025?.total || 0 },
+                { label: 'Covers', value: coachInfo.data.enhanced_analysis.betting_2025?.covers || 0 },
+                { label: 'Cover Rate', value: `${(coachInfo.data.enhanced_analysis.betting_2025?.cover_rate || 0).toFixed(0)}%` }
+              ]}
+            />
+
+            <FactorCard
+              title="Consistency"
+              weight="2%"
+              rating={coachInfo.data.enhanced_analysis.consistency?.score || 0}
+              icon={<TrendingDown className="w-5 h-5" style={{ color: coachInfo.color }} />}
+              stats={[
+                { label: 'Score', value: `${(coachInfo.data.enhanced_analysis.consistency?.score || 0).toFixed(1)}/100` },
+                { label: 'Rating', value: removeEmojis(coachInfo.data.enhanced_analysis.consistency?.rating || 'N/A') }
+              ]}
+            />
+          </div>
+        </div>
+      ))}
+
+      {/* Coach Timeline Charts */}
+      <div className="mb-6 sm:mb-8">
+        <h3 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
+          <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" style={{ filter: 'drop-shadow(0 0 6px rgba(168,85,247,0.7))' }} />
+          Coaching Timeline - AP Poll Rankings
+        </h3>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Coach 1 Conference Performance */}
-          <div className="rounded-xl p-6 border backdrop-blur-lg shadow-lg" style={{
-            background: `linear-gradient(to bottom right, ${coach1.color}20, ${coach1.color}10)`,
-            borderColor: `${coach1.color}30`,
-            backdropFilter: 'blur(12px) saturate(160%)',
-            WebkitBackdropFilter: 'blur(12px) saturate(160%)'
-          }}>
-            <div className="flex items-center gap-3 mb-4">
-              <ImageWithFallback 
-                src={coach1.logo}
-                alt={coach1.team}
-                className="w-8 h-8 object-contain opacity-90"
-                style={{ filter: `drop-shadow(0 0 4px ${coach1.color}40)` }}
-              />
-              <h5 className="font-semibold text-white">{coach1.name} vs Ranked</h5>
-            </div>
-            <div className="space-y-3">
-              {Object.entries(coach1.conferenceVsRanked).map(([conference, data]: [string, any]) => (
-                <div key={conference} className="flex justify-between items-center p-3 rounded-lg backdrop-blur-sm border border-white/5" style={{
-                  background: `${coach1.color}15`,
-                  backdropFilter: 'blur(4px)',
-                  WebkitBackdropFilter: 'blur(4px)'
-                }}>
-                  <span className="text-gray-300 font-medium">vs Ranked {conference}</span>
-                  <div className="text-right">
-                    <div className="text-white font-semibold">
-                      {data.wins}-{data.losses}-0
-                    </div>
-                    <div className="text-xs text-gray-400">
-                      {data.total} games
-                    </div>
-                    {data.total > 0 && data.wins/data.total >= 0.6 && (
-                      <CheckCircle className="w-4 h-4 text-green-400 mx-auto mt-1" />
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Coach 2 Conference Performance */}
-          <div className="rounded-xl p-6 border backdrop-blur-lg shadow-lg" style={{
-            background: `linear-gradient(to bottom right, ${coach2.color}20, ${coach2.color}10)`,
-            borderColor: `${coach2.color}30`,
-            backdropFilter: 'blur(12px) saturate(160%)',
-            WebkitBackdropFilter: 'blur(12px) saturate(160%)'
-          }}>
-            <div className="flex items-center gap-3 mb-4">
-              <ImageWithFallback 
-                src={coach2.logo}
-                alt={coach2.team}
-                className="w-8 h-8 object-contain opacity-90"
-                style={{ filter: `drop-shadow(0 0 4px ${coach2.color}40)` }}
-              />
-              <h5 className="font-semibold text-white">{coach2.name} vs Ranked</h5>
-            </div>
-            <div className="space-y-3">
-              {Object.entries(coach2.conferenceVsRanked).map(([conference, data]: [string, any]) => (
-                <div key={conference} className="flex justify-between items-center p-3 rounded-lg backdrop-blur-sm border border-white/5" style={{
-                  background: `${coach2.color}15`,
-                  backdropFilter: 'blur(4px)',
-                  WebkitBackdropFilter: 'blur(4px)'
-                }}>
-                  <span className="text-gray-300 font-medium">vs Ranked {conference}</span>
-                  <div className="text-right">
-                    <div className="text-white font-semibold">
-                      {data.wins}-{data.losses}-0
-                    </div>
-                    <div className="text-xs text-gray-400">
-                      {data.total} games
-                    </div>
-                    {data.total > 0 && data.wins/data.total >= 0.6 && (
-                      <CheckCircle className="w-4 h-4 text-green-400 mx-auto mt-1" />
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <CoachTimeline
+            coachName={coach1Advanced.name}
+            schoolName={coach1Advanced.team}
+            teamColor={awayTeam.color}
+            teamLogo={awayTeam.logo}
+            timelineData={coach1Timeline}
+          />
+          <CoachTimeline
+            coachName={coach2Advanced.name}
+            schoolName={coach2Advanced.team}
+            teamColor={homeTeam.color}
+            teamLogo={homeTeam.logo}
+            timelineData={coach2Timeline}
+          />
         </div>
       </div>
 
-      {/* Elite Performance Analysis */}
-      <div>
-        <h4 className="text-gray-300 font-semibold mb-4 flex items-center gap-2">
-          <TrendingUp className="w-4 h-4 text-green-400" />
-          Elite Performance Analysis
-        </h4>
-        
-        <div className="rounded-xl p-6 border backdrop-blur-xl shadow-2xl" style={{
-          background: `linear-gradient(to bottom right, ${coach1.color}12, ${coach2.color}12, ${coach1.color}08)`,
-          borderColor: `${coach1.color}25`,
-          backdropFilter: 'blur(20px) saturate(200%)',
-          WebkitBackdropFilter: 'blur(20px) saturate(200%)'
-        }}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Performance Metrics */}
-            {[
-              { label: 'vs Top 5 Elite', threshold: 50, coach1: coach1.vsTop5.percentage, coach2: coach2.vsTop5.percentage },
-              { label: 'vs Top 10 Strong', threshold: 45, coach1: coach1.vsTop10.percentage, coach2: coach2.vsTop10.percentage },
-              { label: 'vs Ranked Consistent', threshold: 40, coach1: coach1.vsRanked.percentage, coach2: coach2.vsRanked.percentage }
-            ].map((metric, index) => (
-              <div key={index} className="rounded-lg p-4 backdrop-blur-md shadow-lg border border-gray-400/15" style={{
-                background: `linear-gradient(135deg, ${coach1.color}18, ${coach2.color}15)`,
-                backdropFilter: 'blur(8px) saturate(140%)',
-                WebkitBackdropFilter: 'blur(8px) saturate(140%)'
-              }}>
-                <h6 className="text-gray-300 font-medium mb-3 text-center">{metric.label}</h6>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <ImageWithFallback 
-                        src={coach1.logo}
-                        alt={coach1.team}
-                        className="w-4 h-4 object-contain opacity-90"
-                      />
-                      <span className="text-xs text-gray-400">{coach1.name}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className={`font-bold ${metric.coach1 >= metric.threshold ? 'text-green-400' : 'text-red-400'}`}>
-                        {metric.coach1}%
-                      </span>
-                      {metric.coach1 >= metric.threshold && <CheckCircle className="w-4 h-4 text-green-400" />}
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <ImageWithFallback 
-                        src={coach2.logo}
-                        alt={coach2.team}
-                        className="w-4 h-4 object-contain opacity-90"
-                      />
-                      <span className="text-xs text-gray-400">{coach2.name}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className={`font-bold ${metric.coach2 >= metric.threshold ? 'text-green-400' : 'text-red-400'}`}>
-                        {metric.coach2}%
-                      </span>
-                      {metric.coach2 >= metric.threshold && <CheckCircle className="w-4 h-4 text-green-400" />}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="rounded-lg p-4 sm:p-6" style={{ background: 'rgba(15, 23, 42, 0.2)' }}>
+          <h4 className="text-base sm:text-lg font-semibold text-white mb-3 flex items-center gap-2">
+            <Award className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 drop-shadow-[0_0_6px_rgba(168,85,247,0.7)]" />
+            {coach1Advanced.name} Summary
+          </h4>
+          <p className="text-gray-200 leading-relaxed text-xs sm:text-sm">
+            {coach1Advanced.coach_summary}
+          </p>
+        </div>
+        <div className="rounded-lg p-4 sm:p-6" style={{ background: 'rgba(15, 23, 42, 0.2)' }}>
+          <h4 className="text-base sm:text-lg font-semibold text-white mb-3 flex items-center gap-2">
+            <Award className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 drop-shadow-[0_0_6px_rgba(59,130,246,0.7)]" />
+            {coach2Advanced.name} Summary
+          </h4>
+          <p className="text-gray-200 leading-relaxed text-xs sm:text-sm">
+            {coach2Advanced.coach_summary}
+          </p>
         </div>
       </div>
-    </GlassCard>
+    </ClearGlassCard>
   );
 }

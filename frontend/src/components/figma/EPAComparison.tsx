@@ -113,7 +113,7 @@ export function EPAComparison({ predictionData }: EPAComparisonProps) {
       {/* Quick EPA Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         {/* Overall EPA */}
-        <div className="relative overflow-hidden rounded-lg bg-gray-800/40 border border-gray-600/40 p-5">
+        <div className="relative overflow-hidden rounded-lg backdrop-blur-sm border border-gray-600/40 p-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-emerald-400" />
@@ -142,7 +142,7 @@ export function EPAComparison({ predictionData }: EPAComparisonProps) {
         </div>
 
         {/* EPA Allowed */}
-        <div className="relative overflow-hidden rounded-lg bg-gray-800/40 border border-gray-600/40 p-5">
+        <div className="relative overflow-hidden rounded-lg backdrop-blur-sm border border-gray-600/40 p-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-blue-400" />

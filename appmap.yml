@@ -1,0 +1,28 @@
+# AppMap configuration for Gameday+ Predictor
+name: gameday-plus-predictor
+language: python
+
+# Packages to trace for visualization
+packages:
+  # Core prediction engine
+  - path: graphqlpredictor
+    shallow: false
+  
+  # Flask API layer
+  - path: app
+    shallow: false
+  
+  # Supporting services
+  - path: formatter
+    shallow: false
+  - path: game_media_service
+    shallow: false
+  - path: betting_lines_manager
+    shallow: false
+  - path: real_data_props_generator
+    shallow: false
+  - path: player_props_generator
+    shallow: false
+
+# AppMap output directory
+appmap_dir: tmp/appmap

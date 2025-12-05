@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEDAY+ Detailed Workflow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Orbitron', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+        }
+        
+        #workflow-viewport {
+            width: 100%;
+            height: calc(100vh - 200px);
+            overflow: auto;
+            position: relative;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        
+        #workflow-container {
+            min-width: 1700px;
+            min-height: 2200px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px, rgba(255,255,255,0.03) 41px),
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px, rgba(255,255,255,0.03) 41px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            transform-origin: 0 0;
+            transition: transform 0.2s ease-out;
+            position: relative;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            transform: translateY(-2px);
+        }
+        
+        .glass-card-header {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-card-success {
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        
+        .glass-card-success:hover {
+            border-color: rgba(34, 197, 94, 0.5);
+            box-shadow: 0 0 40px rgba(34, 197, 94, 0.2), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        
+        .glass-card-warning {
+            border-color: rgba(234, 179, 8, 0.3);
+        }
+        
+        .glass-card-warning:hover {
+            border-color: rgba(234, 179, 8, 0.5);
+            box-shadow: 0 0 40px rgba(234, 179, 8, 0.2), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        
+        .glass-card-error {
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+        
+        .glass-card-error:hover {
+            border-color: rgba(239, 68, 68, 0.5);
+            box-shadow: 0 0 40px rgba(239, 68, 68, 0.2), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        
+        .glass-card-primary {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%);
+            border: 2px solid rgba(59, 130, 246, 0.4);
+        }
+        
+        .glass-card-primary:hover {
+            box-shadow: 0 0 60px rgba(59, 130, 246, 0.4), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+
+        .connector {
+            position: absolute;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .arrow-tip::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid rgba(59, 130, 246, 0.8);
+            border-right: 2px solid rgba(59, 130, 246, 0.8);
+            transform: rotate(45deg);
+            right: -6px;
+            top: 50%;
+            margin-top: -5px;
+            filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.6));
+        }
+
+        .arrow-tip-down::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid rgba(59, 130, 246, 0.8);
+            border-right: 2px solid rgba(59, 130, 246, 0.8);
+            right: auto;
+            left: 50%;
+            top: auto;
+            bottom: -6px;
+            transform: rotate(135deg);
+            margin-top: 0;
+            margin-left: -5px;
+            filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.6));
+        }
+
+        .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(147, 51, 234, 0.2) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .svg-icon {
+            width: 24px;
+            height: 24px;
+            stroke: rgba(59, 130, 246, 1);
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                opacity: 1; 
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            }
+            50% { 
+                opacity: 0.8; 
+                box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+            }
+        }
+        
+        .pulse {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            background-size: 1000px 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        .data-label {
+            font-size: 10px;
+            line-height: 1.4;
+            color: rgba(226, 232, 240, 0.9);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltiptext {
+            visibility: hidden;
+            min-width: 240px;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            color: rgba(226, 232, 240, 1);
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 12px;
+            position: absolute;
+            z-index: 200;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -120px;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            font-size: 11px;
+            line-height: 1.5;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.9), 0 0 20px rgba(59, 130, 246, 0.3);
+            transform: translateY(10px);
+        }
+        
+        .tooltip:hover .tooltiptext {
+            transform: translateY(0);
+        }
+
+        .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -6px;
+            border-width: 6px;
+            border-style: solid;
+            border-color: rgba(59, 130, 246, 0.3) transparent transparent transparent;
+        }
+        
+        .zoom-controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .zoom-btn {
+            width: 48px;
+            height: 48px;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            color: rgba(59, 130, 246, 1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.8);
+        }
+        
+        .zoom-btn:hover {
+            background: rgba(30, 41, 59, 0.98);
+            border-color: rgba(59, 130, 246, 0.6);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+            transform: scale(1.05);
+        }
+        
+        .zoom-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .connector-glow {
+            filter: drop-shadow(0 0 6px currentColor);
+        }
+    </style>
+    <script>
+        let currentZoom = 1;
+        const zoomStep = 0.15;
+        const minZoom = 0.3;
+        const maxZoom = 2.5;
+        
+        function zoomIn() {
+            if (currentZoom < maxZoom) {
+                currentZoom = Math.min(currentZoom + zoomStep, maxZoom);
+                applyZoom();
+            }
+        }
+        
+        function zoomOut() {
+            if (currentZoom > minZoom) {
+                currentZoom = Math.max(currentZoom - zoomStep, minZoom);
+                applyZoom();
+            }
+        }
+        
+        function resetZoom() {
+            currentZoom = 1;
+            applyZoom();
+        }
+        
+        function applyZoom() {
+            const viewport = document.getElementById('workflow-viewport');
+            const container = document.getElementById('workflow-container');
+            
+            // Get current scroll position center point
+            const viewportRect = viewport.getBoundingClientRect();
+            const scrollCenterX = viewport.scrollLeft + viewportRect.width / 2;
+            const scrollCenterY = viewport.scrollTop + viewportRect.height / 2;
+            
+            // Calculate where this point was in the unscaled content
+            const oldZoom = parseFloat(container.style.transform.replace('scale(', '').replace(')', '')) || 1;
+            const unscaledCenterX = scrollCenterX / oldZoom;
+            const unscaledCenterY = scrollCenterY / oldZoom;
+            
+            // Apply new zoom
+            container.style.transform = `scale(${currentZoom})`;
+            
+            // Calculate new scroll position to keep the same point centered
+            const newScrollX = (unscaledCenterX * currentZoom) - viewportRect.width / 2;
+            const newScrollY = (unscaledCenterY * currentZoom) - viewportRect.height / 2;
+            
+            viewport.scrollLeft = Math.max(0, newScrollX);
+            viewport.scrollTop = Math.max(0, newScrollY);
+            
+            // Update zoom indicator
+            updateZoomIndicator();
+        }
+        
+        function updateZoomIndicator() {
+            const indicator = document.getElementById('zoom-indicator');
+            if (indicator) {
+                indicator.textContent = Math.round(currentZoom * 100) + '%';
+            }
+        }
+        
+        // Add wheel zoom support
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewport = document.getElementById('workflow-viewport');
+            
+            viewport.addEventListener('wheel', function(e) {
+                if (e.ctrlKey || e.metaKey) {
+                    e.preventDefault();
+                    if (e.deltaY < 0) {
+                        zoomIn();
+                    } else {
+                        zoomOut();
+                    }
+                }
+            }, { passive: false });
+            
+            updateZoomIndicator();
+        });
+    </script>
+</head>
+<body class="p-4 md:p-10 bg-slate-900 text-slate-100">
+    <!-- Zoom Controls -->
+    <div class="zoom-controls">
+        <div id="zoom-indicator" class="text-xs text-center text-slate-300 mb-1 font-bold">100%</div>
+        <button class="zoom-btn" onclick="zoomIn()" title="Zoom In (Ctrl+Scroll Up)">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <line x1="12" y1="8" x2="12" y2="16" stroke-width="2" stroke-linecap="round"/>
+                <line x1="8" y1="12" x2="16" y2="12" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="12" cy="12" r="9" stroke-width="2"/>
+            </svg>
+        </button>
+        <button class="zoom-btn" onclick="zoomOut()" title="Zoom Out (Ctrl+Scroll Down)">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <line x1="8" y1="12" x2="16" y2="12" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="12" cy="12" r="9" stroke-width="2"/>
+            </svg>
+        </button>
+        <button class="zoom-btn" onclick="resetZoom()" title="Reset Zoom">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" stroke-width="2" stroke-linecap="round"/>
+                <path d="M21 3v5h-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 21v-5h5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+
+
+
+    <div class="max-w-full mx-auto mb-6">
+        <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent mb-3 tracking-tight flex items-center gap-3">
+            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke-width="2"/></svg>
+            GAMEDAY+ Detailed Prediction Workflow
+        </h1>
+        <p class="text-slate-400">Complete data lineage from source to output - Michigan vs Ohio State Example</p>
+        <div class="mt-4 glass-card p-4 rounded-lg border-l-4 border-blue-500">
+            <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                    <p class="text-sm text-slate-300 font-medium">Interactive Workflow Visualization</p>
+                    <p class="text-xs text-slate-400 mt-1">Use zoom controls (bottom right) or Ctrl+Scroll to zoom. Scroll to pan. Hover over nodes for detailed information.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="workflow-viewport">
+        <div id="workflow-container" class="relative p-8">
+        
+        <!-- ============================================ -->
+        <!-- LAYER 1: INPUT TRIGGER -->
+        <!-- ============================================ -->
+        
+        <div class="absolute" style="top: 30px; left: 50%; transform: translateX(-50%);">
+            <div class="glass-card-primary text-slate-100 shimmer px-6 py-3 rounded-lg shadow-xl text-center font-bold">
+                <p class="text-lg"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> WORKFLOW TRIGGER</p>
+                <p class="text-sm font-normal mt-1">User selects teams to analyze</p>
+            </div>
+        </div>
+
+        <!-- Team Selection -->
+        <div class="absolute w-72 tooltip" style="top: 120px; left: 50%; transform: translateX(-50%);">
+            <span class="tooltiptext">Selected Away Team: Michigan (ID: 130)<br>Selected Home Team: Ohio State (ID: 194)<br>Triggers parallel data collection from all APIs</span>
+            <div class="glass-card border-4 border-blue-500 shadow-2xl rounded-xl p-4 text-center pulse">
+                <div class="flex justify-center items-center space-x-4 mb-2">
+                    <div class="text-center">
+                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/130.png" class="w-16 h-16 mx-auto" alt="Michigan">
+                        <p class="text-xs font-bold mt-1">Michigan #130</p>
+                        <p class="text-xxs text-slate-500">Away (9-3)</p>
+                    </div>
+                    <p class="text-2xl font-bold">VS</p>
+                    <div class="text-center">
+                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" class="w-16 h-16 mx-auto" alt="Ohio State">
+                        <p class="text-xs font-bold mt-1">Ohio State #194</p>
+                        <p class="text-xxs text-slate-500">Home (12-0)</p>
+                    </div>
+                </div>
+                <p class="text-xs font-semibold text-blue-300 mt-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/><line x1="3" y1="10" x2="21" y2="10" stroke-width="2"/></svg> October 19, 2025 | 7:30 PM ET</p>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- LAYER 2: DATA COLLECTION (10 PARALLEL SOURCES) -->
+        <!-- ============================================ -->
+
+        <div class="absolute" style="top: 300px; left: 50%; transform: translateX(-50%);">
+            <div class="glass-card-primary text-slate-100 px-4 py-2 rounded-lg shadow-lg text-center font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg> DATA COLLECTION LAYER (Parallel API Calls)
+            </div>
+        </div>
+
+        <!-- SOURCE 1: ESPN API -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 50px;">
+            <span class="tooltiptext">ESPN CDN API<br>Provides: Team logos (500px), team names, colors, branding assets<br>Example: https://a.espncdn.com/i/teamlogos/ncaa/500/130.png</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-green-500/30 glass-card-success hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2" ry="2" stroke-width="2"/><polyline points="17 2 12 7 7 2" stroke-width="2"/></svg> ESPN API</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Away Logo: .../130.png</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Home Logo: .../194.png</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Team Names</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Team IDs</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> School Colors</div>
+                    <div class="text-xxs text-green-400 font-semibold mt-2">→ Component 1, 2</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 2: College Football Data API -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 320px;">
+            <span class="tooltiptext">CFB Data API - Play-by-play analytics<br>EPA (Expected Points Added), Success Rates, Field Position, Explosiveness<br>Michigan EPA: +0.224 | Ohio State: +0.298</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-green-500/30 glass-card-success hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg> CFB Data API</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Overall EPA: +0.224 vs +0.298</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> EPA Allowed: +0.094 vs +0.015</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Passing EPA: +0.269 vs +0.495</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Rushing EPA: +0.200 vs +0.112</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Success Rate: 47.7% vs 55.4%</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Explosiveness: 0.966 vs 0.895</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Plays: 714 vs 691</div>
+                    <div class="text-xxs text-green-400 font-semibold mt-2">→ Components 7, 8, 9</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 3: Weather Service -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 590px;">
+            <span class="tooltiptext">Weather API - Game day conditions<br>Temperature: 59.4°F<br>Wind: 3.6 mph<br>Precipitation: 0.0 in<br>Weather Factor: 0.0</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-green-500/30 glass-card-success hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="3" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke-width="2"/></svg> Weather Service</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Temperature: 59.4°F</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Wind Speed: 3.6 mph</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Wind Direction: N/A</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Precipitation: 0.0 in</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Humidity: N/A</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Weather Factor: 0.0</div>
+                    <div class="text-xxs text-green-400 font-semibold mt-2">→ Component 6</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 4: Betting Lines API -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 860px;">
+            <span class="tooltiptext">Sports Betting APIs<br>Market Spread: N/A (not available)<br>Market Total: N/A<br>Would provide consensus betting data</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-yellow-500/30 glass-card-warning hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-yellow-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23" stroke-width="2"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-width="2"/></svg> Betting Lines</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-red-500"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke-width="2"/><line x1="12" y1="9" x2="12" y2="13" stroke-width="2"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg> Market Spread: N/A</div>
+                    <div class="data-label text-red-500"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke-width="2"/><line x1="12" y1="9" x2="12" y2="13" stroke-width="2"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg> Market Total: N/A</div>
+                    <div class="data-label text-gray-400"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-width="2"/></svg> ESPN Bet</div>
+                    <div class="data-label text-gray-400"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-width="2"/></svg> DraftKings</div>
+                    <div class="data-label text-gray-400"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-width="2"/></svg> Bovada</div>
+                    <div class="data-label text-slate-500">No market data for this matchup</div>
+                    <div class="text-xxs text-yellow-400 font-semibold mt-2">→ Component 5</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 5: Historical Database -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 1130px;">
+            <span class="tooltiptext">Rivalry History Database<br>Established: 1897<br>Total Games: 121<br>Series Record: Ohio State 62-53-6<br>Recent: OSU won 27-9 (2025)</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-green-500/30 glass-card-success hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke-width="2"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke-width="2"/></svg> Historical DB</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Established: 1897</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Total Games: 121</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Series: 62-53-6 (OSU)</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Recent Games: 10</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Points: 2124 vs 1853</div>
+                    <div class="data-label text-slate-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Last: OSU 27-9 (2025)</div>
+                    <div class="text-xxs text-green-400 font-semibold mt-2">→ Rivalry Context</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 6: AP Poll Data -->
+        <div class="absolute w-52 tooltip" style="top: 360px; left: 1400px;">
+            <span class="tooltiptext">AP Poll Rankings System<br>ERROR: File not found<br>Path: /Users/davlenswain/.../ap.json<br>Would provide weekly rankings progression</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-red-500/30 glass-card-error hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-red-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M7 19h10M8 16h8M12 16v3" stroke-width="2"/><path d="M6 9a6 6 0 0 0 12 0" stroke-width="2"/></svg> AP Poll Data</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-red-400"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><line x1="15" y1="9" x2="9" y2="15" stroke-width="2"/><line x1="9" y1="9" x2="15" y2="15" stroke-width="2"/></svg> Data Source Error</div>
+                    <div class="data-label text-slate-500 text-xxs">Missing: ap.json</div>
+                    <div class="data-label text-slate-300">Current: Unranked (both)</div>
+                    <div class="data-label text-slate-500 text-xxs">Would provide:</div>
+                    <div class="data-label text-gray-400"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-width="2"/></svg> Weekly rankings</div>
+                    <div class="data-label text-gray-400"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-width="2"/></svg> Poll momentum</div>
+                    <div class="data-label text-gray-400"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-width="2"/></svg> Season progression</div>
+                    <div class="text-xxs text-red-400 font-semibold mt-2">→ Component 6</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 7: Coaching Stats Database -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 50px;">
+            <span class="tooltiptext">Coaching Performance Database<br>Sherrone Moore: 16-7 (69.6%), 3-5 vs Ranked<br>Ryan Day: 81-10 (89.0%), 26-9 vs Ranked<br>Includes big game performance metrics</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-green-500/30 glass-card-success hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 2L8 6v12l4 4 4-4V6l-4-4z" stroke-width="2"/><path d="M10 6h4" stroke-width="2"/></svg> Coaching Stats DB</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-slate-300">Michigan: Sherrone Moore</div>
+                    <div class="data-label text-slate-400">• Career: 16-7 (69.6%)</div>
+                    <div class="data-label text-slate-400">• 2025: 8-2 (#17 rank)</div>
+                    <div class="data-label text-slate-400">• vs Ranked: 3-5-0 (37.5%)</div>
+                    <div class="data-label text-slate-400">• vs Top 10: 1-3-0</div>
+                    <div class="data-label text-slate-300 mt-2">Ohio State: Ryan Day</div>
+                    <div class="data-label text-slate-400">• Career: 81-10 (89.0%)</div>
+                    <div class="data-label text-slate-400">• 2025: 11-0 (#2 rank)</div>
+                    <div class="data-label text-slate-400">• vs Ranked: 26-9-0 (74.3%)</div>
+                    <div class="data-label text-slate-400">• vs Top 10: 17-8-0</div>
+                    <div class="text-xxs text-green-400 font-semibold mt-2">→ Component 16</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 8: Player Metrics API -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 320px;">
+            <span class="tooltiptext">Individual Player Stats API<br>Player EPA ratings by position<br>QB, RB, WR, TE performance metrics<br>Projected performance for game day</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-green-500/30 glass-card-success hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="7" cy="4" r="2" stroke-width="2"/><path d="M10 7l-3 5 2 8M7 12l-3 1M14 8l-2 1M12 9l3 12" stroke-width="2"/></svg> Player Metrics API</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-slate-300">Michigan Key Players:</div>
+                    <div class="data-label text-slate-400">• QB: ~0.58 passing EPA</div>
+                    <div class="data-label text-slate-400">• RB: ~0.50 rushing EPA</div>
+                    <div class="data-label text-slate-400">• WR1: ~0.55 receiving</div>
+                    <div class="data-label text-slate-300 mt-2">Ohio State Key Players:</div>
+                    <div class="data-label text-slate-400">• QB: ~0.60 passing EPA</div>
+                    <div class="data-label text-slate-400">• WR1: ~0.45 receiving</div>
+                    <div class="data-label text-slate-400">• RB: ~0.38 rushing EPA</div>
+                    <div class="data-label text-slate-300 mt-2">Defense Stats:</div>
+                    <div class="data-label text-slate-400">• Tackles, INTs, Sacks</div>
+                    <div class="text-xxs text-green-400 font-semibold mt-2">→ Component 11</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 9: Drive Analytics Database -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 590px;">
+            <span class="tooltiptext">Drive-by-Drive Analytics<br>Michigan: 113 drives, 46.9% scoring<br>Ohio State: 97 drives, 67.0% scoring<br>Tempo, time management, situational performance</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-green-500/30 glass-card-success hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M2 12h20M2 12l4-8h12l4 8M6 20h.01M18 20h.01" stroke-width="2"/><circle cx="18" cy="20" r="2" stroke-width="2"/><circle cx="6" cy="20" r="2" stroke-width="2"/></svg> Drive Analytics DB</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-slate-300">Michigan Drives:</div>
+                    <div class="data-label text-slate-400">• Total: 113 drives</div>
+                    <div class="data-label text-slate-400">• TDs: 41 (36.3%)</div>
+                    <div class="data-label text-slate-400">• FGs: 12 (10.6%)</div>
+                    <div class="data-label text-slate-400">• Scoring: 46.9%</div>
+                    <div class="data-label text-slate-400">• Avg Time: 2:39</div>
+                    <div class="data-label text-slate-300 mt-2">Ohio State Drives:</div>
+                    <div class="data-label text-slate-400">• Total: 97 drives</div>
+                    <div class="data-label text-slate-400">• TDs: 52 (53.6%)</div>
+                    <div class="data-label text-slate-400">• FGs: 13 (13.4%)</div>
+                    <div class="data-label text-slate-400">• Scoring: 67.0%</div>
+                    <div class="data-label text-slate-400">• Avg Time: 3:17</div>
+                    <div class="text-xxs text-green-400 font-semibold mt-2">→ Component 17</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 10: ELO/FPI/Talent Ratings -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 860px;">
+            <span class="tooltiptext">Composite Rating Systems<br>ELO: Michigan 1590 vs OSU 1645<br>FPI: Michigan 7.47 vs OSU 9.59<br>Talent: Michigan 715.56 vs OSU 669.18</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-green-500/30 glass-card-success hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-width="2"/></svg> Composite Ratings</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-slate-300">ELO Ratings:</div>
+                    <div class="data-label text-slate-400">• Michigan: 1590</div>
+                    <div class="data-label text-slate-400">• Ohio State: 1645</div>
+                    <div class="data-label text-slate-400">• Gap: +55 (Home)</div>
+                    <div class="data-label text-slate-300 mt-2">FPI Ratings:</div>
+                    <div class="data-label text-slate-400">• Michigan: 7.47</div>
+                    <div class="data-label text-slate-400">• Ohio State: 9.59</div>
+                    <div class="data-label text-slate-400">• Gap: +2.12</div>
+                    <div class="data-label text-slate-300 mt-2">Talent Ratings:</div>
+                    <div class="data-label text-slate-400">• Michigan: 715.56</div>
+                    <div class="data-label text-slate-400">• Ohio State: 669.18</div>
+                    <div class="text-xxs text-green-400 font-semibold mt-2">→ Component 12</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 11: Advanced Team Stats -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 1130px;">
+            <span class="tooltiptext">Comprehensive Team Statistics<br>Offensive: yards, TDs, efficiency<br>Defensive: PPA, success rates, havoc<br>Special teams and field position data</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-green-500/30 glass-card-success hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke-width="2"/></svg> Team Stats DB</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-slate-300">Offensive Stats:</div>
+                    <div class="data-label text-slate-400">• Total Yards: 4637 vs 4849</div>
+                    <div class="data-label text-slate-400">• Rush Yards: 2471 vs 1878</div>
+                    <div class="data-label text-slate-400">• Pass Yards: 2166 vs 2971</div>
+                    <div class="data-label text-slate-400">• Rush TDs: 32 vs 24</div>
+                    <div class="data-label text-slate-400">• Pass TDs: 9 vs 28</div>
+                    <div class="data-label text-slate-300 mt-2">Defensive Stats:</div>
+                    <div class="data-label text-slate-400">• Sacks: 28 vs 29</div>
+                    <div class="data-label text-slate-400">• INTs: 6 vs 4</div>
+                    <div class="data-label text-slate-400">• TFLs: 67 vs 67</div>
+                    <div class="data-label text-slate-400">• Def PPA: 0.073 vs -0.032</div>
+                    <div class="text-xxs text-green-400 font-semibold mt-2">→ Component 15</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCE 12: Field Position & Special Teams -->
+        <div class="absolute w-52 tooltip" style="top: 650px; left: 1400px;">
+            <span class="tooltiptext">Field Position Metrics<br>Line Yards, Second Level, Open Field<br>Special teams performance<br>Average starting field position</span>
+            <div class="glass-card shadow-lg rounded-xl border-2 border-green-500/30 glass-card-success hover:shadow-2xl transition">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-xs font-bold text-green-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2" stroke-width="2"/><path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke-width="2"/></svg> Field Position</p>
+                </div>
+                <div class="p-3 space-y-1">
+                    <div class="data-label text-slate-300">Line Yards:</div>
+                    <div class="data-label text-slate-400">• Michigan: 3.219</div>
+                    <div class="data-label text-slate-400">• Ohio State: 2.964</div>
+                    <div class="data-label text-slate-300 mt-1">Second Level:</div>
+                    <div class="data-label text-slate-400">• Michigan: 1.152</div>
+                    <div class="data-label text-slate-400">• Ohio State: 1.081</div>
+                    <div class="data-label text-slate-300 mt-1">Open Field:</div>
+                    <div class="data-label text-slate-400">• Michigan: 1.560</div>
+                    <div class="data-label text-slate-400">• Ohio State: 1.137</div>
+                    <div class="data-label text-slate-300 mt-1">Avg Field Pos:</div>
+                    <div class="data-label text-slate-400">• Michigan: 69.1</div>
+                    <div class="data-label text-slate-400">• Ohio State: 70.0</div>
+                    <div class="text-xxs text-green-400 font-semibold mt-2">→ Component 10</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- LAYER 3: PROCESSING MODULES -->
+        <!-- ============================================ -->
+
+        <div class="absolute" style="top: 940px; left: 50%; transform: translateX(-50%);">
+            <div class="glass-card-primary text-slate-100 px-4 py-2 rounded-lg shadow-lg text-center font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke-width="2"/><path d="M12 1v6m0 6v6M1 12h6m6 0h6" stroke-width="2"/></svg> PROCESSING & CALCULATION LAYER
+            </div>
+        </div>
+
+        <!-- PROCESSOR 1: EPA Calculation Engine -->
+        <div class="absolute w-64 tooltip" style="top: 1000px; left: 50px;">
+            <span class="tooltiptext">EPA Calculation Engine<br>Processes play-by-play data<br>Calculates offensive/defensive EPA<br>Applies opponent adjustments</span>
+            <div class="glass-card shadow-xl rounded-xl border-4 border-orange-500/30">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-sm font-bold text-orange-300"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> EPA Engine</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-xs font-semibold text-slate-200">INPUT SOURCES:</div>
+                    <div class="data-label text-slate-400">← CFB Data API (plays)</div>
+                    <div class="data-label text-slate-400">← Team Stats DB</div>
+                    <div class="text-xs font-semibold text-slate-200 mt-2">CALCULATIONS:</div>
+                    <div class="data-label text-slate-400">• Overall EPA Differential: +0.074</div>
+                    <div class="data-label text-slate-400">• Passing EPA Diff: +0.225</div>
+                    <div class="data-label text-slate-400">• Rushing EPA Diff: -0.088</div>
+                    <div class="data-label text-slate-400">• EPA Allowed Analysis</div>
+                    <div class="text-xs font-semibold text-orange-300 mt-2">OUTPUT:</div>
+                    <div class="data-label text-orange-400">→ Component 7 (EPA)</div>
+                    <div class="data-label text-orange-400">→ Prediction Model Input</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCESSOR 2: Advanced Metrics Calculator -->
+        <div class="absolute w-64 tooltip" style="top: 1000px; left: 340px;">
+            <span class="tooltiptext">Advanced Metrics Calculator<br>Success rates, explosiveness, situational<br>Field position analysis<br>Down and distance performance</span>
+            <div class="glass-card shadow-xl rounded-xl border-4 border-orange-500/30">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-sm font-bold text-orange-300"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg> Advanced Metrics</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-xs font-semibold text-slate-200">INPUT SOURCES:</div>
+                    <div class="data-label text-slate-400">← CFB Data API</div>
+                    <div class="data-label text-slate-400">← Field Position Data</div>
+                    <div class="text-xs font-semibold text-slate-200 mt-2">CALCULATIONS:</div>
+                    <div class="data-label text-slate-400">• Success Rate: 47.7% vs 55.4%</div>
+                    <div class="data-label text-slate-400">• Explosiveness: 0.966 vs 0.895</div>
+                    <div class="data-label text-slate-400">• Passing Downs: 0.307 vs 0.339</div>
+                    <div class="data-label text-slate-400">• Standard Downs: 0.519 vs 0.548</div>
+                    <div class="data-label text-slate-400">• Power Success, Stuff Rate</div>
+                    <div class="text-xs font-semibold text-orange-300 mt-2">OUTPUT:</div>
+                    <div class="data-label text-orange-400">→ Component 8, 9, 10</div>
+                    <div class="data-label text-orange-400">→ Prediction Model Input</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCESSOR 3: CORE PREDICTION MODEL -->
+        <div class="absolute w-72 tooltip" style="top: 1000px; left: 630px;">
+            <span class="tooltiptext">CORE PREDICTION ALGORITHM<br>Weighted composite model<br>50% Opponent-Adjusted (EPA, SoS)<br>20% Market Consensus<br>15% Composite Ratings<br>10% Key Players<br>5% Contextual Factors</span>
+            <div class="bg-gradient-to-br from-purple-400 to-blue-400 shadow-2xl rounded-xl border-4 border-purple-600">
+                <div class="bg-purple-200 px-4 py-3 rounded-t-xl">
+                    <p class="text-base font-bold text-purple-300"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z" stroke-width="2"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z" stroke-width="2"/></svg> PREDICTION MODEL</p>
+                    <p class="text-xs text-purple-300">Weighted Composite Algorithm</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-xs font-bold text-white">WEIGHT ALLOCATION:</div>
+                    
+                    <div class="glass-card bg-opacity-90 rounded p-2 mb-1">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-semibold">Opponent-Adjusted</span>
+                            <span class="text-xs font-bold text-purple-300">50%</span>
+                        </div>
+                        <div class="data-label text-slate-400">EPA, Success, Field Pos</div>
+                        <div class="data-label text-purple-400">Value: +0.108</div>
+                    </div>
+
+                    <div class="glass-card bg-opacity-90 rounded p-2 mb-1">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-semibold">Market Consensus</span>
+                            <span class="text-xs font-bold text-purple-300">20%</span>
+                        </div>
+                        <div class="data-label text-slate-400">Betting Lines</div>
+                        <div class="data-label text-purple-400">Value: +0.030</div>
+                    </div>
+
+                    <div class="glass-card bg-opacity-90 rounded p-2 mb-1">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-semibold">Composite Ratings</span>
+                            <span class="text-xs font-bold text-purple-300">15%</span>
+                        </div>
+                        <div class="data-label text-slate-400">ELO, FPI, Talent</div>
+                        <div class="data-label text-purple-400">Value: -1.914</div>
+                    </div>
+
+                    <div class="glass-card bg-opacity-90 rounded p-2 mb-1">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-semibold">Key Player Impact</span>
+                            <span class="text-xs font-bold text-purple-300">10%</span>
+                        </div>
+                        <div class="data-label text-slate-400">Individual EPA</div>
+                        <div class="data-label text-purple-400">Value: +0.003</div>
+                    </div>
+
+                    <div class="glass-card bg-opacity-90 rounded p-2 mb-1">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-semibold">Contextual Factors</span>
+                            <span class="text-xs font-bold text-purple-300">5%</span>
+                        </div>
+                        <div class="data-label text-slate-400">Weather, Bye, Travel</div>
+                        <div class="data-label text-purple-400">Value: -0.038</div>
+                    </div>
+
+                    <div class="glass-card-header rounded p-2 mt-2 border-2 border-yellow-500/30 glass-card-warning">
+                        <div class="text-xs font-bold text-slate-200">CALCULATION:</div>
+                        <div class="data-label">Raw Differential: -1.810</div>
+                        <div class="data-label">+ Home Field: +2.5</div>
+                        <div class="data-label">+ Conference: +1.0</div>
+                        <div class="data-label">- Weather: -0.0</div>
+                        <div class="data-label font-bold text-green-700 mt-1">= Adjusted: +1.521</div>
+                    </div>
+
+                    <div class="text-xs font-semibold text-white mt-2">OUTPUT:</div>
+                    <div class="data-label text-white">→ All 18 Components</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCESSOR 4: Confidence Calculator -->
+        <div class="absolute w-64 tooltip" style="top: 1000px; left: 930px;">
+            <span class="tooltiptext">Confidence Calculator<br>Uses Platt Scaling for probability calibration<br>Base: 88% data quality<br>Adjustments: consistency, differential, trend, weather</span>
+            <div class="glass-card shadow-xl rounded-xl border-4 border-orange-500/30">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-sm font-bold text-orange-300"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Confidence Calc</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-xs font-semibold text-slate-200">INPUT SOURCES:</div>
+                    <div class="data-label text-slate-400">← Prediction Model Output</div>
+                    <div class="data-label text-slate-400">← Data Quality Metrics</div>
+                    <div class="text-xs font-semibold text-slate-200 mt-2">BREAKDOWN:</div>
+                    <div class="data-label text-slate-400">• Base Data Quality: 88%</div>
+                    <div class="data-label text-slate-400">• Consistency Factor: +3%</div>
+                    <div class="data-label text-slate-400">• Differential Strength: +8%</div>
+                    <div class="data-label text-slate-400">• Trend Factor: +5%</div>
+                    <div class="data-label text-slate-400">• Weather/Calendar: +5%</div>
+                    <div class="text-xs font-semibold text-slate-200 mt-2">PLATT SCALING:</div>
+                    <div class="data-label text-slate-400">• Raw Probability: 82.3%</div>
+                    <div class="data-label text-slate-400">• Calibrated: 82.3%</div>
+                    <div class="data-label text-slate-400">• Adjustment: +0.0 pts</div>
+                    <div class="text-xs font-semibold text-orange-300 mt-2">OUTPUT:</div>
+                    <div class="data-label text-orange-400 font-bold">→ 95% Confidence</div>
+                    <div class="data-label text-orange-400">→ Component 4</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCESSOR 5: UI Component Generator -->
+        <div class="absolute w-64 tooltip" style="top: 1000px; left: 1220px;">
+            <span class="tooltiptext">UI Component Generator<br>Formats all data into 18 display components<br>Creates structured JSON output<br>Generates formatted analysis text</span>
+            <div class="glass-card shadow-xl rounded-xl border-4 border-orange-500/30">
+                <div class="glass-card-header px-3 py-2 rounded-t-xl">
+                    <p class="text-sm font-bold text-orange-300"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" stroke-width="2"/></svg> UI Generator</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-xs font-semibold text-slate-200">INPUT SOURCES:</div>
+                    <div class="data-label text-slate-400">← All Data Sources</div>
+                    <div class="data-label text-slate-400">← All Processors</div>
+                    <div class="text-xs font-semibold text-slate-200 mt-2">GENERATES:</div>
+                    <div class="data-label text-slate-400">1. Team Selector Data</div>
+                    <div class="data-label text-slate-400">2. Header Component</div>
+                    <div class="data-label text-slate-400">3. Prediction Cards (3)</div>
+                    <div class="data-label text-slate-400">4. Confidence Section</div>
+                    <div class="data-label text-slate-400">5-18. Analysis Components</div>
+                    <div class="text-xs font-semibold text-slate-200 mt-2">FORMATTING:</div>
+                    <div class="data-label text-slate-400">• JSON Structure</div>
+                    <div class="data-label text-slate-400">• Text Formatting</div>
+                    <div class="data-label text-slate-400">• Data Organization</div>
+                    <div class="text-xs font-semibold text-orange-300 mt-2">OUTPUT:</div>
+                    <div class="data-label text-orange-400">→ 18 UI Components</div>
+                    <div class="data-label text-orange-400">→ formatted_analysis</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- LAYER 4: OUTPUT COMPONENTS (18 Components) -->
+        <!-- ============================================ -->
+
+        <div class="absolute" style="top: 1520px; left: 50%; transform: translateX(-50%);">
+            <div class="glass-card-primary text-slate-100 px-4 py-2 rounded-lg shadow-lg text-center font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" stroke-width="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2"/></svg> OUTPUT COMPONENTS (18 Total)
+            </div>
+        </div>
+
+        <!-- Component Grid - Row 1 -->
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 50px;">
+            <span class="tooltiptext">Component 1: Team Selector Data<br>Source: ESPN API<br>Michigan #130 vs Ohio State #194<br>Logos, names, records</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">1</span> Team Selector</p>
+                <p class="text-xxs text-slate-400 mt-1">← ESPN API</p>
+                <p class="text-xxs text-slate-500">Logos, Names, IDs</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 210px;">
+            <span class="tooltiptext">Component 2: Header Component<br>Game info, date, time, network<br>Excitement Index: 4.0/5<br>Team records and rankings</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">2</span> Header</p>
+                <p class="text-xxs text-slate-400 mt-1">← ESPN + Multiple</p>
+                <p class="text-xxs text-slate-500">Oct 19, 2025, 7:30 PM</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 370px;">
+            <span class="tooltiptext">Component 3: Prediction Cards<br>Win Probability: OSU 82.3%, UM 17.7%<br>Spread: OSU -16.9<br>Total: 68.2 points</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">3</span> Prediction Cards</p>
+                <p class="text-xxs text-slate-400 mt-1">← Prediction Model</p>
+                <p class="text-xxs text-slate-500">Win%, Spread, Total</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 530px;">
+            <span class="tooltiptext">Component 4: Confidence Section<br>Overall: 95%<br>Base: 88%, Consistency: +3%<br>Differential: +8%, Trend: +5%</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">4</span> Confidence</p>
+                <p class="text-xxs text-slate-400 mt-1">← Confidence Calc</p>
+                <p class="text-xxs text-slate-500">95% Overall</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 690px;">
+            <span class="tooltiptext">Component 5: Market Comparison<br>Model vs Market analysis<br>Spread/Total discrepancies<br>(No market data available)</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">5</span> Market</p>
+                <p class="text-xxs text-slate-400 mt-1">← Betting Lines API</p>
+                <p class="text-xxs text-slate-500">Model vs Market</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 850px;">
+            <span class="tooltiptext">Component 6: Contextual Analysis<br>Weather: 59.4°F, 3.6 mph wind<br>Rankings: Both unranked<br>Bye weeks: -2.5 point advantage</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">6</span> Context</p>
+                <p class="text-xxs text-slate-400 mt-1">← Weather + Rankings</p>
+                <p class="text-xxs text-slate-500">Weather, Bye, Polls</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 1010px;">
+            <span class="tooltiptext">Component 7: EPA Comparison<br>Overall: +0.224 vs +0.298<br>Passing: +0.269 vs +0.495<br>Rushing: +0.200 vs +0.112</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">7</span> EPA</p>
+                <p class="text-xxs text-slate-400 mt-1">← EPA Engine</p>
+                <p class="text-xxs text-slate-500">Offense/Defense EPA</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 1170px;">
+            <span class="tooltiptext">Component 8: Differential Analysis<br>EPA Diff: +0.074<br>Success Rate: +0.046<br>Explosiveness: -0.070</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">8</span> Differentials</p>
+                <p class="text-xxs text-slate-400 mt-1">← Advanced Metrics</p>
+                <p class="text-xxs text-slate-500">Team Comparisons</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1580px; left: 1330px;">
+            <span class="tooltiptext">Component 9: Win Probability<br>OSU: 82.3%, UM: 17.7%<br>Margin: 64.6 points<br>Situational performance breakdown</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">9</span> Win Prob</p>
+                <p class="text-xxs text-slate-400 mt-1">← Prediction Model</p>
+                <p class="text-xxs text-slate-500">82.3% vs 17.7%</p>
+            </div>
+        </div>
+
+        <!-- Component Grid - Row 2 -->
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 50px;">
+            <span class="tooltiptext">Component 10: Field Position<br>Line Yards: 3.219 vs 2.964<br>Second Level: 1.152 vs 1.081<br>Open Field: 1.560 vs 1.137</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">10</span> Field Position</p>
+                <p class="text-xxs text-slate-400 mt-1">← Field Position DB</p>
+                <p class="text-xxs text-slate-500">Line/Level/Open Yards</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 210px;">
+            <span class="tooltiptext">Component 11: Key Player Impact<br>QB, RB, WR, TE projections<br>Individual EPA ratings<br>League top performers reference</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">1</span><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">1</span> Players</p>
+                <p class="text-xxs text-slate-400 mt-1">← Player Metrics API</p>
+                <p class="text-xxs text-slate-500">Individual EPA</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 370px;">
+            <span class="tooltiptext">Component 12: Advanced Metrics<br>ELO: 1590 vs 1645<br>FPI: 7.47 vs 9.59<br>Talent: 715.56 vs 669.18<br>Success Rate, Explosiveness</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">1</span><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">2</span> Advanced</p>
+                <p class="text-xxs text-slate-400 mt-1">← Composite Ratings</p>
+                <p class="text-xxs text-slate-500">ELO, FPI, Talent</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 530px;">
+            <span class="tooltiptext">Component 13: Weights Breakdown<br>50% Opponent-Adjusted<br>20% Market Consensus<br>15% Composite, 10% Players, 5% Context</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">1</span><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">3</span> Weights</p>
+                <p class="text-xxs text-slate-400 mt-1">← Algorithm Config</p>
+                <p class="text-xxs text-slate-500">50-20-15-10-5</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 690px;">
+            <span class="tooltiptext">Component 14: Component Breakdown<br>Raw Differential: -1.810<br>+ Home Field: +2.5<br>+ Conference: +1.0<br>= Adjusted: +1.521</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">1</span><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">4</span> Breakdown</p>
+                <p class="text-xxs text-slate-400 mt-1">← Prediction Model</p>
+                <p class="text-xxs text-slate-500">Calculation Steps</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 850px;">
+            <span class="tooltiptext">Component 15: Team Stats<br>Comprehensive offensive/defensive stats<br>4637 vs 4849 total yards<br>Complete season comparison tables</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">1</span><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">5</span> Team Stats</p>
+                <p class="text-xxs text-slate-400 mt-1">← Team Stats DB</p>
+                <p class="text-xxs text-slate-500">Full Season Stats</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 1010px;">
+            <span class="tooltiptext">Component 16: Coaching Comparison<br>Moore: 16-7 (69.6%)<br>Day: 81-10 (89.0%)<br>vs Ranked performance analysis</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">1</span><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">6</span> Coaching</p>
+                <p class="text-xxs text-slate-400 mt-1">← Coaching Stats DB</p>
+                <p class="text-xxs text-slate-500">Career Records</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 1170px;">
+            <span class="tooltiptext">Component 17: Drive Analytics<br>113 drives vs 97 drives<br>Scoring %: 46.9% vs 67.0%<br>Tempo and time management</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">1</span><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">7</span> Drive Analytics</p>
+                <p class="text-xxs text-slate-400 mt-1">← Drive Analytics DB</p>
+                <p class="text-xxs text-slate-500">Possession Data</p>
+            </div>
+        </div>
+
+        <div class="absolute w-44 tooltip" style="top: 1660px; left: 1330px;">
+            <span class="tooltiptext">Component 18: Final Summary<br>Michigan 43, Ohio State 26<br>Total: 68 points<br>Confidence: 95%</span>
+            <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 shadow-md rounded-lg border border-purple-500/30 p-2">
+                <p class="text-xs font-bold text-purple-300"><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">1</span><span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30/30 text-xs font-bold text-blue-400">8</span> Final Summary</p>
+                <p class="text-xxs text-slate-400 mt-1">← All Processors</p>
+                <p class="text-xxs text-slate-500">Final Prediction</p>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- LAYER 5: FINAL OUTPUT -->
+        <!-- ============================================ -->
+
+        <div class="absolute" style="top: 1780px; left: 50%; transform: translateX(-50%);">
+            <div class="glass-card-primary text-slate-100 px-4 py-2 rounded-lg shadow-lg text-center font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke-width="2"/><circle cx="12" cy="12" r="2" stroke-width="2"/></svg> FINAL JSON OUTPUT
+            </div>
+        </div>
+
+        <!-- JSON Output -->
+        <div class="absolute w-96 tooltip" style="top: 1840px; left: 550px;">
+            <span class="tooltiptext">formatted_analysis Object<br>Contains: rivalry_history, ui_components, success flag<br>Structure: Nested JSON with all 18 components<br>Ready for N8N consumption</span>
+            <div class="bg-gradient-to-br from-red-500/10 to-pink-500/10 shadow-2xl rounded-xl border-2 border-red-500/40 p-6">
+                <div class="text-center mb-4">
+                    <div class="inline-block bg-red-500/20 text-red-400 px-4 py-2 rounded-full font-bold text-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2"/><polyline points="14 2 14 8 20 8" stroke-width="2"/><line x1="16" y1="13" x2="8" y2="13" stroke-width="2"/><line x1="16" y1="17" x2="8" y2="17" stroke-width="2"/><polyline points="10 9 9 9 8 9" stroke-width="2"/></svg> JSON OUTPUT
+                    </div>
+                </div>
+                <div class="glass-card rounded-lg p-4 font-mono text-xs">
+                    <div class="text-slate-300">{</div>
+                    <div class="ml-4 text-blue-400">"formatted_analysis": {...},</div>
+                    <div class="ml-4 text-blue-400">"rivalry_history": {...},</div>
+                    <div class="ml-4 text-green-400">"success": true,</div>
+                    <div class="ml-4 text-blue-400">"ui_components": [18]</div>
+                    <div class="text-slate-300">}</div>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-sm font-semibold text-slate-200">Output Size: 83,228 bytes</p>
+                    <p class="text-xs text-slate-400 mt-1">Processing Time: 25.204 seconds</p>
+                    <p class="text-xs text-green-400 font-bold mt-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2"/></svg> Success Status</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- N8N Results -->
+        <div class="absolute w-80 tooltip" style="top: 1840px; left: 820px;">
+            <span class="tooltiptext">N8N Workflow Results<br>Receives formatted JSON output<br>Can trigger downstream actions<br>Stored as N8N_RESULTS.md</span>
+            <div class="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 shadow-2xl rounded-xl border-2 border-indigo-500/40 p-6 pulse">
+                <div class="text-center mb-4">
+                    <div class="inline-block bg-indigo-500/20 text-indigo-400 px-4 py-2 rounded-full font-bold text-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> N8N RESULTS
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="glass-card rounded-lg p-3">
+                        <p class="text-xs font-semibold text-slate-200">Workflow: Get Game Prediction</p>
+                        <p class="text-xs text-green-400 mt-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="3"/></svg> Success in 25.204s</p>
+                    </div>
+                    <div class="glass-card rounded-lg p-3">
+                        <p class="text-xs font-semibold text-slate-200">Output Items:</p>
+                        <ul class="text-xxs text-slate-400 mt-1 space-y-1">
+                            <li>• formatted_analysis</li>
+                            <li>• rivalry_history</li>
+                            <li>• ui_components (18)</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card rounded-lg p-3">
+                        <p class="text-xs font-semibold text-slate-200">Saved To:</p>
+                        <p class="text-xxs text-slate-400 mt-1">N8N_RESULTS.md (83KB)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- CONNECTORS - Detailed Flow Lines -->
+        <!-- ============================================ -->
+
+        <!-- Input to Data Collection -->
+        <div class="connector w-1 h-20 bg-blue-500 connector-glow" style="top: 250px; left: 50%; transform: translateX(-50%);"></div>
+        
+        <!-- Data Sources Row 1 Vertical Drops (to Row 2) -->
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 560px; left: 154px; height: 90px;"></div>
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 560px; left: 424px; height: 90px;"></div>
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 560px; left: 694px; height: 90px;"></div>
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 560px; left: 964px; height: 90px;"></div>
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 560px; left: 1234px; height: 90px;"></div>
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 560px; left: 1504px; height: 90px;"></div>
+
+        <!-- Data Sources Row 2 Vertical Drops (to Processing) -->
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 850px; left: 154px; height: 90px;"></div>
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 850px; left: 424px; height: 90px;"></div>
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 850px; left: 694px; height: 90px;"></div>
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 850px; left: 964px; height: 90px;"></div>
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 850px; left: 1234px; height: 90px;"></div>
+        <div class="connector w-0.5 bg-green-500 connector-glow" style="top: 850px; left: 1504px; height: 90px;"></div>
+
+        <!-- Data to Processing Horizontal -->
+        <div class="connector h-1 bg-orange-500 connector-glow" style="top: 940px; left: 126px; width: 1400px;"></div>
+        
+        <!-- Processing Vertical Drops -->
+        <div class="connector w-0.5 bg-orange-500 connector-glow arrow-tip-down" style="top: 940px; left: 178px; height: 60px;"></div>
+        <div class="connector w-0.5 bg-orange-500 connector-glow arrow-tip-down" style="top: 940px; left: 468px; height: 60px;"></div>
+        <div class="connector w-1 bg-purple-500 connector-glow arrow-tip-down" style="top: 940px; left: 774px; height: 60px;"></div>
+        <div class="connector w-0.5 bg-orange-500 connector-glow arrow-tip-down" style="top: 940px; left: 1058px; height: 60px;"></div>
+        <div class="connector w-0.5 bg-orange-500 connector-glow arrow-tip-down" style="top: 940px; left: 1348px; height: 60px;"></div>
+
+        <!-- Processing to Components -->
+        <div class="connector w-1 bg-purple-500 connector-glow" style="top: 1450px; left: 750px; height: 130px;"></div>
+        <div class="connector h-1 bg-purple-500 connector-glow" style="top: 1580px; left: 50px; width: 1400px;"></div>
+        
+        <!-- Components Vertical Drops (w-44 cards, left + 88px for center) -->
+        <div class="connector w-0.5 bg-purple-500 connector-glow arrow-tip-down" style="top: 1580px; left: 138px; height: 30px;"></div>
+        <div class="connector w-0.5 bg-purple-500 connector-glow arrow-tip-down" style="top: 1580px; left: 298px; height: 30px;"></div>
+        <div class="connector w-0.5 bg-purple-500 connector-glow arrow-tip-down" style="top: 1580px; left: 458px; height: 30px;"></div>
+        <div class="connector w-0.5 bg-purple-500 connector-glow arrow-tip-down" style="top: 1580px; left: 618px; height: 30px;"></div>
+        <div class="connector w-0.5 bg-purple-500 connector-glow arrow-tip-down" style="top: 1580px; left: 778px; height: 30px;"></div>
+        <div class="connector w-0.5 bg-purple-500 connector-glow arrow-tip-down" style="top: 1580px; left: 938px; height: 30px;"></div>
+        <div class="connector w-0.5 bg-purple-500 connector-glow arrow-tip-down" style="top: 1580px; left: 1098px; height: 30px;"></div>
+        <div class="connector w-0.5 bg-purple-500 connector-glow arrow-tip-down" style="top: 1580px; left: 1258px; height: 30px;"></div>
+        <div class="connector w-0.5 bg-purple-500 connector-glow arrow-tip-down" style="top: 1580px; left: 1418px; height: 30px;"></div>
+
+        <!-- Components to Final Output -->
+        <div class="connector w-1 bg-red-500 connector-glow" style="top: 1750px; left: 750px; height: 60px;"></div>
+        <div class="connector h-1 bg-red-500 connector-glow arrow-tip" style="top: 1810px; left: 550px; width: 200px;"></div>
+
+        <!-- JSON to N8N -->
+        <div class="connector h-1 bg-indigo-500 connector-glow arrow-tip" style="top: 1900px; left: 750px; width: 70px;"></div>
+
+        <!-- Legend Box -->
+        <div class="absolute glass-card rounded-xl shadow-2xl p-6 border-2 border-slate-500/40" style="top: 1780px; left: 50px; width: 320px;">
+            <p class="font-bold text-slate-100 mb-4 text-lg"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke-width="2"/></svg> Legend & Data Flow</p>
+            <div class="space-y-3 text-xs">
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-blue-500 connector-glow rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Blue:</strong> Input/Trigger</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-green-500 connector-glow rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Green:</strong> Data Sources (Parallel)</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-orange-500 connector-glow rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Orange:</strong> Processing Modules</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-purple-500 connector-glow rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Purple:</strong> Core Prediction Model</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-red-500 connector-glow rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Red:</strong> Final JSON Output</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-indigo-500 connector-glow rounded mr-3 flex-shrink-0"></div>
+                    <span><strong>Indigo:</strong> N8N Results</span>
+                </div>
+            </div>
+            <div class="mt-6 pt-4 border-t-2 border-gray-300">
+                <p class="text-sm font-bold text-slate-200 mb-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg> Final Results:</p>
+                <div class="space-y-1 text-xs">
+                    <p class="text-green-400 font-semibold"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2"/></svg> Success (25.2s)</p>
+                    <p class="text-slate-300"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke-width="2"/><circle cx="12" cy="12" r="2" stroke-width="2"/></svg> Confidence: <strong>95%</strong></p>
+                    <p class="text-slate-300"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke-width="2"/></svg> OSU Win Prob: <strong>82.3%</strong></p>
+                    <p class="text-slate-300">📉 UM Win Prob: <strong>17.7%</strong></p>
+                    <p class="text-slate-300"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg> Spread: <strong>OSU -16.9</strong></p>
+                    <p class="text-slate-300">🎲 Total: <strong>68.2 pts</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Processing Time Indicator -->
+        <div class="absolute glass-card-primary shimmer px-8 py-4 rounded-xl shadow-2xl" style="top: 2050px; left: 50%; transform: translateX(-50%);">
+            <p class="text-center text-2xl font-bold"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8" stroke-width="2"/><path d="M12 9v4l2 2" stroke-width="2"/><path d="M5 3L2 6M22 6l-3-3M6 19l-2 2M18 19l2 2" stroke-width="2"/></svg> Total Processing Time: 25.204 seconds</p>
+            <p class="text-center text-sm mt-2">Parallel API calls → Sequential processing → JSON output</p>
+        </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

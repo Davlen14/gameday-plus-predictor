@@ -181,7 +181,7 @@ class HighUsagePlayersAPI:
         
         team_database = {}
         
-        for team in teams_data[:10]:  # Limit to first 10 teams for demo
+        for team in teams_data:  # Process all FBS teams
             team_name = team.get('school', 'Unknown')
             print(f"📋 Processing {team_name}...")
             
