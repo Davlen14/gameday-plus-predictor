@@ -6,7 +6,7 @@ import { RefreshCw, TrendingDown, TrendingUp, Zap, Target, AlertTriangle, Activi
 
 // Sportsbook logo imports
 import fanduelLogo from '../../assets/FanduelSports.png';
-import caesarsLogo from '../../assets/caesars.png';
+import caesarsLogo from '../../assets/Caesars.png';
 import draftKingsLogo from '../../assets/Draftking.svg';
 import betmgmLogo from '../../assets/MGM.png';
 import fanaticsLogo from '../../assets/fanatics.png';
