@@ -3215,6 +3215,37 @@ def gamedaylive():
     print(f"🔍 Template exists: {os.path.exists(template_path)}, Path: {template_path}")
     return render_template('gamedaylive.html')
 
+# Additional template routes
+@app.route('/master-dashboard')
+def master_dashboard():
+    """Master Dashboard - Comprehensive visualization of all data"""
+    return render_template('master_dashboard.html')
+
+@app.route('/coaches')
+def coaches_list():
+    """Coaches database page"""
+    return render_template('coaches_list.html')
+
+@app.route('/coach/<int:coach_id>')
+def coach_detail(coach_id: int):
+    """Individual coach profile page"""
+    return render_template('coach_detail.html')
+
+@app.route('/nil')
+def nil_index():
+    """NIL valuations index page"""
+    return render_template('nil_index.html')
+
+@app.route('/nil/team/<int:team_id>')
+def nil_team_detail(team_id: int):
+    """NIL team detail page"""
+    return render_template('nil_team_detail.html')
+
+@app.route('/drives-explorer')
+def drives_explorer():
+    """Drives Explorer Dashboard"""
+    return render_template('drives_explorer.html')
+
 # Serve React Predictor App at /predictor
 @app.route('/predictor')
 @app.route('/predictor/')
