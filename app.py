@@ -3205,7 +3205,7 @@ def get_upcoming_games():
         print(f"Error fetching upcoming games: {e}")
         return jsonify({'error': str(e)}), 500
 
-# Serve gamedaylive.html template as main UI
+# Serve gamedaylive.html template as main UI (Railway deployment fix)
 @app.route('/')
 @app.route('/gamedaylive')
 def gamedaylive():
