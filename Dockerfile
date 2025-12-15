@@ -26,6 +26,9 @@ RUN cd frontend && npm install
 # Copy entire project
 COPY . .
 
+# Verify templates directory exists
+RUN ls -la templates/ && echo "Templates directory contents:" && ls -la templates/
+
 # Build React frontend
 RUN cd frontend && npm run build
 
