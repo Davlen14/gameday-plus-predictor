@@ -3210,6 +3210,9 @@ def get_upcoming_games():
 @app.route('/gamedaylive')
 def gamedaylive():
     """Serve the gamedaylive HTML template"""
+    # Verify template exists
+    template_path = os.path.join(app.root_path, 'templates', 'gamedaylive.html')
+    print(f"🔍 Template exists: {os.path.exists(template_path)}, Path: {template_path}")
     return render_template('gamedaylive.html')
 
 # Serve React Predictor App at /predictor
