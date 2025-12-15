@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridiron Replay Center</title>
+    <style>
+        :root {
+            --ui-bg: #0f172a;
+            --ui-panel: #1e293b;
+            --accent: #38bdf8;
+            --text-main: #f1f5f9;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--ui-bg);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 70%);
+        }
+
+        /* Layout */
+        #main-stage {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #sidebar {
+            width: 350px;
+            background-color: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border-left: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        /* --- GLASSY FIELD STYLES --- */
+        .field-visualization-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(15, 23, 42, 0.3);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 20px 40px;
+            margin: 0;
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 
+                        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .field-header h3 {
+            margin: 0 0 20px 0;
+            font-size: 22px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .field-wrapper {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin-bottom: 20px;
+            height: 400px;
+            position: relative;
+            user-select: none;
+        }
+
+        .endzone {
+            flex: 0 0 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 10px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+
+        .endzone-away { border-radius: 8px 0 0 8px; background: rgba(255, 255, 255, 0.1); }
+        .endzone-home { border-radius: 0 8px 8px 0; background: rgba(0, 101, 71, 0.3); }
+
+        .endzone-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            position: relative;
+            z-index: 1;
+            transform: rotate(180deg);
+        }
+
+        .endzone-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+        }
+
+        .endzone-text {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+        }
+
+        .field {
+            flex: 1;
+            background: linear-gradient(
+                90deg,
+                rgba(13, 92, 47, 0.15) 0%, rgba(13, 92, 47, 0.15) 5%,
+                rgba(26, 122, 66, 0.15) 5%, rgba(26, 122, 66, 0.15) 10%,
+                rgba(13, 92, 47, 0.15) 10%, rgba(13, 92, 47, 0.15) 15%,
+                rgba(26, 122, 66, 0.15) 15%, rgba(26, 122, 66, 0.15) 20%,
+                rgba(13, 92, 47, 0.15) 20%, rgba(13, 92, 47, 0.15) 25%,
+                rgba(26, 122, 66, 0.15) 25%, rgba(26, 122, 66, 0.15) 30%,
+                rgba(13, 92, 47, 0.15) 30%, rgba(13, 92, 47, 0.15) 35%,
+                rgba(26, 122, 66, 0.15) 35%, rgba(26, 122, 66, 0.15) 40%,
+                rgba(13, 92, 47, 0.15) 40%, rgba(13, 92, 47, 0.15) 45%,
+                rgba(26, 122, 66, 0.15) 45%, rgba(26, 122, 66, 0.15) 50%,
+                rgba(13, 92, 47, 0.15) 50%, rgba(13, 92, 47, 0.15) 55%,
+                rgba(26, 122, 66, 0.15) 55%, rgba(26, 122, 66, 0.15) 60%,
+                rgba(13, 92, 47, 0.15) 60%, rgba(13, 92, 47, 0.15) 65%,
+                rgba(26, 122, 66, 0.15) 65%, rgba(26, 122, 66, 0.15) 70%,
+                rgba(13, 92, 47, 0.15) 70%, rgba(13, 92, 47, 0.15) 75%,
+                rgba(26, 122, 66, 0.15) 75%, rgba(26, 122, 66, 0.15) 80%,
+                rgba(13, 92, 47, 0.15) 80%, rgba(13, 92, 47, 0.15) 85%,
+                rgba(26, 122, 66, 0.15) 85%, rgba(26, 122, 66, 0.15) 90%,
+                rgba(13, 92, 47, 0.15) 90%, rgba(13, 92, 47, 0.15) 95%,
+                rgba(26, 122, 66, 0.15) 95%, rgba(26, 122, 66, 0.15) 100%
+            );
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) inset;
+        }
+
+        .yard-markers {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .yard-marker {
+            flex: 1;
+            height: 100%;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .yard-marker:last-child { border-right: none; }
+
+        .yard-number {
+            position: absolute;
+            font-size: 16px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Courier New', monospace;
+        }
+        .yard-number.top { top: 10px; transform: rotate(180deg); }
+        .yard-number.bottom { bottom: 10px; }
+
+        .hash-marks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .hash-row {
+            position: absolute;
+            left: 0; right: 0;
+            height: 10px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .hash-row.top { top: 35%; }
+        .hash-row.bottom { bottom: 35%; }
+        
+        .hash-tick {
+            width: 2px;
+            height: 100%;
+            background: white;
+        }
+
+        /* SVG Trajectory Layer */
+        #trajectory-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 15;
+            pointer-events: none;
+            overflow: visible;
+        }
+
+        /* 3D Realistic Ball */
+        .ball-position {
+            position: absolute;
+            top: 50%;
+            width: 0;
+            height: 0;
+            z-index: 20;
+            transition: left 0.1s linear, top 0.1s linear;
+        }
+
+        .ball-graphic {
+            width: 48px;
+            height: 28px;
+            transform: translate(-50%, -50%) rotate(-10deg);
+            filter: drop-shadow(0 15px 10px rgba(0,0,0,0.6)); /* Realistic Shadow */
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s linear;
+        }
+
+        .line-scrimmage, .line-first-down {
+            position: absolute;
+            top: 0; bottom: 0;
+            width: 4px;
+            z-index: 5;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: left 0.3s ease;
+        }
+        .line-scrimmage { background: #3b82f6; opacity: 0.8; }
+        .line-first-down { background: #eab308; opacity: 0.8; }
+
+        /* Field Info Panel */
+        .field-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0 0 20px 20px;
+            padding: 15px 30px;
+            margin: 0 -40px -20px -40px;
+        }
+
+        .down-distance { display: flex; flex-direction: column; }
+        .down-text { font-size: 24px; font-weight: 800; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .situation-text { font-size: 14px; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; }
+
+        /* Scoreboard */
+        #scoreboard {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            height: 70px;
+            margin-bottom: 20px;
+            border-radius: 16px;
+        }
+
+        .team-score { display: flex; align-items: center; gap: 15px; width: 150px; }
+        .team-logo { width: 45px; height: 45px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); }
+        .score-display { font-size: 36px; font-weight: 800; font-family: 'Segoe UI', sans-serif; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+        
+        .game-clock {
+            text-align: center;
+            background: rgba(0,0,0,0.3);
+            padding: 5px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+        }
+        .quarter { color: #94a3b8; font-size: 11px; font-weight: bold; letter-spacing: 1px; }
+        .clock-time { color: var(--accent); font-weight: 700; font-size: 20px; }
+
+        /* Controls */
+        #controls {
+            margin-top: 20px;
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .control-btn:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); color: #fff; }
+        .control-btn.main { width: 54px; height: 54px; background: var(--accent); color: #0f172a; box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); border: none; }
+        .control-btn.main:hover { background: #7dd3fc; transform: scale(1.05); }
+
+        /* Sidebar */
+        .q-header {
+            background: rgba(255,255,255,0.05);
+            padding: 10px;
+            font-size: 12px;
+            font-weight: 800;
+            text-align: center;
+            margin: 15px 10px 5px 10px;
+            border-radius: 6px;
+            color: #94a3b8;
+            letter-spacing: 1px;
+        }
+        .play-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            font-size: 13px;
+            color: #94a3b8;
+            transition: all 0.2s;
+        }
+        .play-item:hover { background: rgba(255,255,255,0.03); padding-left: 18px; color: #e2e8f0; }
+        .play-item.active { background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), transparent); border-left: 3px solid var(--accent); color: #fff; }
+        
+        .play-header { display: flex; justify-content: space-between; margin-bottom: 6px; font-weight: 600; color: #fff; opacity: 0.9; }
+        .play-result { font-weight: 700; color: #fbbf24; margin-top: 4px; font-size: 11px; text-transform: uppercase; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+    </style>
+</head>
+<body>
+
+<div id="main-stage">
+    <!-- Glassy Scoreboard -->
+    <div id="scoreboard">
+        <div class="team-score" style="flex-direction: row-reverse;">
+            <div class="score-display" id="score-away">21</div>
+            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/249.png" class="team-logo" alt="UNT">
+        </div>
+        <div class="game-clock">
+            <div class="quarter" id="clock-q">Q4</div>
+            <div class="clock-time" id="clock-t">00:00</div>
+        </div>
+        <div class="team-score">
+            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" class="team-logo" alt="TULN">
+            <div class="score-display" id="score-home">34</div>
+        </div>
+    </div>
+
+    <!-- Glassy Field Visualization -->
+    <div class="field-visualization-container">
+        <div class="field-header"><h3>Live Drive Replay</h3></div>
+        
+        <div class="field-wrapper" id="field-stage">
+            
+            <!-- Left Endzone (Away) -->
+            <div class="endzone endzone-away" id="ez-away">
+                <div class="endzone-content">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/249.png" class="endzone-logo">
+                    <span class="endzone-text">NORTH TEXAS</span>
+                </div>
+            </div>
+
+            <!-- Main Playing Field -->
+            <div class="field" id="field-main">
+                <div class="yard-markers">
+                    <div class="yard-marker"><span class="yard-number top">10</span><span class="yard-number bottom">10</span></div>
+                    <div class="yard-marker"><span class="yard-number top">20</span><span class="yard-number bottom">20</span></div>
+                    <div class="yard-marker"><span class="yard-number top">30</span><span class="yard-number bottom">30</span></div>
+                    <div class="yard-marker"><span class="yard-number top">40</span><span class="yard-number bottom">40</span></div>
+                    <div class="yard-marker"><span class="yard-number top">50</span><span class="yard-number bottom">50</span></div>
+                    <div class="yard-marker"><span class="yard-number top">40</span><span class="yard-number bottom">40</span></div>
+                    <div class="yard-marker"><span class="yard-number top">30</span><span class="yard-number bottom">30</span></div>
+                    <div class="yard-marker"><span class="yard-number top">20</span><span class="yard-number bottom">20</span></div>
+                    <div class="yard-marker"><span class="yard-number top">10</span><span class="yard-number bottom">10</span></div>
+                </div>
+                
+                <div class="hash-marks">
+                    <div class="hash-row top"></div>
+                    <div class="hash-row bottom"></div>
+                </div>
+            </div>
+
+            <!-- Right Endzone (Home) -->
+            <div class="endzone endzone-home" id="ez-home">
+                <div class="endzone-content">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" class="endzone-logo">
+                    <span class="endzone-text">TULANE</span>
+                </div>
+            </div>
+
+            <!-- Dynamic Elements Layered on top -->
+            <div id="line-los" class="line-scrimmage"></div>
+            <div id="line-fd" class="line-first-down"></div>
+            
+            <!-- SVG Layer for Paths/Arcs -->
+            <svg id="trajectory-layer">
+                <defs>
+                    <linearGradient id="trailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgba(255,255,255,0); stop-opacity:0" />
+                        <stop offset="100%" style="stop-color:#ffffff; stop-opacity:0.8" />
+                    </linearGradient>
+                </defs>
+                <path id="play-path" stroke="url(#trailGradient)" stroke-width="4" fill="none" stroke-linecap="round" />
+            </svg>
+
+            <!-- 3D Realistic Football -->
+            <div id="ball" class="ball-position">
+                <svg class="ball-graphic" viewBox="0 0 100 60">
+                    <!-- Ball Body (Brown Spheroid) -->
+                    <ellipse cx="50" cy="30" rx="48" ry="28" fill="url(#ballGradient)" />
+                    <defs>
+                        <radialGradient id="ballGradient" cx="40%" cy="30%" r="70%" fx="40%" fy="30%">
+                            <stop offset="0%" style="stop-color:#a0522d;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#3e1e05;stop-opacity:1" />
+                        </radialGradient>
+                    </defs>
+                    <!-- White Stripes -->
+                    <path d="M 20 10 Q 25 30 20 50" stroke="white" stroke-width="3" fill="none" opacity="0.9" />
+                    <path d="M 80 10 Q 75 30 80 50" stroke="white" stroke-width="3" fill="none" opacity="0.9" />
+                    <!-- Laces -->
+                    <rect x="40" y="15" width="20" height="30" fill="none" stroke="white" stroke-width="2.5" rx="2" />
+                    <line x1="40" y1="20" x2="60" y2="20" stroke="white" stroke-width="2" />
+                    <line x1="40" y1="25" x2="60" y2="25" stroke="white" stroke-width="2" />
+                    <line x1="40" y1="30" x2="60" y2="30" stroke="white" stroke-width="2" />
+                    <line x1="40" y1="35" x2="60" y2="35" stroke="white" stroke-width="2" />
+                    <line x1="40" y1="40" x2="60" y2="40" stroke="white" stroke-width="2" />
+                    <!-- Highlight -->
+                    <ellipse cx="45" cy="20" rx="20" ry="10" fill="rgba(255,255,255,0.15)" />
+                </svg>
+            </div>
+
+        </div>
+
+        <div class="field-info">
+            <div class="down-distance">
+                <span class="down-text" id="current-down">1st & 10</span>
+                <span class="situation-text" id="possession-text">UNT Ball on Own 25</span>
+            </div>
+            <div style="text-align:right; color: #94a3b8; font-size: 14px; max-width: 60%;" id="current-desc">
+                Waiting to start...
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div id="controls">
+        <button class="control-btn" id="btn-prev">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/></svg>
+        </button>
+        <button class="control-btn main" id="btn-play">
+            <svg id="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+        <button class="control-btn" id="btn-next">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg>
+        </button>
+        <div style="display:flex; align-items:center; gap:10px; margin-left:10px;">
+            <span style="font-size:11px; color:#64748b; font-weight:700;">SPEED</span>
+            <input type="range" id="speed-slider" min="0.5" max="3" step="0.5" value="1" style="width:100px; accent-color:var(--accent);">
+        </div>
+    </div>
+</div>
+
+<div id="sidebar">
+    <div style="padding:20px; border-bottom:1px solid rgba(255,255,255,0.1); font-weight:800; color:#fff; letter-spacing:1px; background:rgba(0,0,0,0.2);">
+        PLAY LOG
+    </div>
+    <div id="play-list" style="overflow-y: auto; flex: 1;">
+        <!-- Plays injected here -->
+    </div>
+</div>
+
+<script>
+// --- MATCH DATA ---
+const MATCH_DATA = {
+    "plays": [] 
+};
+
+// Data Population 
+const fullPlays = [
+    { "away_score": 0, "clock": "15:00", "distance": 10, "down": 1, "offense": "away", "period": 1, "play_text": "Kickoff 65 yards to UNT00, Touchback", "play_type": "Kickoff", "team": "UNT", "yard_line": 65, "yards_gained": 0, "yards_to_goal": 65 },
+    { "away_score": 0, "clock": "14:55", "distance": 10, "down": 1, "offense": "away", "period": 1, "play_text": "Rush middle for 2 yards to UNT27", "play_type": "Rush", "team": "UNT", "yard_line": 75, "yards_gained": 2, "yards_to_goal": 75 },
+    { "away_score": 0, "clock": "14:28", "distance": 8, "down": 2, "offense": "away", "period": 1, "play_text": "Rush right for 9 yards to UNT36, 1ST DOWN", "play_type": "Rush", "team": "UNT", "yard_line": 73, "yards_gained": 9, "yards_to_goal": 73 },
+    { "away_score": 0, "clock": "14:12", "distance": 10, "down": 1, "offense": "away", "period": 1, "play_text": "Rush left for 5 yards to UNT41", "play_type": "Rush", "team": "UNT", "yard_line": 64, "yards_gained": 5, "yards_to_goal": 64 },
+    { "away_score": 0, "clock": "13:58", "distance": 5, "down": 2, "offense": "away", "period": 1, "play_text": "Pass incomplete", "play_type": "Pass Incompletion", "team": "UNT", "yard_line": 59, "yards_gained": 0, "yards_to_goal": 59 },
+    { "away_score": 0, "clock": "13:46", "distance": 5, "down": 3, "offense": "away", "period": 1, "play_text": "Pass complete for 11 yards to TLN48, 1ST DOWN", "play_type": "Pass Reception", "team": "UNT", "yard_line": 59, "yards_gained": 11, "yards_to_goal": 59 },
+    { "away_score": 0, "clock": "13:07", "distance": 10, "down": 1, "offense": "away", "period": 1, "play_text": "Pass complete for 13 yards to TLN35, 1ST DOWN", "play_type": "Pass Reception", "team": "UNT", "yard_line": 48, "yards_gained": 13, "yards_to_goal": 48 },
+    { "away_score": 7, "clock": "08:32", "distance": 9, "down": 2, "offense": "away", "period": 1, "play_text": "Pass complete to TLN02 for 10 yards TOUCHDOWN", "play_type": "Passing Touchdown", "team": "UNT", "yard_line": 10, "yards_gained": 10, "yards_to_goal": 10 },
+    { "away_score": 7, "clock": "08:27", "distance": 10, "down": 1, "offense": "home", "period": 1, "play_text": "Kickoff 62 yards to TLN03, return 16 yards", "play_type": "Kickoff", "team": "TULN", "yard_line": 65, "yards_gained": 16, "yards_to_goal": 65 },
+    { "away_score": 7, "clock": "08:20", "distance": 10, "down": 1, "offense": "home", "period": 1, "play_text": "Rush middle for 5 yards to TLN24", "play_type": "Rush", "team": "TULN", "yard_line": 81, "yards_gained": 5, "yards_to_goal": 81 },
+    { "away_score": 7, "clock": "07:07", "distance": 6, "down": 2, "offense": "home", "period": 1, "play_text": "Pass complete for 14 yards to UNT46, 1ST DOWN", "play_type": "Pass Reception", "team": "TULN", "yard_line": 60, "yards_gained": 14, "yards_to_goal": 60 },
+    { "away_score": 7, "clock": "05:49", "distance": 11, "down": 2, "offense": "home", "period": 1, "play_text": "Pass complete for 22 yards to UNT25, 1ST DOWN", "play_type": "Pass Reception", "team": "TULN", "yard_line": 53, "yards_gained": 22, "yards_to_goal": 53 },
+    { "away_score": 7, "clock": "00:30", "distance": 2, "down": 4, "offense": "home", "period": 1, "play_text": "Rush right for 2 yards TOUCHDOWN", "play_type": "Rushing Touchdown", "team": "TULN", "yard_line": 2, "yards_gained": 2, "yards_to_goal": 2 },
+    { "away_score": 7, "clock": "07:32", "distance": 9, "down": 4, "offense": "away", "period": 3, "play_text": "Pass intercepted, returned 35 yards TOUCHDOWN", "play_type": "Interception Return Touchdown", "team": "UNT", "yard_line": 67, "yards_gained": 35, "yards_to_goal": 67 },
+    { "away_score": 21, "clock": "02:51", "distance": 5, "down": 4, "offense": "home", "period": 4, "play_text": "Field Goal Attempt from 30 yards GOOD", "play_type": "Field Goal Good", "team": "TULN", "yard_line": 12, "yards_gained": 30, "yards_to_goal": 12 },
+    { "away_score": 21, "clock": "00:00", "distance": 0, "down": 0, "offense": "home", "period": 4, "play_text": "End of Game", "play_type": "End of Game", "team": "TULN", "yard_line": 81, "yards_gained": 0, "yards_to_goal": 81 }
+];
+MATCH_DATA.plays = fullPlays;
+
+// --- DOM ELEMENTS ---
+const fieldStage = document.getElementById('field-stage');
+const ezAway = document.getElementById('ez-away');
+const ezHome = document.getElementById('ez-home');
+const fieldMain = document.getElementById('field-main');
+const ball = document.getElementById('ball');
+const lineLos = document.getElementById('line-los');
+const lineFd = document.getElementById('line-fd');
+const slider = document.getElementById('speed-slider');
+const playList = document.getElementById('play-list');
+const trajectoryPath = document.getElementById('play-path');
+
+// --- STATE ---
+let currentIndex = 0;
+let isPlaying = false;
+let animReq;
+let progress = 0;
+let speed = 1;
+
+// --- LOGIC ---
+
+function getYardsToPixels(yards) {
+    const ezW = ezAway.offsetWidth;
+    const fieldW = fieldMain.offsetWidth;
+    
+    if (yards <= 10) {
+        return (yards / 10) * ezW;
+    } else if (yards <= 110) {
+        return ezW + ((yards - 10) / 100) * fieldW;
+    } else {
+        return ezW + fieldW + ((yards - 110) / 10) * ezHome.offsetWidth;
+    }
+}
+
+function getPlayCoords(play) {
+    let startYards, targetYards;
+    
+    if (play.offense === 'away') {
+        startYards = 110 - play.yards_to_goal;
+        targetYards = startYards + play.yards_gained;
+    } else {
+        startYards = 10 + play.yards_to_goal;
+        targetYards = startYards - play.yards_gained;
+    }
+
+    if (play.play_type.includes("Kickoff")) {
+        if (play.team === 'UNT') { startYards = 45; targetYards = 110; } 
+        else { startYards = 75; targetYards = 10; }
+    }
+
+    return { start: startYards, end: targetYards, los: startYards };
+}
+
+function updateLines(play) {
+    const coords = getPlayCoords(play);
+    
+    const losPx = getYardsToPixels(coords.los);
+    lineLos.style.left = losPx + 'px';
+    
+    let fdYards = 0;
+    if (play.offense === 'away') fdYards = coords.los + play.distance;
+    else fdYards = coords.los - play.distance;
+    
+    const fdPx = getYardsToPixels(fdYards);
+    lineFd.style.left = fdPx + 'px';
+    
+    if(play.play_type.includes("Kickoff") || play.down === 0) {
+        lineLos.style.opacity = 0;
+        lineFd.style.opacity = 0;
+    } else {
+        lineLos.style.opacity = 0.8;
+        lineFd.style.opacity = 0.8;
+    }
+    
+    // Clear path initially
+    trajectoryPath.setAttribute("d", "");
+}
+
+function renderFrame() {
+    const play = MATCH_DATA.plays[currentIndex];
+    const coords = getPlayCoords(play);
+    const containerHeight = fieldStage.offsetHeight;
+    const centerY = containerHeight / 2;
+    
+    let currentYards = coords.start + (coords.end - coords.start) * progress;
+    const px = getYardsToPixels(currentYards);
+    
+    // Update Ball
+    ball.style.left = px + 'px';
+    
+    let verticalOffset = 0;
+    let isPass = play.play_type.includes("Pass") && !play.play_type.includes("Incomplete");
+    if (isPass) {
+        verticalOffset = Math.sin(progress * Math.PI) * -80; 
+    }
+    ball.style.top = `calc(50% + ${verticalOffset}px)`;
+    
+    // Rotation effect (End over end for kicks, spiral for passes)
+    const rot = progress * 720 * (coords.end > coords.start ? 1 : -1);
+    const graphic = ball.querySelector('.ball-graphic');
+    graphic.style.transform = `translate(-50%, -50%) rotate(${rot}deg) ${isPass ? 'scale(1.2)' : 'scale(1)'}`;
+    
+    // --- DRAW TRAJECTORY ---
+    const startPx = getYardsToPixels(coords.start);
+    const endPx = getYardsToPixels(coords.end);
+    let d = "";
+    
+    if (isPass || play.play_type.includes("Kick")) {
+        // Draw Arc
+        // Control point is mid-x and higher up (lower Y)
+        const midX = (startPx + endPx) / 2;
+        const cpY = centerY - 150; // Arc Height
+        
+        // We draw partial path based on progress? 
+        // SVG paths are static, we can control stroke-dashoffset but constructing a partial bezier is harder.
+        // Easier trick: Draw full path, mask it with dasharray? 
+        // Or simply draw straight line from start to current ball pos for runs, and curve for passes?
+        
+        // Let's just draw the FULL path statically once, and reveal it.
+        // Actually, rendering a dynamic path trailing the ball looks cool.
+        
+        d = `M ${startPx} ${centerY} Q ${midX} ${cpY} ${px} ${centerY + verticalOffset}`;
+    } else {
+        // Run / Straight Line
+        d = `M ${startPx} ${centerY} L ${px} ${centerY}`;
+    }
+    trajectoryPath.setAttribute("d", d);
+}
+
+function loop() {
+    if (isPlaying) {
+        progress += 0.008 * speed;
+        
+        if (progress >= 1) {
+            progress = 0;
+            if (currentIndex < MATCH_DATA.plays.length - 1) {
+                currentIndex++;
+                updateUI();
+            } else {
+                isPlaying = false;
+                togglePlayBtn();
+            }
+        }
+        renderFrame();
+    }
+    animReq = requestAnimationFrame(loop);
+}
+
+function updateUI() {
+    const play = MATCH_DATA.plays[currentIndex];
+    
+    document.querySelectorAll('.play-item').forEach((el, idx) => {
+        el.classList.toggle('active', idx === currentIndex);
+        if (idx === currentIndex) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    document.getElementById('score-away').innerText = play.away_score;
+    document.getElementById('score-home').innerText = play.home_score;
+    document.getElementById('clock-t').innerText = play.clock;
+    document.getElementById('clock-q').innerText = "Q" + play.period;
+
+    document.getElementById('current-down').innerText = play.down > 0 ? `${play.down} & ${play.distance}` : 'Special Teams';
+    document.getElementById('possession-text').innerText = `${play.offense.toUpperCase()} BALL`;
+    document.getElementById('current-desc').innerText = play.play_text;
+    
+    updateLines(play);
+    
+    if (!isPlaying) {
+        progress = 0;
+        renderFrame();
+    }
+}
+
+// --- INITIALIZATION ---
+
+function initSidebar() {
+    let currentQ = 0;
+    MATCH_DATA.plays.forEach((play, index) => {
+        if (play.period !== currentQ) {
+            currentQ = play.period;
+            const h = document.createElement('div');
+            h.className = 'q-header';
+            h.innerText = `QUARTER ${currentQ}`;
+            playList.appendChild(h);
+        }
+
+        const div = document.createElement('div');
+        div.className = 'play-item';
+        div.innerHTML = `
+            <div class="play-header">
+                <span>${play.clock}</span>
+                <span>${play.down > 0 ? play.down + ' & ' + play.distance : 'ST'}</span>
+            </div>
+            <div>${play.play_text}</div>
+            ${play.play_type.includes("Touchdown") ? `<div class="play-result">TOUCHDOWN</div>` : ''}
+        `;
+        div.onclick = () => {
+            currentIndex = index;
+            progress = 0;
+            isPlaying = false;
+            togglePlayBtn();
+            updateUI();
+        };
+        playList.appendChild(div);
+    });
+}
+
+function togglePlayBtn() {
+    document.getElementById('icon-play').style.display = isPlaying ? 'none' : 'block';
+    document.getElementById('icon-pause').style.display = isPlaying ? 'block' : 'none';
+}
+
+document.getElementById('btn-play').onclick = () => {
+    isPlaying = !isPlaying;
+    togglePlayBtn();
+};
+document.getElementById('btn-next').onclick = () => {
+    if(currentIndex < MATCH_DATA.plays.length -1) { currentIndex++; updateUI(); }
+};
+document.getElementById('btn-prev').onclick = () => {
+    if(currentIndex > 0) { currentIndex--; updateUI(); }
+};
+slider.oninput = (e) => speed = parseFloat(e.target.value);
+
+window.addEventListener('resize', () => {
+    if(!isPlaying) renderFrame();
+    updateLines(MATCH_DATA.plays[currentIndex]);
+});
+
+initSidebar();
+updateUI();
+loop();
+
+</script>
+</body>
+</html>

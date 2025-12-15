@@ -1,0 +1,7052 @@
+[
+  {
+    "id": 401762521,
+    "season": 2025,
+    "week": 16,
+    "seasonType": "regular",
+    "startDate": "2025-12-13T20:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": true,
+    "attendance": null,
+    "venueId": 3814,
+    "venue": "M&T Bank Stadium",
+    "homeId": 2426,
+    "homeTeam": "Navy",
+    "homeClassification": "fbs",
+    "homeConference": "American Athletic",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1525,
+    "homePostgameElo": null,
+    "awayId": 349,
+    "awayTeam": "Army",
+    "awayClassification": "fbs",
+    "awayConference": "American Athletic",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1514,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": null,
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -6,
+        "formattedSpread": "Navy -6.0",
+        "spreadOpen": -4.5,
+        "overUnder": 38.5,
+        "overUnderOpen": 37.5,
+        "homeMoneyline": -200,
+        "awayMoneyline": 170
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -6.5,
+        "formattedSpread": "Navy -6.5",
+        "spreadOpen": null,
+        "overUnder": 38.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -258,
+        "awayMoneyline": 210
+      },
+      {
+        "provider": "ESPN Bet",
+        "spread": -3.5,
+        "formattedSpread": "Navy -3.5",
+        "spreadOpen": -3.5,
+        "overUnder": 39.5,
+        "overUnderOpen": 39.5,
+        "homeMoneyline": -145,
+        "awayMoneyline": 125
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": 23,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2426.png",
+      "color": null,
+      "alt_color": "#b5a67c",
+      "abbreviation": "NAVY"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/349.png",
+      "color": null,
+      "alt_color": "#231f20",
+      "abbreviation": "ARMY"
+    },
+    "homeRecord": {
+      "wins": 9,
+      "losses": 2,
+      "ties": 0,
+      "record": "9-2"
+    },
+    "awayRecord": {
+      "wins": 6,
+      "losses": 5,
+      "ties": 0,
+      "record": "6-5"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 35.9,
+      "ppg_defense": 30.2,
+      "ypg_offense": 435.3,
+      "ypg_defense": 398.9,
+      "third_down_pct": 49.6,
+      "turnovers": 11,
+      "turnovers_forced": 11,
+      "turnover_margin": 0,
+      "sacks": 25,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 25.1,
+      "ppg_defense": 24.5,
+      "ypg_offense": 335.3,
+      "ypg_defense": 357.0,
+      "third_down_pct": 40.0,
+      "turnovers": 12,
+      "turnovers_forced": 12,
+      "turnover_margin": 0,
+      "sacks": 11,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Blake Horvath",
+        "stat": "1390",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Blake Horvath",
+        "stat": "1040",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Eli Heidenreich",
+        "stat": "805",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "MarcAnthony Parker",
+        "stat": "88",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Cale Hellums",
+        "stat": "504",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Cale Hellums",
+        "stat": "1070",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Bradyn Anderson",
+        "stat": "350",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Andon Thomas",
+        "stat": "96",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -1.216,
+      "fpi_rank": 70,
+      "sos_rank": 69,
+      "sor_rank": 20,
+      "efficiency_overall": 55.833,
+      "efficiency_offense": 69.57,
+      "efficiency_defense": 35.763
+    },
+    "awayFPI": {
+      "fpi": -4.605,
+      "fpi_rank": 84,
+      "sos_rank": 84,
+      "sor_rank": 75,
+      "efficiency_overall": 46.973,
+      "efficiency_offense": 43.652,
+      "efficiency_defense": 49.75
+    }
+  },
+  {
+    "id": 401778302,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-14T01:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 7065,
+    "venue": "SoFi Stadium",
+    "homeId": 264,
+    "homeTeam": "Washington",
+    "homeClassification": "fbs",
+    "homeConference": "Big Ten",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1801,
+    "homePostgameElo": null,
+    "awayId": 68,
+    "awayTeam": "Boise State",
+    "awayClassification": "fbs",
+    "awayConference": "Mountain West",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1659,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Bucked Up LA Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -9.5,
+        "formattedSpread": "Washington -9.5",
+        "spreadOpen": -8.5,
+        "overUnder": 53,
+        "overUnderOpen": 51.5,
+        "homeMoneyline": -320,
+        "awayMoneyline": 260
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -9.5,
+        "formattedSpread": "Washington -9.5",
+        "spreadOpen": null,
+        "overUnder": 52.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -360,
+        "awayMoneyline": 285
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/264.png",
+      "color": null,
+      "alt_color": "#e8d3a2",
+      "abbreviation": "WASH"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/68.png",
+      "color": null,
+      "alt_color": "#fa4616",
+      "abbreviation": "BOIS"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "awayRecord": {
+      "wins": 9,
+      "losses": 4,
+      "ties": 0,
+      "record": "9-4"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 35.8,
+      "ppg_defense": 20.6,
+      "ypg_offense": 415.9,
+      "ypg_defense": 311.4,
+      "third_down_pct": 50.7,
+      "turnovers": 14,
+      "turnovers_forced": 14,
+      "turnover_margin": 0,
+      "sacks": 21,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 33.5,
+      "ppg_defense": 25.9,
+      "ypg_offense": 433.0,
+      "ypg_defense": 336.5,
+      "third_down_pct": 47.0,
+      "turnovers": 21,
+      "turnovers_forced": 21,
+      "turnover_margin": 0,
+      "sacks": 23,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Demond Williams Jr.",
+        "stat": "2850",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Jonah Coleman",
+        "stat": "673",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Denzel Boston",
+        "stat": "755",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Alex McLaughlin",
+        "stat": "90",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Maddux Madsen",
+        "stat": "2282",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Dylan Riley",
+        "stat": "1091",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Latrell Caples",
+        "stat": "546",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Ty Benefield",
+        "stat": "98",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 12.947,
+      "fpi_rank": 22,
+      "sos_rank": 37,
+      "sor_rank": 29,
+      "efficiency_overall": 75.227,
+      "efficiency_offense": 72.89,
+      "efficiency_defense": 70.275
+    },
+    "awayFPI": {
+      "fpi": 5.133,
+      "fpi_rank": 48,
+      "sos_rank": 73,
+      "sor_rank": 45,
+      "efficiency_overall": 60.438,
+      "efficiency_offense": 56.955,
+      "efficiency_defense": 63.635
+    }
+  },
+  {
+    "id": 401778303,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-17T02:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3689,
+    "venue": "Cramton Bowl",
+    "homeId": 55,
+    "homeTeam": "Jacksonville State",
+    "homeClassification": "fbs",
+    "homeConference": "Conference USA",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1488,
+    "homePostgameElo": null,
+    "awayId": 2653,
+    "awayTeam": "Troy",
+    "awayClassification": "fbs",
+    "awayConference": "Sun Belt",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1387,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "IS4S Salute to Veterans Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": 3,
+        "formattedSpread": "Troy -3.0",
+        "spreadOpen": 4,
+        "overUnder": 46.5,
+        "overUnderOpen": 46.5,
+        "homeMoneyline": 160,
+        "awayMoneyline": -185
+      },
+      {
+        "provider": "DraftKings",
+        "spread": 3,
+        "formattedSpread": "Troy -3",
+        "spreadOpen": null,
+        "overUnder": 46.5,
+        "overUnderOpen": null,
+        "homeMoneyline": 142,
+        "awayMoneyline": -170
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/55.png",
+      "color": null,
+      "alt_color": "#b5b7ba",
+      "abbreviation": "JXST"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2653.png",
+      "color": null,
+      "alt_color": "#88898c",
+      "abbreviation": "TROY"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 5,
+      "ties": 0,
+      "record": "8-5"
+    },
+    "awayRecord": {
+      "wins": 8,
+      "losses": 5,
+      "ties": 0,
+      "record": "8-5"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 29.2,
+      "ppg_defense": 28.1,
+      "ypg_offense": 419.9,
+      "ypg_defense": 391.7,
+      "third_down_pct": 37.9,
+      "turnovers": 18,
+      "turnovers_forced": 19,
+      "turnover_margin": 1,
+      "sacks": 26,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 25.9,
+      "ppg_defense": 25.4,
+      "ypg_offense": 314.2,
+      "ypg_defense": 380.3,
+      "third_down_pct": 40.1,
+      "turnovers": 16,
+      "turnovers_forced": 16,
+      "turnover_margin": 0,
+      "sacks": 31,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Caden Creel",
+        "stat": "1341",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Cam Cook",
+        "stat": "1666",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Deondre Johnson",
+        "stat": "623",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Mac Sanders",
+        "stat": "75",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Tucker Kilcrease",
+        "stat": "1421",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Tae Meadows",
+        "stat": "695",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Rara Thomas",
+        "stat": "577",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jordan Stringer",
+        "stat": "107",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -9.575,
+      "fpi_rank": 102,
+      "sos_rank": 136,
+      "sor_rank": 95,
+      "efficiency_overall": 36.376,
+      "efficiency_offense": 38.555,
+      "efficiency_defense": 43.779
+    },
+    "awayFPI": {
+      "fpi": -6.286,
+      "fpi_rank": 93,
+      "sos_rank": 96,
+      "sor_rank": 73,
+      "efficiency_overall": 39.731,
+      "efficiency_offense": 28.527,
+      "efficiency_defense": 52.641
+    }
+  },
+  {
+    "id": 401778304,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-17T22:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 4013,
+    "venue": "Camping World Stadium",
+    "homeId": 58,
+    "homeTeam": "South Florida",
+    "homeClassification": "fbs",
+    "homeConference": "American Athletic",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1817,
+    "homePostgameElo": null,
+    "awayId": 295,
+    "awayTeam": "Old Dominion",
+    "awayClassification": "fbs",
+    "awayConference": "Sun Belt",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1627,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "StaffDNA Cure Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": -3,
+        "formattedSpread": "South Florida -3",
+        "spreadOpen": null,
+        "overUnder": 53.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -166,
+        "awayMoneyline": 140
+      },
+      {
+        "provider": "Bovada",
+        "spread": -3.5,
+        "formattedSpread": "South Florida -3.5",
+        "spreadOpen": -6,
+        "overUnder": 53.5,
+        "overUnderOpen": 55.5,
+        "homeMoneyline": -230,
+        "awayMoneyline": 190
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/58.png",
+      "color": null,
+      "alt_color": "#231f20",
+      "abbreviation": "USF"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/295.png",
+      "color": null,
+      "alt_color": "#a1d2f1",
+      "abbreviation": "ODU"
+    },
+    "homeRecord": {
+      "wins": 9,
+      "losses": 3,
+      "ties": 0,
+      "record": "9-3"
+    },
+    "awayRecord": {
+      "wins": 9,
+      "losses": 3,
+      "ties": 0,
+      "record": "9-3"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 41.6,
+      "ppg_defense": 25.2,
+      "ypg_offense": 500.8,
+      "ypg_defense": 385.2,
+      "third_down_pct": 47.9,
+      "turnovers": 22,
+      "turnovers_forced": 22,
+      "turnover_margin": 0,
+      "sacks": 29,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 34.6,
+      "ppg_defense": 22.3,
+      "ypg_offense": 461.0,
+      "ypg_defense": 331.6,
+      "third_down_pct": 40.9,
+      "turnovers": 24,
+      "turnovers_forced": 24,
+      "turnover_margin": 0,
+      "sacks": 35,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Byrum Brown",
+        "stat": "3158",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Byrum Brown",
+        "stat": "1008",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Keshaun Singleton",
+        "stat": "877",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Mac Harris",
+        "stat": "100",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Colton Joseph",
+        "stat": "2619",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Colton Joseph",
+        "stat": "1011",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Tre' Brown III",
+        "stat": "751",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jerome Carter",
+        "stat": "72",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 12.254,
+      "fpi_rank": 23,
+      "sos_rank": 70,
+      "sor_rank": 30,
+      "efficiency_overall": 77.848,
+      "efficiency_offense": 77.198,
+      "efficiency_defense": 69.335
+    },
+    "awayFPI": {
+      "fpi": 3.486,
+      "fpi_rank": 56,
+      "sos_rank": 76,
+      "sor_rank": 41,
+      "efficiency_overall": 66.592,
+      "efficiency_offense": 58.439,
+      "efficiency_defense": 72.694
+    }
+  },
+  {
+    "id": 401778305,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-18T01:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 6526,
+    "venue": "Hancock Whitney Stadium",
+    "homeId": 48,
+    "homeTeam": "Delaware",
+    "homeClassification": "fbs",
+    "homeConference": "Conference USA",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1339,
+    "homePostgameElo": null,
+    "awayId": 309,
+    "awayTeam": "Louisiana",
+    "awayClassification": "fbs",
+    "awayConference": "Sun Belt",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1351,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "68 Ventures Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": 3,
+        "formattedSpread": "Louisiana -3",
+        "spreadOpen": null,
+        "overUnder": 58.5,
+        "overUnderOpen": null,
+        "homeMoneyline": 120,
+        "awayMoneyline": -142
+      },
+      {
+        "provider": "Bovada",
+        "spread": 3,
+        "formattedSpread": "Louisiana -3.0",
+        "spreadOpen": 3,
+        "overUnder": 57.5,
+        "overUnderOpen": 58,
+        "homeMoneyline": 130,
+        "awayMoneyline": -150
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/48.png",
+      "color": null,
+      "alt_color": "#e8ce31",
+      "abbreviation": "DEL"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/309.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "UL"
+    },
+    "homeRecord": {
+      "wins": 6,
+      "losses": 6,
+      "ties": 0,
+      "record": "6-6"
+    },
+    "awayRecord": {
+      "wins": 6,
+      "losses": 6,
+      "ties": 0,
+      "record": "6-6"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 30.5,
+      "ppg_defense": 32.2,
+      "ypg_offense": 417.2,
+      "ypg_defense": 411.5,
+      "third_down_pct": 41.5,
+      "turnovers": 24,
+      "turnovers_forced": 25,
+      "turnover_margin": 1,
+      "sacks": 24,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 27.6,
+      "ppg_defense": 29.9,
+      "ypg_offense": 344.8,
+      "ypg_defense": 417.6,
+      "third_down_pct": 41.1,
+      "turnovers": 12,
+      "turnovers_forced": 12,
+      "turnover_margin": 0,
+      "sacks": 20,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Nick Minicucci",
+        "stat": "3495",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Jo'Nathan Silver",
+        "stat": "536",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Kyre Duplessis",
+        "stat": "794",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Gavin Moul",
+        "stat": "104",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "D'Wayne' Winfield",
+        "stat": "1324",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Bill Davis",
+        "stat": "739",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Shelton Sampson Jr.",
+        "stat": "495",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jaden Dugger",
+        "stat": "117",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -13.513,
+      "fpi_rank": 117,
+      "sos_rank": 131,
+      "sor_rank": 107,
+      "efficiency_overall": 24.943,
+      "efficiency_offense": 36.127,
+      "efficiency_defense": 21.97
+    },
+    "awayFPI": {
+      "fpi": -9.743,
+      "fpi_rank": 103,
+      "sos_rank": 100,
+      "sor_rank": 97,
+      "efficiency_overall": 30.969,
+      "efficiency_offense": 32.958,
+      "efficiency_defense": 37.124
+    }
+  },
+  {
+    "id": 401838053,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-19T02:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 5455,
+    "venue": "Ford Center At The Star",
+    "homeId": 2032,
+    "homeTeam": "Arkansas State",
+    "homeClassification": "fbs",
+    "homeConference": "Sun Belt",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1301,
+    "homePostgameElo": null,
+    "awayId": 2623,
+    "awayTeam": "Missouri State",
+    "awayClassification": "fbs",
+    "awayConference": "Conference USA",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1344,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Xbox Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": 1.5,
+        "formattedSpread": "Missouri State -1.5",
+        "spreadOpen": null,
+        "overUnder": 56.5,
+        "overUnderOpen": null,
+        "homeMoneyline": 102,
+        "awayMoneyline": -122
+      },
+      {
+        "provider": "Bovada",
+        "spread": 1.5,
+        "formattedSpread": "Missouri State -1.5",
+        "spreadOpen": -2.5,
+        "overUnder": 56.5,
+        "overUnderOpen": 56.5,
+        "homeMoneyline": -130,
+        "awayMoneyline": 110
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2032.png",
+      "color": null,
+      "alt_color": "#000000",
+      "abbreviation": "ARST"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2623.png",
+      "color": null,
+      "alt_color": "#e8e8e8",
+      "abbreviation": "MOST"
+    },
+    "homeRecord": {
+      "wins": 6,
+      "losses": 6,
+      "ties": 0,
+      "record": "6-6"
+    },
+    "awayRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 23.5,
+      "ppg_defense": 29.9,
+      "ypg_offense": 385.3,
+      "ypg_defense": 417.8,
+      "third_down_pct": 40.5,
+      "turnovers": 18,
+      "turnovers_forced": 18,
+      "turnover_margin": 0,
+      "sacks": 31,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 28.2,
+      "ppg_defense": 29.9,
+      "ypg_offense": 393.2,
+      "ypg_defense": 385.8,
+      "third_down_pct": 34.6,
+      "turnovers": 13,
+      "turnovers_forced": 13,
+      "turnover_margin": 0,
+      "sacks": 22,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Jaylen Raynor",
+        "stat": "3076",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Devin Spencer",
+        "stat": "523",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Corey Rucker",
+        "stat": "863",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Aaron Alexander",
+        "stat": "89",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Jacob Clark",
+        "stat": "2895",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Shomari Lawrence",
+        "stat": "964",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Jmariyae Robinson",
+        "stat": "536",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Kanye Young",
+        "stat": "74",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -9.566,
+      "fpi_rank": 101,
+      "sos_rank": 124,
+      "sor_rank": 102,
+      "efficiency_overall": 33.216,
+      "efficiency_offense": 29.191,
+      "efficiency_defense": 42.483
+    },
+    "awayFPI": {
+      "fpi": -10.944,
+      "fpi_rank": 108,
+      "sos_rank": 95,
+      "sor_rank": 84,
+      "efficiency_overall": 37.651,
+      "efficiency_offense": 48.079,
+      "efficiency_defense": 35.246
+    }
+  },
+  {
+    "id": 401778306,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-19T16:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3654,
+    "venue": "Brooks Stadium (SC)",
+    "homeId": 2711,
+    "homeTeam": "Western Michigan",
+    "homeClassification": "fbs",
+    "homeConference": "Mid-American",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1442,
+    "homePostgameElo": null,
+    "awayId": 338,
+    "awayTeam": "Kennesaw State",
+    "awayClassification": "fbs",
+    "awayConference": "Conference USA",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1414,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Myrtle Beach Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -4,
+        "formattedSpread": "Western Michigan -4.0",
+        "spreadOpen": -4,
+        "overUnder": 50,
+        "overUnderOpen": 49.5,
+        "homeMoneyline": -185,
+        "awayMoneyline": 160
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -4,
+        "formattedSpread": "Western Michigan -4",
+        "spreadOpen": null,
+        "overUnder": 49.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -185,
+        "awayMoneyline": 154
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png",
+      "color": null,
+      "alt_color": "#8b7f79",
+      "abbreviation": "WMU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/338.png",
+      "color": null,
+      "alt_color": "#000000",
+      "abbreviation": "KENN"
+    },
+    "homeRecord": {
+      "wins": 9,
+      "losses": 4,
+      "ties": 0,
+      "record": "9-4"
+    },
+    "awayRecord": {
+      "wins": 10,
+      "losses": 3,
+      "ties": 0,
+      "record": "10-3"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 25.9,
+      "ppg_defense": 21.6,
+      "ypg_offense": 336.8,
+      "ypg_defense": 299.9,
+      "third_down_pct": 40.4,
+      "turnovers": 18,
+      "turnovers_forced": 18,
+      "turnover_margin": 0,
+      "sacks": 38,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 30.2,
+      "ppg_defense": 27.5,
+      "ypg_offense": 405.1,
+      "ypg_defense": 401.9,
+      "third_down_pct": 40.9,
+      "turnovers": 13,
+      "turnovers_forced": 14,
+      "turnover_margin": 1,
+      "sacks": 31,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Broc Lowry",
+        "stat": "1683",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Broc Lowry",
+        "stat": "940",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Tailique Williams",
+        "stat": "478",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "James Camden",
+        "stat": "75",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Amari Odom",
+        "stat": "2385",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Coleman Bennett",
+        "stat": "716",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Gabriel Benyard",
+        "stat": "898",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Baron Hopson",
+        "stat": "127",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -4.479,
+      "fpi_rank": 83,
+      "sos_rank": 112,
+      "sor_rank": 63,
+      "efficiency_overall": 51.236,
+      "efficiency_offense": 41.607,
+      "efficiency_defense": 63.545
+    },
+    "awayFPI": {
+      "fpi": -6.129,
+      "fpi_rank": 92,
+      "sos_rank": 98,
+      "sor_rank": 48,
+      "efficiency_overall": 45.708,
+      "efficiency_offense": 51.743,
+      "efficiency_defense": 40.217
+    }
+  },
+  {
+    "id": 401778307,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-19T19:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3886,
+    "venue": "Raymond James Stadium",
+    "homeId": 152,
+    "homeTeam": "NC State",
+    "homeClassification": "fbs",
+    "homeConference": "ACC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1525,
+    "homePostgameElo": null,
+    "awayId": 235,
+    "awayTeam": "Memphis",
+    "awayClassification": "fbs",
+    "awayConference": "American Athletic",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1620,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Union Home Mortgage Gasparilla Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -5,
+        "formattedSpread": "NC State -5.0",
+        "spreadOpen": -5.5,
+        "overUnder": 58,
+        "overUnderOpen": 58.5,
+        "homeMoneyline": -225,
+        "awayMoneyline": 185
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -5.5,
+        "formattedSpread": "NC State -5.5",
+        "spreadOpen": null,
+        "overUnder": 57.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -218,
+        "awayMoneyline": 180
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/152.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "NCSU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/235.png",
+      "color": null,
+      "alt_color": "#8e908f",
+      "abbreviation": "MEM"
+    },
+    "homeRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "awayRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 34.6,
+      "ppg_defense": 28.2,
+      "ypg_offense": 397.4,
+      "ypg_defense": 421.7,
+      "third_down_pct": 41.4,
+      "turnovers": 11,
+      "turnovers_forced": 11,
+      "turnover_margin": 0,
+      "sacks": 18,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 35.2,
+      "ppg_defense": 25.8,
+      "ypg_offense": 420.6,
+      "ypg_defense": 361.1,
+      "third_down_pct": 41.1,
+      "turnovers": 14,
+      "turnovers_forced": 14,
+      "turnover_margin": 0,
+      "sacks": 18,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "CJ Bailey",
+        "stat": "2884",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Daylan Smothers",
+        "stat": "939",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Terrell Anderson",
+        "stat": "637",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Caden Fordham",
+        "stat": "130",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Brendon Lewis",
+        "stat": "2567",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Sutton Smith",
+        "stat": "669",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Cortez Braham",
+        "stat": "889",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Sam Brumfield",
+        "stat": "83",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 3.27,
+      "fpi_rank": 57,
+      "sos_rank": 38,
+      "sor_rank": 40,
+      "efficiency_overall": 60.694,
+      "efficiency_offense": 74.744,
+      "efficiency_defense": 44.691
+    },
+    "awayFPI": {
+      "fpi": 4.951,
+      "fpi_rank": 49,
+      "sos_rank": 107,
+      "sor_rank": 62,
+      "efficiency_overall": 59.321,
+      "efficiency_offense": 62.277,
+      "efficiency_defense": 49.481
+    }
+  },
+  {
+    "id": 401779840,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-20T01:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": false,
+    "conferenceGame": true,
+    "attendance": null,
+    "venueId": 3835,
+    "venue": "Memorial Stadium (Norman, OK)",
+    "homeId": 201,
+    "homeTeam": "Oklahoma",
+    "homeClassification": "fbs",
+    "homeConference": "SEC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1823,
+    "homePostgameElo": null,
+    "awayId": 333,
+    "awayTeam": "Alabama",
+    "awayClassification": "fbs",
+    "awayConference": "SEC",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1917,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "College Football Playoff First Round Game",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": 1,
+        "formattedSpread": "Alabama -1.0",
+        "spreadOpen": 1,
+        "overUnder": null,
+        "overUnderOpen": null,
+        "homeMoneyline": null,
+        "awayMoneyline": null
+      },
+      {
+        "provider": "DraftKings",
+        "spread": 1.5,
+        "formattedSpread": "Alabama -1.5",
+        "spreadOpen": null,
+        "overUnder": 40.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -108,
+        "awayMoneyline": -112
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": 8,
+    "awayRank": 10,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/201.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "OU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "ALA"
+    },
+    "homeRecord": {
+      "wins": 10,
+      "losses": 2,
+      "ties": 0,
+      "record": "10-2"
+    },
+    "awayRecord": {
+      "wins": 10,
+      "losses": 3,
+      "ties": 0,
+      "record": "10-3"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 24.7,
+      "ppg_defense": 14.8,
+      "ypg_offense": 353.9,
+      "ypg_defense": 273.8,
+      "third_down_pct": 38.6,
+      "turnovers": 14,
+      "turnovers_forced": 13,
+      "turnover_margin": -1,
+      "sacks": 41,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 32.9,
+      "ppg_defense": 19.5,
+      "ypg_offense": 389.5,
+      "ypg_defense": 283.8,
+      "third_down_pct": 44.2,
+      "turnovers": 17,
+      "turnovers_forced": 17,
+      "turnover_margin": 0,
+      "sacks": 25,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "John Mateer",
+        "stat": "2578",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Tory Blaylock",
+        "stat": "446",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Isaiah Sategna",
+        "stat": "932",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Kip Lewis",
+        "stat": "72",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Ty Simpson",
+        "stat": "3268",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Jamarion Miller",
+        "stat": "493",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Germie Bernard",
+        "stat": "762",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Justin Jefferson",
+        "stat": "67",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 16.693,
+      "fpi_rank": 15,
+      "sos_rank": 12,
+      "sor_rank": 8,
+      "efficiency_overall": 81.851,
+      "efficiency_offense": 55.547,
+      "efficiency_defense": 87.471
+    },
+    "awayFPI": {
+      "fpi": 20.219,
+      "fpi_rank": 8,
+      "sos_rank": 6,
+      "sor_rank": 10,
+      "efficiency_overall": 82.107,
+      "efficiency_offense": 75.709,
+      "efficiency_defense": 81.935
+    }
+  },
+  {
+    "id": 401779841,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-20T17:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": false,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3795,
+    "venue": "Kyle Field",
+    "homeId": 245,
+    "homeTeam": "Texas A&M",
+    "homeClassification": "fbs",
+    "homeConference": "SEC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1878,
+    "homePostgameElo": null,
+    "awayId": 2390,
+    "awayTeam": "Miami",
+    "awayClassification": "fbs",
+    "awayConference": "ACC",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1967,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "College Football Playoff First Round Game",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": -3.5,
+        "formattedSpread": "Texas A&M -3.5",
+        "spreadOpen": null,
+        "overUnder": 51.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -180,
+        "awayMoneyline": 150
+      },
+      {
+        "provider": "Bovada",
+        "spread": -3.5,
+        "formattedSpread": "Texas A&M -3.5",
+        "spreadOpen": -4.5,
+        "overUnder": 51.5,
+        "overUnderOpen": 50.5,
+        "homeMoneyline": null,
+        "awayMoneyline": null
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": 7,
+    "awayRank": 12,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/245.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "TA&M"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png",
+      "color": null,
+      "alt_color": "#f47321",
+      "abbreviation": "MIA"
+    },
+    "homeRecord": {
+      "wins": 11,
+      "losses": 1,
+      "ties": 0,
+      "record": "11-1"
+    },
+    "awayRecord": {
+      "wins": 10,
+      "losses": 2,
+      "ties": 0,
+      "record": "10-2"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 37.5,
+      "ppg_defense": 22.9,
+      "ypg_offense": 454.8,
+      "ypg_defense": 309.8,
+      "third_down_pct": 40.4,
+      "turnovers": 7,
+      "turnovers_forced": 7,
+      "turnover_margin": 0,
+      "sacks": 41,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 35.2,
+      "ppg_defense": 17.1,
+      "ypg_offense": 425.8,
+      "ypg_defense": 277.8,
+      "third_down_pct": 47.9,
+      "turnovers": 13,
+      "turnovers_forced": 13,
+      "turnover_margin": 0,
+      "sacks": 34,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Marcel Reed",
+        "stat": "2932",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Rueben Owens",
+        "stat": "618",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Kevin Concepcion",
+        "stat": "886",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Taurean York",
+        "stat": "67",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Carson Beck",
+        "stat": "3072",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Mark Fletcher Jr.",
+        "stat": "685",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Malachi Toney",
+        "stat": "970",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Mohamed Toure",
+        "stat": "54",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 18.918,
+      "fpi_rank": 10,
+      "sos_rank": 16,
+      "sor_rank": 3,
+      "efficiency_overall": 82.779,
+      "efficiency_offense": 79.39,
+      "efficiency_defense": 77.965
+    },
+    "awayFPI": {
+      "fpi": 20.865,
+      "fpi_rank": 7,
+      "sos_rank": 45,
+      "sor_rank": 14,
+      "efficiency_overall": 84.931,
+      "efficiency_offense": 74.224,
+      "efficiency_defense": 84.471
+    }
+  },
+  {
+    "id": 401779842,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-20T20:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": false,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3974,
+    "venue": "Vaught-Hemingway Stadium",
+    "homeId": 145,
+    "homeTeam": "Ole Miss",
+    "homeClassification": "fbs",
+    "homeConference": "SEC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1960,
+    "homePostgameElo": null,
+    "awayId": 2655,
+    "awayTeam": "Tulane",
+    "awayClassification": "fbs",
+    "awayConference": "American Athletic",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1627,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "College Football Playoff First Round Game",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -17,
+        "formattedSpread": "Ole Miss -17.0",
+        "spreadOpen": -17,
+        "overUnder": 57,
+        "overUnderOpen": 57,
+        "homeMoneyline": null,
+        "awayMoneyline": null
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -17.5,
+        "formattedSpread": "Ole Miss -17.5",
+        "spreadOpen": null,
+        "overUnder": 56.5,
+        "overUnderOpen": 56.5,
+        "homeMoneyline": -900,
+        "awayMoneyline": 600
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": 6,
+    "awayRank": 21,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/145.png",
+      "color": null,
+      "alt_color": "#c8102e",
+      "abbreviation": "MISS"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png",
+      "color": null,
+      "alt_color": "#468ac9",
+      "abbreviation": "TULN"
+    },
+    "homeRecord": {
+      "wins": 11,
+      "losses": 1,
+      "ties": 0,
+      "record": "11-1"
+    },
+    "awayRecord": {
+      "wins": 11,
+      "losses": 2,
+      "ties": 0,
+      "record": "11-2"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 37.5,
+      "ppg_defense": 22.9,
+      "ypg_offense": 498.6,
+      "ypg_defense": 333.2,
+      "third_down_pct": 46.0,
+      "turnovers": 11,
+      "turnovers_forced": 11,
+      "turnover_margin": 0,
+      "sacks": 25,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 29.2,
+      "ppg_defense": 25.4,
+      "ypg_offense": 410.8,
+      "ypg_defense": 375.6,
+      "third_down_pct": 42.4,
+      "turnovers": 21,
+      "turnovers_forced": 21,
+      "turnover_margin": 0,
+      "sacks": 34,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Trinidad Chambliss",
+        "stat": "3016",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Kewan Lacy",
+        "stat": "1279",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Harrison Wallace III",
+        "stat": "719",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "TJ Dottery",
+        "stat": "77",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Jake Retzlaff",
+        "stat": "2862",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Jake Retzlaff",
+        "stat": "610",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Shazz Preston",
+        "stat": "598",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Chris Rodgers",
+        "stat": "75",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 18.457,
+      "fpi_rank": 12,
+      "sos_rank": 41,
+      "sor_rank": 6,
+      "efficiency_overall": 78.709,
+      "efficiency_offense": 83.635,
+      "efficiency_defense": 57.509
+    },
+    "awayFPI": {
+      "fpi": 4.057,
+      "fpi_rank": 54,
+      "sos_rank": 77,
+      "sor_rank": 19,
+      "efficiency_overall": 64.642,
+      "efficiency_offense": 61.034,
+      "efficiency_defense": 57.964
+    }
+  },
+  {
+    "id": 401779843,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-21T00:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": false,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3626,
+    "venue": "Autzen Stadium",
+    "homeId": 2483,
+    "homeTeam": "Oregon",
+    "homeClassification": "fbs",
+    "homeConference": "Big Ten",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 2087,
+    "homePostgameElo": null,
+    "awayId": 256,
+    "awayTeam": "James Madison",
+    "awayClassification": "fbs",
+    "awayConference": "Sun Belt",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1927,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "College Football Playoff First Round Game",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -22.5,
+        "formattedSpread": "Oregon -22.5",
+        "spreadOpen": -21,
+        "overUnder": null,
+        "overUnderOpen": null,
+        "homeMoneyline": null,
+        "awayMoneyline": null
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -21.5,
+        "formattedSpread": "Oregon -21.5",
+        "spreadOpen": null,
+        "overUnder": 50.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -2100,
+        "awayMoneyline": 1100
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": 4,
+    "awayRank": 19,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png",
+      "color": null,
+      "alt_color": "#fee11a",
+      "abbreviation": "ORE"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/256.png",
+      "color": null,
+      "alt_color": "#b5a068",
+      "abbreviation": "JMU"
+    },
+    "homeRecord": {
+      "wins": 11,
+      "losses": 1,
+      "ties": 0,
+      "record": "11-1"
+    },
+    "awayRecord": {
+      "wins": 12,
+      "losses": 1,
+      "ties": 0,
+      "record": "12-1"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 38.1,
+      "ppg_defense": 18.2,
+      "ypg_offense": 465.2,
+      "ypg_defense": 253.0,
+      "third_down_pct": 48.6,
+      "turnovers": 16,
+      "turnovers_forced": 16,
+      "turnover_margin": 0,
+      "sacks": 23,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 38.3,
+      "ppg_defense": 17.3,
+      "ypg_offense": 450.7,
+      "ypg_defense": 248.0,
+      "third_down_pct": 47.4,
+      "turnovers": 18,
+      "turnovers_forced": 18,
+      "turnover_margin": 0,
+      "sacks": 35,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Dante Moore",
+        "stat": "2733",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Noah Whittington",
+        "stat": "774",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Malik Benson",
+        "stat": "526",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Bryce Boettcher",
+        "stat": "100",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Alonza Barnett",
+        "stat": "2533",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Wayne Knight",
+        "stat": "1263",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Landon Ellis",
+        "stat": "541",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Trent Hendrick",
+        "stat": "86",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 25.035,
+      "fpi_rank": 4,
+      "sos_rank": 17,
+      "sor_rank": 4,
+      "efficiency_overall": 91.573,
+      "efficiency_offense": 87.825,
+      "efficiency_defense": 84.809
+    },
+    "awayFPI": {
+      "fpi": 9.937,
+      "fpi_rank": 28,
+      "sos_rank": 123,
+      "sor_rank": 18,
+      "efficiency_overall": 70.078,
+      "efficiency_offense": 57.502,
+      "efficiency_defense": 74.58
+    }
+  },
+  {
+    "id": 401778308,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-22T19:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3653,
+    "venue": "Albertsons Stadium",
+    "homeId": 328,
+    "homeTeam": "Utah State",
+    "homeClassification": "fbs",
+    "homeConference": "Mountain West",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1462,
+    "homePostgameElo": null,
+    "awayId": 265,
+    "awayTeam": "Washington State",
+    "awayClassification": "fbs",
+    "awayConference": "Pac-12",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1533,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Famous Idaho Potato Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -3,
+        "formattedSpread": "Utah State -3.0",
+        "spreadOpen": -4,
+        "overUnder": 52.5,
+        "overUnderOpen": 52.5,
+        "homeMoneyline": -180,
+        "awayMoneyline": 155
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -3,
+        "formattedSpread": "Utah State -3",
+        "spreadOpen": null,
+        "overUnder": 52.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -155,
+        "awayMoneyline": 130
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/328.png",
+      "color": null,
+      "alt_color": "#949ca1",
+      "abbreviation": "USU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/265.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "WSU"
+    },
+    "homeRecord": {
+      "wins": 6,
+      "losses": 6,
+      "ties": 0,
+      "record": "6-6"
+    },
+    "awayRecord": {
+      "wins": 6,
+      "losses": 6,
+      "ties": 0,
+      "record": "6-6"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 34.0,
+      "ppg_defense": 29.9,
+      "ypg_offense": 422.8,
+      "ypg_defense": 424.9,
+      "third_down_pct": 35.4,
+      "turnovers": 16,
+      "turnovers_forced": 16,
+      "turnover_margin": 0,
+      "sacks": 27,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 24.1,
+      "ppg_defense": 22.3,
+      "ypg_offense": 315.8,
+      "ypg_defense": 305.5,
+      "third_down_pct": 36.7,
+      "turnovers": 11,
+      "turnovers_forced": 10,
+      "turnover_margin": -1,
+      "sacks": 28,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Bryson Barnes",
+        "stat": "2686",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Bryson Barnes",
+        "stat": "733",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Braden Pegan",
+        "stat": "925",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "John Miller",
+        "stat": "109",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Zevi Eckhaus",
+        "stat": "1758",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Kirby Vorhees",
+        "stat": "576",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Josh Meredith",
+        "stat": "641",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Parker McKenna",
+        "stat": "83",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -2.166,
+      "fpi_rank": 74,
+      "sos_rank": 68,
+      "sor_rank": 80,
+      "efficiency_overall": 50.398,
+      "efficiency_offense": 56.392,
+      "efficiency_defense": 47.61
+    },
+    "awayFPI": {
+      "fpi": 0.456,
+      "fpi_rank": 66,
+      "sos_rank": 55,
+      "sor_rank": 67,
+      "efficiency_overall": 58.683,
+      "efficiency_offense": 43.28,
+      "efficiency_defense": 70.002
+    }
+  },
+  {
+    "id": 401778309,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-23T19:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3715,
+    "venue": "FAU Stadium",
+    "homeId": 97,
+    "homeTeam": "Louisville",
+    "homeClassification": "fbs",
+    "homeConference": "ACC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1744,
+    "homePostgameElo": null,
+    "awayId": 2649,
+    "awayTeam": "Toledo",
+    "awayClassification": "fbs",
+    "awayConference": "Mid-American",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1651,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Bush's Boca Raton Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": -8.5,
+        "formattedSpread": "Louisville -8.5",
+        "spreadOpen": -9.5,
+        "overUnder": 44.5,
+        "overUnderOpen": 46.5,
+        "homeMoneyline": -345,
+        "awayMoneyline": 275
+      },
+      {
+        "provider": "Bovada",
+        "spread": -9.5,
+        "formattedSpread": "Louisville -9.5",
+        "spreadOpen": -8,
+        "overUnder": 45,
+        "overUnderOpen": 45.5,
+        "homeMoneyline": -320,
+        "awayMoneyline": 260
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/97.png",
+      "color": null,
+      "alt_color": "#000000",
+      "abbreviation": "LOU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2649.png",
+      "color": null,
+      "alt_color": "#ffcd00",
+      "abbreviation": "TOL"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "awayRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 28.8,
+      "ppg_defense": 21.2,
+      "ypg_offense": 388.9,
+      "ypg_defense": 300.3,
+      "third_down_pct": 36.7,
+      "turnovers": 21,
+      "turnovers_forced": 21,
+      "turnover_margin": 0,
+      "sacks": 27,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 33.4,
+      "ppg_defense": 16.5,
+      "ypg_offense": 422.4,
+      "ypg_defense": 249.0,
+      "third_down_pct": 41.0,
+      "turnovers": 17,
+      "turnovers_forced": 17,
+      "turnover_margin": 0,
+      "sacks": 35,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Miller Moss",
+        "stat": "2526",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Isaac Brown",
+        "stat": "782",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Chris Bell",
+        "stat": "917",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "TJ Quinn",
+        "stat": "87",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Tucker Gleason",
+        "stat": "2515",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "DeaMonte Trayanum",
+        "stat": "950",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Junior Vandeross",
+        "stat": "947",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "K'Von Sherman",
+        "stat": "85",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 9.893,
+      "fpi_rank": 29,
+      "sos_rank": 49,
+      "sor_rank": 34,
+      "efficiency_overall": 71.052,
+      "efficiency_offense": 53.848,
+      "efficiency_defense": 75.091
+    },
+    "awayFPI": {
+      "fpi": 4.148,
+      "fpi_rank": 53,
+      "sos_rank": 128,
+      "sor_rank": 77,
+      "efficiency_overall": 64.317,
+      "efficiency_offense": 44.475,
+      "efficiency_defense": 76.209
+    }
+  },
+  {
+    "id": 401778310,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-23T22:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3493,
+    "venue": "Caesars Superdome",
+    "homeId": 2572,
+    "homeTeam": "Southern Miss",
+    "homeClassification": "fbs",
+    "homeConference": "Sun Belt",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1282,
+    "homePostgameElo": null,
+    "awayId": 98,
+    "awayTeam": "Western Kentucky",
+    "awayClassification": "fbs",
+    "awayConference": "Conference USA",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1401,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "New Orleans Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": 4,
+        "formattedSpread": "Western Kentucky -4.0",
+        "spreadOpen": 4,
+        "overUnder": 55.5,
+        "overUnderOpen": 55.5,
+        "homeMoneyline": 160,
+        "awayMoneyline": -185
+      },
+      {
+        "provider": "DraftKings",
+        "spread": 4,
+        "formattedSpread": "Western Kentucky -4",
+        "spreadOpen": null,
+        "overUnder": 55.5,
+        "overUnderOpen": null,
+        "homeMoneyline": 154,
+        "awayMoneyline": -185
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2572.png",
+      "color": null,
+      "alt_color": "#ffc423",
+      "abbreviation": "USM"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/98.png",
+      "color": null,
+      "alt_color": "#b3b5b8",
+      "abbreviation": "WKU"
+    },
+    "homeRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "awayRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 31.1,
+      "ppg_defense": 29.9,
+      "ypg_offense": 403.8,
+      "ypg_defense": 402.3,
+      "third_down_pct": 40.2,
+      "turnovers": 25,
+      "turnovers_forced": 25,
+      "turnover_margin": 0,
+      "sacks": 27,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 29.9,
+      "ppg_defense": 20.6,
+      "ypg_offense": 405.5,
+      "ypg_defense": 402.6,
+      "third_down_pct": 45.2,
+      "turnovers": 15,
+      "turnovers_forced": 15,
+      "turnover_margin": 0,
+      "sacks": 15,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Braylon Braxton",
+        "stat": "2795",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Jeffery Pittman",
+        "stat": "640",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Elijah Metcalf",
+        "stat": "677",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Chris Jones",
+        "stat": "126",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Maverick McIvor",
+        "stat": "1863",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Marvis Parrish",
+        "stat": "511",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Matthew Henry",
+        "stat": "762",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jaylen Wester",
+        "stat": "94",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -7.796,
+      "fpi_rank": 96,
+      "sos_rank": 133,
+      "sor_rank": 92,
+      "efficiency_overall": 38.801,
+      "efficiency_offense": 35.145,
+      "efficiency_defense": 45.59
+    },
+    "awayFPI": {
+      "fpi": -7.765,
+      "fpi_rank": 95,
+      "sos_rank": 117,
+      "sor_rank": 76,
+      "efficiency_overall": 39.912,
+      "efficiency_offense": 39.464,
+      "efficiency_defense": 43.126
+    }
+  },
+  {
+    "id": 401778311,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-24T02:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 5455,
+    "venue": "Ford Center At The Star",
+    "homeId": 195,
+    "homeTeam": "Ohio",
+    "homeClassification": "fbs",
+    "homeConference": "Mid-American",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1562,
+    "homePostgameElo": null,
+    "awayId": 2439,
+    "awayTeam": "UNLV",
+    "awayClassification": "fbs",
+    "awayConference": "Mountain West",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1644,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Scooter's Coffee Frisco Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": 4.5,
+        "formattedSpread": "UNLV -4.5",
+        "spreadOpen": 4,
+        "overUnder": 62.5,
+        "overUnderOpen": null,
+        "homeMoneyline": 164,
+        "awayMoneyline": -198
+      },
+      {
+        "provider": "Bovada",
+        "spread": 4.5,
+        "formattedSpread": "UNLV -4.5",
+        "spreadOpen": 4,
+        "overUnder": 62.5,
+        "overUnderOpen": 62.5,
+        "homeMoneyline": 170,
+        "awayMoneyline": -200
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/195.png",
+      "color": null,
+      "alt_color": "#e4bb85",
+      "abbreviation": "OHIO"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2439.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "UNLV"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "awayRecord": {
+      "wins": 10,
+      "losses": 3,
+      "ties": 0,
+      "record": "10-3"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 31.7,
+      "ppg_defense": 25.2,
+      "ypg_offense": 417.5,
+      "ypg_defense": 358.2,
+      "third_down_pct": 42.9,
+      "turnovers": 17,
+      "turnovers_forced": 17,
+      "turnover_margin": 0,
+      "sacks": 20,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 36.2,
+      "ppg_defense": 30.2,
+      "ypg_offense": 459.5,
+      "ypg_defense": 424.5,
+      "third_down_pct": 45.9,
+      "turnovers": 20,
+      "turnovers_forced": 20,
+      "turnover_margin": 0,
+      "sacks": 29,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Parker Navarro",
+        "stat": "2232",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Sieh Bangura",
+        "stat": "1243",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Chase Hendricks",
+        "stat": "950",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jalen Thomeson",
+        "stat": "80",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Anthony Colandrea",
+        "stat": "3275",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Jai'Den Thomas",
+        "stat": "983",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Jaden Bradley",
+        "stat": "869",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Marsel McDuffie",
+        "stat": "103",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -3.166,
+      "fpi_rank": 79,
+      "sos_rank": 88,
+      "sor_rank": 70,
+      "efficiency_overall": 47.649,
+      "efficiency_offense": 53.661,
+      "efficiency_defense": 42.682
+    },
+    "awayFPI": {
+      "fpi": 1.088,
+      "fpi_rank": 62,
+      "sos_rank": 122,
+      "sor_rank": 47,
+      "efficiency_overall": 51.531,
+      "efficiency_offense": 67.502,
+      "efficiency_defense": 33.724
+    }
+  },
+  {
+    "id": 401778312,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-25T01:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": false,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 7220,
+    "venue": "Clarence T.C. Ching Athletics Complex",
+    "homeId": 62,
+    "homeTeam": "Hawai'i",
+    "homeClassification": "fbs",
+    "homeConference": "Mountain West",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1459,
+    "homePostgameElo": null,
+    "awayId": 25,
+    "awayTeam": "California",
+    "awayClassification": "fbs",
+    "awayConference": "ACC",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1360,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Sheraton Hawai\u02bbi Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": 1.5,
+        "formattedSpread": "California -1.5",
+        "spreadOpen": null,
+        "overUnder": 54.5,
+        "overUnderOpen": null,
+        "homeMoneyline": 102,
+        "awayMoneyline": -122
+      },
+      {
+        "provider": "Bovada",
+        "spread": 2,
+        "formattedSpread": "California -2.0",
+        "spreadOpen": 3,
+        "overUnder": 54.5,
+        "overUnderOpen": 55.5,
+        "homeMoneyline": 125,
+        "awayMoneyline": -145
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/62.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "HAW"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/25.png",
+      "color": null,
+      "alt_color": "#ffc423",
+      "abbreviation": "CAL"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "awayRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 25.8,
+      "ppg_defense": 23.5,
+      "ypg_offense": 395.3,
+      "ypg_defense": 351.7,
+      "third_down_pct": 44.8,
+      "turnovers": 13,
+      "turnovers_forced": 14,
+      "turnover_margin": 1,
+      "sacks": 28,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 27.6,
+      "ppg_defense": 25.8,
+      "ypg_offense": 347.6,
+      "ypg_defense": 359.2,
+      "third_down_pct": 39.6,
+      "turnovers": 13,
+      "turnovers_forced": 13,
+      "turnover_margin": 0,
+      "sacks": 20,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Micah Alejado",
+        "stat": "2832",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Landon Sims",
+        "stat": "523",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Jackson Harris",
+        "stat": "963",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Peter Manuma",
+        "stat": "65",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Jaron-Keawe Sagapolutele",
+        "stat": "3109",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Kendrick Raphael",
+        "stat": "862",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Jacob De Jesus",
+        "stat": "884",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Cade Uluave",
+        "stat": "88",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -5.277,
+      "fpi_rank": 88,
+      "sos_rank": 106,
+      "sor_rank": 68,
+      "efficiency_overall": 43.856,
+      "efficiency_offense": 40.773,
+      "efficiency_defense": 45.324
+    },
+    "awayFPI": {
+      "fpi": -3.653,
+      "fpi_rank": 80,
+      "sos_rank": 78,
+      "sor_rank": 61,
+      "efficiency_overall": 45.449,
+      "efficiency_offense": 42.094,
+      "efficiency_defense": 49.642
+    }
+  },
+  {
+    "id": 401778313,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-26T18:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3727,
+    "venue": "Ford Field",
+    "homeId": 77,
+    "homeTeam": "Northwestern",
+    "homeClassification": "fbs",
+    "homeConference": "Big Ten",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1524,
+    "homePostgameElo": null,
+    "awayId": 2117,
+    "awayTeam": "Central Michigan",
+    "awayClassification": "fbs",
+    "awayConference": "Mid-American",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1282,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "GameAbove Sports Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": -10.5,
+        "formattedSpread": "Northwestern -10.5",
+        "spreadOpen": null,
+        "overUnder": 43.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -380,
+        "awayMoneyline": 300
+      },
+      {
+        "provider": "Bovada",
+        "spread": -11,
+        "formattedSpread": "Northwestern -11.0",
+        "spreadOpen": -12.5,
+        "overUnder": 43.5,
+        "overUnderOpen": 43.5,
+        "homeMoneyline": -480,
+        "awayMoneyline": 350
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/77.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "NU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2117.png",
+      "color": null,
+      "alt_color": "#ffc82e",
+      "abbreviation": "CMU"
+    },
+    "homeRecord": {
+      "wins": 6,
+      "losses": 6,
+      "ties": 0,
+      "record": "6-6"
+    },
+    "awayRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 22.9,
+      "ppg_defense": 23.5,
+      "ypg_offense": 349.7,
+      "ypg_defense": 334.9,
+      "third_down_pct": 43.8,
+      "turnovers": 16,
+      "turnovers_forced": 16,
+      "turnover_margin": 0,
+      "sacks": 18,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 24.7,
+      "ppg_defense": 24.7,
+      "ypg_offense": 337.4,
+      "ypg_defense": 360.1,
+      "third_down_pct": 34.6,
+      "turnovers": 18,
+      "turnovers_forced": 18,
+      "turnover_margin": 0,
+      "sacks": 28,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Preston Stone",
+        "stat": "2174",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Caleb Komolafe",
+        "stat": "886",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Griffin Wilde",
+        "stat": "783",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Robert Fitzgerald",
+        "stat": "101",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Joey Labas",
+        "stat": "1676",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Nahree Biggins",
+        "stat": "540",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Langston Lewis",
+        "stat": "513",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jordan Kwiatkowski",
+        "stat": "104",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 2.974,
+      "fpi_rank": 59,
+      "sos_rank": 31,
+      "sor_rank": 51,
+      "efficiency_overall": 55.151,
+      "efficiency_offense": 52.059,
+      "efficiency_defense": 54.112
+    },
+    "awayFPI": {
+      "fpi": -10.51,
+      "fpi_rank": 106,
+      "sos_rank": 101,
+      "sor_rank": 86,
+      "efficiency_overall": 41.386,
+      "efficiency_offense": 37.659,
+      "efficiency_defense": 48.385
+    }
+  },
+  {
+    "id": 401778314,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-26T21:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 4251,
+    "venue": "Chase Field",
+    "homeId": 135,
+    "homeTeam": "Minnesota",
+    "homeClassification": "fbs",
+    "homeConference": "Big Ten",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1510,
+    "homePostgameElo": null,
+    "awayId": 167,
+    "awayTeam": "New Mexico",
+    "awayClassification": "fbs",
+    "awayConference": "Mountain West",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1500,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Rate Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": -2.5,
+        "formattedSpread": "Minnesota -2.5",
+        "spreadOpen": null,
+        "overUnder": 47.5,
+        "overUnderOpen": 47.5,
+        "homeMoneyline": -142,
+        "awayMoneyline": 120
+      },
+      {
+        "provider": "Bovada",
+        "spread": -2.5,
+        "formattedSpread": "Minnesota -2.5",
+        "spreadOpen": -3,
+        "overUnder": 47,
+        "overUnderOpen": 47.5,
+        "homeMoneyline": -145,
+        "awayMoneyline": 125
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/135.png",
+      "color": null,
+      "alt_color": "#fab41c",
+      "abbreviation": "MINN"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/167.png",
+      "color": null,
+      "alt_color": "#a7a8aa",
+      "abbreviation": "UNM"
+    },
+    "homeRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "awayRecord": {
+      "wins": 9,
+      "losses": 3,
+      "ties": 0,
+      "record": "9-3"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 24.1,
+      "ppg_defense": 24.7,
+      "ypg_offense": 296.8,
+      "ypg_defense": 342.9,
+      "third_down_pct": 39.5,
+      "turnovers": 9,
+      "turnovers_forced": 10,
+      "turnover_margin": 1,
+      "sacks": 35,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 28.8,
+      "ppg_defense": 23.5,
+      "ypg_offense": 369.9,
+      "ypg_defense": 350.8,
+      "third_down_pct": 38.8,
+      "turnovers": 22,
+      "turnovers_forced": 22,
+      "turnover_margin": 0,
+      "sacks": 33,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Drake Lindsey",
+        "stat": "2235",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Darius Taylor",
+        "stat": "554",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Lemeke Brockington",
+        "stat": "484",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Maverick Baranowski",
+        "stat": "85",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Jack Layne",
+        "stat": "2398",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Damon Bankston",
+        "stat": "578",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Keagan Johnson",
+        "stat": "712",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jaxton Eck",
+        "stat": "126",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 1.059,
+      "fpi_rank": 63,
+      "sos_rank": 36,
+      "sor_rank": 42,
+      "efficiency_overall": 50.354,
+      "efficiency_offense": 48.776,
+      "efficiency_defense": 49.897
+    },
+    "awayFPI": {
+      "fpi": -2.307,
+      "fpi_rank": 75,
+      "sos_rank": 86,
+      "sor_rank": 39,
+      "efficiency_overall": 50.448,
+      "efficiency_offense": 47.4,
+      "efficiency_defense": 54.017
+    }
+  },
+  {
+    "id": 401778315,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-27T01:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3735,
+    "venue": "Gerald J. Ford Stadium",
+    "homeId": 2636,
+    "homeTeam": "UTSA",
+    "homeClassification": "fbs",
+    "homeConference": "American Athletic",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1575,
+    "homePostgameElo": null,
+    "awayId": 2229,
+    "awayTeam": "Florida International",
+    "awayClassification": "fbs",
+    "awayConference": "Conference USA",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1417,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "SERVPRO First Responder Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": -8.5,
+        "formattedSpread": "UTSA -8.5",
+        "spreadOpen": null,
+        "overUnder": 59.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -325,
+        "awayMoneyline": 260
+      },
+      {
+        "provider": "Bovada",
+        "spread": -8,
+        "formattedSpread": "UTSA -8.0",
+        "spreadOpen": -8.5,
+        "overUnder": 60,
+        "overUnderOpen": 59,
+        "homeMoneyline": -320,
+        "awayMoneyline": 260
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2636.png",
+      "color": null,
+      "alt_color": "#f47321",
+      "abbreviation": "UTSA"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2229.png",
+      "color": null,
+      "alt_color": "#c5960c",
+      "abbreviation": "FIU"
+    },
+    "homeRecord": {
+      "wins": 6,
+      "losses": 6,
+      "ties": 0,
+      "record": "6-6"
+    },
+    "awayRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 34.0,
+      "ppg_defense": 29.3,
+      "ypg_offense": 416.3,
+      "ypg_defense": 382.7,
+      "third_down_pct": 40.1,
+      "turnovers": 14,
+      "turnovers_forced": 14,
+      "turnover_margin": 0,
+      "sacks": 21,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 31.7,
+      "ppg_defense": 28.8,
+      "ypg_offense": 408.8,
+      "ypg_defense": 406.3,
+      "third_down_pct": 36.0,
+      "turnovers": 20,
+      "turnovers_forced": 20,
+      "turnover_margin": 0,
+      "sacks": 27,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Owen McCown",
+        "stat": "2695",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Robert Henry",
+        "stat": "1045",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Devin Mccuin",
+        "stat": "653",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Shadrach Banks",
+        "stat": "85",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Keyone Jenkins",
+        "stat": "1693",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Kejon Owens",
+        "stat": "1298",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Alex Perry",
+        "stat": "816",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Johnny Chaney Jr",
+        "stat": "99",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -0.178,
+      "fpi_rank": 68,
+      "sos_rank": 71,
+      "sor_rank": 81,
+      "efficiency_overall": 49.786,
+      "efficiency_offense": 50.682,
+      "efficiency_defense": 50.813
+    },
+    "awayFPI": {
+      "fpi": -9.308,
+      "fpi_rank": 99,
+      "sos_rank": 114,
+      "sor_rank": 89,
+      "efficiency_overall": 36.446,
+      "efficiency_offense": 33.441,
+      "efficiency_defense": 49.307
+    }
+  },
+  {
+    "id": 401778316,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-27T16:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3852,
+    "venue": "Navy-Marine Corps Memorial Stadium",
+    "homeId": 151,
+    "homeTeam": "East Carolina",
+    "homeClassification": "fbs",
+    "homeConference": "American Athletic",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1576,
+    "homePostgameElo": null,
+    "awayId": 221,
+    "awayTeam": "Pittsburgh",
+    "awayClassification": "fbs",
+    "awayConference": "ACC",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1631,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Go Bowling Military Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": 6,
+        "formattedSpread": "Pittsburgh -6",
+        "spreadOpen": null,
+        "overUnder": 59.5,
+        "overUnderOpen": 60.5,
+        "homeMoneyline": 185,
+        "awayMoneyline": -225
+      },
+      {
+        "provider": "Bovada",
+        "spread": 5.5,
+        "formattedSpread": "Pittsburgh -5.5",
+        "spreadOpen": 6,
+        "overUnder": 59.5,
+        "overUnderOpen": 58.5,
+        "homeMoneyline": 185,
+        "awayMoneyline": -225
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/151.png",
+      "color": null,
+      "alt_color": "#f0907b",
+      "abbreviation": "ECU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/221.png",
+      "color": null,
+      "alt_color": "#231f20",
+      "abbreviation": "PITT"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "awayRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 35.8,
+      "ppg_defense": 21.2,
+      "ypg_offense": 465.7,
+      "ypg_defense": 348.9,
+      "third_down_pct": 50.0,
+      "turnovers": 16,
+      "turnovers_forced": 16,
+      "turnover_margin": 0,
+      "sacks": 26,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 32.8,
+      "ppg_defense": 28.2,
+      "ypg_offense": 392.5,
+      "ypg_defense": 337.2,
+      "third_down_pct": 33.3,
+      "turnovers": 19,
+      "turnovers_forced": 19,
+      "turnover_margin": 0,
+      "sacks": 28,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Katin Houser",
+        "stat": "3300",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "London Montgomery",
+        "stat": "742",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Anthony Smith",
+        "stat": "897",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Ja'Marley Riddle",
+        "stat": "70",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Mason Heintschel",
+        "stat": "2101",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Ja'Kyrian Turner",
+        "stat": "654",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Raphael Williams",
+        "stat": "684",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Rasheem Biles",
+        "stat": "84",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 4.303,
+      "fpi_rank": 52,
+      "sos_rank": 99,
+      "sor_rank": 59,
+      "efficiency_overall": 60.642,
+      "efficiency_offense": 54.899,
+      "efficiency_defense": 64.567
+    },
+    "awayFPI": {
+      "fpi": 7.826,
+      "fpi_rank": 37,
+      "sos_rank": 54,
+      "sor_rank": 36,
+      "efficiency_overall": 69.069,
+      "efficiency_offense": 54.345,
+      "efficiency_defense": 74.277
+    }
+  },
+  {
+    "id": 401778317,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-27T17:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 4102,
+    "venue": "Yankee Stadium",
+    "homeId": 228,
+    "homeTeam": "Clemson",
+    "homeClassification": "fbs",
+    "homeConference": "ACC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1758,
+    "homePostgameElo": null,
+    "awayId": 213,
+    "awayTeam": "Penn State",
+    "awayClassification": "fbs",
+    "awayConference": "Big Ten",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1951,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Bad Boy Mowers Pinstripe Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": -3,
+        "formattedSpread": "Clemson -3",
+        "spreadOpen": null,
+        "overUnder": 48.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -148,
+        "awayMoneyline": 124
+      },
+      {
+        "provider": "Bovada",
+        "spread": -3,
+        "formattedSpread": "Clemson -3.0",
+        "spreadOpen": -3,
+        "overUnder": 48.5,
+        "overUnderOpen": 48.5,
+        "homeMoneyline": -160,
+        "awayMoneyline": 135
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/228.png",
+      "color": null,
+      "alt_color": "#522d80",
+      "abbreviation": "CLEM"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+      "color": null,
+      "alt_color": "#FFFFFF",
+      "abbreviation": "PSU"
+    },
+    "homeRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "awayRecord": {
+      "wins": 6,
+      "losses": 6,
+      "ties": 0,
+      "record": "6-6"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 29.9,
+      "ppg_defense": 21.2,
+      "ypg_offense": 405.2,
+      "ypg_defense": 353.8,
+      "third_down_pct": 34.4,
+      "turnovers": 17,
+      "turnovers_forced": 17,
+      "turnover_margin": 0,
+      "sacks": 32,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 31.7,
+      "ppg_defense": 24.1,
+      "ypg_offense": 359.1,
+      "ypg_defense": 335.2,
+      "third_down_pct": 41.7,
+      "turnovers": 9,
+      "turnovers_forced": 9,
+      "turnover_margin": 0,
+      "sacks": 27,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Cade Klubnik",
+        "stat": "2750",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Adam Randall",
+        "stat": "779",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "T.J. Moore",
+        "stat": "754",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Sammy Brown",
+        "stat": "92",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Drew Allar",
+        "stat": "1100",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Kaytron Allen",
+        "stat": "1303",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Trebor Pena",
+        "stat": "452",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Amare Campbell",
+        "stat": "96",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 9.757,
+      "fpi_rank": 30,
+      "sos_rank": 62,
+      "sor_rank": 52,
+      "efficiency_overall": 64.985,
+      "efficiency_offense": 61.144,
+      "efficiency_defense": 64.804
+    },
+    "awayFPI": {
+      "fpi": 15.588,
+      "fpi_rank": 17,
+      "sos_rank": 19,
+      "sor_rank": 49,
+      "efficiency_overall": 73.173,
+      "efficiency_offense": 70.655,
+      "efficiency_defense": 60.655
+    }
+  },
+  {
+    "id": 401778318,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-27T19:15:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 4245,
+    "venue": "Fenway Park",
+    "homeId": 349,
+    "homeTeam": "Army",
+    "homeClassification": "fbs",
+    "homeConference": "American Athletic",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1514,
+    "homePostgameElo": null,
+    "awayId": 41,
+    "awayTeam": "UConn",
+    "awayClassification": "fbs",
+    "awayConference": "FBS Independents",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1554,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Wasabi Fenway Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -3.5,
+        "formattedSpread": "Army -3.5",
+        "spreadOpen": -3,
+        "overUnder": 49.5,
+        "overUnderOpen": 50.5,
+        "homeMoneyline": null,
+        "awayMoneyline": null
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -5.5,
+        "formattedSpread": "Army -5.5",
+        "spreadOpen": null,
+        "overUnder": 49.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -198,
+        "awayMoneyline": 164
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/349.png",
+      "color": null,
+      "alt_color": "#231f20",
+      "abbreviation": "ARMY"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/41.png",
+      "color": null,
+      "alt_color": "#f1f2f3",
+      "abbreviation": "CONN"
+    },
+    "homeRecord": {
+      "wins": 6,
+      "losses": 5,
+      "ties": 0,
+      "record": "6-5"
+    },
+    "awayRecord": {
+      "wins": 9,
+      "losses": 3,
+      "ties": 0,
+      "record": "9-3"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 25.1,
+      "ppg_defense": 24.5,
+      "ypg_offense": 335.3,
+      "ypg_defense": 357.0,
+      "third_down_pct": 40.0,
+      "turnovers": 12,
+      "turnovers_forced": 12,
+      "turnover_margin": 0,
+      "sacks": 11,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 37.5,
+      "ppg_defense": 28.8,
+      "ypg_offense": 463.7,
+      "ypg_defense": 413.2,
+      "third_down_pct": 42.2,
+      "turnovers": 12,
+      "turnovers_forced": 12,
+      "turnover_margin": 0,
+      "sacks": 34,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Cale Hellums",
+        "stat": "504",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Cale Hellums",
+        "stat": "1070",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Bradyn Anderson",
+        "stat": "350",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Andon Thomas",
+        "stat": "96",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Joe Fagnano",
+        "stat": "3441",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Camryn Edwards",
+        "stat": "1132",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Skyler Bell",
+        "stat": "1276",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Bryun Parham",
+        "stat": "116",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -4.605,
+      "fpi_rank": 84,
+      "sos_rank": 84,
+      "sor_rank": 75,
+      "efficiency_overall": 46.973,
+      "efficiency_offense": 43.652,
+      "efficiency_defense": 49.75
+    },
+    "awayFPI": {
+      "fpi": -1.697,
+      "fpi_rank": 71,
+      "sos_rank": 135,
+      "sor_rank": 65,
+      "efficiency_overall": 52.794,
+      "efficiency_offense": 65.394,
+      "efficiency_defense": 35.731
+    }
+  },
+  {
+    "id": 401778319,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-27T20:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 4013,
+    "venue": "Camping World Stadium",
+    "homeId": 252,
+    "homeTeam": "BYU",
+    "homeClassification": "fbs",
+    "homeConference": "Big 12",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1750,
+    "homePostgameElo": null,
+    "awayId": 59,
+    "awayTeam": "Georgia Tech",
+    "awayClassification": "fbs",
+    "awayConference": "ACC",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1595,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Pop-Tarts Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -5,
+        "formattedSpread": "BYU -5.0",
+        "spreadOpen": -3,
+        "overUnder": 56,
+        "overUnderOpen": 56,
+        "homeMoneyline": -160,
+        "awayMoneyline": 135
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -4.5,
+        "formattedSpread": "BYU -4.5",
+        "spreadOpen": null,
+        "overUnder": 55.5,
+        "overUnderOpen": 56.5,
+        "homeMoneyline": -198,
+        "awayMoneyline": 164
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": 11,
+    "awayRank": 24,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/252.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "BYU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/59.png",
+      "color": null,
+      "alt_color": "#b3a369",
+      "abbreviation": "GT"
+    },
+    "homeRecord": {
+      "wins": 11,
+      "losses": 2,
+      "ties": 0,
+      "record": "11-2"
+    },
+    "awayRecord": {
+      "wins": 9,
+      "losses": 3,
+      "ties": 0,
+      "record": "9-3"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 30.2,
+      "ppg_defense": 20.5,
+      "ypg_offense": 398.4,
+      "ypg_defense": 328.6,
+      "third_down_pct": 40.9,
+      "turnovers": 24,
+      "turnovers_forced": 24,
+      "turnover_margin": 0,
+      "sacks": 30,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 31.7,
+      "ppg_defense": 27.6,
+      "ypg_offense": 466.4,
+      "ypg_defense": 397.3,
+      "third_down_pct": 47.2,
+      "turnovers": 10,
+      "turnovers_forced": 9,
+      "turnover_margin": -1,
+      "sacks": 27,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Bear Bachmeier",
+        "stat": "2708",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "LJ Martin",
+        "stat": "1305",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Parker Kingston",
+        "stat": "848",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Faletau Satuala",
+        "stat": "73",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Haynes King",
+        "stat": "2697",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Haynes King",
+        "stat": "922",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Eric Rivers",
+        "stat": "569",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Kyle Efford",
+        "stat": "72",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 15.767,
+      "fpi_rank": 16,
+      "sos_rank": 22,
+      "sor_rank": 9,
+      "efficiency_overall": 82.562,
+      "efficiency_offense": 73.707,
+      "efficiency_defense": 79.014
+    },
+    "awayFPI": {
+      "fpi": 6.946,
+      "fpi_rank": 42,
+      "sos_rank": 64,
+      "sor_rank": 27,
+      "efficiency_overall": 63.899,
+      "efficiency_offense": 70.969,
+      "efficiency_defense": 44.706
+    }
+  },
+  {
+    "id": 401778320,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-27T21:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3619,
+    "venue": "Arizona Stadium",
+    "homeId": 278,
+    "homeTeam": "Fresno State",
+    "homeClassification": "fbs",
+    "homeConference": "Mountain West",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1517,
+    "homePostgameElo": null,
+    "awayId": 193,
+    "awayTeam": "Miami (OH)",
+    "awayClassification": "fbs",
+    "awayConference": "Mid-American",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1431,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Snoop Dogg Arizona Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -3.5,
+        "formattedSpread": "Fresno State -3.5",
+        "spreadOpen": -3.5,
+        "overUnder": 42.5,
+        "overUnderOpen": 42,
+        "homeMoneyline": -165,
+        "awayMoneyline": 140
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -3.5,
+        "formattedSpread": "Fresno State -3.5",
+        "spreadOpen": null,
+        "overUnder": 42.5,
+        "overUnderOpen": 44.5,
+        "homeMoneyline": -162,
+        "awayMoneyline": 136
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/278.png",
+      "color": null,
+      "alt_color": "#002e6d",
+      "abbreviation": "FRES"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/193.png",
+      "color": null,
+      "alt_color": "#f0f0f0",
+      "abbreviation": "M-OH"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "awayRecord": {
+      "wins": 7,
+      "losses": 6,
+      "ties": 0,
+      "record": "7-6"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 26.4,
+      "ppg_defense": 21.8,
+      "ypg_offense": 350.6,
+      "ypg_defense": 295.3,
+      "third_down_pct": 36.2,
+      "turnovers": 26,
+      "turnovers_forced": 26,
+      "turnover_margin": 0,
+      "sacks": 21,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 24.3,
+      "ppg_defense": 23.8,
+      "ypg_offense": 349.3,
+      "ypg_defense": 329.8,
+      "third_down_pct": 34.8,
+      "turnovers": 17,
+      "turnovers_forced": 17,
+      "turnover_margin": 0,
+      "sacks": 40,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "E.J. Warner",
+        "stat": "1811",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Rayshon Luke",
+        "stat": "685",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Josiah Freeman",
+        "stat": "499",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jadon Pearson",
+        "stat": "89",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Dequan Finn",
+        "stat": "1451",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Jordan Brunson",
+        "stat": "724",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Kamryn Perry",
+        "stat": "966",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Eli Blakey",
+        "stat": "105",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -5.434,
+      "fpi_rank": 89,
+      "sos_rank": 119,
+      "sor_rank": 69,
+      "efficiency_overall": 44.365,
+      "efficiency_offense": 23.818,
+      "efficiency_defense": 63.09
+    },
+    "awayFPI": {
+      "fpi": -4.962,
+      "fpi_rank": 85,
+      "sos_rank": 126,
+      "sor_rank": 94,
+      "efficiency_overall": 46.092,
+      "efficiency_offense": 36.439,
+      "efficiency_defense": 53.577
+    }
+  },
+  {
+    "id": 401778321,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-27T22:45:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3971,
+    "venue": "University Stadium (NM)",
+    "homeId": 21,
+    "homeTeam": "San Diego State",
+    "homeClassification": "fbs",
+    "homeConference": "Mountain West",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1521,
+    "homePostgameElo": null,
+    "awayId": 249,
+    "awayTeam": "North Texas",
+    "awayClassification": "fbs",
+    "awayConference": "American Athletic",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1716,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Isleta New Mexico Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": 3,
+        "formattedSpread": "North Texas -3",
+        "spreadOpen": null,
+        "overUnder": 55.5,
+        "overUnderOpen": null,
+        "homeMoneyline": 136,
+        "awayMoneyline": -162
+      },
+      {
+        "provider": "Bovada",
+        "spread": 3,
+        "formattedSpread": "North Texas -3.0",
+        "spreadOpen": 3,
+        "overUnder": 55.5,
+        "overUnderOpen": 56,
+        "homeMoneyline": 135,
+        "awayMoneyline": -160
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": 20,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/21.png",
+      "color": null,
+      "alt_color": "#000000",
+      "abbreviation": "SDSU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/249.png",
+      "color": null,
+      "alt_color": "#000000",
+      "abbreviation": "UNT"
+    },
+    "homeRecord": {
+      "wins": 9,
+      "losses": 3,
+      "ties": 0,
+      "record": "9-3"
+    },
+    "awayRecord": {
+      "wins": 11,
+      "losses": 2,
+      "ties": 0,
+      "record": "11-2"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 22.9,
+      "ppg_defense": 15.3,
+      "ypg_offense": 341.3,
+      "ypg_defense": 267.2,
+      "third_down_pct": 31.6,
+      "turnovers": 17,
+      "turnovers_forced": 17,
+      "turnover_margin": 0,
+      "sacks": 32,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 47.5,
+      "ppg_defense": 26.5,
+      "ypg_offense": 503.2,
+      "ypg_defense": 370.5,
+      "third_down_pct": 46.1,
+      "turnovers": 23,
+      "turnovers_forced": 23,
+      "turnover_margin": 0,
+      "sacks": 23,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Jayden Denegal",
+        "stat": "1810",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Lucky Sutton",
+        "stat": "1232",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Jordan Napier",
+        "stat": "632",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Owen Chambliss",
+        "stat": "86",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Drew Mestemaker",
+        "stat": "4119",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Caleb Hawkins",
+        "stat": "1226",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Wyatt Young",
+        "stat": "1209",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Ethan Wesloski",
+        "stat": "104",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 0.038,
+      "fpi_rank": 67,
+      "sos_rank": 127,
+      "sor_rank": 55,
+      "efficiency_overall": 62.029,
+      "efficiency_offense": 35.674,
+      "efficiency_defense": 75.426
+    },
+    "awayFPI": {
+      "fpi": 7.135,
+      "fpi_rank": 39,
+      "sos_rank": 118,
+      "sor_rank": 32,
+      "efficiency_overall": 70.151,
+      "efficiency_offense": 80.268,
+      "efficiency_defense": 53.022
+    }
+  },
+  {
+    "id": 401778322,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-28T00:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3712,
+    "venue": "EverBank Stadium",
+    "homeId": 142,
+    "homeTeam": "Missouri",
+    "homeClassification": "fbs",
+    "homeConference": "SEC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1765,
+    "homePostgameElo": null,
+    "awayId": 258,
+    "awayTeam": "Virginia",
+    "awayClassification": "fbs",
+    "awayConference": "ACC",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1622,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "TaxSlayer Gator Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -6.5,
+        "formattedSpread": "Missouri -6.5",
+        "spreadOpen": -7,
+        "overUnder": 48,
+        "overUnderOpen": 48.5,
+        "homeMoneyline": -260,
+        "awayMoneyline": 215
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -7,
+        "formattedSpread": "Missouri -7",
+        "spreadOpen": null,
+        "overUnder": 47.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -265,
+        "awayMoneyline": 215
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": 25,
+    "awayRank": 16,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/142.png",
+      "color": null,
+      "alt_color": "#000000",
+      "abbreviation": "MIZ"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/258.png",
+      "color": null,
+      "alt_color": "#f84c1e",
+      "abbreviation": "UVA"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "awayRecord": {
+      "wins": 10,
+      "losses": 3,
+      "ties": 0,
+      "record": "10-3"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 32.2,
+      "ppg_defense": 21.2,
+      "ypg_offense": 429.9,
+      "ypg_defense": 272.5,
+      "third_down_pct": 46.3,
+      "turnovers": 13,
+      "turnovers_forced": 13,
+      "turnover_margin": 0,
+      "sacks": 36,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 30.8,
+      "ppg_defense": 22.7,
+      "ypg_offense": 427.6,
+      "ypg_defense": 315.1,
+      "third_down_pct": 49.0,
+      "turnovers": 16,
+      "turnovers_forced": 17,
+      "turnover_margin": 1,
+      "sacks": 30,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Beau Pribula",
+        "stat": "1946",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Ahmad Hardy",
+        "stat": "1560",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Kevin Coleman Jr.",
+        "stat": "715",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Josiah Trotter",
+        "stat": "84",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Chandler Morris",
+        "stat": "2802",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "J'mari Taylor",
+        "stat": "1062",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Trell Harris",
+        "stat": "847",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Devin Neal",
+        "stat": "77",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 14.152,
+      "fpi_rank": 21,
+      "sos_rank": 25,
+      "sor_rank": 22,
+      "efficiency_overall": 72.355,
+      "efficiency_offense": 63.186,
+      "efficiency_defense": 74.859
+    },
+    "awayFPI": {
+      "fpi": 7.061,
+      "fpi_rank": 40,
+      "sos_rank": 79,
+      "sor_rank": 33,
+      "efficiency_overall": 65.51,
+      "efficiency_offense": 54.978,
+      "efficiency_defense": 69.984
+    }
+  },
+  {
+    "id": 401778323,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-28T02:15:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3891,
+    "venue": "NRG Stadium",
+    "homeId": 248,
+    "homeTeam": "Houston",
+    "homeClassification": "fbs",
+    "homeConference": "Big 12",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1496,
+    "homePostgameElo": null,
+    "awayId": 99,
+    "awayTeam": "LSU",
+    "awayClassification": "fbs",
+    "awayConference": "SEC",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1691,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Kinder's Texas Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -3,
+        "formattedSpread": "Houston -3.0",
+        "spreadOpen": -3,
+        "overUnder": 41.5,
+        "overUnderOpen": 41.5,
+        "homeMoneyline": -145,
+        "awayMoneyline": 125
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -3,
+        "formattedSpread": "Houston -3",
+        "spreadOpen": null,
+        "overUnder": 41.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -155,
+        "awayMoneyline": 130
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/248.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "HOU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/99.png",
+      "color": null,
+      "alt_color": "#fdd023",
+      "abbreviation": "LSU"
+    },
+    "homeRecord": {
+      "wins": 9,
+      "losses": 3,
+      "ties": 0,
+      "record": "9-3"
+    },
+    "awayRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 28.2,
+      "ppg_defense": 22.9,
+      "ypg_offense": 391.5,
+      "ypg_defense": 348.2,
+      "third_down_pct": 40.3,
+      "turnovers": 16,
+      "turnovers_forced": 17,
+      "turnover_margin": 1,
+      "sacks": 24,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 21.2,
+      "ppg_defense": 20.0,
+      "ypg_offense": 333.3,
+      "ypg_defense": 320.1,
+      "third_down_pct": 35.2,
+      "turnovers": 23,
+      "turnovers_forced": 23,
+      "turnover_margin": 0,
+      "sacks": 27,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Conner Weigman",
+        "stat": "2475",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Dean Connors",
+        "stat": "851",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Amare Thomas",
+        "stat": "906",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jalen Garner",
+        "stat": "74",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Garrett Nussmeier",
+        "stat": "1927",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Caden Durham",
+        "stat": "505",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Barion Brown",
+        "stat": "495",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "A.J. Haulcy",
+        "stat": "88",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 3.763,
+      "fpi_rank": 55,
+      "sos_rank": 72,
+      "sor_rank": 31,
+      "efficiency_overall": 60.525,
+      "efficiency_offense": 53.483,
+      "efficiency_defense": 67.197
+    },
+    "awayFPI": {
+      "fpi": 11.653,
+      "fpi_rank": 25,
+      "sos_rank": 7,
+      "sor_rank": 24,
+      "efficiency_overall": 69.576,
+      "efficiency_offense": 44.941,
+      "efficiency_defense": 83.424
+    }
+  },
+  {
+    "id": 401778324,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-29T19:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": true,
+    "attendance": null,
+    "venueId": 7221,
+    "venue": "Protective Stadium",
+    "homeId": 2026,
+    "homeTeam": "App State",
+    "homeClassification": "fbs",
+    "homeConference": "Sun Belt",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": null,
+    "homePostgameElo": null,
+    "awayId": 290,
+    "awayTeam": "Georgia Southern",
+    "awayClassification": "fbs",
+    "awayConference": "Sun Belt",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": null,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "JLab Birmingham Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": 3.5,
+        "formattedSpread": "Georgia Southern -3.5",
+        "spreadOpen": 2,
+        "overUnder": 60,
+        "overUnderOpen": 59.5,
+        "homeMoneyline": 110,
+        "awayMoneyline": -130
+      },
+      {
+        "provider": "DraftKings",
+        "spread": 3.5,
+        "formattedSpread": "Georgia Southern -3.5",
+        "spreadOpen": null,
+        "overUnder": 59.5,
+        "overUnderOpen": null,
+        "homeMoneyline": 140,
+        "awayMoneyline": -166
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2026.png",
+      "color": null,
+      "alt_color": "#222222",
+      "abbreviation": "APP"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/290.png",
+      "color": null,
+      "alt_color": "#f0f0f0",
+      "abbreviation": "GASO"
+    },
+    "homeRecord": {
+      "wins": 5,
+      "losses": 7,
+      "ties": 0,
+      "record": "5-7"
+    },
+    "awayRecord": {
+      "wins": 6,
+      "losses": 6,
+      "ties": 0,
+      "record": "6-6"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 25.8,
+      "ppg_defense": 30.5,
+      "ypg_offense": 385.4,
+      "ypg_defense": 417.4,
+      "third_down_pct": 33.0,
+      "turnovers": 19,
+      "turnovers_forced": 19,
+      "turnover_margin": 0,
+      "sacks": 28,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 29.9,
+      "ppg_defense": 34.6,
+      "ypg_offense": 401.4,
+      "ypg_defense": 466.0,
+      "third_down_pct": 44.6,
+      "turnovers": 12,
+      "turnovers_forced": 12,
+      "turnover_margin": 0,
+      "sacks": 12,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "AJ Swann",
+        "stat": "1494",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Rashod Dubinion",
+        "stat": "868",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Jaden Barnes",
+        "stat": "608",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Colton Phares",
+        "stat": "89",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "JC French",
+        "stat": "2753",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "OJ Arnold",
+        "stat": "885",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Camden Brown",
+        "stat": "1049",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jusfin Meyers",
+        "stat": "82",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -12.313,
+      "fpi_rank": 114,
+      "sos_rank": 109,
+      "sor_rank": 110,
+      "efficiency_overall": 28.465,
+      "efficiency_offense": 31.952,
+      "efficiency_defense": 31.798
+    },
+    "awayFPI": {
+      "fpi": -10.761,
+      "fpi_rank": 107,
+      "sos_rank": 81,
+      "sor_rank": 90,
+      "efficiency_overall": 31.169,
+      "efficiency_offense": 52.708,
+      "efficiency_defense": 20.112
+    }
+  },
+  {
+    "id": 401778325,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-30T19:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3766,
+    "venue": "Independence Stadium",
+    "homeId": 2348,
+    "homeTeam": "Louisiana Tech",
+    "homeClassification": "fbs",
+    "homeConference": "Conference USA",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1429,
+    "homePostgameElo": null,
+    "awayId": 324,
+    "awayTeam": "Coastal Carolina",
+    "awayClassification": "fbs",
+    "awayConference": "Sun Belt",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1165,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Radiance Technologies Independence Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -8.5,
+        "formattedSpread": "Louisiana Tech -8.5",
+        "spreadOpen": -7,
+        "overUnder": 50.5,
+        "overUnderOpen": 50.5,
+        "homeMoneyline": -280,
+        "awayMoneyline": 230
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -7.5,
+        "formattedSpread": "Louisiana Tech -7.5",
+        "spreadOpen": null,
+        "overUnder": 50.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -325,
+        "awayMoneyline": 260
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2348.png",
+      "color": null,
+      "alt_color": "#d3313a",
+      "abbreviation": "LT"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/324.png",
+      "color": null,
+      "alt_color": "#876447",
+      "abbreviation": "CCU"
+    },
+    "homeRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "awayRecord": {
+      "wins": 6,
+      "losses": 6,
+      "ties": 0,
+      "record": "6-6"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 26.4,
+      "ppg_defense": 23.5,
+      "ypg_offense": 364.7,
+      "ypg_defense": 376.5,
+      "third_down_pct": 42.6,
+      "turnovers": 24,
+      "turnovers_forced": 24,
+      "turnover_margin": 0,
+      "sacks": 18,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 22.9,
+      "ppg_defense": 32.8,
+      "ypg_offense": 323.3,
+      "ypg_defense": 457.8,
+      "third_down_pct": 34.5,
+      "turnovers": 19,
+      "turnovers_forced": 20,
+      "turnover_margin": 1,
+      "sacks": 18,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Blake Baker",
+        "stat": "1252",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Clay Thevenin",
+        "stat": "605",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Eli Finley",
+        "stat": "441",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jacob Fields",
+        "stat": "90",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Tad Hudson",
+        "stat": "942",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Ja'Vin Simpkins",
+        "stat": "567",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Cameron Wright",
+        "stat": "274",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Xamarion Gordon",
+        "stat": "62",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -5.842,
+      "fpi_rank": 90,
+      "sos_rank": 120,
+      "sor_rank": 88,
+      "efficiency_overall": 47.613,
+      "efficiency_offense": 38.639,
+      "efficiency_defense": 54.144
+    },
+    "awayFPI": {
+      "fpi": -14.592,
+      "fpi_rank": 123,
+      "sos_rank": 90,
+      "sor_rank": 87,
+      "efficiency_overall": 30.63,
+      "efficiency_offense": 25.361,
+      "efficiency_defense": 40.943
+    }
+  },
+  {
+    "id": 401778326,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-30T22:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3810,
+    "venue": "Nissan Stadium",
+    "homeId": 356,
+    "homeTeam": "Illinois",
+    "homeClassification": "fbs",
+    "homeConference": "Big Ten",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1583,
+    "homePostgameElo": null,
+    "awayId": 2633,
+    "awayTeam": "Tennessee",
+    "awayClassification": "fbs",
+    "awayConference": "SEC",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1799,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Liberty Mutual Music City Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": 5.5,
+        "formattedSpread": "Tennessee -5.5",
+        "spreadOpen": 5.5,
+        "overUnder": 60.5,
+        "overUnderOpen": 61.5,
+        "homeMoneyline": 180,
+        "awayMoneyline": -218
+      },
+      {
+        "provider": "Bovada",
+        "spread": 5.5,
+        "formattedSpread": "Tennessee -5.5",
+        "spreadOpen": 5.5,
+        "overUnder": 60.5,
+        "overUnderOpen": 61.5,
+        "homeMoneyline": 180,
+        "awayMoneyline": -220
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/356.png",
+      "color": null,
+      "alt_color": "#13294b",
+      "abbreviation": "ILL"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2633.png",
+      "color": null,
+      "alt_color": "#58595b",
+      "abbreviation": "TENN"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "awayRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 30.5,
+      "ppg_defense": 25.2,
+      "ypg_offense": 370.3,
+      "ypg_defense": 350.9,
+      "third_down_pct": 41.7,
+      "turnovers": 11,
+      "turnovers_forced": 11,
+      "turnover_margin": 0,
+      "sacks": 24,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 39.8,
+      "ppg_defense": 29.9,
+      "ypg_offense": 484.9,
+      "ypg_defense": 395.3,
+      "third_down_pct": 50.3,
+      "turnovers": 14,
+      "turnovers_forced": 15,
+      "turnover_margin": 1,
+      "sacks": 34,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Luke Altmyer",
+        "stat": "2811",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Ca'Lil Valentine",
+        "stat": "549",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Hank Beatty",
+        "stat": "826",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Matthew Bailey",
+        "stat": "76",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Joey Aguilar",
+        "stat": "3444",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "DeSean Bishop",
+        "stat": "983",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Chris Brazzell II",
+        "stat": "1017",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Arion Carter",
+        "stat": "75",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 9.236,
+      "fpi_rank": 31,
+      "sos_rank": 23,
+      "sor_rank": 23,
+      "efficiency_overall": 70.471,
+      "efficiency_offense": 70.278,
+      "efficiency_defense": 61.627
+    },
+    "awayFPI": {
+      "fpi": 15.007,
+      "fpi_rank": 18,
+      "sos_rank": 34,
+      "sor_rank": 25,
+      "efficiency_overall": 76.781,
+      "efficiency_offense": 81.697,
+      "efficiency_defense": 63.425
+    }
+  },
+  {
+    "id": 401778327,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-31T02:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3604,
+    "venue": "Alamodome",
+    "homeId": 2628,
+    "homeTeam": "TCU",
+    "homeClassification": "fbs",
+    "homeConference": "Big 12",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1652,
+    "homePostgameElo": null,
+    "awayId": 30,
+    "awayTeam": "USC",
+    "awayClassification": "fbs",
+    "awayConference": "Big Ten",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1889,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Valero Alamo Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": 6,
+        "formattedSpread": "USC -6.0",
+        "spreadOpen": 6,
+        "overUnder": 59,
+        "overUnderOpen": 59.5,
+        "homeMoneyline": 190,
+        "awayMoneyline": -230
+      },
+      {
+        "provider": "DraftKings",
+        "spread": 6,
+        "formattedSpread": "USC -6",
+        "spreadOpen": null,
+        "overUnder": 58.5,
+        "overUnderOpen": null,
+        "homeMoneyline": 190,
+        "awayMoneyline": -230
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": 17,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2628.png",
+      "color": null,
+      "alt_color": "#f1f2f3",
+      "abbreviation": "TCU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/30.png",
+      "color": null,
+      "alt_color": "#ffcc00",
+      "abbreviation": "USC"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "awayRecord": {
+      "wins": 9,
+      "losses": 3,
+      "ties": 0,
+      "record": "9-3"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 32.8,
+      "ppg_defense": 25.2,
+      "ypg_offense": 425.8,
+      "ypg_defense": 378.1,
+      "third_down_pct": 46.8,
+      "turnovers": 17,
+      "turnovers_forced": 17,
+      "turnover_margin": 0,
+      "sacks": 24,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 36.9,
+      "ppg_defense": 25.2,
+      "ypg_offense": 471.2,
+      "ypg_defense": 348.5,
+      "third_down_pct": 52.1,
+      "turnovers": 17,
+      "turnovers_forced": 17,
+      "turnover_margin": 0,
+      "sacks": 28,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Josh Hoover",
+        "stat": "3472",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Jeremy Payne",
+        "stat": "550",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Eric McAlister",
+        "stat": "1121",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Kaleb Elarms-Orr",
+        "stat": "119",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Jayden Maiava",
+        "stat": "3431",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "King Miller",
+        "stat": "873",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Makai Lemon",
+        "stat": "1156",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Desman Stephens II",
+        "stat": "80",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 8.759,
+      "fpi_rank": 35,
+      "sos_rank": 57,
+      "sor_rank": 35,
+      "efficiency_overall": 68.695,
+      "efficiency_offense": 65.952,
+      "efficiency_defense": 61.322
+    },
+    "awayFPI": {
+      "fpi": 18.68,
+      "fpi_rank": 11,
+      "sos_rank": 29,
+      "sor_rank": 17,
+      "efficiency_overall": 80.49,
+      "efficiency_offense": 89.606,
+      "efficiency_defense": 57.256
+    }
+  },
+  {
+    "id": 401778328,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-31T17:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3886,
+    "venue": "Raymond James Stadium",
+    "homeId": 238,
+    "homeTeam": "Vanderbilt",
+    "homeClassification": "fbs",
+    "homeConference": "SEC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1884,
+    "homePostgameElo": null,
+    "awayId": 2294,
+    "awayTeam": "Iowa",
+    "awayClassification": "fbs",
+    "awayConference": "Big Ten",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1933,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "ReliaQuest Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": -5.5,
+        "formattedSpread": "Vanderbilt -5.5",
+        "spreadOpen": -4,
+        "overUnder": 47.5,
+        "overUnderOpen": 49.5,
+        "homeMoneyline": -218,
+        "awayMoneyline": 180
+      },
+      {
+        "provider": "Bovada",
+        "spread": -6,
+        "formattedSpread": "Vanderbilt -6.0",
+        "spreadOpen": -5,
+        "overUnder": 47,
+        "overUnderOpen": 49,
+        "homeMoneyline": -220,
+        "awayMoneyline": 180
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": 13,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/238.png",
+      "color": null,
+      "alt_color": "#000000",
+      "abbreviation": "VAN"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png",
+      "color": null,
+      "alt_color": "#FFCD00",
+      "abbreviation": "IOWA"
+    },
+    "homeRecord": {
+      "wins": 10,
+      "losses": 2,
+      "ties": 0,
+      "record": "10-2"
+    },
+    "awayRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 42.2,
+      "ppg_defense": 23.5,
+      "ypg_offense": 468.7,
+      "ypg_defense": 355.8,
+      "third_down_pct": 53.2,
+      "turnovers": 11,
+      "turnovers_forced": 11,
+      "turnover_margin": 0,
+      "sacks": 29,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 27.0,
+      "ppg_defense": 16.5,
+      "ypg_offense": 315.2,
+      "ypg_defense": 274.7,
+      "third_down_pct": 43.0,
+      "turnovers": 16,
+      "turnovers_forced": 16,
+      "turnover_margin": 0,
+      "sacks": 21,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Diego Pavia",
+        "stat": "3192",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Diego Pavia",
+        "stat": "826",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Eli Stowers",
+        "stat": "765",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Bryan Longwell",
+        "stat": "67",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Mark Gronowski",
+        "stat": "1529",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Kamari Moulton",
+        "stat": "783",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "DJ Vonnahme",
+        "stat": "288",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Karson Sharar",
+        "stat": "78",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 17.645,
+      "fpi_rank": 14,
+      "sos_rank": 24,
+      "sor_rank": 11,
+      "efficiency_overall": 85.526,
+      "efficiency_offense": 93.439,
+      "efficiency_defense": 58.472
+    },
+    "awayFPI": {
+      "fpi": 14.729,
+      "fpi_rank": 20,
+      "sos_rank": 18,
+      "sor_rank": 21,
+      "efficiency_overall": 78.503,
+      "efficiency_offense": 58.728,
+      "efficiency_defense": 81.929
+    }
+  },
+  {
+    "id": 401778329,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-31T19:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3946,
+    "venue": "Sun Bowl",
+    "homeId": 150,
+    "homeTeam": "Duke",
+    "homeClassification": "fbs",
+    "homeConference": "ACC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1616,
+    "homePostgameElo": null,
+    "awayId": 9,
+    "awayTeam": "Arizona State",
+    "awayClassification": "fbs",
+    "awayConference": "Big 12",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1615,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Tony the Tiger Sun Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -2,
+        "formattedSpread": "Duke -2.0",
+        "spreadOpen": -1.5,
+        "overUnder": 49,
+        "overUnderOpen": 49.5,
+        "homeMoneyline": -120,
+        "awayMoneyline": 100
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -1.5,
+        "formattedSpread": "Duke -1.5",
+        "spreadOpen": null,
+        "overUnder": 49.5,
+        "overUnderOpen": 49.5,
+        "homeMoneyline": -122,
+        "awayMoneyline": 102
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/150.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "DUKE"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/9.png",
+      "color": null,
+      "alt_color": "#ffc72c",
+      "abbreviation": "ASU"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 5,
+      "ties": 0,
+      "record": "8-5"
+    },
+    "awayRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 35.1,
+      "ppg_defense": 30.2,
+      "ypg_offense": 414.7,
+      "ypg_defense": 408.7,
+      "third_down_pct": 39.4,
+      "turnovers": 21,
+      "turnovers_forced": 21,
+      "turnover_margin": 0,
+      "sacks": 26,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 25.2,
+      "ppg_defense": 25.8,
+      "ypg_offense": 399.8,
+      "ypg_defense": 342.8,
+      "third_down_pct": 32.8,
+      "turnovers": 17,
+      "turnovers_forced": 17,
+      "turnover_margin": 0,
+      "sacks": 32,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Darian Mensah",
+        "stat": "3646",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Nate Sheppard",
+        "stat": "962",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Cooper Barkate",
+        "stat": "1069",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Luke Mergott",
+        "stat": "81",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Sam Leavitt",
+        "stat": "1628",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Raleek Brown",
+        "stat": "1141",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Jordyn Tyson",
+        "stat": "711",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Keyshaun Elliott",
+        "stat": "98",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 5.616,
+      "fpi_rank": 46,
+      "sos_rank": 74,
+      "sor_rank": 54,
+      "efficiency_overall": 57.247,
+      "efficiency_offense": 70.923,
+      "efficiency_defense": 37.466
+    },
+    "awayFPI": {
+      "fpi": 6.634,
+      "fpi_rank": 43,
+      "sos_rank": 39,
+      "sor_rank": 28,
+      "efficiency_overall": 60.854,
+      "efficiency_offense": 51.153,
+      "efficiency_defense": 71.21
+    }
+  },
+  {
+    "id": 401778330,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-31T20:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 4013,
+    "venue": "Camping World Stadium",
+    "homeId": 251,
+    "homeTeam": "Texas",
+    "homeClassification": "fbs",
+    "homeConference": "SEC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1898,
+    "homePostgameElo": null,
+    "awayId": 130,
+    "awayTeam": "Michigan",
+    "awayClassification": "fbs",
+    "awayConference": "Big Ten",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1814,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Cheez-It Citrus Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -7,
+        "formattedSpread": "Texas -7.0",
+        "spreadOpen": -5.5,
+        "overUnder": 46,
+        "overUnderOpen": 46,
+        "homeMoneyline": -210,
+        "awayMoneyline": 175
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -6.5,
+        "formattedSpread": "Texas -6.5",
+        "spreadOpen": null,
+        "overUnder": 46.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -250,
+        "awayMoneyline": 205
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": 14,
+    "awayRank": 18,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "TEX"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/130.png",
+      "color": null,
+      "alt_color": "#ffcb05",
+      "abbreviation": "MICH"
+    },
+    "homeRecord": {
+      "wins": 9,
+      "losses": 3,
+      "ties": 0,
+      "record": "9-3"
+    },
+    "awayRecord": {
+      "wins": 9,
+      "losses": 3,
+      "ties": 0,
+      "record": "9-3"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 29.3,
+      "ppg_defense": 22.3,
+      "ypg_offense": 383.1,
+      "ypg_defense": 336.0,
+      "third_down_pct": 40.0,
+      "turnovers": 14,
+      "turnovers_forced": 14,
+      "turnover_margin": 0,
+      "sacks": 36,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 29.9,
+      "ppg_defense": 21.2,
+      "ypg_offense": 400.0,
+      "ypg_defense": 312.6,
+      "third_down_pct": 46.3,
+      "turnovers": 20,
+      "turnovers_forced": 20,
+      "turnover_margin": 0,
+      "sacks": 28,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Arch Manning",
+        "stat": "2942",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Tre Wisner",
+        "stat": "597",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Ryan Wingo",
+        "stat": "770",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jelani McDonald",
+        "stat": "73",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Bryce Underwood",
+        "stat": "2229",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Jordan Marshall",
+        "stat": "932",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Andrew Marsh",
+        "stat": "641",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jimmy Rolder",
+        "stat": "69",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 18.259,
+      "fpi_rank": 13,
+      "sos_rank": 8,
+      "sor_rank": 12,
+      "efficiency_overall": 78.646,
+      "efficiency_offense": 61.362,
+      "efficiency_defense": 79.781
+    },
+    "awayFPI": {
+      "fpi": 14.997,
+      "fpi_rank": 19,
+      "sos_rank": 28,
+      "sor_rank": 16,
+      "efficiency_overall": 75.453,
+      "efficiency_offense": 74.428,
+      "efficiency_defense": 71.054
+    }
+  },
+  {
+    "id": 401778331,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2025-12-31T20:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 6501,
+    "venue": "Allegiant Stadium",
+    "homeId": 254,
+    "homeTeam": "Utah",
+    "homeClassification": "fbs",
+    "homeConference": "Big 12",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1954,
+    "homePostgameElo": null,
+    "awayId": 158,
+    "awayTeam": "Nebraska",
+    "awayClassification": "fbs",
+    "awayConference": "Big Ten",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1580,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "SRS Distribution Las Vegas Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": -16,
+        "formattedSpread": "Utah -16.0",
+        "spreadOpen": -14.5,
+        "overUnder": 50.5,
+        "overUnderOpen": 49.5,
+        "homeMoneyline": -625,
+        "awayMoneyline": 430
+      },
+      {
+        "provider": "DraftKings",
+        "spread": -15.5,
+        "formattedSpread": "Utah -15.5",
+        "spreadOpen": null,
+        "overUnder": 50.5,
+        "overUnderOpen": null,
+        "homeMoneyline": -700,
+        "awayMoneyline": 500
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": 15,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/254.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "UTAH"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/158.png",
+      "color": null,
+      "alt_color": "#ffffff",
+      "abbreviation": "NEB"
+    },
+    "homeRecord": {
+      "wins": 10,
+      "losses": 2,
+      "ties": 0,
+      "record": "10-2"
+    },
+    "awayRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 42.2,
+      "ppg_defense": 21.8,
+      "ypg_offense": 478.8,
+      "ypg_defense": 359.2,
+      "third_down_pct": 53.1,
+      "turnovers": 21,
+      "turnovers_forced": 21,
+      "turnover_margin": 0,
+      "sacks": 31,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 29.3,
+      "ppg_defense": 25.2,
+      "ypg_offense": 374.9,
+      "ypg_defense": 314.0,
+      "third_down_pct": 45.2,
+      "turnovers": 10,
+      "turnovers_forced": 10,
+      "turnover_margin": 0,
+      "sacks": 19,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Devon Dampier",
+        "stat": "2180",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Wayshawn Parker",
+        "stat": "931",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Ryan Davis",
+        "stat": "659",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Johnathan Hall",
+        "stat": "61",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Dylan Raiola",
+        "stat": "2000",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Emmett Johnson",
+        "stat": "1451",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Nyziah Hunter",
+        "stat": "617",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Javin Wright",
+        "stat": "83",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 19.66,
+      "fpi_rank": 9,
+      "sos_rank": 58,
+      "sor_rank": 15,
+      "efficiency_overall": 84.299,
+      "efficiency_offense": 83.283,
+      "efficiency_defense": 73.701
+    },
+    "awayFPI": {
+      "fpi": 6.048,
+      "fpi_rank": 44,
+      "sos_rank": 50,
+      "sor_rank": 43,
+      "efficiency_overall": 57.82,
+      "efficiency_offense": 54.916,
+      "efficiency_defense": 52.851
+    }
+  },
+  {
+    "id": 401778332,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2026-01-02T18:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3616,
+    "venue": "Amon G. Carter Stadium",
+    "homeId": 326,
+    "homeTeam": "Texas State",
+    "homeClassification": "fbs",
+    "homeConference": "Sun Belt",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1572,
+    "homePostgameElo": null,
+    "awayId": 242,
+    "awayTeam": "Rice",
+    "awayClassification": "fbs",
+    "awayConference": "American Athletic",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1078,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Lockheed Martin Armed Forces Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": -10,
+        "formattedSpread": "Texas State -10",
+        "spreadOpen": -10.5,
+        "overUnder": 59.5,
+        "overUnderOpen": 59.5,
+        "homeMoneyline": -375,
+        "awayMoneyline": 295
+      },
+      {
+        "provider": "Bovada",
+        "spread": -10,
+        "formattedSpread": "Texas State -10.0",
+        "spreadOpen": -10.5,
+        "overUnder": 59.5,
+        "overUnderOpen": 59.5,
+        "homeMoneyline": -400,
+        "awayMoneyline": 300
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/326.png",
+      "color": null,
+      "alt_color": "#b4975a",
+      "abbreviation": "TXST"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/242.png",
+      "color": null,
+      "alt_color": "#003d7d",
+      "abbreviation": "RICE"
+    },
+    "homeRecord": {
+      "wins": 6,
+      "losses": 6,
+      "ties": 0,
+      "record": "6-6"
+    },
+    "awayRecord": {
+      "wins": 5,
+      "losses": 7,
+      "ties": 0,
+      "record": "5-7"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 36.3,
+      "ppg_defense": 33.4,
+      "ypg_offense": 476.6,
+      "ypg_defense": 401.4,
+      "third_down_pct": 47.9,
+      "turnovers": 17,
+      "turnovers_forced": 17,
+      "turnover_margin": 0,
+      "sacks": 22,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 23.5,
+      "ppg_defense": 32.8,
+      "ypg_offense": 311.2,
+      "ypg_defense": 401.3,
+      "third_down_pct": 35.6,
+      "turnovers": 8,
+      "turnovers_forced": 8,
+      "turnover_margin": 0,
+      "sacks": 22,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Brad Jackson",
+        "stat": "3049",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Lincoln Pare",
+        "stat": "1023",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Beau Sparks",
+        "stat": "1113",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Treylin Payne",
+        "stat": "96",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Chase Jenkins",
+        "stat": "1025",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Quinton Jackson",
+        "stat": "811",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Aaron Turner",
+        "stat": "374",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Andrew Awe",
+        "stat": "88",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": -2.366,
+      "fpi_rank": 76,
+      "sos_rank": 113,
+      "sor_rank": 99,
+      "efficiency_overall": 48.73,
+      "efficiency_offense": 69.983,
+      "efficiency_defense": 30.723
+    },
+    "awayFPI": {
+      "fpi": -16.558,
+      "fpi_rank": 126,
+      "sos_rank": 94,
+      "sor_rank": 104,
+      "efficiency_overall": 21.773,
+      "efficiency_offense": 23.63,
+      "efficiency_defense": 27.845
+    }
+  },
+  {
+    "id": 401778333,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2026-01-02T21:30:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3805,
+    "venue": "Simmons Bank Liberty Stadium",
+    "homeId": 2132,
+    "homeTeam": "Cincinnati",
+    "homeClassification": "fbs",
+    "homeConference": "Big 12",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1519,
+    "homePostgameElo": null,
+    "awayId": 2426,
+    "awayTeam": "Navy",
+    "awayClassification": "fbs",
+    "awayConference": "American Athletic",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1525,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "AutoZone Liberty Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": 3,
+        "formattedSpread": "Navy -3.0",
+        "spreadOpen": -1.5,
+        "overUnder": 55.5,
+        "overUnderOpen": 55.5,
+        "homeMoneyline": null,
+        "awayMoneyline": null
+      },
+      {
+        "provider": "DraftKings",
+        "spread": 4,
+        "formattedSpread": "Navy -4",
+        "spreadOpen": null,
+        "overUnder": 55.5,
+        "overUnderOpen": null,
+        "homeMoneyline": 150,
+        "awayMoneyline": -180
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": 23,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2132.png",
+      "color": null,
+      "alt_color": "#000000",
+      "abbreviation": "CIN"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2426.png",
+      "color": null,
+      "alt_color": "#b5a67c",
+      "abbreviation": "NAVY"
+    },
+    "homeRecord": {
+      "wins": 7,
+      "losses": 5,
+      "ties": 0,
+      "record": "7-5"
+    },
+    "awayRecord": {
+      "wins": 9,
+      "losses": 2,
+      "ties": 0,
+      "record": "9-2"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 34.0,
+      "ppg_defense": 26.4,
+      "ypg_offense": 421.7,
+      "ypg_defense": 403.2,
+      "third_down_pct": 39.5,
+      "turnovers": 9,
+      "turnovers_forced": 9,
+      "turnover_margin": 0,
+      "sacks": 22,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 35.9,
+      "ppg_defense": 30.2,
+      "ypg_offense": 435.3,
+      "ypg_defense": 398.9,
+      "third_down_pct": 49.6,
+      "turnovers": 11,
+      "turnovers_forced": 11,
+      "turnover_margin": 0,
+      "sacks": 25,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Brendan Sorsby",
+        "stat": "2786",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Tawee Walker",
+        "stat": "709",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Cyrus Allen",
+        "stat": "651",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jake Golday",
+        "stat": "95",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Blake Horvath",
+        "stat": "1390",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Blake Horvath",
+        "stat": "1040",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Eli Heidenreich",
+        "stat": "805",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "MarcAnthony Parker",
+        "stat": "88",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 5.674,
+      "fpi_rank": 45,
+      "sos_rank": 56,
+      "sor_rank": 46,
+      "efficiency_overall": 66.668,
+      "efficiency_offense": 81.199,
+      "efficiency_defense": 44.365
+    },
+    "awayFPI": {
+      "fpi": -1.216,
+      "fpi_rank": 70,
+      "sos_rank": 69,
+      "sor_rank": 20,
+      "efficiency_overall": 55.833,
+      "efficiency_offense": 69.57,
+      "efficiency_defense": 35.763
+    }
+  },
+  {
+    "id": 401831583,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2026-01-03T01:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 7311,
+    "venue": "Snapdragon Stadium",
+    "homeId": 2567,
+    "homeTeam": "SMU",
+    "homeClassification": "fbs",
+    "homeConference": "ACC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1851,
+    "homePostgameElo": null,
+    "awayId": 12,
+    "awayTeam": "Arizona",
+    "awayClassification": "fbs",
+    "awayConference": "Big 12",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1689,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Trust & Will Holiday Bowl",
+    "lines": [
+      {
+        "provider": "Bovada",
+        "spread": 3,
+        "formattedSpread": "Arizona -3.0",
+        "spreadOpen": 3,
+        "overUnder": 51.5,
+        "overUnderOpen": 52.5,
+        "homeMoneyline": 125,
+        "awayMoneyline": -145
+      },
+      {
+        "provider": "DraftKings",
+        "spread": 3,
+        "formattedSpread": "Arizona -3",
+        "spreadOpen": null,
+        "overUnder": 51.5,
+        "overUnderOpen": null,
+        "homeMoneyline": 130,
+        "awayMoneyline": -155
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": 22,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2567.png",
+      "color": null,
+      "alt_color": "#cc0035",
+      "abbreviation": "SMU"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/12.png",
+      "color": null,
+      "alt_color": "#ab0520",
+      "abbreviation": "ARIZ"
+    },
+    "homeRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "awayRecord": {
+      "wins": 9,
+      "losses": 3,
+      "ties": 0,
+      "record": "9-3"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 34.0,
+      "ppg_defense": 22.3,
+      "ypg_offense": 419.1,
+      "ypg_defense": 391.4,
+      "third_down_pct": 41.5,
+      "turnovers": 23,
+      "turnovers_forced": 23,
+      "turnover_margin": 0,
+      "sacks": 35,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 32.8,
+      "ppg_defense": 20.6,
+      "ypg_offense": 405.2,
+      "ypg_defense": 301.9,
+      "third_down_pct": 40.1,
+      "turnovers": 24,
+      "turnovers_forced": 24,
+      "turnover_margin": 0,
+      "sacks": 21,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Kevin Jennings",
+        "stat": "3363",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "TJ Harden",
+        "stat": "747",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Jordan Hudson",
+        "stat": "749",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Ahmaad Moses",
+        "stat": "91",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Noah Fifita",
+        "stat": "2963",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Ismail Mahdi",
+        "stat": "785",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Kris Hutson",
+        "stat": "740",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Dalton Johnson",
+        "stat": "97",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 12.077,
+      "fpi_rank": 24,
+      "sos_rank": 65,
+      "sor_rank": 38,
+      "efficiency_overall": 73.226,
+      "efficiency_offense": 66.231,
+      "efficiency_defense": 71.05
+    },
+    "awayFPI": {
+      "fpi": 10.351,
+      "fpi_rank": 27,
+      "sos_rank": 63,
+      "sor_rank": 26,
+      "efficiency_overall": 73.768,
+      "efficiency_offense": 69.679,
+      "efficiency_defense": 73.119
+    }
+  },
+  {
+    "id": 401778334,
+    "season": 2025,
+    "week": 1,
+    "seasonType": "postseason",
+    "startDate": "2026-01-03T01:00:00.000Z",
+    "startTimeTBD": false,
+    "completed": false,
+    "neutralSite": true,
+    "conferenceGame": false,
+    "attendance": null,
+    "venueId": 3628,
+    "venue": "Bank of America Stadium",
+    "homeId": 344,
+    "homeTeam": "Mississippi State",
+    "homeClassification": "fbs",
+    "homeConference": "SEC",
+    "homePoints": null,
+    "homeLineScores": null,
+    "homePostgameWinProbability": null,
+    "homePregameElo": 1491,
+    "homePostgameElo": null,
+    "awayId": 154,
+    "awayTeam": "Wake Forest",
+    "awayClassification": "fbs",
+    "awayConference": "ACC",
+    "awayPoints": null,
+    "awayLineScores": null,
+    "awayPostgameWinProbability": null,
+    "awayPregameElo": 1508,
+    "awayPostgameElo": null,
+    "excitementIndex": null,
+    "highlights": "",
+    "notes": "Duke's Mayo Bowl",
+    "lines": [
+      {
+        "provider": "DraftKings",
+        "spread": -2.5,
+        "formattedSpread": "Mississippi State -2.5",
+        "spreadOpen": -3,
+        "overUnder": 56.5,
+        "overUnderOpen": 56.5,
+        "homeMoneyline": -130,
+        "awayMoneyline": 110
+      },
+      {
+        "provider": "Bovada",
+        "spread": -2,
+        "formattedSpread": "Mississippi State -2.0",
+        "spreadOpen": -3,
+        "overUnder": 56.5,
+        "overUnderOpen": 56.5,
+        "homeMoneyline": -150,
+        "awayMoneyline": 130
+      }
+    ],
+    "weather": {
+      "temperature": null,
+      "wind_speed": null,
+      "wind_direction": null,
+      "weather_condition": null,
+      "note": "Weather data requires premium API subscription - will be available closer to game time"
+    },
+    "homeRank": null,
+    "awayRank": null,
+    "homeTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/344.png",
+      "color": null,
+      "alt_color": "#c1c6c8",
+      "abbreviation": "MSST"
+    },
+    "awayTeamInfo": {
+      "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/154.png",
+      "color": null,
+      "alt_color": "#000000",
+      "abbreviation": "WAKE"
+    },
+    "homeRecord": {
+      "wins": 5,
+      "losses": 7,
+      "ties": 0,
+      "record": "5-7"
+    },
+    "awayRecord": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0,
+      "record": "8-4"
+    },
+    "homeSeasonStats": {
+      "ppg_offense": 33.4,
+      "ppg_defense": 28.2,
+      "ypg_offense": 398.4,
+      "ypg_defense": 406.2,
+      "third_down_pct": 44.4,
+      "turnovers": 18,
+      "turnovers_forced": 18,
+      "turnover_margin": 0,
+      "sacks": 20,
+      "sacks_allowed": 0
+    },
+    "awaySeasonStats": {
+      "ppg_offense": 27.0,
+      "ppg_defense": 22.3,
+      "ypg_offense": 389.1,
+      "ypg_defense": 321.9,
+      "third_down_pct": 38.3,
+      "turnovers": 14,
+      "turnovers_forced": 14,
+      "turnover_margin": 0,
+      "sacks": 25,
+      "sacks_allowed": 0
+    },
+    "homeLeaders": {
+      "qb": {
+        "name": "Blake Shapen",
+        "stat": "2436",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Fluff Bothwell",
+        "stat": "639",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Brenen Thompson",
+        "stat": "948",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Jahron Manning",
+        "stat": "85",
+        "category": "defensive"
+      }
+    },
+    "awayLeaders": {
+      "qb": {
+        "name": "Robby Ashford",
+        "stat": "2169",
+        "category": "passing"
+      },
+      "rb": {
+        "name": "Demond Claiborne",
+        "stat": "905",
+        "category": "rushing"
+      },
+      "wr": {
+        "name": "Chris Barnes",
+        "stat": "547",
+        "category": "receiving"
+      },
+      "def": {
+        "name": "Nick Andersen",
+        "stat": "95",
+        "category": "defensive"
+      }
+    },
+    "homeFPI": {
+      "fpi": 4.708,
+      "fpi_rank": 50,
+      "sos_rank": 13,
+      "sor_rank": 57,
+      "efficiency_overall": 60.749,
+      "efficiency_offense": 55.9,
+      "efficiency_defense": 58.275
+    },
+    "awayFPI": {
+      "fpi": 0.491,
+      "fpi_rank": 65,
+      "sos_rank": 75,
+      "sor_rank": 44,
+      "efficiency_overall": 57.656,
+      "efficiency_offense": 30.939,
+      "efficiency_defense": 79.046
+    }
+  }
+]

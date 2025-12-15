@@ -1,0 +1,240 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017528002,401752800,Utah,Big 12,UCLA,Big Ten,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 11}",11,75,TD,False,0,0,6,0
+4017528004,401752800,UCLA,Big Ten,Utah,Big 12,2,False,1,23,77,"{'minutes': 10, 'seconds': 40}",1,60,40,"{'minutes': 6, 'seconds': 40}","{'minutes': 4, 'seconds': 3}",10,37,DOWNS,True,0,6,0,6
+4017528005,401752800,Utah,Big 12,UCLA,Big Ten,3,True,1,60,60,"{'minutes': 6, 'seconds': 37}",1,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 5, 'seconds': 10}",10,60,TD,False,6,0,13,0
+4017528007,401752800,UCLA,Big Ten,Utah,Big 12,4,False,1,25,75,"{'minutes': 1, 'seconds': 24}",2,11,89,"{'minutes': 15, 'seconds': 0}","{'minutes': 1, 'seconds': 29}",3,-14,PUNT,True,0,13,0,13
+4017528008,401752800,Utah,Big 12,UCLA,Big Ten,5,True,2,49,49,"{'minutes': 14, 'seconds': 46}",2,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 12}",5,49,TD,False,13,0,20,0
+40175280010,401752800,UCLA,Big Ten,Utah,Big 12,6,True,2,25,75,"{'minutes': 12, 'seconds': 43}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 5, 'seconds': 58}",10,75,TD,True,0,20,7,20
+40175280012,401752800,Utah,Big 12,UCLA,Big Ten,7,False,2,96,96,"{'minutes': 6, 'seconds': 39}",2,48,48,"{'minutes': 3, 'seconds': 15}","{'minutes': 3, 'seconds': 32}",8,48,PUNT,False,20,7,20,7
+40175280013,401752800,UCLA,Big Ten,Utah,Big 12,8,False,2,6,94,"{'minutes': 3, 'seconds': 9}",2,32,68,"{'minutes': 1, 'seconds': 6}","{'minutes': 2, 'seconds': 8}",7,26,PUNT,True,7,20,7,20
+40175280014,401752800,Utah,Big 12,UCLA,Big Ten,9,False,2,70,70,"{'minutes': 1, 'seconds': 0}",3,36,36,"{'minutes': 0, 'seconds': 4}","{'minutes': 1, 'seconds': 1}",9,34,FG,False,20,7,20,7
+40175280016,401752800,UCLA,Big Ten,Utah,Big 12,10,True,3,25,75,"{'minutes': 14, 'seconds': 59}",3,72,28,"{'minutes': 12, 'seconds': 42}","{'minutes': 2, 'seconds': 22}",7,47,FG,True,7,23,10,26
+40175280018,401752800,Utah,Big 12,UCLA,Big Ten,11,True,3,80,80,"{'minutes': 12, 'seconds': 30}",3,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 9, 'seconds': 44}",21,80,TD,False,23,10,30,13
+40175280020,401752800,UCLA,Big Ten,Utah,Big 12,12,False,3,22,78,"{'minutes': 2, 'seconds': 45}",4,35,65,"{'minutes': 15, 'seconds': 0}","{'minutes': 2, 'seconds': 51}",7,13,PUNT,True,10,30,10,30
+40175280021,401752800,Utah,Big 12,UCLA,Big Ten,13,True,4,81,81,"{'minutes': 14, 'seconds': 53}",4,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 49}",10,81,TD,False,30,10,36,10
+40175280023,401752800,UCLA,Big Ten,Utah,Big 12,14,False,4,25,75,"{'minutes': 10, 'seconds': 4}",4,46,54,"{'minutes': 8, 'seconds': 45}","{'minutes': 1, 'seconds': 28}",5,21,INT,True,10,36,10,36
+40175280024,401752800,Utah,Big 12,UCLA,Big Ten,15,True,4,29,29,"{'minutes': 8, 'seconds': 35}",4,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 8}",4,29,TD,False,36,10,43,10
+40175280026,401752800,UCLA,Big Ten,Utah,Big 12,16,False,4,25,75,"{'minutes': 6, 'seconds': 28}",4,25,75,"{'minutes': 4, 'seconds': 38}","{'minutes': 1, 'seconds': 57}",3,0,PUNT,True,10,43,10,43
+40175280027,401752800,Utah,Big 12,UCLA,Big Ten,17,False,4,73,73,"{'minutes': 4, 'seconds': 28}",4,110,110,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 32}",7,37,Uncategorized,False,43,10,43,10
+4017528231,401752823,UNLV,Mountain West,UCLA,Big Ten,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,68,32,"{'minutes': 8, 'seconds': 1}","{'minutes': 6, 'seconds': 59}",11,43,FG,True,0,0,3,0
+4017528232,401752823,UCLA,Big Ten,UNLV,Mountain West,2,False,1,77,77,"{'minutes': 7, 'seconds': 55}",1,55,55,"{'minutes': 4, 'seconds': 41}","{'minutes': 3, 'seconds': 14}",4,22,PUNT,False,0,3,0,3
+4017528233,401752823,UNLV,Mountain West,UCLA,Big Ten,3,True,1,19,81,"{'minutes': 4, 'seconds': 41}",1,100,0,"{'minutes': 0, 'seconds': 13}","{'minutes': 4, 'seconds': 28}",6,81,TD,True,3,0,10,0
+4017528234,401752823,UCLA,Big Ten,UNLV,Mountain West,4,False,1,80,80,"{'minutes': 0, 'seconds': 9}",2,55,55,"{'minutes': 11, 'seconds': 17}","{'minutes': 3, 'seconds': 52}",8,25,PUNT,False,0,10,0,10
+4017528235,401752823,UNLV,Mountain West,UCLA,Big Ten,5,True,2,13,87,"{'minutes': 11, 'seconds': 17}",2,100,0,"{'minutes': 5, 'seconds': 39}","{'minutes': 5, 'seconds': 38}",11,87,TD,True,10,0,17,0
+4017528236,401752823,UCLA,Big Ten,UNLV,Mountain West,6,False,2,75,75,"{'minutes': 5, 'seconds': 33}",2,56,56,"{'minutes': 3, 'seconds': 30}","{'minutes': 2, 'seconds': 3}",5,19,FUMBLE,False,0,17,0,17
+4017528237,401752823,UNLV,Mountain West,UCLA,Big Ten,7,True,2,56,44,"{'minutes': 3, 'seconds': 30}",2,100,0,"{'minutes': 1, 'seconds': 49}","{'minutes': 1, 'seconds': 41}",5,44,TD,True,17,0,23,0
+4017528238,401752823,UCLA,Big Ten,UNLV,Mountain West,8,True,2,61,61,"{'minutes': 1, 'seconds': 35}",2,15,15,"{'minutes': 0, 'seconds': 4}","{'minutes': 1, 'seconds': 31}",9,46,FG,False,0,23,3,23
+4017528239,401752823,UCLA,Big Ten,UNLV,Mountain West,9,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,0,0,"{'minutes': 7, 'seconds': 48}","{'minutes': 7, 'seconds': 12}",12,75,TD,False,3,23,10,23
+40175282310,401752823,UNLV,Mountain West,UCLA,Big Ten,10,False,3,25,75,"{'minutes': 7, 'seconds': 48}",3,33,67,"{'minutes': 6, 'seconds': 53}","{'minutes': 0, 'seconds': 55}",3,8,PUNT,True,23,10,23,10
+40175282311,401752823,UCLA,Big Ten,UNLV,Mountain West,11,True,3,69,69,"{'minutes': 6, 'seconds': 53}",3,17,17,"{'minutes': 0, 'seconds': 3}","{'minutes': 6, 'seconds': 50}",14,52,FG,False,10,23,13,23
+40175282312,401752823,UNLV,Mountain West,UCLA,Big Ten,12,True,3,25,75,"{'minutes': 0, 'seconds': 3}",4,100,0,"{'minutes': 12, 'seconds': 4}","{'minutes': 2, 'seconds': 59}",6,75,TD,True,23,13,30,13
+40175282313,401752823,UCLA,Big Ten,UNLV,Mountain West,13,True,4,78,78,"{'minutes': 11, 'seconds': 58}",4,0,0,"{'minutes': 8, 'seconds': 50}","{'minutes': 3, 'seconds': 8}",8,78,TD,False,13,30,20,30
+40175282314,401752823,UNLV,Mountain West,UCLA,Big Ten,14,False,4,12,88,"{'minutes': 8, 'seconds': 48}",4,4,96,"{'minutes': 7, 'seconds': 0}","{'minutes': 1, 'seconds': 48}",3,-8,PUNT,True,30,20,30,20
+40175282315,401752823,UCLA,Big Ten,UNLV,Mountain West,15,True,4,57,57,"{'minutes': 7, 'seconds': 0}",4,15,15,"{'minutes': 5, 'seconds': 25}","{'minutes': 1, 'seconds': 35}",6,42,FG,False,20,30,23,30
+40175282316,401752823,UNLV,Mountain West,UCLA,Big Ten,16,False,4,25,75,"{'minutes': 5, 'seconds': 25}",4,38,62,"{'minutes': 2, 'seconds': 17}","{'minutes': 3, 'seconds': 8}",6,13,PUNT,True,30,23,30,23
+40175282317,401752823,UCLA,Big Ten,UNLV,Mountain West,17,False,4,81,81,"{'minutes': 2, 'seconds': 17}",4,24,24,"{'minutes': 0, 'seconds': 52}","{'minutes': 1, 'seconds': 25}",9,57,INT,False,23,30,23,30
+40175282318,401752823,UNLV,Mountain West,UCLA,Big Ten,18,False,4,13,87,"{'minutes': 0, 'seconds': 52}",4,23,77,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 52}",3,10,END OF GAME,True,30,23,30,23
+4017528371,401752837,New Mexico,Mountain West,UCLA,Big Ten,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,53,53,"{'minutes': 13, 'seconds': 23}","{'minutes': 1, 'seconds': 37}",4,22,PUNT,False,0,0,0,0
+4017528372,401752837,UCLA,Big Ten,New Mexico,Mountain West,2,False,1,10,90,"{'minutes': 13, 'seconds': 23}",1,41,59,"{'minutes': 8, 'seconds': 35}","{'minutes': 4, 'seconds': 48}",7,31,PUNT,True,0,0,0,0
+4017528373,401752837,New Mexico,Mountain West,UCLA,Big Ten,3,True,1,64,64,"{'minutes': 8, 'seconds': 35}",1,0,0,"{'minutes': 3, 'seconds': 10}","{'minutes': 5, 'seconds': 25}",9,64,TD,False,0,0,7,0
+4017528374,401752837,UCLA,Big Ten,New Mexico,Mountain West,4,False,1,17,83,"{'minutes': 3, 'seconds': 2}",1,23,77,"{'minutes': 1, 'seconds': 39}","{'minutes': 1, 'seconds': 23}",3,6,PUNT,True,0,7,0,7
+4017528375,401752837,New Mexico,Mountain West,UCLA,Big Ten,5,True,1,59,59,"{'minutes': 1, 'seconds': 39}",2,0,0,"{'minutes': 12, 'seconds': 43}","{'minutes': 3, 'seconds': 56}",7,59,TD,False,7,0,14,0
+4017528376,401752837,UCLA,Big Ten,New Mexico,Mountain West,6,True,2,22,78,"{'minutes': 12, 'seconds': 38}",2,100,0,"{'minutes': 8, 'seconds': 59}","{'minutes': 3, 'seconds': 39}",8,78,TD,True,0,14,7,14
+4017528377,401752837,New Mexico,Mountain West,UCLA,Big Ten,7,False,2,75,75,"{'minutes': 8, 'seconds': 59}",2,77,77,"{'minutes': 7, 'seconds': 48}","{'minutes': 1, 'seconds': 11}",3,-2,PUNT,False,14,7,14,7
+4017528378,401752837,UCLA,Big Ten,New Mexico,Mountain West,8,False,2,11,89,"{'minutes': 7, 'seconds': 48}",2,30,70,"{'minutes': 5, 'seconds': 9}","{'minutes': 2, 'seconds': 39}",5,19,PUNT,True,7,14,7,14
+4017528379,401752837,New Mexico,Mountain West,UCLA,Big Ten,9,False,2,76,76,"{'minutes': 5, 'seconds': 9}",2,3,3,"{'minutes': 1, 'seconds': 9}","{'minutes': 4, 'seconds': 0}",7,73,DOWNS,False,14,7,14,7
+40175283710,401752837,UCLA,Big Ten,New Mexico,Mountain West,10,False,2,3,97,"{'minutes': 1, 'seconds': 9}",2,80,20,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 9}",7,77,END OF HALF,True,7,14,7,14
+40175283711,401752837,UCLA,Big Ten,New Mexico,Mountain West,11,False,3,35,65,"{'minutes': 15, 'seconds': 0}",3,35,65,"{'minutes': 14, 'seconds': 41}","{'minutes': 0, 'seconds': 19}",3,0,PUNT,True,7,14,7,14
+40175283712,401752837,New Mexico,Mountain West,UCLA,Big Ten,12,False,3,62,62,"{'minutes': 14, 'seconds': 41}",3,3,3,"{'minutes': 7, 'seconds': 33}","{'minutes': 7, 'seconds': 8}",10,59,FUMBLE,False,14,7,14,7
+40175283713,401752837,UCLA,Big Ten,New Mexico,Mountain West,13,False,3,3,97,"{'minutes': 7, 'seconds': 33}",3,6,94,"{'minutes': 6, 'seconds': 34}","{'minutes': 0, 'seconds': 59}",3,3,PUNT,True,7,14,7,14
+40175283714,401752837,UCLA,Big Ten,New Mexico,Mountain West,14,True,3,41,59,"{'minutes': 6, 'seconds': 34}",3,67,33,"{'minutes': 3, 'seconds': 34}","{'minutes': 3, 'seconds': 0}",5,26,FG,True,7,14,10,14
+40175283715,401752837,New Mexico,Mountain West,UCLA,Big Ten,15,True,3,75,75,"{'minutes': 3, 'seconds': 34}",4,0,0,"{'minutes': 10, 'seconds': 42}","{'minutes': 7, 'seconds': 52}",13,75,TD,False,14,10,21,10
+40175283716,401752837,UCLA,Big Ten,New Mexico,Mountain West,16,False,4,25,75,"{'minutes': 10, 'seconds': 42}",4,42,58,"{'minutes': 9, 'seconds': 13}","{'minutes': 1, 'seconds': 29}",5,17,DOWNS,True,10,21,10,21
+40175283717,401752837,New Mexico,Mountain West,UCLA,Big Ten,17,True,4,42,42,"{'minutes': 9, 'seconds': 13}",4,0,0,"{'minutes': 7, 'seconds': 6}","{'minutes': 2, 'seconds': 7}",3,42,TD,False,21,10,28,10
+40175283718,401752837,UCLA,Big Ten,New Mexico,Mountain West,18,False,4,25,75,"{'minutes': 7, 'seconds': 6}",4,66,34,"{'minutes': 3, 'seconds': 58}","{'minutes': 3, 'seconds': 8}",9,41,INT,True,10,28,10,28
+40175283719,401752837,New Mexico,Mountain West,UCLA,Big Ten,19,True,4,74,74,"{'minutes': 3, 'seconds': 58}",4,0,0,"{'minutes': 0, 'seconds': 36}","{'minutes': 3, 'seconds': 22}",7,74,TD,False,28,10,35,10
+40175283720,401752837,UCLA,Big Ten,New Mexico,Mountain West,20,False,4,25,75,"{'minutes': 0, 'seconds': 36}",4,33,67,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 36}",2,8,END OF GAME,True,10,35,10,35
+4017528512,401752851,UCLA,Big Ten,Northwestern,Big Ten,1,False,1,75,75,"{'minutes': 14, 'seconds': 59}",1,54,54,"{'minutes': 11, 'seconds': 41}","{'minutes': 3, 'seconds': 27}",6,21,PUNT,False,0,0,0,0
+4017528513,401752851,Northwestern,Big Ten,UCLA,Big Ten,2,True,1,11,89,"{'minutes': 11, 'seconds': 32}",1,85,15,"{'minutes': 2, 'seconds': 24}","{'minutes': 9, 'seconds': 9}",17,74,FG,True,0,0,3,0
+4017528515,401752851,UCLA,Big Ten,Northwestern,Big Ten,3,False,1,86,86,"{'minutes': 2, 'seconds': 12}",1,83,83,"{'minutes': 1, 'seconds': 35}","{'minutes': 0, 'seconds': 51}",3,3,PUNT,False,0,3,0,3
+4017528516,401752851,Northwestern,Big Ten,UCLA,Big Ten,4,True,1,31,69,"{'minutes': 1, 'seconds': 26}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 57}",6,69,TD,True,3,0,10,0
+4017528518,401752851,UCLA,Big Ten,Northwestern,Big Ten,5,False,2,83,83,"{'minutes': 13, 'seconds': 24}",2,34,34,"{'minutes': 6, 'seconds': 18}","{'minutes': 7, 'seconds': 5}",14,47,DOWNS,False,0,10,0,10
+4017528519,401752851,Northwestern,Big Ten,UCLA,Big Ten,6,True,2,36,64,"{'minutes': 6, 'seconds': 16}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 46}",5,64,TD,True,10,0,17,0
+40175285111,401752851,UCLA,Big Ten,Northwestern,Big Ten,7,True,2,83,83,"{'minutes': 3, 'seconds': 24}",2,10,10,"{'minutes': 15, 'seconds': 0}","{'minutes': 3, 'seconds': 26}",13,73,FG,False,0,17,3,17
+40175285113,401752851,Northwestern,Big Ten,UCLA,Big Ten,8,False,3,25,75,"{'minutes': 14, 'seconds': 59}",3,63,37,"{'minutes': 9, 'seconds': 7}","{'minutes': 6, 'seconds': 0}",10,38,PUNT,True,17,6,17,6
+40175285114,401752851,UCLA,Big Ten,Northwestern,Big Ten,9,True,3,80,80,"{'minutes': 8, 'seconds': 58}",3,7,7,"{'minutes': 2, 'seconds': 51}","{'minutes': 6, 'seconds': 12}",12,73,FG,False,6,17,6,17
+40175285116,401752851,Northwestern,Big Ten,UCLA,Big Ten,10,False,3,31,69,"{'minutes': 2, 'seconds': 40}",4,98,2,"{'minutes': 7, 'seconds': 50}","{'minutes': 9, 'seconds': 52}",17,67,MISSED FG,True,17,6,17,9
+40175285117,401752851,UCLA,Big Ten,Northwestern,Big Ten,11,True,4,80,80,"{'minutes': 7, 'seconds': 47}",4,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 29}",5,80,TD,False,9,17,17,17
+40175285119,401752851,Northwestern,Big Ten,UCLA,Big Ten,12,False,4,25,75,"{'minutes': 6, 'seconds': 18}",4,49,51,"{'minutes': 3, 'seconds': 23}","{'minutes': 3, 'seconds': 3}",6,24,PUNT,True,17,14,17,14
+40175285120,401752851,UCLA,Big Ten,Northwestern,Big Ten,13,False,4,93,93,"{'minutes': 0, 'seconds': 0}",4,91,91,"{'minutes': 1, 'seconds': 55}","{'minutes': 1, 'seconds': 21}",3,2,PUNT,False,14,17,14,17
+40175285121,401752851,Northwestern,Big Ten,UCLA,Big Ten,14,False,4,47,53,"{'minutes': 0, 'seconds': 0}",4,50,50,"{'minutes': 1, 'seconds': 29}","{'minutes': 0, 'seconds': 26}",3,3,PUNT,True,17,14,17,14
+40175285122,401752851,UCLA,Big Ten,Northwestern,Big Ten,15,False,4,80,80,"{'minutes': 0, 'seconds': 0}",4,79,79,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 29}",5,1,Uncategorized,False,14,17,14,17
+4017528552,401752855,UCLA,Big Ten,Penn State,Big Ten,1,True,1,25,75,"{'minutes': 14, 'seconds': 59}",1,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 34}",11,75,TD,True,0,0,7,0
+4017528554,401752855,UCLA,Big Ten,Penn State,Big Ten,2,True,1,54,46,"{'minutes': 10, 'seconds': 24}",1,94,6,"{'minutes': 7, 'seconds': 22}","{'minutes': 3, 'seconds': 5}",7,40,FG,True,7,0,10,0
+4017528556,401752855,Penn State,Big Ten,UCLA,Big Ten,3,True,1,75,75,"{'minutes': 7, 'seconds': 18}",1,63,63,"{'minutes': 6, 'seconds': 21}","{'minutes': 5, 'seconds': 14}",10,75,TD,False,0,10,7,13
+40175285510,401752855,Penn State,Big Ten,UCLA,Big Ten,4,False,2,75,75,"{'minutes': 8, 'seconds': 48}",2,71,71,"{'minutes': 8, 'seconds': 4}","{'minutes': 0, 'seconds': 56}",3,4,PUNT,False,7,17,7,17
+40175285511,401752855,UCLA,Big Ten,Penn State,Big Ten,5,True,2,32,68,"{'minutes': 7, 'seconds': 53}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 7}",6,68,TD,True,17,7,24,7
+40175285513,401752855,Penn State,Big Ten,UCLA,Big Ten,6,False,2,75,75,"{'minutes': 4, 'seconds': 46}",2,36,36,"{'minutes': 0, 'seconds': 27}","{'minutes': 4, 'seconds': 25}",9,28,DOWNS,False,7,24,7,24
+40175285514,401752855,UCLA,Big Ten,Penn State,Big Ten,7,True,2,47,53,"{'minutes': 0, 'seconds': 20}",2,64,36,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 22}",3,17,FG,True,24,7,27,7
+40175285516,401752855,Penn State,Big Ten,UCLA,Big Ten,8,False,3,75,75,"{'minutes': 14, 'seconds': 56}",3,79,79,"{'minutes': 14, 'seconds': 22}","{'minutes': 0, 'seconds': 44}",2,-4,FUMBLE,False,7,30,7,30
+40175285517,401752855,UCLA,Big Ten,Penn State,Big Ten,9,False,3,62,38,"{'minutes': 14, 'seconds': 16}",3,62,38,"{'minutes': 13, 'seconds': 16}","{'minutes': 1, 'seconds': 4}",4,0,MISSED FG,True,30,7,30,7
+40175285518,401752855,Penn State,Big Ten,UCLA,Big Ten,10,True,3,62,62,"{'minutes': 13, 'seconds': 10}",3,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 44}",5,62,TD,False,7,27,14,30
+40175285520,401752855,UCLA,Big Ten,Penn State,Big Ten,11,True,3,25,75,"{'minutes': 11, 'seconds': 22}",3,3,97,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 9}",6,75,TD,True,27,14,27,21
+40175285522,401752855,UCLA,Big Ten,Penn State,Big Ten,12,True,3,25,75,"{'minutes': 7, 'seconds': 18}",3,92,8,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 24}",8,75,TD,True,26,21,34,21
+40175285524,401752855,Penn State,Big Ten,UCLA,Big Ten,13,True,3,75,75,"{'minutes': 2, 'seconds': 54}",4,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 29}",10,75,TD,False,21,34,28,35
+40175285526,401752855,UCLA,Big Ten,Penn State,Big Ten,14,True,4,25,75,"{'minutes': 14, 'seconds': 25}",4,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 7, 'seconds': 45}",13,75,TD,True,34,28,42,28
+40175285528,401752855,Penn State,Big Ten,UCLA,Big Ten,15,True,4,75,75,"{'minutes': 6, 'seconds': 39}",4,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 30}",10,75,TD,False,28,34,35,42
+40175285530,401752855,UCLA,Big Ten,Penn State,Big Ten,16,False,4,25,75,"{'minutes': 4, 'seconds': 9}",4,34,66,"{'minutes': 2, 'seconds': 1}","{'minutes': 2, 'seconds': 11}",4,7,DOWNS,True,42,35,42,35
+40175285531,401752855,Penn State,Big Ten,UCLA,Big Ten,17,False,4,32,32,"{'minutes': 2, 'seconds': 0}",4,9,9,"{'minutes': 0, 'seconds': 40}","{'minutes': 1, 'seconds': 23}",6,20,DOWNS,False,35,42,35,42
+40175285532,401752855,UCLA,Big Ten,Penn State,Big Ten,18,True,4,12,88,"{'minutes': 0, 'seconds': 36}",4,11,89,"{'minutes': 0, 'seconds': 23}","{'minutes': 0, 'seconds': 20}",4,-1,SF,True,42,35,42,37
+40175285534,401752855,Penn State,Big Ten,UCLA,Big Ten,19,False,4,63,63,"{'minutes': 0, 'seconds': 10}",4,63,63,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 12}",3,0,FUMBLE,False,37,42,37,42
+4017528632,401752863,UCLA,Big Ten,Michigan State,Big Ten,1,False,1,75,75,"{'minutes': 0, 'seconds': 0}",1,75,75,"{'minutes': 13, 'seconds': 56}","{'minutes': 1, 'seconds': 4}",3,0,PUNT,False,0,0,0,0
+40175286311,401752863,UCLA,Big Ten,Michigan State,Big Ten,2,True,1,63,63,"{'minutes': 15, 'seconds': 0}",2,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 5, 'seconds': 21}",10,63,TD,False,10,7,17,7
+4017528633,401752863,Michigan State,Big Ten,UCLA,Big Ten,3,True,1,41,59,"{'minutes': 0, 'seconds': 0}",1,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 49}",10,59,TD,True,0,0,7,0
+4017528635,401752863,UCLA,Big Ten,Michigan State,Big Ten,4,True,1,75,75,"{'minutes': 0, 'seconds': 0}",1,29,29,"{'minutes': 4, 'seconds': 41}","{'minutes': 4, 'seconds': 26}",10,46,FG,False,0,7,3,7
+4017528637,401752863,Michigan State,Big Ten,UCLA,Big Ten,5,False,1,25,75,"{'minutes': 0, 'seconds': 0}",1,34,66,"{'minutes': 3, 'seconds': 4}","{'minutes': 1, 'seconds': 37}",4,9,DOWNS,True,7,3,7,3
+4017528638,401752863,UCLA,Big Ten,Michigan State,Big Ten,6,True,1,34,34,"{'minutes': 3, 'seconds': 4}",1,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 25}",3,34,TD,False,3,7,10,7
+40175286310,401752863,Michigan State,Big Ten,UCLA,Big Ten,7,False,1,13,87,"{'minutes': 0, 'seconds': 0}",1,17,83,"{'minutes': 0, 'seconds': 38}","{'minutes': 0, 'seconds': 57}",3,4,PUNT,True,7,10,7,10
+40175286313,401752863,Michigan State,Big Ten,UCLA,Big Ten,8,False,2,25,75,"{'minutes': 0, 'seconds': 0}",2,42,58,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 3}",4,17,Uncategorized,True,7,17,7,17
+40175286314,401752863,UCLA,Big Ten,Michigan State,Big Ten,9,True,2,32,32,"{'minutes': 0, 'seconds': 0}",2,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 5}",8,32,TD,False,17,7,24,7
+40175286316,401752863,Michigan State,Big Ten,UCLA,Big Ten,10,False,2,25,75,"{'minutes': 0, 'seconds': 0}",2,31,69,"{'minutes': 2, 'seconds': 41}","{'minutes': 1, 'seconds': 28}",3,6,PUNT,True,7,24,7,24
+40175286317,401752863,UCLA,Big Ten,Michigan State,Big Ten,11,False,2,58,58,"{'minutes': 2, 'seconds': 41}",2,16,16,"{'minutes': 1, 'seconds': 19}","{'minutes': 1, 'seconds': 22}",7,42,MISSED FG,False,24,7,24,7
+40175286318,401752863,Michigan State,Big Ten,UCLA,Big Ten,12,False,2,20,80,"{'minutes': 0, 'seconds': 0}",2,31,69,"{'minutes': 0, 'seconds': 43}","{'minutes': 0, 'seconds': 36}",4,11,PUNT,True,7,24,7,24
+40175286321,401752863,Michigan State,Big Ten,UCLA,Big Ten,13,False,3,25,75,"{'minutes': 0, 'seconds': 0}",3,62,38,"{'minutes': 10, 'seconds': 41}","{'minutes': 4, 'seconds': 19}",11,37,DOWNS,True,7,24,7,24
+40175286327,401752863,Michigan State,Big Ten,UCLA,Big Ten,14,True,3,25,75,"{'minutes': 0, 'seconds': 0}",4,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 35}",9,75,TD,True,7,38,13,38
+40175286322,401752863,UCLA,Big Ten,Michigan State,Big Ten,15,True,3,62,62,"{'minutes': 10, 'seconds': 41}",3,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 6, 'seconds': 46}",12,62,TD,False,24,7,31,7
+40175286324,401752863,Michigan State,Big Ten,UCLA,Big Ten,16,False,3,25,75,"{'minutes': 3, 'seconds': 55}",3,34,66,"{'minutes': 2, 'seconds': 56}","{'minutes': 0, 'seconds': 59}",4,8,DOWNS,True,7,31,7,31
+40175286325,401752863,UCLA,Big Ten,Michigan State,Big Ten,17,True,3,33,33,"{'minutes': 0, 'seconds': 0}",3,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 12}",5,33,TD,False,31,7,38,7
+40175286329,401752863,UCLA,Big Ten,Michigan State,Big Ten,18,False,4,75,75,"{'minutes': 0, 'seconds': 0}",4,47,47,"{'minutes': 7, 'seconds': 8}","{'minutes': 6, 'seconds': 1}",8,28,PUNT,False,38,19,38,19
+40175286330,401752863,Michigan State,Big Ten,UCLA,Big Ten,19,False,4,11,89,"{'minutes': 7, 'seconds': 8}",4,58,42,"{'minutes': 3, 'seconds': 59}","{'minutes': 3, 'seconds': 9}",9,47,DOWNS,True,19,38,19,38
+40175286331,401752863,UCLA,Big Ten,Michigan State,Big Ten,20,False,4,58,58,"{'minutes': 0, 'seconds': 0}",4,22,22,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 59}",6,36,Uncategorized,False,38,19,38,19
+4017528792,401752879,UCLA,Big Ten,Maryland,Big Ten,1,False,1,40,60,"{'minutes': 14, 'seconds': 50}",1,45,55,"{'minutes': 12, 'seconds': 59}","{'minutes': 2, 'seconds': 2}",3,5,PUNT,True,0,0,0,0
+4017528793,401752879,Maryland,Big Ten,UCLA,Big Ten,2,False,1,92,92,"{'minutes': 12, 'seconds': 52}",1,89,89,"{'minutes': 12, 'seconds': 1}","{'minutes': 1, 'seconds': 1}",3,3,PUNT,False,0,0,0,0
+4017528794,401752879,UCLA,Big Ten,Maryland,Big Ten,3,False,1,30,70,"{'minutes': 11, 'seconds': 50}",1,59,41,"{'minutes': 7, 'seconds': 28}","{'minutes': 4, 'seconds': 31}",9,29,PUNT,True,0,0,0,0
+4017528795,401752879,Maryland,Big Ten,UCLA,Big Ten,4,True,1,94,94,"{'minutes': 7, 'seconds': 18}",2,6,6,"{'minutes': 14, 'seconds': 11}","{'minutes': 8, 'seconds': 9}",18,88,FG,False,0,0,3,0
+4017528797,401752879,UCLA,Big Ten,Maryland,Big Ten,5,True,2,29,71,"{'minutes': 14, 'seconds': 5}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 3}",4,71,TD,True,0,3,7,3
+4017528799,401752879,Maryland,Big Ten,UCLA,Big Ten,6,False,2,75,75,"{'minutes': 12, 'seconds': 5}",2,68,68,"{'minutes': 11, 'seconds': 12}","{'minutes': 1, 'seconds': 1}",3,7,PUNT,False,3,7,3,7
+40175287910,401752879,UCLA,Big Ten,Maryland,Big Ten,7,False,2,7,93,"{'minutes': 11, 'seconds': 0}",2,9,91,"{'minutes': 8, 'seconds': 46}","{'minutes': 2, 'seconds': 26}",4,2,PUNT,True,7,3,7,3
+40175287911,401752879,Maryland,Big Ten,UCLA,Big Ten,8,False,2,42,42,"{'minutes': 8, 'seconds': 37}",2,40,40,"{'minutes': 7, 'seconds': 26}","{'minutes': 1, 'seconds': 12}",3,2,PUNT,False,3,7,3,7
+40175287912,401752879,UCLA,Big Ten,Maryland,Big Ten,9,False,2,10,90,"{'minutes': 7, 'seconds': 26}",2,5,95,"{'minutes': 5, 'seconds': 30}","{'minutes': 2, 'seconds': 5}",3,-5,PUNT,True,7,3,7,3
+40175287913,401752879,Maryland,Big Ten,UCLA,Big Ten,10,False,2,66,66,"{'minutes': 5, 'seconds': 21}",2,34,34,"{'minutes': 3, 'seconds': 1}","{'minutes': 2, 'seconds': 27}",5,32,FUMBLE,False,3,7,3,7
+40175287914,401752879,UCLA,Big Ten,Maryland,Big Ten,11,False,2,32,68,"{'minutes': 2, 'seconds': 54}",2,75,25,"{'minutes': 1, 'seconds': 2}","{'minutes': 1, 'seconds': 58}",6,43,INT,True,7,3,7,3
+40175287915,401752879,Maryland,Big Ten,UCLA,Big Ten,12,False,2,92,92,"{'minutes': 0, 'seconds': 55}",2,41,41,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 56}",10,51,END OF HALF,False,3,7,3,7
+40175287917,401752879,Maryland,Big Ten,UCLA,Big Ten,13,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,71,71,"{'minutes': 14, 'seconds': 28}","{'minutes': 0, 'seconds': 39}",3,4,PUNT,False,3,7,3,7
+40175287918,401752879,UCLA,Big Ten,Maryland,Big Ten,14,False,3,18,82,"{'minutes': 14, 'seconds': 21}",3,41,59,"{'minutes': 11, 'seconds': 14}","{'minutes': 3, 'seconds': 14}",6,23,PUNT,True,7,3,7,3
+40175287919,401752879,Maryland,Big Ten,UCLA,Big Ten,15,False,3,80,80,"{'minutes': 11, 'seconds': 7}",3,55,55,"{'minutes': 9, 'seconds': 17}","{'minutes': 1, 'seconds': 57}",4,25,PUNT,False,3,7,3,7
+40175287920,401752879,UCLA,Big Ten,Maryland,Big Ten,16,False,3,15,85,"{'minutes': 9, 'seconds': 9}",3,20,80,"{'minutes': 8, 'seconds': 25}","{'minutes': 0, 'seconds': 58}",3,5,PUNT,True,7,3,7,3
+40175287921,401752879,Maryland,Big Ten,UCLA,Big Ten,17,False,3,52,52,"{'minutes': 8, 'seconds': 12}",3,2,2,"{'minutes': 5, 'seconds': 16}","{'minutes': 2, 'seconds': 59}",7,50,DOWNS,False,3,7,3,7
+40175287922,401752879,UCLA,Big Ten,Maryland,Big Ten,18,True,3,2,98,"{'minutes': 5, 'seconds': 13}",3,8,92,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 33}",2,98,TD,True,7,3,7,10
+40175287924,401752879,UCLA,Big Ten,Maryland,Big Ten,19,False,3,26,74,"{'minutes': 4, 'seconds': 35}",3,57,43,"{'minutes': 1, 'seconds': 12}","{'minutes': 3, 'seconds': 29}",6,31,PUNT,True,7,10,7,10
+40175287925,401752879,Maryland,Big Ten,UCLA,Big Ten,20,False,3,80,80,"{'minutes': 0, 'seconds': 0}",4,72,72,"{'minutes': 14, 'seconds': 25}","{'minutes': 1, 'seconds': 45}",3,8,PUNT,False,10,7,10,7
+40175287926,401752879,UCLA,Big Ten,Maryland,Big Ten,21,False,4,28,72,"{'minutes': 14, 'seconds': 20}",4,53,47,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 19}",4,25,Uncategorized,True,7,10,7,10
+40175287927,401752879,Maryland,Big Ten,UCLA,Big Ten,22,False,4,48,48,"{'minutes': 13, 'seconds': 1}",4,46,46,"{'minutes': 12, 'seconds': 13}","{'minutes': 0, 'seconds': 51}",3,2,PUNT,False,10,7,10,7
+40175287928,401752879,UCLA,Big Ten,Maryland,Big Ten,23,False,4,10,90,"{'minutes': 12, 'seconds': 10}",4,62,38,"{'minutes': 7, 'seconds': 44}","{'minutes': 4, 'seconds': 31}",9,52,MISSED FG,True,7,10,7,10
+40175287929,401752879,Maryland,Big Ten,UCLA,Big Ten,24,False,4,62,62,"{'minutes': 7, 'seconds': 39}",4,43,43,"{'minutes': 5, 'seconds': 46}","{'minutes': 2, 'seconds': 0}",4,19,PUNT,False,10,7,10,7
+40175287930,401752879,UCLA,Big Ten,Maryland,Big Ten,25,True,4,20,80,"{'minutes': 5, 'seconds': 40}",4,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 6}",9,80,TD,True,7,10,14,10
+40175287932,401752879,Maryland,Big Ten,UCLA,Big Ten,26,False,4,86,86,"{'minutes': 3, 'seconds': 28}",4,79,79,"{'minutes': 3, 'seconds': 1}","{'minutes': 0, 'seconds': 31}",2,7,INT,False,10,14,10,14
+40175287933,401752879,UCLA,Big Ten,Maryland,Big Ten,27,True,4,80,20,"{'minutes': 2, 'seconds': 56}",4,76,24,"{'minutes': 2, 'seconds': 4}","{'minutes': 0, 'seconds': 52}",4,-4,FG,True,14,10,17,10
+40175287935,401752879,Maryland,Big Ten,UCLA,Big Ten,28,True,4,75,75,"{'minutes': 2, 'seconds': 3}",4,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 24}",10,75,TD,False,10,17,17,20
+40175287937,401752879,UCLA,Big Ten,Maryland,Big Ten,29,True,4,27,73,"{'minutes': 0, 'seconds': 34}",4,95,5,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 33}",5,68,FG,True,17,17,20,17
+4017528852,401752885,UCLA,Big Ten,Indiana,Big Ten,1,True,1,73,73,"{'minutes': 14, 'seconds': 54}",1,97,97,"{'minutes': 14, 'seconds': 3}","{'minutes': 0, 'seconds': 51}",2,-2,INT TD,False,0,0,0,7
+4017528854,401752885,UCLA,Big Ten,Indiana,Big Ten,2,False,1,82,82,"{'minutes': 13, 'seconds': 58}",1,80,80,"{'minutes': 13, 'seconds': 4}","{'minutes': 0, 'seconds': 54}",3,2,PUNT,False,0,7,0,7
+4017528855,401752885,Indiana,Big Ten,UCLA,Big Ten,3,False,1,35,65,"{'minutes': 12, 'seconds': 53}",1,70,30,"{'minutes': 10, 'seconds': 42}","{'minutes': 2, 'seconds': 22}",7,35,INT,True,7,0,7,0
+4017528856,401752885,UCLA,Big Ten,Indiana,Big Ten,4,False,1,56,56,"{'minutes': 10, 'seconds': 36}",1,41,41,"{'minutes': 8, 'seconds': 6}","{'minutes': 2, 'seconds': 36}",6,15,DOWNS,False,0,7,0,7
+4017528857,401752885,Indiana,Big Ten,UCLA,Big Ten,5,True,1,41,59,"{'minutes': 7, 'seconds': 58}",1,97,3,"{'minutes': 4, 'seconds': 2}","{'minutes': 4, 'seconds': 4}",8,59,TD,True,7,0,14,0
+4017528859,401752885,UCLA,Big Ten,Indiana,Big Ten,6,False,1,82,82,"{'minutes': 3, 'seconds': 56}",1,88,88,"{'minutes': 2, 'seconds': 16}","{'minutes': 1, 'seconds': 40}",3,-6,PUNT,False,0,14,0,14
+40175288510,401752885,Indiana,Big Ten,UCLA,Big Ten,7,True,1,25,75,"{'minutes': 2, 'seconds': 10}",2,97,3,"{'minutes': 12, 'seconds': 30}","{'minutes': 4, 'seconds': 46}",11,75,TD,True,14,0,21,0
+40175288512,401752885,UCLA,Big Ten,Indiana,Big Ten,8,False,2,92,92,"{'minutes': 12, 'seconds': 25}",2,73,73,"{'minutes': 9, 'seconds': 59}","{'minutes': 2, 'seconds': 26}",5,21,FUMBLE,False,0,21,0,21
+40175288513,401752885,Indiana,Big Ten,UCLA,Big Ten,9,True,2,71,29,"{'minutes': 9, 'seconds': 53}",2,97,3,"{'minutes': 8, 'seconds': 44}","{'minutes': 1, 'seconds': 15}",3,29,TD,True,21,0,28,0
+40175288515,401752885,UCLA,Big Ten,Indiana,Big Ten,10,False,2,75,75,"{'minutes': 8, 'seconds': 44}",2,49,49,"{'minutes': 6, 'seconds': 35}","{'minutes': 2, 'seconds': 7}",4,26,PUNT,False,0,28,0,28
+40175288516,401752885,Indiana,Big Ten,UCLA,Big Ten,11,False,2,12,88,"{'minutes': 6, 'seconds': 31}",2,18,82,"{'minutes': 5, 'seconds': 16}","{'minutes': 1, 'seconds': 21}",3,6,PUNT,True,28,0,28,0
+40175288517,401752885,UCLA,Big Ten,Indiana,Big Ten,12,True,2,62,62,"{'minutes': 5, 'seconds': 9}",2,30,30,"{'minutes': 1, 'seconds': 55}","{'minutes': 3, 'seconds': 21}",7,32,FG,False,0,28,3,28
+40175288519,401752885,Indiana,Big Ten,UCLA,Big Ten,13,True,2,25,75,"{'minutes': 1, 'seconds': 49}",2,97,3,"{'minutes': 0, 'seconds': 13}","{'minutes': 1, 'seconds': 36}",8,75,TD,True,28,3,35,3
+40175288521,401752885,UCLA,Big Ten,Indiana,Big Ten,14,False,2,71,71,"{'minutes': 0, 'seconds': 5}",2,65,65,"{'minutes': 0, 'seconds': 6}","{'minutes': 0, 'seconds': 5}",1,6,END OF HALF,False,3,35,3,35
+40175288523,401752885,Indiana,Big Ten,UCLA,Big Ten,15,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,97,3,"{'minutes': 9, 'seconds': 15}","{'minutes': 5, 'seconds': 45}",10,75,TD,True,35,3,42,3
+40175288525,401752885,UCLA,Big Ten,Indiana,Big Ten,16,False,3,75,75,"{'minutes': 9, 'seconds': 15}",3,59,59,"{'minutes': 7, 'seconds': 48}","{'minutes': 1, 'seconds': 27}",4,16,PUNT,False,3,42,3,42
+40175288526,401752885,Indiana,Big Ten,UCLA,Big Ten,17,True,3,26,74,"{'minutes': 7, 'seconds': 41}",3,97,3,"{'minutes': 4, 'seconds': 13}","{'minutes': 3, 'seconds': 35}",6,74,TD,True,42,3,49,3
+40175288528,401752885,UCLA,Big Ten,Indiana,Big Ten,18,True,3,75,75,"{'minutes': 4, 'seconds': 13}",3,11,11,"{'minutes': 0, 'seconds': 23}","{'minutes': 3, 'seconds': 50}",10,64,FG,False,3,49,6,49
+40175288530,401752885,Indiana,Big Ten,UCLA,Big Ten,19,True,3,25,75,"{'minutes': 0, 'seconds': 23}",4,97,3,"{'minutes': 11, 'seconds': 11}","{'minutes': 4, 'seconds': 12}",10,75,TD,True,49,6,56,6
+40175288532,401752885,UCLA,Big Ten,Indiana,Big Ten,20,False,4,75,75,"{'minutes': 11, 'seconds': 11}",4,74,74,"{'minutes': 11, 'seconds': 5}","{'minutes': 0, 'seconds': 47}",2,1,INT,False,6,56,6,56
+40175288533,401752885,Indiana,Big Ten,UCLA,Big Ten,21,False,4,63,37,"{'minutes': 10, 'seconds': 18}",4,86,14,"{'minutes': 4, 'seconds': 20}","{'minutes': 6, 'seconds': 4}",9,23,INT,True,56,6,56,6
+40175288534,401752885,UCLA,Big Ten,Indiana,Big Ten,22,False,4,72,72,"{'minutes': 4, 'seconds': 15}",4,40,40,"{'minutes': 0, 'seconds': 28}","{'minutes': 3, 'seconds': 52}",8,32,DOWNS,False,6,56,6,56
+40175288535,401752885,Indiana,Big Ten,UCLA,Big Ten,23,False,4,40,60,"{'minutes': 0, 'seconds': 26}",4,39,61,"{'minutes': 0, 'seconds': 26}","{'minutes': 0, 'seconds': 28}",1,-1,END OF GAME,True,56,6,56,6
+4017528952,401752895,UCLA,Big Ten,Nebraska,Big Ten,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,30,70,"{'minutes': 13, 'seconds': 19}","{'minutes': 1, 'seconds': 41}",3,5,PUNT,True,0,0,0,0
+4017528953,401752895,Nebraska,Big Ten,UCLA,Big Ten,2,True,1,61,61,"{'minutes': 13, 'seconds': 9}",1,3,3,"{'minutes': 8, 'seconds': 0}","{'minutes': 5, 'seconds': 19}",9,61,TD,False,0,0,7,0
+4017528955,401752895,UCLA,Big Ten,Nebraska,Big Ten,3,True,1,25,75,"{'minutes': 8, 'seconds': 0}",2,97,3,"{'minutes': 13, 'seconds': 14}","{'minutes': 9, 'seconds': 46}",17,75,TD,True,0,7,7,7
+4017528957,401752895,Nebraska,Big Ten,UCLA,Big Ten,4,True,2,75,75,"{'minutes': 13, 'seconds': 14}",2,3,3,"{'minutes': 11, 'seconds': 1}","{'minutes': 2, 'seconds': 13}",4,75,TD,False,7,7,14,7
+4017528959,401752895,UCLA,Big Ten,Nebraska,Big Ten,5,False,2,21,79,"{'minutes': 10, 'seconds': 52}",2,60,40,"{'minutes': 6, 'seconds': 18}","{'minutes': 4, 'seconds': 34}",9,39,DOWNS,True,7,14,7,14
+40175289510,401752895,Nebraska,Big Ten,UCLA,Big Ten,6,True,2,60,60,"{'minutes': 6, 'seconds': 10}",2,3,3,"{'minutes': 1, 'seconds': 47}","{'minutes': 4, 'seconds': 31}",9,60,TD,False,14,7,21,7
+40175289512,401752895,UCLA,Big Ten,Nebraska,Big Ten,7,False,2,18,82,"{'minutes': 1, 'seconds': 42}",2,69,31,"{'minutes': 0, 'seconds': 6}","{'minutes': 1, 'seconds': 36}",13,51,MISSED FG,True,7,21,7,21
+40175289513,401752895,Nebraska,Big Ten,UCLA,Big Ten,8,False,2,69,69,"{'minutes': 0, 'seconds': 2}",2,70,70,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 6}",1,-1,END OF HALF,False,21,7,21,7
+40175289515,401752895,Nebraska,Big Ten,UCLA,Big Ten,9,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,3,3,"{'minutes': 11, 'seconds': 44}","{'minutes': 3, 'seconds': 16}",6,75,TD,False,21,7,28,7
+40175289517,401752895,UCLA,Big Ten,Nebraska,Big Ten,10,True,3,31,69,"{'minutes': 11, 'seconds': 37}",3,97,3,"{'minutes': 9, 'seconds': 58}","{'minutes': 1, 'seconds': 39}",4,69,TD,True,7,28,14,28
+40175289519,401752895,Nebraska,Big Ten,UCLA,Big Ten,11,False,3,75,75,"{'minutes': 9, 'seconds': 58}",3,43,43,"{'minutes': 4, 'seconds': 33}","{'minutes': 5, 'seconds': 25}",8,32,PUNT,False,28,14,28,14
+40175289520,401752895,UCLA,Big Ten,Nebraska,Big Ten,12,False,3,10,90,"{'minutes': 4, 'seconds': 27}",3,22,78,"{'minutes': 0, 'seconds': 49}","{'minutes': 3, 'seconds': 44}",7,12,PUNT,True,14,28,14,28
+40175289521,401752895,Nebraska,Big Ten,UCLA,Big Ten,13,False,3,65,65,"{'minutes': 0, 'seconds': 47}",4,42,42,"{'minutes': 11, 'seconds': 33}","{'minutes': 4, 'seconds': 16}",8,23,PUNT,False,28,14,28,14
+40175289522,401752895,UCLA,Big Ten,Nebraska,Big Ten,14,True,4,4,96,"{'minutes': 11, 'seconds': 28}",4,97,3,"{'minutes': 4, 'seconds': 54}","{'minutes': 6, 'seconds': 39}",12,96,TD,True,14,28,21,28
+40175289524,401752895,Nebraska,Big Ten,UCLA,Big Ten,15,False,4,76,76,"{'minutes': 4, 'seconds': 47}",4,40,40,"{'minutes': 0, 'seconds': 31}","{'minutes': 4, 'seconds': 47}",9,36,END OF GAME,False,28,21,28,21
+4017529002,401752900,UCLA,Big Ten,Ohio State,Big Ten,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,73,73,"{'minutes': 12, 'seconds': 41}","{'minutes': 2, 'seconds': 19}",3,2,PUNT,False,0,0,0,0
+4017529003,401752900,Ohio State,Big Ten,UCLA,Big Ten,2,True,1,29,71,"{'minutes': 12, 'seconds': 41}",1,97,3,"{'minutes': 8, 'seconds': 47}","{'minutes': 3, 'seconds': 54}",8,71,TD,True,0,0,7,0
+4017529005,401752900,UCLA,Big Ten,Ohio State,Big Ten,3,False,1,75,75,"{'minutes': 8, 'seconds': 47}",1,57,57,"{'minutes': 5, 'seconds': 45}","{'minutes': 3, 'seconds': 2}",5,18,PUNT,False,0,7,0,7
+4017529006,401752900,Ohio State,Big Ten,UCLA,Big Ten,4,True,1,18,82,"{'minutes': 5, 'seconds': 45}",1,78,22,"{'minutes': 0, 'seconds': 4}","{'minutes': 5, 'seconds': 41}",11,60,FG,True,7,0,10,0
+4017529008,401752900,UCLA,Big Ten,Ohio State,Big Ten,5,False,1,75,75,"{'minutes': 0, 'seconds': 4}",2,61,61,"{'minutes': 11, 'seconds': 32}","{'minutes': 3, 'seconds': 32}",6,14,PUNT,False,0,10,0,10
+4017529009,401752900,Ohio State,Big Ten,UCLA,Big Ten,6,True,2,18,82,"{'minutes': 11, 'seconds': 32}",2,97,3,"{'minutes': 4, 'seconds': 34}","{'minutes': 6, 'seconds': 51}",12,82,TD,True,10,0,17,0
+40175290011,401752900,UCLA,Big Ten,Ohio State,Big Ten,7,False,2,75,75,"{'minutes': 4, 'seconds': 41}",2,68,68,"{'minutes': 3, 'seconds': 12}","{'minutes': 1, 'seconds': 29}",3,9,PUNT,False,0,17,0,17
+40175290012,401752900,Ohio State,Big Ten,UCLA,Big Ten,8,True,2,19,81,"{'minutes': 3, 'seconds': 19}",2,97,3,"{'minutes': 1, 'seconds': 19}","{'minutes': 1, 'seconds': 53}",5,81,TD,True,17,0,24,0
+40175290014,401752900,UCLA,Big Ten,Ohio State,Big Ten,9,False,2,75,75,"{'minutes': 1, 'seconds': 19}",2,78,78,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 9}",4,-11,DOWNS,False,0,24,0,27
+40175290015,401752900,Ohio State,Big Ten,UCLA,Big Ten,10,True,2,86,14,"{'minutes': 0, 'seconds': 16}",2,86,14,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 9}",2,0,FG,True,24,0,27,0
+40175290017,401752900,Ohio State,Big Ten,UCLA,Big Ten,11,False,2,35,65,"{'minutes': 0, 'seconds': 1}",2,87,13,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",0,0,END OF HALF,True,27,0,27,0
+40175290018,401752900,Ohio State,Big Ten,UCLA,Big Ten,12,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,16,84,"{'minutes': 13, 'seconds': 58}","{'minutes': 1, 'seconds': 2}",3,-9,PUNT,True,27,0,27,0
+40175290019,401752900,UCLA,Big Ten,Ohio State,Big Ten,13,False,3,63,63,"{'minutes': 13, 'seconds': 58}",3,55,55,"{'minutes': 12, 'seconds': 31}","{'minutes': 1, 'seconds': 27}",4,8,DOWNS,False,0,27,0,27
+40175290020,401752900,Ohio State,Big Ten,UCLA,Big Ten,14,False,3,55,45,"{'minutes': 12, 'seconds': 31}",3,61,39,"{'minutes': 10, 'seconds': 27}","{'minutes': 2, 'seconds': 4}",4,6,DOWNS,True,27,0,27,0
+40175290021,401752900,UCLA,Big Ten,Ohio State,Big Ten,15,False,3,61,61,"{'minutes': 10, 'seconds': 27}",3,69,69,"{'minutes': 8, 'seconds': 43}","{'minutes': 1, 'seconds': 44}",3,-8,PUNT,False,0,27,0,27
+40175290022,401752900,Ohio State,Big Ten,UCLA,Big Ten,16,True,3,31,69,"{'minutes': 8, 'seconds': 43}",3,97,3,"{'minutes': 2, 'seconds': 27}","{'minutes': 6, 'seconds': 16}",13,69,TD,True,27,0,34,0
+40175290024,401752900,UCLA,Big Ten,Ohio State,Big Ten,17,True,3,75,75,"{'minutes': 2, 'seconds': 27}",3,0,0,"{'minutes': 0, 'seconds': 17}","{'minutes': 2, 'seconds': 10}",5,75,TD,False,0,34,7,34
+40175290026,401752900,UCLA,Big Ten,Ohio State,Big Ten,18,True,3,65,65,"{'minutes': 0, 'seconds': 3}",3,-35,-35,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 0}",1,100,TD,False,7,41,7,41
+40175290027,401752900,UCLA,Big Ten,Ohio State,Big Ten,19,True,3,75,75,"{'minutes': 0, 'seconds': 3}",4,14,14,"{'minutes': 8, 'seconds': 49}","{'minutes': 6, 'seconds': 14}",12,61,FG,False,7,41,10,41
+40175290029,401752900,Ohio State,Big Ten,UCLA,Big Ten,20,True,4,25,75,"{'minutes': 8, 'seconds': 49}",4,97,3,"{'minutes': 1, 'seconds': 54}","{'minutes': 6, 'seconds': 55}",11,75,TD,True,41,10,48,10
+40175290031,401752900,UCLA,Big Ten,Ohio State,Big Ten,21,False,4,75,75,"{'minutes': 1, 'seconds': 54}",4,54,54,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 54}",4,21,END OF GAME,False,10,48,10,48
+4017529102,401752910,Washington,Big Ten,UCLA,Big Ten,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,51,51,"{'minutes': 12, 'seconds': 10}","{'minutes': 2, 'seconds': 50}",5,24,PUNT,False,0,0,0,0
+4017529103,401752910,UCLA,Big Ten,Washington,Big Ten,2,False,1,16,84,"{'minutes': 12, 'seconds': 10}",1,67,33,"{'minutes': 6, 'seconds': 45}","{'minutes': 5, 'seconds': 25}",9,51,DOWNS,True,0,0,0,0
+4017529104,401752910,Washington,Big Ten,UCLA,Big Ten,3,False,1,67,67,"{'minutes': 6, 'seconds': 45}",1,45,45,"{'minutes': 2, 'seconds': 8}","{'minutes': 4, 'seconds': 37}",7,22,PUNT,False,0,0,0,0
+4017529105,401752910,UCLA,Big Ten,Washington,Big Ten,4,False,1,20,80,"{'minutes': 2, 'seconds': 8}",1,20,80,"{'minutes': 1, 'seconds': 59}","{'minutes': 0, 'seconds': 9}",1,0,FUMBLE,True,0,0,0,0
+4017529106,401752910,Washington,Big Ten,UCLA,Big Ten,5,True,1,20,20,"{'minutes': 1, 'seconds': 59}",1,18,18,"{'minutes': 1, 'seconds': 10}","{'minutes': 0, 'seconds': 49}",4,2,FG,False,0,0,3,0
+4017529108,401752910,UCLA,Big Ten,Washington,Big Ten,6,False,1,25,75,"{'minutes': 1, 'seconds': 10}",2,31,69,"{'minutes': 14, 'seconds': 48}","{'minutes': 1, 'seconds': 22}",3,6,PUNT,True,0,3,0,3
+4017529109,401752910,Washington,Big Ten,UCLA,Big Ten,7,True,2,65,65,"{'minutes': 14, 'seconds': 48}",2,0,0,"{'minutes': 10, 'seconds': 56}","{'minutes': 3, 'seconds': 52}",8,65,TD,False,3,0,10,0
+40175291011,401752910,UCLA,Big Ten,Washington,Big Ten,8,False,2,25,75,"{'minutes': 10, 'seconds': 56}",2,45,55,"{'minutes': 8, 'seconds': 50}","{'minutes': 2, 'seconds': 6}",5,20,FUMBLE,True,0,10,0,10
+40175291012,401752910,Washington,Big Ten,UCLA,Big Ten,9,True,2,45,45,"{'minutes': 8, 'seconds': 50}",2,4,4,"{'minutes': 5, 'seconds': 46}","{'minutes': 3, 'seconds': 4}",8,41,FG,False,10,0,13,0
+40175291014,401752910,UCLA,Big Ten,Washington,Big Ten,10,False,2,25,75,"{'minutes': 5, 'seconds': 39}",2,33,67,"{'minutes': 3, 'seconds': 20}","{'minutes': 2, 'seconds': 19}",3,8,PUNT,True,0,13,0,13
+40175291015,401752910,Washington,Big Ten,UCLA,Big Ten,11,False,2,63,63,"{'minutes': 3, 'seconds': 20}",2,63,63,"{'minutes': 3, 'seconds': 11}","{'minutes': 0, 'seconds': 9}",1,0,INT,False,13,0,13,0
+40175291016,401752910,UCLA,Big Ten,Washington,Big Ten,12,True,2,76,24,"{'minutes': 3, 'seconds': 11}",2,59,41,"{'minutes': 1, 'seconds': 44}","{'minutes': 1, 'seconds': 27}",4,-76,FUMBLE TD,True,0,13,0,20
+40175291018,401752910,UCLA,Big Ten,Washington,Big Ten,13,False,2,25,75,"{'minutes': 1, 'seconds': 44}",2,53,47,"{'minutes': 0, 'seconds': 23}","{'minutes': 1, 'seconds': 21}",8,28,PUNT,True,0,20,0,20
+40175291019,401752910,Washington,Big Ten,UCLA,Big Ten,14,False,2,93,93,"{'minutes': 0, 'seconds': 23}",2,93,93,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 23}",1,0,END OF HALF,False,20,0,20,0
+40175291021,401752910,UCLA,Big Ten,Washington,Big Ten,15,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,28,72,"{'minutes': 13, 'seconds': 35}","{'minutes': 1, 'seconds': 25}",3,3,PUNT,True,0,20,0,20
+40175291022,401752910,Washington,Big Ten,UCLA,Big Ten,16,True,3,55,55,"{'minutes': 13, 'seconds': 35}",3,0,0,"{'minutes': 10, 'seconds': 38}","{'minutes': 2, 'seconds': 57}",6,55,TD,False,20,0,27,0
+40175291024,401752910,UCLA,Big Ten,Washington,Big Ten,17,False,3,25,75,"{'minutes': 10, 'seconds': 38}",3,25,75,"{'minutes': 8, 'seconds': 21}","{'minutes': 2, 'seconds': 17}",5,0,PUNT,True,0,27,0,27
+40175291025,401752910,Washington,Big Ten,UCLA,Big Ten,18,True,3,68,68,"{'minutes': 8, 'seconds': 21}",3,0,0,"{'minutes': 5, 'seconds': 24}","{'minutes': 2, 'seconds': 57}",4,68,TD,False,27,0,34,0
+40175291027,401752910,UCLA,Big Ten,Washington,Big Ten,19,True,3,18,82,"{'minutes': 5, 'seconds': 19}",3,100,0,"{'minutes': 2, 'seconds': 53}","{'minutes': 2, 'seconds': 26}",7,82,TD,True,0,34,7,34
+40175291029,401752910,Washington,Big Ten,UCLA,Big Ten,20,True,3,75,75,"{'minutes': 2, 'seconds': 53}",4,0,0,"{'minutes': 12, 'seconds': 53}","{'minutes': 5, 'seconds': 0}",11,75,TD,False,34,7,41,7
+40175291031,401752910,UCLA,Big Ten,Washington,Big Ten,21,True,4,25,75,"{'minutes': 12, 'seconds': 53}",4,33,67,"{'minutes': 11, 'seconds': 19}","{'minutes': 1, 'seconds': 34}",4,8,FUMBLE,True,7,41,14,41
+40175291033,401752910,Washington,Big Ten,UCLA,Big Ten,22,True,4,75,75,"{'minutes': 11, 'seconds': 19}",4,0,0,"{'minutes': 7, 'seconds': 14}","{'minutes': 4, 'seconds': 5}",7,75,TD,False,41,14,48,14
+40175291035,401752910,UCLA,Big Ten,Washington,Big Ten,23,False,4,25,75,"{'minutes': 7, 'seconds': 14}",4,45,55,"{'minutes': 4, 'seconds': 50}","{'minutes': 2, 'seconds': 24}",6,20,DOWNS,True,14,48,14,48
+40175291036,401752910,Washington,Big Ten,UCLA,Big Ten,24,False,4,45,45,"{'minutes': 4, 'seconds': 50}",4,26,26,"{'minutes': 1, 'seconds': 6}","{'minutes': 3, 'seconds': 44}",7,19,DOWNS,False,48,14,48,14
+40175291037,401752910,UCLA,Big Ten,Washington,Big Ten,25,False,4,27,73,"{'minutes': 1, 'seconds': 6}",4,30,70,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 6}",2,4,END OF GAME,True,14,48,14,48
+4017529192,401752919,USC,Big Ten,UCLA,Big Ten,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 9, 'seconds': 15}","{'minutes': 5, 'seconds': 45}",10,75,TD,True,0,0,7,0
+4017529194,401752919,UCLA,Big Ten,USC,Big Ten,2,False,1,75,75,"{'minutes': 9, 'seconds': 15}",1,69,69,"{'minutes': 8, 'seconds': 20}","{'minutes': 0, 'seconds': 55}",3,6,PUNT,False,0,7,0,7
+4017529195,401752919,USC,Big Ten,UCLA,Big Ten,3,False,1,32,68,"{'minutes': 8, 'seconds': 13}",1,79,21,"{'minutes': 4, 'seconds': 13}","{'minutes': 4, 'seconds': 7}",10,47,MISSED FG,True,7,0,7,0
+4017529196,401752919,UCLA,Big Ten,USC,Big Ten,4,True,1,79,79,"{'minutes': 4, 'seconds': 3}",2,3,3,"{'minutes': 11, 'seconds': 23}","{'minutes': 7, 'seconds': 50}",13,79,TD,False,0,7,7,7
+4017529198,401752919,USC,Big Ten,UCLA,Big Ten,5,False,2,25,75,"{'minutes': 11, 'seconds': 23}",2,88,12,"{'minutes': 5, 'seconds': 42}","{'minutes': 5, 'seconds': 41}",12,63,MISSED FG,True,7,7,7,7
+4017529199,401752919,UCLA,Big Ten,USC,Big Ten,6,True,2,80,80,"{'minutes': 5, 'seconds': 35}",2,26,26,"{'minutes': 0, 'seconds': 18}","{'minutes': 5, 'seconds': 24}",13,60,FG,False,7,7,10,7
+40175291911,401752919,USC,Big Ten,UCLA,Big Ten,7,False,2,25,75,"{'minutes': 0, 'seconds': 18}",2,23,77,"{'minutes': 0, 'seconds': 12}","{'minutes': 0, 'seconds': 18}",2,-2,END OF HALF,True,7,10,7,10
+40175291913,401752919,UCLA,Big Ten,USC,Big Ten,8,False,3,86,86,"{'minutes': 15, 'seconds': 0}",3,80,80,"{'minutes': 13, 'seconds': 20}","{'minutes': 1, 'seconds': 40}",3,6,PUNT,False,10,7,10,7
+40175291914,401752919,USC,Big Ten,UCLA,Big Ten,9,False,3,36,64,"{'minutes': 13, 'seconds': 15}",3,36,64,"{'minutes': 12, 'seconds': 23}","{'minutes': 0, 'seconds': 57}",3,0,PUNT,True,7,10,7,10
+40175291915,401752919,UCLA,Big Ten,USC,Big Ten,10,False,3,75,75,"{'minutes': 12, 'seconds': 15}",3,42,42,"{'minutes': 5, 'seconds': 17}","{'minutes': 7, 'seconds': 6}",10,33,PUNT,False,10,7,10,7
+40175291916,401752919,USC,Big Ten,UCLA,Big Ten,11,True,3,9,91,"{'minutes': 5, 'seconds': 11}",3,100,0,"{'minutes': 0, 'seconds': 25}","{'minutes': 4, 'seconds': 52}",10,91,TD,True,7,10,14,10
+40175291918,401752919,UCLA,Big Ten,USC,Big Ten,12,False,3,85,85,"{'minutes': 0, 'seconds': 20}",4,58,58,"{'minutes': 13, 'seconds': 54}","{'minutes': 1, 'seconds': 26}",4,27,PUNT,False,10,14,10,14
+40175291919,401752919,USC,Big Ten,UCLA,Big Ten,13,True,4,43,57,"{'minutes': 13, 'seconds': 54}",4,97,3,"{'minutes': 11, 'seconds': 24}","{'minutes': 2, 'seconds': 30}",4,57,TD,True,14,10,21,10
+40175291921,401752919,UCLA,Big Ten,USC,Big Ten,14,False,4,75,75,"{'minutes': 11, 'seconds': 24}",4,35,35,"{'minutes': 4, 'seconds': 17}","{'minutes': 7, 'seconds': 7}",10,40,DOWNS,False,10,21,10,21
+40175291922,401752919,USC,Big Ten,UCLA,Big Ten,15,True,4,35,65,"{'minutes': 4, 'seconds': 12}",4,85,15,"{'minutes': 2, 'seconds': 29}","{'minutes': 1, 'seconds': 48}",4,50,TD,True,21,10,29,10
+40175291924,401752919,UCLA,Big Ten,USC,Big Ten,16,False,4,53,53,"{'minutes': 2, 'seconds': 21}",4,6,6,"{'minutes': 0, 'seconds': 46}","{'minutes': 1, 'seconds': 35}",9,47,DOWNS,False,10,29,10,29
+40175291925,401752919,USC,Big Ten,UCLA,Big Ten,17,False,4,11,89,"{'minutes': 0, 'seconds': 40}",4,8,92,"{'minutes': 0, 'seconds': 23}","{'minutes': 0, 'seconds': 46}",2,-3,Uncategorized,True,29,10,29,10

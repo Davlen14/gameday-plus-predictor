@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IU 3000: CRIMSON COMMAND</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    
+    <!-- Fonts: Rajdhani (Tech Headers), JetBrains Mono (Data) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-crimson': '#ff0f39',
+                        'deep-crimson': '#4a0010',
+                        'cyber-black': '#050507',
+                        'holo-slate': '#1e293b',
+                        'tech-cyan': '#00f3ff'
+                    },
+                    fontFamily: {
+                        'display': ['Rajdhani', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --glow-color: #ff0f39;
+            --glass-bg: rgba(10, 10, 15, 0.6);
+            --glass-border: rgba(255, 15, 57, 0.3);
+        }
+
+        body {
+            background-color: #020204;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Background Effect */
+        .ambient-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(153, 0, 0, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 243, 255, 0.05) 0%, transparent 40%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: var(--grid-pattern, linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px));
+            background-size: 40px 40px;
+            z-index: -1;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+            pointer-events: none;
+        }
+
+        /* Holographic Panels */
+        .holo-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 0 15px rgba(255, 15, 57, 0.05), inset 0 0 20px rgba(255, 15, 57, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Corner Accents */
+        .holo-panel::before, .holo-panel::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 1px solid var(--glow-color);
+            transition: all 0.3s ease;
+        }
+        .holo-panel::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+        .holo-panel::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+        .holo-panel:hover {
+            border-color: var(--glow-color);
+            box-shadow: 0 0 25px rgba(255, 15, 57, 0.15);
+        }
+
+        /* Scanline Effect */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255, 15, 57, 0.04) 50%, rgba(0,0,0,0) 100%);
+            opacity: 0.1;
+            background-size: 100% 100%;
+            position: absolute;
+            top: -100px;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0% { top: -100px; }
+            100% { top: 100%; }
+        }
+
+        /* Typography & Glitch */
+        .glitch-text {
+            position: relative;
+        }
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #020204;
+        }
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -1px 0 #00f3ff;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -1px 0 #ff0f39;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(14px, 9999px, 122px, 0); }
+            10% { clip: rect(84px, 9999px, 53px, 0); }
+            20% { clip: rect(104px, 9999px, 20px, 0); }
+            30% { clip: rect(4px, 9999px, 117px, 0); }
+            40% { clip: rect(44px, 9999px, 67px, 0); }
+            50% { clip: rect(98px, 9999px, 86px, 0); }
+            100% { clip: rect(54px, 9999px, 15px, 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            100% { clip: rect(12px, 9999px, 5px, 0); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050507; }
+        ::-webkit-scrollbar-thumb { background: #331111; border: 1px solid #ff0f39; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff0f39; }
+
+        /* Utilities */
+        .text-glow { text-shadow: 0 0 10px rgba(255, 15, 57, 0.7); }
+        .text-glow-cyan { text-shadow: 0 0 10px rgba(0, 243, 255, 0.7); }
+        
+        .animate-enter { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(20px); }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Table Styling */
+        tr.data-row:hover td {
+            color: #fff;
+            background: rgba(255, 15, 57, 0.1);
+        }
+    </style>
+</head>
+<body class="font-display min-h-screen p-2 md:p-6 selection:bg-neon-crimson selection:text-white">
+
+    <div class="ambient-glow"></div>
+    <div class="grid-overlay"></div>
+
+    <div id="app" class="max-w-[1400px] mx-auto space-y-6 relative z-10">
+        
+        <!-- HUD Header -->
+        <header class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 animate-enter border-b border-white/5 pb-6">
+            <div class="relative">
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="flex items-center gap-2 px-3 py-1 bg-neon-crimson/10 border border-neon-crimson/30 rounded text-[10px] font-mono tracking-widest text-neon-crimson uppercase">
+                        <span class="w-1.5 h-1.5 rounded-full bg-neon-crimson animate-pulse"></span>
+                        <span>System Online</span>
+                    </div>
+                    <span class="text-[10px] font-mono tracking-[0.2em] text-slate-500 uppercase">Season 2025 // Cycle 13</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white leading-none glitch-text" data-text="CRIMSON COMMAND">
+                    CRIMSON <span class="text-neon-crimson">COMMAND</span>
+                </h1>
+                <p class="text-tech-cyan/70 mt-2 font-mono text-sm tracking-wider flex items-center gap-2">
+                    <i data-lucide="cpu" class="w-4 h-4"></i> BIG TEN CHAMPIONSHIP PROTOCOL: ENABLED
+                </p>
+            </div>
+            
+            <div class="holo-panel px-8 py-4 flex items-center gap-8 rounded-sm">
+                <div class="scanline"></div>
+                <div class="text-right">
+                    <p class="text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-1">Record Status</p>
+                    <p class="text-4xl font-bold text-white leading-none text-glow">13 - 0</p>
+                </div>
+                <div class="h-10 w-px bg-gradient-to-b from-transparent via-neon-crimson to-transparent opacity-50"></div>
+                <div class="text-right">
+                    <p class="text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-1">Total Output</p>
+                    <p class="text-3xl font-bold text-neon-crimson leading-none font-mono" id="kpi-yards">0000</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- KPI Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-enter delay-100" id="global-metrics">
+            <!-- Injected via JS -->
+        </section>
+
+        <!-- Main Dashboard -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 animate-enter delay-200">
+            
+            <!-- Left Column: Visualizations (8 cols) -->
+            <div class="lg:col-span-8 space-y-6">
+                <!-- Top Charts -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Donut Chart -->
+                    <div class="holo-panel p-6 rounded-sm group">
+                        <div class="absolute top-2 right-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                             <i data-lucide="crosshair" class="w-5 h-5 text-neon-crimson"></i>
+                        </div>
+                        <h3 class="text-xs font-mono font-bold uppercase tracking-widest text-slate-400 mb-6 flex items-center gap-2">
+                            <span class="w-1 h-4 bg-neon-crimson"></span>
+                            Strike Distribution
+                        </h3>
+                        <div class="h-48 relative flex justify-center items-center">
+                            <canvas id="tdChart"></canvas>
+                            <!-- Center Label Overlay -->
+                            <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                                <span class="text-2xl font-bold text-white" id="total-td-count">0</span>
+                                <span class="text-[10px] text-slate-500 uppercase tracking-widest">Total</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bar Chart -->
+                    <div class="holo-panel p-6 rounded-sm group">
+                         <div class="absolute top-2 right-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                             <i data-lucide="activity" class="w-5 h-5 text-tech-cyan"></i>
+                        </div>
+                        <h3 class="text-xs font-mono font-bold uppercase tracking-widest text-slate-400 mb-6 flex items-center gap-2">
+                            <span class="w-1 h-4 bg-tech-cyan"></span>
+                            Efficiency Index
+                        </h3>
+                        <div class="h-48 relative">
+                            <canvas id="scoringChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drive Flow Histogram -->
+                <div class="holo-panel p-6 rounded-sm group">
+                    <div class="scanline"></div>
+                    <div class="flex justify-between items-end mb-6 border-b border-white/5 pb-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-white flex items-center gap-3">
+                                <i data-lucide="trending-up" class="text-neon-crimson w-5 h-5"></i>
+                                DRIVE MOMENTUM ANALYSIS
+                            </h2>
+                            <p class="text-xs font-mono text-slate-500 mt-1">Yards Gained / Drive Sequence ID</p>
+                        </div>
+                        <div class="hidden sm:block text-right">
+                             <div class="flex items-center gap-2 px-2 py-1 bg-white/5 rounded text-[10px] font-mono text-slate-300">
+                                <span class="w-2 h-2 rounded-sm bg-neon-crimson"></span> Live Data
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-64 relative">
+                        <canvas id="driveHistogram"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Live Data Feed -->
+                 <div class="holo-panel rounded-sm overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-white/10 bg-black/40 flex justify-between items-center">
+                        <h3 class="text-xs font-mono font-bold text-tech-cyan uppercase tracking-widest flex items-center gap-2">
+                             <span class="animate-pulse">●</span> Data Stream: vs. Ohio State
+                        </h3>
+                        <i data-lucide="terminal" class="w-4 h-4 text-slate-600"></i>
+                    </div>
+                    <div class="overflow-x-auto max-h-[300px] overflow-y-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead class="bg-black/60 sticky top-0 z-10 backdrop-blur-sm">
+                                <tr>
+                                    <th class="px-6 py-3 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest">SEQ ID</th>
+                                    <th class="px-6 py-3 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest">UNIT</th>
+                                    <th class="px-6 py-3 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest">OUTCOME</th>
+                                    <th class="px-6 py-3 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest text-right">YARDS</th>
+                                    <th class="px-6 py-3 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest text-right">PLAYS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="drive-flow-body" class="divide-y divide-white/5 text-xs font-mono text-slate-300">
+                                <!-- JS Injection -->
+                            </tbody>
+                        </table>
+                    </div>
+                 </div>
+            </div>
+
+            <!-- Right Column: Schedule (4 cols) -->
+            <div class="lg:col-span-4 h-full">
+                <div class="holo-panel rounded-sm h-full flex flex-col">
+                    <div class="p-6 border-b border-white/5 flex justify-between items-center bg-gradient-to-r from-neon-crimson/10 to-transparent">
+                        <h2 class="text-lg font-bold text-white flex items-center gap-2 uppercase tracking-tight">
+                            <i data-lucide="calendar-days" class="text-neon-crimson w-5 h-5"></i>
+                            Mission Log
+                        </h2>
+                        <span class="text-xs font-mono text-neon-crimson border border-neon-crimson/30 px-2 py-0.5 rounded">PERFECT</span>
+                    </div>
+                    <div class="flex-1 overflow-y-auto p-2">
+                        <table class="w-full text-left border-collapse">
+                            <tbody id="game-log-body" class="space-y-1">
+                                <!-- JS Injection -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Logic Script -->
+    <script>
+        // --- CONFIG ---
+        const COLORS = {
+            crimson: '#ff0f39',
+            darkCrimson: '#4a0010',
+            cyan: '#00f3ff',
+            slate: '#64748b',
+            white: '#ffffff',
+            transparent: 'transparent'
+        };
+
+        // --- DATA ---
+        
+        // Simulating 13 games of data
+        const DRIVES_DATA_RAW = `id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult
+4017528061,401752806,Old Dominion,Sun Belt,Indiana,Big Ten,1,True,1,75,75,{'m':15,'s':0},1,0,0,{'m':14,'s':49},{'m':0,'s':11},1,75,TD
+4017528062,401752806,Indiana,Big Ten,Old Dominion,Sun Belt,2,False,1,30,70,{'m':14,'s':41},1,99,1,{'m':9,'s':44},{'m':4,'s':57},11,69,DOWNS
+4017528063,401752806,Old Dominion,Sun Belt,Indiana,Big Ten,3,False,1,99,99,{'m':9,'s':44},1,65,65,{'m':5,'s':48},{'m':3,'s':56},7,34,PUNT
+4017528064,401752806,Indiana,Big Ten,Old Dominion,Sun Belt,4,False,1,14,86,{'m':5,'s':48},1,80,20,{'m':2,'s':9},{'m':3,'s':39},7,66,FUMBLE
+4017528065,401752806,Old Dominion,Sun Belt,Indiana,Big Ten,5,True,1,80,80,{'m':2,'s':9},1,65,65,{'m':0,'s':9},{'m':2,'s':0},4,15,PUNT RETURN TD
+4017528066,401752806,Old Dominion,Sun Belt,Indiana,Big Ten,6,False,1,75,75,{'m':0,'s':9},2,63,63,{'m':13,'s':38},{'m':1,'s':31},5,12,INT
+4017528067,401752806,Indiana,Big Ten,Old Dominion,Sun Belt,7,True,2,45,55,{'m':13,'s':38},2,96,4,{'m':10,'s':3},{'m':3,'s':35},8,51,FG
+40175280611,401752806,Indiana,Big Ten,Old Dominion,Sun Belt,11,True,2,95,5,{'m':3,'s':51},2,100,0,{'m':3,'s':36},{'m':0,'s':15},3,5,TD
+40175280615,401752806,Indiana,Big Ten,Old Dominion,Sun Belt,15,True,3,25,75,{'m':15,'s':0},3,100,0,{'m':11,'s':9},{'m':3,'s':51},8,75,TD
+40175280617,401752806,Indiana,Big Ten,Old Dominion,Sun Belt,17,True,3,24,76,{'m':10,'s':0},3,93,7,{'m':5,'s':28},{'m':4,'s':32},11,69,TD
+40175280621,401752806,Indiana,Big Ten,Old Dominion,Sun Belt,21,True,4,93,7,{'m':14,'s':13},4,100,0,{'m':12,'s':46},{'m':1,'s':27},3,7,TD
+40175280625,401752806,Indiana,Big Ten,Old Dominion,Sun Belt,25,True,4,46,54,{'m':7,'s':55},4,100,0,{'m':3,'s':55},{'m':4,'s':0},8,54,TD
+4017773531,401777353,Ohio State,Big Ten,Indiana,Big Ten,1,False,1,25,75,{'m':15,'s':0},1,52,48,{'m':11,'s':45},{'m':3,'s':15},7,27,PUNT
+4017773532,401777353,Indiana,Big Ten,Ohio State,Big Ten,2,True,1,8,92,{'m':11,'s':45},1,86,14,{'m':5,'s':12},{'m':6,'s':33},12,78,FG
+4017773533,401777353,Ohio State,Big Ten,Indiana,Big Ten,3,False,1,25,75,{'m':5,'s':12},1,65,35,{'m':2,'s':45},{'m':2,'s':27},6,40,INT
+4017773534,401777353,Indiana,Big Ten,Ohio State,Big Ten,4,False,1,20,80,{'m':2,'s':45},1,25,75,{'m':1,'s':15},{'m':1,'s':30},3,5,PUNT
+4017773535,401777353,Ohio State,Big Ten,Indiana,Big Ten,5,True,1,38,62,{'m':1,'s':15},2,0,0,{'m':12,'s':10},{'m':4,'s':5},9,62,TD
+4017773536,401777353,Indiana,Big Ten,Ohio State,Big Ten,6,True,2,25,75,{'m':12,'s':10},2,85,15,{'m':7,'s':45},{'m':4,'s':25},10,60,FG
+40177735312,401777353,Indiana,Big Ten,Ohio State,Big Ten,12,True,3,88,88,{'m':11,'s':27},3,0,0,{'m':8,'s':2},{'m':3,'s':25},7,88,TD`;
+
+        let ALL_DRIVES = [];
+        const rawLines = DRIVES_DATA_RAW.split('\n');
+        const MOCK_GAMES = [
+            '401752806', // ODU
+            '401777353', // OSU
+            '401700001', '401700002', '401700003', '401700004', '401700005', 
+            '401700006', '401700007', '401700008', '401700009', '401700010', '401700011'
+        ];
+
+        // Parse and inflate data for visuals
+        MOCK_GAMES.forEach((gameId, index) => {
+            rawLines.forEach(line => {
+                const parts = line.split(',');
+                const variation = index > 1 ? (Math.random() * 20 - 10) : 0; 
+                const baseYards = parseInt(parts[18]);
+                
+                ALL_DRIVES.push({
+                    gameId: gameId,
+                    offense: parts[2],
+                    defense: parts[4],
+                    driveNum: parseInt(parts[6]),
+                    result: parts[19],
+                    plays: parseInt(parts[17]),
+                    yards: Math.max(0, Math.floor(baseYards + variation)),
+                    scoring: parts[7] === 'True'
+                });
+            });
+        });
+
+        const GAME_LOG = [
+            { date: '08/30', opponent: 'Old Dominion', result: 'W', score: '27-14', home: true },
+            { date: '09/06', opponent: 'Kennesaw St.', result: 'W', score: '56-9', home: true },
+            { date: '09/12', opponent: 'Indiana St.', result: 'W', score: '73-0', home: true },
+            { date: '09/20', opponent: 'Illinois', result: 'W', score: '63-10', home: true, conf: true },
+            { date: '09/27', opponent: 'Iowa', result: 'W', score: '20-15', home: false, conf: true },
+            { date: '10/11', opponent: 'Oregon', result: 'W', score: '30-20', home: false, conf: true },
+            { date: '10/18', opponent: 'Michigan St.', result: 'W', score: '38-13', home: true, conf: true },
+            { date: '10/25', opponent: 'UCLA', result: 'W', score: '56-6', home: true, conf: true },
+            { date: '11/01', opponent: 'Maryland', result: 'W', score: '55-10', home: false, conf: true },
+            { date: '11/08', opponent: 'Penn St.', result: 'W', score: '27-24', home: false, conf: true },
+            { date: '11/15', opponent: 'Wisconsin', result: 'W', score: '31-7', home: true, conf: true },
+            { date: '11/28', opponent: 'Purdue', result: 'W', score: '56-3', home: false, conf: true },
+            { date: '12/06', opponent: 'Ohio State', result: 'W', score: '13-10', home: false, conf: true, note: 'CHAMPION' },
+        ];
+
+        const SEASON_STATS = {
+            totalOffense: 6146,
+            ppg: 41.9,
+            ppa: 10.8,
+            turnoverMargin: 10,
+            passingTDs: 38,
+            rushingTDs: 29
+        };
+
+        // --- PROCESSING ---
+
+        function calculateDriveHistogram() {
+            const driveBuckets = {}; 
+            ALL_DRIVES.filter(d => d.offense === 'Indiana').forEach(d => {
+                if (!driveBuckets[d.driveNum]) driveBuckets[d.driveNum] = { totalYards: 0, count: 0 };
+                driveBuckets[d.driveNum].totalYards += d.yards;
+                driveBuckets[d.driveNum].count += 1;
+            });
+
+            const labels = [];
+            const data = [];
+            for (let i = 1; i <= 12; i++) {
+                if (driveBuckets[i]) {
+                    labels.push(`${i}`);
+                    data.push(Math.round(driveBuckets[i].totalYards / driveBuckets[i].count));
+                }
+            }
+            return { labels, data };
+        }
+
+        // --- RENDER ---
+
+        function renderKPIs() {
+            // Count animation for yards
+            const yardEl = document.getElementById('kpi-yards');
+            let start = 0;
+            const end = SEASON_STATS.totalOffense;
+            const duration = 2000;
+            const stepTime = Math.abs(Math.floor(duration / (end / 50)));
+            const timer = setInterval(() => {
+                start += 50;
+                yardEl.innerText = start.toLocaleString();
+                if (start >= end) {
+                    clearInterval(timer);
+                    yardEl.innerText = end.toLocaleString();
+                    yardEl.classList.add('text-glow');
+                }
+            }, 10);
+
+            const metrics = [
+                { label: 'AVG PTS/G', value: SEASON_STATS.ppg, icon: 'zap', color: 'text-neon-crimson' },
+                { label: 'ALLOWED PTS/G', value: SEASON_STATS.ppa, icon: 'shield-check', color: 'text-tech-cyan' },
+                { label: 'TOTAL TDS', value: SEASON_STATS.passingTDs + SEASON_STATS.rushingTDs, icon: 'target', color: 'text-white' },
+                { label: 'NET TO', value: '+' + SEASON_STATS.turnoverMargin, icon: 'arrow-left-right', color: 'text-slate-400' },
+            ];
+
+            const container = document.getElementById('global-metrics');
+            container.innerHTML = metrics.map(m => `
+                <div class="holo-panel p-5 rounded-sm flex items-center justify-between group cursor-default">
+                    <div>
+                        <p class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-1 group-hover:text-white transition-colors">${m.label}</p>
+                        <p class="text-3xl font-bold text-white font-display">${m.value}</p>
+                    </div>
+                    <div class="p-2 rounded-sm bg-white/5 border border-white/10 group-hover:border-neon-crimson/50 transition-colors">
+                        <i data-lucide="${m.icon}" class="${m.color} w-5 h-5 group-hover:animate-pulse"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderCharts() {
+            Chart.defaults.color = '#64748b';
+            Chart.defaults.font.family = "'JetBrains Mono', monospace";
+            Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.05)';
+
+            // 1. TD Distribution (Donut)
+            const ctxTD = document.getElementById('tdChart').getContext('2d');
+            document.getElementById('total-td-count').innerText = SEASON_STATS.passingTDs + SEASON_STATS.rushingTDs;
+
+            new Chart(ctxTD, {
+                type: 'doughnut',
+                data: {
+                    labels: ['PASSING', 'RUSHING'],
+                    datasets: [{
+                        data: [SEASON_STATS.passingTDs, SEASON_STATS.rushingTDs],
+                        backgroundColor: [COLORS.crimson, COLORS.darkCrimson],
+                        borderColor: '#020204',
+                        borderWidth: 4,
+                        hoverOffset: 4,
+                        hoverBorderColor: COLORS.white
+                    }]
+                },
+                options: {
+                    cutout: '80%',
+                    plugins: { 
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(0,0,0,0.8)',
+                            titleFont: { family: 'Rajdhani' },
+                            bodyFont: { family: 'JetBrains Mono' },
+                            borderColor: COLORS.crimson,
+                            borderWidth: 1,
+                            cornerRadius: 0,
+                            displayColors: false,
+                        }
+                    },
+                    maintainAspectRatio: false
+                }
+            });
+
+            // 2. Efficiency (Horizontal Bar)
+            const ctxBar = document.getElementById('scoringChart').getContext('2d');
+            const gradientOffense = ctxBar.createLinearGradient(0, 0, 200, 0);
+            gradientOffense.addColorStop(0, COLORS.crimson);
+            gradientOffense.addColorStop(1, '#ff6b6b');
+
+            new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['OFFENSE', 'DEFENSE'],
+                    datasets: [{
+                        data: [SEASON_STATS.ppg, SEASON_STATS.ppa],
+                        backgroundColor: [gradientOffense, COLORS.cyan],
+                        borderRadius: 2,
+                        barThickness: 20
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { 
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { font: { size: 10 } }
+                        },
+                        y: { 
+                            grid: { display: false },
+                            ticks: { font: { family: 'Rajdhani', size: 12, weight: 'bold' }, color: '#fff' }
+                        }
+                    },
+                    maintainAspectRatio: false
+                }
+            });
+
+            // 3. Drive Momentum (Line/Area)
+            const histData = calculateDriveHistogram();
+            const ctxHist = document.getElementById('driveHistogram').getContext('2d');
+            const gradientHist = ctxHist.createLinearGradient(0, 0, 0, 300);
+            gradientHist.addColorStop(0, 'rgba(255, 15, 57, 0.5)');
+            gradientHist.addColorStop(1, 'rgba(255, 15, 57, 0.0)');
+
+            new Chart(ctxHist, {
+                type: 'line',
+                data: {
+                    labels: histData.labels,
+                    datasets: [{
+                        label: 'AVG YARDS',
+                        data: histData.data,
+                        backgroundColor: gradientHist,
+                        borderColor: COLORS.crimson,
+                        borderWidth: 2,
+                        pointBackgroundColor: '#000',
+                        pointBorderColor: COLORS.crimson,
+                        pointHoverBackgroundColor: COLORS.white,
+                        pointHoverRadius: 6,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { 
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            title: { display: true, text: 'YARDS / DRIVE', color: '#64748b', font: {size: 10} }
+                        },
+                        x: { 
+                            grid: { color: 'rgba(255,255,255,0.02)' },
+                            ticks: { color: '#94a3b8', font: {size: 10} },
+                            title: { display: true, text: 'DRIVE SEQUENCE', color: '#64748b', font: {size: 10} }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                }
+            });
+        }
+
+        function renderGameLog() {
+            const container = document.getElementById('game-log-body');
+            container.innerHTML = GAME_LOG.map(g => `
+                <tr class="group border-b border-white/5 last:border-0 hover:bg-white/5 transition-all cursor-pointer">
+                    <td class="p-3">
+                        <div class="flex items-center gap-3">
+                            <span class="text-[10px] font-mono text-slate-500">${g.date}</span>
+                            <div class="flex flex-col">
+                                <span class="text-sm font-bold text-white group-hover:text-neon-crimson group-hover:text-glow transition-colors font-display uppercase">${g.opponent}</span>
+                                ${g.note ? `<span class="text-[9px] text-tech-cyan tracking-wider uppercase">${g.note}</span>` : ''}
+                            </div>
+                        </div>
+                    </td>
+                    <td class="p-3 text-right">
+                        <div class="flex flex-col items-end">
+                            <span class="text-sm font-bold font-mono text-white">${g.score}</span>
+                            <span class="text-[10px] text-emerald-500 font-mono">WIN</span>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function renderRecentGameTable() {
+            const osuDrives = ALL_DRIVES.filter(d => d.gameId === '401777353');
+            const tbody = document.getElementById('drive-flow-body');
+            
+            tbody.innerHTML = osuDrives.map(d => {
+                const isIU = d.offense === 'Indiana';
+                let outcomeColor = 'text-slate-400';
+                if(d.result.includes('TD')) outcomeColor = 'text-neon-crimson text-glow font-bold';
+                if(d.result === 'FG') outcomeColor = 'text-tech-cyan font-bold';
+                
+                return `
+                    <tr class="data-row border-l-2 ${isIU ? 'border-neon-crimson bg-neon-crimson/5' : 'border-transparent'} transition-colors">
+                        <td class="px-6 py-3 whitespace-nowrap text-slate-500 font-mono opacity-60">#${d.driveNum.toString().padStart(2, '0')}</td>
+                        <td class="px-6 py-3 whitespace-nowrap font-bold ${isIU ? 'text-white' : 'text-slate-600'}">${d.offense === 'Indiana' ? 'IU' : d.offense.substring(0,3).toUpperCase()}</td>
+                        <td class="px-6 py-3 whitespace-nowrap ${outcomeColor}">${d.result}</td>
+                        <td class="px-6 py-3 whitespace-nowrap text-right font-mono text-slate-300">${d.yards}</td>
+                        <td class="px-6 py-3 whitespace-nowrap text-right font-mono text-slate-400">${d.plays}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderKPIs();
+            renderCharts();
+            renderGameLog();
+            renderRecentGameTable();
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

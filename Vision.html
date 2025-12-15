@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEDAY+ OS | INVESTOR DECK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- THREE.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        :root {
+            --bg-deep: #050507;
+            --glass-surface: rgba(255, 255, 255, 0.03);
+            --glass-highlight: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --accent-primary: #CC001C;   
+            --accent-secondary: #A10014; 
+            --accent-tertiary: #73000D;  
+            --accent-highlight: #DC143C; 
+            --text-main: #ffffff;
+            --text-muted: #9ca3af;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- ORBITRON UTILITY --- */
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- AURORA MESH BACKGROUND --- */
+        .aurora-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+            background: var(--bg-deep);
+            overflow: hidden;
+        }
+        .aurora-blob {
+            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--accent-primary); animation-delay: 0s; }
+        .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: var(--accent-tertiary); animation-delay: -5s; }
+        .blob-3 { top: 40%; left: 40%; width: 40vw; height: 40vw; background: var(--accent-secondary); opacity: 0.2; animation-delay: -10s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        /* --- BENTO CARD STYLES --- */
+        .bento-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255,255,255,0.12);
+            border-radius: 24px;
+            padding: 24px;
+            display: flex; flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
+        }
+        
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 60, 60, 0.2);
+        }
+
+        /* --- TECH CARD (MARKET) STYLES --- */
+        .tech-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.6) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            min-height: 280px; /* Ensure space for content */
+        }
+        /* Laser Scan Effect */
+        .tech-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: 10;
+        }
+        .tech-card:hover::before {
+            transform: translateX(100%);
+            transition: transform 0.8s ease;
+        }
+        .tech-card:hover {
+            border-color: var(--accent-secondary);
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(204,0,28,0.05) 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+        
+        /* 3D Icon Container */
+        .tech-viz-container {
+            width: 100%; height: 120px;
+            margin-bottom: 1rem;
+            position: relative;
+            border-radius: 12px;
+            background: rgba(0,0,0,0.2);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .tech-viz-canvas {
+            width: 100%; height: 100%;
+            display: block;
+        }
+
+        /* List Styling */
+        .tech-list li {
+            position: relative;
+            padding-left: 14px;
+            margin-bottom: 6px;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+        .tech-list li::before {
+            content: '';
+            position: absolute; left: 0; top: 7px;
+            width: 4px; height: 4px; background: #4b5563;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .tech-card:hover .tech-list li { color: #e5e7eb; }
+        .tech-card:hover .tech-list li::before { background: var(--accent-highlight); }
+
+        /* Data Bar Decoration */
+        .data-bar {
+            height: 2px; width: 100%; background: rgba(255,255,255,0.1);
+            margin: 12px 0; border-radius: 2px; overflow: hidden;
+        }
+        .data-bar-fill {
+            height: 100%; width: 30%; background: var(--text-muted);
+            transition: width 1s ease, background 0.3s ease;
+        }
+        .tech-card:hover .data-bar-fill {
+            width: 85%; background: var(--accent-primary);
+        }
+
+        /* --- WAVEFORM ANIMATION --- */
+        .waveform {
+            display: flex; align-items: center; gap: 3px; height: 24px;
+        }
+        .bar {
+            width: 3px; background: white; border-radius: 2px;
+            animation: wave 1s ease-in-out infinite;
+        }
+        .bar:nth-child(odd) { background: var(--text-muted); }
+        .bar:nth-child(even) { background: var(--accent-primary); }
+        
+        @keyframes wave {
+            0%, 100% { height: 20%; opacity: 0.5; }
+            50% { height: 100%; opacity: 1; }
+        }
+
+        /* --- PILL TAGS --- */
+        .pill-tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 4px 12px; border-radius: 100px;
+            font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+        }
+        .pill-tag.active {
+            background: rgba(204, 0, 28, 0.15); 
+            color: #ff9999; 
+            border-color: rgba(204, 0, 28, 0.3);
+        }
+
+        /* --- GRID UTILS --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(12, 1fr);
+            gap: 20px;
+            height: auto;
+            min-height: 600px;
+        }
+        .area-header { grid-column: span 12; grid-row: span 1; }
+        .area-main   { grid-column: span 8; grid-row: span 8; min-height: 500px; }
+        .area-side1  { grid-column: span 4; grid-row: span 4; }
+        .area-side2  { grid-column: span 4; grid-row: span 4; }
+        .area-bottom { grid-column: span 12; grid-row: span 3; }
+
+        @media (max-width: 1024px) {
+            .bento-grid { display: flex; flex-direction: column; }
+            .bento-card { min-height: 200px; }
+            .area-main { min-height: 400px; }
+        }
+
+        /* --- INITIALIZE OVERLAY --- */
+        #init-overlay {
+            position: fixed; inset: 0; background: var(--bg-deep); z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .init-btn {
+            background: white; color: black; padding: 16px 40px; border-radius: 100px;
+            font-weight: 600; border: none; cursor: pointer; transition: transform 0.2s;
+            font-family: 'Orbitron', sans-serif; letter-spacing: 1px;
+        }
+        .init-btn:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(255,50,50,0.4); }
+
+        /* --- 3D ORB CONTAINER --- */
+        #orb-canvas {
+            width: 120px;
+            height: 120px;
+            pointer-events: none;
+        }
+
+        .text-red-primary { color: var(--accent-primary); }
+        .text-red-highlight { color: var(--accent-highlight); }
+        
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- INITIALIZATION OVERLAY -->
+    <div id="init-overlay">
+        <button class="init-btn" onclick="initializeSystem()">INITIALIZE SYSTEM</button>
+        <div class="mt-4 text-gray-500 text-xs font-mono uppercase tracking-widest animate-pulse">Establishing Secure Uplink</div>
+    </div>
+
+    <!-- AURORA BACKGROUND -->
+    <div class="aurora-bg">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+    </div>
+
+    <!-- MAIN LAYOUT -->
+    <div class="max-w-7xl mx-auto w-full">
+
+        <!-- SYSTEM ARCHITECTURE GRID -->
+        <div class="bento-grid mb-16">
+            <!-- HEADER AREA -->
+            <header class="area-header flex justify-between items-center px-2 py-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-white to-gray-400 flex items-center justify-center shadow-lg">
+                        <i class="fas fa-layer-group text-black"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-xl font-orbitron text-white">GAMEDAY<span class="text-red-primary">+</span></h1>
+                        <p class="text-xs text-gray-400 font-medium tracking-wide">ARCHITECTURE V2.1</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <div class="pill-tag active">
+                        <div class="w-1.5 h-1.5 rounded-full bg-[#CC001C] animate-pulse"></div>
+                        Engine Online
+                    </div>
+                    <button id="sound-btn" onclick="toggleMute()" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition">
+                        <i class="fas fa-volume-up text-gray-400"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- MAIN VISUALIZATION (THE "MAP") -->
+            <div class="bento-card area-main relative group">
+                <div class="absolute top-6 left-6 z-10">
+                    <h2 class="text-lg font-bold font-orbitron text-white mb-1">SYSTEM FLOW</h2>
+                    <p class="text-xs text-gray-400 tracking-wider">DATA PROPAGATION & API GATEWAYS</p>
+                </div>
+                <div class="absolute top-6 right-6 z-10">
+                    <div class="pill-tag">Interactive</div>
+                </div>
+
+                <!-- SVG DIAGRAM -->
+                <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 800 600">
+                    <defs>
+                        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:rgba(255,255,255,0.05)" />
+                            <stop offset="50%" style="stop-color:rgba(255,255,255,0.2)" />
+                            <stop offset="100%" style="stop-color:rgba(255,255,255,0.05)" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M400 300 L 200 200" stroke="url(#lineGrad)" stroke-width="2" fill="none" />
+                    <path d="M400 300 L 600 200" stroke="url(#lineGrad)" stroke-width="2" fill="none" />
+                    <path d="M400 300 L 400 450" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="4 4" fill="none" />
+                    <circle r="4" fill="#CC001C">
+                        <animateMotion dur="3s" repeatCount="indefinite" path="M400 300 L 200 200" />
+                        <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
+                    </circle>
+                    <circle r="4" fill="#DC143C">
+                        <animateMotion dur="4s" repeatCount="indefinite" path="M400 300 L 600 200" />
+                        <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                </svg>
+
+                <!-- 1. CORE (THE ORB) -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-3 cursor-pointer transition-transform" onmouseenter="setOrbState('listening')" onmouseleave="setOrbState('thinking')" onclick="playClick()">
+                    <div id="orb-canvas"></div>
+                    <div class="text-center -mt-4 relative z-10">
+                        <div class="text-sm font-semibold">Prediction Core</div>
+                        <div class="text-xs text-gray-500">Shared Logic</div>
+                    </div>
+                </div>
+
+                <!-- 2. PRO API -->
+                <div class="absolute top-[33%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-3 cursor-pointer hover:scale-105 transition-transform" onmouseenter="playHover()" onclick="playClick()">
+                    <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center hover:border-[#A10014]/50 transition-colors">
+                        <i class="fas fa-code text-xl text-red-primary"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-sm font-semibold">Pro API</div>
+                        <div class="text-xs text-gray-500">B2B Endpoint</div>
+                    </div>
+                </div>
+
+                <!-- 3. MOBILE APP -->
+                <div class="absolute top-[33%] left-[75%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-3 cursor-pointer hover:scale-105 transition-transform" onmouseenter="playHover()" onclick="playClick()">
+                    <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center hover:border-[#DC143C]/50 transition-colors">
+                        <i class="fas fa-mobile text-xl text-red-highlight"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-sm font-semibold">iOS App</div>
+                        <div class="text-xs text-gray-500">Consumer UX</div>
+                    </div>
+                </div>
+
+                 <!-- 4. DATABASE -->
+                 <div class="absolute bottom-[25%] left-1/2 transform -translate-x-1/2 translate-y-1/2 flex items-center gap-3 px-4 py-2 rounded-full bg-black/20 border border-white/5 backdrop-blur">
+                    <i class="fas fa-database text-gray-500 text-xs"></i>
+                    <span class="text-xs text-gray-500 font-mono">DB_STORAGE_V1</span>
+                </div>
+            </div>
+
+            <!-- SIDE CARD 1: AUDIO/STATUS -->
+            <div class="bento-card area-side1 justify-between" onmouseenter="playHover()">
+                <div class="flex justify-between items-start">
+                    <div class="w-10 h-10 rounded-full bg-[#CC001C]/10 flex items-center justify-center">
+                        <i class="fas fa-wave-square text-red-primary text-sm"></i>
+                    </div>
+                    <div class="pill-tag">Live</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold mb-1 font-orbitron text-white">ACTIVE</div>
+                    <div class="text-xs text-gray-400 mb-6 tracking-widest font-bold">ENGINE STATUS</div>
+                    <div class="waveform w-full justify-between">
+                        <div class="bar" style="animation-duration: 0.5s"></div>
+                        <div class="bar" style="animation-duration: 0.7s"></div>
+                        <div class="bar" style="animation-duration: 0.4s"></div>
+                        <div class="bar" style="animation-duration: 0.9s"></div>
+                        <div class="bar" style="animation-duration: 0.6s"></div>
+                        <div class="bar" style="animation-duration: 0.5s"></div>
+                        <div class="bar" style="animation-duration: 0.8s"></div>
+                        <div class="bar" style="animation-duration: 0.4s"></div>
+                        <div class="bar" style="animation-duration: 0.5s"></div>
+                        <div class="bar" style="animation-duration: 0.7s"></div>
+                        <div class="bar" style="animation-duration: 0.4s"></div>
+                        <div class="bar" style="animation-duration: 0.9s"></div>
+                        <div class="bar" style="animation-duration: 0.6s"></div>
+                        <div class="bar" style="animation-duration: 0.5s"></div>
+                        <div class="bar" style="animation-duration: 0.8s"></div>
+                        <div class="bar" style="animation-duration: 0.4s"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIDE CARD 2: METRICS -->
+            <div class="bento-card area-side2 justify-between" onmouseenter="playHover()">
+                 <div class="flex justify-between items-start">
+                    <div class="w-10 h-10 rounded-full bg-[#A10014]/10 flex items-center justify-center">
+                        <i class="fas fa-bolt text-[#A10014] text-sm"></i>
+                    </div>
+                    <div class="text-xs font-orbitron text-gray-500 tracking-widest">LATENCY</div>
+                </div>
+                <div>
+                    <div class="flex items-end gap-2 mb-1">
+                        <div class="text-3xl font-bold font-orbitron">12<span class="text-lg text-gray-500 font-normal font-sans">ms</span></div>
+                    </div>
+                    <div class="w-full bg-white/10 h-1 rounded-full mt-4 overflow-hidden">
+                        <div class="h-full bg-[#CC001C] w-1/3 rounded-full"></div>
+                    </div>
+                    <div class="flex justify-between mt-2 text-[10px] text-gray-500 uppercase tracking-wider">
+                        <span>Processing</span>
+                        <span>Optimal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTTOM AREA: DETAILS -->
+            <div class="bento-card area-bottom flex-row items-center gap-8 overflow-hidden">
+                <div class="min-w-[200px]">
+                    <h3 class="text-xs font-bold font-orbitron text-gray-500 mb-2 tracking-widest">ORGANIZATION</h3>
+                    <div class="text-xl font-bold font-orbitron text-white">STRUCTURE MAP</div>
+                </div>
+                <div class="h-12 w-px bg-white/10"></div>
+                <div class="flex gap-4 overflow-x-auto w-full no-scrollbar">
+                    <!-- Org Item 1 -->
+                    <div class="flex items-center gap-3 bg-white/5 px-4 py-3 rounded-xl border border-white/5 min-w-[180px]">
+                        <div class="w-8 h-8 rounded-lg bg-[#CC001C]/20 flex items-center justify-center">
+                            <i class="fas fa-database text-red-primary text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400">Department</div>
+                            <div class="text-sm font-semibold">Data Ops</div>
+                        </div>
+                    </div>
+                    <!-- Org Item 2 -->
+                    <div class="flex items-center gap-3 bg-white/5 px-4 py-3 rounded-xl border border-white/5 min-w-[180px]">
+                        <div class="w-8 h-8 rounded-lg bg-[#73000D]/40 flex items-center justify-center">
+                            <i class="fas fa-cube text-[#DC143C] text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400">Department</div>
+                            <div class="text-sm font-semibold">Product</div>
+                        </div>
+                    </div>
+                     <!-- Org Item 3 -->
+                     <div class="flex items-center gap-3 bg-white/5 px-4 py-3 rounded-xl border border-white/5 min-w-[180px]">
+                        <div class="w-8 h-8 rounded-lg bg-[#B22222]/20 flex items-center justify-center">
+                            <i class="fas fa-bullhorn text-[#B22222] text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400">Department</div>
+                            <div class="text-sm font-semibold">Growth</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MARKET INTELLIGENCE SECTION (3D ENABLED) -->
+        <section class="mb-20">
+            <div class="flex items-center gap-4 mb-8 pl-2">
+                <div class="w-1.5 h-12 bg-[#CC001C] shadow-[0_0_15px_rgba(204,0,28,0.5)]"></div>
+                <div>
+                    <h2 class="text-3xl font-bold font-orbitron text-white tracking-wide">MARKET INTELLIGENCE</h2>
+                    <p class="text-xs text-gray-500 font-mono tracking-widest mt-1">TARGET SEGMENTS /// VALUE PROPOSITIONS</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
+                <!-- 1. HARDCORE BETTORS -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-bettors"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">HARDCORE BETTORS</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>Pro:</strong> Beat closing lines (+EV).</li>
+                        <li><strong>Syndicates:</strong> API automation.</li>
+                        <li><strong>Sharps:</strong> Arbitrage detection.</li>
+                        <li><strong>Parlays:</strong> Multi-leg accuracy.</li>
+                    </ul>
+                </div>
+
+                <!-- 2. CASUAL FANS -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-fans"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">CASUAL FANS</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>Weekend:</strong> Simple, fast picks.</li>
+                        <li><strong>Pools:</strong> Confidence scores.</li>
+                        <li><strong>Fantasy:</strong> NFL draft tracking.</li>
+                        <li><strong>Alumni:</strong> Alma mater stats.</li>
+                    </ul>
+                </div>
+
+                <!-- 3. COACHES -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-coaches"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">COACHES</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>Head:</strong> Opponent tendencies.</li>
+                        <li><strong>Coords:</strong> EPA & efficiency metrics.</li>
+                        <li><strong>Special:</strong> 4th down analytics.</li>
+                        <li><strong>Assistants:</strong> Film breakdown speed.</li>
+                    </ul>
+                </div>
+
+                <!-- 4. RECRUITING -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-recruiting"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">RECRUITING</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>Coords:</strong> Data-backed evals.</li>
+                        <li><strong>HS:</strong> College fit matching.</li>
+                        <li><strong>Portal:</strong> Undervalued assets.</li>
+                        <li><strong>NIL:</strong> Valuation metrics.</li>
+                    </ul>
+                </div>
+
+                <!-- 5. PLAYERS -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-players"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">PLAYERS</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>Current:</strong> Personal efficiency.</li>
+                        <li><strong>Recruits:</strong> Program comparison.</li>
+                        <li><strong>NFL:</strong> Draft stock data.</li>
+                        <li><strong>Transfer:</strong> Depth chart analysis.</li>
+                    </ul>
+                </div>
+
+                <!-- 6. MEDIA -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-media"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">MEDIA</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>Podcasters:</strong> Deep dive stats.</li>
+                        <li><strong>YouTubers:</strong> Visual data assets.</li>
+                        <li><strong>TV:</strong> On-air EPA graphics.</li>
+                        <li><strong>Influencers:</strong> Prediction trust.</li>
+                    </ul>
+                </div>
+
+                <!-- 7. ANALYSTS -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-analysts"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">ANALYSTS</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>Researchers:</strong> Fact-checking.</li>
+                        <li><strong>Oddsmakers:</strong> Line validation.</li>
+                        <li><strong>Data Sci:</strong> ML case studies.</li>
+                        <li><strong>Consultants:</strong> Advisory tools.</li>
+                    </ul>
+                </div>
+
+                <!-- 8. DEPARTMENTS -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-departments"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">DEPARTMENTS</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>ADs:</strong> ROI justification.</li>
+                        <li><strong>SIDs:</strong> Media guide content.</li>
+                        <li><strong>Medical:</strong> Injury load monitoring.</li>
+                        <li><strong>Equipment:</strong> Weather prep.</li>
+                    </ul>
+                </div>
+
+                <!-- 9. SCOUTS -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-scouts"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">SCOUTS</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>NFL:</strong> Success probability.</li>
+                        <li><strong>CFL/XFL:</strong> Hidden talent.</li>
+                        <li><strong>All-Star:</strong> Selection data.</li>
+                        <li><strong>Awards:</strong> Voting context.</li>
+                    </ul>
+                </div>
+
+                <!-- 10. BUSINESS -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-business"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">BUSINESS</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>Sportsbooks:</strong> Line positioning.</li>
+                        <li><strong>Media Rights:</strong> Deal valuation.</li>
+                        <li><strong>Sponsors:</strong> Brand exposure.</li>
+                        <li><strong>Hospitality:</strong> Demand forecasting.</li>
+                    </ul>
+                </div>
+
+                <!-- 11. ENTHUSIASTS -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-enthusiasts"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">ENTHUSIASTS</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>Geeks:</strong> Intellectual curiosity.</li>
+                        <li><strong>Historians:</strong> Era comparison.</li>
+                        <li><strong>ML Hobbyists:</strong> AI training data.</li>
+                        <li><strong>Kaggle:</strong> Model benchmarking.</li>
+                    </ul>
+                </div>
+
+                <!-- 12. EDUCATORS -->
+                <div class="tech-card group" onmouseenter="playHover()">
+                    <div class="tech-viz-container" id="viz-educators"></div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">EDUCATORS</h3>
+                    <div class="data-bar"><div class="data-bar-fill"></div></div>
+                    <ul class="tech-list">
+                        <li><strong>Profs:</strong> Business case studies.</li>
+                        <li><strong>Stats:</strong> Applied probability.</li>
+                        <li><strong>CS:</strong> Machine learning projects.</li>
+                        <li><strong>Journalism:</strong> Data reporting.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TOTAL ADDRESSABLE MARKET (TAM) -->
+        <section class="mb-20">
+            <div class="bento-card p-8 border-l-4 border-[#CC001C]">
+                <h2 class="text-3xl font-bold font-orbitron text-white mb-6 flex items-center">
+                    <span class="bg-[#CC001C] w-3 h-3 rounded-full mr-4 animate-pulse"></span>
+                    TOTAL ADDRESSABLE MARKET
+                </h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="text-4xl font-bold text-white mb-2">100M+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest">CFB Fans (US)</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-4xl font-bold text-white mb-2">40M+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest">Sports Bettors</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-4xl font-bold text-white mb-2">20K+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest">College Players</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-4xl font-bold text-white mb-2">10K+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest">Coaches</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-4xl font-bold text-white mb-2">5K+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest">Media Creators</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-4xl font-bold text-white mb-2">1K+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest">Pro Analysts</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- MAIN SCRIPT (ORB + 12 MARKET VISUALS) -->
+    <script>
+        let audioCtx;
+        let isMuted = false;
+        let analyser;
+        let dataArray;
+        let orbState = 'thinking';
+        
+        let scene, camera, renderer, sphere, material;
+        let time = 0;
+
+        // Market Visuals Data
+        const marketScenes = [];
+        
+        // Dispose of renderer properly to free WebGL context
+        function disposeRenderer(rend) {
+            if (rend) {
+                rend.dispose();
+                if (rend.forceContextLoss) {
+                    rend.forceContextLoss();
+                }
+                rend.domElement = null;
+            }
+        }
+
+        function initializeSystem() {
+            const overlay = document.getElementById('init-overlay');
+            overlay.style.transition = 'opacity 0.8s ease';
+            overlay.style.opacity = '0';
+            setTimeout(() => overlay.remove(), 800);
+
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            audioCtx = new AudioContext();
+            
+            analyser = audioCtx.createAnalyser();
+            analyser.fftSize = 512;
+            dataArray = new Uint8Array(analyser.frequencyBinCount);
+            
+            initOrb();
+            initMarketVisuals();
+            playStartupChime();
+        }
+
+        // --- MAIN PREDICTION CORE ORB ---
+        function initOrb() {
+            const container = document.getElementById('orb-canvas');
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+            camera.position.z = 2.5;
+            renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(120, 120);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            const vertexShader = `
+                uniform float uTime;
+                uniform float uFrequency;
+                varying vec3 vNormal;
+                varying float vDistort;
+                vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+                vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+                vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
+                vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+                float snoise(vec3 v) {
+                    const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;
+                    const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
+                    vec3 i  = floor(v + dot(v, C.yyy) );
+                    vec3 x0 = v - i + dot(i, C.xxx) ;
+                    vec3 g = step(x0.yzx, x0.xyz);
+                    vec3 l = 1.0 - g;
+                    vec3 i1 = min( g.xyz, l.zxy );
+                    vec3 i2 = max( g.xyz, l.zxy );
+                    vec3 x1 = x0 - i1 + C.xxx;
+                    vec3 x2 = x0 - i2 + C.yyy;
+                    vec3 x3 = x0 - D.yyy;
+                    i = mod289(i);
+                    vec4 p = permute( permute( permute( 
+                                i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
+                            + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) 
+                            + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
+                    float n_ = 0.142857142857;
+                    vec3  ns = n_ * D.wyz - D.xzx;
+                    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+                    vec4 x_ = floor(j * ns.z);
+                    vec4 y_ = floor(j - 7.0 * x_ );
+                    vec4 x = x_ *ns.x + ns.yyyy;
+                    vec4 y = y_ *ns.x + ns.yyyy;
+                    vec4 h = 1.0 - abs(x) - abs(y);
+                    vec4 b0 = vec4( x.xy, y.xy );
+                    vec4 b1 = vec4( x.zw, y.zw );
+                    vec4 s0 = floor(b0)*2.0 + 1.0;
+                    vec4 s1 = floor(b1)*2.0 + 1.0;
+                    vec4 sh = -step(h, vec4(0.0));
+                    vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
+                    vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
+                    vec3 p0 = vec3(a0.xy,h.x);
+                    vec3 p1 = vec3(a0.zw,h.y);
+                    vec3 p2 = vec3(a1.xy,h.z);
+                    vec3 p3 = vec3(a1.zw,h.w);
+                    vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
+                    p0 *= norm.x;
+                    p1 *= norm.y;
+                    p2 *= norm.z;
+                    p3 *= norm.w;
+                    vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+                    m = m * m;
+                    return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), 
+                                                dot(p2,x2), dot(p3,x3) ) );
+                }
+                void main() {
+                    vNormal = normal;
+                    float noise = snoise(normal * 2.0 + uTime * 0.5);
+                    float distortion = noise * (0.2 + uFrequency * 0.5);
+                    vDistort = distortion;
+                    vec3 newPos = position + normal * distortion;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(newPos, 1.0);
+                }
+            `;
+
+            const fragmentShader = `
+                uniform vec3 uColorA;
+                uniform vec3 uColorB;
+                varying float vDistort;
+                varying vec3 vNormal;
+                void main() {
+                    vec3 color = mix(uColorA, uColorB, vDistort * 2.0 + 0.5);
+                    float fresnel = pow(1.0 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.0);
+                    color += vec3(1.0) * fresnel * 0.2;
+                    gl_FragColor = vec4(color, 0.9);
+                }
+            `;
+
+            material = new THREE.ShaderMaterial({
+                uniforms: {
+                    uTime: { value: 0 },
+                    uFrequency: { value: 0 },
+                    uColorA: { value: new THREE.Color("#FEE123") }, // Yellow
+                    uColorB: { value: new THREE.Color("#00f3ff") }  // Blue
+                },
+                vertexShader: vertexShader,
+                fragmentShader: fragmentShader,
+                transparent: true
+            });
+
+            const geometry = new THREE.IcosahedronGeometry(1, 20);
+            sphere = new THREE.Mesh(geometry, material);
+            scene.add(sphere);
+
+            animateOrb();
+        }
+
+        function animateOrb() {
+            requestAnimationFrame(animateOrb);
+            time += 0.01;
+
+            let avgFreq = 0;
+            if (analyser && !isMuted) {
+                analyser.getByteFrequencyData(dataArray);
+                let sum = 0;
+                for(let i=0; i<50; i++) sum += dataArray[i];
+                avgFreq = sum / 50 / 255;
+            }
+
+            const cycleSpeed = time * 0.5;
+            const cYellow = new THREE.Color("#FEE123");
+            const cGreen = new THREE.Color("#00FF7F");
+            const cRed = new THREE.Color("#CC001C");
+            const cBlue = new THREE.Color("#00f3ff");
+
+            const mixA = (Math.sin(cycleSpeed) + 1) / 2;
+            const mixB = (Math.cos(cycleSpeed) + 1) / 2;
+
+            material.uniforms.uColorA.value.copy(cYellow).lerp(cGreen, mixA);
+            material.uniforms.uColorB.value.copy(cRed).lerp(cBlue, mixB);
+            material.uniforms.uTime.value += 0.01 + (avgFreq * 0.1);
+            material.uniforms.uFrequency.value = THREE.MathUtils.lerp(material.uniforms.uFrequency.value, avgFreq, 0.1);
+            
+            sphere.rotation.z += 0.002;
+            sphere.rotation.x += 0.002;
+
+            renderer.render(scene, camera);
+        }
+
+        // --- MARKET VISUALS FACTORY ---
+        function createMarketViz(id, geometryType) {
+            const container = document.getElementById(id);
+            if (!container) return;
+
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            
+            const mScene = new THREE.Scene();
+            const mCamera = new THREE.PerspectiveCamera(50, w/h, 0.1, 100);
+            mCamera.position.z = 4;
+            
+            // Optimize renderer settings to reduce memory usage
+            const mRenderer = new THREE.WebGLRenderer({ 
+                alpha: true, 
+                antialias: false, // Disabled to save memory
+                powerPreference: 'low-power' // Use low-power mode
+            });
+            mRenderer.setSize(w, h);
+            mRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // Limit pixel ratio
+            container.appendChild(mRenderer.domElement);
+
+            let mesh;
+            // Wireframe Red Material
+            const mat = new THREE.MeshBasicMaterial({ 
+                color: 0xCC001C, 
+                wireframe: true, 
+                transparent: true, 
+                opacity: 0.5 
+            });
+            // Glow Material (Additive)
+            const glowMat = new THREE.MeshBasicMaterial({
+                color: 0x00f3ff,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.2,
+                blending: THREE.AdditiveBlending
+            });
+
+            switch(geometryType) {
+                case 'bettors': mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(1.2, 0), mat); break;
+                case 'fans': mesh = new THREE.Mesh(new THREE.TorusGeometry(1, 0.4, 8, 20), mat); break;
+                case 'coaches': mesh = new THREE.Mesh(new THREE.BoxGeometry(1.5, 1.5, 1.5, 2, 2, 2), mat); break;
+                case 'recruiting': 
+                    const pGeo = new THREE.BufferGeometry();
+                    const pCount = 50;
+                    const pos = new Float32Array(pCount * 3);
+                    for(let i=0; i<pCount*3; i++) pos[i] = (Math.random()-0.5)*3;
+                    pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+                    mesh = new THREE.Points(pGeo, new THREE.PointsMaterial({color: 0xCC001C, size: 0.1}));
+                    break;
+                case 'players': 
+                    // Replaced CapsuleGeometry with CylinderGeometry for r128 compatibility
+                    mesh = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 0.6, 1.5, 8), mat); 
+                    break;
+                case 'media': mesh = new THREE.Mesh(new THREE.RingGeometry(0.5, 1.5, 12), mat); break;
+                case 'analysts': mesh = new THREE.Mesh(new THREE.OctahedronGeometry(1.2, 1), mat); break;
+                case 'departments': mesh = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.8, 2, 12), mat); break;
+                case 'scouts': mesh = new THREE.Mesh(new THREE.ConeGeometry(1, 2, 12), mat); break;
+                case 'business': mesh = new THREE.Mesh(new THREE.TorusKnotGeometry(0.8, 0.2, 64, 8), mat); break;
+                case 'enthusiasts': mesh = new THREE.Mesh(new THREE.SphereGeometry(1.2, 12, 12), mat); break;
+                case 'educators': mesh = new THREE.Mesh(new THREE.DodecahedronGeometry(1.2, 0), mat); break;
+            }
+
+            if (mesh) {
+                mScene.add(mesh);
+                // Add a second glowing mesh slightly larger for effect
+                if (geometryType !== 'recruiting') {
+                    const glowMesh = mesh.clone();
+                    glowMesh.material = glowMat;
+                    glowMesh.scale.set(1.1, 1.1, 1.1);
+                    mScene.add(glowMesh);
+                }
+            }
+
+            marketScenes.push({ renderer: mRenderer, scene: mScene, camera: mCamera, mesh: mesh, id: id });
+        }
+
+        let marketVisualsInitialized = false;
+        
+        function initMarketVisuals() {
+            if (marketVisualsInitialized) return;
+            marketVisualsInitialized = true;
+            
+            // Create visualizations in batches to avoid hitting WebGL limit
+            const batch1 = ['viz-bettors', 'viz-fans', 'viz-coaches', 'viz-recruiting'];
+            const batch2 = ['viz-players', 'viz-media', 'viz-analysts', 'viz-departments'];
+            const batch3 = ['viz-scouts', 'viz-business', 'viz-enthusiasts', 'viz-educators'];
+            
+            const types = ['bettors', 'fans', 'coaches', 'recruiting', 'players', 'media', 
+                          'analysts', 'departments', 'scouts', 'business', 'enthusiasts', 'educators'];
+            
+            // Initialize first batch immediately
+            batch1.forEach((id, i) => createMarketViz(id, types[i]));
+            
+            // Stagger remaining batches to avoid overwhelming WebGL
+            setTimeout(() => {
+                batch2.forEach((id, i) => createMarketViz(id, types[4 + i]));
+            }, 100);
+            
+            setTimeout(() => {
+                batch3.forEach((id, i) => createMarketViz(id, types[8 + i]));
+            }, 200);
+            
+            animateMarket();
+        }
+
+        function animateMarket() {
+            requestAnimationFrame(animateMarket);
+            
+            marketScenes.forEach(item => {
+                // Optimization: Check if visible in viewport could be added here
+                if (item.mesh) {
+                    item.mesh.rotation.x += 0.005;
+                    item.mesh.rotation.y += 0.01;
+                    
+                    // Pulse effect
+                    if (item.mesh.type === 'Points') {
+                        item.mesh.rotation.y -= 0.005;
+                    }
+                }
+                // Rotate the glow mesh too if it exists (it's the second child)
+                if (item.scene.children.length > 1) {
+                    item.scene.children[1].rotation.x += 0.005;
+                    item.scene.children[1].rotation.y += 0.01;
+                }
+                
+                item.renderer.render(item.scene, item.camera);
+            });
+        }
+        
+        // Clean up WebGL contexts when page unloads to prevent memory leaks
+        window.addEventListener('beforeunload', () => {
+            marketScenes.forEach(item => {
+                disposeRenderer(item.renderer);
+            });
+            disposeRenderer(renderer);
+        });
+
+        // Shared Audio Functions
+        function toggleMute() {
+            isMuted = !isMuted;
+            if (isMuted && audioCtx) audioCtx.suspend();
+            else if (audioCtx) audioCtx.resume();
+            
+            const btn = document.getElementById('sound-btn');
+            btn.innerHTML = isMuted ? '<i class="fas fa-volume-mute text-gray-500"></i>' : '<i class="fas fa-volume-up text-gray-400"></i>';
+        }
+
+        function setOrbState(state) { orbState = state; }
+
+        function playHover() {
+            if (!audioCtx || isMuted) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            gain.connect(analyser); 
+            analyser.connect(audioCtx.destination);
+            osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.1);
+            gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.1);
+        }
+
+        function playClick() {
+            if (!audioCtx || isMuted) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            gain.connect(analyser);
+            analyser.connect(audioCtx.destination);
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(1200, audioCtx.currentTime);
+            gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.05);
+            setOrbState('talking');
+            setTimeout(() => setOrbState('thinking'), 200);
+        }
+
+        function playStartupChime() {
+            if (!audioCtx) return;
+            const masterGain = audioCtx.createGain();
+            masterGain.connect(analyser);
+            analyser.connect(audioCtx.destination);
+            [300, 400, 500, 600].forEach((f, i) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.value = f;
+                gain.gain.setValueAtTime(0, audioCtx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.05, audioCtx.currentTime + 0.5 + (i * 0.1));
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 3);
+                osc.connect(gain);
+                gain.connect(masterGain);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 3);
+            });
+        }
+    </script>
+</body>
+</html>

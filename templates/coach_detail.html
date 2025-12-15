@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Command Center | GAMEDAY+ SYS</title>
+    
+    <!-- Tailwind & Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#020617', // Deep slate/black
+                        surface: '#0f172a',
+                        primary: '#ef4444', // Red 500
+                        'primary-dim': 'rgba(239, 68, 68, 0.1)',
+                        success: '#10B981', // Emerald 500
+                        warning: '#F59E0B', // Amber 500
+                        danger: '#EF4444', // Red 500
+                        info: '#3B82F6',   // Blue 500
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'Menlo', 'monospace'],
+                        'display': ['Orbitron', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #020617;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Digital Background Grid */
+        .bg-grid-scan {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* HUD Panels */
+        .hud-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Analytical Table Styles */
+        .analytics-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .analytics-table th {
+            text-align: right;
+            padding: 10px 16px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #94a3b8;
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #334155;
+            white-space: nowrap;
+        }
+        
+        .analytics-table th:first-child { text-align: left; }
+
+        .analytics-table td {
+            text-align: right;
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            white-space: nowrap;
+        }
+
+        .analytics-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .analytics-table tr:hover td {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        /* Data Color Utility Classes */
+        .val-elite { color: #34D399; text-shadow: 0 0 8px rgba(52, 211, 153, 0.2); } /* Green */
+        .val-good { color: #A7F3D0; } /* Light Green */
+        .val-avg { color: #94A3B8; } /* Slate */
+        .val-poor { color: #F87171; } /* Light Red */
+        .val-bad { color: #EF4444; text-shadow: 0 0 8px rgba(239, 68, 68, 0.2); } /* Red */
+        
+        .badge-win { background: rgba(16, 185, 129, 0.2); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); padding: 2px 6px; border-radius: 4px; }
+        .badge-loss { background: rgba(239, 68, 68, 0.2); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3); padding: 2px 6px; border-radius: 4px; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        /* Tabs */
+        .tab-btn {
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.5);
+            color: #F87171;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.1);
+        }
+
+        /* Loading Animation */
+        .scan-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ef4444;
+            box-shadow: 0 0 10px #ef4444;
+            animation: scan 2s linear infinite;
+            opacity: 0.5;
+        }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+    </style>
+</head>
+<body class="antialiased min-h-screen relative selection:bg-red-900 selection:text-white">
+
+    <!-- Background Grid -->
+    <div class="fixed inset-0 bg-grid-scan pointer-events-none z-0"></div>
+
+    <div class="relative z-10 max-w-[1800px] mx-auto p-4 md:p-8">
+        
+        <!-- Header Actions -->
+        <div class="flex items-center justify-between mb-8">
+            <a href="/" class="flex items-center gap-2 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5 px-3 py-2 rounded transition border border-transparent hover:border-white/10">
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                SYSTEM_DASHBOARD
+            </a>
+            <div class="text-[10px] font-mono text-gray-600 tracking-widest">SECURE CONNECTION ESTABLISHED</div>
+        </div>
+
+        <!-- Coach Profile Header -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+            <!-- Identity Card -->
+            <div class="lg:col-span-8 hud-panel rounded-lg p-0 relative overflow-hidden group">
+                <!-- Dynamic Team Accent Line (JS injected) -->
+                <div id="teamAccentLine" class="absolute left-0 top-0 bottom-0 w-1 bg-gray-700 z-20"></div>
+                
+                <div class="p-8 flex flex-col md:flex-row items-start gap-8 relative z-10">
+                    <!-- Headshot Area -->
+                    <div id="coach-image-container" class="relative shrink-0">
+                        <div class="w-32 h-32 rounded bg-gray-800 animate-pulse"></div>
+                    </div>
+
+                    <!-- Info Area -->
+                    <div class="flex-1 w-full">
+                        <div class="flex items-center justify-between mb-1">
+                            <h1 id="coach-name" class="text-3xl md:text-5xl font-display font-bold text-white tracking-tight">--</h1>
+                            <div class="font-mono text-xs text-gray-500 border border-gray-700 px-2 py-1 rounded">ID: <span id="coachIdDisp"></span></div>
+                        </div>
+                        
+                        <div class="text-xl font-mono text-gray-400 mb-6 flex items-center gap-3">
+                            <span id="current-school" class="text-primary font-bold">--</span>
+                            <span class="text-gray-700 text-sm">///</span>
+                            <span class="text-sm text-gray-500">HEAD COACH</span>
+                        </div>
+
+                        <!-- Mini Stats Grid -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/5 pt-6">
+                            <div>
+                                <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-1">Career Record</div>
+                                <div id="career-record" class="text-xl font-mono text-white font-bold">--</div>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-1">Win Pct</div>
+                                <div id="win-pct" class="text-xl font-mono text-white font-bold">--</div>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-1">Total Games</div>
+                                <div id="total-games" class="text-xl font-mono text-white font-bold">--</div>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-1">Experience</div>
+                                <div class="text-xl font-mono text-white font-bold"><span id="years-coached">--</span> YRS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subtle Background Watermark -->
+                <div id="watermarkContainer" class="absolute top-0 right-0 h-full w-1/2 opacity-5 pointer-events-none mix-blend-overlay"></div>
+            </div>
+
+            <!-- Status / Key Indicators -->
+            <div class="lg:col-span-4 hud-panel rounded-lg p-6 flex flex-col justify-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent"></div>
+                <h3 class="font-mono text-xs text-blue-400 uppercase tracking-widest mb-6 relative z-10 flex items-center gap-2">
+                    <i data-lucide="activity" class="w-4 h-4"></i> System Status
+                </h3>
+                
+                <div class="space-y-4 relative z-10">
+                    <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span class="text-sm text-gray-400 font-mono">Current SP+ Tier</span>
+                        <span id="stat-sp-tier" class="font-mono text-white font-bold">--</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span class="text-sm text-gray-400 font-mono">Recruiting Trajectory</span>
+                        <span id="stat-rec-traj" class="font-mono text-white font-bold">--</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-2">
+                        <span class="text-sm text-gray-400 font-mono">Active Streak</span>
+                        <span id="stat-streak" class="font-mono text-white font-bold">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="mb-6 overflow-x-auto pb-2">
+            <div class="flex items-center gap-2 min-w-max" id="tabContainer">
+                <!-- Buttons injected via JS for cleaner logic -->
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div id="content-area" class="min-h-[400px]">
+            <!-- Dynamic Content Injected Here -->
+            <div class="hud-panel rounded-lg h-64 flex items-center justify-center">
+                <div class="flex flex-col items-center gap-4 text-primary animate-pulse">
+                    <i data-lucide="loader-2" class="w-8 h-8 animate-spin"></i>
+                    <span class="font-mono text-xs tracking-widest">ACCESSING MAINFRAME...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const coachId = window.location.pathname.split('/').pop();
+        document.getElementById('coachIdDisp').textContent = coachId;
+
+        // --- THEME & UTILS ---
+        const teamColors = {
+            'Alabama': '#9E1B32', 'Ohio State': '#BB0000', 'Michigan': '#00274C', 'Georgia': '#BA0C2F',
+            'Clemson': '#F56600', 'Texas': '#BF5700', 'Oklahoma': '#841617', 'Florida': '#0021A5',
+            'LSU': '#461D7C', 'USC': '#990000', 'Notre Dame': '#0C2340', 'Oregon': '#154733'
+        }; // Basic fallback map, real data comes from API usually
+
+        // Value Coloring Helpers
+        const getValClass = (val, type) => {
+            if (val === null || val === undefined || val === '-') return 'text-gray-600';
+            const v = parseFloat(val);
+            
+            if (type === 'win_pct') {
+                if (v >= 70) return 'val-elite';
+                if (v >= 60) return 'val-good';
+                if (v >= 50) return 'val-avg';
+                return 'val-bad';
+            }
+            if (type === 'fpi' || type === 'sp') {
+                if (v >= 15) return 'val-elite';
+                if (v >= 5) return 'val-good';
+                if (v >= 0) return 'val-avg';
+                return 'val-bad';
+            }
+            if (type === 'rank') {
+                if (v <= 15) return 'val-elite';
+                if (v <= 25) return 'val-good';
+                if (v <= 50) return 'val-avg';
+                return 'val-poor';
+            }
+            return 'text-gray-300';
+        };
+
+        const formatNum = (n, d=1) => n != null ? n.toFixed(d) : '-';
+
+        // --- TABS CONFIG ---
+        const tabs = [
+            { id: 'stints', label: 'CAREER_PATH', icon: 'map' },
+            { id: 'season_analytics', label: 'SEASON_DATA', icon: 'bar-chart-2' },
+            { id: 'games', label: 'GAME_LOGS', icon: 'list' },
+            { id: 'situational_stats', label: 'SITUATIONAL', icon: 'crosshair' },
+            { id: 'vs_coaches', label: 'VS_COACHES', icon: 'users' },
+            { id: 'rankings', label: 'POLL_HIST', icon: 'trophy' },
+            { id: 'recruiting_classes', label: 'RECRUITING', icon: 'user-plus' },
+            { id: 'talent_composite', label: 'TALENT_COMP', icon: 'layers' },
+            { id: 'transfer_portal', label: 'PORTAL_FLOW', icon: 'arrow-left-right' },
+            { id: 'draft_picks', label: 'NFL_DRAFT', icon: 'award' },
+        ];
+
+        function renderTabs() {
+            const container = document.getElementById('tabContainer');
+            container.innerHTML = tabs.map(t => `
+                <button onclick="showTab('${t.id}')" id="tab-${t.id}" 
+                    class="tab-btn px-4 py-2 rounded text-xs font-mono font-bold uppercase flex items-center gap-2 text-gray-500 hover:text-white hover:bg-white/5">
+                    <i data-lucide="${t.icon}" class="w-3 h-3"></i>
+                    ${t.label}
+                </button>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        async function loadCoachData() {
+            try {
+                const res = await fetch(`/api/coach/${coachId}`);
+                const data = await res.json();
+                
+                // UI Header Update
+                document.getElementById('coach-name').textContent = data.name;
+                document.getElementById('current-school').textContent = data.current_school;
+                document.getElementById('career-record').textContent = data.career_record;
+                document.getElementById('win-pct').innerHTML = `<span class="${getValClass(data.career_win_pct * 100, 'win_pct')}">${(data.career_win_pct * 100).toFixed(1)}%</span>`;
+                document.getElementById('total-games').textContent = data.total_games;
+
+                // Handle Image
+                const imgContainer = document.getElementById('coach-image-container');
+                if (data.headshot_url) {
+                    imgContainer.innerHTML = `<img src="${data.headshot_url}" class="w-24 h-24 md:w-32 md:h-32 object-cover rounded border border-white/10 shadow-2xl" alt="${data.name}">`;
+                } else {
+                    const initials = data.name.split(' ').map(n=>n[0]).join('');
+                    imgContainer.innerHTML = `<div class="w-24 h-24 md:w-32 md:h-32 bg-gray-800 rounded flex items-center justify-center text-4xl font-display font-bold text-gray-600 border border-white/10">${initials}</div>`;
+                }
+
+                // Dynamic Styling based on School Color (Simulated)
+                const teamColor = teamColors[data.current_school] || '#ef4444'; // Default red
+                document.getElementById('teamAccentLine').style.backgroundColor = teamColor;
+                document.documentElement.style.setProperty('--primary-color', teamColor);
+
+                // Initial Tab
+                renderTabs();
+                showTab('stints');
+
+            } catch (e) {
+                console.error("Critical System Failure:", e);
+            }
+        }
+
+        async function showTab(tabId) {
+            // Update UI State
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active', 'text-white', 'bg-white/5');
+                b.classList.add('text-gray-500');
+            });
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            if(activeBtn) {
+                activeBtn.classList.add('active');
+                activeBtn.classList.remove('text-gray-500');
+            }
+
+            const contentDiv = document.getElementById('content-area');
+            contentDiv.innerHTML = `
+                <div class="hud-panel rounded-lg h-96 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 scan-line pointer-events-none"></div>
+                    <div class="font-mono text-sm text-primary flex items-center gap-2">
+                        <i data-lucide="download-cloud" class="animate-bounce"></i> FETCHING DATA BLOCK...
+                    </div>
+                </div>`;
+            lucide.createIcons();
+
+            try {
+                const res = await fetch(`/api/coach/${coachId}/${tabId}`);
+                const data = await res.json();
+                
+                // Route to specific render function
+                const renderMap = {
+                    'stints': renderStints,
+                    'games': renderGames,
+                    'season_analytics': renderSeasonAnalytics,
+                    'situational_stats': renderSituational,
+                    'vs_coaches': renderVsCoaches,
+                    'rankings': renderRankings,
+                    'recruiting_classes': renderRecruiting,
+                    'talent_composite': renderTalent,
+                    'transfer_portal': renderPortal,
+                    'draft_picks': renderDraft
+                };
+
+                if (renderMap[tabId]) {
+                    renderMap[tabId](data);
+                } else {
+                    contentDiv.innerHTML = `<div class="p-8 text-center text-red-500 font-mono">MODULE NOT FOUND</div>`;
+                }
+                lucide.createIcons();
+
+            } catch (e) {
+                contentDiv.innerHTML = `<div class="p-8 text-center text-red-500 font-mono">DATA CORRUPTION DETECTED</div>`;
+                console.error(e);
+            }
+        }
+
+        // --- RENDER FUNCTIONS ---
+
+        function renderTableWrapper(title, subtitle, tableHtml) {
+            return `
+                <div class="hud-panel rounded-lg overflow-hidden animate-fade-in">
+                    <div class="px-6 py-4 border-b border-white/5 flex justify-between items-end">
+                        <div>
+                            <h2 class="text-white font-display text-lg tracking-wide font-bold">${title}</h2>
+                            <p class="text-xs font-mono text-gray-500 mt-1">${subtitle}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                            <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        ${tableHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderStints(data) {
+            const stints = data.stints || [];
+            
+            // Calculate total years for header (delayed update)
+            if(stints.length) {
+                const years = stints.reduce((acc, s) => acc + (s.end_year - s.start_year + 1), 0);
+                document.getElementById('years-coached').textContent = years;
+            }
+
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Organization</th>
+                        <th>Tenure</th>
+                        <th>Role</th>
+                        <th>G</th>
+                        <th>W</th>
+                        <th>L</th>
+                        <th>T</th>
+                        <th>Win %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${stints.map(s => {
+                        // Parse record string like "82-11" or "82-11-0"
+                        let wins = 0, losses = 0, ties = 0;
+                        if (s.record) {
+                            const parts = s.record.split('-');
+                            wins = parseInt(parts[0]) || 0;
+                            losses = parseInt(parts[1]) || 0;
+                            ties = parseInt(parts[2]) || 0;
+                        }
+                        const winPct = (s.win_pct * 100) || 0;
+                        
+                        return `<tr>
+                        <td class="font-bold text-lg">${s.school}</td>
+                        <td class="font-mono text-gray-400">${s.start_year} - ${s.end_year}</td>
+                        <td class="text-xs font-mono uppercase tracking-wider text-gray-500">Head Coach</td>
+                        <td>${s.games_coached || 0}</td>
+                        <td class="text-emerald-400 font-bold">${wins}</td>
+                        <td class="text-red-400">${losses}</td>
+                        <td class="text-gray-500">${ties}</td>
+                        <td class="${getValClass(winPct, 'win_pct')} font-bold">${winPct.toFixed(1)}%</td>
+                    </tr>`}).join('')}
+                </tbody>
+            </table>`;
+            
+            document.getElementById('content-area').innerHTML = renderTableWrapper('CAREER TRAJECTORY', 'Historical Employment Data', html);
+        }
+
+        function renderGames(data) {
+            const games = (data.games || []).slice(0, 50);
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Team</th>
+                        <th>Opponent</th>
+                        <th>Loc</th>
+                        <th>Res</th>
+                        <th>Score</th>
+                        <th>Excitement</th>
+                        <th>Opp FPI</th>
+                        <th>Opp SP+</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${games.map(g => {
+                        const isWin = g.result === 'W';
+                        const locBadge = g.is_neutral ? '<span class="text-blue-400">NEU</span>' : g.is_home ? '<span class="text-gray-400">HOM</span>' : '<span class="text-yellow-600">AWY</span>';
+                        return `<tr>
+                        <td><span class="text-gray-500 font-mono text-xs">${g.season}</span> W${g.week}</td>
+                        <td class="font-bold text-gray-300">${g.school}</td>
+                        <td>
+                            <div class="flex items-center justify-end gap-2">
+                                <span class="${g.opponent_rank ? 'text-white font-bold' : 'text-gray-400'}">${g.opponent}</span>
+                                ${g.opponent_rank ? `<span class="text-[10px] bg-white/10 px-1 rounded">#${g.opponent_rank}</span>` : ''}
+                            </div>
+                        </td>
+                        <td class="font-mono text-xs">${locBadge}</td>
+                        <td><span class="${isWin ? 'badge-win' : 'badge-loss'} font-bold text-xs">${g.result}</span></td>
+                        <td class="font-mono">${g.coach_score}-${g.opponent_score}</td>
+                        <td class="font-mono text-xs ${g.excitement_index > 5 ? 'text-primary' : 'text-gray-600'}">${formatNum(g.excitement_index)}</td>
+                        <td class="${getValClass(g.opponent_fpi, 'fpi')}">${formatNum(g.opponent_fpi)}</td>
+                        <td class="${getValClass(g.opponent_sp_overall, 'sp')}">${formatNum(g.opponent_sp_overall)}</td>
+                    </tr>`}).join('')}
+                </tbody>
+            </table>`;
+            document.getElementById('content-area').innerHTML = renderTableWrapper('GAME LOGS', 'Recent 50 Matchups', html);
+        }
+
+        function renderSeasonAnalytics(data) {
+            const rows = data.season_analytics || [];
+            if(!rows.length) return document.getElementById('content-area').innerHTML = '<div class="p-4">No Data</div>';
+
+            const html = `<div class="relative"><table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th class="sticky left-0 z-20 bg-[#0f172a] border-r border-white/10">Season</th>
+                        <th class="sticky left-[80px] z-20 bg-[#0f172a] border-r border-white/10 text-left">Team</th>
+                        <th>SRS</th>
+                        <th>SP+</th>
+                        <th>SP+ Off</th>
+                        <th>SP+ Def</th>
+                        <th>FPI</th>
+                        <th>PPG</th>
+                        <th>PPA/G</th>
+                        <th>YPP</th>
+                        <th>Pass YPG</th>
+                        <th>Rush YPG</th>
+                        <th>3rd Down</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${rows.map(r => `<tr>
+                        <td class="sticky left-0 z-10 bg-[#0f172a] border-r border-white/5 font-bold text-white">${r.season}</td>
+                        <td class="sticky left-[80px] z-10 bg-[#0f172a] border-r border-white/5 text-left text-gray-300">${r.school}</td>
+                        <td class="${getValClass(r.srs, 'sp')}">${formatNum(r.srs)}</td>
+                        <td class="${getValClass(r.sp_overall, 'sp')} font-bold">${formatNum(r.sp_overall)}</td>
+                        <td class="${getValClass(r.sp_offense, 'sp')}">${formatNum(r.sp_offense)}</td>
+                        <td class="${getValClass(r.sp_defense, 'sp')}">${formatNum(r.sp_defense)}</td>
+                        <td class="${getValClass(r.fpi, 'fpi')}">${formatNum(r.fpi)}</td>
+                        <td class="text-white">${formatNum(r.points_per_game)}</td>
+                        <td class="text-red-300">${formatNum(r.points_allowed_pg)}</td>
+                        <td class="font-mono">${formatNum(r.yards_per_play, 2)}</td>
+                        <td class="text-gray-400">${formatNum(r.passing_yards_pg, 0)}</td>
+                        <td class="text-gray-400">${formatNum(r.rushing_yards_pg, 0)}</td>
+                        <td class="${parseFloat(r.third_down_pct) > 45 ? 'text-emerald-400' : 'text-gray-400'}">${formatNum(r.third_down_pct)}%</td>
+                    </tr>`).join('')}
+                </tbody>
+            </table></div>`;
+            document.getElementById('content-area').innerHTML = renderTableWrapper('SEASON METRICS', 'Advanced Efficiency Ratings', html);
+        }
+
+        function renderSituational(data) {
+            const stats = data.situational_stats || [];
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>School</th>
+                        <th>Home</th>
+                        <th>Away</th>
+                        <th>Conf</th>
+                        <th>1-Score</th>
+                        <th>vs Ranked</th>
+                        <th>vs Top 10</th>
+                        <th>Bowl</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${stats.map(s => `<tr>
+                        <td class="font-bold text-white">${s.school}</td>
+                        <td class="text-emerald-300 font-mono">${s.home_record}</td>
+                        <td class="text-yellow-300 font-mono">${s.away_record}</td>
+                        <td class="text-gray-300 font-mono">${s.conference_record}</td>
+                        <td class="font-mono">${s.one_score_wins}-${s.one_score_losses}</td>
+                        <td class="text-orange-300 font-mono">${s.vs_ranked_record}</td>
+                        <td class="text-red-400 font-mono">${s.vs_top_10_record}</td>
+                        <td class="text-blue-300 font-mono">${s.bowl_record}</td>
+                    </tr>`).join('')}
+                </tbody>
+            </table>`;
+            document.getElementById('content-area').innerHTML = renderTableWrapper('SITUATIONAL RECORDS', 'Split Performance Analysis', html);
+        }
+
+        function renderVsCoaches(data) {
+            const vs = data.vs_coaches || [];
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Opponent</th>
+                        <th>Program</th>
+                        <th>Record</th>
+                        <th>Diff</th>
+                        <th>Last Met</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${vs.map(v => {
+                        const diff = v.avg_point_differential;
+                        const diffClass = diff > 0 ? 'text-emerald-400' : 'text-red-400';
+                        return `<tr>
+                        <td class="font-bold text-white">${v.opponent_coach}</td>
+                        <td class="text-gray-400">${v.opponent_school}</td>
+                        <td class="font-mono text-white bg-white/5 px-2 py-1 rounded w-max ml-auto">${v.record}</td>
+                        <td class="${diffClass} font-mono">${diff > 0 ? '+' : ''}${formatNum(diff)}</td>
+                        <td class="text-gray-500 font-mono text-xs">${v.last_meeting_year}</td>
+                    </tr>`}).join('')}
+                </tbody>
+            </table>`;
+            document.getElementById('content-area').innerHTML = renderTableWrapper('HEAD-TO-HEAD', 'Coach Matchup Database', html);
+        }
+
+        function renderRankings(data) {
+            const ranks = (data.rankings || []).slice(0, 100);
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Week</th>
+                        <th>Program</th>
+                        <th>AP Rank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${ranks.map(r => `<tr>
+                        <td class="font-mono text-gray-400">${r.season}</td>
+                        <td class="font-mono text-xs">WK ${r.week}</td>
+                        <td class="text-white">${r.school}</td>
+                        <td class="font-bold text-lg ${getValClass(r.rank, 'rank')}">#${r.rank}</td>
+                    </tr>`).join('')}
+                </tbody>
+            </table>`;
+            document.getElementById('content-area').innerHTML = renderTableWrapper('AP POLL HISTORY', 'Ranked Appearances', html);
+        }
+
+        function renderRecruiting(data) {
+            const recs = (data.recruiting_classes || []).slice(0, 20);
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>School</th>
+                        <th>Nat Rank</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${recs.map(r => `<tr>
+                        <td class="font-bold text-white">${r.year}</td>
+                        <td class="text-gray-300">${r.school}</td>
+                        <td class="font-bold text-xl ${getValClass(r.class_rank, 'rank')}">#${r.class_rank}</td>
+                        <td class="font-mono text-gray-400">${formatNum(r.total_rating)}</td>
+                    </tr>`).join('')}
+                </tbody>
+            </table>`;
+            document.getElementById('content-area').innerHTML = renderTableWrapper('RECRUITING DATABASE', 'Class Rankings', html);
+        }
+
+        function renderTalent(data) {
+            const tal = data.talent_composite || [];
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>School</th>
+                        <th>Talent Score</th>
+                        <th>Roster Rank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${tal.map(t => `<tr>
+                        <td class="font-bold text-white">${t.year}</td>
+                        <td class="text-gray-300">${t.school}</td>
+                        <td class="font-mono text-blue-300">${formatNum(t.talent_rating)}</td>
+                        <td class="font-bold text-lg ${getValClass(t.national_rank, 'rank')}">#${t.national_rank}</td>
+                    </tr>`).join('')}
+                </tbody>
+            </table>`;
+            document.getElementById('content-area').innerHTML = renderTableWrapper('ROSTER TALENT', '247Sports Team Talent Composite', html);
+        }
+
+        function renderPortal(data) {
+            const rows = data.transfer_portal || [];
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>School</th>
+                        <th>In</th>
+                        <th>Out</th>
+                        <th>Net</th>
+                        <th>Rating In</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${rows.map(p => {
+                        const netClass = p.net_transfers > 0 ? 'text-emerald-400' : p.net_transfers < 0 ? 'text-red-400' : 'text-gray-500';
+                        return `<tr>
+                        <td class="text-white">${p.season}</td>
+                        <td class="text-gray-400">${p.school}</td>
+                        <td class="text-emerald-300 font-mono">${p.transfers_in}</td>
+                        <td class="text-red-300 font-mono">${p.transfers_out}</td>
+                        <td class="${netClass} font-bold font-mono">${p.net_transfers > 0 ? '+' : ''}${p.net_transfers}</td>
+                        <td class="text-blue-300 font-mono">${formatNum(p.avg_rating_in, 2)}</td>
+                    </tr>`}).join('')}
+                </tbody>
+            </table>`;
+            document.getElementById('content-area').innerHTML = renderTableWrapper('TRANSFER PORTAL', 'Roster Turnover', html);
+        }
+
+        function renderDraft(data) {
+            const picks = (data.draft_picks || []).slice(0, 50);
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Player</th>
+                        <th>Pos</th>
+                        <th>Rd / Pick</th>
+                        <th>NFL Team</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${picks.map(p => `<tr>
+                        <td class="font-mono text-gray-500">${p.year}</td>
+                        <td class="font-bold text-white">${p.player_name}</td>
+                        <td class="text-xs font-mono bg-white/5 px-1 rounded text-center">${p.position}</td>
+                        <td class="font-mono text-yellow-500">R${p.round} / P${p.pick}</td>
+                        <td class="text-gray-400 text-xs uppercase">${p.nfl_team}</td>
+                    </tr>`).join('')}
+                </tbody>
+            </table>`;
+            document.getElementById('content-area').innerHTML = renderTableWrapper('NFL PRODUCTION', 'Draft Output', html);
+        }
+
+        // Init
+        loadCoachData();
+    </script>
+</body>
+</html>

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official 12-Team CFP Bracket 2025-26 | Premier Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;700&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap');
+
+        :root {
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-shine: rgba(255, 255, 255, 0.1);
+            --gold-primary: #C5A059;
+            --gold-secondary: #D4AF37;
+            --silver-primary: #E2E2E2;
+            --silver-secondary: #9CA3AF;
+        }
+
+        body {
+            background: 
+                linear-gradient(135deg, rgba(139, 119, 101, 0.15) 0%, transparent 50%),
+                linear-gradient(45deg, rgba(212, 175, 55, 0.08) 0%, transparent 30%),
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 119, 101, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #1c1c1e 0%, #2c2c2e 50%, #3a3a3c 100%);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* CFP Trophy Background */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('https://media.cnn.com/api/v1/images/stellar/prod/221222170706-03-college-football-playoffs-watch.jpg?c=original') center center no-repeat;
+            background-size: cover;
+            opacity: 0.12;
+            filter: grayscale(30%) contrast(1.1);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(139, 119, 101, 0.02) 2px, rgba(139, 119, 101, 0.02) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        body > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- BACKGROUND FX --- */
+        .bg-atmosphere {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 50% 0%, rgba(26, 26, 46, 0.5) 0%, transparent 60%),
+                radial-gradient(circle at 85% 30%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 15% 70%, rgba(66, 100, 251, 0.05) 0%, transparent 40%);
+        }
+
+        .bg-noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.03;
+            z-index: -1;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        .font-header { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
+        .font-mono-tech { font-family: 'Rajdhani', sans-serif; letter-spacing: 0.05em; }
+
+        .text-gradient-gold {
+            background: linear-gradient(180deg, #F3E5B5 0%, #C5A059 50%, #8C7034 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 2px 10px rgba(197, 160, 89, 0.3);
+        }
+
+        .text-gradient-silver {
+            background: linear-gradient(180deg, #FFFFFF 0%, #D1D5DB 45%, #6B7280 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- GLASS COMPONENTS --- */
+        .glass-panel {
+            background: linear-gradient(
+                135deg,
+                rgba(80, 80, 80, 0.25) 0%,
+                rgba(60, 60, 60, 0.15) 50%,
+                rgba(70, 70, 70, 0.2) 100%
+            );
+            backdrop-filter: blur(24px) saturate(1.2);
+            -webkit-backdrop-filter: blur(24px) saturate(1.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 2px 8px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+            position: relative;
+            transform: perspective(1000px) translateZ(0);
+            transform-style: preserve-3d;
+            overflow: hidden;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 10%, rgba(255,255,255,0.15) 50%, transparent 90%);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        /* Hover Spotlight Effect (JS controlled) */
+        .glass-panel::after {
+            content: '';
+            position: absolute;
+            top: var(--y, -100px);
+            left: var(--x, -100px);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .glass-panel:hover {
+            background: linear-gradient(
+                135deg,
+                rgba(90, 90, 90, 0.3) 0%,
+                rgba(70, 70, 70, 0.18) 50%,
+                rgba(80, 80, 80, 0.25) 100%
+            );
+            transform: perspective(1000px) translateZ(10px) scale(1.01);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.35),
+                0 4px 12px rgba(0, 0, 0, 0.25),
+                inset 0 1px 1px rgba(255, 255, 255, 0.12),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .glass-panel:hover::after { opacity: 1; }
+
+        /* --- TEAM ACCENTS & LOGOS --- */
+        .team-row {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            transition: background 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-row:first-child { border-radius: 16px 16px 0 0; }
+        .team-row:last-child { border-radius: 0 0 16px 16px; }
+        .team-row:only-child { border-radius: 16px; }
+        .team-row:hover { background: rgba(255,255,255,0.03); }
+
+        /* Team Watermark Effect */
+        .team-row .watermark {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+            filter: grayscale(30%);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .team-row:hover .watermark {
+            opacity: 0.15;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .team-row .color-wash {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 60%;
+            opacity: 0.06;
+            pointer-events: none;
+            z-index: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .team-row:hover .color-wash {
+            opacity: 0.12;
+        }
+        
+        .team-row > *:not(.watermark):not(.color-wash):not(.accent-bar) {
+            position: relative;
+            z-index: 1;
+        }
+
+        .accent-bar {
+            position: absolute;
+            left: 0; top: 0; bottom: 0; width: 4px;
+            box-shadow: 2px 0 15px currentColor;
+            margin: -1px 0 -1px -1px;
+        }
+        
+        .team-row:first-child .accent-bar { border-radius: 16px 0 0 0; }
+        .team-row:last-child .accent-bar { border-radius: 0 0 0 16px; }
+        .team-row:only-child .accent-bar { border-radius: 16px 0 0 16px; }
+
+        .logo-wrapper {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+            transition: transform 0.3s;
+        }
+        .team-row:hover .logo-wrapper { transform: scale(1.1); }
+
+        .seed-badge {
+            background: rgba(255,255,255,0.1);
+            font-size: 0.65rem;
+            padding: 1px 5px;
+            border-radius: 2px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            color: #aaa;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* --- BRACKET CONNECTORS (SVG) --- */
+        .bracket-svg-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .connector-path {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.15);
+            stroke-width: 1.5;
+            transition: stroke 0.3s, stroke-width 0.3s;
+        }
+
+        /* Highlights connectors when hovering the game */
+        .match-group:hover ~ .bracket-svg-container .connector-path[data-match="1"] {
+            stroke: rgba(255, 255, 255, 0.6);
+            stroke-width: 2;
+        }
+
+        /* --- UTILITIES --- */
+        .scroller {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            cursor: grab;
+        }
+        .scroller::-webkit-scrollbar { display: none; }
+        .scroller:active { cursor: grabbing; }
+
+        .glow-text { text-shadow: 0 0 20px currentColor; }
+        
+        /* Animations */
+        .animate-enter {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideUpFade {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body class="selection:bg-white/20">
+
+    <!-- FX Layers -->
+    <div class="bg-atmosphere"></div>
+    <div class="bg-noise"></div>
+
+    <!-- Header -->
+    <header class="pt-8 pb-4 relative z-10 px-6 max-w-[1800px] mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center border-b border-white/10 pb-6">
+            <div class="flex items-center gap-6">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-header font-bold text-gradient-silver tracking-tighter">Road to Atlanta</h1>
+                    <div class="flex items-center gap-3 mt-1">
+                        <span class="px-2 py-0.5 rounded bg-gradient-to-r from-[#C5A059] to-[#8C7034] text-black text-xs font-bold tracking-wider font-mono-tech">OFFICIAL BRACKET</span>
+                        <span class="text-white/40 text-sm font-mono-tech tracking-widest">2025-2026 SEASON</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 md:mt-0 flex gap-8">
+                <div class="text-right hidden md:block">
+                    <div class="text-xs text-white/40 font-header tracking-widest mb-1">NATIONAL CHAMPIONSHIP</div>
+                    <div class="text-lg font-mono-tech text-gradient-gold">JAN 20 • ATLANTA, GA</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bracket Container -->
+    <main class="w-full h-full overflow-hidden relative pb-10">
+        <!-- Scroll Area -->
+        <div class="scroller overflow-x-auto px-6 py-10 min-h-[85vh]">
+            <div class="min-w-[1400px] max-w-[1800px] mx-auto relative h-[800px]" id="bracket-grid">
+
+                <!-- SVG Layer for Connectors -->
+                <svg class="bracket-svg-container" id="connections">
+                    <!-- Paths will be drawn here dynamically or manually for precision -->
+                    <!-- R1 G1 to Rose -->
+                    <path d="M 330 110 L 360 110 L 360 210 L 390 210" class="connector-path" />
+                    <!-- R1 G4 to Rose -->
+                    <path d="M 330 650 L 360 650 L 360 270 L 390 270" class="connector-path" /> 
+                    <!-- Wait, logic check: 8/9 Winner plays #1 (Rose) -->
+                    <!-- Wait, logic check: 12/5 Winner plays #4 (Orange) -->
+                </svg>
+
+                <!-- Column Headers -->
+                <div class="grid grid-cols-5 gap-12 mb-8 absolute top-0 w-full z-10 pointer-events-none">
+                    <div class="text-center"><span class="font-mono-tech text-white/30 tracking-[0.2em] text-sm border-b border-white/10 pb-2 px-4">FIRST ROUND</span></div>
+                    <div class="text-center"><span class="font-mono-tech text-white/30 tracking-[0.2em] text-sm border-b border-white/10 pb-2 px-4">QUARTERFINALS</span></div>
+                    <div class="text-center"><span class="font-mono-tech text-white/30 tracking-[0.2em] text-sm border-b border-white/10 pb-2 px-4">SEMIFINALS</span></div>
+                    <div class="text-center col-span-2"><span class="font-mono-tech text-gradient-gold tracking-[0.2em] text-sm border-b border-[#C5A059]/30 pb-2 px-4">NATIONAL CHAMPIONSHIP</span></div>
+                </div>
+
+                <!-- BRACKET GRID LAYOUT -->
+                <!-- We use absolute positioning for perfect connector alignment in this premium view -->
+                
+                <!-- === ROUND 1 (Left Column) === -->
+                
+                <!-- GAME 1: 12 JMU vs 5 Oregon -->
+                <!-- Winner plays #4 Texas Tech (Orange Bowl) -->
+                <div class="absolute left-0 top-[180px] w-[330px] match-group animate-enter" style="animation-delay: 0.1s">
+                    <div class="flex justify-between text-[10px] uppercase font-mono-tech text-white/40 mb-2 pl-1">
+                        <span>Dec 20 • 7:30 PM TNT</span>
+                        <span>Eugene, OR</span>
+                    </div>
+                    <div class="glass-panel rounded-lg group cursor-default">
+                        <!-- Team 1 -->
+                        <div class="team-row">
+                            <div class="accent-bar bg-[#450084]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #450084);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/256.png" class="watermark">
+                            <span class="seed-badge mr-3">12</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/256.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white/90">James Madison</span>
+                            <span class="ml-auto text-xs font-mono-tech text-white/40">12-1</span>
+                        </div>
+                        <!-- Team 2 -->
+                        <div class="team-row bg-white/5">
+                            <div class="accent-bar bg-[#154733]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #154733);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png" class="watermark">
+                            <span class="seed-badge mr-3">5</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white">Oregon</span>
+                            <span class="ml-auto text-xs font-mono-tech text-white/40">11-1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GAME 2: 9 Alabama vs 8 Oklahoma -->
+                <!-- Winner plays #1 Indiana (Rose Bowl) -->
+                <div class="absolute left-0 top-[380px] w-[330px] match-group animate-enter" style="animation-delay: 0.15s">
+                    <div class="flex justify-between text-[10px] uppercase font-mono-tech text-white/40 mb-2 pl-1">
+                        <span>Dec 19 • 8:00 PM ABC</span>
+                        <span>Norman, OK</span>
+                    </div>
+                    <div class="glass-panel rounded-lg group">
+                        <div class="team-row">
+                            <div class="accent-bar bg-[#9E1B32]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #9E1B32);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" class="watermark">
+                            <span class="seed-badge mr-3">9</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white/90">Alabama</span>
+                            <span class="ml-auto text-xs font-mono-tech text-white/40">10-3</span>
+                        </div>
+                        <div class="team-row bg-white/5">
+                            <div class="accent-bar bg-[#841617]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #841617);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/201.png" class="watermark">
+                            <span class="seed-badge mr-3">8</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/201.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white">Oklahoma</span>
+                            <span class="ml-auto text-xs font-mono-tech text-white/40">10-2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GAME 3: 11 Tulane vs 6 Ole Miss -->
+                <!-- Winner plays #3 Georgia (Sugar Bowl) -->
+                <div class="absolute left-0 top-[580px] w-[330px] match-group animate-enter" style="animation-delay: 0.2s">
+                    <div class="flex justify-between text-[10px] uppercase font-mono-tech text-white/40 mb-2 pl-1">
+                        <span>Dec 20 • 3:30 PM TNT</span>
+                        <span>Oxford, MS</span>
+                    </div>
+                    <div class="glass-panel rounded-lg group">
+                        <div class="team-row">
+                            <div class="accent-bar bg-[#006747]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #006747);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" class="watermark">
+                            <span class="seed-badge mr-3">11</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white/90">Tulane</span>
+                            <span class="ml-auto text-xs font-mono-tech text-white/40">11-2</span>
+                        </div>
+                        <div class="team-row bg-white/5">
+                            <div class="accent-bar bg-[#CE1126]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #CE1126);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/145.png" class="watermark">
+                            <span class="seed-badge mr-3">6</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/145.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white">Ole Miss</span>
+                            <span class="ml-auto text-xs font-mono-tech text-white/40">11-1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GAME 4: 10 Miami vs 7 Texas A&M -->
+                <!-- Winner plays #2 Ohio State (Cotton Bowl) -->
+                <div class="absolute left-0 top-[780px] w-[330px] match-group animate-enter" style="animation-delay: 0.25s">
+                    <div class="flex justify-between text-[10px] uppercase font-mono-tech text-white/40 mb-2 pl-1">
+                        <span>Dec 20 • Noon ABC</span>
+                        <span>College Station, TX</span>
+                    </div>
+                    <div class="glass-panel rounded-lg group">
+                        <div class="team-row">
+                            <div class="accent-bar bg-[#F47321]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #F47321);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png" class="watermark">
+                            <span class="seed-badge mr-3">10</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white/90">Miami</span>
+                            <span class="ml-auto text-xs font-mono-tech text-white/40">10-2</span>
+                        </div>
+                        <div class="team-row bg-white/5">
+                            <div class="accent-bar bg-[#500000]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #500000);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/245.png" class="watermark">
+                            <span class="seed-badge mr-3">7</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/245.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white">Texas A&M</span>
+                            <span class="ml-auto text-xs font-mono-tech text-white/40">11-1</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- === QUARTERFINALS (Column 2) === -->
+
+                <!-- ORANGE BOWL: Plays Winner of 12/5 -->
+                <div class="absolute left-[400px] top-[150px] w-[330px] match-group animate-enter" style="animation-delay: 0.3s">
+                    <div class="flex items-center gap-2 mb-2 pl-1">
+                        <div class="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_10px_orange]"></div>
+                        <span class="text-[10px] uppercase font-header text-orange-200 tracking-wider">Orange Bowl • Jan 1</span>
+                    </div>
+                    <div class="glass-panel rounded-lg">
+                        <div class="team-row">
+                            <div class="accent-bar bg-[#CC0000]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #CC0000);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png" class="watermark">
+                            <span class="seed-badge mr-3 text-white border-white/40">4</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white">Texas Tech</span>
+                            <span class="ml-auto text-[10px] uppercase font-bold text-white/20 tracking-wider border border-white/10 px-1 rounded">Bye</span>
+                        </div>
+                        <div class="team-row opacity-60">
+                            <span class="text-xs font-mono-tech text-white/40 italic ml-2">Winner of JMU / Oregon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROSE BOWL: Plays Winner of 8/9 -->
+                <div class="absolute left-[400px] top-[350px] w-[330px] match-group animate-enter" style="animation-delay: 0.35s">
+                    <div class="flex items-center gap-2 mb-2 pl-1">
+                        <div class="w-2 h-2 rounded-full bg-red-600 shadow-[0_0_10px_red]"></div>
+                        <span class="text-[10px] uppercase font-header text-red-200 tracking-wider">Rose Bowl • Jan 1</span>
+                    </div>
+                    <div class="glass-panel rounded-lg border-red-500/20 shadow-[0_0_30px_rgba(220,38,38,0.1)]">
+                        <div class="team-row relative overflow-hidden">
+                            <div class="absolute inset-0 bg-red-900/10"></div>
+                            <div class="accent-bar bg-[#990000]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #990000);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/84.png" class="watermark">
+                            <span class="seed-badge mr-3 bg-red-500/20 text-red-200 border-red-500/40">1</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/84.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white">Indiana</span>
+                            <span class="ml-auto text-[10px] uppercase font-bold text-white/20 tracking-wider border border-white/10 px-1 rounded z-10">Bye</span>
+                        </div>
+                        <div class="team-row opacity-60">
+                            <span class="text-xs font-mono-tech text-white/40 italic ml-2">Winner of Bama / OU</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUGAR BOWL: Plays Winner of 11/6 -->
+                <div class="absolute left-[400px] top-[550px] w-[330px] match-group animate-enter" style="animation-delay: 0.4s">
+                    <div class="flex items-center gap-2 mb-2 pl-1">
+                        <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_cyan]"></div>
+                        <span class="text-[10px] uppercase font-header text-cyan-100 tracking-wider">Sugar Bowl • Jan 1</span>
+                    </div>
+                    <div class="glass-panel rounded-lg">
+                        <div class="team-row">
+                            <div class="accent-bar bg-[#BA0C2F]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #BA0C2F);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" class="watermark">
+                            <span class="seed-badge mr-3 text-white border-white/40">3</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white">Georgia</span>
+                            <span class="ml-auto text-[10px] uppercase font-bold text-white/20 tracking-wider border border-white/10 px-1 rounded">Bye</span>
+                        </div>
+                        <div class="team-row opacity-60">
+                            <span class="text-xs font-mono-tech text-white/40 italic ml-2">Winner of Tulane / Ole Miss</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COTTON BOWL: Plays Winner of 7/10 -->
+                <div class="absolute left-[400px] top-[750px] w-[330px] match-group animate-enter" style="animation-delay: 0.45s">
+                    <div class="flex items-center gap-2 mb-2 pl-1">
+                        <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_green]"></div>
+                        <span class="text-[10px] uppercase font-header text-green-200 tracking-wider">Cotton Bowl • Dec 31</span>
+                    </div>
+                    <div class="glass-panel rounded-lg">
+                        <div class="team-row">
+                            <div class="accent-bar bg-[#BB0000]"></div>
+                            <div class="color-wash" style="background: linear-gradient(90deg, transparent, #BB0000);"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" class="watermark">
+                            <span class="seed-badge mr-3 text-white border-white/40">2</span>
+                            <div class="logo-wrapper w-6 h-6 mr-3"><img src="https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" class="w-full h-full object-contain"></div>
+                            <span class="font-bold text-sm tracking-tight text-white">Ohio State</span>
+                            <span class="ml-auto text-[10px] uppercase font-bold text-white/20 tracking-wider border border-white/10 px-1 rounded">Bye</span>
+                        </div>
+                        <div class="team-row opacity-60">
+                            <span class="text-xs font-mono-tech text-white/40 italic ml-2">Winner of Miami / TAMU</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- === SEMIFINALS (Column 3) === -->
+                
+                <!-- PEACH BOWL (Orange vs Rose) -->
+                <div class="absolute left-[800px] top-[250px] w-[330px] match-group animate-enter" style="animation-delay: 0.5s">
+                    <div class="flex justify-center items-center gap-2 mb-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Logo_of_college_football_playoff.svg/1072px-Logo_of_college_football_playoff.svg.png" class="h-6 opacity-80 grayscale hover:grayscale-0 transition duration-300">
+                        <span class="text-[10px] uppercase font-header text-white/60 tracking-wider">Jan 9</span>
+                    </div>
+                    <div class="glass-panel rounded-lg p-4 flex flex-col items-center justify-center gap-2 border-t-2 border-t-yellow-600/50">
+                        <span class="text-xs font-mono-tech text-white/50">Orange Bowl Winner</span>
+                        <div class="w-full h-px bg-white/10"></div>
+                        <span class="text-xs font-mono-tech text-white/50">Rose Bowl Winner</span>
+                    </div>
+                </div>
+
+                 <!-- FIESTA BOWL (Sugar vs Cotton) -->
+                 <div class="absolute left-[800px] top-[650px] w-[330px] match-group animate-enter" style="animation-delay: 0.55s">
+                    <div class="flex justify-center items-center gap-2 mb-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Logo_of_college_football_playoff.svg/1072px-Logo_of_college_football_playoff.svg.png" class="h-6 opacity-80 grayscale hover:grayscale-0 transition duration-300">
+                        <span class="text-[10px] uppercase font-header text-white/60 tracking-wider">Jan 8</span>
+                    </div>
+                    <div class="glass-panel rounded-lg p-4 flex flex-col items-center justify-center gap-2 border-t-2 border-t-yellow-500/50">
+                        <span class="text-xs font-mono-tech text-white/50">Sugar Bowl Winner</span>
+                        <div class="w-full h-px bg-white/10"></div>
+                        <span class="text-xs font-mono-tech text-white/50">Cotton Bowl Winner</span>
+                    </div>
+                </div>
+
+                <!-- === CHAMPIONSHIP (Column 4) === -->
+                <div class="absolute left-[1200px] top-[400px] w-[380px] animate-enter" style="animation-delay: 0.7s">
+                    <div class="glass-panel rounded-xl p-1 relative overflow-hidden group">
+                        <!-- Gold Glow effect behind -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#C5A059] to-transparent opacity-10 group-hover:opacity-20 transition duration-500"></div>
+                        
+                        <div class="bg-black/40 rounded-lg p-8 flex flex-col items-center text-center relative z-10 border border-white/5">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Logo_of_college_football_playoff.svg/1072px-Logo_of_college_football_playoff.svg.png" class="h-16 mb-4 drop-shadow-[0_0_15px_rgba(197,160,89,0.3)]">
+                            
+                            <div class="w-full flex justify-between items-center mb-6">
+                                <div class="text-center w-1/2 border-r border-white/10 pr-4">
+                                    <span class="block text-[10px] uppercase text-white/30 font-bold tracking-widest mb-1">PEACH</span>
+                                    <div class="h-12 w-12 bg-white/5 rounded-full mx-auto mb-2 border border-white/10 flex items-center justify-center">
+                                        <span class="text-white/20 text-xs">TBD</span>
+                                    </div>
+                                </div>
+                                <div class="text-center w-1/2 pl-4">
+                                    <span class="block text-[10px] uppercase text-white/30 font-bold tracking-widest mb-1">FIESTA</span>
+                                    <div class="h-12 w-12 bg-white/5 rounded-full mx-auto mb-2 border border-white/10 flex items-center justify-center">
+                                        <span class="text-white/20 text-xs">TBD</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-2">
+                                <h2 class="text-2xl font-header font-bold text-gradient-gold tracking-widest">NATIONAL CHAMPION</h2>
+                                <p class="text-white/40 font-mono-tech text-sm mt-1">Mercedes-Benz Stadium • Atlanta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer / Stats -->
+    <footer class="border-t border-white/10 bg-black/80 backdrop-blur-md relative z-20">
+        <!-- G+ Watermark in bottom right -->
+        <div class="fixed bottom-8 right-8 pointer-events-none select-none z-30">
+            <!-- Background watermark G+ -->
+            <span class="absolute -right-4 -bottom-4 text-[180px] font-black tracking-tighter" style="font-family: 'Orbitron', sans-serif; background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: blur(1px);">G+</span>
+            <!-- Main G+ logo -->
+            <span class="text-6xl font-black tracking-tight relative" style="font-family: 'Orbitron', sans-serif; background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.12) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 40px rgba(255,255,255,0.06));">G+</span>
+        </div>
+        <div class="max-w-[1800px] mx-auto px-6 py-6 flex flex-wrap gap-8 justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="text-xs font-mono-tech uppercase text-white/60 tracking-wider">System Operational</span>
+            </div>
+            
+            <div class="flex gap-8">
+                <div class="text-center md:text-left">
+                    <div class="text-[10px] text-white/30 uppercase tracking-widest font-bold">Total Games</div>
+                    <div class="text-xl font-header text-white">11</div>
+                </div>
+                <div class="text-center md:text-left">
+                    <div class="text-[10px] text-white/30 uppercase tracking-widest font-bold">Conf Champs</div>
+                    <div class="text-xl font-header text-white">5</div>
+                </div>
+                <div class="text-center md:text-left">
+                    <div class="text-[10px] text-white/30 uppercase tracking-widest font-bold">At-Large</div>
+                    <div class="text-xl font-header text-white">7</div>
+                </div>
+            </div>
+
+            <div class="opacity-30 hover:opacity-100 transition duration-300">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/256.png" class="h-6 inline-block grayscale mr-2">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/84.png" class="h-6 inline-block grayscale mr-2">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" class="h-6 inline-block grayscale mr-2">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. Draw SVG Connectors Logic ---
+        function drawConnectors() {
+            const svg = document.getElementById('connections');
+            // Hardcoded connector logic for the visual aesthetic
+            // In a real app, this would calculate offsets based on div positions
+            
+            const connectors = [
+                // Round 1 (Top Left) -> QF Top (Orange)
+                "M 330 220 C 350 220, 350 200, 400 200", // JMU/Oregon to Texas Tech
+                
+                // Round 1 (2nd) -> QF (Rose)
+                "M 330 420 C 350 420, 350 400, 400 400", // Bama/OU to Indiana
+                
+                // Round 1 (3rd) -> QF (Sugar)
+                "M 330 620 C 350 620, 350 600, 400 600", // Tulane/Ole Miss to Georgia
+
+                // Round 1 (Bot) -> QF (Cotton)
+                "M 330 820 C 350 820, 350 800, 400 800", // Miami/TAMU to OSU
+
+                // QF (Orange) -> SF (Peach)
+                "M 730 200 C 760 200, 760 300, 800 300",
+                // QF (Rose) -> SF (Peach)
+                "M 730 400 C 760 400, 760 320, 800 320",
+
+                // QF (Sugar) -> SF (Fiesta)
+                "M 730 600 C 760 600, 760 700, 800 700",
+                // QF (Cotton) -> SF (Fiesta)
+                "M 730 800 C 760 800, 760 720, 800 720",
+
+                // SF (Peach) -> Final
+                "M 1130 310 C 1160 310, 1160 450, 1200 450",
+                // SF (Fiesta) -> Final
+                "M 1130 710 C 1160 710, 1160 480, 1200 480",
+
+            ];
+
+            // Clear existing
+            svg.innerHTML = '';
+
+            connectors.forEach((d, i) => {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", d);
+                path.setAttribute("class", "connector-path");
+                // Add data attribute to link to hover effects if needed
+                svg.appendChild(path);
+            });
+        }
+
+        // --- 2. Mouse Spotlight Effect ---
+        const panels = document.querySelectorAll('.glass-panel');
+
+        panels.forEach(panel => {
+            panel.onmousemove = e => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                panel.style.setProperty('--x', `${x}px`);
+                panel.style.setProperty('--y', `${y}px`);
+            };
+        });
+
+        // --- 3. Drag to Scroll for Bracket ---
+        const slider = document.querySelector('.scroller');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => { isDown = false; });
+        slider.addEventListener('mouseup', () => { isDown = false; });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; //scroll-fast
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // Initialize
+        window.onload = drawConnectors;
+
+    </script>
+</body>
+</html>

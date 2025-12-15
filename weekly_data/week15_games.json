@@ -1,0 +1,420 @@
+{
+  "summary": {
+    "generatedAt": "2025-12-05T06:31:15.885793",
+    "week": 15,
+    "year": 2025,
+    "seasonType": "regular",
+    "totalGames": 9,
+    "championshipGames": 9,
+    "description": "Conference Championship Week"
+  },
+  "games": {
+    "all": [
+      {
+        "gameId": 401777351,
+        "datetime": {
+          "raw": "2025-12-06T21:00:00.000Z",
+          "date": "2025-12-06",
+          "startTimeTBD": false
+        },
+        "homeTeam": {
+          "id": 333,
+          "name": "Alabama",
+          "mascot": "Crimson Tide",
+          "abbreviation": "ALA",
+          "conference": "SEC",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png",
+          "primary_color": "#9e1632",
+          "alt_color": "#ffffff",
+          "secondary_color": "#9e1632",
+          "pregameElo": 1955
+        },
+        "awayTeam": {
+          "id": 61,
+          "name": "Georgia",
+          "mascot": "Bulldogs",
+          "abbreviation": "UGA",
+          "conference": "SEC",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/61.png",
+          "primary_color": "#ba0c2f",
+          "alt_color": "#ffffff",
+          "secondary_color": "#ba0c2f",
+          "pregameElo": 2026
+        },
+        "venue": {
+          "id": 5348,
+          "name": "Mercedes-Benz Stadium",
+          "neutralSite": true
+        },
+        "gameInfo": {
+          "week": 15,
+          "season": 2025,
+          "seasonType": "regular",
+          "conferenceGame": true,
+          "notes": "SEC Championship",
+          "isChampionship": true
+        }
+      },
+      {
+        "gameId": 401777353,
+        "datetime": {
+          "raw": "2025-12-07T01:00:00.000Z",
+          "date": "2025-12-07",
+          "startTimeTBD": false
+        },
+        "homeTeam": {
+          "id": 194,
+          "name": "Ohio State",
+          "mascot": "Buckeyes",
+          "abbreviation": "OSU",
+          "conference": "Big Ten",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+          "primary_color": "#ce1141",
+          "alt_color": "#505056",
+          "secondary_color": "#ce1141",
+          "pregameElo": 2169
+        },
+        "awayTeam": {
+          "id": 84,
+          "name": "Indiana",
+          "mascot": "Hoosiers",
+          "abbreviation": "IU",
+          "conference": "Big Ten",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+          "primary_color": "#990000",
+          "alt_color": "#edebeb",
+          "secondary_color": "#990000",
+          "pregameElo": 2191
+        },
+        "venue": {
+          "id": 3812,
+          "name": "Lucas Oil Stadium",
+          "neutralSite": true
+        },
+        "gameInfo": {
+          "week": 15,
+          "season": 2025,
+          "seasonType": "regular",
+          "conferenceGame": true,
+          "notes": "Big Ten Championship",
+          "isChampionship": true
+        }
+      },
+      {
+        "gameId": 401777327,
+        "datetime": {
+          "raw": "2025-12-06T17:00:00.000Z",
+          "date": "2025-12-06",
+          "startTimeTBD": false
+        },
+        "homeTeam": {
+          "id": 2641,
+          "name": "Texas Tech",
+          "mascot": "Red Raiders",
+          "abbreviation": "TTU",
+          "conference": "Big 12",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png",
+          "primary_color": "#CC0000",
+          "alt_color": "#000000",
+          "secondary_color": "#CC0000",
+          "pregameElo": 2061
+        },
+        "awayTeam": {
+          "id": 252,
+          "name": "BYU",
+          "mascot": "Cougars",
+          "abbreviation": "BYU",
+          "conference": "Big 12",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/252.png",
+          "primary_color": "#003da5",
+          "alt_color": "#ffffff",
+          "secondary_color": "#003da5",
+          "pregameElo": 1797
+        },
+        "venue": {
+          "id": 3687,
+          "name": "AT&T Stadium",
+          "neutralSite": true
+        },
+        "gameInfo": {
+          "week": 15,
+          "season": 2025,
+          "seasonType": "regular",
+          "conferenceGame": true,
+          "notes": "Big 12 Championship",
+          "isChampionship": true
+        }
+      },
+      {
+        "gameId": 401777328,
+        "datetime": {
+          "raw": "2025-12-07T01:00:00.000Z",
+          "date": "2025-12-07",
+          "startTimeTBD": false
+        },
+        "homeTeam": {
+          "id": 258,
+          "name": "Virginia",
+          "mascot": "Cavaliers",
+          "abbreviation": "UVA",
+          "conference": "ACC",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/258.png",
+          "primary_color": "#232d4b",
+          "alt_color": "#f84c1e",
+          "secondary_color": "#232d4b",
+          "pregameElo": 1631
+        },
+        "awayTeam": {
+          "id": 150,
+          "name": "Duke",
+          "mascot": "Blue Devils",
+          "abbreviation": "DUKE",
+          "conference": "ACC",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/150.png",
+          "primary_color": "#013088",
+          "alt_color": "#ffffff",
+          "secondary_color": "#013088",
+          "pregameElo": 1607
+        },
+        "venue": {
+          "id": 3628,
+          "name": "Bank of America Stadium",
+          "neutralSite": true
+        },
+        "gameInfo": {
+          "week": 15,
+          "season": 2025,
+          "seasonType": "regular",
+          "conferenceGame": true,
+          "notes": "ACC Championship",
+          "isChampionship": true
+        }
+      },
+      {
+        "gameId": 401777352,
+        "datetime": {
+          "raw": "2025-12-06T00:00:00.000Z",
+          "date": "2025-12-06",
+          "startTimeTBD": false
+        },
+        "homeTeam": {
+          "id": 256,
+          "name": "James Madison",
+          "mascot": "Dukes",
+          "abbreviation": "JMU",
+          "conference": "Sun Belt",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/256.png",
+          "primary_color": "#450084",
+          "alt_color": "#b5a068",
+          "secondary_color": "#450084",
+          "pregameElo": 1937
+        },
+        "awayTeam": {
+          "id": 2653,
+          "name": "Troy",
+          "mascot": "Trojans",
+          "abbreviation": "TROY",
+          "conference": "Sun Belt",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2653.png",
+          "primary_color": "#AE0210",
+          "alt_color": "#88898c",
+          "secondary_color": "#AE0210",
+          "pregameElo": 1377
+        },
+        "venue": {
+          "id": 3651,
+          "name": "Bridgeforth Stadium",
+          "neutralSite": false
+        },
+        "gameInfo": {
+          "week": 15,
+          "season": 2025,
+          "seasonType": "regular",
+          "conferenceGame": true,
+          "notes": "Sun Belt Championship",
+          "isChampionship": true
+        }
+      },
+      {
+        "gameId": 401777325,
+        "datetime": {
+          "raw": "2025-12-06T00:00:00.000Z",
+          "date": "2025-12-06",
+          "startTimeTBD": false
+        },
+        "homeTeam": {
+          "id": 55,
+          "name": "Jacksonville State",
+          "mascot": "Gamecocks",
+          "abbreviation": "JXST",
+          "conference": "Conference USA",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/55.png",
+          "primary_color": "#b50500",
+          "alt_color": "#b5b7ba",
+          "secondary_color": "#b50500",
+          "pregameElo": 1501
+        },
+        "awayTeam": {
+          "id": 338,
+          "name": "Kennesaw State",
+          "mascot": "Owls",
+          "abbreviation": "KENN",
+          "conference": "Conference USA",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/338.png",
+          "primary_color": "#fdbb30",
+          "alt_color": "#000000",
+          "secondary_color": "#fdbb30",
+          "pregameElo": 1401
+        },
+        "venue": {
+          "id": 3662,
+          "name": "AmFirst Stadium",
+          "neutralSite": false
+        },
+        "gameInfo": {
+          "week": 15,
+          "season": 2025,
+          "seasonType": "regular",
+          "conferenceGame": true,
+          "notes": "Conference USA Championship",
+          "isChampionship": true
+        }
+      },
+      {
+        "gameId": 401777326,
+        "datetime": {
+          "raw": "2025-12-06T01:00:00.000Z",
+          "date": "2025-12-06",
+          "startTimeTBD": false
+        },
+        "homeTeam": {
+          "id": 68,
+          "name": "Boise State",
+          "mascot": "Broncos",
+          "abbreviation": "BOIS",
+          "conference": "Mountain West",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/68.png",
+          "primary_color": "#0033a0",
+          "alt_color": "#fa4616",
+          "secondary_color": "#0033a0",
+          "pregameElo": 1614
+        },
+        "awayTeam": {
+          "id": 2439,
+          "name": "UNLV",
+          "mascot": "Rebels",
+          "abbreviation": "UNLV",
+          "conference": "Mountain West",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2439.png",
+          "primary_color": "#b10202",
+          "alt_color": "#ffffff",
+          "secondary_color": "#b10202",
+          "pregameElo": 1689
+        },
+        "venue": {
+          "id": 3653,
+          "name": "Albertsons Stadium",
+          "neutralSite": false
+        },
+        "gameInfo": {
+          "week": 15,
+          "season": 2025,
+          "seasonType": "regular",
+          "conferenceGame": true,
+          "notes": "Mountain West Championship",
+          "isChampionship": true
+        }
+      },
+      {
+        "gameId": 401777324,
+        "datetime": {
+          "raw": "2025-12-06T01:00:00.000Z",
+          "date": "2025-12-06",
+          "startTimeTBD": false
+        },
+        "homeTeam": {
+          "id": 2655,
+          "name": "Tulane",
+          "mascot": "Green Wave",
+          "abbreviation": "TULN",
+          "conference": "American Athletic",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png",
+          "primary_color": "#006547",
+          "alt_color": "#468ac9",
+          "secondary_color": "#006547",
+          "pregameElo": 1587
+        },
+        "awayTeam": {
+          "id": 249,
+          "name": "North Texas",
+          "mascot": "Mean Green",
+          "abbreviation": "UNT",
+          "conference": "American Athletic",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/249.png",
+          "primary_color": "#00853E",
+          "alt_color": "#000000",
+          "secondary_color": "#00853E",
+          "pregameElo": 1756
+        },
+        "venue": {
+          "id": 4729,
+          "name": "Yulman Stadium",
+          "neutralSite": false
+        },
+        "gameInfo": {
+          "week": 15,
+          "season": 2025,
+          "seasonType": "regular",
+          "conferenceGame": true,
+          "notes": "American Championship",
+          "isChampionship": true
+        }
+      },
+      {
+        "gameId": 401777329,
+        "datetime": {
+          "raw": "2025-12-06T17:00:00.000Z",
+          "date": "2025-12-06",
+          "startTimeTBD": false
+        },
+        "homeTeam": {
+          "id": 2711,
+          "name": "Western Michigan",
+          "mascot": "Broncos",
+          "abbreviation": "WMU",
+          "conference": "Mid-American",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png",
+          "primary_color": "#532e1f",
+          "alt_color": "#8b7f79",
+          "secondary_color": "#532e1f",
+          "pregameElo": 1414
+        },
+        "awayTeam": {
+          "id": 193,
+          "name": "Miami (OH)",
+          "mascot": "RedHawks",
+          "abbreviation": "M-OH",
+          "conference": "Mid-American",
+          "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/193.png",
+          "primary_color": "#a4000c",
+          "alt_color": "#f0f0f0",
+          "secondary_color": "#a4000c",
+          "pregameElo": 1459
+        },
+        "venue": {
+          "id": 3727,
+          "name": "Ford Field",
+          "neutralSite": true
+        },
+        "gameInfo": {
+          "week": 15,
+          "season": 2025,
+          "seasonType": "regular",
+          "conferenceGame": true,
+          "notes": "MAC Championship",
+          "isChampionship": true
+        }
+      }
+    ]
+  }
+}

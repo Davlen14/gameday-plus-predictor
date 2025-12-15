@@ -94,20 +94,34 @@ export const useAppStore = create(
     )
 );
 
-// Selectors for derived state
-export const useTeamsSelector = () => useAppStore(state => ({
-    teams: state.teams,
-    loading: state.teamsLoading,
-    error: state.teamsError
-}));
+// Selectors for derived state - Using individual selectors to avoid infinite loops
+const predictionDataSelector = (state) => state.predictionData;
+const predictionLoadingSelector = (state) => state.predictionLoading;
+const predictionErrorSelector = (state) => state.predictionError;
 
-export const usePredictionSelector = () => useAppStore(state => ({
-    data: state.predictionData,
-    loading: state.predictionLoading,
-    error: state.predictionError
-}));
+export const usePredictionSelector = () => {
+    const data = useAppStore(predictionDataSelector);
+    const loading = useAppStore(predictionLoadingSelector);
+    const error = useAppStore(predictionErrorSelector);
+    return { data, loading, error };
+};
 
-export const useSelectedTeamsSelector = () => useAppStore(state => ({
-    homeTeam: state.selectedHomeTeam,
-    awayTeam: state.selectedAwayTeam
-}));
+const teamsSelector = (state) => state.teams;
+const teamsLoadingSelector = (state) => state.teamsLoading;
+const teamsErrorSelector = (state) => state.teamsError;
+
+export const useTeamsSelector = () => {
+    const teams = useAppStore(teamsSelector);
+    const loading = useAppStore(teamsLoadingSelector);
+    const error = useAppStore(teamsErrorSelector);
+    return { teams, loading, error };
+};
+
+const selectedHomeTeamSelector = (state) => state.selectedHomeTeam;
+const selectedAwayTeamSelector = (state) => state.selectedAwayTeam;
+
+export const useSelectedTeamsSelector = () => {
+    const homeTeam = useAppStore(selectedHomeTeamSelector);
+    const awayTeam = useAppStore(selectedAwayTeamSelector);
+    return { homeTeam, awayTeam };
+};

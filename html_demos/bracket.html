@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official 12-Team CFP Bracket 2025-26</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Bebas+Neue&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: 
+                linear-gradient(135deg, rgba(139, 119, 101, 0.15) 0%, transparent 50%),
+                linear-gradient(45deg, rgba(212, 175, 55, 0.08) 0%, transparent 30%),
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 119, 101, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #1c1c1e 0%, #2c2c2e 50%, #3a3a3c 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* CFP Trophy Background */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('https://media.cnn.com/api/v1/images/stellar/prod/221222170706-03-college-football-playoffs-watch.jpg?c=original') center center no-repeat;
+            background-size: cover;
+            opacity: 0.12;
+            filter: grayscale(30%) contrast(1.1);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(139, 119, 101, 0.02) 2px, rgba(139, 119, 101, 0.02) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        body > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .font-display {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(60, 60, 67, 0.25) 0%, rgba(44, 44, 46, 0.35) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .team-card {
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .champion-trophy {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-12px) rotate(0.5deg) scale(1.01); }
+            50% { transform: translateY(-20px) rotate(0deg) scale(1.02); }
+            75% { transform: translateY(-12px) rotate(-0.5deg) scale(1.01); }
+        }
+
+        .trophy-glow {
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.15); }
+        }
+
+        /* Radial gradient helper */
+        .bg-gradient-radial {
+            background: radial-gradient(circle, var(--tw-gradient-from), var(--tw-gradient-to));
+        }
+
+        /* Engraved text effect for headings */
+        .engraved-text {
+            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.2) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 
+                0 1px 1px rgba(255,255,255,0.1),
+                0 -1px 1px rgba(0,0,0,0.5);
+        }
+
+        /* Premium Silver Shiny Gradient - 7 stops */
+        .premium-silver-text {
+            background: linear-gradient(
+                90deg,
+                #7a7a7a 0%,
+                #c0c0c0 15%,
+                #ffffff 30%,
+                #e8e8e8 50%,
+                #ffffff 65%,
+                #b8b8b8 85%,
+                #8a8a8a 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            animation: shimmer 3s ease-in-out infinite;
+            background-size: 200% 100%;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .seed-badge {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ccc;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .round-label {
+            background: rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Official Team Colors */
+        .indiana-accent { border-left: 4px solid #990000; }
+        .ohiostate-accent { border-left: 4px solid #BB0000; }
+        .georgia-accent { border-left: 4px solid #BA0C2F; }
+        .texastech-accent { border-left: 4px solid #CC0000; }
+        .oregon-accent { border-left: 4px solid #154733; }
+        .olemiss-accent { border-left: 4px solid #CE1126; }
+        .texasam-accent { border-left: 4px solid #500000; }
+        .oklahoma-accent { border-left: 4px solid #841617; }
+        .alabama-accent { border-left: 4px solid #9E1B32; }
+        .miami-accent { border-left: 4px solid #F47321; }
+        .tulane-accent { border-left: 4px solid #006747; }
+        .jmu-accent { border-left: 4px solid #450084; }
+        
+        .tbd-accent { border-left: 4px solid #444; border-style: dashed; }
+
+        /* Connector Lines */
+        .connector-container {
+            position: absolute;
+            right: -2rem; /* Half of gap-8 (2rem) */
+            top: 50%;
+            width: 2rem;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 text-sm md:text-base">
+    <!-- Header -->
+    <div class="max-w-[1800px] mx-auto mb-8">
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center gap-4 px-8 py-4 glass-panel rounded-full mb-4 border border-white/10">
+                <img src="frontend/public/GameDayDark.png" alt="GameDay+" class="w-8 h-8 object-contain rounded-md">
+                <span class="text-xl font-bold tracking-wide premium-silver-text" style="font-family: 'Orbitron', sans-serif;">OFFICIAL BRACKET</span>
+            </div>
+            <h1 class="font-display text-5xl md:text-7xl font-bold mb-2 bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent">
+                THE ROAD TO ATLANTA
+            </h1>
+            <p class="text-zinc-400 font-mono text-sm tracking-wide">2025-26 COLLEGE FOOTBALL PLAYOFF</p>
+        </div>
+
+        <!-- Main Bracket Scroll Container -->
+        <div class="overflow-x-auto pb-8">
+            <div class="min-w-[1400px] px-4">
+                <!-- Round Headers -->
+                <div class="grid grid-cols-5 gap-8 mb-6 sticky top-0 z-10">
+                    <div class="round-label text-center py-2 rounded-t-lg">
+                        <div class="font-display text-zinc-300 tracking-wider">FIRST ROUND</div>
+                        <div class="text-[10px] text-zinc-500 font-mono">ON CAMPUS • DEC 19-20</div>
+                    </div>
+                    <div class="round-label text-center py-2 rounded-t-lg">
+                        <div class="font-display text-zinc-300 tracking-wider">QUARTERFINALS</div>
+                        <div class="text-[10px] text-zinc-500 font-mono">NY6 BOWLS • DEC 31 - JAN 1</div>
+                    </div>
+                    <div class="round-label text-center py-2 rounded-t-lg">
+                        <div class="font-display text-zinc-300 tracking-wider">SEMIFINALS</div>
+                        <div class="text-[10px] text-zinc-500 font-mono">NY6 BOWLS • JAN 8-9</div>
+                    </div>
+                    <div class="round-label text-center py-2 rounded-t-lg">
+                        <div class="font-display text-zinc-300 tracking-wider">CHAMPIONSHIP</div>
+                        <div class="text-[10px] text-zinc-500 font-mono">ATLANTA • JAN 20</div>
+                    </div>
+                    <div class="round-label text-center py-2 rounded-t-lg">
+                        <div class="font-display text-zinc-300 tracking-wider">CHAMPION</div>
+                        <div class="text-[10px] text-zinc-500 font-mono">NATIONAL TITLE</div>
+                    </div>
+                </div>
+
+                <!-- Bracket Columns -->
+                <div class="grid grid-cols-5 gap-8">
+                    
+                    <!-- COLUMN 1: FIRST ROUND (4 GAMES) -->
+                    <div class="flex flex-col justify-around h-full gap-8">
+                        
+                        <!-- Game 1 -->
+                        <div class="glass-panel rounded-xl p-0 overflow-hidden team-card relative group">
+                            <div class="bg-zinc-900/50 px-4 py-2 border-b border-white/5 flex justify-between items-center">
+                                <span class="text-[10px] text-zinc-400 font-mono">SAT DEC 20 • 7:30 PM • TNT</span>
+                                <span class="text-[10px] text-zinc-500">Eugene, OR</span>
+                            </div>
+                            <div class="p-3 jmu-accent border-b border-white/5 bg-white/5">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/256.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">12</span> <span class="font-bold">James Madison</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-xs font-mono">12-1</div>
+                                </div>
+                            </div>
+                            <div class="p-3 oregon-accent">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">5</span> <span class="font-bold">Oregon</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-xs font-mono">11-1</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Game 2 -->
+                        <div class="glass-panel rounded-xl p-0 overflow-hidden team-card relative group">
+                            <div class="bg-zinc-900/50 px-4 py-2 border-b border-white/5 flex justify-between items-center">
+                                <span class="text-[10px] text-zinc-400 font-mono">SAT DEC 20 • 3:30 PM • TNT</span>
+                                <span class="text-[10px] text-zinc-500">Oxford, MS</span>
+                            </div>
+                            <div class="p-3 tulane-accent border-b border-white/5 bg-white/5">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">11</span> <span class="font-bold">Tulane</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-xs font-mono">11-2</div>
+                                </div>
+                            </div>
+                            <div class="p-3 olemiss-accent">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/145.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">6</span> <span class="font-bold">Ole Miss</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-xs font-mono">11-1</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Game 3 -->
+                        <div class="glass-panel rounded-xl p-0 overflow-hidden team-card relative group">
+                            <div class="bg-zinc-900/50 px-4 py-2 border-b border-white/5 flex justify-between items-center">
+                                <span class="text-[10px] text-zinc-400 font-mono">SAT DEC 20 • NOON • ABC</span>
+                                <span class="text-[10px] text-zinc-500">College Station, TX</span>
+                            </div>
+                            <div class="p-3 miami-accent border-b border-white/5 bg-white/5">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">10</span> <span class="font-bold">Miami</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-xs font-mono">10-2</div>
+                                </div>
+                            </div>
+                            <div class="p-3 texasam-accent">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/245.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">7</span> <span class="font-bold">Texas A&M</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-xs font-mono">11-1</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Game 4 -->
+                        <div class="glass-panel rounded-xl p-0 overflow-hidden team-card relative group">
+                            <div class="bg-zinc-900/50 px-4 py-2 border-b border-white/5 flex justify-between items-center">
+                                <span class="text-[10px] text-zinc-400 font-mono">FRI DEC 19 • 8:00 PM • ABC</span>
+                                <span class="text-[10px] text-zinc-500">Norman, OK</span>
+                            </div>
+                            <div class="p-3 alabama-accent border-b border-white/5 bg-white/5">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">9</span> <span class="font-bold">Alabama</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-xs font-mono">10-3</div>
+                                </div>
+                            </div>
+                            <div class="p-3 oklahoma-accent">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/201.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">8</span> <span class="font-bold">Oklahoma</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-xs font-mono">10-2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 2: QUARTERFINALS (4 GAMES) -->
+                    <div class="flex flex-col justify-around h-full gap-16 py-8">
+                        
+                        <!-- QF 1: Orange Bowl (Winner of 5/12 vs #4) -->
+                        <div class="glass-panel rounded-xl p-0 overflow-hidden relative">
+                            <div class="bg-orange-900/40 px-4 py-2 border-b border-white/5 flex justify-between items-center">
+                                <span class="text-[10px] text-orange-200 font-bold tracking-wider">ORANGE BOWL • JAN 1 • NOON</span>
+                            </div>
+                            <div class="p-3 tbd-accent border-b border-white/5 bg-white/5 text-zinc-400">
+                                <div class="flex items-center gap-2">
+                                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/256.png" class="w-6 h-6 object-contain">
+                                    <span class="text-zinc-500 text-xs">/</span>
+                                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png" class="w-6 h-6 object-contain">
+                                    <span class="text-xs italic text-zinc-500 ml-1">Winner</span>
+                                </div>
+                            </div>
+                            <div class="p-3 texastech-accent">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">4</span> <span class="font-bold">Texas Tech</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-[10px]">BYE</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- QF 2: Sugar Bowl (Winner of 6/11 vs #3) -->
+                        <div class="glass-panel rounded-xl p-0 overflow-hidden relative">
+                            <div class="bg-blue-900/40 px-4 py-2 border-b border-white/5 flex justify-between items-center">
+                                <span class="text-[10px] text-blue-200 font-bold tracking-wider">SUGAR BOWL • JAN 1 • 8:00 PM</span>
+                            </div>
+                            <div class="p-3 tbd-accent border-b border-white/5 bg-white/5 text-zinc-400">
+                                <div class="flex items-center gap-2">
+                                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" class="w-6 h-6 object-contain">
+                                    <span class="text-zinc-500 text-xs">/</span>
+                                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/145.png" class="w-6 h-6 object-contain">
+                                    <span class="text-xs italic text-zinc-500 ml-1">Winner</span>
+                                </div>
+                            </div>
+                            <div class="p-3 georgia-accent">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">3</span> <span class="font-bold">Georgia</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-[10px]">BYE</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- QF 3: Cotton Bowl (Winner of 7/10 vs #2) -->
+                        <div class="glass-panel rounded-xl p-0 overflow-hidden relative">
+                            <div class="bg-green-900/40 px-4 py-2 border-b border-white/5 flex justify-between items-center">
+                                <span class="text-[10px] text-green-200 font-bold tracking-wider">COTTON BOWL • DEC 31 • 7:30 PM</span>
+                            </div>
+                            <div class="p-3 tbd-accent border-b border-white/5 bg-white/5 text-zinc-400">
+                                <div class="flex items-center gap-2">
+                                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png" class="w-6 h-6 object-contain">
+                                    <span class="text-zinc-500 text-xs">/</span>
+                                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/245.png" class="w-6 h-6 object-contain">
+                                    <span class="text-xs italic text-zinc-500 ml-1">Winner</span>
+                                </div>
+                            </div>
+                            <div class="p-3 ohiostate-accent">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">2</span> <span class="font-bold">Ohio State</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-[10px]">BYE</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- QF 4: Rose Bowl (Winner of 8/9 vs #1) -->
+                        <div class="glass-panel rounded-xl p-0 overflow-hidden relative">
+                            <div class="bg-red-900/40 px-4 py-2 border-b border-white/5 flex justify-between items-center">
+                                <span class="text-[10px] text-red-200 font-bold tracking-wider">ROSE BOWL • JAN 1 • 4:00 PM</span>
+                            </div>
+                            <div class="p-3 tbd-accent border-b border-white/5 bg-white/5 text-zinc-400">
+                                <div class="flex items-center gap-2">
+                                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" class="w-6 h-6 object-contain">
+                                    <span class="text-zinc-500 text-xs">/</span>
+                                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/201.png" class="w-6 h-6 object-contain">
+                                    <span class="text-xs italic text-zinc-500 ml-1">Winner</span>
+                                </div>
+                            </div>
+                            <div class="p-3 indiana-accent">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/84.png" class="w-8 h-8 object-contain">
+                                        <div><span class="seed-badge text-[10px] px-1.5 py-0.5 rounded mr-1">1</span> <span class="font-bold">Indiana</span></div>
+                                    </div>
+                                    <div class="text-zinc-500 text-[10px]">BYE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 3: SEMIFINALS (2 GAMES) -->
+                    <div class="flex flex-col justify-around h-full py-24">
+                         <!-- SF 1 (Cotton/Sugar Winner) -->
+                         <div class="glass-panel rounded-xl p-0 overflow-hidden relative">
+                            <div class="bg-yellow-900/30 px-4 py-2 border-b border-white/5 text-center">
+                                <span class="text-[10px] text-yellow-200 font-bold tracking-wider">FIESTA BOWL • JAN 8</span>
+                            </div>
+                            <div class="p-4 tbd-accent border-b border-white/5 bg-white/5">
+                                <div class="text-center text-xs text-zinc-400 italic">Winner of Sugar Bowl</div>
+                            </div>
+                            <div class="p-4 tbd-accent">
+                                <div class="text-center text-xs text-zinc-400 italic">Winner of Cotton Bowl</div>
+                            </div>
+                        </div>
+
+                        <!-- SF 2 (Orange/Rose Winner) -->
+                        <div class="glass-panel rounded-xl p-0 overflow-hidden relative">
+                            <div class="bg-yellow-900/30 px-4 py-2 border-b border-white/5 text-center">
+                                <span class="text-[10px] text-yellow-200 font-bold tracking-wider">PEACH BOWL • JAN 9</span>
+                            </div>
+                            <div class="p-4 tbd-accent border-b border-white/5 bg-white/5">
+                                <div class="text-center text-xs text-zinc-400 italic">Winner of Orange Bowl</div>
+                            </div>
+                            <div class="p-4 tbd-accent">
+                                <div class="text-center text-xs text-zinc-400 italic">Winner of Rose Bowl</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 4: CHAMPIONSHIP -->
+                    <div class="flex flex-col justify-center h-full">
+                        <div class="glass-panel rounded-xl p-0 overflow-hidden relative scale-110 border-yellow-500/30">
+                            <div class="bg-gradient-to-r from-yellow-900/60 to-black px-4 py-3 border-b border-yellow-500/20 text-center">
+                                <span class="text-xs text-yellow-400 font-bold tracking-widest">NATIONAL CHAMPIONSHIP</span>
+                            </div>
+                            <div class="p-6 tbd-accent border-b border-white/5 bg-white/5">
+                                <div class="text-center text-sm text-zinc-300">Fiesta Bowl Winner</div>
+                            </div>
+                            <div class="p-6 tbd-accent">
+                                <div class="text-center text-sm text-zinc-300">Peach Bowl Winner</div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <div class="text-zinc-500 font-mono text-xs">ATLANTA, GA</div>
+                            <div class="text-yellow-500/80 font-mono text-xs mt-1">JANUARY 20, 2026</div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stats Footer - Premium Digital Style -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-5 mt-10">
+            <!-- Top Seed Card -->
+            <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+                <div class="relative glass-panel p-5 rounded-xl border border-red-500/20 hover:border-red-500/40 transition-all duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-semibold" style="font-family: 'Orbitron', sans-serif;">Top Seed</span>
+                        <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/84.png" class="w-8 h-8 object-contain">
+                        <div>
+                            <span class="font-bold text-lg text-white">Indiana</span>
+                            <span class="ml-2 text-xs px-2 py-0.5 bg-red-500/20 text-red-400 rounded-full font-mono">13-0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- At-Large Bids Card -->
+            <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                <div class="relative glass-panel p-5 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-semibold" style="font-family: 'Orbitron', sans-serif;">At-Large Bids</span>
+                        <svg class="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400" style="font-family: 'Orbitron', sans-serif;">7</span>
+                        <span class="text-zinc-400 text-sm">Teams</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conf Champs Card -->
+            <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                <div class="relative glass-panel p-5 rounded-xl border border-yellow-500/20 hover:border-yellow-500/40 transition-all duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-semibold" style="font-family: 'Orbitron', sans-serif;">Conf Champs</span>
+                        <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400" style="font-family: 'Orbitron', sans-serif;">5</span>
+                        <span class="text-zinc-400 text-sm">Teams</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- First Game Card -->
+            <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                <div class="relative glass-panel p-5 rounded-xl border border-emerald-500/20 hover:border-emerald-500/40 transition-all duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-semibold" style="font-family: 'Orbitron', sans-serif;">First Game</span>
+                        <div class="flex items-center gap-1">
+                            <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                            <span class="text-[9px] text-emerald-500 font-bold">LIVE SOON</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-lg font-bold text-white" style="font-family: 'Orbitron', sans-serif;">DEC 19</span>
+                        <span class="text-emerald-400 text-sm font-mono">@ 8:00 PM ET</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

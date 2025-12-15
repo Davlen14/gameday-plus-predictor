@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lane Kiffin: The Analytics Dashboard</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Highcharts Stock -->
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/annotations.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <style>
+        :root {
+            /* Theme Colors */
+            --bg-dark: #080c14;
+            --bg-panel: #111621;
+            
+            /* Ole Miss / Kiffin Brand Colors */
+            --om-red: #CE1126;
+            --om-blue: #223a5e; 
+            --powder-blue: #6FA2db; /* Lane's signature color */
+            
+            /* UI Accents */
+            --neon-blue: #00f2ff;
+            --neon-red: #ff3333;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --glass-border: 1px solid rgba(111, 162, 219, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            /* Subtle Powder Blue Gradient Background */
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(111, 162, 219, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 85% 85%, rgba(206, 17, 38, 0.06) 0%, transparent 25%);
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+            border-bottom: var(--glass-border);
+            padding-bottom: 20px;
+        }
+
+        .title-group h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin: 0;
+            text-transform: uppercase;
+            font-style: italic; /* "Speed" look */
+            background: linear-gradient(135deg, #fff 0%, var(--powder-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(111, 162, 219, 0.2);
+        }
+
+        .title-group .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--neon-red);
+            font-size: 0.85rem;
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .header-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-headshot {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top;
+            border: 2px solid var(--powder-blue);
+            box-shadow: 0 0 15px rgba(111, 162, 219, 0.4);
+            background: #1a1f2e;
+        }
+
+        .logo-img {
+            height: 50px;
+            filter: drop-shadow(0 0 10px rgba(206, 17, 38, 0.4));
+        }
+
+        /* KPI Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .kpi-card {
+            background: rgba(17, 22, 33, 0.7);
+            backdrop-filter: blur(12px);
+            border: var(--glass-border);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--powder-blue);
+        }
+
+        .kpi-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, var(--powder-blue), transparent);
+            opacity: 0.5;
+        }
+
+        .kpi-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+        }
+
+        .kpi-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            display: block;
+            margin: 8px 0 4px 0;
+        }
+
+        .kpi-sub {
+            font-size: 0.8rem;
+            color: var(--powder-blue);
+        }
+
+        /* Chart Wrapper */
+        #chart-wrapper {
+            background: var(--bg-panel);
+            border: var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        #container {
+            height: 600px;
+            width: 100%;
+        }
+
+        /* Tooltip Customization */
+        .hud-tooltip {
+            background: rgba(8, 12, 20, 0.95);
+            border: 1px solid var(--powder-blue);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(111, 162, 219, 0.2);
+            font-family: 'Inter', sans-serif;
+            min-width: 220px;
+        }
+
+        .hud-title {
+            color: var(--powder-blue);
+            font-weight: 800;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hud-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .school-badge {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    
+    <header>
+        <div class="title-group">
+            <h1>The "Lane Train"</h1>
+            <div class="subtitle">Career Velocity & Offensive Efficiency Analytics</div>
+        </div>
+        <div class="header-profile">
+            <!-- Professional Headshot -->
+            <img src="https://lsusports.net/imgproxy/Dx4beCopkHEB1fIMYyyO3IaiCeWsjomTVh8j3yQWDdI/fit/3840/2160/ce/0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2xzdXNwb3J0cy1jb20vMjAyNS8xMi9iMjlhYzQ5OS1raWZmaW5sYW5lLWludHJvLXByZXNzZXItMjAyNS0xMi0wMS0yLmpwZw.png" 
+                 alt="Lane Kiffin" 
+                 class="header-headshot">
+            <!-- School Logo -->
+            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/145.png" 
+                 alt="Ole Miss" 
+                 class="logo-img">
+        </div>
+    </header>
+
+    <!-- KPI Dashboard -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <span class="kpi-label">Career Head Coach Wins</span>
+            <span class="kpi-value">105</span>
+            <span class="kpi-sub">Across 4 Major Programs</span>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-label">Offensive Velocity</span>
+            <span class="kpi-value" style="color: var(--neon-blue);">#3</span>
+            <span class="kpi-sub">Avg National Rank (YPG)</span>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-label">Transfer Portal Rank</span>
+            <span class="kpi-value" style="color: var(--neon-red);">Top 5</span>
+            <span class="kpi-sub">"Portal King" Status</span>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-label">Current Momentum</span>
+            <span class="kpi-value">96.2</span>
+            <span class="kpi-sub">Playoff Contender Index</span>
+        </div>
+    </div>
+
+    <!-- Main Chart -->
+    <div id="chart-wrapper">
+        <div id="container"></div>
+    </div>
+</div>
+
+<script>
+    const USE_MOCK_DATA = true;
+
+    Highcharts.setOptions({
+        chart: {
+            style: { fontFamily: 'Inter, sans-serif' }
+        },
+        lang: { thousandsSep: ',' }
+    });
+
+    /**
+     * ADVANCED DATA GENERATOR
+     * Handles the complex multi-school timeline of Lane Kiffin
+     */
+    function generateKiffinData() {
+        const weekly = [];
+        const flags = [];
+        const plotBands = [];
+        
+        // Era Configurations
+        const eras = [
+            { name: 'TENNESSEE', id: 'tenn', start: '2009-08-01', end: '2010-01-10', color: 'rgba(255, 130, 0, 0.15)', winBase: 55, offBase: 70 },
+            { name: 'USC', id: 'usc', start: '2010-08-01', end: '2013-09-29', color: 'rgba(153, 0, 0, 0.15)', winBase: 65, offBase: 80 },
+            { name: 'ALABAMA (OC)', id: 'bama', start: '2014-08-01', end: '2017-01-01', color: 'rgba(100, 100, 100, 0.1)', isGap: true }, 
+            { name: 'FAU', id: 'fau', start: '2017-08-01', end: '2019-12-07', color: 'rgba(0, 51, 102, 0.15)', winBase: 75, offBase: 85 },
+            { name: 'OLE MISS', id: 'olemiss', start: '2020-09-01', end: '2025-01-15', color: 'rgba(111, 162, 219, 0.15)', winBase: 70, offBase: 95 }
+        ];
+
+        // Narrative Markers using FontAwesome Unicodes
+        // Plane: \uf072, Trophy: \uf091, Bullhorn: \uf0a1, Star: \uf005, Fire: \uf06d
+        flags.push(
+            { x: new Date('2013-09-29').getTime(), title: '\uf072', text: 'The Tarmac Incident (Fired at LAX)' },
+            { x: new Date('2017-12-02').getTime(), title: '\uf091', text: 'C-USA Champions (FAU)' },
+            { x: new Date('2019-12-07').getTime(), title: '\uf091', text: 'C-USA Champions (FAU) / Hired by Ole Miss' },
+            { x: new Date('2021-10-02').getTime(), title: '\uf0a1', text: '"Get Your Popcorn Ready" Comment' },
+            { x: new Date('2022-01-01').getTime(), title: '\uf005', text: 'Sugar Bowl vs Baylor' },
+            { x: new Date('2023-12-30').getTime(), title: '\uf091', text: 'Peach Bowl Champions (11-2 Season)' }
+        );
+
+        eras.forEach(era => {
+            if (era.isGap) return; // Skip data generation for OC years, visualize gap
+
+            const startTs = new Date(era.start).getTime();
+            const endTs = new Date(era.end).getTime();
+
+            // Create Plot Band for Era Background
+            plotBands.push({
+                from: startTs,
+                to: endTs,
+                color: era.color,
+                label: {
+                    text: era.name,
+                    style: {
+                        color: '#fff',
+                        fontWeight: 'bold',
+                        opacity: 0.3,
+                        fontSize: '14px'
+                    },
+                    y: 30
+                }
+            });
+
+            // Generate Weekly Points
+            let current = startTs;
+            let volatility = 0;
+            
+            while (current < endTs) {
+                // Determine season context (Aug-Jan)
+                const date = new Date(current);
+                const month = date.getMonth();
+                const isSeason = (month >= 7 || month <= 0); // Aug-Jan
+
+                if (isSeason) {
+                    volatility += (Math.random() - 0.5) * 5;
+                    // Cap volatility
+                    volatility = Math.max(-15, Math.min(15, volatility));
+
+                    let winPct = era.winBase + volatility;
+                    let offEff = era.offBase + (Math.random() * 10); // High offense variance
+
+                    // Hardcode the USC dip at the end
+                    if (era.id === 'usc' && current > new Date('2013-01-01').getTime()) {
+                        winPct -= 20; // Tanking before firing
+                    }
+
+                    // Boost FAU 2017/2019
+                    if (era.id === 'fau' && (date.getFullYear() === 2017 || date.getFullYear() === 2019)) {
+                        winPct += 10;
+                        offEff += 5;
+                    }
+
+                    // Boost Ole Miss 2023
+                    if (era.id === 'olemiss' && date.getFullYear() === 2023) {
+                        winPct = 85;
+                        offEff = 98;
+                    }
+
+                    weekly.push({
+                        x: current,
+                        y: Math.min(100, Math.max(0, winPct)), // Win %
+                        offense: Math.min(100, offEff), // Offensive Rating
+                        school: era.name,
+                        schoolColor: era.color.replace('0.15', '1') // Full opacity for tooltip
+                    });
+                }
+
+                current += 7 * 24 * 3600 * 1000; // +1 Week
+            }
+        });
+
+        return { weekly, flags, plotBands };
+    }
+
+    // --- Chart Logic ---
+    async function initChart() {
+        const data = generateKiffinData();
+
+        const winSeries = data.weekly.map(d => ({ x: d.x, y: d.y, custom: { school: d.school, color: d.schoolColor } }));
+        const offSeries = data.weekly.map(d => ({ x: d.x, y: d.offense }));
+
+        Highcharts.stockChart('container', {
+            chart: {
+                backgroundColor: 'transparent',
+                // Removed the watermark event since image is now in header
+                events: { load: function() {} }
+            },
+
+            rangeSelector: { enabled: false },
+            scrollbar: { enabled: false },
+
+            navigator: {
+                enabled: true,
+                height: 40,
+                maskFill: 'rgba(111, 162, 219, 0.2)',
+                series: { color: '#6FA2db', lineWidth: 1 },
+                xAxis: { labels: { style: { color: '#94a3b8' } } }
+            },
+
+            xAxis: {
+                type: 'datetime',
+                gridLineColor: '#1e293b',
+                lineColor: '#334155',
+                labels: { style: { color: '#94a3b8' } },
+                plotBands: data.plotBands,
+                ordinal: false // Use actual time scale to show the Alabama Gap
+            },
+
+            yAxis: [{
+                // Primary: Win %
+                labels: {
+                    align: 'left',
+                    x: 10,
+                    style: { color: '#e2e8f0' },
+                    format: '{value}%'
+                },
+                gridLineColor: 'rgba(255,255,255,0.05)',
+                height: '100%',
+                max: 100,
+                min: 0,
+                title: { text: null }
+            }],
+
+            tooltip: {
+                useHTML: true,
+                backgroundColor: 'transparent',
+                borderWidth: 0,
+                shadow: false,
+                split: false,
+                shared: true,
+                formatter: function() {
+                    const pt = this.points[0];
+                    if (!pt) return;
+                    
+                    const date = new Date(pt.x).toLocaleDateString("en-US", { month: 'short', year: 'numeric' });
+                    const school = pt.point.custom ? pt.point.custom.school : 'Unknown';
+                    const schoolColor = pt.point.custom ? pt.point.custom.color : '#fff';
+                    
+                    let winVal = 0, offVal = 0;
+                    this.points.forEach(p => {
+                        if (p.series.name === 'Win Percentage') winVal = p.y.toFixed(1);
+                        if (p.series.name === 'Offensive Efficiency') offVal = p.y.toFixed(0);
+                    });
+
+                    return `
+                        <div class="hud-tooltip" style="border-left: 4px solid ${schoolColor}; border-top: 1px solid var(--glass-border); border-right: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+                            <div class="hud-title">
+                                <span>${date}</span>
+                                <span class="school-badge" style="background:${schoolColor}">${school}</span>
+                            </div>
+                            <div class="hud-metric">
+                                <span style="color:#aaa">Win Probability</span>
+                                <span style="color:${schoolColor}; font-weight:bold;">${winVal}%</span>
+                            </div>
+                            <div class="hud-metric">
+                                <span style="color:#aaa">Offensive Index</span>
+                                <span style="color:#00f2ff; font-weight:bold;">${offVal}/100</span>
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+
+            plotOptions: {
+                series: {
+                    animation: { duration: 2000 },
+                    marker: { enabled: false }
+                }
+            },
+
+            series: [
+                {
+                    name: 'Win Percentage',
+                    data: winSeries,
+                    type: 'areaspline',
+                    color: {
+                        linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+                        stops: [
+                            [0, 'rgba(255, 255, 255, 0.6)'], // White-hot top
+                            [1, 'rgba(255, 255, 255, 0.0)']
+                        ]
+                    },
+                    lineColor: '#ffffff',
+                    lineWidth: 2,
+                    zIndex: 2
+                },
+                {
+                    name: 'Offensive Efficiency',
+                    data: offSeries,
+                    type: 'spline',
+                    color: '#00f2ff', // Neon Cyan
+                    lineWidth: 3,
+                    dashStyle: 'ShortDot',
+                    zIndex: 3,
+                    shadow: {
+                        color: '#00f2ff',
+                        width: 10,
+                        opacity: 0.4
+                    }
+                },
+                {
+                    type: 'flags',
+                    data: data.flags,
+                    onSeries: 'dataseries',
+                    shape: 'circlepin',
+                    width: 24, // Increased width for icons
+                    height: 24,
+                    color: '#CE1126', // Ole Miss Red pins
+                    fillColor: '#CE1126',
+                    style: { 
+                        color: 'white', 
+                        fontFamily: '"Font Awesome 6 Free"', // Apply FontAwesome
+                        fontWeight: '900',
+                        fontSize: '14px' 
+                    },
+                    y: -50,
+                    zIndex: 100
+                }
+            ]
+        });
+    }
+
+    initChart();
+</script>
+
+</body>
+</html>

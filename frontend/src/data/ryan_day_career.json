@@ -1,0 +1,1939 @@
+{
+  "coach_id": 82,
+  "name": "Ryan Day",
+  "current_school": "Ohio State",
+  "career_record": "86-11",
+  "career_win_pct": 0.882,
+  "headshot_url": "https://images.sidearmdev.com/crop?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fohiostatebuckeyes.com%2Fimages%2F2023%2F6%2F7%2FRYAN_DAY.jpg&width=180&height=270&type=webp",
+  "generated_at": "2025-12-14T21:03:22.954877",
+  "career_timeline": [
+    {
+      "type": "coaching_stint",
+      "start_year": 2018,
+      "end_year": 2025,
+      "school": "Ohio State",
+      "record": "82-11",
+      "win_pct": 0.882,
+      "games_coached": 93,
+      "team_id": 194,
+      "team_info": {
+        "abbreviation": "OSU",
+        "mascot": "Buckeyes",
+        "color": "#ce1141",
+        "alt_color": "#505056",
+        "logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/194.png"
+      },
+      "seasons": [
+        {
+          "season": 2018,
+          "games": [
+            {
+              "week": 1,
+              "opponent": "Oregon State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/204.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 77,
+              "opponent_score": 31,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 1,
+              "opponent": "Washington",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/264.png",
+              "is_home": true,
+              "is_neutral": true,
+              "is_conference": false,
+              "coach_score": 28,
+              "opponent_score": 23,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 13,
+              "is_signature": false
+            },
+            {
+              "week": 2,
+              "opponent": "Rutgers",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/164.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 52,
+              "opponent_score": 3,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            }
+          ],
+          "notable_games": [],
+          "record": {
+            "wins": 3,
+            "losses": 0
+          }
+        },
+        {
+          "season": 2019,
+          "games": [
+            {
+              "week": 1,
+              "opponent": "Florida Atlantic",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2226.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 45,
+              "opponent_score": 21,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 1,
+              "opponent": "Clemson",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/228.png",
+              "is_home": true,
+              "is_neutral": true,
+              "is_conference": false,
+              "coach_score": 23,
+              "opponent_score": 29,
+              "result": "L",
+              "win": false,
+              "post_season": false,
+              "opponent_rank": 2,
+              "is_signature": false
+            },
+            {
+              "week": 2,
+              "opponent": "Cincinnati",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2132.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 42,
+              "opponent_score": 0,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 3,
+              "opponent": "Indiana",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 51,
+              "opponent_score": 10,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 4,
+              "opponent": "Miami (OH)",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/193.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 76,
+              "opponent_score": 5,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 5,
+              "opponent": "Nebraska",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/158.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 48,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 6,
+              "opponent": "Michigan State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/127.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 34,
+              "opponent_score": 10,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 25,
+              "is_signature": false
+            },
+            {
+              "week": 8,
+              "opponent": "Northwestern",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/77.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 52,
+              "opponent_score": 3,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 9,
+              "opponent": "Wisconsin",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/275.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 38,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 13,
+              "is_signature": false
+            },
+            {
+              "week": 11,
+              "opponent": "Maryland",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 73,
+              "opponent_score": 14,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 12,
+              "opponent": "Rutgers",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/164.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 56,
+              "opponent_score": 21,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 13,
+              "opponent": "Penn State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 28,
+              "opponent_score": 17,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 9,
+              "is_signature": false
+            },
+            {
+              "week": 14,
+              "opponent": "Michigan",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/130.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 56,
+              "opponent_score": 27,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 10,
+              "is_signature": false
+            },
+            {
+              "week": 15,
+              "opponent": "Wisconsin",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/275.png",
+              "is_home": false,
+              "is_neutral": true,
+              "is_conference": true,
+              "coach_score": 34,
+              "opponent_score": 21,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 11,
+              "is_signature": false
+            }
+          ],
+          "notable_games": [
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Michigan State 34-10",
+              "week": 6,
+              "opponent": "Michigan State"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Wisconsin 38-7",
+              "week": 9,
+              "opponent": "Wisconsin"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Penn State 28-17",
+              "week": 13,
+              "opponent": "Penn State"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Michigan 56-27",
+              "week": 14,
+              "opponent": "Michigan"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Wisconsin 34-21",
+              "week": 15,
+              "opponent": "Wisconsin"
+            }
+          ],
+          "record": {
+            "wins": 13,
+            "losses": 1
+          }
+        },
+        {
+          "season": 2020,
+          "games": [
+            {
+              "week": 1,
+              "opponent": "Clemson",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/228.png",
+              "is_home": false,
+              "is_neutral": true,
+              "is_conference": false,
+              "coach_score": 49,
+              "opponent_score": 28,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 1,
+              "is_signature": false
+            },
+            {
+              "week": 1,
+              "opponent": "Alabama",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/333.png",
+              "is_home": false,
+              "is_neutral": true,
+              "is_conference": false,
+              "coach_score": 24,
+              "opponent_score": 52,
+              "result": "L",
+              "win": false,
+              "post_season": false,
+              "opponent_rank": 3,
+              "is_signature": false
+            },
+            {
+              "week": 8,
+              "opponent": "Nebraska",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/158.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 52,
+              "opponent_score": 17,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 9,
+              "opponent": "Penn State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 38,
+              "opponent_score": 25,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 18,
+              "is_signature": false
+            },
+            {
+              "week": 10,
+              "opponent": "Rutgers",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/164.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 49,
+              "opponent_score": 27,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 12,
+              "opponent": "Indiana",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 42,
+              "opponent_score": 35,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 9,
+              "is_signature": false
+            },
+            {
+              "week": 14,
+              "opponent": "Michigan State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/127.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 52,
+              "opponent_score": 12,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 16,
+              "opponent": "Northwestern",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/77.png",
+              "is_home": true,
+              "is_neutral": true,
+              "is_conference": true,
+              "coach_score": 22,
+              "opponent_score": 10,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 15,
+              "is_signature": false
+            }
+          ],
+          "notable_games": [
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Penn State 38-25",
+              "week": 9,
+              "opponent": "Penn State"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Michigan State 52-12",
+              "week": 14,
+              "opponent": "Michigan State"
+            }
+          ],
+          "record": {
+            "wins": 7,
+            "losses": 1
+          }
+        },
+        {
+          "season": 2021,
+          "games": [
+            {
+              "week": 1,
+              "opponent": "Minnesota",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/135.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 45,
+              "opponent_score": 31,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 1,
+              "opponent": "Utah",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/254.png",
+              "is_home": true,
+              "is_neutral": true,
+              "is_conference": false,
+              "coach_score": 48,
+              "opponent_score": 45,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 12,
+              "is_signature": false
+            },
+            {
+              "week": 2,
+              "opponent": "Oregon",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2483.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 28,
+              "opponent_score": 35,
+              "result": "L",
+              "win": false,
+              "post_season": false,
+              "opponent_rank": 12,
+              "is_signature": false
+            },
+            {
+              "week": 3,
+              "opponent": "Tulsa",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/202.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 41,
+              "opponent_score": 20,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 4,
+              "opponent": "Akron",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2006.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 59,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 5,
+              "opponent": "Rutgers",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/164.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 52,
+              "opponent_score": 13,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 6,
+              "opponent": "Maryland",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 66,
+              "opponent_score": 17,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 8,
+              "opponent": "Indiana",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 54,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 9,
+              "opponent": "Penn State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 33,
+              "opponent_score": 24,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 20,
+              "is_signature": false
+            },
+            {
+              "week": 10,
+              "opponent": "Nebraska",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/158.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 26,
+              "opponent_score": 17,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 11,
+              "opponent": "Purdue",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2509.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 59,
+              "opponent_score": 31,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 19,
+              "is_signature": false
+            },
+            {
+              "week": 12,
+              "opponent": "Michigan State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/127.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 56,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 7,
+              "is_signature": false
+            },
+            {
+              "week": 13,
+              "opponent": "Michigan",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/130.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 27,
+              "opponent_score": 42,
+              "result": "L",
+              "win": false,
+              "post_season": false,
+              "opponent_rank": 6,
+              "is_signature": false
+            }
+          ],
+          "notable_games": [
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Penn State 33-24",
+              "week": 9,
+              "opponent": "Penn State"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Michigan State 56-7",
+              "week": 12,
+              "opponent": "Michigan State"
+            }
+          ],
+          "record": {
+            "wins": 11,
+            "losses": 2
+          }
+        },
+        {
+          "season": 2022,
+          "games": [
+            {
+              "week": 1,
+              "opponent": "Notre Dame",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 21,
+              "opponent_score": 10,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 18,
+              "is_signature": false
+            },
+            {
+              "week": 1,
+              "opponent": "Georgia",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/61.png",
+              "is_home": false,
+              "is_neutral": true,
+              "is_conference": false,
+              "coach_score": 41,
+              "opponent_score": 42,
+              "result": "L",
+              "win": false,
+              "post_season": false,
+              "opponent_rank": 1,
+              "is_signature": false
+            },
+            {
+              "week": 2,
+              "opponent": "Arkansas State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2032.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 45,
+              "opponent_score": 12,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 3,
+              "opponent": "Toledo",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2649.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 77,
+              "opponent_score": 21,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 4,
+              "opponent": "Wisconsin",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/275.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 52,
+              "opponent_score": 21,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 5,
+              "opponent": "Rutgers",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/164.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 49,
+              "opponent_score": 10,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 6,
+              "opponent": "Michigan State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/127.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 49,
+              "opponent_score": 20,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 8,
+              "opponent": "Iowa",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2294.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 54,
+              "opponent_score": 10,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 9,
+              "opponent": "Penn State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 44,
+              "opponent_score": 31,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 13,
+              "is_signature": false
+            },
+            {
+              "week": 10,
+              "opponent": "Northwestern",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/77.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 21,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 11,
+              "opponent": "Indiana",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 56,
+              "opponent_score": 14,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 12,
+              "opponent": "Maryland",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 43,
+              "opponent_score": 30,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 13,
+              "opponent": "Michigan",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/130.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 23,
+              "opponent_score": 45,
+              "result": "L",
+              "win": false,
+              "post_season": false,
+              "opponent_rank": 3,
+              "is_signature": false
+            }
+          ],
+          "notable_games": [
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Wisconsin 52-21",
+              "week": 4,
+              "opponent": "Wisconsin"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Michigan State 49-20",
+              "week": 6,
+              "opponent": "Michigan State"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Penn State 44-31",
+              "week": 9,
+              "opponent": "Penn State"
+            }
+          ],
+          "record": {
+            "wins": 11,
+            "losses": 2
+          }
+        },
+        {
+          "season": 2023,
+          "games": [
+            {
+              "week": 1,
+              "opponent": "Missouri",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/142.png",
+              "is_home": true,
+              "is_neutral": true,
+              "is_conference": false,
+              "coach_score": 3,
+              "opponent_score": 14,
+              "result": "L",
+              "win": false,
+              "post_season": false,
+              "opponent_rank": 8,
+              "is_signature": false
+            },
+            {
+              "week": 1,
+              "opponent": "Indiana",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 23,
+              "opponent_score": 3,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 2,
+              "opponent": "Youngstown State",
+              "opponent_logo": null,
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 35,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 3,
+              "opponent": "Western Kentucky",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/98.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 63,
+              "opponent_score": 10,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 4,
+              "opponent": "Notre Dame",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 17,
+              "opponent_score": 14,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 9,
+              "is_signature": false
+            },
+            {
+              "week": 6,
+              "opponent": "Maryland",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 37,
+              "opponent_score": 17,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 7,
+              "opponent": "Purdue",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2509.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 41,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 8,
+              "opponent": "Penn State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 20,
+              "opponent_score": 12,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 7,
+              "is_signature": false
+            },
+            {
+              "week": 9,
+              "opponent": "Wisconsin",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/275.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 24,
+              "opponent_score": 10,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 10,
+              "opponent": "Rutgers",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/164.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 35,
+              "opponent_score": 16,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 11,
+              "opponent": "Michigan State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/127.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 38,
+              "opponent_score": 3,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 12,
+              "opponent": "Minnesota",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/135.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 37,
+              "opponent_score": 3,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 13,
+              "opponent": "Michigan",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/130.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 24,
+              "opponent_score": 30,
+              "result": "L",
+              "win": false,
+              "post_season": false,
+              "opponent_rank": 3,
+              "is_signature": false
+            }
+          ],
+          "notable_games": [
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Penn State 20-12",
+              "week": 8,
+              "opponent": "Penn State"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Wisconsin 24-10",
+              "week": 9,
+              "opponent": "Wisconsin"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Michigan State 38-3",
+              "week": 11,
+              "opponent": "Michigan State"
+            }
+          ],
+          "record": {
+            "wins": 11,
+            "losses": 2
+          }
+        },
+        {
+          "season": 2024,
+          "games": [
+            {
+              "week": 1,
+              "opponent": "Akron",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2006.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 52,
+              "opponent_score": 6,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 1,
+              "opponent": "Texas",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+              "is_home": false,
+              "is_neutral": true,
+              "is_conference": false,
+              "coach_score": 28,
+              "opponent_score": 14,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 4,
+              "is_signature": false
+            },
+            {
+              "week": 1,
+              "opponent": "Tennessee",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2633.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 42,
+              "opponent_score": 17,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 9,
+              "is_signature": false
+            },
+            {
+              "week": 1,
+              "opponent": "Oregon",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2483.png",
+              "is_home": false,
+              "is_neutral": true,
+              "is_conference": false,
+              "coach_score": 41,
+              "opponent_score": 21,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 3,
+              "is_signature": false
+            },
+            {
+              "week": 1,
+              "opponent": "Notre Dame",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+              "is_home": false,
+              "is_neutral": true,
+              "is_conference": false,
+              "coach_score": 34,
+              "opponent_score": 23,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 2,
+              "is_signature": false
+            },
+            {
+              "week": 2,
+              "opponent": "Western Michigan",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2711.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 56,
+              "opponent_score": 0,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 4,
+              "opponent": "Marshall",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/276.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 49,
+              "opponent_score": 14,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 5,
+              "opponent": "Michigan State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/127.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 38,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 6,
+              "opponent": "Iowa",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2294.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 35,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 7,
+              "opponent": "Oregon",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2483.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 31,
+              "opponent_score": 32,
+              "result": "L",
+              "win": false,
+              "post_season": false,
+              "opponent_rank": 3,
+              "is_signature": false
+            },
+            {
+              "week": 9,
+              "opponent": "Nebraska",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/158.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 21,
+              "opponent_score": 17,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 10,
+              "opponent": "Penn State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 20,
+              "opponent_score": 13,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 3,
+              "is_signature": false
+            },
+            {
+              "week": 11,
+              "opponent": "Purdue",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2509.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 45,
+              "opponent_score": 0,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 12,
+              "opponent": "Northwestern",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/77.png",
+              "is_home": false,
+              "is_neutral": true,
+              "is_conference": true,
+              "coach_score": 31,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 13,
+              "opponent": "Indiana",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 38,
+              "opponent_score": 15,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 5,
+              "is_signature": false
+            },
+            {
+              "week": 14,
+              "opponent": "Michigan",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/130.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 10,
+              "opponent_score": 13,
+              "result": "L",
+              "win": false,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 16,
+              "opponent": "Tennessee",
+              "opponent_logo": null,
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 42,
+              "opponent_score": 17,
+              "result": "W",
+              "win": true,
+              "post_season": true,
+              "opponent_rank": null,
+              "is_signature": true
+            },
+            {
+              "week": 17,
+              "opponent": "Oregon",
+              "opponent_logo": null,
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 41,
+              "opponent_score": 21,
+              "result": "W",
+              "win": true,
+              "post_season": true,
+              "opponent_rank": null,
+              "is_signature": true
+            },
+            {
+              "week": 18,
+              "opponent": "Texas",
+              "opponent_logo": null,
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 28,
+              "opponent_score": 14,
+              "result": "W",
+              "win": true,
+              "post_season": true,
+              "opponent_rank": null,
+              "is_signature": true
+            },
+            {
+              "week": 19,
+              "opponent": "Notre Dame",
+              "opponent_logo": null,
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 34,
+              "opponent_score": 23,
+              "result": "W",
+              "win": true,
+              "post_season": true,
+              "opponent_rank": null,
+              "is_signature": true
+            }
+          ],
+          "notable_games": [
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Western Michigan 56-0",
+              "week": 2,
+              "opponent": "Western Michigan"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Michigan State 38-7",
+              "week": 5,
+              "opponent": "Michigan State"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Penn State 20-13",
+              "week": 10,
+              "opponent": "Penn State"
+            },
+            {
+              "type": "bowl_game",
+              "description": "Won vs Tennessee 42-17",
+              "week": 16,
+              "win": true
+            },
+            {
+              "type": "bowl_game",
+              "description": "Won vs Oregon 41-21",
+              "week": 17,
+              "win": true
+            },
+            {
+              "type": "bowl_game",
+              "description": "Won vs Texas 28-14",
+              "week": 18,
+              "win": true
+            },
+            {
+              "type": "bowl_game",
+              "description": "Won vs Notre Dame 34-23",
+              "week": 19,
+              "win": true
+            }
+          ],
+          "record": {
+            "wins": 18,
+            "losses": 2
+          }
+        },
+        {
+          "season": 2025,
+          "games": [
+            {
+              "week": 1,
+              "opponent": "Texas",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 14,
+              "opponent_score": 7,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 1,
+              "is_signature": false
+            },
+            {
+              "week": 2,
+              "opponent": "Grambling",
+              "opponent_logo": null,
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 70,
+              "opponent_score": 0,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 3,
+              "opponent": "Ohio",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/195.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": false,
+              "coach_score": 37,
+              "opponent_score": 9,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 5,
+              "opponent": "Washington",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/264.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 24,
+              "opponent_score": 6,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 6,
+              "opponent": "Minnesota",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/135.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 42,
+              "opponent_score": 3,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 7,
+              "opponent": "Illinois",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/356.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 34,
+              "opponent_score": 16,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 17,
+              "is_signature": false
+            },
+            {
+              "week": 8,
+              "opponent": "Wisconsin",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/275.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 34,
+              "opponent_score": 0,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 10,
+              "opponent": "Penn State",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 38,
+              "opponent_score": 14,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 11,
+              "opponent": "Purdue",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/2509.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 34,
+              "opponent_score": 10,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 12,
+              "opponent": "UCLA",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/26.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 48,
+              "opponent_score": 10,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 13,
+              "opponent": "Rutgers",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/164.png",
+              "is_home": true,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 42,
+              "opponent_score": 9,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": null,
+              "is_signature": false
+            },
+            {
+              "week": 14,
+              "opponent": "Michigan",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/130.png",
+              "is_home": false,
+              "is_neutral": false,
+              "is_conference": true,
+              "coach_score": 27,
+              "opponent_score": 9,
+              "result": "W",
+              "win": true,
+              "post_season": false,
+              "opponent_rank": 15,
+              "is_signature": false
+            },
+            {
+              "week": 15,
+              "opponent": "Indiana",
+              "opponent_logo": "http://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+              "is_home": true,
+              "is_neutral": true,
+              "is_conference": true,
+              "coach_score": 10,
+              "opponent_score": 13,
+              "result": "L",
+              "win": false,
+              "post_season": false,
+              "opponent_rank": 1,
+              "is_signature": false
+            }
+          ],
+          "notable_games": [
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Wisconsin 34-0",
+              "week": 8,
+              "opponent": "Wisconsin"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Penn State 38-14",
+              "week": 10,
+              "opponent": "Penn State"
+            },
+            {
+              "type": "rivalry_win",
+              "description": "Defeated Michigan 27-9",
+              "week": 14,
+              "opponent": "Michigan"
+            }
+          ],
+          "record": {
+            "wins": 12,
+            "losses": 1
+          }
+        }
+      ],
+      "major_events": [
+        {
+          "type": "recruiting_class",
+          "year": 2018,
+          "rank": null,
+          "points": null,
+          "description": "#N/A Recruiting Class (0 pts)"
+        },
+        {
+          "type": "top_5_ranking",
+          "season": 2018,
+          "rank": 2,
+          "description": "Reached #2 in AP Poll"
+        },
+        {
+          "type": "recruiting_class",
+          "year": 2019,
+          "rank": null,
+          "points": null,
+          "description": "#N/A Recruiting Class (0 pts)"
+        },
+        {
+          "type": "top_5_ranking",
+          "season": 2019,
+          "rank": 1,
+          "description": "Reached #1 in AP Poll"
+        },
+        {
+          "type": "recruiting_class",
+          "year": 2020,
+          "rank": null,
+          "points": null,
+          "description": "#N/A Recruiting Class (0 pts)"
+        },
+        {
+          "type": "top_5_ranking",
+          "season": 2020,
+          "rank": 2,
+          "description": "Reached #2 in AP Poll"
+        },
+        {
+          "type": "recruiting_class",
+          "year": 2021,
+          "rank": null,
+          "points": null,
+          "description": "#N/A Recruiting Class (0 pts)"
+        },
+        {
+          "type": "first_round_picks",
+          "year": 2021,
+          "count": 1,
+          "players": [
+            {
+              "player": "Justin Fields",
+              "position": "QB",
+              "round": 1,
+              "pick": 11,
+              "team": "Chicago Bears"
+            }
+          ],
+          "description": "1 First Round Pick"
+        },
+        {
+          "type": "top_5_ranking",
+          "season": 2021,
+          "rank": 2,
+          "description": "Reached #2 in AP Poll"
+        },
+        {
+          "type": "recruiting_class",
+          "year": 2022,
+          "rank": null,
+          "points": null,
+          "description": "#N/A Recruiting Class (0 pts)"
+        },
+        {
+          "type": "first_round_picks",
+          "year": 2022,
+          "count": 2,
+          "players": [
+            {
+              "player": "Garrett Wilson",
+              "position": "WR",
+              "round": 1,
+              "pick": 10,
+              "team": "New York Jets"
+            },
+            {
+              "player": "Chris Olave",
+              "position": "WR",
+              "round": 1,
+              "pick": 11,
+              "team": "New Orleans Saints"
+            }
+          ],
+          "description": "2 First Round Picks"
+        },
+        {
+          "type": "top_5_ranking",
+          "season": 2022,
+          "rank": 2,
+          "description": "Reached #2 in AP Poll"
+        },
+        {
+          "type": "recruiting_class",
+          "year": 2023,
+          "rank": null,
+          "points": null,
+          "description": "#N/A Recruiting Class (0 pts)"
+        },
+        {
+          "type": "first_round_picks",
+          "year": 2023,
+          "count": 3,
+          "players": [
+            {
+              "player": "C.J. Stroud",
+              "position": "QB",
+              "round": 1,
+              "pick": 2,
+              "team": "Houston Texans"
+            },
+            {
+              "player": "Paris Johnson Jr.",
+              "position": "OT",
+              "round": 1,
+              "pick": 6,
+              "team": "Arizona Cardinals"
+            },
+            {
+              "player": "Jaxon Smith-Njigba",
+              "position": "WR",
+              "round": 1,
+              "pick": 20,
+              "team": "Seattle Seahawks"
+            }
+          ],
+          "description": "3 First Round Picks"
+        },
+        {
+          "type": "top_5_ranking",
+          "season": 2023,
+          "rank": 1,
+          "description": "Reached #1 in AP Poll"
+        },
+        {
+          "type": "recruiting_class",
+          "year": 2024,
+          "rank": null,
+          "points": null,
+          "description": "#N/A Recruiting Class (0 pts)"
+        },
+        {
+          "type": "first_round_picks",
+          "year": 2024,
+          "count": 1,
+          "players": [
+            {
+              "player": "Marvin Harrison Jr.",
+              "position": "WR",
+              "round": 1,
+              "pick": 4,
+              "team": "Arizona Cardinals"
+            }
+          ],
+          "description": "1 First Round Pick"
+        },
+        {
+          "type": "top_5_ranking",
+          "season": 2024,
+          "rank": 1,
+          "description": "Reached #1 in AP Poll"
+        },
+        {
+          "type": "recruiting_class",
+          "year": 2025,
+          "rank": null,
+          "points": null,
+          "description": "#N/A Recruiting Class (0 pts)"
+        },
+        {
+          "type": "first_round_picks",
+          "year": 2025,
+          "count": 4,
+          "players": [
+            {
+              "player": "Emeka Egbuka",
+              "position": "WR",
+              "round": 1,
+              "pick": 19,
+              "team": "Tampa Bay Buccaneers"
+            },
+            {
+              "player": "Donovan Jackson",
+              "position": "OG",
+              "round": 1,
+              "pick": 24,
+              "team": "Minnesota Vikings"
+            },
+            {
+              "player": "Tyleik Williams",
+              "position": "DT",
+              "round": 1,
+              "pick": 28,
+              "team": "Detroit Lions"
+            },
+            {
+              "player": "Josh Simmons",
+              "position": "OT",
+              "round": 1,
+              "pick": 32,
+              "team": "Kansas City Chiefs"
+            }
+          ],
+          "description": "4 First Round Picks"
+        }
+      ]
+    }
+  ]
+}

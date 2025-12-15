@@ -1,0 +1,295 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017526751,401752675,Oklahoma,SEC,Illinois State,MVFC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,32,68,"{'minutes': 13, 'seconds': 12}","{'minutes': 1, 'seconds': 48}",3,7,PUNT,True,0,0,0,0
+4017526752,401752675,Illinois State,MVFC,Oklahoma,SEC,2,False,1,86,86,"{'minutes': 13, 'seconds': 12}",1,62,62,"{'minutes': 9, 'seconds': 47}","{'minutes': 3, 'seconds': 25}",6,24,PUNT,False,0,0,0,0
+4017526753,401752675,Oklahoma,SEC,Illinois State,MVFC,3,False,1,37,63,"{'minutes': 9, 'seconds': 47}",1,60,40,"{'minutes': 9, 'seconds': 0}","{'minutes': 0, 'seconds': 47}",3,23,FUMBLE,True,0,0,0,0
+4017526754,401752675,Illinois State,MVFC,Oklahoma,SEC,4,False,1,60,60,"{'minutes': 9, 'seconds': 0}",1,41,41,"{'minutes': 5, 'seconds': 43}","{'minutes': 3, 'seconds': 17}",4,19,PUNT,False,0,0,0,0
+4017526755,401752675,Oklahoma,SEC,Illinois State,MVFC,5,True,1,6,94,"{'minutes': 5, 'seconds': 43}",1,100,0,"{'minutes': 0, 'seconds': 39}","{'minutes': 5, 'seconds': 4}",10,94,TD,True,0,0,7,0
+4017526756,401752675,Illinois State,MVFC,Oklahoma,SEC,6,False,1,75,75,"{'minutes': 0, 'seconds': 39}",2,54,54,"{'minutes': 12, 'seconds': 58}","{'minutes': 2, 'seconds': 41}",7,21,PUNT,False,0,7,0,7
+4017526757,401752675,Oklahoma,SEC,Illinois State,MVFC,7,True,2,23,77,"{'minutes': 12, 'seconds': 58}",2,100,0,"{'minutes': 11, 'seconds': 50}","{'minutes': 1, 'seconds': 8}",4,77,TD,True,7,0,14,0
+4017526758,401752675,Illinois State,MVFC,Oklahoma,SEC,8,False,2,82,82,"{'minutes': 11, 'seconds': 49}",2,65,65,"{'minutes': 8, 'seconds': 18}","{'minutes': 3, 'seconds': 31}",5,17,PUNT,False,0,14,0,14
+4017526759,401752675,Oklahoma,SEC,Illinois State,MVFC,9,True,2,19,81,"{'minutes': 8, 'seconds': 18}",2,100,0,"{'minutes': 0, 'seconds': 51}","{'minutes': 7, 'seconds': 27}",15,81,TD,True,14,0,21,0
+40175267510,401752675,Illinois State,MVFC,Oklahoma,SEC,10,False,2,75,75,"{'minutes': 0, 'seconds': 51}",2,68,68,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 51}",2,7,END OF HALF,False,0,21,0,21
+40175267511,401752675,Illinois State,MVFC,Oklahoma,SEC,11,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,51,51,"{'minutes': 12, 'seconds': 4}","{'minutes': 2, 'seconds': 56}",5,24,PUNT,False,0,21,0,21
+40175267512,401752675,Oklahoma,SEC,Illinois State,MVFC,12,False,3,12,88,"{'minutes': 12, 'seconds': 4}",3,15,85,"{'minutes': 10, 'seconds': 27}","{'minutes': 1, 'seconds': 37}",3,3,PUNT,True,21,0,21,0
+40175267513,401752675,Illinois State,MVFC,Oklahoma,SEC,13,False,3,50,50,"{'minutes': 10, 'seconds': 27}",3,48,48,"{'minutes': 9, 'seconds': 24}","{'minutes': 1, 'seconds': 3}",3,2,PUNT,False,0,21,0,21
+40175267514,401752675,Oklahoma,SEC,Illinois State,MVFC,14,False,3,4,96,"{'minutes': 9, 'seconds': 24}",3,13,87,"{'minutes': 8, 'seconds': 24}","{'minutes': 1, 'seconds': 0}",3,9,INT,True,21,0,21,0
+40175267515,401752675,Illinois State,MVFC,Oklahoma,SEC,15,True,3,22,22,"{'minutes': 8, 'seconds': 24}",3,15,15,"{'minutes': 6, 'seconds': 26}","{'minutes': 1, 'seconds': 58}",4,7,FG,False,0,21,3,21
+40175267516,401752675,Oklahoma,SEC,Illinois State,MVFC,16,True,3,23,77,"{'minutes': 6, 'seconds': 26}",4,100,0,"{'minutes': 14, 'seconds': 52}","{'minutes': 6, 'seconds': 34}",12,77,TD,True,21,3,28,3
+40175267517,401752675,Illinois State,MVFC,Oklahoma,SEC,17,False,4,75,75,"{'minutes': 14, 'seconds': 52}",4,72,72,"{'minutes': 13, 'seconds': 17}","{'minutes': 1, 'seconds': 35}",3,3,PUNT,False,3,28,3,28
+40175267518,401752675,Oklahoma,SEC,Illinois State,MVFC,18,False,4,36,64,"{'minutes': 13, 'seconds': 17}",4,60,40,"{'minutes': 10, 'seconds': 53}","{'minutes': 2, 'seconds': 24}",6,24,DOWNS,True,28,3,28,3
+40175267519,401752675,Illinois State,MVFC,Oklahoma,SEC,19,False,4,60,60,"{'minutes': 10, 'seconds': 53}",4,60,60,"{'minutes': 8, 'seconds': 35}","{'minutes': 2, 'seconds': 18}",3,0,PUNT,False,3,28,3,28
+40175267520,401752675,Oklahoma,SEC,Illinois State,MVFC,20,True,4,25,75,"{'minutes': 8, 'seconds': 35}",4,100,0,"{'minutes': 4, 'seconds': 33}","{'minutes': 4, 'seconds': 2}",8,75,TD,True,28,3,35,3
+40175267521,401752675,Illinois State,MVFC,Oklahoma,SEC,21,False,4,75,75,"{'minutes': 4, 'seconds': 33}",4,55,55,"{'minutes': 1, 'seconds': 5}","{'minutes': 3, 'seconds': 28}",5,20,PUNT,False,3,35,3,35
+40175267522,401752675,Oklahoma,SEC,Illinois State,MVFC,22,False,4,2,98,"{'minutes': 1, 'seconds': 5}",4,5,95,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 5}",2,3,END OF GAME,True,35,3,35,3
+4017526901,401752690,Oklahoma,SEC,Michigan,Big Ten,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 10, 'seconds': 0}","{'minutes': 5, 'seconds': 0}",12,75,TD,True,0,0,7,0
+4017526902,401752690,Michigan,Big Ten,Oklahoma,SEC,2,False,1,75,75,"{'minutes': 10, 'seconds': 0}",1,47,47,"{'minutes': 6, 'seconds': 33}","{'minutes': 3, 'seconds': 27}",5,28,PUNT,False,0,7,0,7
+4017526903,401752690,Oklahoma,SEC,Michigan,Big Ten,3,False,1,6,94,"{'minutes': 6, 'seconds': 33}",1,41,59,"{'minutes': 5, 'seconds': 14}","{'minutes': 1, 'seconds': 19}",4,35,PUNT,True,7,0,7,0
+4017526904,401752690,Michigan,Big Ten,Oklahoma,SEC,4,False,1,88,88,"{'minutes': 5, 'seconds': 14}",1,38,38,"{'minutes': 0, 'seconds': 56}","{'minutes': 4, 'seconds': 18}",7,50,PUNT,False,0,7,0,7
+4017526905,401752690,Oklahoma,SEC,Michigan,Big Ten,5,False,1,20,80,"{'minutes': 0, 'seconds': 56}",1,38,62,"{'minutes': 0, 'seconds': 28}","{'minutes': 0, 'seconds': 28}",2,18,INT,True,7,0,7,0
+4017526906,401752690,Michigan,Big Ten,Oklahoma,SEC,6,False,1,62,62,"{'minutes': 0, 'seconds': 28}",2,57,57,"{'minutes': 14, 'seconds': 1}","{'minutes': 1, 'seconds': 27}",3,5,PUNT,False,0,7,0,7
+4017526907,401752690,Oklahoma,SEC,Michigan,Big Ten,7,False,2,23,77,"{'minutes': 14, 'seconds': 1}",2,48,52,"{'minutes': 9, 'seconds': 25}","{'minutes': 4, 'seconds': 36}",8,25,PUNT,True,7,0,7,0
+4017526908,401752690,Michigan,Big Ten,Oklahoma,SEC,8,False,2,86,86,"{'minutes': 9, 'seconds': 25}",2,14,14,"{'minutes': 3, 'seconds': 17}","{'minutes': 6, 'seconds': 8}",13,72,MISSED FG,False,0,7,0,7
+4017526909,401752690,Oklahoma,SEC,Michigan,Big Ten,9,True,2,20,80,"{'minutes': 3, 'seconds': 17}",2,100,0,"{'minutes': 0, 'seconds': 22}","{'minutes': 2, 'seconds': 55}",10,80,TD,True,7,0,14,0
+40175269010,401752690,Michigan,Big Ten,Oklahoma,SEC,10,False,2,75,75,"{'minutes': 0, 'seconds': 22}",2,72,72,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 22}",1,3,END OF HALF,False,0,14,0,14
+40175269011,401752690,Michigan,Big Ten,Oklahoma,SEC,11,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,0,0,"{'minutes': 14, 'seconds': 49}","{'minutes': 0, 'seconds': 11}",1,75,TD,False,0,14,7,14
+40175269012,401752690,Oklahoma,SEC,Michigan,Big Ten,12,False,3,25,75,"{'minutes': 14, 'seconds': 49}",3,27,73,"{'minutes': 13, 'seconds': 36}","{'minutes': 1, 'seconds': 13}",3,2,PUNT,True,14,7,14,7
+40175269013,401752690,Michigan,Big Ten,Oklahoma,SEC,13,False,3,74,74,"{'minutes': 13, 'seconds': 36}",3,76,76,"{'minutes': 12, 'seconds': 7}","{'minutes': 1, 'seconds': 29}",3,-2,PUNT,False,7,14,7,14
+40175269014,401752690,Oklahoma,SEC,Michigan,Big Ten,14,True,3,49,51,"{'minutes': 12, 'seconds': 7}",3,100,0,"{'minutes': 10, 'seconds': 12}","{'minutes': 1, 'seconds': 55}",5,51,TD,True,14,7,21,7
+40175269015,401752690,Michigan,Big Ten,Oklahoma,SEC,15,False,3,83,83,"{'minutes': 10, 'seconds': 12}",3,89,89,"{'minutes': 8, 'seconds': 3}","{'minutes': 2, 'seconds': 9}",3,-5,FUMBLE,False,7,21,7,21
+40175269016,401752690,Michigan,Big Ten,Oklahoma,SEC,16,True,3,31,31,"{'minutes': 8, 'seconds': 3}",3,23,23,"{'minutes': 6, 'seconds': 33}","{'minutes': 1, 'seconds': 30}",4,8,FG,False,7,21,10,21
+40175269017,401752690,Oklahoma,SEC,Michigan,Big Ten,17,False,3,7,93,"{'minutes': 6, 'seconds': 33}",3,22,78,"{'minutes': 4, 'seconds': 44}","{'minutes': 1, 'seconds': 49}",4,15,PUNT,True,21,10,21,10
+40175269018,401752690,Michigan,Big Ten,Oklahoma,SEC,18,True,3,77,77,"{'minutes': 4, 'seconds': 44}",3,17,17,"{'minutes': 1, 'seconds': 24}","{'minutes': 3, 'seconds': 20}",8,60,FG,False,10,21,13,21
+40175269019,401752690,Oklahoma,SEC,Michigan,Big Ten,19,False,3,25,75,"{'minutes': 1, 'seconds': 24}",4,76,24,"{'minutes': 12, 'seconds': 32}","{'minutes': 3, 'seconds': 52}",11,51,MISSED FG,True,21,13,21,13
+40175269020,401752690,Michigan,Big Ten,Oklahoma,SEC,20,False,4,76,76,"{'minutes': 12, 'seconds': 32}",4,68,68,"{'minutes': 10, 'seconds': 11}","{'minutes': 2, 'seconds': 21}",5,8,PUNT,False,13,21,13,21
+40175269021,401752690,Oklahoma,SEC,Michigan,Big Ten,21,True,4,19,81,"{'minutes': 10, 'seconds': 11}",4,97,3,"{'minutes': 1, 'seconds': 44}","{'minutes': 8, 'seconds': 27}",16,78,FG,True,21,13,24,13
+40175269022,401752690,Michigan,Big Ten,Oklahoma,SEC,22,False,4,74,74,"{'minutes': 1, 'seconds': 44}",4,48,48,"{'minutes': 0, 'seconds': 37}","{'minutes': 1, 'seconds': 7}",6,24,DOWNS,False,13,24,13,24
+40175269023,401752690,Oklahoma,SEC,Michigan,Big Ten,23,False,4,50,50,"{'minutes': 0, 'seconds': 37}",4,49,51,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 37}",1,-1,END OF GAME,True,24,13,24,13
+4017527031,401752703,Temple,American Athletic,Oklahoma,SEC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,26,74,"{'minutes': 13, 'seconds': 36}","{'minutes': 1, 'seconds': 24}",3,1,PUNT,True,0,0,0,0
+4017527032,401752703,Oklahoma,SEC,Temple,American Athletic,2,True,1,67,67,"{'minutes': 13, 'seconds': 36}",1,0,0,"{'minutes': 9, 'seconds': 36}","{'minutes': 4, 'seconds': 0}",10,67,TD,False,0,0,8,0
+4017527033,401752703,Temple,American Athletic,Oklahoma,SEC,3,False,1,25,75,"{'minutes': 9, 'seconds': 36}",1,31,69,"{'minutes': 7, 'seconds': 43}","{'minutes': 1, 'seconds': 53}",3,6,PUNT,True,0,8,0,8
+4017527034,401752703,Oklahoma,SEC,Temple,American Athletic,4,True,1,54,54,"{'minutes': 7, 'seconds': 43}",1,34,34,"{'minutes': 4, 'seconds': 5}","{'minutes': 3, 'seconds': 38}",8,20,FG,False,8,0,11,0
+4017527035,401752703,Temple,American Athletic,Oklahoma,SEC,5,False,1,25,75,"{'minutes': 4, 'seconds': 5}",1,42,58,"{'minutes': 1, 'seconds': 45}","{'minutes': 2, 'seconds': 20}",6,17,PUNT,True,0,11,0,11
+4017527036,401752703,Oklahoma,SEC,Temple,American Athletic,6,True,1,89,89,"{'minutes': 1, 'seconds': 45}",2,0,0,"{'minutes': 12, 'seconds': 11}","{'minutes': 4, 'seconds': 34}",12,89,TD,False,11,0,18,0
+4017527037,401752703,Temple,American Athletic,Oklahoma,SEC,7,False,2,1,99,"{'minutes': 12, 'seconds': 9}",2,7,93,"{'minutes': 10, 'seconds': 48}","{'minutes': 1, 'seconds': 21}",3,6,PUNT,True,0,18,0,18
+4017527038,401752703,Oklahoma,SEC,Temple,American Athletic,8,True,2,45,45,"{'minutes': 10, 'seconds': 48}",2,0,0,"{'minutes': 10, 'seconds': 5}","{'minutes': 0, 'seconds': 43}",4,45,TD,False,18,0,25,0
+4017527039,401752703,Temple,American Athletic,Oklahoma,SEC,9,False,2,25,75,"{'minutes': 10, 'seconds': 5}",2,32,68,"{'minutes': 8, 'seconds': 52}","{'minutes': 1, 'seconds': 13}",3,7,PUNT,True,0,25,0,25
+40175270310,401752703,Oklahoma,SEC,Temple,American Athletic,10,False,2,75,75,"{'minutes': 8, 'seconds': 52}",2,54,54,"{'minutes': 7, 'seconds': 16}","{'minutes': 1, 'seconds': 36}",4,21,PUNT,False,25,0,25,0
+40175270311,401752703,Temple,American Athletic,Oklahoma,SEC,11,False,2,16,84,"{'minutes': 7, 'seconds': 16}",2,51,49,"{'minutes': 3, 'seconds': 42}","{'minutes': 3, 'seconds': 34}",6,35,PUNT,True,0,25,0,25
+40175270312,401752703,Oklahoma,SEC,Temple,American Athletic,12,False,2,91,91,"{'minutes': 3, 'seconds': 42}",2,91,91,"{'minutes': 3, 'seconds': 36}","{'minutes': 0, 'seconds': 6}",1,0,INT,False,25,0,25,0
+40175270313,401752703,Temple,American Athletic,Oklahoma,SEC,13,True,2,87,13,"{'minutes': 3, 'seconds': 36}",2,84,16,"{'minutes': 2, 'seconds': 33}","{'minutes': 1, 'seconds': 3}",4,-3,FG,True,0,25,3,25
+40175270314,401752703,Oklahoma,SEC,Temple,American Athletic,14,True,2,65,65,"{'minutes': 2, 'seconds': 33}",2,11,11,"{'minutes': 0, 'seconds': 27}","{'minutes': 2, 'seconds': 6}",10,54,FG,False,25,3,28,3
+40175270315,401752703,Temple,American Athletic,Oklahoma,SEC,15,False,2,13,87,"{'minutes': 0, 'seconds': 21}",2,12,88,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 21}",1,-1,END OF HALF,True,3,28,3,28
+40175270316,401752703,Oklahoma,SEC,Temple,American Athletic,16,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,67,67,"{'minutes': 13, 'seconds': 16}","{'minutes': 1, 'seconds': 44}",3,8,PUNT,False,28,3,28,3
+40175270317,401752703,Temple,American Athletic,Oklahoma,SEC,17,False,3,15,85,"{'minutes': 13, 'seconds': 16}",3,14,86,"{'minutes': 12, 'seconds': 22}","{'minutes': 0, 'seconds': 54}",3,-1,PUNT,True,3,28,3,28
+40175270318,401752703,Oklahoma,SEC,Temple,American Athletic,18,False,3,60,60,"{'minutes': 12, 'seconds': 22}",3,52,52,"{'minutes': 11, 'seconds': 24}","{'minutes': 0, 'seconds': 58}",3,8,PUNT,False,28,3,28,3
+40175270319,401752703,Temple,American Athletic,Oklahoma,SEC,19,False,3,20,80,"{'minutes': 11, 'seconds': 24}",3,30,70,"{'minutes': 9, 'seconds': 17}","{'minutes': 2, 'seconds': 7}",3,10,PUNT,True,3,28,3,28
+40175270320,401752703,Oklahoma,SEC,Temple,American Athletic,20,True,3,65,65,"{'minutes': 9, 'seconds': 17}",3,0,0,"{'minutes': 7, 'seconds': 57}","{'minutes': 1, 'seconds': 20}",6,65,TD,False,28,3,35,3
+40175270321,401752703,Temple,American Athletic,Oklahoma,SEC,21,False,3,25,75,"{'minutes': 7, 'seconds': 57}",3,29,71,"{'minutes': 5, 'seconds': 47}","{'minutes': 2, 'seconds': 10}",3,4,PUNT,True,3,35,3,35
+40175270322,401752703,Oklahoma,SEC,Temple,American Athletic,22,True,3,76,76,"{'minutes': 5, 'seconds': 47}",3,0,0,"{'minutes': 5, 'seconds': 4}","{'minutes': 0, 'seconds': 43}",2,76,TD,False,35,3,42,3
+40175270323,401752703,Temple,American Athletic,Oklahoma,SEC,23,False,3,25,75,"{'minutes': 5, 'seconds': 4}",3,29,71,"{'minutes': 4, 'seconds': 13}","{'minutes': 0, 'seconds': 51}",3,4,PUNT,True,3,42,3,42
+40175270324,401752703,Oklahoma,SEC,Temple,American Athletic,24,False,3,48,48,"{'minutes': 4, 'seconds': 13}",3,34,34,"{'minutes': 1, 'seconds': 36}","{'minutes': 2, 'seconds': 37}",6,14,MISSED FG,False,42,3,42,3
+40175270325,401752703,Temple,American Athletic,Oklahoma,SEC,25,False,3,34,66,"{'minutes': 1, 'seconds': 36}",4,61,39,"{'minutes': 10, 'seconds': 8}","{'minutes': 6, 'seconds': 28}",11,27,PUNT,True,3,42,3,42
+40175270326,401752703,Oklahoma,SEC,Temple,American Athletic,26,False,4,92,92,"{'minutes': 10, 'seconds': 8}",4,91,91,"{'minutes': 8, 'seconds': 37}","{'minutes': 1, 'seconds': 31}",3,1,PUNT,False,42,3,42,3
+40175270327,401752703,Temple,American Athletic,Oklahoma,SEC,27,False,4,43,57,"{'minutes': 8, 'seconds': 37}",4,45,55,"{'minutes': 6, 'seconds': 40}","{'minutes': 1, 'seconds': 57}",3,2,PUNT,True,3,42,3,42
+40175270328,401752703,Oklahoma,SEC,Temple,American Athletic,28,False,4,84,84,"{'minutes': 6, 'seconds': 40}",4,17,17,"{'minutes': 0, 'seconds': 0}","{'minutes': 6, 'seconds': 40}",10,67,END OF GAME,False,42,3,42,3
+4017527141,401752714,Auburn,SEC,Oklahoma,SEC,1,False,1,76,76,"{'minutes': 15, 'seconds': 0}",1,84,84,"{'minutes': 13, 'seconds': 1}","{'minutes': 1, 'seconds': 59}",3,-8,PUNT,False,0,0,0,0
+4017527142,401752714,Oklahoma,SEC,Auburn,SEC,2,True,1,30,70,"{'minutes': 13, 'seconds': 1}",1,69,31,"{'minutes': 8, 'seconds': 32}","{'minutes': 4, 'seconds': 29}",12,39,FG,True,0,0,3,0
+4017527143,401752714,Auburn,SEC,Oklahoma,SEC,3,True,1,93,93,"{'minutes': 8, 'seconds': 32}",1,6,6,"{'minutes': 3, 'seconds': 56}","{'minutes': 4, 'seconds': 36}",10,87,FG,False,0,3,3,3
+4017527144,401752714,Oklahoma,SEC,Auburn,SEC,4,False,1,25,75,"{'minutes': 3, 'seconds': 56}",1,29,71,"{'minutes': 1, 'seconds': 58}","{'minutes': 1, 'seconds': 58}",3,4,PUNT,True,3,3,3,3
+4017527145,401752714,Auburn,SEC,Oklahoma,SEC,5,False,1,75,75,"{'minutes': 1, 'seconds': 58}",1,76,76,"{'minutes': 0, 'seconds': 31}","{'minutes': 1, 'seconds': 27}",3,-1,PUNT,False,3,3,3,3
+4017527146,401752714,Oklahoma,SEC,Auburn,SEC,6,False,1,27,73,"{'minutes': 0, 'seconds': 31}",2,30,70,"{'minutes': 14, 'seconds': 45}","{'minutes': 0, 'seconds': 46}",3,3,PUNT,True,3,3,3,3
+4017527147,401752714,Auburn,SEC,Oklahoma,SEC,7,False,2,97,97,"{'minutes': 14, 'seconds': 45}",2,76,76,"{'minutes': 11, 'seconds': 35}","{'minutes': 3, 'seconds': 10}",6,9,DOWNS,False,3,3,3,3
+4017527148,401752714,Oklahoma,SEC,Auburn,SEC,8,True,2,88,12,"{'minutes': 11, 'seconds': 35}",2,100,0,"{'minutes': 10, 'seconds': 45}","{'minutes': 0, 'seconds': 50}",2,12,TD,True,3,3,10,3
+4017527149,401752714,Auburn,SEC,Oklahoma,SEC,9,False,2,75,75,"{'minutes': 10, 'seconds': 45}",2,67,67,"{'minutes': 8, 'seconds': 53}","{'minutes': 1, 'seconds': 52}",3,8,PUNT,False,3,10,3,10
+40175271410,401752714,Oklahoma,SEC,Auburn,SEC,10,False,2,19,81,"{'minutes': 8, 'seconds': 53}",2,70,30,"{'minutes': 7, 'seconds': 40}","{'minutes': 1, 'seconds': 13}",5,47,FUMBLE,True,10,3,10,3
+40175271411,401752714,Auburn,SEC,Oklahoma,SEC,11,False,2,66,66,"{'minutes': 7, 'seconds': 40}",2,52,52,"{'minutes': 5, 'seconds': 25}","{'minutes': 2, 'seconds': 15}",5,14,PUNT,False,3,10,3,10
+40175271412,401752714,Oklahoma,SEC,Auburn,SEC,12,False,2,14,86,"{'minutes': 5, 'seconds': 25}",2,14,86,"{'minutes': 4, 'seconds': 25}","{'minutes': 1, 'seconds': 0}",3,0,PUNT,True,10,3,10,3
+40175271413,401752714,Auburn,SEC,Oklahoma,SEC,13,True,2,60,60,"{'minutes': 4, 'seconds': 25}",2,0,0,"{'minutes': 1, 'seconds': 8}","{'minutes': 3, 'seconds': 17}",8,60,TD,False,3,10,10,10
+40175271414,401752714,Oklahoma,SEC,Auburn,SEC,14,False,2,25,75,"{'minutes': 1, 'seconds': 8}",2,18,82,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 8}",4,-7,END OF HALF,True,10,10,10,10
+40175271415,401752714,Oklahoma,SEC,Auburn,SEC,15,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,25,75,"{'minutes': 14, 'seconds': 19}","{'minutes': 0, 'seconds': 41}",3,0,PUNT,True,10,10,10,10
+40175271416,401752714,Auburn,SEC,Oklahoma,SEC,16,False,3,80,80,"{'minutes': 14, 'seconds': 19}",3,83,83,"{'minutes': 12, 'seconds': 57}","{'minutes': 1, 'seconds': 22}",3,-3,PUNT,False,10,10,10,10
+40175271417,401752714,Oklahoma,SEC,Auburn,SEC,17,True,3,40,60,"{'minutes': 12, 'seconds': 57}",3,86,14,"{'minutes': 8, 'seconds': 36}","{'minutes': 4, 'seconds': 21}",11,46,FG,True,10,10,13,10
+40175271418,401752714,Auburn,SEC,Oklahoma,SEC,18,False,3,75,75,"{'minutes': 8, 'seconds': 36}",3,72,72,"{'minutes': 6, 'seconds': 22}","{'minutes': 2, 'seconds': 14}",3,3,PUNT,False,10,13,10,13
+40175271419,401752714,Oklahoma,SEC,Auburn,SEC,19,False,3,24,76,"{'minutes': 6, 'seconds': 22}",3,28,72,"{'minutes': 4, 'seconds': 51}","{'minutes': 1, 'seconds': 31}",3,4,PUNT,True,13,10,13,10
+40175271420,401752714,Auburn,SEC,Oklahoma,SEC,20,False,3,77,77,"{'minutes': 4, 'seconds': 51}",3,32,32,"{'minutes': 3, 'seconds': 5}","{'minutes': 1, 'seconds': 46}",5,45,MISSED FG,False,10,13,10,13
+40175271421,401752714,Oklahoma,SEC,Auburn,SEC,21,True,3,32,68,"{'minutes': 3, 'seconds': 5}",4,90,10,"{'minutes': 14, 'seconds': 56}","{'minutes': 3, 'seconds': 9}",8,58,FG,True,13,10,16,10
+40175271422,401752714,Auburn,SEC,Oklahoma,SEC,22,True,4,75,75,"{'minutes': 14, 'seconds': 56}",4,0,0,"{'minutes': 7, 'seconds': 8}","{'minutes': 7, 'seconds': 48}",14,75,TD,False,10,16,17,16
+40175271423,401752714,Oklahoma,SEC,Auburn,SEC,23,True,4,25,75,"{'minutes': 7, 'seconds': 8}",4,100,0,"{'minutes': 4, 'seconds': 54}","{'minutes': 2, 'seconds': 14}",6,75,TD,True,16,17,22,17
+40175271424,401752714,Auburn,SEC,Oklahoma,SEC,24,True,4,92,92,"{'minutes': 4, 'seconds': 54}",4,96,96,"{'minutes': 1, 'seconds': 6}","{'minutes': 3, 'seconds': 48}",7,-8,SF,False,17,22,17,24
+40175271425,401752714,Oklahoma,SEC,Auburn,SEC,25,False,4,71,29,"{'minutes': 1, 'seconds': 6}",4,68,32,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 6}",2,-3,END OF GAME,True,24,17,24,17
+4017527291,401752729,Kent State,Mid-American,Oklahoma,SEC,1,False,1,85,85,"{'minutes': 14, 'seconds': 56}",1,63,63,"{'minutes': 11, 'seconds': 24}","{'minutes': 3, 'seconds': 32}",6,22,PUNT,False,0,0,0,0
+4017527292,401752729,Oklahoma,SEC,Kent State,Mid-American,2,True,1,58,42,"{'minutes': 11, 'seconds': 24}",1,100,0,"{'minutes': 9, 'seconds': 55}","{'minutes': 1, 'seconds': 29}",4,42,TD,True,0,0,7,0
+4017527293,401752729,Kent State,Mid-American,Oklahoma,SEC,3,False,1,79,79,"{'minutes': 9, 'seconds': 51}",1,75,75,"{'minutes': 8, 'seconds': 19}","{'minutes': 1, 'seconds': 32}",3,4,PUNT,False,0,7,0,7
+4017527294,401752729,Oklahoma,SEC,Kent State,Mid-American,4,True,1,45,55,"{'minutes': 8, 'seconds': 19}",1,69,31,"{'minutes': 5, 'seconds': 41}","{'minutes': 2, 'seconds': 38}",6,24,FG,True,7,0,10,0
+4017527295,401752729,Kent State,Mid-American,Oklahoma,SEC,5,False,1,75,75,"{'minutes': 5, 'seconds': 41}",1,73,73,"{'minutes': 3, 'seconds': 39}","{'minutes': 2, 'seconds': 2}",3,2,PUNT,False,0,10,0,10
+4017527296,401752729,Oklahoma,SEC,Kent State,Mid-American,6,True,1,26,74,"{'minutes': 3, 'seconds': 39}",2,100,0,"{'minutes': 14, 'seconds': 28}","{'minutes': 4, 'seconds': 11}",9,74,TD,True,10,0,17,0
+4017527297,401752729,Kent State,Mid-American,Oklahoma,SEC,7,False,2,75,75,"{'minutes': 14, 'seconds': 28}",2,83,83,"{'minutes': 12, 'seconds': 49}","{'minutes': 1, 'seconds': 39}",3,-8,PUNT,False,0,17,0,17
+4017527298,401752729,Oklahoma,SEC,Kent State,Mid-American,8,True,2,47,53,"{'minutes': 12, 'seconds': 49}",2,79,21,"{'minutes': 9, 'seconds': 9}","{'minutes': 3, 'seconds': 40}",7,32,FG,True,17,0,20,0
+4017527299,401752729,Kent State,Mid-American,Oklahoma,SEC,9,False,2,75,75,"{'minutes': 9, 'seconds': 9}",2,21,21,"{'minutes': 4, 'seconds': 55}","{'minutes': 4, 'seconds': 14}",9,54,DOWNS,False,0,20,0,20
+40175272910,401752729,Oklahoma,SEC,Kent State,Mid-American,10,True,2,21,79,"{'minutes': 4, 'seconds': 55}",2,63,37,"{'minutes': 0, 'seconds': 56}","{'minutes': 3, 'seconds': 59}",10,42,FG,True,20,0,23,0
+40175272911,401752729,Kent State,Mid-American,Oklahoma,SEC,11,False,2,75,75,"{'minutes': 0, 'seconds': 56}",2,72,72,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 56}",2,3,END OF HALF,False,0,23,0,23
+40175272912,401752729,Oklahoma,SEC,Kent State,Mid-American,12,False,3,13,87,"{'minutes': 15, 'seconds': 0}",3,54,46,"{'minutes': 11, 'seconds': 25}","{'minutes': 3, 'seconds': 35}",9,41,PUNT,True,23,0,23,0
+40175272913,401752729,Kent State,Mid-American,Oklahoma,SEC,13,True,3,90,90,"{'minutes': 11, 'seconds': 25}",3,96,96,"{'minutes': 10, 'seconds': 17}","{'minutes': 1, 'seconds': 8}",3,-6,FUMBLE RETURN TD,False,0,23,0,30
+40175272914,401752729,Kent State,Mid-American,Oklahoma,SEC,14,False,3,98,98,"{'minutes': 10, 'seconds': 14}",3,99,99,"{'minutes': 7, 'seconds': 37}","{'minutes': 2, 'seconds': 37}",3,-1,PUNT,False,0,30,0,30
+40175272915,401752729,Oklahoma,SEC,Kent State,Mid-American,15,True,3,82,18,"{'minutes': 7, 'seconds': 37}",3,100,0,"{'minutes': 6, 'seconds': 35}","{'minutes': 1, 'seconds': 2}",3,18,TD,True,30,0,37,0
+40175272916,401752729,Kent State,Mid-American,Oklahoma,SEC,16,False,3,75,75,"{'minutes': 6, 'seconds': 35}",3,75,75,"{'minutes': 6, 'seconds': 23}","{'minutes': 0, 'seconds': 12}",2,0,INT,False,0,37,0,37
+40175272917,401752729,Oklahoma,SEC,Kent State,Mid-American,17,True,3,70,30,"{'minutes': 6, 'seconds': 23}",3,100,0,"{'minutes': 3, 'seconds': 55}","{'minutes': 2, 'seconds': 28}",6,30,TD,True,37,0,44,0
+40175272918,401752729,Kent State,Mid-American,Oklahoma,SEC,18,False,3,75,75,"{'minutes': 3, 'seconds': 55}",3,79,79,"{'minutes': 1, 'seconds': 49}","{'minutes': 2, 'seconds': 6}",3,-4,PUNT,False,0,44,0,44
+40175272919,401752729,Oklahoma,SEC,Kent State,Mid-American,19,False,3,47,53,"{'minutes': 1, 'seconds': 49}",3,46,54,"{'minutes': 1, 'seconds': 1}","{'minutes': 0, 'seconds': 48}",3,-6,PUNT,True,44,0,44,0
+40175272920,401752729,Kent State,Mid-American,Oklahoma,SEC,20,False,3,75,75,"{'minutes': 1, 'seconds': 1}",4,56,56,"{'minutes': 13, 'seconds': 20}","{'minutes': 2, 'seconds': 41}",5,19,PUNT,False,0,44,0,44
+40175272921,401752729,Oklahoma,SEC,Kent State,Mid-American,21,False,4,15,85,"{'minutes': 13, 'seconds': 20}",4,55,45,"{'minutes': 7, 'seconds': 14}","{'minutes': 6, 'seconds': 6}",12,40,PUNT,True,44,0,44,0
+40175272922,401752729,Kent State,Mid-American,Oklahoma,SEC,22,False,4,99,99,"{'minutes': 7, 'seconds': 14}",4,45,45,"{'minutes': 1, 'seconds': 6}","{'minutes': 6, 'seconds': 8}",10,54,DOWNS,False,0,44,0,44
+40175272923,401752729,Oklahoma,SEC,Kent State,Mid-American,23,False,4,45,55,"{'minutes': 1, 'seconds': 6}",4,66,34,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 6}",2,21,END OF GAME,True,44,0,44,0
+4017527361,401752736,Oklahoma,SEC,Texas,SEC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,23,23,"{'minutes': 11, 'seconds': 49}","{'minutes': 3, 'seconds': 11}",9,52,FG,False,0,0,3,0
+4017527362,401752736,Texas,SEC,Oklahoma,SEC,2,False,1,25,75,"{'minutes': 11, 'seconds': 49}",1,24,76,"{'minutes': 8, 'seconds': 32}","{'minutes': 3, 'seconds': 17}",4,-1,PUNT,True,0,3,0,3
+4017527363,401752736,Oklahoma,SEC,Texas,SEC,3,False,1,54,54,"{'minutes': 8, 'seconds': 32}",1,43,43,"{'minutes': 6, 'seconds': 6}","{'minutes': 2, 'seconds': 26}",6,11,PUNT,False,3,0,3,0
+4017527364,401752736,Texas,SEC,Oklahoma,SEC,4,False,1,20,80,"{'minutes': 6, 'seconds': 6}",1,20,80,"{'minutes': 5, 'seconds': 23}","{'minutes': 0, 'seconds': 43}",3,0,PUNT,True,0,3,0,3
+4017527365,401752736,Oklahoma,SEC,Texas,SEC,5,False,1,75,75,"{'minutes': 5, 'seconds': 23}",1,63,63,"{'minutes': 3, 'seconds': 37}","{'minutes': 1, 'seconds': 46}",5,12,INT,False,3,0,3,0
+4017527366,401752736,Texas,SEC,Oklahoma,SEC,6,False,1,42,58,"{'minutes': 3, 'seconds': 37}",1,63,37,"{'minutes': 0, 'seconds': 32}","{'minutes': 3, 'seconds': 5}",7,21,MISSED FG,True,0,3,0,3
+4017527367,401752736,Oklahoma,SEC,Texas,SEC,7,True,1,63,63,"{'minutes': 0, 'seconds': 32}",2,23,23,"{'minutes': 9, 'seconds': 9}","{'minutes': 6, 'seconds': 23}",12,40,FG,False,3,0,6,0
+4017527368,401752736,Texas,SEC,Oklahoma,SEC,8,True,2,22,78,"{'minutes': 9, 'seconds': 9}",2,97,3,"{'minutes': 4, 'seconds': 29}","{'minutes': 4, 'seconds': 40}",12,75,FG,True,0,6,3,6
+4017527369,401752736,Oklahoma,SEC,Texas,SEC,9,False,2,75,75,"{'minutes': 4, 'seconds': 24}",2,30,30,"{'minutes': 0, 'seconds': 2}","{'minutes': 4, 'seconds': 22}",9,45,INT,False,6,3,6,3
+40175273610,401752736,Texas,SEC,Oklahoma,SEC,10,False,2,20,80,"{'minutes': 0, 'seconds': 2}",2,19,81,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 2}",1,-1,END OF HALF,True,3,6,3,6
+40175273611,401752736,Texas,SEC,Oklahoma,SEC,11,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 7, 'seconds': 49}","{'minutes': 7, 'seconds': 11}",14,75,TD,True,3,6,10,6
+40175273612,401752736,Oklahoma,SEC,Texas,SEC,12,False,3,75,75,"{'minutes': 7, 'seconds': 49}",3,70,70,"{'minutes': 6, 'seconds': 42}","{'minutes': 1, 'seconds': 7}",3,5,PUNT,False,6,10,6,10
+40175273613,401752736,Texas,SEC,Oklahoma,SEC,13,True,3,5,95,"{'minutes': 6, 'seconds': 42}",3,70,30,"{'minutes': 0, 'seconds': 27}","{'minutes': 6, 'seconds': 15}",13,65,FG,True,10,6,13,6
+40175273614,401752736,Oklahoma,SEC,Texas,SEC,14,False,3,75,75,"{'minutes': 0, 'seconds': 21}",4,56,56,"{'minutes': 13, 'seconds': 38}","{'minutes': 1, 'seconds': 43}",4,19,INT,False,6,13,6,13
+40175273615,401752736,Texas,SEC,Oklahoma,SEC,15,False,4,56,44,"{'minutes': 13, 'seconds': 38}",4,63,37,"{'minutes': 11, 'seconds': 33}","{'minutes': 2, 'seconds': 5}",4,7,MISSED FG,True,13,6,13,6
+40175273616,401752736,Oklahoma,SEC,Texas,SEC,16,True,4,63,63,"{'minutes': 11, 'seconds': 33}",4,73,73,"{'minutes': 9, 'seconds': 59}","{'minutes': 1, 'seconds': 34}",4,-11,PUNT RETURN TD,False,6,13,6,20
+40175273617,401752736,Oklahoma,SEC,Texas,SEC,17,False,4,65,65,"{'minutes': 9, 'seconds': 54}",4,37,37,"{'minutes': 5, 'seconds': 36}","{'minutes': 4, 'seconds': 18}",9,28,DOWNS,False,6,20,6,20
+40175273618,401752736,Texas,SEC,Oklahoma,SEC,18,True,4,37,63,"{'minutes': 5, 'seconds': 36}",4,79,21,"{'minutes': 2, 'seconds': 59}","{'minutes': 2, 'seconds': 37}",7,42,FG,True,20,6,23,6
+40175273619,401752736,Oklahoma,SEC,Texas,SEC,19,False,4,75,75,"{'minutes': 2, 'seconds': 59}",4,45,45,"{'minutes': 1, 'seconds': 3}","{'minutes': 1, 'seconds': 56}",10,27,DOWNS,False,6,23,6,23
+40175273620,401752736,Texas,SEC,Oklahoma,SEC,20,False,4,48,52,"{'minutes': 1, 'seconds': 3}",4,47,53,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 3}",2,-1,END OF GAME,True,23,6,23,6
+4017527441,401752744,Oklahoma,SEC,South Carolina,SEC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,0,0,"{'minutes': 9, 'seconds': 42}","{'minutes': 5, 'seconds': 18}",10,75,TD,False,0,0,7,0
+4017527442,401752744,South Carolina,SEC,Oklahoma,SEC,2,False,1,25,75,"{'minutes': 9, 'seconds': 42}",1,97,3,"{'minutes': 4, 'seconds': 40}","{'minutes': 5, 'seconds': 2}",10,72,DOWNS,True,0,7,0,7
+4017527443,401752744,Oklahoma,SEC,South Carolina,SEC,3,False,1,97,97,"{'minutes': 4, 'seconds': 40}",1,75,75,"{'minutes': 0, 'seconds': 26}","{'minutes': 4, 'seconds': 14}",7,22,PUNT,False,7,0,7,0
+4017527444,401752744,South Carolina,SEC,Oklahoma,SEC,4,False,1,52,48,"{'minutes': 0, 'seconds': 26}",2,53,47,"{'minutes': 14, 'seconds': 38}","{'minutes': 0, 'seconds': 48}",3,1,PUNT,True,0,7,0,7
+4017527445,401752744,Oklahoma,SEC,South Carolina,SEC,5,True,2,92,92,"{'minutes': 14, 'seconds': 38}",2,0,0,"{'minutes': 9, 'seconds': 21}","{'minutes': 5, 'seconds': 17}",13,92,TD,False,7,0,14,0
+4017527446,401752744,South Carolina,SEC,Oklahoma,SEC,6,False,2,25,75,"{'minutes': 9, 'seconds': 21}",2,16,84,"{'minutes': 7, 'seconds': 2}","{'minutes': 2, 'seconds': 19}",3,-9,PUNT,True,0,14,0,14
+4017527447,401752744,Oklahoma,SEC,South Carolina,SEC,7,False,2,76,76,"{'minutes': 7, 'seconds': 2}",2,71,71,"{'minutes': 5, 'seconds': 49}","{'minutes': 1, 'seconds': 13}",3,5,PUNT,False,14,0,14,0
+4017527448,401752744,South Carolina,SEC,Oklahoma,SEC,8,True,2,53,47,"{'minutes': 5, 'seconds': 49}",2,100,0,"{'minutes': 1, 'seconds': 43}","{'minutes': 4, 'seconds': 6}",11,47,TD,True,0,14,7,14
+4017527449,401752744,Oklahoma,SEC,South Carolina,SEC,9,False,2,75,75,"{'minutes': 1, 'seconds': 43}",2,66,66,"{'minutes': 0, 'seconds': 22}","{'minutes': 1, 'seconds': 21}",5,9,PUNT,False,14,7,14,7
+40175274410,401752744,South Carolina,SEC,Oklahoma,SEC,10,False,2,47,53,"{'minutes': 0, 'seconds': 22}",2,73,27,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 22}",4,26,END OF HALF,True,7,14,7,14
+40175274411,401752744,South Carolina,SEC,Oklahoma,SEC,11,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,34,66,"{'minutes': 13, 'seconds': 23}","{'minutes': 1, 'seconds': 37}",3,9,PUNT,True,7,14,7,14
+40175274412,401752744,Oklahoma,SEC,South Carolina,SEC,12,False,3,85,85,"{'minutes': 13, 'seconds': 23}",3,43,43,"{'minutes': 9, 'seconds': 42}","{'minutes': 3, 'seconds': 41}",8,42,PUNT,False,14,7,14,7
+40175274413,401752744,South Carolina,SEC,Oklahoma,SEC,13,False,3,3,97,"{'minutes': 9, 'seconds': 42}",3,7,93,"{'minutes': 8, 'seconds': 7}","{'minutes': 1, 'seconds': 35}",3,4,PUNT,True,7,14,7,14
+40175274414,401752744,Oklahoma,SEC,South Carolina,SEC,14,True,3,53,53,"{'minutes': 8, 'seconds': 7}",3,37,37,"{'minutes': 6, 'seconds': 1}","{'minutes': 2, 'seconds': 6}",4,16,FG,False,14,7,17,7
+40175274415,401752744,South Carolina,SEC,Oklahoma,SEC,15,False,3,25,75,"{'minutes': 6, 'seconds': 1}",3,48,52,"{'minutes': 4, 'seconds': 16}","{'minutes': 1, 'seconds': 45}",4,23,INT,True,7,17,7,17
+40175274416,401752744,Oklahoma,SEC,South Carolina,SEC,16,True,3,49,49,"{'minutes': 4, 'seconds': 16}",3,0,0,"{'minutes': 2, 'seconds': 6}","{'minutes': 2, 'seconds': 10}",5,49,TD,False,17,7,24,7
+40175274417,401752744,South Carolina,SEC,Oklahoma,SEC,17,False,3,25,75,"{'minutes': 2, 'seconds': 6}",3,24,76,"{'minutes': 0, 'seconds': 44}","{'minutes': 1, 'seconds': 22}",3,-1,PUNT,True,7,24,7,24
+40175274418,401752744,Oklahoma,SEC,South Carolina,SEC,18,False,3,70,70,"{'minutes': 0, 'seconds': 44}",4,67,67,"{'minutes': 11, 'seconds': 24}","{'minutes': 4, 'seconds': 20}",6,3,PUNT,False,24,7,24,7
+40175274419,401752744,South Carolina,SEC,Oklahoma,SEC,19,False,4,18,82,"{'minutes': 11, 'seconds': 24}",4,45,55,"{'minutes': 6, 'seconds': 4}","{'minutes': 5, 'seconds': 20}",14,27,DOWNS,True,7,24,7,24
+40175274420,401752744,Oklahoma,SEC,South Carolina,SEC,20,False,4,45,45,"{'minutes': 6, 'seconds': 4}",4,41,41,"{'minutes': 4, 'seconds': 27}","{'minutes': 1, 'seconds': 37}",3,4,PUNT,False,24,7,24,7
+40175274421,401752744,South Carolina,SEC,Oklahoma,SEC,21,True,4,1,99,"{'minutes': 4, 'seconds': 27}",4,0,100,"{'minutes': 4, 'seconds': 22}","{'minutes': 0, 'seconds': 5}",1,-1,SF,True,7,26,7,26
+40175274422,401752744,Oklahoma,SEC,South Carolina,SEC,22,False,4,50,50,"{'minutes': 4, 'seconds': 22}",4,52,52,"{'minutes': 2, 'seconds': 37}","{'minutes': 1, 'seconds': 45}",3,-2,PUNT,False,26,7,26,7
+40175274423,401752744,South Carolina,SEC,Oklahoma,SEC,23,False,4,20,80,"{'minutes': 2, 'seconds': 37}",4,79,21,"{'minutes': 0, 'seconds': 36}","{'minutes': 2, 'seconds': 1}",8,59,INT,True,7,26,7,26
+40175274424,401752744,Oklahoma,SEC,South Carolina,SEC,24,False,4,80,80,"{'minutes': 0, 'seconds': 36}",4,81,81,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 36}",1,-1,END OF GAME,False,26,7,26,7
+4017527501,401752750,Ole Miss,SEC,Oklahoma,SEC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,28,28,"{'minutes': 12, 'seconds': 30}","{'minutes': 2, 'seconds': 30}",8,47,FG,False,0,0,3,0
+4017527502,401752750,Oklahoma,SEC,Ole Miss,SEC,2,True,1,25,75,"{'minutes': 12, 'seconds': 30}",1,76,24,"{'minutes': 8, 'seconds': 52}","{'minutes': 3, 'seconds': 38}",8,51,FG,True,0,3,3,3
+4017527503,401752750,Ole Miss,SEC,Oklahoma,SEC,3,True,1,75,75,"{'minutes': 8, 'seconds': 52}",1,0,0,"{'minutes': 6, 'seconds': 7}","{'minutes': 2, 'seconds': 45}",8,75,TD,False,3,3,10,3
+4017527504,401752750,Oklahoma,SEC,Ole Miss,SEC,4,False,1,25,75,"{'minutes': 6, 'seconds': 7}",1,34,66,"{'minutes': 4, 'seconds': 36}","{'minutes': 1, 'seconds': 31}",3,9,PUNT,True,3,10,3,10
+4017527505,401752750,Ole Miss,SEC,Oklahoma,SEC,5,False,1,85,85,"{'minutes': 4, 'seconds': 36}",1,58,58,"{'minutes': 0, 'seconds': 43}","{'minutes': 3, 'seconds': 53}",7,27,PUNT,False,10,3,10,3
+4017527506,401752750,Oklahoma,SEC,Ole Miss,SEC,6,True,1,17,83,"{'minutes': 0, 'seconds': 43}",2,100,0,"{'minutes': 14, 'seconds': 4}","{'minutes': 1, 'seconds': 39}",3,83,TD,True,3,10,10,10
+4017527507,401752750,Ole Miss,SEC,Oklahoma,SEC,7,False,2,75,75,"{'minutes': 14, 'seconds': 4}",2,57,57,"{'minutes': 11, 'seconds': 25}","{'minutes': 2, 'seconds': 39}",4,18,PUNT,False,10,10,10,10
+4017527508,401752750,Oklahoma,SEC,Ole Miss,SEC,8,True,2,5,95,"{'minutes': 11, 'seconds': 25}",2,3,97,"{'minutes': 10, 'seconds': 51}","{'minutes': 0, 'seconds': 34}",1,-5,SF,True,10,10,10,12
+4017527509,401752750,Ole Miss,SEC,Oklahoma,SEC,9,True,2,52,52,"{'minutes': 10, 'seconds': 51}",2,5,5,"{'minutes': 7, 'seconds': 33}","{'minutes': 3, 'seconds': 18}",12,47,FG,False,12,10,15,10
+40175275010,401752750,Oklahoma,SEC,Ole Miss,SEC,10,False,2,25,75,"{'minutes': 7, 'seconds': 33}",2,54,46,"{'minutes': 4, 'seconds': 32}","{'minutes': 3, 'seconds': 1}",6,24,DOWNS,True,10,15,10,15
+40175275011,401752750,Ole Miss,SEC,Oklahoma,SEC,11,True,2,49,49,"{'minutes': 4, 'seconds': 32}",2,0,0,"{'minutes': 0, 'seconds': 46}","{'minutes': 3, 'seconds': 46}",9,49,TD,False,15,10,22,10
+40175275012,401752750,Oklahoma,SEC,Ole Miss,SEC,12,False,2,25,75,"{'minutes': 0, 'seconds': 46}",2,25,75,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 46}",3,0,PUNT,True,10,22,10,22
+40175275014,401752750,Oklahoma,SEC,Ole Miss,SEC,13,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,25,75,"{'minutes': 13, 'seconds': 47}","{'minutes': 1, 'seconds': 13}",3,0,PUNT,True,10,22,10,22
+40175275015,401752750,Ole Miss,SEC,Oklahoma,SEC,14,False,3,84,84,"{'minutes': 13, 'seconds': 47}",3,75,75,"{'minutes': 12, 'seconds': 46}","{'minutes': 1, 'seconds': 1}",4,-1,DOWNS,False,22,10,22,10
+40175275016,401752750,Oklahoma,SEC,Ole Miss,SEC,15,True,3,85,15,"{'minutes': 12, 'seconds': 46}",3,76,24,"{'minutes': 11, 'seconds': 16}","{'minutes': 1, 'seconds': 30}",4,-9,FG,True,10,22,13,22
+40175275017,401752750,Ole Miss,SEC,Oklahoma,SEC,16,True,3,75,75,"{'minutes': 11, 'seconds': 16}",3,12,12,"{'minutes': 5, 'seconds': 57}","{'minutes': 5, 'seconds': 19}",14,63,FG,False,22,13,25,13
+40175275018,401752750,Oklahoma,SEC,Ole Miss,SEC,17,True,3,35,65,"{'minutes': 5, 'seconds': 57}",3,100,0,"{'minutes': 5, 'seconds': 44}","{'minutes': 0, 'seconds': 13}",1,65,TD,True,13,25,20,25
+40175275019,401752750,Ole Miss,SEC,Oklahoma,SEC,18,False,3,75,75,"{'minutes': 5, 'seconds': 44}",3,73,73,"{'minutes': 4, 'seconds': 44}","{'minutes': 1, 'seconds': 0}",3,2,PUNT,False,25,20,25,20
+40175275020,401752750,Oklahoma,SEC,Ole Miss,SEC,19,True,3,40,60,"{'minutes': 4, 'seconds': 44}",3,100,0,"{'minutes': 1, 'seconds': 4}","{'minutes': 3, 'seconds': 40}",7,60,TD,True,20,25,26,25
+40175275021,401752750,Ole Miss,SEC,Oklahoma,SEC,20,True,3,75,75,"{'minutes': 1, 'seconds': 4}",4,0,0,"{'minutes': 11, 'seconds': 33}","{'minutes': 4, 'seconds': 31}",11,75,TD,False,25,26,31,26
+40175275022,401752750,Oklahoma,SEC,Ole Miss,SEC,21,False,4,25,75,"{'minutes': 11, 'seconds': 33}",4,41,59,"{'minutes': 8, 'seconds': 35}","{'minutes': 2, 'seconds': 58}",6,16,PUNT,True,26,31,26,31
+40175275023,401752750,Ole Miss,SEC,Oklahoma,SEC,22,False,4,85,85,"{'minutes': 8, 'seconds': 35}",4,80,80,"{'minutes': 7, 'seconds': 4}","{'minutes': 1, 'seconds': 31}",3,5,PUNT,False,31,26,31,26
+40175275024,401752750,Ole Miss,SEC,Oklahoma,SEC,23,True,4,53,53,"{'minutes': 7, 'seconds': 4}",4,20,20,"{'minutes': 4, 'seconds': 9}","{'minutes': 2, 'seconds': 55}",5,33,FG,False,31,26,34,26
+40175275025,401752750,Oklahoma,SEC,Ole Miss,SEC,24,False,4,25,75,"{'minutes': 4, 'seconds': 9}",4,70,30,"{'minutes': 1, 'seconds': 30}","{'minutes': 2, 'seconds': 39}",8,45,DOWNS,True,26,34,26,34
+40175275026,401752750,Ole Miss,SEC,Oklahoma,SEC,25,False,4,70,70,"{'minutes': 1, 'seconds': 30}",4,64,64,"{'minutes': 1, 'seconds': 3}","{'minutes': 0, 'seconds': 27}",3,6,PUNT,False,34,26,34,26
+40175275027,401752750,Oklahoma,SEC,Ole Miss,SEC,26,False,4,17,83,"{'minutes': 1, 'seconds': 3}",4,55,45,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 3}",9,38,END OF GAME,True,26,34,26,34
+4017527572,401752757,Tennessee,SEC,Oklahoma,SEC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 11, 'seconds': 17}","{'minutes': 3, 'seconds': 43}",9,75,TD,True,0,0,7,0
+4017527574,401752757,Oklahoma,SEC,Tennessee,SEC,2,False,1,75,75,"{'minutes': 11, 'seconds': 17}",1,61,61,"{'minutes': 9, 'seconds': 30}","{'minutes': 1, 'seconds': 47}",5,14,PUNT,False,0,7,0,7
+4017527575,401752757,Tennessee,SEC,Oklahoma,SEC,3,True,1,16,84,"{'minutes': 9, 'seconds': 30}",1,3,97,"{'minutes': 8, 'seconds': 1}","{'minutes': 1, 'seconds': 29}",5,55,FUMBLE TD,True,7,0,7,7
+4017527577,401752757,Tennessee,SEC,Oklahoma,SEC,4,True,1,25,75,"{'minutes': 8, 'seconds': 1}",1,73,27,"{'minutes': 3, 'seconds': 30}","{'minutes': 4, 'seconds': 31}",11,48,FG,True,7,7,10,7
+4017527579,401752757,Oklahoma,SEC,Tennessee,SEC,5,False,1,75,75,"{'minutes': 3, 'seconds': 30}",1,60,60,"{'minutes': 0, 'seconds': 54}","{'minutes': 2, 'seconds': 36}",5,15,PUNT,False,7,10,7,10
+40175275710,401752757,Tennessee,SEC,Oklahoma,SEC,6,False,1,20,80,"{'minutes': 0, 'seconds': 54}",2,81,19,"{'minutes': 11, 'seconds': 14}","{'minutes': 4, 'seconds': 40}",12,61,MISSED FG,True,10,7,10,7
+40175275711,401752757,Oklahoma,SEC,Tennessee,SEC,7,True,2,80,80,"{'minutes': 11, 'seconds': 14}",2,37,37,"{'minutes': 7, 'seconds': 36}","{'minutes': 3, 'seconds': 38}",8,43,FG,False,7,10,10,10
+40175275713,401752757,Tennessee,SEC,Oklahoma,SEC,8,False,2,20,80,"{'minutes': 7, 'seconds': 28}",2,96,4,"{'minutes': 3, 'seconds': 41}","{'minutes': 3, 'seconds': 47}",10,44,INT,True,10,10,10,10
+40175275714,401752757,Oklahoma,SEC,Tennessee,SEC,9,True,2,59,59,"{'minutes': 3, 'seconds': 41}",2,33,33,"{'minutes': 1, 'seconds': 8}","{'minutes': 2, 'seconds': 33}",7,26,FG,False,10,10,13,10
+40175275716,401752757,Tennessee,SEC,Oklahoma,SEC,10,False,2,23,77,"{'minutes': 1, 'seconds': 4}",2,28,72,"{'minutes': 0, 'seconds': 16}","{'minutes': 0, 'seconds': 48}",4,11,INT,True,10,13,10,13
+40175275717,401752757,Oklahoma,SEC,Tennessee,SEC,11,True,2,28,28,"{'minutes': 0, 'seconds': 16}",2,22,22,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 16}",3,6,FG,False,13,10,19,10
+40175275719,401752757,Oklahoma,SEC,Tennessee,SEC,12,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,66,66,"{'minutes': 13, 'seconds': 10}","{'minutes': 1, 'seconds': 50}",5,9,PUNT,False,19,10,19,10
+40175275720,401752757,Tennessee,SEC,Oklahoma,SEC,13,True,3,17,83,"{'minutes': 13, 'seconds': 10}",3,97,3,"{'minutes': 11, 'seconds': 52}","{'minutes': 1, 'seconds': 18}",5,83,TD,True,10,16,17,19
+40175275722,401752757,Oklahoma,SEC,Tennessee,SEC,14,False,3,75,75,"{'minutes': 11, 'seconds': 52}",3,15,15,"{'minutes': 6, 'seconds': 47}","{'minutes': 5, 'seconds': 5}",11,65,FUMBLE,False,16,17,16,17
+40175275723,401752757,Tennessee,SEC,Oklahoma,SEC,15,False,3,10,90,"{'minutes': 6, 'seconds': 47}",3,11,89,"{'minutes': 4, 'seconds': 51}","{'minutes': 1, 'seconds': 56}",3,1,PUNT,True,17,16,17,16
+40175275724,401752757,Oklahoma,SEC,Tennessee,SEC,16,True,3,52,52,"{'minutes': 4, 'seconds': 51}",3,3,3,"{'minutes': 2, 'seconds': 3}","{'minutes': 2, 'seconds': 48}",5,52,TD,False,16,17,23,17
+40175275726,401752757,Tennessee,SEC,Oklahoma,SEC,17,False,3,25,75,"{'minutes': 2, 'seconds': 3}",3,29,71,"{'minutes': 0, 'seconds': 51}","{'minutes': 1, 'seconds': 12}",3,4,PUNT,True,17,23,17,23
+40175275727,401752757,Oklahoma,SEC,Tennessee,SEC,18,True,3,75,75,"{'minutes': 0, 'seconds': 51}",4,37,37,"{'minutes': 11, 'seconds': 5}","{'minutes': 4, 'seconds': 46}",9,38,FG,False,23,17,26,17
+40175275729,401752757,Tennessee,SEC,Oklahoma,SEC,19,False,4,25,75,"{'minutes': 11, 'seconds': 5}",4,63,37,"{'minutes': 8, 'seconds': 7}","{'minutes': 2, 'seconds': 58}",8,38,DOWNS,True,17,26,17,26
+40175275730,401752757,Oklahoma,SEC,Tennessee,SEC,20,False,4,62,62,"{'minutes': 8, 'seconds': 7}",4,35,35,"{'minutes': 4, 'seconds': 18}","{'minutes': 3, 'seconds': 49}",6,27,INT,False,26,17,26,17
+40175275731,401752757,Tennessee,SEC,Oklahoma,SEC,21,True,4,45,55,"{'minutes': 4, 'seconds': 18}",4,97,3,"{'minutes': 1, 'seconds': 56}","{'minutes': 2, 'seconds': 22}",6,55,TD,True,17,26,24,26
+40175275733,401752757,Oklahoma,SEC,Tennessee,SEC,22,True,4,44,44,"{'minutes': 1, 'seconds': 55}",4,3,3,"{'minutes': 1, 'seconds': 44}","{'minutes': 0, 'seconds': 11}",2,44,TD,False,26,24,33,24
+40175275735,401752757,Tennessee,SEC,Oklahoma,SEC,23,True,4,25,75,"{'minutes': 1, 'seconds': 44}",4,70,30,"{'minutes': 0, 'seconds': 47}","{'minutes': 0, 'seconds': 57}",7,45,FG,True,24,33,27,33
+40175275737,401752757,Oklahoma,SEC,Tennessee,SEC,24,False,4,41,41,"{'minutes': 0, 'seconds': 46}",4,44,44,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 46}",2,-3,END OF GAME,False,33,27,33,27
+4017527652,401752765,Alabama,SEC,Oklahoma,SEC,1,False,1,20,80,"{'minutes': 14, 'seconds': 53}",1,23,77,"{'minutes': 13, 'seconds': 30}","{'minutes': 1, 'seconds': 23}",3,3,PUNT,True,0,0,0,0
+4017527653,401752765,Oklahoma,SEC,Alabama,SEC,2,True,1,30,30,"{'minutes': 13, 'seconds': 17}",1,7,7,"{'minutes': 11, 'seconds': 33}","{'minutes': 1, 'seconds': 57}",5,23,FG,False,0,0,3,0
+4017527655,401752765,Alabama,SEC,Oklahoma,SEC,3,False,1,25,75,"{'minutes': 11, 'seconds': 33}",1,17,83,"{'minutes': 10, 'seconds': 10}","{'minutes': 1, 'seconds': 23}",3,-8,PUNT,True,0,3,0,3
+4017527656,401752765,Oklahoma,SEC,Alabama,SEC,4,False,1,63,63,"{'minutes': 10, 'seconds': 1}",1,59,59,"{'minutes': 6, 'seconds': 11}","{'minutes': 3, 'seconds': 59}",6,4,PUNT,False,3,0,3,0
+4017527657,401752765,Alabama,SEC,Oklahoma,SEC,5,True,1,20,80,"{'minutes': 6, 'seconds': 0}",1,3,97,"{'minutes': 2, 'seconds': 3}","{'minutes': 4, 'seconds': 8}",8,57,INT TD,True,0,3,0,10
+4017527659,401752765,Alabama,SEC,Oklahoma,SEC,6,True,1,28,72,"{'minutes': 1, 'seconds': 57}",2,97,3,"{'minutes': 10, 'seconds': 36}","{'minutes': 6, 'seconds': 21}",12,72,TD,True,0,10,7,10
+40175276511,401752765,Oklahoma,SEC,Alabama,SEC,7,False,2,75,75,"{'minutes': 10, 'seconds': 36}",2,70,70,"{'minutes': 9, 'seconds': 34}","{'minutes': 1, 'seconds': 2}",3,5,FUMBLE,False,10,7,10,7
+40175276512,401752765,Oklahoma,SEC,Alabama,SEC,8,True,2,31,31,"{'minutes': 9, 'seconds': 15}",2,3,3,"{'minutes': 8, 'seconds': 49}","{'minutes': 0, 'seconds': 45}",2,31,TD,False,10,7,17,7
+40175276514,401752765,Alabama,SEC,Oklahoma,SEC,9,True,2,22,78,"{'minutes': 8, 'seconds': 41}",2,97,3,"{'minutes': 6, 'seconds': 13}","{'minutes': 2, 'seconds': 28}",6,78,TD,True,7,17,14,17
+40175276516,401752765,Oklahoma,SEC,Alabama,SEC,10,False,2,75,75,"{'minutes': 6, 'seconds': 13}",2,46,46,"{'minutes': 3, 'seconds': 16}","{'minutes': 2, 'seconds': 57}",6,29,PUNT,False,17,14,17,14
+40175276517,401752765,Alabama,SEC,Oklahoma,SEC,11,False,2,13,87,"{'minutes': 2, 'seconds': 58}",2,76,24,"{'minutes': 0, 'seconds': 2}","{'minutes': 3, 'seconds': 16}",13,69,MISSED FG,True,14,17,14,17
+40175276519,401752765,Oklahoma,SEC,Alabama,SEC,12,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,34,34,"{'minutes': 10, 'seconds': 38}","{'minutes': 4, 'seconds': 22}",8,41,FG,False,17,14,20,14
+40175276521,401752765,Alabama,SEC,Oklahoma,SEC,13,True,3,25,75,"{'minutes': 10, 'seconds': 38}",3,97,3,"{'minutes': 7, 'seconds': 27}","{'minutes': 3, 'seconds': 11}",7,75,TD,True,14,20,21,20
+40175276523,401752765,Oklahoma,SEC,Alabama,SEC,14,False,3,75,75,"{'minutes': 7, 'seconds': 27}",3,49,49,"{'minutes': 5, 'seconds': 9}","{'minutes': 2, 'seconds': 18}",5,26,PUNT,False,20,21,20,21
+40175276524,401752765,Alabama,SEC,Oklahoma,SEC,15,False,3,20,80,"{'minutes': 4, 'seconds': 52}",3,27,73,"{'minutes': 3, 'seconds': 49}","{'minutes': 1, 'seconds': 20}",3,7,PUNT,True,21,20,21,20
+40175276525,401752765,Oklahoma,SEC,Alabama,SEC,16,False,3,65,65,"{'minutes': 3, 'seconds': 39}",3,64,64,"{'minutes': 3, 'seconds': 0}","{'minutes': 0, 'seconds': 49}",3,1,PUNT,False,20,21,20,21
+40175276526,401752765,Alabama,SEC,Oklahoma,SEC,17,False,3,18,82,"{'minutes': 2, 'seconds': 52}",3,28,72,"{'minutes': 0, 'seconds': 50}","{'minutes': 2, 'seconds': 10}",5,10,FUMBLE,True,21,20,21,20
+40175276527,401752765,Oklahoma,SEC,Alabama,SEC,18,True,3,28,28,"{'minutes': 0, 'seconds': 39}",4,6,6,"{'minutes': 13, 'seconds': 41}","{'minutes': 2, 'seconds': 9}",5,22,FG,False,20,21,23,21
+40175276529,401752765,Alabama,SEC,Oklahoma,SEC,19,False,4,25,75,"{'minutes': 13, 'seconds': 41}",4,23,77,"{'minutes': 11, 'seconds': 38}","{'minutes': 2, 'seconds': 3}",3,-2,PUNT,True,21,23,21,23
+40175276530,401752765,Oklahoma,SEC,Alabama,SEC,20,False,4,70,70,"{'minutes': 11, 'seconds': 29}",4,45,45,"{'minutes': 7, 'seconds': 14}","{'minutes': 4, 'seconds': 24}",8,20,PUNT,False,23,21,23,21
+40175276531,401752765,Alabama,SEC,Oklahoma,SEC,21,False,4,6,94,"{'minutes': 7, 'seconds': 6}",4,48,52,"{'minutes': 0, 'seconds': 50}","{'minutes': 6, 'seconds': 24}",13,42,DOWNS,True,21,23,21,23
+40175276532,401752765,Oklahoma,SEC,Alabama,SEC,22,False,4,48,48,"{'minutes': 0, 'seconds': 47}",4,53,53,"{'minutes': 0, 'seconds': 16}","{'minutes': 0, 'seconds': 50}",3,-5,END OF GAME,False,23,21,23,21
+4017527782,401752778,Missouri,SEC,Oklahoma,SEC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,21,21,"{'minutes': 6, 'seconds': 37}","{'minutes': 8, 'seconds': 23}",14,54,FG,False,0,0,3,0
+4017527784,401752778,Oklahoma,SEC,Missouri,SEC,2,False,1,25,75,"{'minutes': 6, 'seconds': 37}",1,32,68,"{'minutes': 5, 'seconds': 41}","{'minutes': 0, 'seconds': 56}",3,7,PUNT,True,0,3,0,3
+4017527785,401752778,Missouri,SEC,Oklahoma,SEC,3,False,1,82,82,"{'minutes': 5, 'seconds': 34}",1,66,66,"{'minutes': 2, 'seconds': 15}","{'minutes': 3, 'seconds': 26}",5,16,PUNT,False,3,0,3,0
+4017527786,401752778,Oklahoma,SEC,Missouri,SEC,4,False,1,30,70,"{'minutes': 2, 'seconds': 9}",1,16,84,"{'minutes': 0, 'seconds': 26}","{'minutes': 1, 'seconds': 49}",3,-14,PUNT,True,0,3,0,3
+4017527787,401752778,Missouri,SEC,Oklahoma,SEC,5,False,1,55,55,"{'minutes': 0, 'seconds': 25}",2,42,42,"{'minutes': 12, 'seconds': 47}","{'minutes': 2, 'seconds': 39}",6,13,PUNT,False,3,0,3,0
+4017527788,401752778,Oklahoma,SEC,Missouri,SEC,6,False,2,3,97,"{'minutes': 12, 'seconds': 36}",2,27,73,"{'minutes': 10, 'seconds': 36}","{'minutes': 2, 'seconds': 11}",7,24,PUNT,True,0,3,0,3
+4017527789,401752778,Missouri,SEC,Oklahoma,SEC,7,False,2,67,67,"{'minutes': 10, 'seconds': 24}",2,8,8,"{'minutes': 7, 'seconds': 37}","{'minutes': 2, 'seconds': 59}",6,60,MISSED FG,False,3,0,3,0
+40175277810,401752778,Oklahoma,SEC,Missouri,SEC,8,True,2,10,90,"{'minutes': 7, 'seconds': 32}",2,97,3,"{'minutes': 6, 'seconds': 45}","{'minutes': 0, 'seconds': 52}",3,90,TD,True,0,3,7,3
+40175277812,401752778,Missouri,SEC,Oklahoma,SEC,9,False,2,75,75,"{'minutes': 6, 'seconds': 45}",2,96,96,"{'minutes': 4, 'seconds': 44}","{'minutes': 2, 'seconds': 1}",3,-21,PUNT,False,3,7,3,7
+40175277813,401752778,Oklahoma,SEC,Missouri,SEC,10,True,2,65,35,"{'minutes': 4, 'seconds': 37}",2,97,3,"{'minutes': 2, 'seconds': 22}","{'minutes': 2, 'seconds': 22}",7,35,TD,True,7,3,14,3
+40175277815,401752778,Missouri,SEC,Oklahoma,SEC,11,True,2,80,80,"{'minutes': 2, 'seconds': 19}",2,3,3,"{'minutes': 0, 'seconds': 17}","{'minutes': 2, 'seconds': 2}",10,77,FG,False,3,14,6,14
+40175277817,401752778,Oklahoma,SEC,Missouri,SEC,12,False,2,25,75,"{'minutes': 0, 'seconds': 17}",2,27,73,"{'minutes': 0, 'seconds': 10}","{'minutes': 0, 'seconds': 17}",1,0,END OF HALF,True,14,6,14,6
+40175277819,401752778,Oklahoma,SEC,Missouri,SEC,13,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,72,28,"{'minutes': 11, 'seconds': 36}","{'minutes': 3, 'seconds': 24}",8,47,FG,True,14,6,17,6
+40175277821,401752778,Missouri,SEC,Oklahoma,SEC,14,False,3,75,75,"{'minutes': 11, 'seconds': 36}",3,50,50,"{'minutes': 9, 'seconds': 18}","{'minutes': 2, 'seconds': 18}",4,25,PUNT,False,6,17,6,17
+40175277822,401752778,Oklahoma,SEC,Missouri,SEC,15,False,3,10,90,"{'minutes': 9, 'seconds': 11}",3,48,52,"{'minutes': 5, 'seconds': 59}","{'minutes': 3, 'seconds': 19}",7,38,PUNT,True,17,6,17,6
+40175277823,401752778,Missouri,SEC,Oklahoma,SEC,16,False,3,78,78,"{'minutes': 5, 'seconds': 52}",3,77,77,"{'minutes': 5, 'seconds': 9}","{'minutes': 0, 'seconds': 50}",3,1,PUNT,False,6,17,6,17
+40175277824,401752778,Oklahoma,SEC,Missouri,SEC,17,False,3,47,53,"{'minutes': 5, 'seconds': 2}",3,47,53,"{'minutes': 3, 'seconds': 41}","{'minutes': 1, 'seconds': 28}",3,0,PUNT,True,17,6,17,6
+40175277825,401752778,Missouri,SEC,Oklahoma,SEC,18,False,3,80,80,"{'minutes': 3, 'seconds': 35}",3,25,25,"{'minutes': 2, 'seconds': 31}","{'minutes': 1, 'seconds': 15}",3,20,INT,False,6,17,6,17
+40175277826,401752778,Oklahoma,SEC,Missouri,SEC,19,False,3,25,75,"{'minutes': 2, 'seconds': 20}",4,43,57,"{'minutes': 14, 'seconds': 15}","{'minutes': 3, 'seconds': 11}",5,18,PUNT,True,17,6,17,6
+40175277827,401752778,Missouri,SEC,Oklahoma,SEC,20,False,4,80,80,"{'minutes': 14, 'seconds': 3}",4,89,89,"{'minutes': 12, 'seconds': 49}","{'minutes': 1, 'seconds': 26}",3,-9,PUNT,False,6,17,6,17
+40175277828,401752778,Oklahoma,SEC,Missouri,SEC,21,False,4,43,57,"{'minutes': 12, 'seconds': 42}",4,55,45,"{'minutes': 11, 'seconds': 27}","{'minutes': 1, 'seconds': 22}",4,12,PUNT,True,17,6,17,6
+40175277829,401752778,Missouri,SEC,Oklahoma,SEC,22,False,4,89,89,"{'minutes': 11, 'seconds': 18}",4,87,87,"{'minutes': 10, 'seconds': 5}","{'minutes': 1, 'seconds': 22}",3,2,PUNT,False,6,17,6,17
+40175277830,401752778,Oklahoma,SEC,Missouri,SEC,23,False,4,34,66,"{'minutes': 9, 'seconds': 56}",4,37,63,"{'minutes': 8, 'seconds': 29}","{'minutes': 1, 'seconds': 36}",3,3,PUNT,True,17,6,17,6
+40175277831,401752778,Missouri,SEC,Oklahoma,SEC,24,False,4,88,88,"{'minutes': 8, 'seconds': 22}",4,21,21,"{'minutes': 5, 'seconds': 40}","{'minutes': 2, 'seconds': 49}",7,67,DOWNS,False,6,17,6,17
+40175277832,401752778,Oklahoma,SEC,Missouri,SEC,25,False,4,21,79,"{'minutes': 5, 'seconds': 33}",4,57,43,"{'minutes': 1, 'seconds': 47}","{'minutes': 3, 'seconds': 53}",8,36,PUNT,True,17,6,17,6
+40175277833,401752778,Missouri,SEC,Oklahoma,SEC,26,False,4,92,92,"{'minutes': 1, 'seconds': 39}",4,33,33,"{'minutes': 0, 'seconds': 37}","{'minutes': 1, 'seconds': 15}",7,46,INT,False,6,17,6,17
+40175277834,401752778,Oklahoma,SEC,Missouri,SEC,27,False,4,33,67,"{'minutes': 0, 'seconds': 31}",4,32,68,"{'minutes': 0, 'seconds': 31}","{'minutes': 0, 'seconds': 32}",1,-1,END OF GAME,True,17,6,17,6
+4017527892,401752789,LSU,SEC,Oklahoma,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,72,72,"{'minutes': 12, 'seconds': 59}","{'minutes': 2, 'seconds': 1}",3,3,PUNT,False,0,0,0,0
+4017527893,401752789,Oklahoma,SEC,LSU,SEC,2,False,1,42,58,"{'minutes': 12, 'seconds': 46}",1,4,96,"{'minutes': 12, 'seconds': 1}","{'minutes': 1, 'seconds': 2}",3,4,INT,True,0,0,0,0
+4017527894,401752789,LSU,SEC,Oklahoma,SEC,3,False,1,4,4,"{'minutes': 11, 'seconds': 57}",0,4,4,"{'minutes': 11, 'seconds': 50}","{'minutes': 0, 'seconds': 7}",1,0,INT,False,0,0,0,0
+4017527895,401752789,Oklahoma,SEC,LSU,SEC,4,False,1,20,80,"{'minutes': 11, 'seconds': 43}",1,24,76,"{'minutes': 10, 'seconds': 35}","{'minutes': 1, 'seconds': 15}",3,4,PUNT,True,0,0,0,0
+4017527896,401752789,LSU,SEC,Oklahoma,SEC,5,False,1,70,70,"{'minutes': 10, 'seconds': 26}",1,63,63,"{'minutes': 9, 'seconds': 32}","{'minutes': 1, 'seconds': 3}",3,7,PUNT,False,0,0,0,0
+4017527897,401752789,Oklahoma,SEC,LSU,SEC,6,True,1,26,74,"{'minutes': 9, 'seconds': 32}",1,79,21,"{'minutes': 4, 'seconds': 31}","{'minutes': 5, 'seconds': 1}",11,53,FG,True,0,0,3,0
+4017527899,401752789,LSU,SEC,Oklahoma,SEC,7,False,1,75,75,"{'minutes': 4, 'seconds': 31}",1,75,75,"{'minutes': 4, 'seconds': 9}","{'minutes': 0, 'seconds': 23}",3,0,PUNT,False,0,3,0,3
+40175278910,401752789,Oklahoma,SEC,LSU,SEC,8,False,1,30,70,"{'minutes': 4, 'seconds': 4}",1,49,51,"{'minutes': 0, 'seconds': 28}","{'minutes': 3, 'seconds': 40}",6,19,DOWNS,True,3,0,3,0
+40175278911,401752789,LSU,SEC,Oklahoma,SEC,9,True,1,49,49,"{'minutes': 0, 'seconds': 7}",2,7,7,"{'minutes': 13, 'seconds': 35}","{'minutes': 1, 'seconds': 53}",6,42,FG,False,0,3,3,3
+40175278918,401752789,LSU,SEC,Oklahoma,SEC,10,False,2,94,94,"{'minutes': 14, 'seconds': 21}",2,88,88,"{'minutes': 0, 'seconds': 48}","{'minutes': 0, 'seconds': 41}",1,6,END OF HALF,False,3,3,3,3
+40175278913,401752789,Oklahoma,SEC,LSU,SEC,11,False,2,25,75,"{'minutes': 13, 'seconds': 35}",2,33,67,"{'minutes': 12, 'seconds': 1}","{'minutes': 1, 'seconds': 34}",3,8,PUNT,True,3,3,3,3
+40175278914,401752789,LSU,SEC,Oklahoma,SEC,12,False,2,77,77,"{'minutes': 12, 'seconds': 1}",2,75,75,"{'minutes': 9, 'seconds': 56}","{'minutes': 2, 'seconds': 5}",3,2,PUNT,False,3,3,3,3
+40175278915,401752789,Oklahoma,SEC,LSU,SEC,13,False,2,40,60,"{'minutes': 9, 'seconds': 56}",2,58,42,"{'minutes': 7, 'seconds': 55}","{'minutes': 2, 'seconds': 1}",4,18,PUNT,True,3,3,3,3
+40175278916,401752789,LSU,SEC,Oklahoma,SEC,14,False,2,84,84,"{'minutes': 7, 'seconds': 55}",2,68,68,"{'minutes': 4, 'seconds': 23}","{'minutes': 3, 'seconds': 32}",5,16,PUNT,False,3,3,3,3
+40175278917,401752789,Oklahoma,SEC,LSU,SEC,15,False,2,20,80,"{'minutes': 4, 'seconds': 23}",2,56,44,"{'minutes': 0, 'seconds': 41}","{'minutes': 3, 'seconds': 42}",8,34,PUNT,True,3,3,3,3
+40175278920,401752789,Oklahoma,SEC,LSU,SEC,16,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,33,67,"{'minutes': 13, 'seconds': 24}","{'minutes': 1, 'seconds': 36}",5,37,INT,True,3,3,3,3
+40175278921,401752789,LSU,SEC,Oklahoma,SEC,17,True,3,33,33,"{'minutes': 13, 'seconds': 24}",3,6,6,"{'minutes': 11, 'seconds': 21}","{'minutes': 2, 'seconds': 3}",4,33,TD,False,3,3,10,3
+40175278923,401752789,Oklahoma,SEC,LSU,SEC,18,False,3,25,75,"{'minutes': 11, 'seconds': 21}",3,93,7,"{'minutes': 7, 'seconds': 49}","{'minutes': 3, 'seconds': 32}",8,47,INT,True,3,10,3,10
+40175278924,401752789,LSU,SEC,Oklahoma,SEC,19,False,3,93,93,"{'minutes': 7, 'seconds': 49}",3,88,88,"{'minutes': 5, 'seconds': 40}","{'minutes': 2, 'seconds': 9}",3,5,PUNT,False,10,3,10,3
+40175278925,401752789,Oklahoma,SEC,LSU,SEC,20,False,3,40,60,"{'minutes': 5, 'seconds': 40}",3,44,56,"{'minutes': 4, 'seconds': 0}","{'minutes': 1, 'seconds': 40}",3,4,PUNT,True,3,10,3,10
+40175278926,401752789,LSU,SEC,Oklahoma,SEC,21,False,3,80,80,"{'minutes': 4, 'seconds': 0}",3,77,77,"{'minutes': 2, 'seconds': 30}","{'minutes': 1, 'seconds': 30}",3,3,PUNT,False,10,3,10,3
+40175278927,401752789,Oklahoma,SEC,LSU,SEC,22,True,3,55,45,"{'minutes': 2, 'seconds': 30}",3,53,47,"{'minutes': 1, 'seconds': 47}","{'minutes': 0, 'seconds': 43}",2,45,TD,True,3,10,10,10
+40175278929,401752789,LSU,SEC,Oklahoma,SEC,23,False,3,75,75,"{'minutes': 1, 'seconds': 47}",4,58,58,"{'minutes': 14, 'seconds': 5}","{'minutes': 2, 'seconds': 42}",5,17,PUNT,False,10,10,10,10
+40175278930,401752789,Oklahoma,SEC,LSU,SEC,24,False,4,20,80,"{'minutes': 14, 'seconds': 5}",4,22,78,"{'minutes': 12, 'seconds': 34}","{'minutes': 1, 'seconds': 31}",3,2,PUNT,True,10,10,10,10
+40175278931,401752789,LSU,SEC,Oklahoma,SEC,25,True,4,68,68,"{'minutes': 12, 'seconds': 34}",4,26,26,"{'minutes': 7, 'seconds': 56}","{'minutes': 4, 'seconds': 38}",7,42,FG,False,10,10,13,10
+40175278933,401752789,Oklahoma,SEC,LSU,SEC,26,False,4,25,75,"{'minutes': 7, 'seconds': 56}",4,31,69,"{'minutes': 6, 'seconds': 36}","{'minutes': 1, 'seconds': 20}",3,6,PUNT,True,10,13,10,13
+40175278934,401752789,LSU,SEC,Oklahoma,SEC,27,False,4,70,70,"{'minutes': 6, 'seconds': 36}",4,65,65,"{'minutes': 5, 'seconds': 4}","{'minutes': 1, 'seconds': 32}",3,5,PUNT,False,13,10,13,10
+40175278935,401752789,Oklahoma,SEC,LSU,SEC,28,True,4,16,84,"{'minutes': 5, 'seconds': 4}",4,97,3,"{'minutes': 4, 'seconds': 16}","{'minutes': 0, 'seconds': 48}",3,84,TD,True,10,13,17,13
+40175278937,401752789,LSU,SEC,Oklahoma,SEC,29,False,4,51,51,"{'minutes': 4, 'seconds': 9}",4,29,29,"{'minutes': 1, 'seconds': 16}","{'minutes': 2, 'seconds': 53}",7,22,DOWNS,False,13,17,13,17
+40175278938,401752789,Oklahoma,SEC,LSU,SEC,30,False,4,29,71,"{'minutes': 1, 'seconds': 18}",4,27,73,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 16}",2,-2,END OF GAME,True,17,13,17,13

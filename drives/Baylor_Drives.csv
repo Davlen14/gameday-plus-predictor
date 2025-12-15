@@ -1,0 +1,286 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017526671,401752667,Baylor,Big 12,Auburn,SEC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,81,19,"{'minutes': 10, 'seconds': 36}","{'minutes': 4, 'seconds': 24}",13,56,FG,True,0,0,3,0
+4017526672,401752667,Auburn,SEC,Baylor,Big 12,2,False,1,75,75,"{'minutes': 10, 'seconds': 36}",1,75,75,"{'minutes': 9, 'seconds': 14}","{'minutes': 1, 'seconds': 22}",3,0,PUNT,False,0,3,0,3
+4017526673,401752667,Baylor,Big 12,Auburn,SEC,3,False,1,35,65,"{'minutes': 9, 'seconds': 14}",1,97,3,"{'minutes': 6, 'seconds': 27}","{'minutes': 2, 'seconds': 47}",6,62,DOWNS,True,3,0,3,0
+4017526674,401752667,Auburn,SEC,Baylor,Big 12,4,True,1,96,96,"{'minutes': 6, 'seconds': 27}",1,0,0,"{'minutes': 0, 'seconds': 34}","{'minutes': 5, 'seconds': 53}",12,96,TD,False,0,3,7,3
+4017526675,401752667,Baylor,Big 12,Auburn,SEC,5,False,1,35,65,"{'minutes': 0, 'seconds': 28}",2,33,67,"{'minutes': 14, 'seconds': 14}","{'minutes': 1, 'seconds': 14}",3,-2,PUNT,True,3,7,3,7
+4017526676,401752667,Auburn,SEC,Baylor,Big 12,6,True,2,65,65,"{'minutes': 14, 'seconds': 14}",2,0,0,"{'minutes': 10, 'seconds': 29}","{'minutes': 3, 'seconds': 45}",7,65,TD,False,7,3,14,3
+4017526677,401752667,Baylor,Big 12,Auburn,SEC,7,False,2,25,75,"{'minutes': 10, 'seconds': 29}",2,44,56,"{'minutes': 8, 'seconds': 43}","{'minutes': 1, 'seconds': 46}",5,19,DOWNS,True,3,14,3,14
+4017526678,401752667,Auburn,SEC,Baylor,Big 12,8,True,2,44,44,"{'minutes': 8, 'seconds': 43}",2,3,3,"{'minutes': 5, 'seconds': 45}","{'minutes': 2, 'seconds': 58}",7,41,FG,False,14,3,17,3
+4017526679,401752667,Baylor,Big 12,Auburn,SEC,9,True,2,25,75,"{'minutes': 5, 'seconds': 45}",2,100,0,"{'minutes': 3, 'seconds': 21}","{'minutes': 2, 'seconds': 24}",8,75,TD,True,3,17,10,17
+40175266710,401752667,Auburn,SEC,Baylor,Big 12,10,False,2,75,75,"{'minutes': 3, 'seconds': 21}",2,59,59,"{'minutes': 0, 'seconds': 38}","{'minutes': 2, 'seconds': 43}",9,16,PUNT,False,17,10,17,10
+40175266711,401752667,Baylor,Big 12,Auburn,SEC,11,False,2,35,65,"{'minutes': 0, 'seconds': 38}",2,70,30,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 38}",6,35,END OF HALF,True,10,17,10,17
+40175266712,401752667,Auburn,SEC,Baylor,Big 12,12,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,49,49,"{'minutes': 11, 'seconds': 23}","{'minutes': 3, 'seconds': 37}",7,26,PUNT,False,17,10,17,10
+40175266713,401752667,Baylor,Big 12,Auburn,SEC,13,False,3,10,90,"{'minutes': 11, 'seconds': 23}",3,28,72,"{'minutes': 9, 'seconds': 52}","{'minutes': 1, 'seconds': 31}",4,18,PUNT,True,10,17,10,17
+40175266714,401752667,Auburn,SEC,Baylor,Big 12,14,True,3,71,71,"{'minutes': 9, 'seconds': 52}",3,0,0,"{'minutes': 5, 'seconds': 40}","{'minutes': 4, 'seconds': 12}",9,71,TD,False,17,10,24,10
+40175266715,401752667,Baylor,Big 12,Auburn,SEC,15,True,3,25,75,"{'minutes': 5, 'seconds': 40}",3,100,0,"{'minutes': 0, 'seconds': 58}","{'minutes': 4, 'seconds': 42}",10,75,TD,True,10,24,17,31
+40175266716,401752667,Baylor,Big 12,Auburn,SEC,16,True,3,21,79,"{'minutes': 0, 'seconds': 37}",4,100,0,"{'minutes': 11, 'seconds': 48}","{'minutes': 3, 'seconds': 49}",9,79,TD,True,17,31,24,38
+40175266717,401752667,Auburn,SEC,Baylor,Big 12,17,True,4,75,75,"{'minutes': 11, 'seconds': 48}",4,0,0,"{'minutes': 4, 'seconds': 32}","{'minutes': 7, 'seconds': 16}",12,75,TD,False,31,24,38,24
+40175266718,401752667,Baylor,Big 12,Auburn,SEC,18,False,4,25,75,"{'minutes': 4, 'seconds': 32}",4,89,11,"{'minutes': 1, 'seconds': 17}","{'minutes': 3, 'seconds': 15}",9,64,DOWNS,True,24,38,24,38
+40175266719,401752667,Auburn,SEC,Baylor,Big 12,19,False,4,89,89,"{'minutes': 1, 'seconds': 17}",4,79,79,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 17}",4,10,END OF GAME,False,38,24,38,24
+4017545251,401754525,SMU,ACC,Baylor,Big 12,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 14, 'seconds': 48}","{'minutes': 0, 'seconds': 12}",1,75,TD,True,0,0,7,0
+4017545252,401754525,Baylor,Big 12,SMU,ACC,2,False,1,65,65,"{'minutes': 14, 'seconds': 41}",1,43,43,"{'minutes': 9, 'seconds': 55}","{'minutes': 4, 'seconds': 46}",10,22,DOWNS,False,0,7,0,7
+4017545253,401754525,SMU,ACC,Baylor,Big 12,3,True,1,43,57,"{'minutes': 9, 'seconds': 55}",1,74,26,"{'minutes': 7, 'seconds': 3}","{'minutes': 2, 'seconds': 52}",8,31,FG,True,7,0,10,0
+4017545254,401754525,Baylor,Big 12,SMU,ACC,4,False,1,69,69,"{'minutes': 6, 'seconds': 57}",1,27,27,"{'minutes': 3, 'seconds': 14}","{'minutes': 3, 'seconds': 43}",9,42,DOWNS,False,0,10,0,10
+4017545255,401754525,SMU,ACC,Baylor,Big 12,5,False,1,27,73,"{'minutes': 3, 'seconds': 14}",1,46,54,"{'minutes': 0, 'seconds': 38}","{'minutes': 2, 'seconds': 36}",5,19,PUNT,True,10,0,10,0
+4017545256,401754525,Baylor,Big 12,SMU,ACC,6,True,1,81,81,"{'minutes': 0, 'seconds': 38}",2,0,0,"{'minutes': 12, 'seconds': 12}","{'minutes': 3, 'seconds': 26}",9,81,TD,False,0,10,7,10
+4017545257,401754525,SMU,ACC,Baylor,Big 12,7,True,2,35,65,"{'minutes': 12, 'seconds': 12}",2,100,0,"{'minutes': 7, 'seconds': 21}","{'minutes': 4, 'seconds': 51}",11,65,TD,True,10,7,17,7
+40175452511,401754525,SMU,ACC,Baylor,Big 12,8,False,2,15,85,"{'minutes': 0, 'seconds': 37}",2,16,84,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 37}",1,1,END OF HALF,True,10,7,24,21
+4017545258,401754525,Baylor,Big 12,SMU,ACC,9,True,2,75,75,"{'minutes': 7, 'seconds': 19}",2,0,0,"{'minutes': 5, 'seconds': 7}","{'minutes': 2, 'seconds': 12}",7,75,TD,False,7,17,14,17
+40175452513,401754525,SMU,ACC,Baylor,Big 12,10,False,3,47,53,"{'minutes': 13, 'seconds': 29}",3,66,34,"{'minutes': 10, 'seconds': 36}","{'minutes': 2, 'seconds': 53}",9,19,MISSED FG,True,17,7,24,21
+4017545259,401754525,SMU,ACC,Baylor,Big 12,11,True,2,25,75,"{'minutes': 5, 'seconds': 1}",2,100,0,"{'minutes': 4, 'seconds': 49}","{'minutes': 0, 'seconds': 12}",1,75,TD,True,17,14,24,14
+40175452510,401754525,Baylor,Big 12,SMU,ACC,12,True,2,79,79,"{'minutes': 4, 'seconds': 44}",2,0,0,"{'minutes': 0, 'seconds': 37}","{'minutes': 4, 'seconds': 7}",11,79,TD,False,14,24,21,24
+40175452517,401754525,Baylor,Big 12,SMU,ACC,13,False,3,80,80,"{'minutes': 2, 'seconds': 43}",3,72,72,"{'minutes': 1, 'seconds': 35}","{'minutes': 1, 'seconds': 8}",3,8,PUNT,False,14,24,24,24
+40175452519,401754525,Baylor,Big 12,SMU,ACC,14,False,4,72,72,"{'minutes': 14, 'seconds': 17}",4,65,65,"{'minutes': 13, 'seconds': 37}","{'minutes': 0, 'seconds': 40}",2,7,FUMBLE,False,21,24,24,31
+40175452512,401754525,Baylor,Big 12,SMU,ACC,15,False,3,82,82,"{'minutes': 14, 'seconds': 56}",3,47,47,"{'minutes': 13, 'seconds': 29}","{'minutes': 1, 'seconds': 27}",5,35,DOWNS,False,21,24,21,24
+40175452514,401754525,Baylor,Big 12,SMU,ACC,16,True,3,66,66,"{'minutes': 10, 'seconds': 36}",3,9,9,"{'minutes': 5, 'seconds': 4}","{'minutes': 5, 'seconds': 32}",12,57,FG,False,21,24,24,24
+40175452515,401754525,SMU,ACC,Baylor,Big 12,17,False,3,25,75,"{'minutes': 5, 'seconds': 4}",3,26,74,"{'minutes': 3, 'seconds': 41}","{'minutes': 1, 'seconds': 23}",3,0,PUNT,True,24,24,24,24
+40175452525,401754525,Baylor,Big 12,SMU,ACC,18,True,5,25,25,"{'minutes': 0, 'seconds': 0}",5,0,0,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",3,25,TD,False,24,24,45,45
+40175452516,401754525,SMU,ACC,Baylor,Big 12,19,False,3,78,22,"{'minutes': 3, 'seconds': 41}",3,88,12,"{'minutes': 2, 'seconds': 43}","{'minutes': 0, 'seconds': 58}",3,10,INT,True,24,24,24,24
+40175452526,401754525,SMU,ACC,Baylor,Big 12,20,True,5,75,25,"{'minutes': 0, 'seconds': 0}",5,100,0,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",1,25,TD,True,24,24,45,45
+40175452527,401754525,SMU,ACC,Baylor,Big 12,21,False,6,75,25,"{'minutes': 0, 'seconds': 0}",6,79,21,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,4,MISSED FG,True,24,24,38,38
+40175452518,401754525,SMU,ACC,Baylor,Big 12,22,True,3,25,75,"{'minutes': 1, 'seconds': 35}",4,100,0,"{'minutes': 14, 'seconds': 24}","{'minutes': 2, 'seconds': 11}",5,75,TD,True,24,24,31,24
+40175452528,401754525,Baylor,Big 12,SMU,ACC,23,True,6,25,25,"{'minutes': 0, 'seconds': 0}",6,9,9,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",7,16,FG,False,24,24,48,45
+40175452539,401754525,Baylor,Big 12,SMU,ACC,24,False,5,25,25,"{'minutes': 0, 'seconds': 0}",5,2,2,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,23,DOWNS,False,38,38,38,38
+40175452540,401754525,SMU,ACC,Baylor,Big 12,25,False,5,25,75,"{'minutes': 0, 'seconds': 0}",5,0,100,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",1,0,DOWNS,True,45,45,45,45
+4017568911,401756891,Samford,Southern,Baylor,Big 12,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,78,78,"{'minutes': 14, 'seconds': 9}","{'minutes': 0, 'seconds': 51}",3,-3,PUNT,False,0,0,0,0
+4017568912,401756891,Baylor,Big 12,Samford,Southern,2,True,1,72,28,"{'minutes': 14, 'seconds': 9}",1,100,0,"{'minutes': 12, 'seconds': 52}","{'minutes': 1, 'seconds': 17}",4,28,TD,True,0,0,7,0
+4017568913,401756891,Samford,Southern,Baylor,Big 12,3,False,1,75,75,"{'minutes': 12, 'seconds': 52}",1,70,70,"{'minutes': 11, 'seconds': 36}","{'minutes': 1, 'seconds': 16}",3,5,PUNT,False,0,7,0,7
+4017568914,401756891,Baylor,Big 12,Samford,Southern,4,True,1,18,82,"{'minutes': 11, 'seconds': 36}",1,100,0,"{'minutes': 9, 'seconds': 37}","{'minutes': 1, 'seconds': 59}",5,82,TD,True,7,0,14,0
+4017568915,401756891,Samford,Southern,Baylor,Big 12,5,False,1,75,75,"{'minutes': 9, 'seconds': 37}",1,56,56,"{'minutes': 6, 'seconds': 34}","{'minutes': 3, 'seconds': 3}",6,19,PUNT,False,0,14,0,14
+4017568916,401756891,Baylor,Big 12,Samford,Southern,6,False,1,34,66,"{'minutes': 6, 'seconds': 34}",1,41,59,"{'minutes': 5, 'seconds': 7}","{'minutes': 1, 'seconds': 27}",3,7,PUNT,True,14,0,14,0
+4017568917,401756891,Samford,Southern,Baylor,Big 12,7,True,1,80,80,"{'minutes': 5, 'seconds': 7}",1,0,0,"{'minutes': 1, 'seconds': 7}","{'minutes': 4, 'seconds': 0}",10,80,TD,False,0,14,7,14
+4017568918,401756891,Baylor,Big 12,Samford,Southern,8,False,1,31,69,"{'minutes': 1, 'seconds': 0}",1,29,71,"{'minutes': 0, 'seconds': 20}","{'minutes': 0, 'seconds': 40}",3,-2,INT,True,14,7,14,7
+4017568919,401756891,Samford,Southern,Baylor,Big 12,9,False,1,24,24,"{'minutes': 0, 'seconds': 20}",2,18,18,"{'minutes': 13, 'seconds': 43}","{'minutes': 1, 'seconds': 37}",4,6,FUMBLE,False,7,14,7,14
+40175689110,401756891,Baylor,Big 12,Samford,Southern,10,True,2,18,82,"{'minutes': 13, 'seconds': 43}",2,100,0,"{'minutes': 8, 'seconds': 52}","{'minutes': 4, 'seconds': 51}",14,82,TD,True,14,7,21,7
+40175689111,401756891,Samford,Southern,Baylor,Big 12,11,False,2,75,75,"{'minutes': 8, 'seconds': 52}",2,74,74,"{'minutes': 7, 'seconds': 45}","{'minutes': 1, 'seconds': 7}",3,1,INT,False,7,21,7,21
+40175689112,401756891,Baylor,Big 12,Samford,Southern,12,True,2,66,34,"{'minutes': 7, 'seconds': 45}",2,100,0,"{'minutes': 4, 'seconds': 22}","{'minutes': 3, 'seconds': 23}",8,34,TD,True,21,7,28,7
+40175689113,401756891,Samford,Southern,Baylor,Big 12,13,False,2,75,75,"{'minutes': 4, 'seconds': 22}",2,69,69,"{'minutes': 2, 'seconds': 6}","{'minutes': 2, 'seconds': 16}",3,6,PUNT,False,7,28,7,28
+40175689114,401756891,Baylor,Big 12,Samford,Southern,14,True,2,52,48,"{'minutes': 2, 'seconds': 6}",2,100,0,"{'minutes': 1, 'seconds': 9}","{'minutes': 0, 'seconds': 57}",4,48,TD,True,28,7,35,7
+40175689115,401756891,Samford,Southern,Baylor,Big 12,15,False,2,75,75,"{'minutes': 1, 'seconds': 9}",2,67,67,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 9}",2,8,END OF HALF,False,7,35,7,35
+40175689116,401756891,Baylor,Big 12,Samford,Southern,16,False,3,43,57,"{'minutes': 14, 'seconds': 54}",3,42,58,"{'minutes': 13, 'seconds': 4}","{'minutes': 1, 'seconds': 50}",3,-1,PUNT,True,35,7,35,7
+40175689117,401756891,Samford,Southern,Baylor,Big 12,17,False,3,94,94,"{'minutes': 13, 'seconds': 4}",3,76,76,"{'minutes': 10, 'seconds': 59}","{'minutes': 2, 'seconds': 5}",6,18,PUNT,False,7,35,7,35
+40175689118,401756891,Baylor,Big 12,Samford,Southern,18,False,3,25,75,"{'minutes': 10, 'seconds': 59}",3,30,70,"{'minutes': 9, 'seconds': 51}","{'minutes': 1, 'seconds': 8}",3,5,PUNT,True,35,7,35,7
+40175689119,401756891,Samford,Southern,Baylor,Big 12,19,False,3,79,79,"{'minutes': 9, 'seconds': 51}",3,61,61,"{'minutes': 8, 'seconds': 41}","{'minutes': 1, 'seconds': 10}",4,18,PUNT,False,7,35,7,35
+40175689120,401756891,Baylor,Big 12,Samford,Southern,20,False,3,12,88,"{'minutes': 8, 'seconds': 41}",3,54,46,"{'minutes': 4, 'seconds': 54}","{'minutes': 3, 'seconds': 47}",9,42,PUNT,True,35,7,35,7
+40175689121,401756891,Samford,Southern,Baylor,Big 12,21,False,3,73,73,"{'minutes': 4, 'seconds': 54}",3,70,70,"{'minutes': 4, 'seconds': 1}","{'minutes': 0, 'seconds': 53}",3,3,INT,False,7,35,7,35
+40175689122,401756891,Baylor,Big 12,Samford,Southern,22,False,3,60,40,"{'minutes': 4, 'seconds': 1}",3,64,36,"{'minutes': 3, 'seconds': 27}","{'minutes': 0, 'seconds': 34}",2,4,INT,True,35,7,35,7
+40175689123,401756891,Samford,Southern,Baylor,Big 12,23,False,3,73,73,"{'minutes': 3, 'seconds': 27}",3,57,57,"{'minutes': 0, 'seconds': 52}","{'minutes': 2, 'seconds': 35}",5,16,PUNT,False,7,35,7,35
+40175689124,401756891,Baylor,Big 12,Samford,Southern,24,True,3,12,88,"{'minutes': 0, 'seconds': 52}",4,100,0,"{'minutes': 11, 'seconds': 40}","{'minutes': 4, 'seconds': 12}",14,88,TD,True,35,7,42,7
+40175689125,401756891,Samford,Southern,Baylor,Big 12,25,False,4,75,75,"{'minutes': 11, 'seconds': 40}",4,70,70,"{'minutes': 10, 'seconds': 18}","{'minutes': 1, 'seconds': 22}",3,5,INT,False,7,42,7,42
+40175689126,401756891,Baylor,Big 12,Samford,Southern,26,False,4,33,67,"{'minutes': 10, 'seconds': 18}",4,63,37,"{'minutes': 6, 'seconds': 35}","{'minutes': 3, 'seconds': 43}",9,30,DOWNS,True,42,7,42,7
+40175689127,401756891,Samford,Southern,Baylor,Big 12,27,False,4,63,63,"{'minutes': 6, 'seconds': 35}",4,55,55,"{'minutes': 4, 'seconds': 5}","{'minutes': 2, 'seconds': 30}",3,8,PUNT,False,7,42,7,42
+40175689128,401756891,Baylor,Big 12,Samford,Southern,28,False,4,23,77,"{'minutes': 4, 'seconds': 5}",4,62,38,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 5}",6,39,END OF GAME,True,42,7,42,7
+4017568961,401756896,Baylor,Big 12,Arizona State,Big 12,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,58,42,"{'minutes': 14, 'seconds': 5}","{'minutes': 0, 'seconds': 55}",3,33,FUMBLE,True,0,0,0,0
+4017568962,401756896,Arizona State,Big 12,Baylor,Big 12,2,True,1,58,58,"{'minutes': 14, 'seconds': 5}",1,13,13,"{'minutes': 8, 'seconds': 21}","{'minutes': 5, 'seconds': 44}",14,45,FG,False,0,0,3,0
+4017568963,401756896,Baylor,Big 12,Arizona State,Big 12,3,True,1,13,87,"{'minutes': 8, 'seconds': 21}",1,64,36,"{'minutes': 4, 'seconds': 8}","{'minutes': 4, 'seconds': 13}",11,51,FG,True,0,3,3,3
+4017568964,401756896,Arizona State,Big 12,Baylor,Big 12,4,False,1,84,84,"{'minutes': 4, 'seconds': 0}",1,61,61,"{'minutes': 0, 'seconds': 51}","{'minutes': 3, 'seconds': 9}",6,23,PUNT,False,3,3,3,3
+4017568965,401756896,Baylor,Big 12,Arizona State,Big 12,5,False,1,45,55,"{'minutes': 0, 'seconds': 51}",2,83,17,"{'minutes': 12, 'seconds': 41}","{'minutes': 3, 'seconds': 10}",9,38,DOWNS,True,3,3,3,3
+4017568966,401756896,Arizona State,Big 12,Baylor,Big 12,6,True,2,83,83,"{'minutes': 12, 'seconds': 41}",2,0,0,"{'minutes': 6, 'seconds': 26}","{'minutes': 6, 'seconds': 15}",13,83,TD,False,3,3,10,3
+4017568967,401756896,Baylor,Big 12,Arizona State,Big 12,7,True,2,27,73,"{'minutes': 6, 'seconds': 20}",2,100,0,"{'minutes': 3, 'seconds': 8}","{'minutes': 3, 'seconds': 12}",7,73,TD,True,3,10,10,10
+4017568968,401756896,Arizona State,Big 12,Baylor,Big 12,8,False,2,75,75,"{'minutes': 3, 'seconds': 8}",2,73,73,"{'minutes': 1, 'seconds': 50}","{'minutes': 1, 'seconds': 18}",3,2,PUNT,False,10,10,10,10
+4017568969,401756896,Baylor,Big 12,Arizona State,Big 12,9,False,2,35,65,"{'minutes': 1, 'seconds': 50}",2,47,53,"{'minutes': 0, 'seconds': 46}","{'minutes': 1, 'seconds': 4}",5,12,PUNT,True,10,10,10,10
+40175689610,401756896,Arizona State,Big 12,Baylor,Big 12,10,False,2,99,99,"{'minutes': 0, 'seconds': 46}",2,96,96,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 46}",2,3,END OF HALF,False,10,10,10,10
+40175689611,401756896,Arizona State,Big 12,Baylor,Big 12,11,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,54,54,"{'minutes': 12, 'seconds': 39}","{'minutes': 2, 'seconds': 21}",5,21,PUNT,False,10,10,10,10
+40175689612,401756896,Baylor,Big 12,Arizona State,Big 12,12,False,3,15,85,"{'minutes': 12, 'seconds': 39}",3,32,68,"{'minutes': 11, 'seconds': 42}","{'minutes': 0, 'seconds': 57}",3,17,FUMBLE,True,10,10,10,10
+40175689613,401756896,Arizona State,Big 12,Baylor,Big 12,13,True,3,32,32,"{'minutes': 11, 'seconds': 42}",3,5,5,"{'minutes': 8, 'seconds': 6}","{'minutes': 3, 'seconds': 36}",8,27,FG,False,10,10,13,10
+40175689614,401756896,Baylor,Big 12,Arizona State,Big 12,14,False,3,29,71,"{'minutes': 7, 'seconds': 59}",3,29,71,"{'minutes': 7, 'seconds': 33}","{'minutes': 0, 'seconds': 26}",3,0,PUNT,True,10,13,10,13
+40175689615,401756896,Arizona State,Big 12,Baylor,Big 12,15,False,3,82,82,"{'minutes': 7, 'seconds': 33}",3,16,16,"{'minutes': 1, 'seconds': 38}","{'minutes': 5, 'seconds': 55}",10,66,DOWNS,False,13,10,13,10
+40175689616,401756896,Baylor,Big 12,Arizona State,Big 12,16,False,3,16,84,"{'minutes': 1, 'seconds': 38}",3,30,70,"{'minutes': 0, 'seconds': 22}","{'minutes': 1, 'seconds': 16}",4,14,INT,True,10,13,10,13
+40175689617,401756896,Arizona State,Big 12,Baylor,Big 12,17,True,3,37,37,"{'minutes': 0, 'seconds': 22}",4,16,16,"{'minutes': 13, 'seconds': 35}","{'minutes': 1, 'seconds': 47}",5,21,FG,False,13,10,16,10
+40175689618,401756896,Baylor,Big 12,Arizona State,Big 12,18,True,4,25,75,"{'minutes': 13, 'seconds': 35}",4,100,0,"{'minutes': 9, 'seconds': 2}","{'minutes': 4, 'seconds': 33}",10,75,TD,True,10,16,17,16
+40175689619,401756896,Arizona State,Big 12,Baylor,Big 12,19,True,4,84,84,"{'minutes': 8, 'seconds': 51}",4,0,0,"{'minutes': 5, 'seconds': 29}","{'minutes': 3, 'seconds': 22}",7,84,TD,False,16,17,24,17
+40175689620,401756896,Baylor,Big 12,Arizona State,Big 12,20,True,4,36,64,"{'minutes': 5, 'seconds': 21}",4,100,0,"{'minutes': 1, 'seconds': 52}","{'minutes': 3, 'seconds': 29}",8,64,TD,True,17,24,24,24
+40175689621,401756896,Arizona State,Big 12,Baylor,Big 12,21,True,4,75,75,"{'minutes': 1, 'seconds': 52}",4,26,26,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 52}",11,49,FG,False,24,24,27,24
+4017569072,401756907,Oklahoma State,Big 12,Baylor,Big 12,1,False,1,3,97,"{'minutes': 14, 'seconds': 44}",1,39,61,"{'minutes': 13, 'seconds': 45}","{'minutes': 1, 'seconds': 17}",4,36,PUNT,True,0,0,0,0
+4017569073,401756907,Baylor,Big 12,Oklahoma State,Big 12,2,True,1,78,78,"{'minutes': 13, 'seconds': 33}",1,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 11}",3,78,TD,False,0,0,7,0
+4017569075,401756907,Oklahoma State,Big 12,Baylor,Big 12,3,True,1,25,75,"{'minutes': 12, 'seconds': 26}",1,57,43,"{'minutes': 9, 'seconds': 3}","{'minutes': 5, 'seconds': 33}",12,75,TD,True,0,7,7,7
+4017569077,401756907,Baylor,Big 12,Oklahoma State,Big 12,4,False,1,76,76,"{'minutes': 6, 'seconds': 48}",1,77,77,"{'minutes': 5, 'seconds': 27}","{'minutes': 1, 'seconds': 36}",3,-1,PUNT,False,7,7,7,7
+4017569078,401756907,Oklahoma State,Big 12,Baylor,Big 12,5,False,1,10,90,"{'minutes': 5, 'seconds': 15}",1,61,39,"{'minutes': 1, 'seconds': 49}","{'minutes': 3, 'seconds': 30}",10,54,DOWNS,True,7,7,7,7
+4017569079,401756907,Baylor,Big 12,Oklahoma State,Big 12,6,True,1,64,64,"{'minutes': 1, 'seconds': 44}",2,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 52}",7,64,TD,False,7,7,14,7
+40175690711,401756907,Oklahoma State,Big 12,Baylor,Big 12,7,True,2,25,75,"{'minutes': 14, 'seconds': 51}",2,78,22,"{'minutes': 11, 'seconds': 35}","{'minutes': 3, 'seconds': 22}",10,75,TD,True,7,7,10,14
+40175690713,401756907,Baylor,Big 12,Oklahoma State,Big 12,8,True,2,78,78,"{'minutes': 11, 'seconds': 25}",2,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 17}",6,78,TD,False,14,10,21,13
+40175690715,401756907,Oklahoma State,Big 12,Baylor,Big 12,9,True,2,25,75,"{'minutes': 9, 'seconds': 7}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 56}",3,75,TD,True,10,21,17,21
+40175690717,401756907,Baylor,Big 12,Oklahoma State,Big 12,10,False,2,88,88,"{'minutes': 8, 'seconds': 7}",2,72,72,"{'minutes': 6, 'seconds': 55}","{'minutes': 1, 'seconds': 23}",4,16,PUNT,False,21,17,21,17
+40175690718,401756907,Oklahoma State,Big 12,Baylor,Big 12,11,False,2,10,90,"{'minutes': 6, 'seconds': 43}",2,14,86,"{'minutes': 6, 'seconds': 6}","{'minutes': 0, 'seconds': 44}",3,4,PUNT,True,17,21,17,21
+40175690719,401756907,Baylor,Big 12,Oklahoma State,Big 12,12,True,2,56,56,"{'minutes': 6, 'seconds': 1}",2,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 21}",7,56,TD,False,21,17,28,17
+40175690721,401756907,Oklahoma State,Big 12,Baylor,Big 12,13,True,2,17,83,"{'minutes': 3, 'seconds': 33}",2,75,25,"{'minutes': 1, 'seconds': 6}","{'minutes': 2, 'seconds': 32}",12,58,FG,True,17,28,20,28
+40175690723,401756907,Baylor,Big 12,Oklahoma State,Big 12,14,False,2,75,75,"{'minutes': 1, 'seconds': 1}",2,35,35,"{'minutes': 0, 'seconds': 2}","{'minutes': 1, 'seconds': 0}",7,40,MISSED FG,False,28,26,28,26
+40175690724,401756907,Oklahoma State,Big 12,Baylor,Big 12,15,False,2,35,65,"{'minutes': 0, 'seconds': 1}",3,35,65,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 2}",1,0,END OF HALF,True,20,28,20,28
+40175690726,401756907,Baylor,Big 12,Oklahoma State,Big 12,16,True,3,86,86,"{'minutes': 14, 'seconds': 49}",3,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 45}",3,86,TD,False,28,20,35,20
+40175690728,401756907,Oklahoma State,Big 12,Baylor,Big 12,17,False,3,25,75,"{'minutes': 14, 'seconds': 10}",3,27,73,"{'minutes': 13, 'seconds': 24}","{'minutes': 0, 'seconds': 50}",3,2,PUNT,True,20,35,20,35
+40175690729,401756907,Baylor,Big 12,Oklahoma State,Big 12,18,False,3,79,79,"{'minutes': 13, 'seconds': 18}",3,79,79,"{'minutes': 13, 'seconds': 18}","{'minutes': 0, 'seconds': 21}",1,0,FUMBLE,False,35,20,35,20
+40175690730,401756907,Oklahoma State,Big 12,Baylor,Big 12,19,False,3,53,47,"{'minutes': 12, 'seconds': 59}",3,50,50,"{'minutes': 12, 'seconds': 8}","{'minutes': 0, 'seconds': 58}",3,-3,PUNT,True,20,35,20,35
+40175690731,401756907,Baylor,Big 12,Oklahoma State,Big 12,20,False,3,92,92,"{'minutes': 12, 'seconds': 0}",3,79,79,"{'minutes': 10, 'seconds': 16}","{'minutes': 1, 'seconds': 54}",5,13,PUNT,False,35,20,35,20
+40175690732,401756907,Oklahoma State,Big 12,Baylor,Big 12,21,False,3,30,70,"{'minutes': 10, 'seconds': 6}",3,26,74,"{'minutes': 9, 'seconds': 4}","{'minutes': 1, 'seconds': 7}",3,-4,PUNT,True,20,35,20,35
+40175690733,401756907,Baylor,Big 12,Oklahoma State,Big 12,22,False,3,64,64,"{'minutes': 8, 'seconds': 59}",3,46,46,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 37}",5,18,Uncategorized,False,35,20,35,27
+40175690738,401756907,Oklahoma State,Big 12,Baylor,Big 12,23,False,4,25,75,"{'minutes': 14, 'seconds': 48}",4,49,51,"{'minutes': 12, 'seconds': 5}","{'minutes': 2, 'seconds': 49}",6,24,PUNT,True,27,38,27,41
+40175690739,401756907,Baylor,Big 12,Oklahoma State,Big 12,24,True,4,89,89,"{'minutes': 11, 'seconds': 57}",4,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 5, 'seconds': 29}",14,89,TD,False,38,27,45,27
+40175690741,401756907,Oklahoma State,Big 12,Baylor,Big 12,25,False,4,25,75,"{'minutes': 6, 'seconds': 31}",4,42,58,"{'minutes': 4, 'seconds': 25}","{'minutes': 2, 'seconds': 16}",6,20,DOWNS,True,27,45,27,45
+40175690742,401756907,Baylor,Big 12,Oklahoma State,Big 12,26,False,4,45,45,"{'minutes': 4, 'seconds': 15}",4,27,27,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 15}",7,18,Uncategorized,False,45,27,45,27
+4017569111,401756911,Kansas State,Big 12,Baylor,Big 12,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,0,0,"{'minutes': 9, 'seconds': 33}","{'minutes': 5, 'seconds': 27}",10,75,TD,False,0,0,7,0
+4017569112,401756911,Baylor,Big 12,Kansas State,Big 12,2,True,1,11,89,"{'minutes': 9, 'seconds': 29}",1,87,13,"{'minutes': 4, 'seconds': 18}","{'minutes': 5, 'seconds': 11}",13,76,FG,True,0,7,3,7
+4017569113,401756911,Kansas State,Big 12,Baylor,Big 12,3,False,1,85,85,"{'minutes': 4, 'seconds': 13}",1,90,90,"{'minutes': 1, 'seconds': 23}","{'minutes': 2, 'seconds': 50}",3,-5,PUNT,False,7,3,7,3
+4017569114,401756911,Baylor,Big 12,Kansas State,Big 12,4,False,1,60,40,"{'minutes': 1, 'seconds': 23}",1,77,23,"{'minutes': 0, 'seconds': 38}","{'minutes': 0, 'seconds': 45}",5,17,INT,True,3,7,3,7
+4017569115,401756911,Kansas State,Big 12,Baylor,Big 12,5,False,1,98,98,"{'minutes': 0, 'seconds': 38}",2,77,77,"{'minutes': 12, 'seconds': 27}","{'minutes': 3, 'seconds': 11}",5,21,PUNT,False,7,3,7,3
+4017569116,401756911,Baylor,Big 12,Kansas State,Big 12,6,False,2,43,57,"{'minutes': 12, 'seconds': 27}",2,79,21,"{'minutes': 11, 'seconds': 6}","{'minutes': 1, 'seconds': 21}",3,36,FUMBLE,True,3,7,3,7
+4017569117,401756911,Kansas State,Big 12,Baylor,Big 12,7,False,2,79,79,"{'minutes': 11, 'seconds': 6}",2,73,73,"{'minutes': 9, 'seconds': 10}","{'minutes': 1, 'seconds': 56}",3,6,PUNT,False,7,3,7,3
+4017569118,401756911,Baylor,Big 12,Kansas State,Big 12,8,True,2,30,70,"{'minutes': 9, 'seconds': 10}",2,100,0,"{'minutes': 7, 'seconds': 39}","{'minutes': 1, 'seconds': 31}",4,70,TD,True,3,7,10,7
+4017569119,401756911,Kansas State,Big 12,Baylor,Big 12,9,True,2,88,88,"{'minutes': 7, 'seconds': 34}",2,31,31,"{'minutes': 4, 'seconds': 23}","{'minutes': 3, 'seconds': 11}",9,57,FG,False,7,10,10,10
+40175691110,401756911,Baylor,Big 12,Kansas State,Big 12,10,True,2,25,75,"{'minutes': 4, 'seconds': 23}",2,100,0,"{'minutes': 1, 'seconds': 57}","{'minutes': 2, 'seconds': 26}",8,75,TD,True,10,10,17,10
+40175691111,401756911,Kansas State,Big 12,Baylor,Big 12,11,True,2,72,72,"{'minutes': 1, 'seconds': 51}",2,0,0,"{'minutes': 0, 'seconds': 13}","{'minutes': 1, 'seconds': 38}",9,72,TD,False,10,17,17,17
+40175691112,401756911,Baylor,Big 12,Kansas State,Big 12,12,False,2,25,75,"{'minutes': 0, 'seconds': 13}",2,28,72,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 13}",1,3,END OF HALF,True,17,17,17,17
+40175691113,401756911,Baylor,Big 12,Kansas State,Big 12,13,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,48,52,"{'minutes': 11, 'seconds': 16}","{'minutes': 3, 'seconds': 44}",9,23,PUNT,True,17,17,17,17
+40175691114,401756911,Kansas State,Big 12,Baylor,Big 12,14,True,3,97,97,"{'minutes': 11, 'seconds': 16}",3,0,0,"{'minutes': 4, 'seconds': 35}","{'minutes': 6, 'seconds': 41}",14,97,TD,False,17,17,24,17
+40175691115,401756911,Baylor,Big 12,Kansas State,Big 12,15,False,3,25,75,"{'minutes': 4, 'seconds': 35}",3,4,96,"{'minutes': 3, 'seconds': 17}","{'minutes': 1, 'seconds': 18}",3,-21,PUNT,True,17,24,17,24
+40175691116,401756911,Kansas State,Big 12,Baylor,Big 12,16,True,3,44,44,"{'minutes': 3, 'seconds': 17}",3,0,0,"{'minutes': 1, 'seconds': 15}","{'minutes': 2, 'seconds': 2}",4,44,TD,False,24,17,31,17
+40175691117,401756911,Baylor,Big 12,Kansas State,Big 12,17,False,3,25,75,"{'minutes': 1, 'seconds': 15}",4,85,15,"{'minutes': 13, 'seconds': 1}","{'minutes': 3, 'seconds': 14}",10,60,DOWNS,True,17,31,17,31
+40175691118,401756911,Kansas State,Big 12,Baylor,Big 12,18,False,4,85,85,"{'minutes': 13, 'seconds': 1}",4,63,63,"{'minutes': 9, 'seconds': 57}","{'minutes': 3, 'seconds': 4}",5,22,PUNT,False,31,17,31,17
+40175691119,401756911,Baylor,Big 12,Kansas State,Big 12,19,True,4,18,82,"{'minutes': 9, 'seconds': 57}",4,100,0,"{'minutes': 8, 'seconds': 50}","{'minutes': 1, 'seconds': 7}",3,82,TD,True,17,31,25,31
+40175691120,401756911,Kansas State,Big 12,Baylor,Big 12,20,True,4,83,83,"{'minutes': 8, 'seconds': 45}",4,42,42,"{'minutes': 4, 'seconds': 28}","{'minutes': 4, 'seconds': 17}",10,41,INT TD,False,31,25,31,32
+40175691121,401756911,Kansas State,Big 12,Baylor,Big 12,21,True,4,76,76,"{'minutes': 4, 'seconds': 23}",4,4,4,"{'minutes': 1, 'seconds': 48}","{'minutes': 2, 'seconds': 35}",7,72,FG,False,31,32,34,32
+40175691122,401756911,Baylor,Big 12,Kansas State,Big 12,22,True,4,36,64,"{'minutes': 1, 'seconds': 41}",4,64,36,"{'minutes': 0, 'seconds': 31}","{'minutes': 1, 'seconds': 10}",6,28,FG,True,32,34,35,34
+40175691123,401756911,Kansas State,Big 12,Baylor,Big 12,23,False,4,75,75,"{'minutes': 0, 'seconds': 31}",4,38,38,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 29}",6,37,MISSED FG,False,34,35,34,35
+40175691124,401756911,Baylor,Big 12,Kansas State,Big 12,24,False,4,43,57,"{'minutes': 0, 'seconds': 2}",4,42,58,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 2}",1,-1,END OF GAME,True,35,34,35,34
+4017569272,401756927,Baylor,Big 12,TCU,Big 12,1,False,1,76,76,"{'minutes': 14, 'seconds': 52}",1,72,72,"{'minutes': 14, 'seconds': 21}","{'minutes': 0, 'seconds': 45}",3,4,PUNT,False,0,0,0,0
+4017569273,401756927,TCU,Big 12,Baylor,Big 12,2,False,1,30,70,"{'minutes': 14, 'seconds': 9}",1,47,53,"{'minutes': 12, 'seconds': 4}","{'minutes': 2, 'seconds': 11}",6,17,PUNT,True,0,0,0,0
+4017569274,401756927,Baylor,Big 12,TCU,Big 12,3,False,1,75,75,"{'minutes': 11, 'seconds': 58}",1,62,62,"{'minutes': 10, 'seconds': 35}","{'minutes': 1, 'seconds': 34}",5,13,PUNT,False,0,0,0,0
+4017569275,401756927,TCU,Big 12,Baylor,Big 12,4,False,1,4,96,"{'minutes': 10, 'seconds': 22}",1,44,56,"{'minutes': 7, 'seconds': 23}","{'minutes': 3, 'seconds': 9}",6,40,PUNT,True,0,0,0,0
+4017569276,401756927,Baylor,Big 12,TCU,Big 12,5,True,1,92,92,"{'minutes': 7, 'seconds': 15}",1,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 6, 'seconds': 22}",14,92,TD,False,0,0,7,0
+4017569278,401756927,TCU,Big 12,Baylor,Big 12,6,True,1,25,75,"{'minutes': 0, 'seconds': 51}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 54}",12,75,TD,True,0,7,7,7
+40175692710,401756927,Baylor,Big 12,TCU,Big 12,7,False,2,75,75,"{'minutes': 10, 'seconds': 57}",2,53,53,"{'minutes': 9, 'seconds': 9}","{'minutes': 1, 'seconds': 55}",7,21,DOWNS,False,7,7,7,7
+40175692711,401756927,TCU,Big 12,Baylor,Big 12,8,False,2,54,46,"{'minutes': 9, 'seconds': 2}",2,58,42,"{'minutes': 6, 'seconds': 56}","{'minutes': 2, 'seconds': 15}",6,4,PUNT,True,7,7,7,7
+40175692712,401756927,Baylor,Big 12,TCU,Big 12,9,False,2,80,80,"{'minutes': 6, 'seconds': 49}",2,80,80,"{'minutes': 6, 'seconds': 49}","{'minutes': 0, 'seconds': 10}",1,0,FUMBLE,False,7,7,7,7
+40175692713,401756927,TCU,Big 12,Baylor,Big 12,10,True,2,83,17,"{'minutes': 6, 'seconds': 37}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 29}",2,17,TD,True,7,7,14,7
+40175692715,401756927,Baylor,Big 12,TCU,Big 12,11,True,2,72,72,"{'minutes': 6, 'seconds': 0}",2,25,25,"{'minutes': 2, 'seconds': 4}","{'minutes': 3, 'seconds': 58}",12,47,FG,False,7,14,10,14
+40175692717,401756927,TCU,Big 12,Baylor,Big 12,12,True,2,23,77,"{'minutes': 1, 'seconds': 58}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 47}",11,77,TD,True,14,10,21,13
+40175692719,401756927,Baylor,Big 12,TCU,Big 12,13,False,2,72,72,"{'minutes': 0, 'seconds': 2}",2,72,72,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 5}",1,0,END OF HALF,False,10,21,10,21
+40175692721,401756927,TCU,Big 12,Baylor,Big 12,14,True,3,26,74,"{'minutes': 14, 'seconds': 52}",3,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 13}",7,74,TD,True,21,10,28,10
+40175692723,401756927,Baylor,Big 12,TCU,Big 12,15,True,3,75,75,"{'minutes': 11, 'seconds': 37}",3,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 59}",14,75,TD,False,10,28,18,28
+40175692725,401756927,TCU,Big 12,Baylor,Big 12,16,False,3,25,75,"{'minutes': 6, 'seconds': 38}",3,24,76,"{'minutes': 5, 'seconds': 27}","{'minutes': 1, 'seconds': 31}",3,-1,PUNT,True,28,18,28,18
+40175692726,401756927,Baylor,Big 12,TCU,Big 12,17,True,3,81,81,"{'minutes': 5, 'seconds': 6}",4,23,23,"{'minutes': 14, 'seconds': 58}","{'minutes': 5, 'seconds': 14}",12,58,FG,False,18,28,21,28
+40175692728,401756927,TCU,Big 12,Baylor,Big 12,18,True,4,25,75,"{'minutes': 14, 'seconds': 55}",4,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 9}",3,75,TD,True,28,18,35,21
+40175692730,401756927,Baylor,Big 12,TCU,Big 12,19,False,4,75,75,"{'minutes': 13, 'seconds': 44}",4,61,61,"{'minutes': 11, 'seconds': 52}","{'minutes': 2, 'seconds': 1}",5,14,PUNT,False,21,35,21,35
+40175692731,401756927,TCU,Big 12,Baylor,Big 12,20,False,4,16,84,"{'minutes': 11, 'seconds': 43}",4,24,76,"{'minutes': 10, 'seconds': 15}","{'minutes': 1, 'seconds': 45}",3,8,PUNT,True,35,21,35,21
+40175692732,401756927,Baylor,Big 12,TCU,Big 12,21,False,4,86,86,"{'minutes': 10, 'seconds': 0}",4,67,67,"{'minutes': 8, 'seconds': 20}","{'minutes': 1, 'seconds': 44}",5,19,DOWNS,False,21,35,21,35
+40175692733,401756927,TCU,Big 12,Baylor,Big 12,22,True,4,67,33,"{'minutes': 8, 'seconds': 14}",4,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 12}",4,33,TD,True,35,21,42,21
+40175692735,401756927,Baylor,Big 12,TCU,Big 12,23,False,4,75,75,"{'minutes': 6, 'seconds': 2}",4,75,75,"{'minutes': 6, 'seconds': 2}","{'minutes': 0, 'seconds': 8}",1,0,INT,False,21,42,21,42
+40175692736,401756927,TCU,Big 12,Baylor,Big 12,24,False,4,30,70,"{'minutes': 5, 'seconds': 53}",4,35,65,"{'minutes': 4, 'seconds': 24}","{'minutes': 1, 'seconds': 42}",3,5,PUNT,True,42,21,42,21
+40175692737,401756927,Baylor,Big 12,TCU,Big 12,25,False,4,60,60,"{'minutes': 4, 'seconds': 14}",4,27,27,"{'minutes': 3, 'seconds': 26}","{'minutes': 0, 'seconds': 57}",4,33,INT,False,21,42,21,42
+40175692738,401756927,TCU,Big 12,Baylor,Big 12,26,True,4,26,74,"{'minutes': 3, 'seconds': 15}",4,3,97,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 9}",2,74,FUMBLE RETURN TD,True,42,29,42,29
+40175692740,401756927,TCU,Big 12,Baylor,Big 12,27,False,4,53,47,"{'minutes': 3, 'seconds': 4}",4,43,57,"{'minutes': 2, 'seconds': 0}","{'minutes': 1, 'seconds': 17}",4,-10,PUNT,True,42,29,42,29
+40175692741,401756927,Baylor,Big 12,TCU,Big 12,28,True,4,95,95,"{'minutes': 1, 'seconds': 47}",4,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 19}",10,95,TD,False,29,42,36,42
+40175692743,401756927,Baylor,Big 12,TCU,Big 12,29,False,4,48,48,"{'minutes': 0, 'seconds': 27}",4,58,58,"{'minutes': 0, 'seconds': 17}","{'minutes': 0, 'seconds': 14}",2,-10,INT,False,36,42,36,42
+40175692744,401756927,TCU,Big 12,Baylor,Big 12,30,False,4,48,52,"{'minutes': 0, 'seconds': 11}",4,48,52,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 13}",1,0,Uncategorized,True,42,36,42,36
+4017569302,401756930,Cincinnati,Big 12,Baylor,Big 12,1,True,1,19,81,"{'minutes': 14, 'seconds': 55}",1,97,3,"{'minutes': 9, 'seconds': 52}","{'minutes': 5, 'seconds': 3}",11,81,TD,True,0,0,7,0
+4017569304,401756930,Baylor,Big 12,Cincinnati,Big 12,2,False,1,85,85,"{'minutes': 9, 'seconds': 46}",1,75,75,"{'minutes': 6, 'seconds': 12}","{'minutes': 3, 'seconds': 34}",6,10,PUNT,False,0,7,0,7
+4017569305,401756930,Cincinnati,Big 12,Baylor,Big 12,3,True,1,34,66,"{'minutes': 6, 'seconds': 2}",1,97,3,"{'minutes': 1, 'seconds': 22}","{'minutes': 4, 'seconds': 50}",10,66,TD,True,7,0,14,0
+4017569307,401756930,Baylor,Big 12,Cincinnati,Big 12,4,False,1,75,75,"{'minutes': 1, 'seconds': 22}",1,72,72,"{'minutes': 0, 'seconds': 50}","{'minutes': 0, 'seconds': 41}",3,3,PUNT,False,0,14,0,14
+4017569308,401756930,Cincinnati,Big 12,Baylor,Big 12,5,False,1,37,63,"{'minutes': 0, 'seconds': 24}",2,39,61,"{'minutes': 14, 'seconds': 53}","{'minutes': 1, 'seconds': 34}",3,2,PUNT,True,14,0,14,0
+4017569309,401756930,Baylor,Big 12,Cincinnati,Big 12,6,False,2,83,83,"{'minutes': 14, 'seconds': 1}",2,44,44,"{'minutes': 9, 'seconds': 1}","{'minutes': 5, 'seconds': 6}",10,39,DOWNS,False,0,14,0,14
+40175693010,401756930,Cincinnati,Big 12,Baylor,Big 12,7,True,2,45,55,"{'minutes': 8, 'seconds': 55}",2,72,28,"{'minutes': 5, 'seconds': 42}","{'minutes': 3, 'seconds': 19}",9,27,FG,True,14,0,17,0
+40175693012,401756930,Baylor,Big 12,Cincinnati,Big 12,8,False,2,75,75,"{'minutes': 5, 'seconds': 42}",2,68,68,"{'minutes': 5, 'seconds': 35}","{'minutes': 0, 'seconds': 7}",1,4,FUMBLE,False,0,17,0,17
+40175693013,401756930,Cincinnati,Big 12,Baylor,Big 12,9,True,2,71,29,"{'minutes': 5, 'seconds': 29}",2,97,3,"{'minutes': 2, 'seconds': 34}","{'minutes': 3, 'seconds': 1}",6,29,TD,True,17,0,24,0
+40175693015,401756930,Baylor,Big 12,Cincinnati,Big 12,10,True,2,75,75,"{'minutes': 2, 'seconds': 34}",2,3,3,"{'minutes': 0, 'seconds': 16}","{'minutes': 2, 'seconds': 18}",11,75,TD,False,0,24,6,24
+40175693017,401756930,Cincinnati,Big 12,Baylor,Big 12,11,False,2,25,75,"{'minutes': 0, 'seconds': 16}",2,24,76,"{'minutes': 0, 'seconds': 12}","{'minutes': 0, 'seconds': 16}",1,-1,END OF HALF,True,24,6,24,6
+40175693019,401756930,Baylor,Big 12,Cincinnati,Big 12,12,True,3,80,80,"{'minutes': 14, 'seconds': 55}",3,1,1,"{'minutes': 10, 'seconds': 36}","{'minutes': 4, 'seconds': 19}",9,79,TD,False,6,24,12,24
+40175693021,401756930,Cincinnati,Big 12,Baylor,Big 12,13,True,3,25,75,"{'minutes': 10, 'seconds': 36}",3,82,18,"{'minutes': 5, 'seconds': 15}","{'minutes': 5, 'seconds': 21}",12,57,FG,True,24,12,27,12
+40175693023,401756930,Baylor,Big 12,Cincinnati,Big 12,14,True,3,75,75,"{'minutes': 5, 'seconds': 15}",4,1,1,"{'minutes': 13, 'seconds': 34}","{'minutes': 6, 'seconds': 41}",12,74,TD,False,12,27,20,27
+40175693025,401756930,Cincinnati,Big 12,Baylor,Big 12,15,True,4,25,75,"{'minutes': 13, 'seconds': 34}",4,97,3,"{'minutes': 6, 'seconds': 13}","{'minutes': 7, 'seconds': 21}",12,75,TD,True,27,20,34,20
+40175693027,401756930,Cincinnati,Big 12,Baylor,Big 12,16,True,4,83,17,"{'minutes': 6, 'seconds': 4}",4,97,3,"{'minutes': 4, 'seconds': 26}","{'minutes': 1, 'seconds': 38}",3,17,TD,True,34,20,41,20
+40175693029,401756930,Baylor,Big 12,Cincinnati,Big 12,17,False,4,58,58,"{'minutes': 4, 'seconds': 19}",4,58,58,"{'minutes': 2, 'seconds': 38}","{'minutes': 1, 'seconds': 41}",4,0,DOWNS,False,20,41,20,41
+40175693030,401756930,Cincinnati,Big 12,Baylor,Big 12,18,False,4,58,42,"{'minutes': 2, 'seconds': 31}",4,81,19,"{'minutes': 1, 'seconds': 51}","{'minutes': 2, 'seconds': 38}",6,23,END OF GAME,True,41,20,41,20
+4017569362,401756936,Baylor,Big 12,UCF,Big 12,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 10, 'seconds': 49}","{'minutes': 4, 'seconds': 11}",11,75,TD,True,0,0,7,0
+4017569364,401756936,UCF,Big 12,Baylor,Big 12,2,False,1,83,83,"{'minutes': 10, 'seconds': 43}",1,81,81,"{'minutes': 9, 'seconds': 44}","{'minutes': 0, 'seconds': 59}",3,2,PUNT,False,0,7,0,7
+4017569365,401756936,Baylor,Big 12,UCF,Big 12,3,True,1,52,48,"{'minutes': 9, 'seconds': 34}",1,97,3,"{'minutes': 6, 'seconds': 41}","{'minutes': 3, 'seconds': 3}",8,48,TD,True,7,0,14,0
+4017569367,401756936,UCF,Big 12,Baylor,Big 12,4,False,1,75,75,"{'minutes': 6, 'seconds': 41}",1,13,13,"{'minutes': 2, 'seconds': 27}","{'minutes': 4, 'seconds': 14}",8,62,DOWNS,False,0,14,0,14
+4017569368,401756936,Baylor,Big 12,UCF,Big 12,5,True,1,13,87,"{'minutes': 2, 'seconds': 17}",2,77,23,"{'minutes': 14, 'seconds': 14}","{'minutes': 3, 'seconds': 13}",8,64,FG,True,14,0,17,0
+40175693610,401756936,UCF,Big 12,Baylor,Big 12,6,False,2,75,75,"{'minutes': 14, 'seconds': 14}",2,50,50,"{'minutes': 11, 'seconds': 5}","{'minutes': 3, 'seconds': 9}",6,25,PUNT,False,0,17,0,17
+40175693611,401756936,Baylor,Big 12,UCF,Big 12,7,False,2,30,70,"{'minutes': 10, 'seconds': 56}",2,71,29,"{'minutes': 7, 'seconds': 22}","{'minutes': 3, 'seconds': 43}",11,41,MISSED FG,True,17,0,17,0
+40175693612,401756936,UCF,Big 12,Baylor,Big 12,8,False,2,71,71,"{'minutes': 7, 'seconds': 15}",2,41,41,"{'minutes': 4, 'seconds': 15}","{'minutes': 3, 'seconds': 7}",7,30,DOWNS,False,0,17,0,17
+40175693613,401756936,Baylor,Big 12,UCF,Big 12,9,True,2,41,59,"{'minutes': 4, 'seconds': 6}",2,89,11,"{'minutes': 2, 'seconds': 28}","{'minutes': 1, 'seconds': 47}",6,48,FG,True,17,0,20,0
+40175693615,401756936,UCF,Big 12,Baylor,Big 12,10,False,2,82,82,"{'minutes': 2, 'seconds': 23}",2,54,54,"{'minutes': 1, 'seconds': 4}","{'minutes': 1, 'seconds': 19}",6,28,PUNT,False,0,20,0,20
+40175693616,401756936,Baylor,Big 12,UCF,Big 12,11,False,2,28,72,"{'minutes': 0, 'seconds': 57}",2,35,65,"{'minutes': 0, 'seconds': 18}","{'minutes': 0, 'seconds': 51}",6,7,FUMBLE,True,20,0,20,3
+40175693617,401756936,UCF,Big 12,Baylor,Big 12,12,True,2,35,35,"{'minutes': 0, 'seconds': 8}",2,35,35,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 13}",3,0,FG,False,0,20,3,20
+40175693619,401756936,UCF,Big 12,Baylor,Big 12,13,False,3,69,69,"{'minutes': 14, 'seconds': 52}",3,35,35,"{'minutes': 10, 'seconds': 58}","{'minutes': 3, 'seconds': 54}",9,34,MISSED FG,False,3,20,3,20
+40175693620,401756936,Baylor,Big 12,UCF,Big 12,14,True,3,35,65,"{'minutes': 10, 'seconds': 50}",3,77,23,"{'minutes': 4, 'seconds': 28}","{'minutes': 6, 'seconds': 30}",13,42,FG,True,20,3,23,3
+40175693622,401756936,UCF,Big 12,Baylor,Big 12,15,False,3,80,80,"{'minutes': 4, 'seconds': 22}",3,82,82,"{'minutes': 1, 'seconds': 45}","{'minutes': 2, 'seconds': 37}",3,-2,PUNT,False,3,23,3,23
+40175693623,401756936,Baylor,Big 12,UCF,Big 12,16,False,3,50,50,"{'minutes': 1, 'seconds': 39}",3,55,45,"{'minutes': 0, 'seconds': 15}","{'minutes': 1, 'seconds': 45}",4,5,DOWNS,True,23,3,23,3
+40175693624,401756936,UCF,Big 12,Baylor,Big 12,17,False,4,55,55,"{'minutes': 14, 'seconds': 48}",4,8,8,"{'minutes': 11, 'seconds': 36}","{'minutes': 3, 'seconds': 24}",7,47,DOWNS,False,3,23,3,23
+40175693625,401756936,Baylor,Big 12,UCF,Big 12,18,False,4,8,92,"{'minutes': 11, 'seconds': 27}",4,40,60,"{'minutes': 8, 'seconds': 41}","{'minutes': 2, 'seconds': 55}",6,32,PUNT,True,23,3,23,3
+40175693626,401756936,UCF,Big 12,Baylor,Big 12,19,False,4,86,86,"{'minutes': 8, 'seconds': 34}",4,93,93,"{'minutes': 7, 'seconds': 49}","{'minutes': 1, 'seconds': 0}",3,5,INT,False,3,23,3,23
+40175693627,401756936,Baylor,Big 12,UCF,Big 12,20,True,4,93,7,"{'minutes': 7, 'seconds': 26}",4,97,3,"{'minutes': 6, 'seconds': 4}","{'minutes': 1, 'seconds': 37}",3,7,TD,True,23,3,30,3
+40175693629,401756936,UCF,Big 12,Baylor,Big 12,21,False,4,80,80,"{'minutes': 5, 'seconds': 58}",4,49,49,"{'minutes': 4, 'seconds': 27}","{'minutes': 1, 'seconds': 35}",3,1,INT,False,3,30,3,30
+40175693630,401756936,Baylor,Big 12,UCF,Big 12,22,False,4,49,51,"{'minutes': 4, 'seconds': 13}",4,74,26,"{'minutes': 0, 'seconds': 40}","{'minutes': 4, 'seconds': 23}",7,25,END OF GAME,True,30,3,30,3
+4017569492,401756949,Baylor,Big 12,Utah,Big 12,1,False,1,21,79,"{'minutes': 14, 'seconds': 56}",1,42,58,"{'minutes': 13, 'seconds': 38}","{'minutes': 1, 'seconds': 18}",4,21,PUNT,True,0,0,0,0
+4017569493,401756949,Utah,Big 12,Baylor,Big 12,2,False,1,91,91,"{'minutes': 13, 'seconds': 30}",1,70,70,"{'minutes': 11, 'seconds': 45}","{'minutes': 1, 'seconds': 53}",5,21,PUNT,False,0,0,0,0
+4017569494,401756949,Baylor,Big 12,Utah,Big 12,3,False,1,35,65,"{'minutes': 11, 'seconds': 41}",1,76,24,"{'minutes': 9, 'seconds': 57}","{'minutes': 1, 'seconds': 48}",7,41,MISSED FG,True,0,0,0,0
+4017569495,401756949,Utah,Big 12,Baylor,Big 12,4,False,1,76,76,"{'minutes': 9, 'seconds': 52}",1,77,77,"{'minutes': 8, 'seconds': 50}","{'minutes': 1, 'seconds': 7}",3,-1,PUNT,False,0,0,0,0
+4017569496,401756949,Baylor,Big 12,Utah,Big 12,5,False,1,24,76,"{'minutes': 8, 'seconds': 42}",1,35,65,"{'minutes': 7, 'seconds': 21}","{'minutes': 1, 'seconds': 29}",5,11,PUNT,True,0,0,0,0
+4017569497,401756949,Utah,Big 12,Baylor,Big 12,6,True,1,76,76,"{'minutes': 7, 'seconds': 16}",1,3,3,"{'minutes': 2, 'seconds': 31}","{'minutes': 4, 'seconds': 50}",10,76,TD,False,0,0,7,0
+4017569499,401756949,Baylor,Big 12,Utah,Big 12,7,True,1,25,75,"{'minutes': 2, 'seconds': 31}",1,3,97,"{'minutes': 0, 'seconds': 11}","{'minutes': 2, 'seconds': 20}",6,36,INT TD,True,0,7,0,14
+40175694911,401756949,Baylor,Big 12,Utah,Big 12,8,True,1,25,75,"{'minutes': 0, 'seconds': 11}",2,97,3,"{'minutes': 12, 'seconds': 0}","{'minutes': 3, 'seconds': 11}",8,75,TD,True,0,14,7,14
+40175694913,401756949,Utah,Big 12,Baylor,Big 12,9,True,2,75,75,"{'minutes': 12, 'seconds': 0}",2,3,3,"{'minutes': 10, 'seconds': 47}","{'minutes': 1, 'seconds': 13}",3,75,TD,False,14,7,21,7
+40175694915,401756949,Baylor,Big 12,Utah,Big 12,10,False,2,20,80,"{'minutes': 10, 'seconds': 42}",2,18,82,"{'minutes': 9, 'seconds': 32}","{'minutes': 1, 'seconds': 10}",2,-7,PUNT,True,7,21,7,21
+40175694916,401756949,Utah,Big 12,Baylor,Big 12,11,False,2,62,62,"{'minutes': 9, 'seconds': 18}",2,64,64,"{'minutes': 8, 'seconds': 17}","{'minutes': 1, 'seconds': 15}",3,-2,PUNT,False,21,7,21,7
+40175694917,401756949,Baylor,Big 12,Utah,Big 12,12,True,2,21,79,"{'minutes': 8, 'seconds': 3}",2,94,6,"{'minutes': 5, 'seconds': 1}","{'minutes': 3, 'seconds': 16}",8,73,FG,True,7,21,10,21
+40175694919,401756949,Utah,Big 12,Baylor,Big 12,13,True,2,75,75,"{'minutes': 5, 'seconds': 1}",2,3,3,"{'minutes': 4, 'seconds': 28}","{'minutes': 0, 'seconds': 33}",2,75,TD,False,21,10,28,10
+40175694921,401756949,Baylor,Big 12,Utah,Big 12,14,False,2,24,76,"{'minutes': 4, 'seconds': 21}",2,75,25,"{'minutes': 1, 'seconds': 6}","{'minutes': 3, 'seconds': 15}",11,51,DOWNS,True,10,28,10,28
+40175694922,401756949,Utah,Big 12,Baylor,Big 12,15,False,2,75,75,"{'minutes': 0, 'seconds': 59}",2,75,75,"{'minutes': 0, 'seconds': 22}","{'minutes': 0, 'seconds': 44}",3,0,PUNT,False,28,10,28,10
+40175694923,401756949,Baylor,Big 12,Utah,Big 12,16,True,2,45,55,"{'minutes': 0, 'seconds': 12}",2,97,3,"{'minutes': 0, 'seconds': 4}","{'minutes': 0, 'seconds': 18}",2,55,TD,True,10,28,17,28
+40175694925,401756949,Utah,Big 12,Baylor,Big 12,17,False,2,75,75,"{'minutes': 0, 'seconds': 4}",2,76,76,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 4}",1,-1,END OF HALF,False,28,17,28,17
+40175694927,401756949,Utah,Big 12,Baylor,Big 12,18,False,3,82,82,"{'minutes': 14, 'seconds': 56}",3,64,64,"{'minutes': 11, 'seconds': 46}","{'minutes': 3, 'seconds': 10}",5,18,PUNT,False,28,17,28,17
+40175694928,401756949,Baylor,Big 12,Utah,Big 12,19,True,3,23,77,"{'minutes': 11, 'seconds': 40}",3,86,14,"{'minutes': 8, 'seconds': 9}","{'minutes': 3, 'seconds': 37}",10,63,FG,True,17,28,20,28
+40175694930,401756949,Utah,Big 12,Baylor,Big 12,20,True,3,85,85,"{'minutes': 8, 'seconds': 3}",3,3,3,"{'minutes': 7, 'seconds': 14}","{'minutes': 0, 'seconds': 49}",2,85,TD,False,28,20,35,20
+40175694932,401756949,Baylor,Big 12,Utah,Big 12,21,False,3,25,75,"{'minutes': 7, 'seconds': 13}",3,54,46,"{'minutes': 3, 'seconds': 32}","{'minutes': 3, 'seconds': 41}",7,29,DOWNS,True,20,35,20,35
+40175694933,401756949,Utah,Big 12,Baylor,Big 12,22,True,3,54,54,"{'minutes': 3, 'seconds': 27}",4,3,3,"{'minutes': 14, 'seconds': 12}","{'minutes': 4, 'seconds': 20}",8,54,TD,False,35,20,42,20
+40175694935,401756949,Baylor,Big 12,Utah,Big 12,23,False,4,25,75,"{'minutes': 14, 'seconds': 12}",4,9,91,"{'minutes': 12, 'seconds': 43}","{'minutes': 1, 'seconds': 29}",5,12,INT,True,20,42,20,42
+40175694936,401756949,Utah,Big 12,Baylor,Big 12,24,True,4,9,9,"{'minutes': 12, 'seconds': 36}",4,6,6,"{'minutes': 11, 'seconds': 3}","{'minutes': 1, 'seconds': 40}",3,9,TD,False,42,20,49,20
+40175694938,401756949,Baylor,Big 12,Utah,Big 12,25,True,4,25,75,"{'minutes': 11, 'seconds': 3}",4,97,3,"{'minutes': 8, 'seconds': 18}","{'minutes': 2, 'seconds': 45}",6,75,TD,True,20,49,28,49
+40175694940,401756949,Utah,Big 12,Baylor,Big 12,26,True,4,75,75,"{'minutes': 8, 'seconds': 18}",4,-15,-15,"{'minutes': 3, 'seconds': 28}","{'minutes': 4, 'seconds': 50}",10,90,TD,False,49,28,55,28
+40175694942,401756949,Baylor,Big 12,Utah,Big 12,27,False,4,25,75,"{'minutes': 3, 'seconds': 28}",4,66,34,"{'minutes': 0, 'seconds': 25}","{'minutes': 3, 'seconds': 3}",13,41,DOWNS,True,28,55,28,55
+40175694943,401756949,Utah,Big 12,Baylor,Big 12,28,False,4,66,66,"{'minutes': 0, 'seconds': 25}",4,67,67,"{'minutes': 0, 'seconds': 25}","{'minutes': 0, 'seconds': 25}",1,-1,END OF GAME,False,55,28,55,28
+4017569542,401756954,Baylor,Big 12,Arizona,Big 12,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,3,3,"{'minutes': 12, 'seconds': 5}","{'minutes': 2, 'seconds': 55}",7,75,TD,False,0,0,7,0
+4017569544,401756954,Arizona,Big 12,Baylor,Big 12,2,True,1,25,75,"{'minutes': 12, 'seconds': 5}",1,97,3,"{'minutes': 7, 'seconds': 46}","{'minutes': 4, 'seconds': 19}",10,75,TD,True,0,7,7,7
+4017569546,401756954,Baylor,Big 12,Arizona,Big 12,3,True,1,75,75,"{'minutes': 7, 'seconds': 46}",1,3,3,"{'minutes': 0, 'seconds': 40}","{'minutes': 7, 'seconds': 6}",17,75,TD,False,7,7,14,7
+4017569548,401756954,Arizona,Big 12,Baylor,Big 12,4,True,1,18,82,"{'minutes': 0, 'seconds': 34}",2,70,30,"{'minutes': 8, 'seconds': 59}","{'minutes': 6, 'seconds': 35}",13,82,TD,True,7,14,14,14
+40175695410,401756954,Baylor,Big 12,Arizona,Big 12,5,False,2,68,68,"{'minutes': 8, 'seconds': 53}",2,31,31,"{'minutes': 4, 'seconds': 59}","{'minutes': 3, 'seconds': 54}",9,37,MISSED FG,False,14,14,14,14
+40175695411,401756954,Arizona,Big 12,Baylor,Big 12,6,False,2,31,69,"{'minutes': 4, 'seconds': 42}",2,61,39,"{'minutes': 1, 'seconds': 51}","{'minutes': 3, 'seconds': 8}",8,16,INT,True,14,14,14,14
+40175695412,401756954,Baylor,Big 12,Arizona,Big 12,7,True,2,61,61,"{'minutes': 1, 'seconds': 44}",2,31,31,"{'minutes': 0, 'seconds': 9}","{'minutes': 1, 'seconds': 51}",9,30,FG,False,14,14,17,14
+40175695414,401756954,Arizona,Big 12,Baylor,Big 12,8,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,85,15,"{'minutes': 11, 'seconds': 49}","{'minutes': 3, 'seconds': 11}",8,75,TD,True,14,17,21,17
+40175695416,401756954,Baylor,Big 12,Arizona,Big 12,9,False,3,71,71,"{'minutes': 11, 'seconds': 43}",3,74,74,"{'minutes': 9, 'seconds': 35}","{'minutes': 2, 'seconds': 8}",3,-3,PUNT,False,17,21,17,21
+40175695417,401756954,Arizona,Big 12,Baylor,Big 12,10,False,3,35,65,"{'minutes': 9, 'seconds': 17}",3,43,57,"{'minutes': 8, 'seconds': 5}","{'minutes': 1, 'seconds': 30}",3,8,PUNT,True,21,17,21,17
+40175695418,401756954,Baylor,Big 12,Arizona,Big 12,11,False,3,88,88,"{'minutes': 7, 'seconds': 53}",3,87,87,"{'minutes': 6, 'seconds': 54}","{'minutes': 1, 'seconds': 11}",3,1,PUNT,False,17,21,17,21
+40175695419,401756954,Arizona,Big 12,Baylor,Big 12,12,False,3,41,59,"{'minutes': 6, 'seconds': 43}",3,45,55,"{'minutes': 5, 'seconds': 23}","{'minutes': 1, 'seconds': 31}",3,-11,PUNT,True,21,17,21,17
+40175695420,401756954,Baylor,Big 12,Arizona,Big 12,13,False,3,68,68,"{'minutes': 5, 'seconds': 7}",4,12,12,"{'minutes': 14, 'seconds': 15}","{'minutes': 6, 'seconds': 8}",11,56,INT,False,17,21,17,21
+40175695421,401756954,Arizona,Big 12,Baylor,Big 12,14,False,4,20,80,"{'minutes': 14, 'seconds': 6}",4,81,19,"{'minutes': 10, 'seconds': 46}","{'minutes': 3, 'seconds': 29}",8,61,MISSED FG,True,21,17,21,17
+40175695422,401756954,Baylor,Big 12,Arizona,Big 12,15,False,4,80,80,"{'minutes': 10, 'seconds': 37}",4,75,75,"{'minutes': 10, 'seconds': 37}","{'minutes': 0, 'seconds': 9}",1,8,FUMBLE,False,17,21,17,21
+40175695423,401756954,Arizona,Big 12,Baylor,Big 12,16,True,4,72,28,"{'minutes': 10, 'seconds': 31}",4,97,3,"{'minutes': 10, 'seconds': 31}","{'minutes': 0, 'seconds': 6}",1,28,TD,True,28,17,28,17
+40175695425,401756954,Baylor,Big 12,Arizona,Big 12,17,False,4,75,75,"{'minutes': 10, 'seconds': 31}",4,68,68,"{'minutes': 9, 'seconds': 5}","{'minutes': 1, 'seconds': 26}",4,7,DOWNS,False,17,28,17,28
+40175695426,401756954,Arizona,Big 12,Baylor,Big 12,18,True,4,68,32,"{'minutes': 8, 'seconds': 56}",4,97,3,"{'minutes': 6, 'seconds': 38}","{'minutes': 2, 'seconds': 27}",4,32,TD,True,28,17,35,17
+40175695428,401756954,Baylor,Big 12,Arizona,Big 12,19,True,4,75,75,"{'minutes': 6, 'seconds': 38}",4,85,85,"{'minutes': 6, 'seconds': 27}","{'minutes': 0, 'seconds': 11}",1,0,INT TD,False,17,35,17,41
+40175695430,401756954,Baylor,Big 12,Arizona,Big 12,20,False,4,61,61,"{'minutes': 6, 'seconds': 21}",4,39,39,"{'minutes': 3, 'seconds': 56}","{'minutes': 2, 'seconds': 25}",6,22,DOWNS,False,17,41,17,41
+40175695431,401756954,Arizona,Big 12,Baylor,Big 12,21,False,4,39,61,"{'minutes': 3, 'seconds': 54}",4,34,66,"{'minutes': 3, 'seconds': 6}","{'minutes': 0, 'seconds': 50}",3,-7,PUNT,True,41,17,41,17
+40175695432,401756954,Baylor,Big 12,Arizona,Big 12,22,False,4,70,70,"{'minutes': 2, 'seconds': 54}",4,36,36,"{'minutes': 0, 'seconds': 25}","{'minutes': 3, 'seconds': 6}",9,34,END OF GAME,False,17,41,17,41
+4017569622,401756962,Baylor,Big 12,Houston,Big 12,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,39,61,"{'minutes': 13, 'seconds': 5}","{'minutes': 1, 'seconds': 55}",4,14,PUNT,True,0,0,0,0
+4017569623,401756962,Houston,Big 12,Baylor,Big 12,2,True,1,82,82,"{'minutes': 12, 'seconds': 59}",1,25,25,"{'minutes': 7, 'seconds': 47}","{'minutes': 5, 'seconds': 18}",12,82,TD,False,0,0,7,0
+4017569625,401756962,Baylor,Big 12,Houston,Big 12,3,False,1,25,75,"{'minutes': 7, 'seconds': 47}",1,100,0,"{'minutes': 4, 'seconds': 50}","{'minutes': 2, 'seconds': 57}",8,68,INT,True,0,7,0,7
+4017569626,401756962,Houston,Big 12,Baylor,Big 12,4,False,1,80,80,"{'minutes': 4, 'seconds': 43}",1,74,74,"{'minutes': 2, 'seconds': 16}","{'minutes': 2, 'seconds': 46}",4,6,PUNT,False,7,0,7,0
+4017569627,401756962,Baylor,Big 12,Houston,Big 12,5,False,1,47,53,"{'minutes': 2, 'seconds': 1}",1,69,31,"{'minutes': 1, 'seconds': 28}","{'minutes': 0, 'seconds': 36}",2,22,FUMBLE,True,0,7,0,7
+40175696210,401756962,Baylor,Big 12,Houston,Big 12,6,True,2,63,37,"{'minutes': 14, 'seconds': 3}",2,63,37,"{'minutes': 13, 'seconds': 44}","{'minutes': 0, 'seconds': 19}",4,0,FG,True,0,14,3,14
+40175696212,401756962,Houston,Big 12,Baylor,Big 12,7,False,2,75,75,"{'minutes': 13, 'seconds': 44}",2,23,23,"{'minutes': 11, 'seconds': 57}","{'minutes': 1, 'seconds': 47}",4,40,INT,False,14,3,14,3
+40175696213,401756962,Baylor,Big 12,Houston,Big 12,8,True,2,37,63,"{'minutes': 11, 'seconds': 50}",2,83,17,"{'minutes': 6, 'seconds': 22}","{'minutes': 5, 'seconds': 35}",12,46,FG,True,3,14,6,14
+40175696215,401756962,Houston,Big 12,Baylor,Big 12,9,True,2,75,75,"{'minutes': 6, 'seconds': 22}",2,11,11,"{'minutes': 1, 'seconds': 40}","{'minutes': 4, 'seconds': 42}",12,64,FG,False,14,6,17,6
+40175696217,401756962,Baylor,Big 12,Houston,Big 12,10,True,2,25,75,"{'minutes': 1, 'seconds': 40}",2,87,13,"{'minutes': 0, 'seconds': 15}","{'minutes': 1, 'seconds': 25}",12,62,FG,True,6,17,9,17
+40175696219,401756962,Houston,Big 12,Baylor,Big 12,11,False,2,75,75,"{'minutes': 0, 'seconds': 15}",2,76,76,"{'minutes': 0, 'seconds': 15}","{'minutes': 0, 'seconds': 15}",1,-1,END OF HALF,False,17,9,17,9
+40175696221,401756962,Houston,Big 12,Baylor,Big 12,12,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,35,35,"{'minutes': 9, 'seconds': 30}","{'minutes': 5, 'seconds': 30}",10,40,PUNT,False,17,9,24,9
+40175696222,401756962,Baylor,Big 12,Houston,Big 12,13,False,3,10,90,"{'minutes': 9, 'seconds': 25}",3,16,84,"{'minutes': 7, 'seconds': 34}","{'minutes': 1, 'seconds': 56}",6,6,PUNT,True,9,17,9,17
+40175696223,401756962,Houston,Big 12,Baylor,Big 12,14,True,3,65,65,"{'minutes': 7, 'seconds': 28}",3,3,3,"{'minutes': 4, 'seconds': 58}","{'minutes': 2, 'seconds': 36}",5,65,TD,False,17,9,24,9
+40175696225,401756962,Baylor,Big 12,Houston,Big 12,15,False,3,36,64,"{'minutes': 4, 'seconds': 49}",3,88,12,"{'minutes': 1, 'seconds': 48}","{'minutes': 3, 'seconds': 1}",8,52,DOWNS,True,9,24,9,24
+40175696226,401756962,Houston,Big 12,Baylor,Big 12,16,False,3,88,88,"{'minutes': 1, 'seconds': 40}",3,83,83,"{'minutes': 0, 'seconds': 16}","{'minutes': 1, 'seconds': 32}",3,5,PUNT,False,24,9,24,9
+40175696227,401756962,Baylor,Big 12,Houston,Big 12,17,True,3,50,50,"{'minutes': 0, 'seconds': 16}",4,97,3,"{'minutes': 12, 'seconds': 19}","{'minutes': 2, 'seconds': 57}",7,50,TD,True,9,24,17,24
+40175696229,401756962,Houston,Big 12,Baylor,Big 12,18,False,4,77,77,"{'minutes': 12, 'seconds': 12}",4,56,56,"{'minutes': 10, 'seconds': 13}","{'minutes': 1, 'seconds': 59}",5,21,DOWNS,False,24,17,24,17
+40175696230,401756962,Baylor,Big 12,Houston,Big 12,19,True,4,56,44,"{'minutes': 10, 'seconds': 5}",4,96,4,"{'minutes': 8, 'seconds': 53}","{'minutes': 1, 'seconds': 20}",5,44,TD,True,17,24,24,24
+40175696232,401756962,Houston,Big 12,Baylor,Big 12,20,True,4,74,74,"{'minutes': 8, 'seconds': 49}",4,3,3,"{'minutes': 1, 'seconds': 57}","{'minutes': 6, 'seconds': 52}",15,74,TD,False,24,24,31,24
+40175696234,401756962,Baylor,Big 12,Houston,Big 12,21,False,4,25,75,"{'minutes': 1, 'seconds': 57}",4,87,13,"{'minutes': 0, 'seconds': 43}","{'minutes': 1, 'seconds': 14}",7,62,DOWNS,True,24,31,24,31
+40175696235,401756962,Houston,Big 12,Baylor,Big 12,22,False,4,87,87,"{'minutes': 0, 'seconds': 38}",4,70,70,"{'minutes': 0, 'seconds': 30}","{'minutes': 0, 'seconds': 43}",3,17,Uncategorized,False,31,24,31,24

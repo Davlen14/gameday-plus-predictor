@@ -11,7 +11,8 @@ interface FieldPositionMetricsProps {
 export function FieldPositionMetrics({ predictionData }: FieldPositionMetricsProps) {
   // Parse field position data from API
   const parseFieldPositionData = () => {
-    if (!predictionData?.formatted_analysis || !predictionData?.team_selector) {
+    const teamSelector = predictionData?.ui_components?.team_selector;
+    if (!predictionData?.formatted_analysis || !teamSelector) {
       return {
         awayTeam: { name: "Away Team", logo: "", primary_color: "#6366f1" },
         homeTeam: { name: "Home Team", logo: "", primary_color: "#10b981" },
@@ -21,8 +22,8 @@ export function FieldPositionMetrics({ predictionData }: FieldPositionMetricsPro
     }
 
     const analysis = predictionData.formatted_analysis;
-    const awayTeam = predictionData.team_selector.away_team;
-    const homeTeam = predictionData.team_selector.home_team;
+    const awayTeam = teamSelector.away;
+    const homeTeam = teamSelector.home;
     const section10 = extractSection(analysis, 10);
 
     // Parse field position metrics from section [10]

@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEDAY+ | The Neural Network Redefining CFB</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#FF0F45', /* Electric Crimson */
+                            dark: '#030303',
+                            surface: '#0A0A0A',
+                            accent: '#CCFF00', /* Cyber Lime */
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'hero-glow': 'conic-gradient(from 90deg at 50% 50%, #000000 0%, #1a1a1a 50%, #000000 100%)',
+                        'glass': 'linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
+                    },
+                    animation: {
+                        'scroll': 'scroll 40s linear infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'scanline': 'scanline 8s linear infinite',
+                        'radar': 'radar 2s linear infinite',
+                    },
+                    keyframes: {
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        scanline: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' }
+                        },
+                        radar: {
+                            '0%': { transform: 'scale(1)', opacity: '0.8' },
+                            '100%': { transform: 'scale(3)', opacity: '0' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --cursor-x: 0px;
+            --cursor-y: 0px;
+        }
+
+        body { 
+            background-color: #030303;
+            color: #E5E5E5;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Noise Texture */
+        .noise-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        /* Spotlight Effect Logic */
+        .spotlight-card {
+            position: relative;
+            background: rgba(10, 10, 10, 0.6);
+            overflow: hidden;
+        }
+        
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(
+                800px circle at var(--cursor-x) var(--cursor-y),
+                rgba(255, 255, 255, 0.06),
+                transparent 40%
+            );
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Glowing Borders via mask */
+        .spotlight-border {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px; /* border width */
+            background: radial-gradient(
+                600px circle at var(--cursor-x) var(--cursor-y),
+                rgba(255, 255, 255, 0.4),
+                transparent 40%
+            );
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .spotlight-card:hover .spotlight-border {
+            opacity: 1;
+        }
+
+        /* Perspective Grid */
+        .cyber-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+            transform: perspective(1000px) rotateX(60deg) translateY(-100px) scale(2);
+        }
+
+        /* Text Utilities */
+        .text-glow { text-shadow: 0 0 20px rgba(255, 15, 69, 0.5); }
+        .text-glow-accent { text-shadow: 0 0 20px rgba(204, 255, 0, 0.3); }
+
+        /* Code Block Styling */
+        .code-window {
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.1),
+                        0 20px 50px -10px rgba(0,0,0,0.5);
+        }
+
+        /* Map UI */
+        #map {
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+        }
+        .leaflet-container { 
+            background: #050505 !important;
+            border-radius: 1rem;
+        }
+        .leaflet-control-attribution { display: none !important; }
+
+        /* Radar Blip */
+        /* Team Logo Markers - Ultra Modern Transparent Style */
+        .team-logo-marker {
+            background: transparent !important;
+            border: none !important;
+        }
+        
+        .logo-container {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .team-logo-img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            position: relative;
+            z-index: 3;
+            opacity: 0.75;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+        }
+        
+        .logo-container:hover .team-logo-img {
+            transform: scale(1.2);
+            opacity: 1;
+            filter: drop-shadow(0 4px 16px rgba(255, 255, 255, 0.4));
+        }
+        
+        .logo-glow {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.15;
+            transition: all 0.4s ease;
+        }
+        
+        .logo-container:hover .logo-glow {
+            opacity: 0.4;
+            transform: scale(1.15);
+            animation: glow-pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes glow-pulse {
+            0%, 100% {
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+        
+        .logo-pulse {
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            animation: logo-pulse-ring 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        
+        @keyframes logo-pulse-ring {
+            0% {
+                transform: scale(0.85);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0.2;
+            }
+            100% {
+                transform: scale(1.15);
+                opacity: 0;
+            }
+        }
+        
+        /* Advanced Stats Tooltip - Digital HUD Style */
+        .leaflet-tooltip.team-stats-tooltip {
+            background: linear-gradient(135deg, rgba(5, 5, 5, 0.98) 0%, rgba(15, 15, 15, 0.98) 100%) !important;
+            backdrop-filter: blur(16px) !important;
+            border: none !important;
+            border-radius: 12px !important;
+            padding: 0 !important;
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 8px 32px rgba(0, 0, 0, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+            min-width: 240px !important;
+            font-family: 'Inter', -apple-system, sans-serif !important;
+        }
+        
+        .tooltip-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tooltip-team-name {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        
+        .tooltip-rank {
+            font-size: 10px;
+            padding: 2px 8px;
+            background: rgba(225, 29, 72, 0.2);
+            border: 1px solid rgba(225, 29, 72, 0.4);
+            border-radius: 4px;
+            color: #E11D48;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .tooltip-stats {
+            padding: 12px 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .stat-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+        }
+        
+        .stat-value {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            font-feature-settings: 'tnum';
+        }
+        
+        .stat-value.positive {
+            color: #10b981;
+        }
+        
+        .stat-value.negative {
+            color: #ef4444;
+        }
+        
+        .tooltip-footer {
+            padding: 8px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 0 0 12px 12px;
+        }
+        
+        .tooltip-conference {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .leaflet-tooltip.team-stats-tooltip::before {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-red selection:text-white">
+
+    <div class="noise-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-[#030303]/70 backdrop-blur-xl supports-[backdrop-filter]:bg-[#030303]/40">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="relative w-8 h-8 flex items-center justify-center bg-white/5 rounded border border-white/10 overflow-hidden group-hover:border-brand-red/50 transition duration-300">
+                    <div class="absolute inset-0 bg-brand-red/20 blur opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <i data-lucide="cpu" class="w-4 h-4 text-white relative z-10"></i>
+                </div>
+                <div class="font-display font-bold text-xl tracking-tighter italic">
+                    GAMEDAY<span class="text-brand-red">+</span>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center gap-1 p-1 rounded-full border border-white/5 bg-white/5 backdrop-blur-md">
+                <a href="#comparison" class="px-5 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all">Difference</a>
+                <a href="#ecosystem" class="px-5 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all">Ecosystem</a>
+                <a href="#map" class="px-5 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all">Live Map</a>
+                <a href="#why" class="px-5 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all">Why Us</a>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="#categories" class="hidden md:block text-sm font-mono text-gray-400 hover:text-white transition-colors">Log In_</a>
+                <a href="#" class="relative inline-flex h-10 overflow-hidden rounded-lg p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                    <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"></span>
+                    <span class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-slate-950 px-6 py-1 text-sm font-medium text-white backdrop-blur-3xl hover:bg-slate-950/80 transition-colors">
+                        Start Building
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden min-h-screen flex flex-col justify-center">
+        <!-- Background FX -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-hero-glow opacity-20 blur-[100px]"></div>
+            <div class="cyber-grid absolute inset-0 opacity-20"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto w-full relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Left Column: Copy -->
+            <div class="text-left space-y-8">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
+                    </span>
+                    <span class="text-xs font-mono text-gray-300 tracking-wider">SYSTEM v2.0: <span class="text-white font-bold">ONLINE</span></span>
+                </div>
+
+                <h1 class="font-display font-black text-5xl md:text-7xl tracking-tight leading-[0.95]">
+                    THE NEURAL NETWORK <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-rose-500 to-purple-600 text-glow">REDEFINING COLLEGE FOOTBALL INTELLIGENCE</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-400 max-w-xl leading-relaxed font-light border-l-2 border-brand-red/30 pl-6">
+                    Where 25 years of historical data meets advanced machine learning, real-time NIL valuations, and predictive modeling that <span class="text-white font-medium">outperforms Vegas oddsmakers</span>.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="/coaches" class="px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all flex items-center gap-2">
+                        <i data-lucide="terminal" class="w-4 h-4"></i>
+                        Start Building
+                    </a>
+                    <button class="px-8 py-4 bg-transparent border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 transition-all flex items-center gap-2 group">
+                        Documentation
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Column: Code Terminal (Unchanged) -->
+            <div class="relative animate-float hidden lg:block">
+                <!-- Decorative Blobs -->
+                <div class="absolute -top-20 -right-20 w-64 h-64 bg-brand-red/20 rounded-full blur-[80px]"></div>
+                <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px]"></div>
+
+                <!-- Terminal -->
+                <div class="code-window relative bg-[#0A0A0A]/90 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden">
+                    <div class="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                        </div>
+                        <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">predict_engine.py</div>
+                    </div>
+                    <div class="p-6 overflow-x-auto">
+                        <pre class="font-mono text-sm leading-relaxed"><code><span class="text-purple-400">import</span> gameday_ai <span class="text-purple-400">as</span> gd
+
+<span class="text-gray-500"># Initialize Neural Connect</span>
+<span class="text-blue-400">session</span> = gd.<span class="text-yellow-300">connect</span>(
+    key=<span class="text-green-400">"sk_live_892..."</span>, 
+    latency=<span class="text-green-400">"sub-second"</span>
+)
+
+<span class="text-gray-500"># Query Live Probability (CFB Final)</span>
+<span class="text-blue-400">prediction</span> = <span class="text-purple-400">await</span> <span class="text-blue-400">session</span>.<span class="text-yellow-300">predict</span>({
+    <span class="text-brand-red">"matchup"</span>: <span class="text-green-400">"Alabama vs Georgia"</span>,
+    <span class="text-brand-red">"state"</span>: <span class="text-green-400">"Q4_2:00"</span>,
+    <span class="text-brand-red">"possession"</span>: <span class="text-green-400">"Home"</span>
+})
+
+print(<span class="text-green-400">f"Win Probability: <span class="text-brand-accent">{prediction.win_prob}%</span>"</span>)
+<span class="text-gray-500"># Output: Win Probability: 94.2%</span></code></pre>
+                    </div>
+                    <!-- Terminal Scanline -->
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent h-[10px] w-full animate-scanline pointer-events-none opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Key Stats Banner (Auto-Updating) -->
+    <div class="border-y border-white/5 bg-black/40 backdrop-blur-sm py-6 overflow-hidden relative">
+        <div class="flex animate-scroll whitespace-nowrap w-max gap-16 px-12">
+            <!-- Stat 1 -->
+            <div class="flex items-center gap-4">
+                <div class="p-2 bg-purple-500/10 rounded-lg border border-purple-500/20">
+                    <i data-lucide="brain-circuit" class="w-6 h-6 text-purple-400"></i>
+                </div>
+                <div>
+                    <div class="text-2xl font-display font-bold text-white count-up" data-target="1240590">1,240,590</div>
+                    <div class="text-xs font-mono text-gray-500 uppercase tracking-widest">Data Points Analyzed</div>
+                </div>
+            </div>
+            <!-- Stat 2 -->
+            <div class="flex items-center gap-4">
+                <div class="p-2 bg-blue-500/10 rounded-lg border border-blue-500/20">
+                    <i data-lucide="users" class="w-6 h-6 text-blue-400"></i>
+                </div>
+                <div>
+                    <div class="text-2xl font-display font-bold text-white">51</div>
+                    <div class="text-xs font-mono text-gray-500 uppercase tracking-widest">Active Coaches</div>
+                </div>
+            </div>
+            <!-- Stat 3 -->
+            <div class="flex items-center gap-4">
+                <div class="p-2 bg-brand-red/10 rounded-lg border border-brand-red/20">
+                    <i data-lucide="shield" class="w-6 h-6 text-brand-red"></i>
+                </div>
+                <div>
+                    <div class="text-2xl font-display font-bold text-white">134</div>
+                    <div class="text-xs font-mono text-gray-500 uppercase tracking-widest">FBS Teams</div>
+                </div>
+            </div>
+            <!-- Stat 4 -->
+            <div class="flex items-center gap-4">
+                <div class="p-2 bg-brand-accent/10 rounded-lg border border-brand-accent/20">
+                    <i data-lucide="bar-chart-2" class="w-6 h-6 text-brand-accent"></i>
+                </div>
+                <div>
+                    <div class="text-2xl font-display font-bold text-white count-up" data-target="24068">24,068</div>
+                    <div class="text-xs font-mono text-gray-500 uppercase tracking-widest">Weekly Rankings</div>
+                </div>
+            </div>
+            <!-- Stat 5 -->
+            <div class="flex items-center gap-4 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition">
+                <div class="p-2 bg-green-500/10 rounded-lg border border-green-500/20">
+                    <i data-lucide="dollar-sign" class="w-6 h-6 text-green-400"></i>
+                </div>
+                <div>
+                    <div class="text-xl font-display font-bold text-white flex items-center gap-2">
+                        NIL VALUATIONS <span class="text-[10px] bg-white/10 px-2 py-0.5 rounded text-white border border-white/10">BETA</span>
+                    </div>
+                    <div class="text-xs font-mono text-gray-500 uppercase tracking-widest">Coming Soon</div>
+                </div>
+            </div>
+             <!-- Stat 6 -->
+             <div class="flex items-center gap-4">
+                <div class="p-2 bg-yellow-500/10 rounded-lg border border-yellow-500/20">
+                    <i data-lucide="crosshair" class="w-6 h-6 text-yellow-400"></i>
+                </div>
+                <div>
+                    <div class="text-2xl font-display font-bold text-white">87%</div>
+                    <div class="text-xs font-mono text-gray-500 uppercase tracking-widest">Prediction Accuracy</div>
+                </div>
+            </div>
+             <!-- Duplicate for seamless scroll -->
+             <div class="flex items-center gap-4">
+                <div class="p-2 bg-purple-500/10 rounded-lg border border-purple-500/20">
+                    <i data-lucide="brain-circuit" class="w-6 h-6 text-purple-400"></i>
+                </div>
+                <div>
+                    <div class="text-2xl font-display font-bold text-white">1.2M+</div>
+                    <div class="text-xs font-mono text-gray-500 uppercase tracking-widest">Data Points Analyzed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">WHAT MAKES US <span class="text-brand-red">DIFFERENT</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Traditional analytics look at the box score. We look at the matrix.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Traditional -->
+            <div class="p-8 rounded-2xl bg-[#080808] border border-white/5 relative overflow-hidden group">
+                <div class="absolute inset-0 bg-red-500/5 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                <div class="relative z-10">
+                    <h3 class="font-display text-2xl font-bold text-gray-500 mb-6 flex items-center gap-3">
+                        <i data-lucide="x-circle" class="w-6 h-6"></i>
+                        Traditional Analytics
+                    </h3>
+                    <ul class="space-y-4 font-mono text-sm text-gray-500">
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-red-900"></span>
+                            Raw stats without context
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-red-900"></span>
+                            Surface-level coach records
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-red-900"></span>
+                            No predictive modeling
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-red-900"></span>
+                            Ignores NIL & Transfer Portal
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-red-900"></span>
+                            Static historical data
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Neural Network -->
+            <div class="spotlight-card p-8 rounded-2xl border border-brand-accent/20 relative overflow-hidden">
+                <div class="spotlight-border"></div>
+                <div class="absolute inset-0 bg-brand-accent/5"></div>
+                <div class="relative z-10">
+                    <h3 class="font-display text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-accent"></i>
+                        Neural Network Approach
+                    </h3>
+                    <ul class="space-y-4 font-mono text-sm text-gray-300">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span class="text-white">Advanced EPA Analysis</span> - Every play matters
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span class="text-white">Situational Context Engine</span> - Weather, Rivalry, Home/Away
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span class="text-white">Coaching DNA Profiles</span> - Tendency analysis & development
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span class="text-white">NIL Impact Modeling</span> - Spending vs. Talent correlation
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span class="text-white">Real-time Line Movement</span> - Your edge vs Vegas consensus
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span class="text-white">Injury Impact Quantification</span> - Win prob. shifts
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Database Ecosystem (8 Categories) -->
+    <section id="ecosystem" class="py-24 bg-gradient-to-b from-[#030303] to-[#0A0A0A] border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center gap-4 mb-12">
+                <div class="h-px bg-white/10 flex-1"></div>
+                <span class="font-mono text-xs text-brand-accent tracking-widest uppercase">Select Intelligence Module</span>
+                <div class="h-px bg-white/10 flex-1"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4" id="cards-container">
+                <!-- 1. Predictive Engine -->
+                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
+                    <div class="spotlight-border"></div>
+                    <div class="w-10 h-10 bg-purple-500/10 rounded flex items-center justify-center border border-purple-500/20 mb-4 text-purple-400">
+                        <i data-lucide="target" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-white mb-2">Predictive Engine</h4>
+                    <p class="text-xs text-gray-500 font-mono mb-3">Game Predictions Powered by Neural Networks</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Live Game Predictor</li>
+                        <li>• Line Value Finder</li>
+                        <li>• Playoff Matrix</li>
+                    </ul>
+                </div>
+
+                <!-- 2. Coaching Intelligence -->
+                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
+                    <div class="spotlight-border"></div>
+                    <div class="w-10 h-10 bg-brand-red/10 rounded flex items-center justify-center border border-brand-red/20 mb-4 text-brand-red">
+                        <i data-lucide="user-check" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-white mb-2">Coaching Intel</h4>
+                    <p class="text-xs text-gray-500 font-mono mb-3">Deep Analytics on 51+ Active Head Coaches</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Tendency Analysis</li>
+                        <li>• QB Development Index</li>
+                        <li>• Hot Seat Predictor</li>
+                    </ul>
+                </div>
+
+                <!-- 3. Team Intelligence -->
+                <a href="/teams" class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition block">
+                    <div class="spotlight-border"></div>
+                    <div class="w-10 h-10 bg-blue-500/10 rounded flex items-center justify-center border border-blue-500/20 mb-4 text-blue-400">
+                        <i data-lucide="shield" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-white mb-2">Team Center</h4>
+                    <p class="text-xs text-gray-500 font-mono mb-3">134 FBS Teams with 25 Years of Data</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Comparison Matrix</li>
+                        <li>• Venue Advantage</li>
+                        <li>• Style Classifier</li>
+                    </ul>
+                </a>
+
+                <!-- 4. NIL & Portal -->
+                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
+                    <div class="spotlight-border"></div>
+                    <div class="w-10 h-10 bg-green-500/10 rounded flex items-center justify-center border border-green-500/20 mb-4 text-green-400">
+                        <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-white mb-2">NIL & Portal Hub</h4>
+                    <p class="text-xs text-gray-500 font-mono mb-3">The New Economics of College Football</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Valuation Tracker</li>
+                        <li>• Spend Efficiency</li>
+                        <li>• Tampering Detection</li>
+                    </ul>
+                </div>
+
+                <!-- 5. Advanced Metrics -->
+                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
+                    <div class="spotlight-border"></div>
+                    <div class="w-10 h-10 bg-brand-accent/10 rounded flex items-center justify-center border border-brand-accent/20 mb-4 text-brand-accent">
+                        <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-white mb-2">Metrics Lab</h4>
+                    <p class="text-xs text-gray-500 font-mono mb-3">Beyond Basic Stats - The Numbers That Matter</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• EPA Database</li>
+                        <li>• Success Rate Analytics</li>
+                        <li>• Explosive Play Rate</li>
+                    </ul>
+                </div>
+
+                <!-- 6. Betting Intelligence -->
+                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
+                    <div class="spotlight-border"></div>
+                    <div class="w-10 h-10 bg-yellow-500/10 rounded flex items-center justify-center border border-yellow-500/20 mb-4 text-yellow-400">
+                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-white mb-2">Betting Intel</h4>
+                    <p class="text-xs text-gray-500 font-mono mb-3">Where Sharp Money Meets Data Science</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Live Line Comparison</li>
+                        <li>• Kelly Criterion Calc</li>
+                        <li>• Public Betting %</li>
+                    </ul>
+                </div>
+
+                <!-- 7. Historical Archives -->
+                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
+                    <div class="spotlight-border"></div>
+                    <div class="w-10 h-10 bg-orange-500/10 rounded flex items-center justify-center border border-orange-500/20 mb-4 text-orange-400">
+                        <i data-lucide="archive" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-white mb-2">The Archives</h4>
+                    <p class="text-xs text-gray-500 font-mono mb-3">25 Years of Data at Your Fingertips</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Rankings Timeline</li>
+                        <li>• Season Rewind</li>
+                        <li>• What-If Simulator</li>
+                    </ul>
+                </div>
+
+                <!-- 8. Neural Network Insights -->
+                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
+                    <div class="spotlight-border"></div>
+                    <div class="w-10 h-10 bg-pink-500/10 rounded flex items-center justify-center border border-pink-500/20 mb-4 text-pink-400">
+                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-white mb-2">Neural Insights</h4>
+                    <p class="text-xs text-gray-500 font-mono mb-3">How Our AI Actually Works</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Model Accuracy Logs</li>
+                        <li>• Feature Importance</li>
+                        <li>• Confidence Intervals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Edge Map (Unchanged) -->
+    <section id="map" class="py-24 relative overflow-hidden bg-black border-t border-white/10">
+        
+        <div class="max-w-7xl mx-auto px-6 mb-8 flex flex-col md:flex-row items-end justify-between gap-6 relative z-10">
+            <div>
+                <h2 class="font-display text-3xl md:text-5xl font-bold mb-2">FBS <span class="text-brand-red">PROGRAMS</span> MAP</h2>
+                <p class="font-mono text-xs text-gray-400 tracking-widest uppercase">134 Teams Across The Nation</p>
+            </div>
+            
+            <div class="flex items-center gap-4 bg-[#0A0A0A] border border-white/10 px-6 py-3 rounded-full backdrop-blur-md">
+                <span class="flex items-center gap-3 text-xs font-mono text-white uppercase tracking-wider">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
+                    </span>
+                    134 Programs
+                </span>
+                <span class="h-4 w-px bg-white/20"></span>
+                <span class="text-xs font-mono text-gray-400">51 <span class="text-white">Active Coaches</span></span>
+            </div>
+        </div>
+        
+        <!-- Map Container -->
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="relative w-full h-[500px] bg-[#0A0A0A] rounded-2xl border border-white/5 overflow-hidden shadow-2xl">
+                <!-- Subtle corner brackets -->
+                <div class="absolute inset-0 pointer-events-none z-[500]">
+                    <svg class="absolute top-3 left-3 w-6 h-6 text-brand-red/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9V1h8" /></svg>
+                    <svg class="absolute top-3 right-3 w-6 h-6 text-brand-red/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 9V1h-8" /></svg>
+                    <svg class="absolute bottom-3 left-3 w-6 h-6 text-brand-red/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 15v8h8" /></svg>
+                    <svg class="absolute bottom-3 right-3 w-6 h-6 text-brand-red/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 15v8h-8" /></svg>
+                </div>
+                <!-- Leaflet Map -->
+                <div id="map" class="w-full h-full opacity-70"></div>
+                <!-- Subtle dark overlay for blending -->
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/40 via-transparent to-[#0A0A0A]/60 pointer-events-none"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Matters Pitch -->
+    <section id="why" class="py-24 px-6 max-w-7xl mx-auto border-t border-white/10">
+        <h2 class="font-display text-4xl font-bold mb-12 text-center">WHY IT <span class="text-brand-red">MATTERS</span></h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Fans -->
+            <div class="p-6 border-l-2 border-brand-red/30 bg-white/5 backdrop-blur-sm rounded-r-lg">
+                <h3 class="font-display font-bold text-white mb-2">For Fans</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">"Stop guessing. Start knowing. Our neural network processes factors you can't see - from coaching tendencies to weather impact."</p>
+            </div>
+            
+            <!-- Bettors -->
+            <div class="p-6 border-l-2 border-brand-accent/30 bg-white/5 backdrop-blur-sm rounded-r-lg">
+                <h3 class="font-display font-bold text-white mb-2">For Bettors</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">"Vegas doesn't have our data. They react to public perception. We react to mathematical reality."</p>
+            </div>
+            
+            <!-- Media -->
+            <div class="p-6 border-l-2 border-purple-500/30 bg-white/5 backdrop-blur-sm rounded-r-lg">
+                <h3 class="font-display font-bold text-white mb-2">For Media</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">"The talking heads use gut feelings. You can use predictive models trained on 1.2 million data points."</p>
+            </div>
+
+            <!-- Scouts/ADs -->
+            <div class="p-6 border-l-2 border-blue-500/30 bg-white/5 backdrop-blur-sm rounded-r-lg">
+                <h3 class="font-display font-bold text-white mb-2">For Recruiters</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">"Which coaches actually develop talent? Which programs overperform their rankings? The data tells the real story."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-16 bg-[#030303] relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                     <div class="font-display font-bold text-2xl italic mb-6">GAMEDAY<span class="text-brand-red">+</span></div>
+                     <p class="text-gray-500 text-sm max-w-sm leading-relaxed">
+                        Redefining sports intelligence through neural networks and edge computing. 
+                        The standard for real-time analytics.
+                     </p>
+                </div>
+                <div>
+                    <h4 class="font-mono text-xs text-white uppercase tracking-wider mb-6">Platform</h4>
+                    <ul class="space-y-4 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-brand-red transition">API Reference</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition">Status</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition">Integration</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-mono text-xs text-white uppercase tracking-wider mb-6">Legal</h4>
+                    <ul class="space-y-4 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex justify-between items-center text-xs text-gray-600 font-mono">
+                <p>© 2025 GAMEDAY+ INC. // ALL SYSTEMS NOMINAL</p>
+                <div class="flex gap-4">
+                    <span>EST. 2024</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        // 1. Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 2. Spotlight Effect Logic
+        const cards = document.getElementById('cards-container');
+        
+        // Update CSS variables for mouse position
+        const updateCursor = (e) => {
+            const rect = cards.getBoundingClientRect();
+            // We set CSS variables on the container to be inherited by cards
+            // But for cleaner per-card effects, we can loop
+            document.querySelectorAll('.spotlight-card').forEach(card => {
+                const cardRect = card.getBoundingClientRect();
+                const x = e.clientX - cardRect.left;
+                const y = e.clientY - cardRect.top;
+                card.style.setProperty('--cursor-x', `${x}px`);
+                card.style.setProperty('--cursor-y', `${y}px`);
+            });
+        };
+        
+        window.addEventListener('mousemove', updateCursor);
+
+        // 3. Fake Data Stream for HUD
+        setInterval(() => {
+            const el = document.getElementById('hud-packet-count');
+            if(el) {
+                let val = parseInt(el.innerText.replace(/,/g, ''));
+                val += Math.floor(Math.random() * 540);
+                el.innerText = val.toLocaleString();
+            }
+        }, 80);
+
+        // 4. Number Counters
+        const animateValue = (obj, start, end, duration) => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        document.querySelectorAll('.count-up').forEach(el => {
+            const target = parseInt(el.getAttribute('data-target'));
+            animateValue(el, 0, target, 2000);
+        });
+
+        // 5. Map Initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('map', {
+                center: [39.8283, -98.5795], // Center of USA
+                zoom: 4,
+                zoomControl: false,
+                scrollWheelZoom: false,
+                attributionControl: false,
+                dragging: true,
+                doubleClickZoom: false
+            });
+
+            // Dark theme optimized for college football
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 19
+            }).addTo(map);
+
+            // Team data with logos, colors, and advanced stats
+            var teams = [
+                { name: 'Georgia', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/61.png', coords: [33.9519, -83.3576], color: '#BA0C2F', rank: '#5', record: '11-2', conference: 'SEC', offEPA: '+8.2', defEPA: '-5.1' },
+                { name: 'Florida State', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/52.png', coords: [30.4383, -84.2807], color: '#782F40', rank: 'NR', record: '2-10', conference: 'ACC', offEPA: '-3.1', defEPA: '+2.8' },
+                { name: 'Alabama', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/333.png', coords: [33.2098, -87.5692], color: '#9E1B32', rank: '#13', record: '9-3', conference: 'SEC', offEPA: '+6.8', defEPA: '-3.4' },
+                { name: 'Ohio State', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/194.png', coords: [40.0142, -83.0305], color: '#BB0000', rank: '#6', record: '10-2', conference: 'Big Ten', offEPA: '+9.1', defEPA: '-6.2' },
+                { name: 'Michigan', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/130.png', coords: [42.2808, -83.7430], color: '#00274C', rank: 'NR', record: '7-5', conference: 'Big Ten', offEPA: '+1.2', defEPA: '-1.8' },
+                { name: 'USC', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/30.png', coords: [34.0522, -118.2437], color: '#990000', rank: 'NR', record: '6-6', conference: 'Big Ten', offEPA: '+2.4', defEPA: '+0.9' },
+                { name: 'Texas A&M', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/245.png', coords: [30.6280, -96.3344], color: '#500000', rank: '#14', record: '8-4', conference: 'SEC', offEPA: '+4.3', defEPA: '-2.1' },
+                { name: 'Texas', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/251.png', coords: [30.2849, -97.7341], color: '#BF5700', rank: '#3', record: '11-2', conference: 'SEC', offEPA: '+7.9', defEPA: '-4.8' },
+                { name: 'Oklahoma', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/201.png', coords: [35.2058, -97.4459], color: '#841617', rank: 'NR', record: '6-6', conference: 'SEC', offEPA: '-0.8', defEPA: '+1.4' },
+                { name: 'Texas Tech', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png', coords: [33.2164, -97.1292], color: '#CC0000', rank: 'NR', record: '8-4', conference: 'Big 12', offEPA: '+3.2', defEPA: '-0.6' },
+                { name: 'Notre Dame', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/87.png', coords: [41.7001, -86.2379], color: '#0C2340', rank: '#7', record: '11-1', conference: 'Independent', offEPA: '+6.5', defEPA: '-4.2' },
+                { name: 'UCLA', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/26.png', coords: [34.0224, -118.2851], color: '#2D68C4', rank: 'NR', record: '5-7', conference: 'Big Ten', offEPA: '+0.8', defEPA: '+2.1' },
+                { name: 'California', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/25.png', coords: [37.8716, -122.2585], color: '#003262', rank: 'NR', record: '6-6', conference: 'ACC', offEPA: '+1.4', defEPA: '+0.3' },
+                { name: 'Oregon', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png', coords: [45.5051, -122.6750], color: '#154733', rank: '#1', record: '13-0', conference: 'Big Ten', offEPA: '+10.3', defEPA: '-7.1' },
+                { name: 'LSU', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/99.png', coords: [30.4133, -91.1800], color: '#461D7C', rank: 'NR', record: '8-4', conference: 'SEC', offEPA: '+4.1', defEPA: '-1.2' },
+                { name: 'Clemson', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/228.png', coords: [34.6781, -82.8374], color: '#F66733', rank: '#16', record: '10-3', conference: 'ACC', offEPA: '+5.7', defEPA: '-3.8' },
+                { name: 'Penn State', logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/213.png', coords: [40.7982, -77.8599], color: '#041E42', rank: '#4', record: '11-2', conference: 'Big Ten', offEPA: '+7.3', defEPA: '-5.6' }
+            ];
+
+            // Create custom logo markers with advanced stats tooltips
+            teams.forEach((team, index) => {
+                setTimeout(() => {
+                    var logoIcon = L.divIcon({
+                        className: 'team-logo-marker',
+                        html: `
+                            <div class="logo-container">
+                                <div class="logo-glow" style="background: radial-gradient(circle, ${team.color}40 0%, transparent 70%);"></div>
+                                <img src="${team.logo}" alt="${team.name}" class="team-logo-img" />
+                                <div class="logo-pulse" style="border: 2px solid ${team.color}80;"></div>
+                            </div>
+                        `,
+                        iconSize: [48, 48],
+                        iconAnchor: [24, 24]
+                    });
+                    
+                    // Create advanced stats tooltip HTML
+                    var tooltipHTML = `
+                        <div class="tooltip-header">
+                            <span class="tooltip-team-name">${team.name}</span>
+                            <span class="tooltip-rank">${team.rank}</span>
+                        </div>
+                        <div class="tooltip-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Record</span>
+                                <span class="stat-value">${team.record}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Conference</span>
+                                <span class="stat-value" style="font-size: 12px;">${team.conference}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">OFF EPA</span>
+                                <span class="stat-value ${parseFloat(team.offEPA) > 0 ? 'positive' : 'negative'}">${team.offEPA}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">DEF EPA</span>
+                                <span class="stat-value ${parseFloat(team.defEPA) < 0 ? 'positive' : 'negative'}">${team.defEPA}</span>
+                            </div>
+                        </div>
+                        <div class="tooltip-footer">
+                            <div class="tooltip-conference" style="color: ${team.color};">● LIVE DATA</div>
+                        </div>
+                    `;
+                    
+                    var marker = L.marker(team.coords, { icon: logoIcon }).addTo(map);
+                    
+                    // Add advanced stats tooltip on hover
+                    marker.bindTooltip(tooltipHTML, {
+                        permanent: false,
+                        direction: 'top',
+                        className: 'team-stats-tooltip',
+                        offset: [0, -28]
+                    });
+                }, index * 80); // Staggered animation
+            });
+        });
+    </script>
+</body>
+</html>

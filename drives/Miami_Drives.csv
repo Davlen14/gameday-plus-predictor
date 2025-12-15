@@ -1,0 +1,270 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017527091,401752709,Florida,SEC,Miami,ACC,1,False,1,81,81,"{'minutes': 15, 'seconds': 0}",1,86,86,"{'minutes': 12, 'seconds': 56}","{'minutes': 2, 'seconds': 4}",3,-5,PUNT,False,0,0,0,0
+4017527092,401752709,Miami,ACC,Florida,SEC,2,True,1,44,56,"{'minutes': 12, 'seconds': 56}",1,100,0,"{'minutes': 9, 'seconds': 25}","{'minutes': 3, 'seconds': 31}",7,56,TD,True,0,0,7,0
+4017527093,401752709,Florida,SEC,Miami,ACC,3,False,1,75,75,"{'minutes': 9, 'seconds': 25}",1,70,70,"{'minutes': 7, 'seconds': 23}","{'minutes': 2, 'seconds': 2}",3,5,PUNT,False,0,7,0,7
+4017527094,401752709,Miami,ACC,Florida,SEC,4,True,1,28,72,"{'minutes': 7, 'seconds': 23}",2,65,35,"{'minutes': 14, 'seconds': 4}","{'minutes': 8, 'seconds': 19}",16,37,FG,True,7,0,10,0
+4017527095,401752709,Florida,SEC,Miami,ACC,5,False,2,75,75,"{'minutes': 14, 'seconds': 4}",2,57,57,"{'minutes': 10, 'seconds': 53}","{'minutes': 3, 'seconds': 11}",7,18,PUNT,False,0,10,0,10
+4017527096,401752709,Miami,ACC,Florida,SEC,6,False,2,20,80,"{'minutes': 10, 'seconds': 53}",2,54,46,"{'minutes': 8, 'seconds': 7}","{'minutes': 2, 'seconds': 46}",6,34,PUNT,True,10,0,10,0
+4017527097,401752709,Florida,SEC,Miami,ACC,7,False,2,92,92,"{'minutes': 8, 'seconds': 7}",2,90,90,"{'minutes': 7, 'seconds': 14}","{'minutes': 0, 'seconds': 53}",3,2,PUNT,False,0,10,0,10
+4017527098,401752709,Miami,ACC,Florida,SEC,8,False,2,57,43,"{'minutes': 7, 'seconds': 14}",2,53,47,"{'minutes': 6, 'seconds': 14}","{'minutes': 1, 'seconds': 0}",3,-4,PUNT,True,10,0,10,0
+4017527099,401752709,Florida,SEC,Miami,ACC,9,False,2,80,80,"{'minutes': 6, 'seconds': 14}",2,80,80,"{'minutes': 4, 'seconds': 51}","{'minutes': 1, 'seconds': 23}",3,0,PUNT,False,0,10,0,10
+40175270910,401752709,Miami,ACC,Florida,SEC,10,True,2,38,62,"{'minutes': 4, 'seconds': 51}",2,90,10,"{'minutes': 1, 'seconds': 29}","{'minutes': 3, 'seconds': 22}",10,52,FG,True,10,0,13,0
+40175270911,401752709,Florida,SEC,Miami,ACC,11,False,2,75,75,"{'minutes': 1, 'seconds': 29}",2,73,73,"{'minutes': 0, 'seconds': 43}","{'minutes': 0, 'seconds': 46}",3,2,PUNT,False,0,13,0,13
+40175270912,401752709,Miami,ACC,Florida,SEC,12,False,2,25,75,"{'minutes': 0, 'seconds': 43}",2,28,72,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 43}",1,3,END OF HALF,True,13,0,13,0
+40175270913,401752709,Miami,ACC,Florida,SEC,13,False,3,19,81,"{'minutes': 15, 'seconds': 0}",3,61,39,"{'minutes': 9, 'seconds': 36}","{'minutes': 5, 'seconds': 24}",11,42,PUNT,True,13,0,13,0
+40175270914,401752709,Florida,SEC,Miami,ACC,14,True,3,80,80,"{'minutes': 9, 'seconds': 36}",3,0,0,"{'minutes': 3, 'seconds': 24}","{'minutes': 6, 'seconds': 12}",11,80,TD,False,0,13,7,13
+40175270915,401752709,Miami,ACC,Florida,SEC,15,False,3,25,75,"{'minutes': 3, 'seconds': 24}",3,25,75,"{'minutes': 3, 'seconds': 16}","{'minutes': 0, 'seconds': 8}",1,0,INT,True,13,7,13,7
+40175270916,401752709,Florida,SEC,Miami,ACC,16,False,3,52,52,"{'minutes': 3, 'seconds': 16}",4,33,33,"{'minutes': 14, 'seconds': 50}","{'minutes': 3, 'seconds': 26}",8,21,DOWNS,False,7,13,7,13
+40175270917,401752709,Miami,ACC,Florida,SEC,17,False,4,31,69,"{'minutes': 14, 'seconds': 50}",4,32,68,"{'minutes': 13, 'seconds': 20}","{'minutes': 1, 'seconds': 30}",3,1,PUNT,True,13,7,13,7
+40175270918,401752709,Florida,SEC,Miami,ACC,18,False,4,82,82,"{'minutes': 13, 'seconds': 20}",4,74,74,"{'minutes': 11, 'seconds': 20}","{'minutes': 2, 'seconds': 0}",3,8,PUNT,False,7,13,7,13
+40175270919,401752709,Miami,ACC,Florida,SEC,19,True,4,20,80,"{'minutes': 11, 'seconds': 20}",4,100,0,"{'minutes': 4, 'seconds': 8}","{'minutes': 7, 'seconds': 12}",13,80,TD,True,13,7,19,7
+40175270920,401752709,Florida,SEC,Miami,ACC,20,False,4,75,75,"{'minutes': 4, 'seconds': 8}",4,77,77,"{'minutes': 2, 'seconds': 58}","{'minutes': 1, 'seconds': 10}",4,-2,DOWNS,False,7,19,7,19
+40175270921,401752709,Miami,ACC,Florida,SEC,21,True,4,77,23,"{'minutes': 2, 'seconds': 58}",4,100,0,"{'minutes': 1, 'seconds': 56}","{'minutes': 1, 'seconds': 2}",4,22,TD,True,19,7,26,7
+40175270922,401752709,Florida,SEC,Miami,ACC,22,False,4,75,75,"{'minutes': 1, 'seconds': 56}",4,73,73,"{'minutes': 1, 'seconds': 34}","{'minutes': 0, 'seconds': 22}",4,2,DOWNS,False,7,26,7,26
+40175270923,401752709,Miami,ACC,Florida,SEC,23,False,4,73,27,"{'minutes': 1, 'seconds': 34}",4,74,26,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 34}",3,1,END OF GAME,True,26,7,26,7
+4017545221,401754522,Notre Dame,FBS Independents,Miami,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,42,42,"{'minutes': 11, 'seconds': 46}","{'minutes': 3, 'seconds': 14}",7,33,PUNT,False,0,0,0,0
+4017545222,401754522,Miami,ACC,Notre Dame,FBS Independents,2,False,1,5,95,"{'minutes': 11, 'seconds': 46}",1,42,58,"{'minutes': 8, 'seconds': 0}","{'minutes': 3, 'seconds': 46}",7,37,PUNT,True,0,0,0,0
+4017545223,401754522,Notre Dame,FBS Independents,Miami,ACC,3,False,1,78,78,"{'minutes': 7, 'seconds': 59}",1,76,76,"{'minutes': 7, 'seconds': 52}","{'minutes': 0, 'seconds': 7}",1,2,FUMBLE,False,0,0,0,0
+4017545224,401754522,Miami,ACC,Notre Dame,FBS Independents,4,False,1,76,24,"{'minutes': 7, 'seconds': 52}",1,80,20,"{'minutes': 3, 'seconds': 53}","{'minutes': 3, 'seconds': 59}",8,4,DOWNS,True,0,0,0,0
+4017545225,401754522,Notre Dame,FBS Independents,Miami,ACC,5,False,1,80,80,"{'minutes': 3, 'seconds': 53}",1,73,73,"{'minutes': 1, 'seconds': 46}","{'minutes': 2, 'seconds': 7}",3,7,PUNT,False,0,0,0,0
+4017545226,401754522,Miami,ACC,Notre Dame,FBS Independents,6,True,1,30,70,"{'minutes': 1, 'seconds': 46}",2,100,0,"{'minutes': 14, 'seconds': 3}","{'minutes': 2, 'seconds': 43}",8,70,TD,True,0,0,7,0
+4017545227,401754522,Notre Dame,FBS Independents,Miami,ACC,7,False,2,85,85,"{'minutes': 13, 'seconds': 58}",2,79,79,"{'minutes': 12, 'seconds': 33}","{'minutes': 1, 'seconds': 25}",3,6,PUNT,False,0,0,0,7
+4017545228,401754522,Miami,ACC,Notre Dame,FBS Independents,8,False,2,34,66,"{'minutes': 12, 'seconds': 33}",2,26,74,"{'minutes': 11, 'seconds': 10}","{'minutes': 1, 'seconds': 23}",3,-8,PUNT,True,7,0,7,0
+4017545229,401754522,Notre Dame,FBS Independents,Miami,ACC,9,True,2,68,68,"{'minutes': 11, 'seconds': 10}",2,0,0,"{'minutes': 5, 'seconds': 21}","{'minutes': 5, 'seconds': 49}",11,68,TD,False,0,7,7,7
+40175452210,401754522,Miami,ACC,Notre Dame,FBS Independents,10,True,2,25,75,"{'minutes': 5, 'seconds': 21}",2,100,0,"{'minutes': 0, 'seconds': 12}","{'minutes': 5, 'seconds': 9}",10,75,TD,True,7,7,14,7
+40175452211,401754522,Notre Dame,FBS Independents,Miami,ACC,11,False,2,75,75,"{'minutes': 0, 'seconds': 12}",2,76,76,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 12}",1,-1,END OF HALF,False,7,14,7,14
+40175452212,401754522,Miami,ACC,Notre Dame,FBS Independents,12,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 7, 'seconds': 23}","{'minutes': 7, 'seconds': 37}",12,75,TD,True,14,7,21,7
+40175452213,401754522,Notre Dame,FBS Independents,Miami,ACC,13,False,3,75,75,"{'minutes': 7, 'seconds': 23}",3,75,75,"{'minutes': 7, 'seconds': 1}","{'minutes': 0, 'seconds': 22}",3,0,PUNT,False,7,21,7,21
+40175452214,401754522,Miami,ACC,Notre Dame,FBS Independents,14,False,3,14,86,"{'minutes': 7, 'seconds': 1}",3,23,77,"{'minutes': 5, 'seconds': 11}","{'minutes': 1, 'seconds': 50}",3,9,PUNT,True,21,7,21,7
+40175452215,401754522,Notre Dame,FBS Independents,Miami,ACC,15,True,3,64,64,"{'minutes': 5, 'seconds': 11}",4,0,0,"{'minutes': 14, 'seconds': 55}","{'minutes': 5, 'seconds': 16}",11,64,TD,False,7,21,14,21
+40175452216,401754522,Miami,ACC,Notre Dame,FBS Independents,16,False,4,25,75,"{'minutes': 14, 'seconds': 55}",4,21,79,"{'minutes': 12, 'seconds': 45}","{'minutes': 2, 'seconds': 10}",3,-4,PUNT,True,21,14,21,14
+40175452217,401754522,Notre Dame,FBS Independents,Miami,ACC,17,False,4,65,65,"{'minutes': 12, 'seconds': 45}",4,57,57,"{'minutes': 11, 'seconds': 55}","{'minutes': 0, 'seconds': 50}",2,8,INT,False,14,21,14,21
+40175452218,401754522,Miami,ACC,Notre Dame,FBS Independents,18,True,4,72,28,"{'minutes': 11, 'seconds': 55}",4,80,20,"{'minutes': 9, 'seconds': 42}","{'minutes': 2, 'seconds': 13}",4,8,FG,True,21,14,24,14
+40175452219,401754522,Notre Dame,FBS Independents,Miami,ACC,19,True,4,75,75,"{'minutes': 9, 'seconds': 42}",4,21,21,"{'minutes': 5, 'seconds': 2}","{'minutes': 4, 'seconds': 10}",10,54,FG,False,14,24,17,24
+40175452220,401754522,Miami,ACC,Notre Dame,FBS Independents,20,False,4,32,68,"{'minutes': 5, 'seconds': 25}",4,34,66,"{'minutes': 4, 'seconds': 35}","{'minutes': 0, 'seconds': 50}",3,2,PUNT,True,24,17,24,17
+40175452221,401754522,Notre Dame,FBS Independents,Miami,ACC,21,True,4,75,75,"{'minutes': 4, 'seconds': 35}",4,0,0,"{'minutes': 3, 'seconds': 21}","{'minutes': 1, 'seconds': 14}",3,75,TD,False,17,24,24,24
+40175452222,401754522,Miami,ACC,Notre Dame,FBS Independents,22,True,4,25,75,"{'minutes': 3, 'seconds': 21}",4,71,29,"{'minutes': 1, 'seconds': 4}","{'minutes': 2, 'seconds': 17}",10,46,FG,True,24,24,27,24
+40175452223,401754522,Notre Dame,FBS Independents,Miami,ACC,23,False,4,75,75,"{'minutes': 1, 'seconds': 4}",4,76,76,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 4}",4,-6,END OF GAME,False,24,27,24,27
+4017545351,401754535,Miami,ACC,South Florida,American Athletic,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 9, 'seconds': 34}","{'minutes': 5, 'seconds': 26}",9,75,TD,True,0,0,7,0
+4017545352,401754535,South Florida,American Athletic,Miami,ACC,2,False,1,75,75,"{'minutes': 9, 'seconds': 34}",1,61,61,"{'minutes': 7, 'seconds': 29}","{'minutes': 2, 'seconds': 5}",6,14,PUNT,False,0,7,0,7
+4017545353,401754535,Miami,ACC,South Florida,American Athletic,3,True,1,15,85,"{'minutes': 7, 'seconds': 29}",1,100,0,"{'minutes': 2, 'seconds': 58}","{'minutes': 4, 'seconds': 31}",9,85,TD,True,7,0,14,0
+4017545354,401754535,South Florida,American Athletic,Miami,ACC,4,True,1,75,75,"{'minutes': 2, 'seconds': 58}",1,27,27,"{'minutes': 0, 'seconds': 26}","{'minutes': 2, 'seconds': 32}",7,48,FG,False,0,14,3,14
+4017545355,401754535,Miami,ACC,South Florida,American Athletic,5,False,1,25,75,"{'minutes': 0, 'seconds': 26}",2,24,76,"{'minutes': 13, 'seconds': 45}","{'minutes': 1, 'seconds': 41}",3,-1,PUNT,True,14,3,14,3
+4017545356,401754535,South Florida,American Athletic,Miami,ACC,6,True,2,75,75,"{'minutes': 13, 'seconds': 45}",2,10,10,"{'minutes': 11, 'seconds': 16}","{'minutes': 2, 'seconds': 29}",8,65,FG,False,3,14,6,14
+4017545357,401754535,Miami,ACC,South Florida,American Athletic,7,True,2,25,75,"{'minutes': 11, 'seconds': 16}",2,100,0,"{'minutes': 10, 'seconds': 5}","{'minutes': 1, 'seconds': 11}",3,75,TD,True,14,6,21,6
+4017545358,401754535,South Florida,American Athletic,Miami,ACC,8,False,2,75,75,"{'minutes': 10, 'seconds': 5}",2,79,79,"{'minutes': 8, 'seconds': 34}","{'minutes': 1, 'seconds': 31}",3,-4,PUNT,False,6,21,6,21
+4017545359,401754535,Miami,ACC,South Florida,American Athletic,9,False,2,25,75,"{'minutes': 8, 'seconds': 34}",2,34,66,"{'minutes': 6, 'seconds': 5}","{'minutes': 2, 'seconds': 29}",3,9,PUNT,True,21,6,21,6
+40175453510,401754535,South Florida,American Athletic,Miami,ACC,10,False,2,81,81,"{'minutes': 6, 'seconds': 5}",2,79,79,"{'minutes': 5, 'seconds': 36}","{'minutes': 0, 'seconds': 29}",3,2,INT,False,6,21,6,21
+40175453511,401754535,Miami,ACC,South Florida,American Athletic,11,True,2,75,25,"{'minutes': 5, 'seconds': 36}",2,100,0,"{'minutes': 2, 'seconds': 33}","{'minutes': 3, 'seconds': 3}",6,25,TD,True,21,6,28,6
+40175453512,401754535,South Florida,American Athletic,Miami,ACC,12,False,2,75,75,"{'minutes': 2, 'seconds': 33}",2,67,67,"{'minutes': 1, 'seconds': 42}","{'minutes': 0, 'seconds': 51}",3,8,PUNT,False,6,28,6,28
+40175453513,401754535,Miami,ACC,South Florida,American Athletic,13,False,2,42,58,"{'minutes': 1, 'seconds': 42}",2,69,31,"{'minutes': 1, 'seconds': 16}","{'minutes': 0, 'seconds': 26}",2,27,INT,True,28,6,28,6
+40175453514,401754535,South Florida,American Athletic,Miami,ACC,14,False,2,58,58,"{'minutes': 1, 'seconds': 16}",2,58,58,"{'minutes': 0, 'seconds': 52}","{'minutes': 0, 'seconds': 24}",3,0,PUNT,False,6,28,6,28
+40175453515,401754535,Miami,ACC,South Florida,American Athletic,15,False,2,6,94,"{'minutes': 0, 'seconds': 52}",2,17,83,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 52}",3,11,END OF HALF,True,28,6,28,6
+40175453516,401754535,South Florida,American Athletic,Miami,ACC,16,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,70,70,"{'minutes': 13, 'seconds': 44}","{'minutes': 1, 'seconds': 16}",3,5,PUNT,False,6,28,6,28
+40175453517,401754535,Miami,ACC,South Florida,American Athletic,17,False,3,24,76,"{'minutes': 13, 'seconds': 44}",3,48,52,"{'minutes': 11, 'seconds': 21}","{'minutes': 2, 'seconds': 23}",5,24,INT,True,28,6,28,6
+40175453518,401754535,South Florida,American Athletic,Miami,ACC,18,False,3,69,69,"{'minutes': 11, 'seconds': 21}",3,47,47,"{'minutes': 9, 'seconds': 57}","{'minutes': 1, 'seconds': 24}",4,22,FUMBLE,False,6,28,6,28
+40175453519,401754535,Miami,ACC,South Florida,American Athletic,19,False,3,47,53,"{'minutes': 9, 'seconds': 57}",3,51,49,"{'minutes': 7, 'seconds': 35}","{'minutes': 2, 'seconds': 22}",3,4,PUNT,True,28,6,28,6
+40175453520,401754535,South Florida,American Athletic,Miami,ACC,20,False,3,90,90,"{'minutes': 7, 'seconds': 35}",3,8,8,"{'minutes': 4, 'seconds': 8}","{'minutes': 3, 'seconds': 27}",10,82,DOWNS,False,6,28,6,28
+40175453521,401754535,Miami,ACC,South Florida,American Athletic,21,True,3,9,91,"{'minutes': 4, 'seconds': 8}",3,100,0,"{'minutes': 0, 'seconds': 35}","{'minutes': 3, 'seconds': 33}",6,91,TD,True,28,6,35,6
+40175453522,401754535,South Florida,American Athletic,Miami,ACC,22,True,3,75,75,"{'minutes': 0, 'seconds': 35}",4,0,0,"{'minutes': 12, 'seconds': 48}","{'minutes': 2, 'seconds': 47}",8,75,TD,False,6,35,12,35
+40175453523,401754535,Miami,ACC,South Florida,American Athletic,23,True,4,25,75,"{'minutes': 12, 'seconds': 48}",4,100,0,"{'minutes': 7, 'seconds': 4}","{'minutes': 5, 'seconds': 44}",9,75,TD,True,35,12,42,12
+40175453524,401754535,South Florida,American Athletic,Miami,ACC,24,False,4,75,75,"{'minutes': 7, 'seconds': 4}",4,43,43,"{'minutes': 4, 'seconds': 8}","{'minutes': 2, 'seconds': 56}",7,32,DOWNS,False,12,42,12,42
+40175453525,401754535,Miami,ACC,South Florida,American Athletic,25,True,4,43,57,"{'minutes': 4, 'seconds': 8}",4,100,0,"{'minutes': 1, 'seconds': 48}","{'minutes': 2, 'seconds': 20}",7,57,TD,True,42,12,49,12
+40175453526,401754535,South Florida,American Athletic,Miami,ACC,26,False,4,75,75,"{'minutes': 1, 'seconds': 48}",4,57,57,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 48}",5,18,END OF GAME,False,12,49,12,49
+4017545531,401754553,Florida State,ACC,Miami,ACC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,95,5,"{'minutes': 10, 'seconds': 2}","{'minutes': 4, 'seconds': 58}",11,70,FG,True,0,0,3,0
+4017545532,401754553,Miami,ACC,Florida State,ACC,2,False,1,75,75,"{'minutes': 10, 'seconds': 2}",1,70,70,"{'minutes': 7, 'seconds': 25}","{'minutes': 2, 'seconds': 37}",6,5,PUNT,False,0,3,0,3
+4017545533,401754553,Florida State,ACC,Miami,ACC,3,False,1,20,80,"{'minutes': 7, 'seconds': 25}",1,36,64,"{'minutes': 5, 'seconds': 41}","{'minutes': 1, 'seconds': 44}",5,16,PUNT,True,3,0,3,0
+4017545534,401754553,Miami,ACC,Florida State,ACC,4,True,1,79,79,"{'minutes': 5, 'seconds': 41}",1,0,0,"{'minutes': 0, 'seconds': 50}","{'minutes': 4, 'seconds': 51}",9,79,TD,False,0,3,7,3
+4017545535,401754553,Florida State,ACC,Miami,ACC,5,False,1,25,75,"{'minutes': 0, 'seconds': 50}",2,59,41,"{'minutes': 11, 'seconds': 33}","{'minutes': 4, 'seconds': 17}",10,34,INT,True,3,7,3,7
+4017545536,401754553,Miami,ACC,Florida State,ACC,6,True,2,44,44,"{'minutes': 11, 'seconds': 33}",2,0,0,"{'minutes': 11, 'seconds': 25}","{'minutes': 0, 'seconds': 8}",1,44,TD,False,14,3,14,3
+4017545537,401754553,Florida State,ACC,Miami,ACC,7,False,2,25,75,"{'minutes': 11, 'seconds': 25}",2,56,44,"{'minutes': 7, 'seconds': 37}","{'minutes': 3, 'seconds': 48}",7,31,PUNT,True,3,14,3,14
+4017545538,401754553,Miami,ACC,Florida State,ACC,8,False,2,86,86,"{'minutes': 7, 'seconds': 37}",2,79,79,"{'minutes': 5, 'seconds': 10}","{'minutes': 2, 'seconds': 27}",3,7,PUNT,False,14,3,14,3
+4017545539,401754553,Florida State,ACC,Miami,ACC,9,False,2,50,50,"{'minutes': 5, 'seconds': 10}",2,50,50,"{'minutes': 4, 'seconds': 59}","{'minutes': 0, 'seconds': 11}",1,4,FUMBLE,True,3,14,3,14
+40175455310,401754553,Miami,ACC,Florida State,ACC,10,False,2,54,54,"{'minutes': 4, 'seconds': 59}",2,52,52,"{'minutes': 3, 'seconds': 6}","{'minutes': 1, 'seconds': 53}",3,2,PUNT,False,14,3,14,3
+40175455311,401754553,Florida State,ACC,Miami,ACC,11,False,2,10,90,"{'minutes': 3, 'seconds': 6}",2,36,64,"{'minutes': 0, 'seconds': 45}","{'minutes': 2, 'seconds': 21}",7,26,PUNT,True,3,14,3,14
+40175455312,401754553,Miami,ACC,Florida State,ACC,12,False,2,92,92,"{'minutes': 0, 'seconds': 45}",2,89,89,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 45}",1,3,END OF HALF,False,14,3,14,3
+40175455313,401754553,Miami,ACC,Florida State,ACC,13,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,0,0,"{'minutes': 9, 'seconds': 9}","{'minutes': 5, 'seconds': 51}",10,75,TD,False,14,3,21,3
+40175455314,401754553,Florida State,ACC,Miami,ACC,14,False,3,25,75,"{'minutes': 9, 'seconds': 9}",3,63,37,"{'minutes': 7, 'seconds': 56}","{'minutes': 1, 'seconds': 13}",4,38,INT,True,3,21,3,21
+40175455315,401754553,Miami,ACC,Florida State,ACC,15,True,3,80,80,"{'minutes': 7, 'seconds': 56}",3,0,0,"{'minutes': 3, 'seconds': 53}","{'minutes': 4, 'seconds': 3}",8,80,TD,False,21,3,28,3
+40175455316,401754553,Florida State,ACC,Miami,ACC,16,False,3,25,75,"{'minutes': 3, 'seconds': 53}",3,37,63,"{'minutes': 1, 'seconds': 47}","{'minutes': 2, 'seconds': 6}",4,12,PUNT,True,3,28,3,28
+40175455317,401754553,Miami,ACC,Florida State,ACC,17,False,3,85,85,"{'minutes': 1, 'seconds': 47}",4,80,80,"{'minutes': 13, 'seconds': 0}","{'minutes': 3, 'seconds': 47}",7,5,PUNT,False,28,3,28,3
+40175455318,401754553,Florida State,ACC,Miami,ACC,18,True,4,53,47,"{'minutes': 13, 'seconds': 0}",4,100,0,"{'minutes': 10, 'seconds': 4}","{'minutes': 2, 'seconds': 56}",10,47,TD,True,3,28,11,28
+40175455319,401754553,Miami,ACC,Florida State,ACC,19,False,4,43,43,"{'minutes': 10, 'seconds': 4}",4,40,40,"{'minutes': 8, 'seconds': 32}","{'minutes': 1, 'seconds': 32}",3,3,PUNT,False,28,11,28,11
+40175455320,401754553,Florida State,ACC,Miami,ACC,20,True,4,4,96,"{'minutes': 8, 'seconds': 32}",4,100,0,"{'minutes': 3, 'seconds': 22}","{'minutes': 5, 'seconds': 10}",19,96,TD,True,11,28,19,28
+40175455321,401754553,Miami,ACC,Florida State,ACC,21,False,4,39,39,"{'minutes': 3, 'seconds': 22}",4,23,23,"{'minutes': 1, 'seconds': 12}","{'minutes': 2, 'seconds': 10}",7,16,DOWNS,False,28,19,28,19
+40175455322,401754553,Florida State,ACC,Miami,ACC,22,True,4,23,77,"{'minutes': 1, 'seconds': 12}",4,83,17,"{'minutes': 0, 'seconds': 20}","{'minutes': 0, 'seconds': 52}",7,60,FG,True,19,28,22,28
+40175455323,401754553,Miami,ACC,Florida State,ACC,23,False,4,42,42,"{'minutes': 0, 'seconds': 20}",4,43,43,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 20}",1,-1,END OF GAME,False,28,22,28,22
+4017545641,401754564,Louisville,ACC,Miami,ACC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,0,0,"{'minutes': 8, 'seconds': 55}","{'minutes': 6, 'seconds': 5}",11,75,TD,False,0,0,7,0
+4017545642,401754564,Miami,ACC,Louisville,ACC,2,False,1,25,75,"{'minutes': 8, 'seconds': 55}",1,18,82,"{'minutes': 7, 'seconds': 15}","{'minutes': 1, 'seconds': 40}",3,-7,PUNT,True,0,7,0,7
+4017545643,401754564,Louisville,ACC,Miami,ACC,3,True,1,46,46,"{'minutes': 7, 'seconds': 15}",1,0,0,"{'minutes': 5, 'seconds': 9}","{'minutes': 2, 'seconds': 6}",4,46,TD,False,7,0,14,0
+4017545644,401754564,Miami,ACC,Louisville,ACC,4,True,1,25,75,"{'minutes': 5, 'seconds': 9}",1,100,0,"{'minutes': 2, 'seconds': 19}","{'minutes': 2, 'seconds': 50}",5,75,TD,True,0,14,7,14
+4017545645,401754564,Louisville,ACC,Miami,ACC,5,False,1,75,75,"{'minutes': 2, 'seconds': 19}",2,54,54,"{'minutes': 14, 'seconds': 39}","{'minutes': 2, 'seconds': 40}",7,21,PUNT,False,14,7,14,7
+4017545646,401754564,Miami,ACC,Louisville,ACC,6,False,2,7,93,"{'minutes': 14, 'seconds': 39}",2,18,82,"{'minutes': 13, 'seconds': 4}","{'minutes': 1, 'seconds': 35}",3,11,INT,True,7,14,7,14
+4017545647,401754564,Louisville,ACC,Miami,ACC,7,False,2,68,68,"{'minutes': 13, 'seconds': 4}",2,46,46,"{'minutes': 9, 'seconds': 1}","{'minutes': 4, 'seconds': 3}",6,22,PUNT,False,14,7,14,7
+4017545648,401754564,Miami,ACC,Louisville,ACC,8,False,2,11,89,"{'minutes': 9, 'seconds': 1}",2,32,68,"{'minutes': 7, 'seconds': 15}","{'minutes': 1, 'seconds': 46}",4,21,INT,True,7,14,7,14
+4017545649,401754564,Louisville,ACC,Miami,ACC,9,False,2,68,68,"{'minutes': 7, 'seconds': 15}",2,70,70,"{'minutes': 5, 'seconds': 30}","{'minutes': 1, 'seconds': 45}",4,-2,PUNT,False,14,7,14,7
+40175456410,401754564,Miami,ACC,Louisville,ACC,10,True,2,30,70,"{'minutes': 5, 'seconds': 30}",2,91,9,"{'minutes': 1, 'seconds': 56}","{'minutes': 3, 'seconds': 34}",7,61,FG,True,7,14,10,14
+40175456411,401754564,Louisville,ACC,Miami,ACC,11,False,2,75,75,"{'minutes': 1, 'seconds': 56}",2,45,45,"{'minutes': 0, 'seconds': 4}","{'minutes': 1, 'seconds': 52}",7,30,PUNT,False,14,10,14,10
+40175456412,401754564,Miami,ACC,Louisville,ACC,12,False,2,20,80,"{'minutes': 0, 'seconds': 4}",2,19,81,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 4}",1,-1,END OF HALF,True,10,14,10,14
+40175456413,401754564,Miami,ACC,Louisville,ACC,13,False,3,10,90,"{'minutes': 14, 'seconds': 55}",3,17,83,"{'minutes': 13, 'seconds': 20}","{'minutes': 1, 'seconds': 35}",3,7,PUNT,True,10,14,10,14
+40175456414,401754564,Louisville,ACC,Miami,ACC,14,True,3,64,64,"{'minutes': 13, 'seconds': 20}",3,30,30,"{'minutes': 10, 'seconds': 58}","{'minutes': 2, 'seconds': 22}",6,34,FG,False,14,10,17,10
+40175456415,401754564,Miami,ACC,Louisville,ACC,15,False,3,25,75,"{'minutes': 10, 'seconds': 58}",3,40,60,"{'minutes': 7, 'seconds': 30}","{'minutes': 3, 'seconds': 28}",6,15,PUNT,True,10,17,10,17
+40175456416,401754564,Louisville,ACC,Miami,ACC,16,False,3,92,92,"{'minutes': 7, 'seconds': 30}",3,78,78,"{'minutes': 4, 'seconds': 43}","{'minutes': 2, 'seconds': 47}",5,14,PUNT,False,17,10,17,10
+40175456417,401754564,Miami,ACC,Louisville,ACC,17,True,3,45,55,"{'minutes': 4, 'seconds': 43}",3,77,23,"{'minutes': 1, 'seconds': 51}","{'minutes': 2, 'seconds': 52}",6,32,FG,True,10,17,13,17
+40175456418,401754564,Louisville,ACC,Miami,ACC,18,True,3,75,75,"{'minutes': 1, 'seconds': 51}",4,0,0,"{'minutes': 13, 'seconds': 27}","{'minutes': 3, 'seconds': 24}",8,75,TD,False,17,13,24,13
+40175456419,401754564,Miami,ACC,Louisville,ACC,19,False,4,25,75,"{'minutes': 13, 'seconds': 27}",4,56,44,"{'minutes': 7, 'seconds': 50}","{'minutes': 5, 'seconds': 37}",10,31,INT,True,13,24,13,24
+40175456420,401754564,Louisville,ACC,Miami,ACC,20,False,4,72,72,"{'minutes': 7, 'seconds': 50}",4,75,75,"{'minutes': 7, 'seconds': 42}","{'minutes': 0, 'seconds': 8}",1,-3,FUMBLE,False,24,13,24,13
+40175456421,401754564,Miami,ACC,Louisville,ACC,21,True,4,88,12,"{'minutes': 7, 'seconds': 42}",4,100,0,"{'minutes': 7, 'seconds': 37}","{'minutes': 0, 'seconds': 5}",1,12,TD,True,21,24,21,24
+40175456422,401754564,Louisville,ACC,Miami,ACC,22,False,4,75,75,"{'minutes': 7, 'seconds': 37}",4,51,51,"{'minutes': 4, 'seconds': 5}","{'minutes': 3, 'seconds': 32}",7,24,PUNT,False,24,21,24,21
+40175456423,401754564,Miami,ACC,Louisville,ACC,23,False,4,15,85,"{'minutes': 4, 'seconds': 5}",4,69,31,"{'minutes': 0, 'seconds': 32}","{'minutes': 3, 'seconds': 33}",12,54,INT,True,21,24,21,24
+40175456424,401754564,Louisville,ACC,Miami,ACC,24,False,4,70,70,"{'minutes': 0, 'seconds': 32}",4,73,73,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 32}",3,-3,END OF GAME,False,24,21,24,21
+4017545722,401754572,Miami,ACC,Stanford,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,75,25,"{'minutes': 9, 'seconds': 58}","{'minutes': 5, 'seconds': 2}",9,50,MISSED FG,True,0,0,0,0
+4017545723,401754572,Stanford,ACC,Miami,ACC,2,True,1,74,74,"{'minutes': 9, 'seconds': 58}",1,3,3,"{'minutes': 4, 'seconds': 35}","{'minutes': 5, 'seconds': 23}",12,74,TD,False,0,0,7,0
+4017545725,401754572,Miami,ACC,Stanford,ACC,3,False,1,27,73,"{'minutes': 4, 'seconds': 29}",1,38,62,"{'minutes': 2, 'seconds': 17}","{'minutes': 2, 'seconds': 14}",5,11,PUNT,True,0,7,0,7
+4017545726,401754572,Stanford,ACC,Miami,ACC,4,False,1,85,85,"{'minutes': 2, 'seconds': 5}",1,69,69,"{'minutes': 0, 'seconds': 6}","{'minutes': 2, 'seconds': 15}",6,16,PUNT,False,7,0,7,0
+4017545727,401754572,Miami,ACC,Stanford,ACC,5,False,2,36,64,"{'minutes': 14, 'seconds': 54}",2,70,30,"{'minutes': 10, 'seconds': 42}","{'minutes': 4, 'seconds': 52}",11,34,DOWNS,True,0,7,0,7
+4017545728,401754572,Stanford,ACC,Miami,ACC,6,False,2,70,70,"{'minutes': 10, 'seconds': 2}",2,66,66,"{'minutes': 8, 'seconds': 41}","{'minutes': 1, 'seconds': 27}",3,4,PUNT,False,7,0,7,0
+4017545729,401754572,Miami,ACC,Stanford,ACC,7,True,2,29,71,"{'minutes': 8, 'seconds': 35}",2,97,3,"{'minutes': 1, 'seconds': 15}","{'minutes': 7, 'seconds': 26}",15,71,TD,True,0,7,7,7
+40175457211,401754572,Stanford,ACC,Miami,ACC,8,False,2,75,75,"{'minutes': 1, 'seconds': 15}",2,67,67,"{'minutes': 0, 'seconds': 5}","{'minutes': 1, 'seconds': 15}",3,8,END OF HALF,False,7,7,7,7
+40175457213,401754572,Stanford,ACC,Miami,ACC,9,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,82,82,"{'minutes': 11, 'seconds': 56}","{'minutes': 3, 'seconds': 4}",6,1,PUNT,False,7,7,7,7
+40175457214,401754572,Miami,ACC,Stanford,ACC,10,True,3,60,40,"{'minutes': 11, 'seconds': 45}",3,97,3,"{'minutes': 9, 'seconds': 34}","{'minutes': 2, 'seconds': 22}",6,40,TD,True,7,7,14,7
+40175457216,401754572,Stanford,ACC,Miami,ACC,11,False,3,75,75,"{'minutes': 9, 'seconds': 34}",3,78,78,"{'minutes': 8, 'seconds': 26}","{'minutes': 1, 'seconds': 8}",3,-3,PUNT,False,7,14,7,14
+40175457217,401754572,Miami,ACC,Stanford,ACC,12,False,3,70,30,"{'minutes': 8, 'seconds': 22}",3,78,22,"{'minutes': 6, 'seconds': 15}","{'minutes': 2, 'seconds': 11}",4,9,DOWNS,True,14,7,14,7
+40175457218,401754572,Stanford,ACC,Miami,ACC,13,False,3,79,79,"{'minutes': 6, 'seconds': 9}",3,97,97,"{'minutes': 3, 'seconds': 53}","{'minutes': 2, 'seconds': 22}",5,9,INT,False,7,14,7,14
+40175457219,401754572,Miami,ACC,Stanford,ACC,14,True,3,97,3,"{'minutes': 3, 'seconds': 48}",3,97,3,"{'minutes': 3, 'seconds': 48}","{'minutes': 0, 'seconds': 5}",1,3,TD,True,21,7,21,7
+40175457221,401754572,Stanford,ACC,Miami,ACC,15,False,3,75,75,"{'minutes': 3, 'seconds': 48}",3,55,55,"{'minutes': 2, 'seconds': 31}","{'minutes': 1, 'seconds': 17}",3,6,INT,False,7,21,7,21
+40175457222,401754572,Miami,ACC,Stanford,ACC,16,True,3,55,45,"{'minutes': 2, 'seconds': 25}",3,97,3,"{'minutes': 0, 'seconds': 32}","{'minutes': 1, 'seconds': 59}",4,45,TD,True,21,7,28,7
+40175457224,401754572,Stanford,ACC,Miami,ACC,17,False,3,75,75,"{'minutes': 0, 'seconds': 32}",4,71,71,"{'minutes': 14, 'seconds': 6}","{'minutes': 1, 'seconds': 26}",3,4,PUNT,False,7,28,7,28
+40175457225,401754572,Miami,ACC,Stanford,ACC,18,True,4,24,76,"{'minutes': 14, 'seconds': 0}",4,97,3,"{'minutes': 9, 'seconds': 34}","{'minutes': 4, 'seconds': 32}",8,76,TD,True,28,7,35,7
+40175457227,401754572,Stanford,ACC,Miami,ACC,19,False,4,75,75,"{'minutes': 9, 'seconds': 34}",4,45,45,"{'minutes': 6, 'seconds': 19}","{'minutes': 3, 'seconds': 15}",7,30,DOWNS,False,7,35,7,35
+40175457228,401754572,Miami,ACC,Stanford,ACC,20,True,4,45,55,"{'minutes': 6, 'seconds': 8}",4,97,3,"{'minutes': 0, 'seconds': 26}","{'minutes': 5, 'seconds': 53}",12,55,TD,True,35,7,42,7
+40175457230,401754572,Stanford,ACC,Miami,ACC,21,False,4,75,75,"{'minutes': 0, 'seconds': 26}",4,70,70,"{'minutes': 0, 'seconds': 14}","{'minutes': 0, 'seconds': 26}",2,5,END OF GAME,False,7,42,7,42
+4017545812,401754581,Miami,ACC,SMU,ACC,1,False,1,70,70,"{'minutes': 14, 'seconds': 53}",1,52,52,"{'minutes': 12, 'seconds': 4}","{'minutes': 2, 'seconds': 49}",5,18,PUNT,False,0,0,0,0
+4017545813,401754581,SMU,ACC,Miami,ACC,2,False,1,10,90,"{'minutes': 11, 'seconds': 56}",1,62,38,"{'minutes': 8, 'seconds': 43}","{'minutes': 3, 'seconds': 21}",9,52,FUMBLE,True,0,0,0,0
+4017545814,401754581,Miami,ACC,SMU,ACC,3,True,1,62,62,"{'minutes': 8, 'seconds': 39}",1,3,3,"{'minutes': 4, 'seconds': 16}","{'minutes': 4, 'seconds': 27}",8,62,TD,False,0,0,7,0
+4017545816,401754581,SMU,ACC,Miami,ACC,4,False,1,43,57,"{'minutes': 4, 'seconds': 10}",1,47,53,"{'minutes': 2, 'seconds': 50}","{'minutes': 1, 'seconds': 20}",3,4,PUNT,True,0,7,0,7
+4017545817,401754581,Miami,ACC,SMU,ACC,5,False,1,83,83,"{'minutes': 2, 'seconds': 50}",2,39,39,"{'minutes': 12, 'seconds': 0}","{'minutes': 5, 'seconds': 50}",9,44,PUNT,False,7,0,7,0
+4017545818,401754581,SMU,ACC,Miami,ACC,6,False,2,20,80,"{'minutes': 11, 'seconds': 50}",2,58,42,"{'minutes': 10, 'seconds': 18}","{'minutes': 1, 'seconds': 42}",4,38,PUNT,True,0,7,0,7
+4017545819,401754581,Miami,ACC,SMU,ACC,7,False,2,88,88,"{'minutes': 10, 'seconds': 14}",2,72,72,"{'minutes': 9, 'seconds': 28}","{'minutes': 0, 'seconds': 50}",2,5,INT,False,7,0,7,0
+40175458110,401754581,SMU,ACC,Miami,ACC,8,True,2,72,28,"{'minutes': 9, 'seconds': 22}",2,99,1,"{'minutes': 9, 'seconds': 22}","{'minutes': 0, 'seconds': 6}",1,28,TD,True,7,7,7,7
+40175458112,401754581,Miami,ACC,SMU,ACC,9,False,2,90,90,"{'minutes': 9, 'seconds': 21}",2,73,73,"{'minutes': 6, 'seconds': 40}","{'minutes': 2, 'seconds': 41}",6,17,PUNT,False,7,7,7,7
+40175458113,401754581,SMU,ACC,Miami,ACC,10,False,2,20,80,"{'minutes': 6, 'seconds': 34}",2,21,79,"{'minutes': 5, 'seconds': 25}","{'minutes': 1, 'seconds': 15}",3,1,PUNT,True,7,7,7,7
+40175458114,401754581,Miami,ACC,SMU,ACC,11,False,2,65,65,"{'minutes': 5, 'seconds': 17}",2,44,44,"{'minutes': 2, 'seconds': 44}","{'minutes': 2, 'seconds': 41}",6,21,PUNT,False,7,7,7,7
+40175458115,401754581,SMU,ACC,Miami,ACC,12,False,2,8,92,"{'minutes': 2, 'seconds': 36}",2,7,93,"{'minutes': 0, 'seconds': 49}","{'minutes': 1, 'seconds': 55}",3,7,PUNT,True,7,7,7,7
+40175458116,401754581,Miami,ACC,SMU,ACC,13,True,2,9,9,"{'minutes': 0, 'seconds': 43}",2,4,4,"{'minutes': 0, 'seconds': 7}","{'minutes': 0, 'seconds': 42}",4,5,FG,False,7,7,10,7
+40175458118,401754581,SMU,ACC,Miami,ACC,14,False,2,25,75,"{'minutes': 0, 'seconds': 7}",2,24,76,"{'minutes': 0, 'seconds': 7}","{'minutes': 0, 'seconds': 7}",1,-1,END OF HALF,True,7,10,7,10
+40175458120,401754581,SMU,ACC,Miami,ACC,15,True,3,21,79,"{'minutes': 14, 'seconds': 54}",3,97,3,"{'minutes': 12, 'seconds': 11}","{'minutes': 2, 'seconds': 43}",9,79,TD,True,7,10,14,10
+40175458122,401754581,Miami,ACC,SMU,ACC,16,True,3,75,75,"{'minutes': 12, 'seconds': 5}",3,3,3,"{'minutes': 9, 'seconds': 6}","{'minutes': 2, 'seconds': 59}",7,75,TD,False,10,14,17,14
+40175458124,401754581,SMU,ACC,Miami,ACC,17,False,3,12,88,"{'minutes': 9, 'seconds': 0}",3,18,82,"{'minutes': 8, 'seconds': 19}","{'minutes': 0, 'seconds': 41}",3,6,PUNT,True,14,17,14,17
+40175458125,401754581,Miami,ACC,SMU,ACC,18,False,3,75,75,"{'minutes': 8, 'seconds': 13}",3,30,30,"{'minutes': 4, 'seconds': 3}","{'minutes': 4, 'seconds': 16}",9,45,DOWNS,False,17,14,17,14
+40175458126,401754581,SMU,ACC,Miami,ACC,19,True,3,30,70,"{'minutes': 3, 'seconds': 57}",3,74,26,"{'minutes': 0, 'seconds': 7}","{'minutes': 3, 'seconds': 56}",10,44,FG,True,14,17,17,17
+40175458128,401754581,Miami,ACC,SMU,ACC,20,True,3,75,75,"{'minutes': 0, 'seconds': 7}",4,26,26,"{'minutes': 9, 'seconds': 34}","{'minutes': 5, 'seconds': 33}",10,49,FG,False,17,17,20,17
+40175458130,401754581,SMU,ACC,Miami,ACC,21,False,4,25,75,"{'minutes': 9, 'seconds': 34}",4,75,25,"{'minutes': 6, 'seconds': 24}","{'minutes': 3, 'seconds': 10}",10,50,MISSED FG,True,17,20,17,20
+40175458131,401754581,Miami,ACC,SMU,ACC,22,False,4,75,75,"{'minutes': 6, 'seconds': 19}",4,50,50,"{'minutes': 2, 'seconds': 9}","{'minutes': 4, 'seconds': 15}",8,25,PUNT,False,20,17,20,17
+40175458132,401754581,SMU,ACC,Miami,ACC,23,True,4,10,90,"{'minutes': 2, 'seconds': 1}",4,79,21,"{'minutes': 0, 'seconds': 25}","{'minutes': 1, 'seconds': 44}",11,69,FG,True,17,20,20,20
+40175458134,401754581,Miami,ACC,SMU,ACC,24,False,4,75,75,"{'minutes': 0, 'seconds': 25}",4,76,76,"{'minutes': 0, 'seconds': 25}","{'minutes': 0, 'seconds': 25}",1,-1,END OF HALF,False,20,20,20,20
+40175458135,401754581,Miami,ACC,SMU,ACC,25,False,5,25,25,"{'minutes': 0, 'seconds': 0}",5,1,1,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",5,18,INT,False,20,20,20,20
+40175458136,401754581,SMU,ACC,Miami,ACC,26,True,5,75,25,"{'minutes': 0, 'seconds': 30}",5,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",6,25,TD,True,20,20,26,20
+4017545872,401754587,Miami,ACC,Syracuse,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,45,55,"{'minutes': 11, 'seconds': 28}","{'minutes': 3, 'seconds': 32}",7,20,PUNT,True,0,0,0,0
+4017545873,401754587,Syracuse,ACC,Miami,ACC,2,False,1,80,80,"{'minutes': 11, 'seconds': 18}",1,55,55,"{'minutes': 7, 'seconds': 17}","{'minutes': 4, 'seconds': 11}",8,25,PUNT,False,0,0,0,0
+4017545874,401754587,Miami,ACC,Syracuse,ACC,3,False,1,2,98,"{'minutes': 7, 'seconds': 12}",1,39,61,"{'minutes': 1, 'seconds': 8}","{'minutes': 6, 'seconds': 9}",10,37,PUNT,True,0,0,0,0
+4017545875,401754587,Syracuse,ACC,Miami,ACC,4,False,1,80,80,"{'minutes': 1, 'seconds': 2}",2,82,82,"{'minutes': 14, 'seconds': 45}","{'minutes': 1, 'seconds': 23}",3,-2,PUNT,False,0,0,0,0
+4017545876,401754587,Miami,ACC,Syracuse,ACC,5,False,2,14,86,"{'minutes': 14, 'seconds': 39}",2,23,77,"{'minutes': 13, 'seconds': 22}","{'minutes': 1, 'seconds': 23}",4,9,PUNT,True,0,0,0,0
+4017545877,401754587,Syracuse,ACC,Miami,ACC,6,False,2,68,68,"{'minutes': 13, 'seconds': 22}",2,45,45,"{'minutes': 9, 'seconds': 17}","{'minutes': 4, 'seconds': 5}",9,23,PUNT,False,0,0,0,0
+4017545878,401754587,Miami,ACC,Syracuse,ACC,7,False,2,20,80,"{'minutes': 9, 'seconds': 11}",2,26,74,"{'minutes': 7, 'seconds': 49}","{'minutes': 1, 'seconds': 28}",3,6,PUNT,True,0,0,0,0
+4017545879,401754587,Syracuse,ACC,Miami,ACC,8,False,2,61,61,"{'minutes': 7, 'seconds': 41}",2,54,54,"{'minutes': 5, 'seconds': 21}","{'minutes': 2, 'seconds': 28}",3,7,PUNT,False,0,0,0,0
+40175458710,401754587,Miami,ACC,Syracuse,ACC,9,True,2,10,90,"{'minutes': 5, 'seconds': 11}",2,78,22,"{'minutes': 2, 'seconds': 13}","{'minutes': 3, 'seconds': 8}",5,90,TD,True,0,0,7,0
+40175458712,401754587,Syracuse,ACC,Miami,ACC,10,True,2,75,75,"{'minutes': 2, 'seconds': 11}",2,73,73,"{'minutes': 1, 'seconds': 50}","{'minutes': 0, 'seconds': 21}",3,2,INT TD,False,0,6,0,14
+40175458714,401754587,Syracuse,ACC,Miami,ACC,11,False,2,75,75,"{'minutes': 1, 'seconds': 50}",2,13,13,"{'minutes': 0, 'seconds': 7}","{'minutes': 1, 'seconds': 43}",10,61,FUMBLE,False,0,14,0,14
+40175458715,401754587,Miami,ACC,Syracuse,ACC,12,False,2,14,86,"{'minutes': 0, 'seconds': 6}",2,12,88,"{'minutes': 0, 'seconds': 6}","{'minutes': 0, 'seconds': 7}",1,-2,END OF HALF,True,14,0,14,0
+40175458717,401754587,Syracuse,ACC,Miami,ACC,13,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,20,20,"{'minutes': 11, 'seconds': 12}","{'minutes': 3, 'seconds': 48}",8,55,FG,False,0,14,3,14
+40175458719,401754587,Miami,ACC,Syracuse,ACC,14,True,3,22,78,"{'minutes': 11, 'seconds': 6}",3,97,3,"{'minutes': 9, 'seconds': 57}","{'minutes': 1, 'seconds': 9}",3,78,TD,True,14,3,21,3
+40175458721,401754587,Syracuse,ACC,Miami,ACC,15,False,3,75,75,"{'minutes': 9, 'seconds': 57}",3,66,66,"{'minutes': 7, 'seconds': 17}","{'minutes': 2, 'seconds': 40}",6,9,PUNT,False,3,21,3,21
+40175458722,401754587,Miami,ACC,Syracuse,ACC,16,True,3,17,83,"{'minutes': 7, 'seconds': 8}",3,97,3,"{'minutes': 2, 'seconds': 25}","{'minutes': 4, 'seconds': 52}",9,83,TD,True,21,3,28,3
+40175458724,401754587,Syracuse,ACC,Miami,ACC,17,False,3,75,75,"{'minutes': 2, 'seconds': 25}",3,67,67,"{'minutes': 1, 'seconds': 28}","{'minutes': 0, 'seconds': 57}",2,-11,INT,False,3,28,3,28
+40175458725,401754587,Miami,ACC,Syracuse,ACC,18,True,3,77,23,"{'minutes': 1, 'seconds': 17}",3,82,18,"{'minutes': 0, 'seconds': 1}","{'minutes': 1, 'seconds': 28}",4,5,FG,True,28,3,31,3
+40175458727,401754587,Syracuse,ACC,Miami,ACC,19,False,4,75,75,"{'minutes': 15, 'seconds': 0}",4,79,79,"{'minutes': 13, 'seconds': 7}","{'minutes': 1, 'seconds': 53}",3,-4,PUNT,False,3,31,3,31
+40175458728,401754587,Miami,ACC,Syracuse,ACC,20,False,4,23,77,"{'minutes': 13, 'seconds': 0}",4,38,62,"{'minutes': 9, 'seconds': 23}","{'minutes': 3, 'seconds': 44}",6,15,PUNT,True,31,3,31,3
+40175458729,401754587,Syracuse,ACC,Miami,ACC,21,False,4,84,84,"{'minutes': 9, 'seconds': 15}",4,49,49,"{'minutes': 5, 'seconds': 49}","{'minutes': 3, 'seconds': 34}",9,35,DOWNS,False,3,31,3,31
+40175458730,401754587,Miami,ACC,Syracuse,ACC,22,True,4,49,51,"{'minutes': 5, 'seconds': 41}",4,97,3,"{'minutes': 2, 'seconds': 53}","{'minutes': 2, 'seconds': 56}",5,51,TD,True,31,3,38,3
+40175458732,401754587,Syracuse,ACC,Miami,ACC,23,True,4,75,75,"{'minutes': 2, 'seconds': 53}",4,3,3,"{'minutes': 0, 'seconds': 21}","{'minutes': 2, 'seconds': 32}",8,75,TD,False,3,38,10,38
+40175458734,401754587,Miami,ACC,Syracuse,ACC,24,False,4,28,72,"{'minutes': 0, 'seconds': 16}",4,31,69,"{'minutes': 0, 'seconds': 14}","{'minutes': 0, 'seconds': 16}",1,3,END OF GAME,True,38,10,38,10
+4017545952,401754595,NC State,ACC,Miami,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,55,55,"{'minutes': 12, 'seconds': 50}","{'minutes': 2, 'seconds': 10}",4,20,PUNT,False,0,0,0,0
+4017545953,401754595,Miami,ACC,NC State,ACC,2,True,1,9,91,"{'minutes': 12, 'seconds': 36}",1,86,14,"{'minutes': 7, 'seconds': 13}","{'minutes': 5, 'seconds': 37}",11,77,FG,True,0,0,3,0
+4017545955,401754595,NC State,ACC,Miami,ACC,3,False,1,75,75,"{'minutes': 7, 'seconds': 13}",1,76,76,"{'minutes': 6, 'seconds': 24}","{'minutes': 0, 'seconds': 49}",3,-1,PUNT,False,0,3,0,3
+4017545956,401754595,Miami,ACC,NC State,ACC,4,False,1,30,70,"{'minutes': 6, 'seconds': 15}",1,49,51,"{'minutes': 4, 'seconds': 23}","{'minutes': 2, 'seconds': 1}",5,21,FUMBLE,True,3,0,3,0
+4017545957,401754595,NC State,ACC,Miami,ACC,5,True,1,51,51,"{'minutes': 4, 'seconds': 23}",1,48,48,"{'minutes': 3, 'seconds': 36}","{'minutes': 0, 'seconds': 47}",2,-1,INT TD,False,0,3,0,10
+4017545959,401754595,NC State,ACC,Miami,ACC,6,False,1,75,75,"{'minutes': 3, 'seconds': 36}",1,50,50,"{'minutes': 1, 'seconds': 11}","{'minutes': 2, 'seconds': 25}",6,25,INT,False,0,10,0,10
+40175459510,401754595,Miami,ACC,NC State,ACC,7,False,1,37,63,"{'minutes': 0, 'seconds': 59}",2,45,55,"{'minutes': 14, 'seconds': 47}","{'minutes': 1, 'seconds': 24}",3,8,PUNT,True,10,0,10,0
+40175459511,401754595,NC State,ACC,Miami,ACC,8,False,2,90,90,"{'minutes': 14, 'seconds': 47}",2,84,84,"{'minutes': 12, 'seconds': 55}","{'minutes': 1, 'seconds': 59}",3,6,PUNT,False,0,10,0,24
+40175459512,401754595,Miami,ACC,NC State,ACC,9,True,2,53,47,"{'minutes': 12, 'seconds': 44}",2,100,0,"{'minutes': 11, 'seconds': 16}","{'minutes': 1, 'seconds': 32}",3,48,TD,True,10,0,24,0
+40175459514,401754595,NC State,ACC,Miami,ACC,10,False,2,75,75,"{'minutes': 11, 'seconds': 16}",2,73,73,"{'minutes': 9, 'seconds': 52}","{'minutes': 1, 'seconds': 24}",3,2,PUNT,False,0,17,0,17
+40175459515,401754595,Miami,ACC,NC State,ACC,11,False,2,23,77,"{'minutes': 9, 'seconds': 33}",2,47,53,"{'minutes': 6, 'seconds': 16}","{'minutes': 3, 'seconds': 36}",4,24,PUNT,True,17,0,17,0
+40175459516,401754595,NC State,ACC,Miami,ACC,12,False,2,92,92,"{'minutes': 6, 'seconds': 16}",2,73,73,"{'minutes': 3, 'seconds': 16}","{'minutes': 3, 'seconds': 0}",6,19,PUNT,False,0,17,0,17
+40175459517,401754595,Miami,ACC,NC State,ACC,13,True,2,34,66,"{'minutes': 2, 'seconds': 18}",2,100,0,"{'minutes': 0, 'seconds': 33}","{'minutes': 2, 'seconds': 43}",9,66,TD,True,17,0,24,0
+40175459519,401754595,NC State,ACC,Miami,ACC,14,False,2,75,75,"{'minutes': 0, 'seconds': 33}",2,73,73,"{'minutes': 0, 'seconds': 32}","{'minutes': 0, 'seconds': 33}",1,2,END OF HALF,False,0,24,0,24
+40175459521,401754595,Miami,ACC,NC State,ACC,15,True,3,15,85,"{'minutes': 14, 'seconds': 53}",3,100,0,"{'minutes': 9, 'seconds': 55}","{'minutes': 4, 'seconds': 58}",8,85,TD,True,24,0,31,0
+40175459523,401754595,NC State,ACC,Miami,ACC,16,False,3,75,75,"{'minutes': 9, 'seconds': 55}",3,75,75,"{'minutes': 9, 'seconds': 4}","{'minutes': 0, 'seconds': 51}",3,0,PUNT,False,0,31,0,31
+40175459524,401754595,Miami,ACC,NC State,ACC,17,True,3,13,87,"{'minutes': 8, 'seconds': 57}",3,80,20,"{'minutes': 3, 'seconds': 51}","{'minutes': 5, 'seconds': 13}",10,67,FG,True,31,0,34,0
+40175459526,401754595,NC State,ACC,Miami,ACC,18,False,3,75,75,"{'minutes': 3, 'seconds': 51}",3,62,62,"{'minutes': 1, 'seconds': 15}","{'minutes': 2, 'seconds': 36}",6,7,PUNT,False,0,34,0,34
+40175459527,401754595,Miami,ACC,NC State,ACC,19,True,3,12,88,"{'minutes': 1, 'seconds': 7}",4,100,0,"{'minutes': 11, 'seconds': 48}","{'minutes': 4, 'seconds': 27}",8,88,TD,True,34,0,41,0
+40175459529,401754595,NC State,ACC,Miami,ACC,20,False,4,75,75,"{'minutes': 11, 'seconds': 48}",4,81,81,"{'minutes': 10, 'seconds': 6}","{'minutes': 1, 'seconds': 42}",3,-6,PUNT,False,0,41,0,41
+40175459530,401754595,Miami,ACC,NC State,ACC,21,False,4,46,54,"{'minutes': 9, 'seconds': 55}",4,75,25,"{'minutes': 7, 'seconds': 19}","{'minutes': 2, 'seconds': 47}",6,29,MISSED FG,True,41,0,41,0
+40175459531,401754595,NC State,ACC,Miami,ACC,22,True,4,75,75,"{'minutes': 7, 'seconds': 19}",4,0,0,"{'minutes': 2, 'seconds': 18}","{'minutes': 5, 'seconds': 1}",10,75,TD,False,0,41,7,41
+40175459533,401754595,Miami,ACC,NC State,ACC,23,False,4,25,75,"{'minutes': 2, 'seconds': 18}",4,73,27,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 18}",6,48,END OF GAME,True,41,7,41,7
+4017546032,401754603,Miami,ACC,Virginia Tech,ACC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,0,0,"{'minutes': 10, 'seconds': 16}","{'minutes': 4, 'seconds': 44}",8,75,TD,False,0,0,7,0
+4017546034,401754603,Virginia Tech,ACC,Miami,ACC,2,True,1,39,61,"{'minutes': 10, 'seconds': 10}",1,87,13,"{'minutes': 6, 'seconds': 18}","{'minutes': 3, 'seconds': 52}",8,48,FG,True,0,7,3,7
+4017546036,401754603,Miami,ACC,Virginia Tech,ACC,3,True,1,75,75,"{'minutes': 6, 'seconds': 18}",2,0,0,"{'minutes': 12, 'seconds': 50}","{'minutes': 8, 'seconds': 28}",14,75,TD,False,7,3,14,3
+4017546038,401754603,Virginia Tech,ACC,Miami,ACC,4,False,2,25,75,"{'minutes': 12, 'seconds': 50}",2,78,22,"{'minutes': 8, 'seconds': 58}","{'minutes': 3, 'seconds': 52}",8,53,DOWNS,True,3,14,3,14
+4017546039,401754603,Miami,ACC,Virginia Tech,ACC,5,True,2,78,78,"{'minutes': 8, 'seconds': 50}",2,28,28,"{'minutes': 4, 'seconds': 16}","{'minutes': 4, 'seconds': 42}",10,50,FG,False,14,3,17,3
+40175460311,401754603,Virginia Tech,ACC,Miami,ACC,6,False,2,25,75,"{'minutes': 4, 'seconds': 16}",2,42,58,"{'minutes': 1, 'seconds': 30}","{'minutes': 2, 'seconds': 46}",8,17,PUNT,True,3,17,3,17
+40175460312,401754603,Miami,ACC,Virginia Tech,ACC,7,True,2,80,80,"{'minutes': 1, 'seconds': 20}",2,22,22,"{'minutes': 0, 'seconds': 37}","{'minutes': 0, 'seconds': 53}",5,58,FG,False,17,3,20,3
+40175460314,401754603,Virginia Tech,ACC,Miami,ACC,8,False,2,25,75,"{'minutes': 0, 'seconds': 37}",2,40,60,"{'minutes': 0, 'seconds': 5}","{'minutes': 0, 'seconds': 37}",5,23,END OF HALF,True,3,20,3,20
+40175460316,401754603,Virginia Tech,ACC,Miami,ACC,9,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 11, 'seconds': 59}","{'minutes': 3, 'seconds': 1}",5,75,TD,True,3,20,10,20
+40175460318,401754603,Miami,ACC,Virginia Tech,ACC,10,True,3,75,75,"{'minutes': 11, 'seconds': 59}",3,0,0,"{'minutes': 5, 'seconds': 32}","{'minutes': 6, 'seconds': 27}",11,75,TD,False,19,10,26,10
+40175460320,401754603,Virginia Tech,ACC,Miami,ACC,11,False,3,25,75,"{'minutes': 5, 'seconds': 32}",3,40,60,"{'minutes': 3, 'seconds': 3}","{'minutes': 2, 'seconds': 29}",4,15,PUNT,True,10,26,10,26
+40175460321,401754603,Miami,ACC,Virginia Tech,ACC,12,False,3,92,92,"{'minutes': 2, 'seconds': 50}",3,79,79,"{'minutes': 0, 'seconds': 6}","{'minutes': 3, 'seconds': 3}",5,13,PUNT,False,26,10,26,10
+40175460322,401754603,Virginia Tech,ACC,Miami,ACC,13,False,4,30,70,"{'minutes': 14, 'seconds': 50}",4,51,49,"{'minutes': 11, 'seconds': 7}","{'minutes': 3, 'seconds': 53}",11,21,DOWNS,True,10,26,10,26
+40175460323,401754603,Miami,ACC,Virginia Tech,ACC,14,False,4,51,51,"{'minutes': 10, 'seconds': 58}",4,44,44,"{'minutes': 7, 'seconds': 41}","{'minutes': 3, 'seconds': 26}",5,7,PUNT,False,26,10,26,10
+40175460324,401754603,Virginia Tech,ACC,Miami,ACC,15,True,4,8,92,"{'minutes': 7, 'seconds': 35}",4,100,0,"{'minutes': 3, 'seconds': 17}","{'minutes': 4, 'seconds': 24}",8,92,TD,True,10,26,17,26
+40175460326,401754603,Virginia Tech,ACC,Miami,ACC,16,False,4,39,61,"{'minutes': 3, 'seconds': 17}",4,58,42,"{'minutes': 2, 'seconds': 6}","{'minutes': 1, 'seconds': 11}",4,19,FUMBLE,True,17,26,17,26
+40175460327,401754603,Miami,ACC,Virginia Tech,ACC,17,True,4,40,40,"{'minutes': 2, 'seconds': 0}",4,0,0,"{'minutes': 0, 'seconds': 20}","{'minutes': 1, 'seconds': 46}",7,40,TD,False,26,17,33,17
+40175460329,401754603,Virginia Tech,ACC,Miami,ACC,18,False,4,25,75,"{'minutes': 0, 'seconds': 20}",4,37,63,"{'minutes': 0, 'seconds': 17}","{'minutes': 0, 'seconds': 20}",1,12,END OF GAME,True,17,33,17,33
+4017546112,401754611,Pittsburgh,ACC,Miami,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,12,88,"{'minutes': 13, 'seconds': 11}","{'minutes': 1, 'seconds': 49}",3,-13,PUNT,True,0,0,0,0
+4017546113,401754611,Miami,ACC,Pittsburgh,ACC,2,False,1,63,63,"{'minutes': 13, 'seconds': 3}",1,62,62,"{'minutes': 10, 'seconds': 30}","{'minutes': 2, 'seconds': 41}",5,1,PUNT,False,0,0,0,0
+4017546114,401754611,Pittsburgh,ACC,Miami,ACC,3,False,1,20,80,"{'minutes': 10, 'seconds': 24}",1,21,79,"{'minutes': 8, 'seconds': 30}","{'minutes': 2, 'seconds': 0}",3,1,PUNT,True,0,0,0,0
+4017546115,401754611,Miami,ACC,Pittsburgh,ACC,4,True,1,64,64,"{'minutes': 8, 'seconds': 30}",1,10,10,"{'minutes': 4, 'seconds': 31}","{'minutes': 3, 'seconds': 59}",9,54,FG,False,0,0,3,0
+4017546117,401754611,Pittsburgh,ACC,Miami,ACC,5,True,1,25,75,"{'minutes': 4, 'seconds': 31}",2,97,3,"{'minutes': 14, 'seconds': 20}","{'minutes': 5, 'seconds': 11}",13,75,TD,True,0,3,7,3
+4017546119,401754611,Miami,ACC,Pittsburgh,ACC,6,True,2,56,56,"{'minutes': 14, 'seconds': 14}",2,3,3,"{'minutes': 11, 'seconds': 7}","{'minutes': 3, 'seconds': 7}",7,56,TD,False,3,7,10,7
+40175461111,401754611,Pittsburgh,ACC,Miami,ACC,7,False,2,25,75,"{'minutes': 11, 'seconds': 7}",2,75,25,"{'minutes': 6, 'seconds': 10}","{'minutes': 4, 'seconds': 57}",8,50,MISSED FG,True,7,10,7,10
+40175461112,401754611,Miami,ACC,Pittsburgh,ACC,8,True,2,75,75,"{'minutes': 6, 'seconds': 1}",2,3,3,"{'minutes': 1, 'seconds': 55}","{'minutes': 4, 'seconds': 15}",9,75,TD,False,10,7,17,7
+40175461114,401754611,Pittsburgh,ACC,Miami,ACC,9,False,2,25,75,"{'minutes': 1, 'seconds': 55}",2,13,87,"{'minutes': 0, 'seconds': 24}","{'minutes': 1, 'seconds': 31}",5,-12,PUNT,True,7,17,7,17
+40175461115,401754611,Miami,ACC,Pittsburgh,ACC,10,False,2,76,76,"{'minutes': 0, 'seconds': 22}",2,77,77,"{'minutes': 0, 'seconds': 22}","{'minutes': 0, 'seconds': 24}",1,-1,END OF HALF,False,17,7,17,7
+40175461117,401754611,Miami,ACC,Pittsburgh,ACC,11,True,3,75,75,"{'minutes': 14, 'seconds': 55}",3,3,3,"{'minutes': 9, 'seconds': 29}","{'minutes': 5, 'seconds': 26}",12,75,TD,False,17,7,24,7
+40175461119,401754611,Pittsburgh,ACC,Miami,ACC,12,False,3,17,83,"{'minutes': 9, 'seconds': 23}",3,23,77,"{'minutes': 7, 'seconds': 37}","{'minutes': 1, 'seconds': 46}",3,6,PUNT,True,7,24,7,24
+40175461120,401754611,Miami,ACC,Pittsburgh,ACC,13,True,3,59,59,"{'minutes': 7, 'seconds': 27}",3,3,3,"{'minutes': 4, 'seconds': 28}","{'minutes': 3, 'seconds': 9}",6,59,TD,False,24,7,31,7
+40175461122,401754611,Pittsburgh,ACC,Miami,ACC,14,False,3,25,75,"{'minutes': 4, 'seconds': 28}",3,69,31,"{'minutes': 2, 'seconds': 7}","{'minutes': 2, 'seconds': 21}",7,44,FUMBLE,True,7,31,7,31
+40175461123,401754611,Miami,ACC,Pittsburgh,ACC,15,False,3,69,69,"{'minutes': 2, 'seconds': 0}",4,39,39,"{'minutes': 13, 'seconds': 33}","{'minutes': 3, 'seconds': 34}",6,30,PUNT,False,31,7,31,7
+40175461124,401754611,Pittsburgh,ACC,Miami,ACC,16,False,4,1,99,"{'minutes': 13, 'seconds': 30}",4,30,70,"{'minutes': 11, 'seconds': 33}","{'minutes': 2, 'seconds': 0}",6,29,PUNT,True,7,31,7,31
+40175461125,401754611,Miami,ACC,Pittsburgh,ACC,17,False,4,65,65,"{'minutes': 11, 'seconds': 19}",4,15,15,"{'minutes': 6, 'seconds': 18}","{'minutes': 5, 'seconds': 15}",9,46,INT,False,31,7,31,7
+40175461126,401754611,Pittsburgh,ACC,Miami,ACC,18,False,4,15,85,"{'minutes': 6, 'seconds': 11}",4,31,69,"{'minutes': 3, 'seconds': 58}","{'minutes': 2, 'seconds': 20}",6,16,PUNT,True,7,31,7,31
+40175461127,401754611,Miami,ACC,Pittsburgh,ACC,19,True,4,65,65,"{'minutes': 3, 'seconds': 51}",4,3,3,"{'minutes': 0, 'seconds': 41}","{'minutes': 3, 'seconds': 17}",7,65,TD,False,31,7,38,7
+40175461129,401754611,Pittsburgh,ACC,Miami,ACC,20,False,4,25,75,"{'minutes': 0, 'seconds': 41}",4,43,57,"{'minutes': 0, 'seconds': 37}","{'minutes': 0, 'seconds': 4}",1,0,INT,True,7,38,7,38
+40175461130,401754611,Miami,ACC,Pittsburgh,ACC,21,False,4,43,43,"{'minutes': 0, 'seconds': 19}",4,44,44,"{'minutes': 0, 'seconds': 19}","{'minutes': 0, 'seconds': 37}",1,-1,Uncategorized,False,38,7,38,7
+4017546411,401754641,Bethune-Cookman,SWAC,Miami,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,49,49,"{'minutes': 11, 'seconds': 14}","{'minutes': 3, 'seconds': 46}",6,26,PUNT,False,0,0,0,0
+4017546412,401754641,Miami,ACC,Bethune-Cookman,SWAC,2,True,1,10,90,"{'minutes': 11, 'seconds': 14}",1,100,0,"{'minutes': 9, 'seconds': 16}","{'minutes': 1, 'seconds': 58}",5,90,TD,True,0,0,7,0
+4017546413,401754641,Bethune-Cookman,SWAC,Miami,ACC,3,False,1,75,75,"{'minutes': 9, 'seconds': 16}",1,74,74,"{'minutes': 7, 'seconds': 7}","{'minutes': 2, 'seconds': 9}",3,1,PUNT,False,0,7,0,7
+4017546414,401754641,Miami,ACC,Bethune-Cookman,SWAC,4,True,1,26,74,"{'minutes': 7, 'seconds': 7}",1,100,0,"{'minutes': 2, 'seconds': 34}","{'minutes': 4, 'seconds': 33}",9,74,TD,True,7,0,14,0
+4017546415,401754641,Bethune-Cookman,SWAC,Miami,ACC,5,False,1,75,75,"{'minutes': 2, 'seconds': 34}",2,68,68,"{'minutes': 14, 'seconds': 3}","{'minutes': 3, 'seconds': 31}",5,7,PUNT,False,0,14,0,14
+4017546416,401754641,Miami,ACC,Bethune-Cookman,SWAC,6,True,2,32,68,"{'minutes': 14, 'seconds': 3}",2,100,0,"{'minutes': 9, 'seconds': 55}","{'minutes': 4, 'seconds': 8}",8,68,TD,True,14,0,21,0
+4017546417,401754641,Bethune-Cookman,SWAC,Miami,ACC,7,True,2,75,75,"{'minutes': 9, 'seconds': 55}",2,15,15,"{'minutes': 3, 'seconds': 8}","{'minutes': 6, 'seconds': 47}",11,60,FG,False,0,21,3,21
+4017546418,401754641,Miami,ACC,Bethune-Cookman,SWAC,8,True,2,29,71,"{'minutes': 3, 'seconds': 2}",2,100,0,"{'minutes': 0, 'seconds': 38}","{'minutes': 2, 'seconds': 24}",11,71,TD,True,21,3,28,3
+4017546419,401754641,Bethune-Cookman,SWAC,Miami,ACC,9,False,2,75,75,"{'minutes': 0, 'seconds': 38}",2,61,61,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 38}",2,14,END OF HALF,False,3,28,3,28
+40175464110,401754641,Miami,ACC,Bethune-Cookman,SWAC,10,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 10, 'seconds': 39}","{'minutes': 4, 'seconds': 21}",9,75,TD,True,28,3,35,3
+40175464111,401754641,Bethune-Cookman,SWAC,Miami,ACC,11,False,3,75,75,"{'minutes': 10, 'seconds': 39}",3,34,34,"{'minutes': 5, 'seconds': 12}","{'minutes': 5, 'seconds': 27}",10,41,FUMBLE,False,3,35,3,35
+40175464112,401754641,Miami,ACC,Bethune-Cookman,SWAC,12,False,3,34,66,"{'minutes': 5, 'seconds': 12}",3,68,32,"{'minutes': 2, 'seconds': 45}","{'minutes': 2, 'seconds': 27}",7,34,DOWNS,True,35,3,35,3
+40175464113,401754641,Bethune-Cookman,SWAC,Miami,ACC,13,False,3,68,68,"{'minutes': 2, 'seconds': 45}",3,64,64,"{'minutes': 0, 'seconds': 49}","{'minutes': 1, 'seconds': 56}",3,4,PUNT,False,3,35,3,35
+40175464114,401754641,Miami,ACC,Bethune-Cookman,SWAC,14,True,3,31,69,"{'minutes': 0, 'seconds': 49}",4,100,0,"{'minutes': 13, 'seconds': 52}","{'minutes': 1, 'seconds': 57}",5,69,TD,True,35,3,42,3
+40175464115,401754641,Bethune-Cookman,SWAC,Miami,ACC,15,False,4,75,75,"{'minutes': 13, 'seconds': 52}",4,6,6,"{'minutes': 8, 'seconds': 7}","{'minutes': 5, 'seconds': 45}",9,69,INT,False,3,42,3,42
+40175464116,401754641,Miami,ACC,Bethune-Cookman,SWAC,16,True,4,20,80,"{'minutes': 8, 'seconds': 7}",4,87,13,"{'minutes': 1, 'seconds': 56}","{'minutes': 6, 'seconds': 11}",13,67,FG,True,42,3,45,3
+40175464117,401754641,Bethune-Cookman,SWAC,Miami,ACC,17,False,4,75,75,"{'minutes': 1, 'seconds': 56}",4,71,71,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 56}",3,4,END OF GAME,False,3,45,3,45

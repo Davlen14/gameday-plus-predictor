@@ -1,0 +1,280 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017526741,401752674,Central Arkansas,UAC,Missouri,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,68,68,"{'minutes': 13, 'seconds': 18}","{'minutes': 1, 'seconds': 42}",4,7,PUNT,False,0,0,0,0
+4017526742,401752674,Missouri,SEC,Central Arkansas,UAC,2,True,0,36,64,"{'minutes': 0, 'seconds': 0}",0,100,0,"{'minutes': 11, 'seconds': 6}","{'minutes': 0, 'seconds': 0}",4,64,TD,True,0,0,6,0
+4017526743,401752674,Central Arkansas,UAC,Missouri,SEC,3,False,1,75,75,"{'minutes': 10, 'seconds': 58}",1,50,50,"{'minutes': 6, 'seconds': 51}","{'minutes': 4, 'seconds': 7}",7,25,PUNT,False,0,6,0,6
+4017526744,401752674,Missouri,SEC,Central Arkansas,UAC,4,True,1,18,82,"{'minutes': 6, 'seconds': 51}",1,68,32,"{'minutes': 2, 'seconds': 22}","{'minutes': 4, 'seconds': 29}",10,50,FG,True,6,0,9,0
+4017526745,401752674,Central Arkansas,UAC,Missouri,SEC,5,False,1,75,75,"{'minutes': 2, 'seconds': 22}",1,68,68,"{'minutes': 0, 'seconds': 38}","{'minutes': 1, 'seconds': 44}",3,7,PUNT,False,0,9,0,9
+4017526746,401752674,Missouri,SEC,Central Arkansas,UAC,6,True,1,27,73,"{'minutes': 0, 'seconds': 38}",2,62,38,"{'minutes': 9, 'seconds': 33}","{'minutes': 6, 'seconds': 5}",14,35,FG,True,9,0,12,0
+4017526747,401752674,Central Arkansas,UAC,Missouri,SEC,7,False,2,80,80,"{'minutes': 9, 'seconds': 28}",2,76,76,"{'minutes': 7, 'seconds': 41}","{'minutes': 1, 'seconds': 47}",3,4,PUNT,False,0,12,0,12
+4017526748,401752674,Missouri,SEC,Central Arkansas,UAC,8,True,2,67,33,"{'minutes': 7, 'seconds': 41}",2,100,0,"{'minutes': 6, 'seconds': 48}","{'minutes': 0, 'seconds': 53}",2,33,TD,True,12,0,19,0
+4017526749,401752674,Central Arkansas,UAC,Missouri,SEC,9,False,2,75,75,"{'minutes': 6, 'seconds': 48}",2,55,55,"{'minutes': 3, 'seconds': 38}","{'minutes': 3, 'seconds': 10}",5,20,PUNT,False,0,19,0,19
+40175267410,401752674,Missouri,SEC,Central Arkansas,UAC,10,True,2,1,99,"{'minutes': 3, 'seconds': 38}",2,100,0,"{'minutes': 0, 'seconds': 8}","{'minutes': 3, 'seconds': 30}",15,99,TD,True,19,0,26,0
+40175267411,401752674,Central Arkansas,UAC,Missouri,SEC,11,False,2,67,67,"{'minutes': 0, 'seconds': 2}",2,68,68,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 2}",1,-1,END OF HALF,False,0,26,0,26
+40175267412,401752674,Missouri,SEC,Central Arkansas,UAC,12,True,3,15,85,"{'minutes': 14, 'seconds': 50}",3,100,0,"{'minutes': 11, 'seconds': 23}","{'minutes': 3, 'seconds': 27}",7,85,TD,True,26,0,33,0
+40175267413,401752674,Central Arkansas,UAC,Missouri,SEC,13,False,3,85,85,"{'minutes': 11, 'seconds': 18}",3,55,55,"{'minutes': 8, 'seconds': 3}","{'minutes': 3, 'seconds': 15}",6,30,PUNT,False,0,33,0,33
+40175267414,401752674,Missouri,SEC,Central Arkansas,UAC,14,True,3,1,99,"{'minutes': 8, 'seconds': 3}",3,100,0,"{'minutes': 4, 'seconds': 54}","{'minutes': 3, 'seconds': 9}",7,99,TD,True,33,0,40,0
+40175267415,401752674,Central Arkansas,UAC,Missouri,SEC,15,False,3,84,84,"{'minutes': 4, 'seconds': 48}",3,68,68,"{'minutes': 1, 'seconds': 21}","{'minutes': 3, 'seconds': 27}",5,16,PUNT,False,0,40,0,40
+40175267416,401752674,Missouri,SEC,Central Arkansas,UAC,16,False,3,34,66,"{'minutes': 1, 'seconds': 21}",4,41,59,"{'minutes': 14, 'seconds': 20}","{'minutes': 2, 'seconds': 1}",3,7,PUNT,True,40,0,40,0
+40175267417,401752674,Central Arkansas,UAC,Missouri,SEC,17,False,4,89,89,"{'minutes': 14, 'seconds': 20}",4,83,83,"{'minutes': 12, 'seconds': 56}","{'minutes': 1, 'seconds': 24}",3,6,PUNT,False,0,40,0,40
+40175267418,401752674,Missouri,SEC,Central Arkansas,UAC,18,True,4,46,54,"{'minutes': 12, 'seconds': 56}",4,100,0,"{'minutes': 11, 'seconds': 5}","{'minutes': 1, 'seconds': 51}",4,54,TD,True,40,0,47,0
+40175267419,401752674,Central Arkansas,UAC,Missouri,SEC,19,False,4,85,85,"{'minutes': 11, 'seconds': 0}",4,86,86,"{'minutes': 9, 'seconds': 32}","{'minutes': 1, 'seconds': 28}",3,-1,FUMBLE,False,0,47,0,47
+40175267420,401752674,Missouri,SEC,Central Arkansas,UAC,20,True,4,86,14,"{'minutes': 9, 'seconds': 32}",4,100,0,"{'minutes': 7, 'seconds': 32}","{'minutes': 2, 'seconds': 0}",4,14,TD,True,47,0,54,0
+40175267421,401752674,Central Arkansas,UAC,Missouri,SEC,21,True,4,71,71,"{'minutes': 7, 'seconds': 26}",4,22,22,"{'minutes': 2, 'seconds': 48}","{'minutes': 4, 'seconds': 38}",12,49,INT TD,False,0,54,0,61
+40175267422,401752674,Central Arkansas,UAC,Missouri,SEC,22,True,4,63,63,"{'minutes': 2, 'seconds': 43}",4,0,0,"{'minutes': 0, 'seconds': 22}","{'minutes': 2, 'seconds': 21}",10,63,TD,False,0,61,6,61
+40175267423,401752674,Missouri,SEC,Central Arkansas,UAC,23,False,4,25,75,"{'minutes': 0, 'seconds': 22}",4,23,77,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 22}",1,-2,END OF GAME,True,61,6,61,6
+4017526891,401752689,Kansas,Big 12,Missouri,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,67,67,"{'minutes': 13, 'seconds': 2}","{'minutes': 1, 'seconds': 58}",3,8,PUNT,False,0,0,0,0
+4017526892,401752689,Missouri,SEC,Kansas,Big 12,2,True,1,29,71,"{'minutes': 13, 'seconds': 2}",1,100,0,"{'minutes': 10, 'seconds': 53}","{'minutes': 2, 'seconds': 9}",5,71,TD,True,0,0,6,0
+4017526893,401752689,Kansas,Big 12,Missouri,SEC,3,True,1,62,62,"{'minutes': 10, 'seconds': 50}",1,0,0,"{'minutes': 8, 'seconds': 9}","{'minutes': 2, 'seconds': 41}",7,62,TD,False,0,6,7,6
+4017526894,401752689,Missouri,SEC,Kansas,Big 12,4,True,1,18,82,"{'minutes': 8, 'seconds': 4}",1,28,72,"{'minutes': 6, 'seconds': 53}","{'minutes': 1, 'seconds': 11}",3,10,FUMBLE RETURN TD,True,6,7,6,14
+4017526895,401752689,Missouri,SEC,Kansas,Big 12,5,False,1,25,75,"{'minutes': 6, 'seconds': 53}",1,26,74,"{'minutes': 4, 'seconds': 46}","{'minutes': 2, 'seconds': 7}",3,1,PUNT,True,6,14,6,14
+4017526896,401752689,Kansas,Big 12,Missouri,SEC,6,True,1,53,53,"{'minutes': 4, 'seconds': 46}",1,0,0,"{'minutes': 2, 'seconds': 13}","{'minutes': 2, 'seconds': 33}",6,53,TD,False,14,6,21,6
+4017526897,401752689,Missouri,SEC,Kansas,Big 12,7,True,1,25,75,"{'minutes': 2, 'seconds': 13}",2,100,0,"{'minutes': 10, 'seconds': 10}","{'minutes': 7, 'seconds': 3}",15,75,TD,True,6,21,13,21
+4017526898,401752689,Kansas,Big 12,Missouri,SEC,8,True,2,75,75,"{'minutes': 10, 'seconds': 3}",2,100,100,"{'minutes': 9, 'seconds': 49}","{'minutes': 0, 'seconds': 14}",1,-50,SF,False,21,13,21,15
+4017526899,401752689,Missouri,SEC,Kansas,Big 12,9,True,2,30,70,"{'minutes': 9, 'seconds': 43}",2,93,7,"{'minutes': 1, 'seconds': 3}","{'minutes': 8, 'seconds': 40}",17,63,FG,True,15,21,18,21
+40175268910,401752689,Kansas,Big 12,Missouri,SEC,10,False,2,77,77,"{'minutes': 0, 'seconds': 56}",2,70,70,"{'minutes': 0, 'seconds': 28}","{'minutes': 0, 'seconds': 28}",3,7,PUNT,False,21,18,21,18
+40175268911,401752689,Missouri,SEC,Kansas,Big 12,11,True,2,14,86,"{'minutes': 0, 'seconds': 28}",2,98,2,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 28}",4,84,FG,True,18,21,21,21
+40175268912,401752689,Missouri,SEC,Kansas,Big 12,12,False,3,20,80,"{'minutes': 14, 'seconds': 54}",3,65,35,"{'minutes': 10, 'seconds': 17}","{'minutes': 4, 'seconds': 37}",10,45,DOWNS,True,21,21,21,21
+40175268913,401752689,Kansas,Big 12,Missouri,SEC,13,True,3,65,65,"{'minutes': 10, 'seconds': 17}",3,9,9,"{'minutes': 5, 'seconds': 48}","{'minutes': 4, 'seconds': 29}",11,53,FG,False,21,21,24,21
+40175268914,401752689,Missouri,SEC,Kansas,Big 12,14,True,3,25,75,"{'minutes': 5, 'seconds': 48}",3,100,0,"{'minutes': 0, 'seconds': 24}","{'minutes': 5, 'seconds': 24}",12,75,TD,True,21,24,28,24
+40175268915,401752689,Kansas,Big 12,Missouri,SEC,15,False,3,75,75,"{'minutes': 0, 'seconds': 24}",4,73,73,"{'minutes': 14, 'seconds': 34}","{'minutes': 0, 'seconds': 50}",3,2,PUNT,False,24,28,24,28
+40175268916,401752689,Missouri,SEC,Kansas,Big 12,16,False,4,36,64,"{'minutes': 14, 'seconds': 34}",4,40,60,"{'minutes': 12, 'seconds': 36}","{'minutes': 1, 'seconds': 58}",3,4,PUNT,True,28,24,28,24
+40175268917,401752689,Kansas,Big 12,Missouri,SEC,17,True,4,92,92,"{'minutes': 12, 'seconds': 36}",4,0,0,"{'minutes': 8, 'seconds': 45}","{'minutes': 3, 'seconds': 51}",8,92,TD,False,24,28,31,28
+40175268918,401752689,Missouri,SEC,Kansas,Big 12,18,True,4,25,75,"{'minutes': 8, 'seconds': 45}",4,100,0,"{'minutes': 4, 'seconds': 14}","{'minutes': 4, 'seconds': 31}",10,75,TD,True,28,31,35,31
+40175268919,401752689,Kansas,Big 12,Missouri,SEC,19,False,4,75,75,"{'minutes': 4, 'seconds': 14}",4,72,72,"{'minutes': 2, 'seconds': 45}","{'minutes': 1, 'seconds': 29}",3,3,PUNT,False,31,35,31,35
+40175268920,401752689,Missouri,SEC,Kansas,Big 12,20,True,4,25,75,"{'minutes': 2, 'seconds': 45}",4,100,0,"{'minutes': 1, 'seconds': 49}","{'minutes': 0, 'seconds': 56}",3,75,TD,True,35,31,42,31
+40175268921,401752689,Kansas,Big 12,Missouri,SEC,21,False,4,71,71,"{'minutes': 1, 'seconds': 42}",4,60,60,"{'minutes': 1, 'seconds': 6}","{'minutes': 0, 'seconds': 36}",5,11,INT,False,31,42,31,42
+40175268922,401752689,Missouri,SEC,Kansas,Big 12,22,False,4,37,63,"{'minutes': 1, 'seconds': 6}",4,49,51,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 6}",3,12,END OF GAME,True,42,31,42,31
+4017527021,401752702,Louisiana,Sun Belt,Missouri,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,70,70,"{'minutes': 13, 'seconds': 43}","{'minutes': 1, 'seconds': 17}",3,5,PUNT,False,0,0,0,0
+4017527022,401752702,Missouri,SEC,Louisiana,Sun Belt,2,True,1,27,73,"{'minutes': 13, 'seconds': 43}",1,100,0,"{'minutes': 8, 'seconds': 26}","{'minutes': 5, 'seconds': 17}",10,73,TD,True,0,0,7,0
+4017527023,401752702,Louisiana,Sun Belt,Missouri,SEC,3,False,1,76,76,"{'minutes': 8, 'seconds': 21}",1,78,78,"{'minutes': 7, 'seconds': 8}","{'minutes': 1, 'seconds': 13}",3,-2,PUNT,False,0,7,0,7
+4017527024,401752702,Missouri,SEC,Louisiana,Sun Belt,4,True,1,40,60,"{'minutes': 7, 'seconds': 8}",1,100,0,"{'minutes': 2, 'seconds': 38}","{'minutes': 4, 'seconds': 30}",8,60,TD,True,7,0,14,0
+4017527025,401752702,Louisiana,Sun Belt,Missouri,SEC,5,False,1,86,86,"{'minutes': 2, 'seconds': 33}",1,77,77,"{'minutes': 0, 'seconds': 39}","{'minutes': 1, 'seconds': 54}",3,9,PUNT,False,0,14,0,14
+4017527026,401752702,Missouri,SEC,Louisiana,Sun Belt,6,True,1,41,59,"{'minutes': 0, 'seconds': 39}",2,100,0,"{'minutes': 14, 'seconds': 18}","{'minutes': 1, 'seconds': 21}",4,59,TD,True,14,0,21,0
+4017527027,401752702,Louisiana,Sun Belt,Missouri,SEC,7,False,2,75,75,"{'minutes': 14, 'seconds': 18}",2,68,68,"{'minutes': 12, 'seconds': 35}","{'minutes': 1, 'seconds': 43}",4,7,PUNT,False,0,21,0,21
+4017527028,401752702,Missouri,SEC,Louisiana,Sun Belt,8,True,2,26,74,"{'minutes': 12, 'seconds': 35}",2,100,0,"{'minutes': 10, 'seconds': 31}","{'minutes': 2, 'seconds': 4}",5,74,TD,True,21,0,28,0
+4017527029,401752702,Louisiana,Sun Belt,Missouri,SEC,9,False,2,75,75,"{'minutes': 10, 'seconds': 31}",2,59,59,"{'minutes': 9, 'seconds': 51}","{'minutes': 0, 'seconds': 40}",4,16,PUNT,False,0,28,0,28
+40175270210,401752702,Missouri,SEC,Louisiana,Sun Belt,10,False,2,17,83,"{'minutes': 9, 'seconds': 51}",2,15,85,"{'minutes': 8, 'seconds': 21}","{'minutes': 1, 'seconds': 30}",3,-2,INT,True,28,0,28,0
+40175270211,401752702,Louisiana,Sun Belt,Missouri,SEC,11,True,2,22,22,"{'minutes': 8, 'seconds': 21}",2,17,17,"{'minutes': 6, 'seconds': 22}","{'minutes': 1, 'seconds': 59}",4,5,FG,False,0,28,3,28
+40175270212,401752702,Missouri,SEC,Louisiana,Sun Belt,12,True,2,25,75,"{'minutes': 6, 'seconds': 15}",2,100,0,"{'minutes': 5, 'seconds': 41}","{'minutes': 0, 'seconds': 34}",2,75,TD,True,28,3,35,3
+40175270213,401752702,Louisiana,Sun Belt,Missouri,SEC,13,False,2,94,94,"{'minutes': 5, 'seconds': 33}",2,98,98,"{'minutes': 4, 'seconds': 43}","{'minutes': 0, 'seconds': 50}",3,-4,PUNT,False,3,35,3,35
+40175270214,401752702,Missouri,SEC,Louisiana,Sun Belt,14,False,2,45,55,"{'minutes': 4, 'seconds': 43}",2,39,61,"{'minutes': 3, 'seconds': 41}","{'minutes': 1, 'seconds': 2}",3,-6,PUNT,True,35,3,35,3
+40175270215,401752702,Louisiana,Sun Belt,Missouri,SEC,15,True,2,84,84,"{'minutes': 3, 'seconds': 41}",2,0,0,"{'minutes': 3, 'seconds': 27}","{'minutes': 0, 'seconds': 14}",1,84,TD,False,10,35,10,35
+40175270216,401752702,Missouri,SEC,Louisiana,Sun Belt,16,True,2,25,75,"{'minutes': 3, 'seconds': 27}",2,96,4,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 27}",14,71,FG,True,35,10,38,10
+40175270217,401752702,Missouri,SEC,Louisiana,Sun Belt,17,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 10, 'seconds': 2}","{'minutes': 4, 'seconds': 58}",10,75,TD,True,38,10,45,10
+40175270218,401752702,Louisiana,Sun Belt,Missouri,SEC,18,False,3,79,79,"{'minutes': 9, 'seconds': 56}",3,86,86,"{'minutes': 8, 'seconds': 1}","{'minutes': 1, 'seconds': 55}",3,-7,PUNT,False,10,45,10,45
+40175270219,401752702,Missouri,SEC,Louisiana,Sun Belt,19,False,3,40,60,"{'minutes': 8, 'seconds': 1}",3,77,23,"{'minutes': 3, 'seconds': 15}","{'minutes': 4, 'seconds': 46}",8,37,MISSED FG,True,45,10,45,10
+40175270220,401752702,Louisiana,Sun Belt,Missouri,SEC,20,False,3,77,77,"{'minutes': 3, 'seconds': 15}",3,77,77,"{'minutes': 2, 'seconds': 45}","{'minutes': 0, 'seconds': 30}",3,0,PUNT,False,10,45,10,45
+40175270221,401752702,Missouri,SEC,Louisiana,Sun Belt,21,True,3,27,73,"{'minutes': 2, 'seconds': 45}",4,100,0,"{'minutes': 7, 'seconds': 2}","{'minutes': 10, 'seconds': 43}",17,73,TD,True,45,10,52,10
+40175270222,401752702,Louisiana,Sun Belt,Missouri,SEC,22,False,4,75,75,"{'minutes': 7, 'seconds': 2}",4,70,70,"{'minutes': 2, 'seconds': 32}","{'minutes': 4, 'seconds': 30}",6,5,PUNT,False,10,52,10,52
+40175270223,401752702,Missouri,SEC,Louisiana,Sun Belt,23,False,4,22,78,"{'minutes': 2, 'seconds': 32}",4,43,57,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 32}",4,21,END OF GAME,True,52,10,52,10
+4017527131,401752713,South Carolina,SEC,Missouri,SEC,1,False,1,74,74,"{'minutes': 14, 'seconds': 54}",1,65,65,"{'minutes': 12, 'seconds': 49}","{'minutes': 2, 'seconds': 5}",4,9,PUNT,False,0,0,0,0
+4017527132,401752713,Missouri,SEC,South Carolina,SEC,2,False,1,9,91,"{'minutes': 12, 'seconds': 49}",1,48,52,"{'minutes': 7, 'seconds': 19}","{'minutes': 5, 'seconds': 30}",11,39,PUNT,True,0,0,0,0
+4017527133,401752713,South Carolina,SEC,Missouri,SEC,3,False,1,80,80,"{'minutes': 7, 'seconds': 19}",1,43,43,"{'minutes': 4, 'seconds': 2}","{'minutes': 3, 'seconds': 17}",7,37,PUNT,False,0,0,0,0
+4017527134,401752713,Missouri,SEC,South Carolina,SEC,4,True,1,1,99,"{'minutes': 4, 'seconds': 2}",2,100,0,"{'minutes': 14, 'seconds': 24}","{'minutes': 4, 'seconds': 38}",9,99,TD,True,0,0,6,0
+4017527135,401752713,South Carolina,SEC,Missouri,SEC,5,True,2,67,67,"{'minutes': 14, 'seconds': 18}",2,0,0,"{'minutes': 11, 'seconds': 26}","{'minutes': 2, 'seconds': 52}",6,67,TD,False,-7,6,7,6
+4017527136,401752713,Missouri,SEC,South Carolina,SEC,6,True,2,35,65,"{'minutes': 11, 'seconds': 26}",2,95,5,"{'minutes': 5, 'seconds': 54}","{'minutes': 5, 'seconds': 32}",11,60,FG,True,6,0,9,7
+4017527137,401752713,South Carolina,SEC,Missouri,SEC,7,False,2,75,75,"{'minutes': 5, 'seconds': 54}",2,94,94,"{'minutes': 3, 'seconds': 53}","{'minutes': 2, 'seconds': 1}",3,-19,PUNT,False,7,9,7,9
+4017527138,401752713,Missouri,SEC,South Carolina,SEC,8,False,2,54,46,"{'minutes': 3, 'seconds': 53}",2,54,46,"{'minutes': 3, 'seconds': 46}","{'minutes': 0, 'seconds': 7}",1,0,INT,True,9,7,9,7
+4017527139,401752713,South Carolina,SEC,Missouri,SEC,9,True,2,70,70,"{'minutes': 3, 'seconds': 46}",2,0,0,"{'minutes': 2, 'seconds': 31}","{'minutes': 1, 'seconds': 15}",4,70,TD,False,7,9,14,9
+40175271310,401752713,Missouri,SEC,South Carolina,SEC,10,True,2,25,75,"{'minutes': 2, 'seconds': 31}",2,96,4,"{'minutes': 0, 'seconds': 17}","{'minutes': 2, 'seconds': 31}",11,71,FG,True,9,14,12,14
+40175271311,401752713,South Carolina,SEC,Missouri,SEC,11,False,2,65,65,"{'minutes': 0, 'seconds': 12}",2,66,66,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 12}",1,-1,END OF HALF,False,14,12,14,12
+40175271312,401752713,Missouri,SEC,South Carolina,SEC,12,False,3,13,87,"{'minutes': 14, 'seconds': 50}",3,20,80,"{'minutes': 12, 'seconds': 50}","{'minutes': 2, 'seconds': 0}",4,7,PUNT,True,12,14,12,14
+40175271313,401752713,South Carolina,SEC,Missouri,SEC,13,True,3,63,63,"{'minutes': 12, 'seconds': 50}",3,14,14,"{'minutes': 8, 'seconds': 27}","{'minutes': 4, 'seconds': 23}",8,49,FG,False,14,12,17,12
+40175271314,401752713,Missouri,SEC,South Carolina,SEC,14,True,3,25,75,"{'minutes': 8, 'seconds': 27}",3,100,0,"{'minutes': 5, 'seconds': 34}","{'minutes': 2, 'seconds': 53}",6,75,TD,True,12,17,18,17
+40175271315,401752713,South Carolina,SEC,Missouri,SEC,15,True,3,74,74,"{'minutes': 5, 'seconds': 28}",3,18,18,"{'minutes': 0, 'seconds': 18}","{'minutes': 5, 'seconds': 10}",9,56,FG,False,17,18,20,18
+40175271316,401752713,Missouri,SEC,South Carolina,SEC,16,True,3,25,75,"{'minutes': 0, 'seconds': 18}",4,100,0,"{'minutes': 9, 'seconds': 32}","{'minutes': 5, 'seconds': 46}",10,75,TD,True,18,20,26,20
+40175271317,401752713,South Carolina,SEC,Missouri,SEC,17,False,4,70,70,"{'minutes': 9, 'seconds': 24}",4,67,67,"{'minutes': 8, 'seconds': 15}","{'minutes': 1, 'seconds': 9}",3,3,PUNT,False,20,26,20,26
+40175271318,401752713,Missouri,SEC,South Carolina,SEC,18,False,4,29,71,"{'minutes': 8, 'seconds': 15}",4,32,68,"{'minutes': 6, 'seconds': 3}","{'minutes': 2, 'seconds': 12}",3,3,PUNT,True,26,20,26,20
+40175271319,401752713,South Carolina,SEC,Missouri,SEC,19,False,4,69,69,"{'minutes': 6, 'seconds': 3}",4,68,68,"{'minutes': 5, 'seconds': 3}","{'minutes': 1, 'seconds': 0}",3,1,PUNT,False,20,26,20,26
+40175271320,401752713,Missouri,SEC,South Carolina,SEC,20,True,4,21,79,"{'minutes': 5, 'seconds': 3}",4,78,22,"{'minutes': 1, 'seconds': 34}","{'minutes': 3, 'seconds': 29}",10,57,FG,True,26,20,29,20
+40175271321,401752713,South Carolina,SEC,Missouri,SEC,21,False,4,60,60,"{'minutes': 1, 'seconds': 30}",4,55,55,"{'minutes': 0, 'seconds': 46}","{'minutes': 0, 'seconds': 44}",4,5,DOWNS,False,20,29,20,29
+40175271322,401752713,Missouri,SEC,South Carolina,SEC,22,False,4,55,45,"{'minutes': 0, 'seconds': 46}",4,53,47,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 46}",2,-2,END OF GAME,True,29,20,29,20
+4017527211,401752721,Massachusetts,Mid-American,Missouri,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,71,71,"{'minutes': 13, 'seconds': 36}","{'minutes': 1, 'seconds': 24}",3,4,PUNT,False,0,0,0,0
+4017527212,401752721,Missouri,SEC,Massachusetts,Mid-American,2,True,1,32,68,"{'minutes': 13, 'seconds': 36}",1,100,0,"{'minutes': 10, 'seconds': 12}","{'minutes': 3, 'seconds': 24}",7,68,TD,True,0,0,7,0
+4017527213,401752721,Massachusetts,Mid-American,Missouri,SEC,3,False,1,75,75,"{'minutes': 10, 'seconds': 12}",1,73,73,"{'minutes': 9, 'seconds': 11}","{'minutes': 1, 'seconds': 1}",3,2,PUNT,False,0,7,0,7
+4017527214,401752721,Missouri,SEC,Massachusetts,Mid-American,4,False,1,40,60,"{'minutes': 9, 'seconds': 11}",1,79,21,"{'minutes': 6, 'seconds': 24}","{'minutes': 2, 'seconds': 47}",7,39,INT,True,7,0,7,0
+4017527215,401752721,Massachusetts,Mid-American,Missouri,SEC,5,True,1,21,21,"{'minutes': 6, 'seconds': 24}",1,0,0,"{'minutes': 4, 'seconds': 31}","{'minutes': 1, 'seconds': 53}",6,21,TD,False,0,7,6,7
+4017527216,401752721,Missouri,SEC,Massachusetts,Mid-American,6,True,1,44,56,"{'minutes': 4, 'seconds': 22}",1,100,0,"{'minutes': 0, 'seconds': 35}","{'minutes': 3, 'seconds': 47}",8,56,TD,True,7,6,14,6
+4017527217,401752721,Massachusetts,Mid-American,Missouri,SEC,7,False,1,75,75,"{'minutes': 0, 'seconds': 35}",2,46,46,"{'minutes': 12, 'seconds': 16}","{'minutes': 3, 'seconds': 19}",7,29,PUNT,False,6,14,6,14
+4017527218,401752721,Missouri,SEC,Massachusetts,Mid-American,8,True,2,11,89,"{'minutes': 12, 'seconds': 16}",2,100,0,"{'minutes': 4, 'seconds': 45}","{'minutes': 7, 'seconds': 31}",14,89,TD,True,14,6,21,6
+4017527219,401752721,Massachusetts,Mid-American,Missouri,SEC,9,False,2,75,75,"{'minutes': 4, 'seconds': 45}",2,70,70,"{'minutes': 2, 'seconds': 1}","{'minutes': 2, 'seconds': 44}",6,5,PUNT,False,6,21,6,21
+40175272110,401752721,Missouri,SEC,Massachusetts,Mid-American,10,False,2,21,79,"{'minutes': 2, 'seconds': 1}",2,25,75,"{'minutes': 1, 'seconds': 19}","{'minutes': 0, 'seconds': 42}",3,4,PUNT,True,21,6,21,6
+40175272111,401752721,Massachusetts,Mid-American,Missouri,SEC,11,False,2,66,66,"{'minutes': 1, 'seconds': 19}",2,61,61,"{'minutes': 0, 'seconds': 55}","{'minutes': 0, 'seconds': 24}",3,5,PUNT,False,6,21,6,21
+40175272112,401752721,Missouri,SEC,Massachusetts,Mid-American,12,False,2,18,82,"{'minutes': 0, 'seconds': 55}",2,50,50,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 55}",7,32,END OF HALF,True,21,6,21,6
+40175272113,401752721,Missouri,SEC,Massachusetts,Mid-American,13,True,3,37,63,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 11, 'seconds': 33}","{'minutes': 3, 'seconds': 27}",7,63,TD,True,21,6,28,6
+40175272114,401752721,Massachusetts,Mid-American,Missouri,SEC,14,False,3,75,75,"{'minutes': 11, 'seconds': 33}",3,75,75,"{'minutes': 10, 'seconds': 41}","{'minutes': 0, 'seconds': 52}",3,0,PUNT,False,6,28,6,28
+40175272115,401752721,Missouri,SEC,Massachusetts,Mid-American,15,False,3,26,74,"{'minutes': 10, 'seconds': 41}",3,34,66,"{'minutes': 8, 'seconds': 31}","{'minutes': 2, 'seconds': 10}",3,8,PUNT,True,28,6,28,6
+40175272116,401752721,Massachusetts,Mid-American,Missouri,SEC,16,False,3,75,75,"{'minutes': 8, 'seconds': 31}",3,73,73,"{'minutes': 7, 'seconds': 25}","{'minutes': 1, 'seconds': 6}",3,2,PUNT,False,6,28,6,28
+40175272117,401752721,Missouri,SEC,Massachusetts,Mid-American,17,False,3,26,74,"{'minutes': 7, 'seconds': 25}",3,62,38,"{'minutes': 2, 'seconds': 31}","{'minutes': 4, 'seconds': 54}",10,36,PUNT,True,28,6,28,6
+40175272118,401752721,Massachusetts,Mid-American,Missouri,SEC,18,False,3,97,97,"{'minutes': 2, 'seconds': 31}",3,97,97,"{'minutes': 1, 'seconds': 34}","{'minutes': 0, 'seconds': 57}",3,0,INT,False,6,28,6,28
+40175272119,401752721,Missouri,SEC,Massachusetts,Mid-American,19,True,3,92,8,"{'minutes': 1, 'seconds': 34}",3,100,0,"{'minutes': 0, 'seconds': 56}","{'minutes': 0, 'seconds': 38}",2,8,TD,True,28,6,35,6
+40175272120,401752721,Massachusetts,Mid-American,Missouri,SEC,20,False,3,75,75,"{'minutes': 0, 'seconds': 56}",3,80,80,"{'minutes': 0, 'seconds': 20}","{'minutes': 0, 'seconds': 36}",3,-5,PUNT,False,6,35,6,35
+40175272121,401752721,Missouri,SEC,Massachusetts,Mid-American,21,True,3,63,37,"{'minutes': 0, 'seconds': 20}",4,100,0,"{'minutes': 13, 'seconds': 9}","{'minutes': 2, 'seconds': 11}",5,37,TD,True,35,6,42,6
+40175272122,401752721,Massachusetts,Mid-American,Missouri,SEC,22,False,4,75,75,"{'minutes': 13, 'seconds': 9}",4,54,54,"{'minutes': 10, 'seconds': 26}","{'minutes': 2, 'seconds': 43}",5,21,PUNT,False,6,42,6,42
+40175272123,401752721,Missouri,SEC,Massachusetts,Mid-American,23,False,4,15,85,"{'minutes': 10, 'seconds': 26}",4,35,65,"{'minutes': 8, 'seconds': 19}","{'minutes': 2, 'seconds': 7}",4,20,PUNT,True,42,6,42,6
+40175272124,401752721,Massachusetts,Mid-American,Missouri,SEC,24,False,4,88,88,"{'minutes': 8, 'seconds': 19}",4,53,53,"{'minutes': 4, 'seconds': 1}","{'minutes': 4, 'seconds': 18}",10,35,PUNT,False,6,42,6,42
+40175272125,401752721,Missouri,SEC,Massachusetts,Mid-American,25,False,4,6,94,"{'minutes': 4, 'seconds': 1}",4,67,33,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 1}",7,61,END OF GAME,True,42,6,42,6
+4017527341,401752734,Missouri,SEC,Alabama,SEC,1,True,1,22,78,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 12, 'seconds': 10}","{'minutes': 2, 'seconds': 50}",6,78,TD,True,0,0,7,0
+4017527342,401752734,Alabama,SEC,Missouri,SEC,2,True,1,78,78,"{'minutes': 12, 'seconds': 10}",1,0,0,"{'minutes': 6, 'seconds': 5}","{'minutes': 6, 'seconds': 5}",11,78,TD,False,0,7,7,7
+4017527343,401752734,Missouri,SEC,Alabama,SEC,3,False,1,25,75,"{'minutes': 6, 'seconds': 5}",1,31,69,"{'minutes': 4, 'seconds': 39}","{'minutes': 1, 'seconds': 26}",3,6,PUNT,True,7,7,7,7
+4017527344,401752734,Alabama,SEC,Missouri,SEC,4,True,1,67,67,"{'minutes': 4, 'seconds': 39}",2,0,0,"{'minutes': 14, 'seconds': 51}","{'minutes': 4, 'seconds': 48}",10,67,TD,False,7,7,14,7
+4017527345,401752734,Missouri,SEC,Alabama,SEC,5,False,2,21,79,"{'minutes': 14, 'seconds': 51}",2,35,65,"{'minutes': 11, 'seconds': 57}","{'minutes': 2, 'seconds': 54}",6,14,PUNT,True,7,14,7,14
+4017527346,401752734,Alabama,SEC,Missouri,SEC,6,True,2,70,70,"{'minutes': 11, 'seconds': 57}",2,30,30,"{'minutes': 7, 'seconds': 10}","{'minutes': 4, 'seconds': 47}",9,40,FG,False,14,7,17,7
+4017527347,401752734,Missouri,SEC,Alabama,SEC,7,False,2,25,75,"{'minutes': 7, 'seconds': 10}",2,27,73,"{'minutes': 5, 'seconds': 34}","{'minutes': 1, 'seconds': 36}",3,2,PUNT,True,7,17,7,17
+4017527348,401752734,Alabama,SEC,Missouri,SEC,8,False,2,57,57,"{'minutes': 5, 'seconds': 34}",2,48,48,"{'minutes': 3, 'seconds': 32}","{'minutes': 2, 'seconds': 2}",4,9,PUNT,False,17,7,17,7
+4017527349,401752734,Missouri,SEC,Alabama,SEC,9,True,2,26,74,"{'minutes': 3, 'seconds': 32}",2,35,65,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 32}",10,57,END OF HALF,True,7,17,10,17
+40175273410,401752734,Alabama,SEC,Missouri,SEC,10,False,3,76,76,"{'minutes': 15, 'seconds': 0}",3,76,76,"{'minutes': 14, 'seconds': 45}","{'minutes': 0, 'seconds': 15}",1,-5,FUMBLE,False,17,10,17,10
+40175273411,401752734,Missouri,SEC,Alabama,SEC,11,True,3,81,19,"{'minutes': 14, 'seconds': 45}",3,100,0,"{'minutes': 13, 'seconds': 18}","{'minutes': 1, 'seconds': 27}",3,19,TD,True,10,17,17,17
+40175273412,401752734,Alabama,SEC,Missouri,SEC,12,False,3,75,75,"{'minutes': 13, 'seconds': 18}",3,53,53,"{'minutes': 10, 'seconds': 27}","{'minutes': 2, 'seconds': 51}",4,22,PUNT,False,17,17,17,17
+40175273413,401752734,Missouri,SEC,Alabama,SEC,13,False,3,10,90,"{'minutes': 10, 'seconds': 27}",3,23,77,"{'minutes': 9, 'seconds': 9}","{'minutes': 1, 'seconds': 18}",3,13,PUNT,True,17,17,17,17
+40175273414,401752734,Alabama,SEC,Missouri,SEC,14,True,3,70,70,"{'minutes': 9, 'seconds': 9}",3,4,4,"{'minutes': 0, 'seconds': 9}","{'minutes': 9, 'seconds': 0}",17,66,FG,False,17,17,20,17
+40175273415,401752734,Missouri,SEC,Alabama,SEC,15,False,3,25,75,"{'minutes': 0, 'seconds': 9}",4,43,57,"{'minutes': 13, 'seconds': 19}","{'minutes': 1, 'seconds': 50}",5,18,INT,True,17,20,17,20
+40175273416,401752734,Alabama,SEC,Missouri,SEC,16,False,4,60,60,"{'minutes': 13, 'seconds': 19}",4,31,31,"{'minutes': 9, 'seconds': 19}","{'minutes': 4, 'seconds': 0}",10,29,MISSED FG,False,20,17,20,17
+40175273417,401752734,Missouri,SEC,Alabama,SEC,17,False,4,31,69,"{'minutes': 9, 'seconds': 19}",4,37,63,"{'minutes': 7, 'seconds': 2}","{'minutes': 2, 'seconds': 17}",4,9,DOWNS,True,17,20,17,20
+40175273418,401752734,Alabama,SEC,Missouri,SEC,18,True,4,40,40,"{'minutes': 7, 'seconds': 2}",4,0,0,"{'minutes': 3, 'seconds': 16}","{'minutes': 3, 'seconds': 46}",8,40,TD,False,20,17,27,17
+40175273419,401752734,Missouri,SEC,Alabama,SEC,19,True,4,25,75,"{'minutes': 3, 'seconds': 16}",4,100,0,"{'minutes': 1, 'seconds': 40}","{'minutes': 1, 'seconds': 36}",7,75,TD,True,17,27,24,27
+40175273420,401752734,Alabama,SEC,Missouri,SEC,20,False,4,35,35,"{'minutes': 1, 'seconds': 40}",4,41,41,"{'minutes': 1, 'seconds': 17}","{'minutes': 0, 'seconds': 23}",3,0,PUNT,False,27,24,27,24
+40175273421,401752734,Missouri,SEC,Alabama,SEC,21,False,4,18,82,"{'minutes': 1, 'seconds': 17}",4,47,53,"{'minutes': 0, 'seconds': 37}","{'minutes': 0, 'seconds': 40}",7,29,INT,True,24,27,24,27
+40175273422,401752734,Alabama,SEC,Missouri,SEC,22,False,4,68,68,"{'minutes': 0, 'seconds': 37}",4,69,69,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 37}",1,-1,END OF GAME,False,27,24,27,24
+4017527401,401752740,Auburn,SEC,Missouri,SEC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 9, 'seconds': 54}","{'minutes': 5, 'seconds': 6}",12,75,TD,True,0,0,7,0
+4017527402,401752740,Missouri,SEC,Auburn,SEC,2,False,1,75,75,"{'minutes': 9, 'seconds': 54}",1,64,64,"{'minutes': 7, 'seconds': 1}","{'minutes': 2, 'seconds': 53}",6,11,PUNT,False,0,7,0,7
+4017527403,401752740,Auburn,SEC,Missouri,SEC,3,False,1,22,78,"{'minutes': 7, 'seconds': 1}",1,22,78,"{'minutes': 6, 'seconds': 49}","{'minutes': 0, 'seconds': 12}",2,0,INT,True,7,0,7,0
+4017527404,401752740,Missouri,SEC,Auburn,SEC,4,True,1,29,29,"{'minutes': 6, 'seconds': 49}",1,5,5,"{'minutes': 1, 'seconds': 44}","{'minutes': 5, 'seconds': 5}",10,24,FG,False,0,7,3,7
+4017527405,401752740,Auburn,SEC,Missouri,SEC,5,False,1,25,75,"{'minutes': 1, 'seconds': 44}",1,18,82,"{'minutes': 0, 'seconds': 9}","{'minutes': 1, 'seconds': 35}",3,-7,PUNT,True,7,3,7,3
+4017527406,401752740,Missouri,SEC,Auburn,SEC,6,True,1,65,65,"{'minutes': 0, 'seconds': 9}",2,0,0,"{'minutes': 10, 'seconds': 21}","{'minutes': 4, 'seconds': 48}",9,65,TD,False,3,7,10,7
+4017527407,401752740,Auburn,SEC,Missouri,SEC,7,False,2,25,75,"{'minutes': 10, 'seconds': 21}",2,33,67,"{'minutes': 8, 'seconds': 35}","{'minutes': 1, 'seconds': 46}",3,8,PUNT,True,7,10,7,10
+4017527408,401752740,Missouri,SEC,Auburn,SEC,8,False,2,78,78,"{'minutes': 8, 'seconds': 35}",2,17,17,"{'minutes': 2, 'seconds': 18}","{'minutes': 6, 'seconds': 17}",12,61,INT,False,10,7,10,7
+4017527409,401752740,Auburn,SEC,Missouri,SEC,9,False,2,7,93,"{'minutes': 2, 'seconds': 18}",2,78,22,"{'minutes': 0, 'seconds': 6}","{'minutes': 2, 'seconds': 12}",9,71,MISSED FG,True,7,10,7,10
+40175274010,401752740,Missouri,SEC,Auburn,SEC,10,False,2,78,78,"{'minutes': 0, 'seconds': 6}",2,79,79,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 6}",1,-1,END OF HALF,False,10,7,10,7
+40175274011,401752740,Missouri,SEC,Auburn,SEC,11,False,3,75,75,"{'minutes': 14, 'seconds': 59}",3,52,52,"{'minutes': 11, 'seconds': 19}","{'minutes': 3, 'seconds': 40}",7,23,PUNT,False,10,7,10,7
+40175274012,401752740,Auburn,SEC,Missouri,SEC,12,False,3,20,80,"{'minutes': 11, 'seconds': 19}",3,80,20,"{'minutes': 8, 'seconds': 14}","{'minutes': 3, 'seconds': 5}",8,60,MISSED FG,True,7,10,7,10
+40175274013,401752740,Missouri,SEC,Auburn,SEC,13,False,3,80,80,"{'minutes': 8, 'seconds': 14}",3,51,51,"{'minutes': 5, 'seconds': 33}","{'minutes': 2, 'seconds': 41}",5,29,PUNT,False,10,7,10,7
+40175274014,401752740,Auburn,SEC,Missouri,SEC,14,True,3,14,86,"{'minutes': 5, 'seconds': 33}",3,100,0,"{'minutes': 0, 'seconds': 35}","{'minutes': 4, 'seconds': 58}",12,86,TD,True,7,10,14,10
+40175274015,401752740,Missouri,SEC,Auburn,SEC,15,False,3,75,75,"{'minutes': 0, 'seconds': 35}",4,75,75,"{'minutes': 14, 'seconds': 23}","{'minutes': 1, 'seconds': 12}",3,0,PUNT,False,10,14,10,14
+40175274016,401752740,Auburn,SEC,Missouri,SEC,16,True,4,23,77,"{'minutes': 14, 'seconds': 23}",4,96,4,"{'minutes': 10, 'seconds': 31}","{'minutes': 3, 'seconds': 52}",8,73,FG,True,14,10,17,10
+40175274017,401752740,Missouri,SEC,Auburn,SEC,17,False,4,75,75,"{'minutes': 10, 'seconds': 31}",4,48,48,"{'minutes': 8, 'seconds': 16}","{'minutes': 2, 'seconds': 15}",6,27,PUNT,False,10,17,10,17
+40175274018,401752740,Auburn,SEC,Missouri,SEC,18,False,4,20,80,"{'minutes': 8, 'seconds': 16}",4,22,78,"{'minutes': 6, 'seconds': 16}","{'minutes': 2, 'seconds': 0}",3,2,PUNT,True,17,10,17,10
+40175274019,401752740,Missouri,SEC,Auburn,SEC,19,True,4,60,60,"{'minutes': 6, 'seconds': 16}",4,0,0,"{'minutes': 5, 'seconds': 7}","{'minutes': 1, 'seconds': 9}",5,60,TD,False,10,17,17,17
+40175274020,401752740,Auburn,SEC,Missouri,SEC,20,False,4,21,79,"{'minutes': 5, 'seconds': 0}",4,56,44,"{'minutes': 2, 'seconds': 58}","{'minutes': 2, 'seconds': 2}",6,35,PUNT,True,17,17,17,17
+40175274021,401752740,Missouri,SEC,Auburn,SEC,21,False,4,92,92,"{'minutes': 2, 'seconds': 58}",4,48,48,"{'minutes': 0, 'seconds': 18}","{'minutes': 2, 'seconds': 40}",11,44,INT,False,17,17,17,17
+40175274022,401752740,Auburn,SEC,Missouri,SEC,22,False,4,17,83,"{'minutes': 0, 'seconds': 18}",4,16,84,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 18}",1,-1,END OF GAME,True,17,17,17,17
+-2892,401752740,Auburn,SEC,Missouri,SEC,24,False,5,75,25,"{'minutes': 0, 'seconds': 0}",5,68,32,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,-7,MISSED FG,True,0,0,0,0
+-2893,401752740,Missouri,SEC,Auburn,SEC,25,False,5,25,25,"{'minutes': 0, 'seconds': 0}",5,80,80,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,5,MISSED FG,False,0,0,0,0
+-2894,401752740,Missouri,SEC,Auburn,SEC,26,True,7,25,25,"{'minutes': 0, 'seconds': 0}",7,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",7,25,TD,False,0,0,23,17
+-2895,401752740,Auburn,SEC,Missouri,SEC,27,False,7,75,25,"{'minutes': 0, 'seconds': 0}",7,77,23,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,2,DOWNS,True,17,23,17,23
+4017527522,401752752,Missouri,SEC,Vanderbilt,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,72,72,"{'minutes': 14, 'seconds': 2}","{'minutes': 0, 'seconds': 58}",3,3,PUNT,False,0,0,0,0
+4017527523,401752752,Vanderbilt,SEC,Missouri,SEC,2,False,1,25,75,"{'minutes': 14, 'seconds': 2}",1,44,56,"{'minutes': 14, 'seconds': 2}","{'minutes': 3, 'seconds': 52}",6,19,PUNT,True,0,0,0,0
+4017527524,401752752,Missouri,SEC,Vanderbilt,SEC,3,False,1,75,75,"{'minutes': 10, 'seconds': 10}",1,65,65,"{'minutes': 9, 'seconds': 5}","{'minutes': 3, 'seconds': 34}",5,10,PUNT,False,0,0,0,0
+4017527525,401752752,Vanderbilt,SEC,Missouri,SEC,4,False,1,16,84,"{'minutes': 6, 'seconds': 36}",1,16,84,"{'minutes': 6, 'seconds': 10}","{'minutes': 1, 'seconds': 39}",3,0,PUNT,True,0,0,0,0
+4017527526,401752752,Missouri,SEC,Vanderbilt,SEC,5,False,1,63,63,"{'minutes': 4, 'seconds': 57}",1,44,44,"{'minutes': 4, 'seconds': 57}","{'minutes': 2, 'seconds': 32}",5,19,PUNT,False,0,0,0,0
+4017527527,401752752,Vanderbilt,SEC,Missouri,SEC,6,False,1,8,92,"{'minutes': 2, 'seconds': 25}",2,26,74,"{'minutes': 12, 'seconds': 59}","{'minutes': 4, 'seconds': 26}",9,18,PUNT,True,0,0,0,0
+4017527528,401752752,Missouri,SEC,Vanderbilt,SEC,7,True,2,90,90,"{'minutes': 12, 'seconds': 59}",2,21,21,"{'minutes': 5, 'seconds': 11}","{'minutes': 7, 'seconds': 48}",13,69,FG,False,0,0,3,0
+40175275210,401752752,Vanderbilt,SEC,Missouri,SEC,8,True,2,25,75,"{'minutes': 5, 'seconds': 6}",2,80,20,"{'minutes': 2, 'seconds': 0}","{'minutes': 3, 'seconds': 6}",8,55,FG,True,0,3,3,3
+40175275212,401752752,Missouri,SEC,Vanderbilt,SEC,9,False,2,75,75,"{'minutes': 2, 'seconds': 0}",2,45,45,"{'minutes': 0, 'seconds': 34}","{'minutes': 1, 'seconds': 38}",4,30,PUNT,False,3,3,3,3
+40175275213,401752752,Vanderbilt,SEC,Missouri,SEC,10,False,2,8,92,"{'minutes': 0, 'seconds': 22}",2,7,93,"{'minutes': 0, 'seconds': 22}","{'minutes': 0, 'seconds': 22}",1,-1,END OF HALF,True,3,3,3,3
+40175275215,401752752,Vanderbilt,SEC,Missouri,SEC,11,False,3,15,85,"{'minutes': 14, 'seconds': 54}",3,23,77,"{'minutes': 15, 'seconds': 0}","{'minutes': 1, 'seconds': 33}",3,8,INT,True,3,3,3,3
+40175275216,401752752,Missouri,SEC,Vanderbilt,SEC,12,False,3,20,20,"{'minutes': 13, 'seconds': 21}",3,2,2,"{'minutes': 11, 'seconds': 21}","{'minutes': 2, 'seconds': 6}",5,19,DOWNS,False,3,3,3,3
+40175275217,401752752,Vanderbilt,SEC,Missouri,SEC,13,False,3,1,99,"{'minutes': 11, 'seconds': 15}",3,7,93,"{'minutes': 10, 'seconds': 30}","{'minutes': 1, 'seconds': 38}",4,6,PUNT,True,3,3,3,3
+40175275218,401752752,Missouri,SEC,Vanderbilt,SEC,14,False,3,48,48,"{'minutes': 9, 'seconds': 37}",3,11,11,"{'minutes': 4, 'seconds': 4}","{'minutes': 5, 'seconds': 33}",12,37,MISSED FG,False,3,3,3,3
+40175275219,401752752,Vanderbilt,SEC,Missouri,SEC,15,True,3,20,80,"{'minutes': 3, 'seconds': 51}",3,97,3,"{'minutes': 3, 'seconds': 51}","{'minutes': 0, 'seconds': 13}",1,80,TD,True,10,3,10,3
+40175275221,401752752,Missouri,SEC,Vanderbilt,SEC,16,True,3,75,75,"{'minutes': 3, 'seconds': 51}",4,3,3,"{'minutes': 12, 'seconds': 49}","{'minutes': 6, 'seconds': 2}",12,75,TD,False,3,10,10,10
+40175275223,401752752,Vanderbilt,SEC,Missouri,SEC,17,False,4,25,75,"{'minutes': 12, 'seconds': 49}",4,31,69,"{'minutes': 12, 'seconds': 49}","{'minutes': 1, 'seconds': 38}",3,6,PUNT,True,10,10,10,10
+40175275224,401752752,Missouri,SEC,Vanderbilt,SEC,18,False,4,76,76,"{'minutes': 11, 'seconds': 11}",4,56,56,"{'minutes': 7, 'seconds': 2}","{'minutes': 4, 'seconds': 9}",8,20,FUMBLE,False,10,10,10,10
+40175275225,401752752,Vanderbilt,SEC,Missouri,SEC,19,True,4,56,44,"{'minutes': 7, 'seconds': 2}",4,97,3,"{'minutes': 1, 'seconds': 52}","{'minutes': 5, 'seconds': 10}",9,44,TD,True,10,10,17,10
+40175275227,401752752,Missouri,SEC,Vanderbilt,SEC,20,False,4,75,75,"{'minutes': 1, 'seconds': 52}",4,1,1,"{'minutes': 0, 'seconds': 6}","{'minutes': 1, 'seconds': 52}",13,74,END OF GAME,False,10,17,10,17
+4017527632,401752763,Texas A&M,SEC,Missouri,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,44,44,"{'minutes': 10, 'seconds': 57}","{'minutes': 4, 'seconds': 3}",8,31,PUNT,False,0,0,0,0
+4017527633,401752763,Missouri,SEC,Texas A&M,SEC,2,False,1,9,91,"{'minutes': 10, 'seconds': 44}",1,53,47,"{'minutes': 8, 'seconds': 44}","{'minutes': 2, 'seconds': 13}",4,44,PUNT,True,0,0,0,0
+4017527634,401752763,Texas A&M,SEC,Missouri,SEC,3,False,1,90,90,"{'minutes': 8, 'seconds': 30}",1,59,59,"{'minutes': 6, 'seconds': 50}","{'minutes': 1, 'seconds': 54}",5,31,PUNT,False,0,0,0,0
+4017527635,401752763,Missouri,SEC,Texas A&M,SEC,4,False,1,23,77,"{'minutes': 6, 'seconds': 43}",1,24,76,"{'minutes': 5, 'seconds': 53}","{'minutes': 0, 'seconds': 57}",3,1,PUNT,True,0,0,0,0
+4017527636,401752763,Texas A&M,SEC,Missouri,SEC,5,True,1,59,59,"{'minutes': 5, 'seconds': 42}",1,3,3,"{'minutes': 1, 'seconds': 16}","{'minutes': 4, 'seconds': 37}",9,59,TD,False,0,0,7,0
+4017527638,401752763,Missouri,SEC,Texas A&M,SEC,6,False,1,25,75,"{'minutes': 1, 'seconds': 16}",2,52,48,"{'minutes': 12, 'seconds': 59}","{'minutes': 3, 'seconds': 17}",5,27,PUNT,True,0,7,0,7
+4017527639,401752763,Texas A&M,SEC,Missouri,SEC,7,False,2,83,83,"{'minutes': 12, 'seconds': 52}",2,59,59,"{'minutes': 8, 'seconds': 38}","{'minutes': 4, 'seconds': 21}",7,24,PUNT,False,7,0,7,0
+40175276310,401752763,Missouri,SEC,Texas A&M,SEC,8,False,2,19,81,"{'minutes': 8, 'seconds': 29}",2,73,27,"{'minutes': 5, 'seconds': 9}","{'minutes': 3, 'seconds': 29}",7,54,DOWNS,True,0,7,0,7
+40175276311,401752763,Texas A&M,SEC,Missouri,SEC,9,False,2,73,73,"{'minutes': 4, 'seconds': 54}",2,56,56,"{'minutes': 1, 'seconds': 57}","{'minutes': 3, 'seconds': 12}",5,17,PUNT,False,7,0,7,0
+40175276312,401752763,Missouri,SEC,Texas A&M,SEC,10,False,2,17,83,"{'minutes': 1, 'seconds': 50}",2,2,98,"{'minutes': 0, 'seconds': 57}","{'minutes': 1, 'seconds': 0}",6,11,FUMBLE,True,0,7,0,7
+40175276313,401752763,Texas A&M,SEC,Missouri,SEC,11,True,2,2,2,"{'minutes': 0, 'seconds': 50}",2,3,3,"{'minutes': 0, 'seconds': 20}","{'minutes': 0, 'seconds': 37}",2,2,TD,False,7,0,14,0
+40175276315,401752763,Missouri,SEC,Texas A&M,SEC,12,False,2,25,75,"{'minutes': 0, 'seconds': 24}",2,35,65,"{'minutes': 0, 'seconds': 6}","{'minutes': 0, 'seconds': 20}",3,10,END OF HALF,True,0,14,0,14
+40175276317,401752763,Missouri,SEC,Texas A&M,SEC,13,False,3,7,93,"{'minutes': 14, 'seconds': 54}",3,16,84,"{'minutes': 12, 'seconds': 57}","{'minutes': 1, 'seconds': 57}",3,9,PUNT,True,0,14,0,14
+40175276318,401752763,Texas A&M,SEC,Missouri,SEC,14,True,3,68,68,"{'minutes': 12, 'seconds': 48}",3,3,3,"{'minutes': 11, 'seconds': 21}","{'minutes': 1, 'seconds': 36}",4,68,TD,False,14,0,21,0
+40175276320,401752763,Missouri,SEC,Texas A&M,SEC,15,True,3,60,40,"{'minutes': 11, 'seconds': 10}",3,97,3,"{'minutes': 6, 'seconds': 50}","{'minutes': 4, 'seconds': 20}",8,40,TD,True,0,21,7,21
+40175276322,401752763,Texas A&M,SEC,Missouri,SEC,16,True,3,73,73,"{'minutes': 6, 'seconds': 44}",3,14,14,"{'minutes': 3, 'seconds': 10}","{'minutes': 3, 'seconds': 34}",8,59,FG,False,21,7,24,7
+40175276324,401752763,Missouri,SEC,Texas A&M,SEC,17,False,3,25,75,"{'minutes': 3, 'seconds': 10}",3,28,72,"{'minutes': 1, 'seconds': 44}","{'minutes': 1, 'seconds': 26}",3,3,PUNT,True,7,24,7,24
+40175276325,401752763,Texas A&M,SEC,Missouri,SEC,18,False,3,56,56,"{'minutes': 1, 'seconds': 36}",4,17,17,"{'minutes': 14, 'seconds': 51}","{'minutes': 1, 'seconds': 53}",4,39,FUMBLE,False,24,7,24,7
+40175276326,401752763,Missouri,SEC,Texas A&M,SEC,19,True,4,17,83,"{'minutes': 14, 'seconds': 45}",4,69,31,"{'minutes': 11, 'seconds': 17}","{'minutes': 3, 'seconds': 34}",10,52,FG,True,7,24,10,30
+40175276328,401752763,Texas A&M,SEC,Missouri,SEC,20,True,4,76,76,"{'minutes': 11, 'seconds': 9}",4,3,3,"{'minutes': 7, 'seconds': 40}","{'minutes': 3, 'seconds': 29}",6,76,TD,False,24,10,31,10
+40175276330,401752763,Missouri,SEC,Texas A&M,SEC,21,True,4,29,71,"{'minutes': 7, 'seconds': 34}",4,97,3,"{'minutes': 6, 'seconds': 45}","{'minutes': 0, 'seconds': 49}",4,71,TD,True,10,31,17,31
+40175276332,401752763,Texas A&M,SEC,Missouri,SEC,22,True,4,65,65,"{'minutes': 6, 'seconds': 44}",4,3,3,"{'minutes': 2, 'seconds': 36}","{'minutes': 4, 'seconds': 8}",7,65,TD,False,31,17,38,17
+40175276334,401752763,Texas A&M,SEC,Missouri,SEC,23,False,4,15,15,"{'minutes': 2, 'seconds': 34}",4,11,11,"{'minutes': 0, 'seconds': 29}","{'minutes': 2, 'seconds': 5}",4,4,DOWNS,False,38,17,38,17
+40175276335,401752763,Missouri,SEC,Texas A&M,SEC,24,False,4,11,89,"{'minutes': 0, 'seconds': 23}",4,18,82,"{'minutes': 0, 'seconds': 23}","{'minutes': 0, 'seconds': 29}",1,7,END OF GAME,True,17,38,17,38
+4017527702,401752770,Mississippi State,SEC,Missouri,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,78,78,"{'minutes': 13, 'seconds': 25}","{'minutes': 1, 'seconds': 35}",3,-3,PUNT,False,0,0,0,0
+4017527703,401752770,Missouri,SEC,Mississippi State,SEC,2,True,1,35,65,"{'minutes': 13, 'seconds': 19}",1,97,3,"{'minutes': 11, 'seconds': 29}","{'minutes': 1, 'seconds': 56}",5,65,TD,True,0,0,7,0
+4017527705,401752770,Mississippi State,SEC,Missouri,SEC,3,True,1,81,81,"{'minutes': 11, 'seconds': 22}",1,30,30,"{'minutes': 6, 'seconds': 28}","{'minutes': 4, 'seconds': 54}",9,51,FG,False,0,7,3,7
+4017527707,401752770,Missouri,SEC,Mississippi State,SEC,4,True,1,25,75,"{'minutes': 6, 'seconds': 28}",1,97,3,"{'minutes': 4, 'seconds': 52}","{'minutes': 1, 'seconds': 36}",4,75,TD,True,7,3,14,3
+4017527709,401752770,Mississippi State,SEC,Missouri,SEC,5,True,1,75,75,"{'minutes': 4, 'seconds': 52}",1,3,3,"{'minutes': 0, 'seconds': 27}","{'minutes': 4, 'seconds': 52}",9,75,TD,False,3,14,10,14
+40175277011,401752770,Missouri,SEC,Mississippi State,SEC,6,False,2,25,75,"{'minutes': 15, 'seconds': 0}",2,58,42,"{'minutes': 12, 'seconds': 7}","{'minutes': 2, 'seconds': 53}",6,36,INT,True,14,10,14,10
+40175277012,401752770,Mississippi State,SEC,Missouri,SEC,7,False,2,58,58,"{'minutes': 11, 'seconds': 58}",2,77,77,"{'minutes': 4, 'seconds': 53}","{'minutes': 7, 'seconds': 14}",16,-19,FUMBLE,False,10,14,10,14
+40175277013,401752770,Missouri,SEC,Mississippi State,SEC,8,True,2,77,23,"{'minutes': 4, 'seconds': 45}",2,97,3,"{'minutes': 2, 'seconds': 36}","{'minutes': 2, 'seconds': 17}",5,23,TD,True,14,10,21,10
+40175277015,401752770,Mississippi State,SEC,Missouri,SEC,9,False,2,75,75,"{'minutes': 2, 'seconds': 36}",2,78,78,"{'minutes': 2, 'seconds': 5}","{'minutes': 0, 'seconds': 31}",3,-3,PUNT,False,10,21,10,21
+40175277016,401752770,Missouri,SEC,Mississippi State,SEC,10,False,2,26,74,"{'minutes': 2, 'seconds': 0}",2,74,26,"{'minutes': 0, 'seconds': 3}","{'minutes': 2, 'seconds': 2}",11,38,MISSED FG,True,21,10,21,10
+40175277017,401752770,Mississippi State,SEC,Missouri,SEC,11,False,2,64,64,"{'minutes': 0, 'seconds': 3}",2,64,64,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 3}",1,0,END OF HALF,False,10,21,10,21
+40175277019,401752770,Missouri,SEC,Mississippi State,SEC,12,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,52,48,"{'minutes': 13, 'seconds': 48}","{'minutes': 1, 'seconds': 12}",3,27,FUMBLE,True,21,10,21,10
+40175277020,401752770,Mississippi State,SEC,Missouri,SEC,13,True,3,52,52,"{'minutes': 13, 'seconds': 42}",3,3,3,"{'minutes': 10, 'seconds': 28}","{'minutes': 3, 'seconds': 20}",10,52,TD,False,10,21,17,21
+40175277022,401752770,Missouri,SEC,Mississippi State,SEC,14,False,3,25,75,"{'minutes': 10, 'seconds': 28}",3,34,66,"{'minutes': 7, 'seconds': 44}","{'minutes': 2, 'seconds': 44}",6,9,PUNT,True,21,17,21,17
+40175277023,401752770,Mississippi State,SEC,Missouri,SEC,15,False,3,56,56,"{'minutes': 7, 'seconds': 33}",3,65,65,"{'minutes': 6, 'seconds': 37}","{'minutes': 1, 'seconds': 7}",3,-9,PUNT,False,17,21,17,21
+40175277024,401752770,Missouri,SEC,Mississippi State,SEC,16,True,3,24,76,"{'minutes': 6, 'seconds': 28}",3,97,3,"{'minutes': 5, 'seconds': 56}","{'minutes': 0, 'seconds': 41}",2,76,TD,True,21,17,28,17
+40175277026,401752770,Mississippi State,SEC,Missouri,SEC,17,True,3,75,75,"{'minutes': 5, 'seconds': 56}",3,97,97,"{'minutes': 5, 'seconds': 47}","{'minutes': 0, 'seconds': 9}",1,-5,INT TD,False,17,28,17,35
+40175277028,401752770,Mississippi State,SEC,Missouri,SEC,18,True,3,80,80,"{'minutes': 5, 'seconds': 43}",3,3,3,"{'minutes': 2, 'seconds': 47}","{'minutes': 2, 'seconds': 56}",9,80,TD,False,17,35,24,35
+40175277030,401752770,Missouri,SEC,Mississippi State,SEC,19,False,3,25,75,"{'minutes': 2, 'seconds': 47}",3,31,69,"{'minutes': 1, 'seconds': 16}","{'minutes': 1, 'seconds': 31}",3,6,PUNT,True,35,24,35,24
+40175277031,401752770,Mississippi State,SEC,Missouri,SEC,20,False,3,78,78,"{'minutes': 1, 'seconds': 1}",3,75,75,"{'minutes': 0, 'seconds': 5}","{'minutes': 1, 'seconds': 11}",3,3,PUNT,False,24,35,24,35
+40175277032,401752770,Missouri,SEC,Mississippi State,SEC,21,False,3,35,65,"{'minutes': 0, 'seconds': 5}",4,40,60,"{'minutes': 14, 'seconds': 8}","{'minutes': 0, 'seconds': 57}",3,5,PUNT,True,35,24,35,24
+40175277033,401752770,Mississippi State,SEC,Missouri,SEC,22,True,4,88,88,"{'minutes': 13, 'seconds': 51}",4,97,97,"{'minutes': 13, 'seconds': 9}","{'minutes': 0, 'seconds': 59}",4,6,INT TD,False,24,35,24,42
+40175277035,401752770,Mississippi State,SEC,Missouri,SEC,23,False,4,75,75,"{'minutes': 13, 'seconds': 9}",4,57,57,"{'minutes': 11, 'seconds': 21}","{'minutes': 1, 'seconds': 48}",6,18,DOWNS,False,24,42,24,42
+40175277036,401752770,Missouri,SEC,Mississippi State,SEC,24,True,4,57,43,"{'minutes': 11, 'seconds': 21}",4,97,3,"{'minutes': 11, 'seconds': 11}","{'minutes': 0, 'seconds': 10}",1,43,TD,True,49,24,49,24
+40175277038,401752770,Mississippi State,SEC,Missouri,SEC,25,True,4,84,84,"{'minutes': 11, 'seconds': 10}",4,23,23,"{'minutes': 5, 'seconds': 19}","{'minutes': 5, 'seconds': 51}",15,61,FG,False,24,49,27,49
+40175277040,401752770,Missouri,SEC,Mississippi State,SEC,26,False,4,25,75,"{'minutes': 5, 'seconds': 19}",4,55,45,"{'minutes': 0, 'seconds': 35}","{'minutes': 5, 'seconds': 19}",8,30,END OF GAME,True,49,27,49,27
+4017527782,401752778,Missouri,SEC,Oklahoma,SEC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,21,21,"{'minutes': 6, 'seconds': 37}","{'minutes': 8, 'seconds': 23}",14,54,FG,False,0,0,3,0
+4017527784,401752778,Oklahoma,SEC,Missouri,SEC,2,False,1,25,75,"{'minutes': 6, 'seconds': 37}",1,32,68,"{'minutes': 5, 'seconds': 41}","{'minutes': 0, 'seconds': 56}",3,7,PUNT,True,0,3,0,3
+4017527785,401752778,Missouri,SEC,Oklahoma,SEC,3,False,1,82,82,"{'minutes': 5, 'seconds': 34}",1,66,66,"{'minutes': 2, 'seconds': 15}","{'minutes': 3, 'seconds': 26}",5,16,PUNT,False,3,0,3,0
+4017527786,401752778,Oklahoma,SEC,Missouri,SEC,4,False,1,30,70,"{'minutes': 2, 'seconds': 9}",1,16,84,"{'minutes': 0, 'seconds': 26}","{'minutes': 1, 'seconds': 49}",3,-14,PUNT,True,0,3,0,3
+4017527787,401752778,Missouri,SEC,Oklahoma,SEC,5,False,1,55,55,"{'minutes': 0, 'seconds': 25}",2,42,42,"{'minutes': 12, 'seconds': 47}","{'minutes': 2, 'seconds': 39}",6,13,PUNT,False,3,0,3,0
+4017527788,401752778,Oklahoma,SEC,Missouri,SEC,6,False,2,3,97,"{'minutes': 12, 'seconds': 36}",2,27,73,"{'minutes': 10, 'seconds': 36}","{'minutes': 2, 'seconds': 11}",7,24,PUNT,True,0,3,0,3
+4017527789,401752778,Missouri,SEC,Oklahoma,SEC,7,False,2,67,67,"{'minutes': 10, 'seconds': 24}",2,8,8,"{'minutes': 7, 'seconds': 37}","{'minutes': 2, 'seconds': 59}",6,60,MISSED FG,False,3,0,3,0
+40175277810,401752778,Oklahoma,SEC,Missouri,SEC,8,True,2,10,90,"{'minutes': 7, 'seconds': 32}",2,97,3,"{'minutes': 6, 'seconds': 45}","{'minutes': 0, 'seconds': 52}",3,90,TD,True,0,3,7,3
+40175277812,401752778,Missouri,SEC,Oklahoma,SEC,9,False,2,75,75,"{'minutes': 6, 'seconds': 45}",2,96,96,"{'minutes': 4, 'seconds': 44}","{'minutes': 2, 'seconds': 1}",3,-21,PUNT,False,3,7,3,7
+40175277813,401752778,Oklahoma,SEC,Missouri,SEC,10,True,2,65,35,"{'minutes': 4, 'seconds': 37}",2,97,3,"{'minutes': 2, 'seconds': 22}","{'minutes': 2, 'seconds': 22}",7,35,TD,True,7,3,14,3
+40175277815,401752778,Missouri,SEC,Oklahoma,SEC,11,True,2,80,80,"{'minutes': 2, 'seconds': 19}",2,3,3,"{'minutes': 0, 'seconds': 17}","{'minutes': 2, 'seconds': 2}",10,77,FG,False,3,14,6,14
+40175277817,401752778,Oklahoma,SEC,Missouri,SEC,12,False,2,25,75,"{'minutes': 0, 'seconds': 17}",2,27,73,"{'minutes': 0, 'seconds': 10}","{'minutes': 0, 'seconds': 17}",1,0,END OF HALF,True,14,6,14,6
+40175277819,401752778,Oklahoma,SEC,Missouri,SEC,13,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,72,28,"{'minutes': 11, 'seconds': 36}","{'minutes': 3, 'seconds': 24}",8,47,FG,True,14,6,17,6
+40175277821,401752778,Missouri,SEC,Oklahoma,SEC,14,False,3,75,75,"{'minutes': 11, 'seconds': 36}",3,50,50,"{'minutes': 9, 'seconds': 18}","{'minutes': 2, 'seconds': 18}",4,25,PUNT,False,6,17,6,17
+40175277822,401752778,Oklahoma,SEC,Missouri,SEC,15,False,3,10,90,"{'minutes': 9, 'seconds': 11}",3,48,52,"{'minutes': 5, 'seconds': 59}","{'minutes': 3, 'seconds': 19}",7,38,PUNT,True,17,6,17,6
+40175277823,401752778,Missouri,SEC,Oklahoma,SEC,16,False,3,78,78,"{'minutes': 5, 'seconds': 52}",3,77,77,"{'minutes': 5, 'seconds': 9}","{'minutes': 0, 'seconds': 50}",3,1,PUNT,False,6,17,6,17
+40175277824,401752778,Oklahoma,SEC,Missouri,SEC,17,False,3,47,53,"{'minutes': 5, 'seconds': 2}",3,47,53,"{'minutes': 3, 'seconds': 41}","{'minutes': 1, 'seconds': 28}",3,0,PUNT,True,17,6,17,6
+40175277825,401752778,Missouri,SEC,Oklahoma,SEC,18,False,3,80,80,"{'minutes': 3, 'seconds': 35}",3,25,25,"{'minutes': 2, 'seconds': 31}","{'minutes': 1, 'seconds': 15}",3,20,INT,False,6,17,6,17
+40175277826,401752778,Oklahoma,SEC,Missouri,SEC,19,False,3,25,75,"{'minutes': 2, 'seconds': 20}",4,43,57,"{'minutes': 14, 'seconds': 15}","{'minutes': 3, 'seconds': 11}",5,18,PUNT,True,17,6,17,6
+40175277827,401752778,Missouri,SEC,Oklahoma,SEC,20,False,4,80,80,"{'minutes': 14, 'seconds': 3}",4,89,89,"{'minutes': 12, 'seconds': 49}","{'minutes': 1, 'seconds': 26}",3,-9,PUNT,False,6,17,6,17
+40175277828,401752778,Oklahoma,SEC,Missouri,SEC,21,False,4,43,57,"{'minutes': 12, 'seconds': 42}",4,55,45,"{'minutes': 11, 'seconds': 27}","{'minutes': 1, 'seconds': 22}",4,12,PUNT,True,17,6,17,6
+40175277829,401752778,Missouri,SEC,Oklahoma,SEC,22,False,4,89,89,"{'minutes': 11, 'seconds': 18}",4,87,87,"{'minutes': 10, 'seconds': 5}","{'minutes': 1, 'seconds': 22}",3,2,PUNT,False,6,17,6,17
+40175277830,401752778,Oklahoma,SEC,Missouri,SEC,23,False,4,34,66,"{'minutes': 9, 'seconds': 56}",4,37,63,"{'minutes': 8, 'seconds': 29}","{'minutes': 1, 'seconds': 36}",3,3,PUNT,True,17,6,17,6
+40175277831,401752778,Missouri,SEC,Oklahoma,SEC,24,False,4,88,88,"{'minutes': 8, 'seconds': 22}",4,21,21,"{'minutes': 5, 'seconds': 40}","{'minutes': 2, 'seconds': 49}",7,67,DOWNS,False,6,17,6,17
+40175277832,401752778,Oklahoma,SEC,Missouri,SEC,25,False,4,21,79,"{'minutes': 5, 'seconds': 33}",4,57,43,"{'minutes': 1, 'seconds': 47}","{'minutes': 3, 'seconds': 53}",8,36,PUNT,True,17,6,17,6
+40175277833,401752778,Missouri,SEC,Oklahoma,SEC,26,False,4,92,92,"{'minutes': 1, 'seconds': 39}",4,33,33,"{'minutes': 0, 'seconds': 37}","{'minutes': 1, 'seconds': 15}",7,46,INT,False,6,17,6,17
+40175277834,401752778,Oklahoma,SEC,Missouri,SEC,27,False,4,33,67,"{'minutes': 0, 'seconds': 31}",4,32,68,"{'minutes': 0, 'seconds': 31}","{'minutes': 0, 'seconds': 32}",1,-1,END OF GAME,True,17,6,17,6
+4017527832,401752783,Missouri,SEC,Arkansas,SEC,1,True,1,60,60,"{'minutes': 14, 'seconds': 52}",1,2,2,"{'minutes': 13, 'seconds': 25}","{'minutes': 1, 'seconds': 27}",3,58,TD,False,0,0,7,0
+4017527834,401752783,Arkansas,SEC,Missouri,SEC,2,False,1,25,75,"{'minutes': 13, 'seconds': 25}",1,50,50,"{'minutes': 10, 'seconds': 14}","{'minutes': 3, 'seconds': 11}",4,25,PUNT,True,0,7,0,7
+4017527835,401752783,Missouri,SEC,Arkansas,SEC,3,False,1,80,80,"{'minutes': 10, 'seconds': 14}",1,51,51,"{'minutes': 7, 'seconds': 12}","{'minutes': 3, 'seconds': 2}",5,29,PUNT,False,7,0,7,0
+4017527836,401752783,Arkansas,SEC,Missouri,SEC,4,True,1,27,73,"{'minutes': 7, 'seconds': 12}",1,100,0,"{'minutes': 2, 'seconds': 20}","{'minutes': 4, 'seconds': 52}",12,73,TD,True,0,7,7,7
+4017527838,401752783,Missouri,SEC,Arkansas,SEC,5,True,1,77,77,"{'minutes': 2, 'seconds': 15}",2,68,68,"{'minutes': 14, 'seconds': 12}","{'minutes': 3, 'seconds': 3}",7,-23,FUMBLE TD,False,7,7,7,14
+40175278310,401752783,Missouri,SEC,Arkansas,SEC,6,True,2,75,75,"{'minutes': 14, 'seconds': 12}",2,0,0,"{'minutes': 9, 'seconds': 33}","{'minutes': 4, 'seconds': 39}",9,75,TD,False,7,14,14,14
+40175278312,401752783,Arkansas,SEC,Missouri,SEC,7,False,2,25,75,"{'minutes': 9, 'seconds': 33}",2,48,52,"{'minutes': 5, 'seconds': 20}","{'minutes': 4, 'seconds': 13}",8,23,PUNT,True,14,14,14,14
+40175278313,401752783,Missouri,SEC,Arkansas,SEC,8,False,2,80,80,"{'minutes': 5, 'seconds': 20}",2,78,78,"{'minutes': 1, 'seconds': 15}","{'minutes': 4, 'seconds': 5}",8,2,DOWNS,False,14,14,14,14
+40175278314,401752783,Arkansas,SEC,Missouri,SEC,9,True,2,78,22,"{'minutes': 1, 'seconds': 15}",2,90,10,"{'minutes': 0, 'seconds': 11}","{'minutes': 1, 'seconds': 4}",6,12,FG,True,14,14,17,14
+40175278316,401752783,Missouri,SEC,Arkansas,SEC,10,False,2,82,82,"{'minutes': 0, 'seconds': 4}",2,79,79,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 4}",1,3,END OF HALF,False,14,17,14,17
+40175278318,401752783,Arkansas,SEC,Missouri,SEC,11,False,3,30,70,"{'minutes': 14, 'seconds': 54}",3,31,69,"{'minutes': 13, 'seconds': 27}","{'minutes': 1, 'seconds': 27}",3,1,PUNT,True,17,14,17,14
+40175278319,401752783,Missouri,SEC,Arkansas,SEC,12,True,3,65,65,"{'minutes': 13, 'seconds': 27}",3,3,3,"{'minutes': 11, 'seconds': 57}","{'minutes': 1, 'seconds': 30}",4,62,TD,False,14,17,20,17
+40175278321,401752783,Arkansas,SEC,Missouri,SEC,13,False,3,25,75,"{'minutes': 11, 'seconds': 57}",3,76,24,"{'minutes': 7, 'seconds': 4}","{'minutes': 4, 'seconds': 53}",11,51,MISSED FG,True,17,20,17,20
+40175278322,401752783,Missouri,SEC,Arkansas,SEC,14,False,3,76,76,"{'minutes': 7, 'seconds': 4}",3,73,73,"{'minutes': 2, 'seconds': 32}","{'minutes': 4, 'seconds': 32}",6,3,PUNT,False,20,17,20,17
+40175278323,401752783,Arkansas,SEC,Missouri,SEC,15,False,3,43,57,"{'minutes': 2, 'seconds': 32}",3,45,55,"{'minutes': 1, 'seconds': 37}","{'minutes': 0, 'seconds': 55}",3,2,PUNT,True,17,20,17,20
+40175278324,401752783,Missouri,SEC,Arkansas,SEC,16,True,3,84,84,"{'minutes': 1, 'seconds': 37}",4,23,23,"{'minutes': 9, 'seconds': 56}","{'minutes': 6, 'seconds': 41}",12,61,FG,False,20,17,23,17
+40175278326,401752783,Arkansas,SEC,Missouri,SEC,17,True,4,25,75,"{'minutes': 9, 'seconds': 56}",4,18,82,"{'minutes': 8, 'seconds': 7}","{'minutes': 1, 'seconds': 49}",3,-7,PUNT TD,True,17,23,17,31
+40175278328,401752783,Arkansas,SEC,Missouri,SEC,18,False,4,25,75,"{'minutes': 8, 'seconds': 7}",4,51,49,"{'minutes': 4, 'seconds': 40}","{'minutes': 3, 'seconds': 27}",7,26,PUNT,True,17,31,17,31
+40175278329,401752783,Missouri,SEC,Arkansas,SEC,19,False,4,75,75,"{'minutes': 4, 'seconds': 40}",4,10,10,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 40}",11,65,END OF HALF,False,31,17,31,17

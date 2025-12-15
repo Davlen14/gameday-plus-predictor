@@ -1,0 +1,298 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017526761,401752676,Tennessee,SEC,Syracuse,ACC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,84,16,"{'minutes': 12, 'seconds': 46}","{'minutes': 2, 'seconds': 14}",9,59,FG,True,0,0,3,0
+4017526762,401752676,Syracuse,ACC,Tennessee,SEC,2,False,1,75,75,"{'minutes': 12, 'seconds': 46}",1,50,50,"{'minutes': 9, 'seconds': 37}","{'minutes': 3, 'seconds': 9}",4,25,PUNT,False,0,3,0,3
+4017526763,401752676,Tennessee,SEC,Syracuse,ACC,3,True,1,15,85,"{'minutes': 9, 'seconds': 37}",1,100,0,"{'minutes': 6, 'seconds': 2}","{'minutes': 3, 'seconds': 35}",12,85,TD,True,3,0,10,0
+4017526764,401752676,Syracuse,ACC,Tennessee,SEC,4,False,1,75,75,"{'minutes': 6, 'seconds': 2}",1,79,79,"{'minutes': 2, 'seconds': 53}","{'minutes': 3, 'seconds': 9}",5,-4,PUNT,False,0,10,0,10
+4017526765,401752676,Tennessee,SEC,Syracuse,ACC,5,False,1,22,78,"{'minutes': 2, 'seconds': 53}",1,75,25,"{'minutes': 1, 'seconds': 6}","{'minutes': 1, 'seconds': 47}",7,49,FUMBLE,True,10,0,10,0
+4017526766,401752676,Syracuse,ACC,Tennessee,SEC,6,True,1,71,71,"{'minutes': 1, 'seconds': 6}",1,71,71,"{'minutes': 0, 'seconds': 56}","{'minutes': 0, 'seconds': 10}",1,-7,FUMBLE TD,False,0,17,0,17
+4017526767,401752676,Syracuse,ACC,Tennessee,SEC,7,True,1,75,75,"{'minutes': 0, 'seconds': 56}",2,0,0,"{'minutes': 11, 'seconds': 40}","{'minutes': 4, 'seconds': 16}",11,75,TD,False,0,17,7,17
+4017526768,401752676,Tennessee,SEC,Syracuse,ACC,8,True,2,25,75,"{'minutes': 11, 'seconds': 40}",2,100,0,"{'minutes': 11, 'seconds': 14}","{'minutes': 0, 'seconds': 26}",2,75,TD,True,17,7,24,7
+4017526769,401752676,Syracuse,ACC,Tennessee,SEC,9,False,2,75,75,"{'minutes': 11, 'seconds': 14}",2,36,36,"{'minutes': 6, 'seconds': 52}","{'minutes': 4, 'seconds': 22}",10,39,PUNT,False,7,24,7,24
+40175267610,401752676,Tennessee,SEC,Syracuse,ACC,10,False,2,2,98,"{'minutes': 6, 'seconds': 52}",2,10,90,"{'minutes': 5, 'seconds': 33}","{'minutes': 1, 'seconds': 19}",3,8,PUNT,True,24,7,24,7
+40175267611,401752676,Syracuse,ACC,Tennessee,SEC,11,True,2,49,49,"{'minutes': 5, 'seconds': 33}",2,0,0,"{'minutes': 1, 'seconds': 55}","{'minutes': 3, 'seconds': 38}",9,49,TD,False,7,24,14,24
+40175267612,401752676,Tennessee,SEC,Syracuse,ACC,12,True,2,25,75,"{'minutes': 1, 'seconds': 55}",2,100,0,"{'minutes': 0, 'seconds': 21}","{'minutes': 1, 'seconds': 34}",6,75,TD,True,24,14,31,14
+40175267613,401752676,Syracuse,ACC,Tennessee,SEC,13,False,2,75,75,"{'minutes': 0, 'seconds': 21}",2,86,86,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 21}",1,-11,END OF HALF,False,14,31,14,31
+40175267614,401752676,Syracuse,ACC,Tennessee,SEC,14,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,75,75,"{'minutes': 14, 'seconds': 49}","{'minutes': 0, 'seconds': 11}",2,0,INT,False,14,31,14,31
+40175267615,401752676,Tennessee,SEC,Syracuse,ACC,15,True,3,83,17,"{'minutes': 14, 'seconds': 49}",3,100,0,"{'minutes': 12, 'seconds': 22}","{'minutes': 2, 'seconds': 27}",7,17,TD,True,31,14,38,14
+40175267616,401752676,Syracuse,ACC,Tennessee,SEC,16,True,3,75,75,"{'minutes': 12, 'seconds': 22}",3,0,0,"{'minutes': 7, 'seconds': 33}","{'minutes': 4, 'seconds': 49}",12,75,TD,False,14,38,20,38
+40175267617,401752676,Tennessee,SEC,Syracuse,ACC,17,False,3,25,75,"{'minutes': 7, 'seconds': 33}",3,27,73,"{'minutes': 6, 'seconds': 24}","{'minutes': 1, 'seconds': 9}",3,2,PUNT,True,38,20,38,20
+40175267618,401752676,Syracuse,ACC,Tennessee,SEC,18,False,3,83,83,"{'minutes': 6, 'seconds': 24}",3,81,81,"{'minutes': 4, 'seconds': 44}","{'minutes': 1, 'seconds': 40}",3,2,PUNT,False,20,38,20,38
+40175267619,401752676,Tennessee,SEC,Syracuse,ACC,19,False,3,23,77,"{'minutes': 4, 'seconds': 44}",3,46,54,"{'minutes': 2, 'seconds': 13}","{'minutes': 2, 'seconds': 31}",4,23,PUNT,True,38,20,38,20
+40175267620,401752676,Syracuse,ACC,Tennessee,SEC,20,True,3,88,88,"{'minutes': 2, 'seconds': 13}",4,0,0,"{'minutes': 11, 'seconds': 54}","{'minutes': 5, 'seconds': 19}",14,88,TD,False,20,38,26,38
+40175267621,401752676,Tennessee,SEC,Syracuse,ACC,21,False,4,25,75,"{'minutes': 11, 'seconds': 54}",4,51,49,"{'minutes': 10, 'seconds': 6}","{'minutes': 1, 'seconds': 48}",4,26,PUNT,True,38,26,38,26
+40175267622,401752676,Syracuse,ACC,Tennessee,SEC,22,False,4,89,89,"{'minutes': 10, 'seconds': 6}",4,90,90,"{'minutes': 8, 'seconds': 39}","{'minutes': 1, 'seconds': 27}",3,-1,PUNT,False,26,38,26,38
+40175267623,401752676,Tennessee,SEC,Syracuse,ACC,23,True,4,46,54,"{'minutes': 8, 'seconds': 39}",4,100,0,"{'minutes': 3, 'seconds': 57}","{'minutes': 4, 'seconds': 42}",9,54,TD,True,38,26,45,26
+40175267624,401752676,Syracuse,ACC,Tennessee,SEC,24,False,4,75,75,"{'minutes': 3, 'seconds': 57}",4,4,4,"{'minutes': 1, 'seconds': 55}","{'minutes': 2, 'seconds': 2}",9,71,DOWNS,False,26,45,26,45
+40175267625,401752676,Tennessee,SEC,Syracuse,ACC,25,False,4,4,96,"{'minutes': 1, 'seconds': 55}",4,14,86,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 55}",3,10,END OF GAME,True,45,26,45,26
+4017545321,401754532,Colgate,Patriot,Syracuse,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,62,62,"{'minutes': 12, 'seconds': 59}","{'minutes': 2, 'seconds': 1}",4,13,PUNT,False,0,0,0,0
+4017545322,401754532,Syracuse,ACC,Colgate,Patriot,2,True,1,35,65,"{'minutes': 12, 'seconds': 59}",1,100,0,"{'minutes': 10, 'seconds': 30}","{'minutes': 2, 'seconds': 29}",7,65,TD,True,0,0,7,0
+4017545323,401754532,Colgate,Patriot,Syracuse,ACC,3,False,1,75,75,"{'minutes': 10, 'seconds': 30}",1,61,61,"{'minutes': 8, 'seconds': 18}","{'minutes': 2, 'seconds': 12}",4,14,INT,False,0,7,0,7
+4017545324,401754532,Syracuse,ACC,Colgate,Patriot,4,False,1,34,66,"{'minutes': 8, 'seconds': 18}",1,42,58,"{'minutes': 8, 'seconds': 12}","{'minutes': 0, 'seconds': 6}",1,8,FUMBLE,True,7,0,7,0
+4017545325,401754532,Colgate,Patriot,Syracuse,ACC,5,True,1,42,42,"{'minutes': 8, 'seconds': 12}",1,22,22,"{'minutes': 5, 'seconds': 48}","{'minutes': 2, 'seconds': 24}",6,20,FG,False,0,7,3,7
+4017545326,401754532,Syracuse,ACC,Colgate,Patriot,6,True,1,17,83,"{'minutes': 5, 'seconds': 44}",1,100,0,"{'minutes': 2, 'seconds': 12}","{'minutes': 3, 'seconds': 32}",9,83,TD,True,7,3,14,3
+4017545327,401754532,Colgate,Patriot,Syracuse,ACC,7,False,1,75,75,"{'minutes': 2, 'seconds': 12}",1,83,83,"{'minutes': 1, 'seconds': 18}","{'minutes': 0, 'seconds': 54}",3,-8,PUNT,False,3,14,3,14
+4017545328,401754532,Syracuse,ACC,Colgate,Patriot,8,True,1,64,36,"{'minutes': 1, 'seconds': 18}",2,100,0,"{'minutes': 14, 'seconds': 0}","{'minutes': 2, 'seconds': 18}",5,36,TD,True,14,3,21,3
+4017545329,401754532,Colgate,Patriot,Syracuse,ACC,9,False,2,75,75,"{'minutes': 14, 'seconds': 0}",2,47,47,"{'minutes': 11, 'seconds': 22}","{'minutes': 2, 'seconds': 38}",6,28,DOWNS,False,3,21,3,21
+40175453210,401754532,Syracuse,ACC,Colgate,Patriot,10,True,2,47,53,"{'minutes': 11, 'seconds': 22}",2,96,4,"{'minutes': 10, 'seconds': 6}","{'minutes': 1, 'seconds': 16}",5,49,FG,True,21,3,24,3
+40175453211,401754532,Colgate,Patriot,Syracuse,ACC,11,False,2,75,75,"{'minutes': 10, 'seconds': 6}",2,69,69,"{'minutes': 9, 'seconds': 12}","{'minutes': 0, 'seconds': 54}",3,6,PUNT,False,3,24,3,24
+40175453212,401754532,Syracuse,ACC,Colgate,Patriot,12,True,2,40,60,"{'minutes': 9, 'seconds': 12}",2,100,0,"{'minutes': 6, 'seconds': 50}","{'minutes': 2, 'seconds': 22}",6,60,TD,True,24,3,31,3
+40175453213,401754532,Colgate,Patriot,Syracuse,ACC,13,False,2,75,75,"{'minutes': 6, 'seconds': 50}",2,57,57,"{'minutes': 3, 'seconds': 49}","{'minutes': 3, 'seconds': 1}",5,18,PUNT,False,3,31,3,31
+40175453214,401754532,Syracuse,ACC,Colgate,Patriot,14,True,2,20,80,"{'minutes': 3, 'seconds': 49}",2,100,0,"{'minutes': 1, 'seconds': 43}","{'minutes': 2, 'seconds': 6}",6,80,TD,True,31,3,38,3
+40175453215,401754532,Colgate,Patriot,Syracuse,ACC,15,False,2,75,75,"{'minutes': 1, 'seconds': 43}",2,7,7,"{'minutes': 0, 'seconds': 9}","{'minutes': 1, 'seconds': 34}",11,68,INT,False,3,38,3,38
+40175453216,401754532,Syracuse,ACC,Colgate,Patriot,16,False,2,20,80,"{'minutes': 0, 'seconds': 9}",2,18,82,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 9}",1,-2,END OF HALF,True,38,3,38,3
+40175453217,401754532,Syracuse,ACC,Colgate,Patriot,17,False,3,24,76,"{'minutes': 14, 'seconds': 55}",3,36,64,"{'minutes': 12, 'seconds': 38}","{'minutes': 2, 'seconds': 17}",6,12,PUNT,True,38,3,38,3
+40175453218,401754532,Colgate,Patriot,Syracuse,ACC,18,False,3,80,80,"{'minutes': 12, 'seconds': 38}",3,59,59,"{'minutes': 9, 'seconds': 27}","{'minutes': 3, 'seconds': 11}",6,6,Uncategorized,False,3,38,3,38
+40175453219,401754532,Syracuse,ACC,Colgate,Patriot,19,True,3,74,26,"{'minutes': 9, 'seconds': 27}",3,100,0,"{'minutes': 9, 'seconds': 13}","{'minutes': 0, 'seconds': 14}",3,26,TD,True,38,3,45,3
+40175453220,401754532,Colgate,Patriot,Syracuse,ACC,20,True,3,90,90,"{'minutes': 9, 'seconds': 7}",3,0,0,"{'minutes': 4, 'seconds': 36}","{'minutes': 4, 'seconds': 31}",11,90,TD,False,3,45,10,45
+40175453221,401754532,Syracuse,ACC,Colgate,Patriot,21,False,3,25,75,"{'minutes': 4, 'seconds': 36}",3,38,62,"{'minutes': 2, 'seconds': 58}","{'minutes': 1, 'seconds': 38}",5,13,INT,True,45,10,45,10
+40175453222,401754532,Colgate,Patriot,Syracuse,ACC,22,True,3,58,58,"{'minutes': 2, 'seconds': 58}",3,0,0,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 58}",8,60,TD,False,10,45,17,45
+40175453223,401754532,Syracuse,ACC,Colgate,Patriot,23,True,4,29,71,"{'minutes': 14, 'seconds': 54}",4,100,0,"{'minutes': 11, 'seconds': 3}","{'minutes': 3, 'seconds': 51}",9,71,TD,True,45,17,52,17
+40175453224,401754532,Colgate,Patriot,Syracuse,ACC,24,True,4,75,75,"{'minutes': 11, 'seconds': 3}",4,0,0,"{'minutes': 9, 'seconds': 27}","{'minutes': 1, 'seconds': 36}",5,75,TD,False,17,52,24,52
+40175453225,401754532,Syracuse,ACC,Colgate,Patriot,25,True,4,7,93,"{'minutes': 9, 'seconds': 18}",4,100,0,"{'minutes': 6, 'seconds': 26}","{'minutes': 2, 'seconds': 52}",7,93,TD,True,52,24,59,24
+40175453226,401754532,Colgate,Patriot,Syracuse,ACC,26,False,4,75,75,"{'minutes': 6, 'seconds': 26}",4,85,85,"{'minutes': 5, 'seconds': 17}","{'minutes': 1, 'seconds': 9}",4,-10,FUMBLE,False,24,59,24,59
+40175453227,401754532,Syracuse,ACC,Colgate,Patriot,27,True,4,87,13,"{'minutes': 5, 'seconds': 17}",4,100,0,"{'minutes': 4, 'seconds': 54}","{'minutes': 0, 'seconds': 23}",2,13,TD,True,59,24,66,24
+40175453228,401754532,Colgate,Patriot,Syracuse,ACC,28,False,4,75,75,"{'minutes': 4, 'seconds': 54}",4,32,32,"{'minutes': 0, 'seconds': 42}","{'minutes': 4, 'seconds': 12}",9,43,MISSED FG,False,24,66,24,66
+40175453229,401754532,Syracuse,ACC,Colgate,Patriot,29,False,4,32,68,"{'minutes': 0, 'seconds': 42}",4,37,63,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 42}",1,5,END OF GAME,True,66,24,66,24
+4017545371,401754537,Syracuse,ACC,Clemson,ACC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,0,0,"{'minutes': 11, 'seconds': 1}","{'minutes': 3, 'seconds': 59}",7,75,TD,False,0,0,7,0
+4017545372,401754537,Syracuse,ACC,Clemson,ACC,2,True,1,54,54,"{'minutes': 11, 'seconds': 0}",1,5,5,"{'minutes': 7, 'seconds': 40}","{'minutes': 3, 'seconds': 20}",11,49,FG,False,7,0,10,0
+4017545373,401754537,Clemson,ACC,Syracuse,ACC,3,True,1,25,75,"{'minutes': 7, 'seconds': 40}",1,100,0,"{'minutes': 3, 'seconds': 21}","{'minutes': 4, 'seconds': 19}",9,75,TD,True,0,10,7,10
+4017545374,401754537,Syracuse,ACC,Clemson,ACC,4,True,1,75,75,"{'minutes': 3, 'seconds': 21}",2,0,0,"{'minutes': 14, 'seconds': 56}","{'minutes': 3, 'seconds': 25}",9,75,TD,False,10,7,17,7
+4017545375,401754537,Clemson,ACC,Syracuse,ACC,5,False,2,35,65,"{'minutes': 14, 'seconds': 56}",2,60,40,"{'minutes': 12, 'seconds': 52}","{'minutes': 2, 'seconds': 4}",4,25,PUNT,True,7,17,7,17
+4017545376,401754537,Syracuse,ACC,Clemson,ACC,6,True,2,80,80,"{'minutes': 12, 'seconds': 52}",2,0,0,"{'minutes': 9, 'seconds': 13}","{'minutes': 3, 'seconds': 39}",8,80,TD,False,17,7,24,7
+4017545377,401754537,Clemson,ACC,Syracuse,ACC,7,False,2,25,75,"{'minutes': 9, 'seconds': 13}",2,31,69,"{'minutes': 7, 'seconds': 10}","{'minutes': 2, 'seconds': 3}",3,6,PUNT,True,7,24,7,24
+4017545378,401754537,Syracuse,ACC,Clemson,ACC,8,False,2,76,76,"{'minutes': 7, 'seconds': 10}",2,45,45,"{'minutes': 5, 'seconds': 12}","{'minutes': 1, 'seconds': 58}",5,31,PUNT,False,24,7,24,7
+4017545379,401754537,Clemson,ACC,Syracuse,ACC,9,True,2,8,92,"{'minutes': 5, 'seconds': 12}",2,100,0,"{'minutes': 1, 'seconds': 6}","{'minutes': 4, 'seconds': 6}",13,92,TD,True,7,24,14,24
+40175453710,401754537,Syracuse,ACC,Clemson,ACC,10,False,2,74,74,"{'minutes': 1, 'seconds': 1}",2,56,56,"{'minutes': 0, 'seconds': 16}","{'minutes': 0, 'seconds': 45}",5,18,PUNT,False,24,14,24,14
+40175453711,401754537,Clemson,ACC,Syracuse,ACC,11,False,2,20,80,"{'minutes': 0, 'seconds': 16}",2,59,41,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 16}",4,39,END OF HALF,True,14,24,14,24
+40175453712,401754537,Clemson,ACC,Syracuse,ACC,12,False,3,24,76,"{'minutes': 14, 'seconds': 55}",3,55,45,"{'minutes': 13, 'seconds': 4}","{'minutes': 1, 'seconds': 51}",6,31,PUNT,True,14,24,14,24
+40175453713,401754537,Syracuse,ACC,Clemson,ACC,13,True,3,89,89,"{'minutes': 13, 'seconds': 4}",3,31,31,"{'minutes': 11, 'seconds': 44}","{'minutes': 1, 'seconds': 20}",6,58,FG,False,24,14,27,14
+40175453714,401754537,Clemson,ACC,Syracuse,ACC,14,False,3,25,75,"{'minutes': 11, 'seconds': 44}",3,56,44,"{'minutes': 7, 'seconds': 57}","{'minutes': 3, 'seconds': 47}",7,31,DOWNS,True,14,27,14,27
+40175453715,401754537,Syracuse,ACC,Clemson,ACC,15,False,3,56,56,"{'minutes': 7, 'seconds': 57}",3,50,50,"{'minutes': 6, 'seconds': 30}","{'minutes': 1, 'seconds': 27}",3,6,PUNT,False,27,14,27,14
+40175453716,401754537,Clemson,ACC,Syracuse,ACC,16,False,3,14,86,"{'minutes': 6, 'seconds': 30}",3,37,63,"{'minutes': 4, 'seconds': 29}","{'minutes': 2, 'seconds': 1}",5,23,PUNT,True,14,27,14,27
+40175453717,401754537,Syracuse,ACC,Clemson,ACC,17,False,3,81,81,"{'minutes': 4, 'seconds': 29}",3,61,61,"{'minutes': 2, 'seconds': 25}","{'minutes': 2, 'seconds': 4}",4,20,PUNT,False,27,14,27,14
+40175453718,401754537,Clemson,ACC,Syracuse,ACC,18,False,3,16,84,"{'minutes': 2, 'seconds': 25}",3,18,82,"{'minutes': 2, 'seconds': 18}","{'minutes': 0, 'seconds': 7}",1,2,FUMBLE,True,14,27,14,27
+40175453719,401754537,Syracuse,ACC,Clemson,ACC,19,True,3,18,18,"{'minutes': 2, 'seconds': 18}",3,0,0,"{'minutes': 2, 'seconds': 12}","{'minutes': 0, 'seconds': 6}",1,18,TD,False,34,14,34,14
+40175453720,401754537,Clemson,ACC,Syracuse,ACC,20,False,3,30,70,"{'minutes': 2, 'seconds': 6}",3,72,28,"{'minutes': 0, 'seconds': 4}","{'minutes': 2, 'seconds': 2}",6,42,DOWNS,True,14,34,14,34
+40175453721,401754537,Syracuse,ACC,Clemson,ACC,21,False,3,72,72,"{'minutes': 0, 'seconds': 4}",4,64,64,"{'minutes': 12, 'seconds': 9}","{'minutes': 2, 'seconds': 55}",6,8,PUNT,False,34,14,34,14
+40175453722,401754537,Clemson,ACC,Syracuse,ACC,22,True,4,19,81,"{'minutes': 12, 'seconds': 9}",4,100,0,"{'minutes': 9, 'seconds': 0}","{'minutes': 3, 'seconds': 9}",9,81,TD,True,14,34,21,34
+40175453723,401754537,Syracuse,ACC,Clemson,ACC,23,False,4,75,75,"{'minutes': 9, 'seconds': 0}",4,67,67,"{'minutes': 6, 'seconds': 46}","{'minutes': 2, 'seconds': 14}",6,8,PUNT,False,34,21,34,21
+40175453724,401754537,Clemson,ACC,Syracuse,ACC,24,False,4,21,79,"{'minutes': 6, 'seconds': 46}",4,44,56,"{'minutes': 5, 'seconds': 7}","{'minutes': 1, 'seconds': 39}",7,23,INT,True,21,34,21,34
+40175453725,401754537,Syracuse,ACC,Clemson,ACC,25,False,4,52,52,"{'minutes': 5, 'seconds': 7}",4,49,49,"{'minutes': 3, 'seconds': 24}","{'minutes': 1, 'seconds': 43}",3,3,PUNT,False,34,21,34,21
+40175453726,401754537,Clemson,ACC,Syracuse,ACC,26,False,4,9,91,"{'minutes': 3, 'seconds': 24}",4,44,56,"{'minutes': 1, 'seconds': 40}","{'minutes': 1, 'seconds': 44}",9,35,DOWNS,True,21,34,21,34
+40175453727,401754537,Syracuse,ACC,Clemson,ACC,27,False,4,44,44,"{'minutes': 1, 'seconds': 40}",4,35,35,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 40}",5,9,END OF GAME,False,34,21,34,21
+4017545451,401754545,Syracuse,ACC,Duke,ACC,1,False,1,11,89,"{'minutes': 14, 'seconds': 54}",1,64,36,"{'minutes': 13, 'seconds': 32}","{'minutes': 1, 'seconds': 22}",5,53,INT,True,0,0,0,0
+4017545452,401754545,Duke,ACC,Syracuse,ACC,2,True,1,45,45,"{'minutes': 13, 'seconds': 32}",1,5,5,"{'minutes': 9, 'seconds': 42}","{'minutes': 3, 'seconds': 50}",7,40,FG,False,0,0,3,0
+4017545453,401754545,Syracuse,ACC,Duke,ACC,3,True,1,25,75,"{'minutes': 9, 'seconds': 42}",1,89,11,"{'minutes': 4, 'seconds': 10}","{'minutes': 5, 'seconds': 32}",11,64,FG,True,0,3,3,3
+4017545454,401754545,Duke,ACC,Syracuse,ACC,4,True,1,75,75,"{'minutes': 4, 'seconds': 10}",1,0,0,"{'minutes': 3, 'seconds': 12}","{'minutes': 0, 'seconds': 58}",4,75,TD,False,3,3,10,3
+4017545455,401754545,Syracuse,ACC,Duke,ACC,5,False,1,13,87,"{'minutes': 3, 'seconds': 7}",1,15,85,"{'minutes': 3, 'seconds': 12}","{'minutes': 0, 'seconds': 3}",3,2,PUNT,True,3,10,3,10
+4017545456,401754545,Duke,ACC,Syracuse,ACC,6,False,1,60,60,"{'minutes': 3, 'seconds': 12}",2,49,49,"{'minutes': 15, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",5,11,PUNT,False,10,3,10,3
+4017545457,401754545,Syracuse,ACC,Duke,ACC,7,False,2,17,83,"{'minutes': 15, 'seconds': 0}",2,61,39,"{'minutes': 12, 'seconds': 49}","{'minutes': 2, 'seconds': 11}",6,44,FUMBLE,True,3,10,3,10
+4017545458,401754545,Duke,ACC,Syracuse,ACC,8,True,2,61,61,"{'minutes': 12, 'seconds': 49}",2,0,0,"{'minutes': 12, 'seconds': 1}","{'minutes': 0, 'seconds': 48}",3,61,TD,False,10,3,17,3
+4017545459,401754545,Syracuse,ACC,Duke,ACC,9,False,2,25,75,"{'minutes': 12, 'seconds': 1}",2,17,83,"{'minutes': 7, 'seconds': 19}","{'minutes': 4, 'seconds': 42}",7,-8,PUNT,True,3,17,3,17
+40175454510,401754545,Duke,ACC,Syracuse,ACC,10,True,2,68,68,"{'minutes': 7, 'seconds': 19}",2,0,0,"{'minutes': 1, 'seconds': 55}","{'minutes': 5, 'seconds': 24}",12,68,TD,False,17,3,24,3
+40175454511,401754545,Syracuse,ACC,Duke,ACC,11,False,2,25,75,"{'minutes': 1, 'seconds': 55}",2,33,67,"{'minutes': 0, 'seconds': 51}","{'minutes': 1, 'seconds': 4}",3,8,PUNT,True,3,24,3,24
+40175454512,401754545,Duke,ACC,Syracuse,ACC,12,False,2,78,78,"{'minutes': 0, 'seconds': 51}",2,29,29,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 51}",7,49,MISSED FG,False,24,3,24,3
+40175454513,401754545,Duke,ACC,Syracuse,ACC,13,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,76,76,"{'minutes': 13, 'seconds': 9}","{'minutes': 1, 'seconds': 51}",3,-1,PUNT,False,24,3,24,3
+40175454514,401754545,Syracuse,ACC,Duke,ACC,14,False,3,30,70,"{'minutes': 13, 'seconds': 9}",3,43,57,"{'minutes': 13, 'seconds': 1}","{'minutes': 0, 'seconds': 8}",1,13,FUMBLE,True,3,24,3,24
+40175454515,401754545,Duke,ACC,Syracuse,ACC,15,False,3,43,43,"{'minutes': 13, 'seconds': 1}",3,51,51,"{'minutes': 10, 'seconds': 49}","{'minutes': 2, 'seconds': 12}",3,-8,PUNT,False,24,3,24,3
+40175454516,401754545,Syracuse,ACC,Duke,ACC,16,False,3,5,95,"{'minutes': 10, 'seconds': 49}",3,10,90,"{'minutes': 8, 'seconds': 48}","{'minutes': 2, 'seconds': 1}",3,5,PUNT,True,3,24,3,24
+40175454517,401754545,Duke,ACC,Syracuse,ACC,17,True,3,60,60,"{'minutes': 8, 'seconds': 48}",3,0,0,"{'minutes': 5, 'seconds': 34}","{'minutes': 3, 'seconds': 14}",7,60,TD,False,24,3,31,3
+40175454518,401754545,Syracuse,ACC,Duke,ACC,18,False,3,25,75,"{'minutes': 5, 'seconds': 34}",3,71,29,"{'minutes': 1, 'seconds': 37}","{'minutes': 3, 'seconds': 57}",9,46,DOWNS,True,3,31,3,31
+40175454519,401754545,Duke,ACC,Syracuse,ACC,19,True,3,71,71,"{'minutes': 1, 'seconds': 37}",4,0,0,"{'minutes': 11, 'seconds': 4}","{'minutes': 5, 'seconds': 33}",9,71,TD,False,31,3,38,3
+40175454520,401754545,Syracuse,ACC,Duke,ACC,20,False,4,25,75,"{'minutes': 11, 'seconds': 4}",4,34,66,"{'minutes': 9, 'seconds': 23}","{'minutes': 1, 'seconds': 41}",4,9,PUNT,True,3,38,3,38
+40175454521,401754545,Duke,ACC,Syracuse,ACC,21,False,4,95,95,"{'minutes': 9, 'seconds': 23}",4,47,47,"{'minutes': 4, 'seconds': 47}","{'minutes': 4, 'seconds': 36}",6,48,PUNT,False,38,3,38,3
+40175454522,401754545,Syracuse,ACC,Duke,ACC,22,False,4,15,85,"{'minutes': 4, 'seconds': 47}",4,98,2,"{'minutes': 0, 'seconds': 2}","{'minutes': 4, 'seconds': 45}",13,83,DOWNS,True,3,38,3,38
+40175454523,401754545,Duke,ACC,Syracuse,ACC,23,False,4,98,98,"{'minutes': 0, 'seconds': 2}",4,99,99,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 2}",1,-1,END OF GAME,False,38,3,38,3
+4017545551,401754555,SMU,ACC,Syracuse,ACC,1,False,1,20,80,"{'minutes': 14, 'seconds': 52}",1,28,72,"{'minutes': 13, 'seconds': 42}","{'minutes': 1, 'seconds': 10}",3,8,PUNT,True,0,0,0,0
+4017545552,401754555,Syracuse,ACC,SMU,ACC,2,False,1,42,42,"{'minutes': 13, 'seconds': 42}",1,1,1,"{'minutes': 6, 'seconds': 39}","{'minutes': 7, 'seconds': 3}",12,41,DOWNS,False,0,0,0,0
+4017545553,401754555,SMU,ACC,Syracuse,ACC,3,False,1,1,99,"{'minutes': 6, 'seconds': 39}",1,37,63,"{'minutes': 3, 'seconds': 48}","{'minutes': 2, 'seconds': 51}",6,36,PUNT,True,0,0,0,0
+4017545554,401754555,Syracuse,ACC,SMU,ACC,4,False,1,90,90,"{'minutes': 3, 'seconds': 48}",1,90,90,"{'minutes': 3, 'seconds': 46}","{'minutes': 0, 'seconds': 2}",1,0,INT,False,0,0,0,0
+4017545555,401754555,SMU,ACC,Syracuse,ACC,5,True,1,87,13,"{'minutes': 3, 'seconds': 46}",1,91,9,"{'minutes': 2, 'seconds': 34}","{'minutes': 1, 'seconds': 12}",4,4,FG,True,0,0,3,0
+4017545556,401754555,Syracuse,ACC,SMU,ACC,6,False,1,75,75,"{'minutes': 2, 'seconds': 34}",1,58,58,"{'minutes': 0, 'seconds': 41}","{'minutes': 1, 'seconds': 53}",6,17,PUNT,False,0,3,0,3
+4017545557,401754555,SMU,ACC,Syracuse,ACC,7,True,1,22,78,"{'minutes': 0, 'seconds': 41}",2,100,0,"{'minutes': 12, 'seconds': 58}","{'minutes': 2, 'seconds': 43}",7,78,TD,True,3,0,10,0
+4017545558,401754555,Syracuse,ACC,SMU,ACC,8,False,2,79,79,"{'minutes': 12, 'seconds': 50}",2,60,60,"{'minutes': 9, 'seconds': 22}","{'minutes': 3, 'seconds': 28}",7,19,DOWNS,False,0,10,0,10
+4017545559,401754555,SMU,ACC,Syracuse,ACC,9,True,2,60,40,"{'minutes': 9, 'seconds': 22}",2,100,0,"{'minutes': 8, 'seconds': 2}","{'minutes': 1, 'seconds': 20}",3,40,TD,True,10,0,17,0
+40175455510,401754555,Syracuse,ACC,SMU,ACC,10,False,2,75,75,"{'minutes': 8, 'seconds': 2}",2,10,10,"{'minutes': 4, 'seconds': 36}","{'minutes': 3, 'seconds': 26}",10,65,DOWNS,False,0,17,0,17
+40175455511,401754555,SMU,ACC,Syracuse,ACC,11,True,2,10,90,"{'minutes': 4, 'seconds': 36}",2,100,0,"{'minutes': 2, 'seconds': 18}","{'minutes': 2, 'seconds': 18}",6,90,TD,True,17,0,24,0
+40175455512,401754555,Syracuse,ACC,SMU,ACC,12,True,2,82,82,"{'minutes': 2, 'seconds': 13}",2,20,20,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 13}",11,62,FG,False,0,24,3,24
+40175455513,401754555,Syracuse,ACC,SMU,ACC,13,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,75,75,"{'minutes': 12, 'seconds': 42}","{'minutes': 2, 'seconds': 18}",3,0,PUNT,False,3,24,3,24
+40175455514,401754555,SMU,ACC,Syracuse,ACC,14,False,3,25,75,"{'minutes': 12, 'seconds': 42}",3,76,24,"{'minutes': 6, 'seconds': 53}","{'minutes': 5, 'seconds': 49}",12,51,MISSED FG,True,24,3,24,3
+40175455515,401754555,Syracuse,ACC,SMU,ACC,15,False,3,76,76,"{'minutes': 6, 'seconds': 53}",3,71,71,"{'minutes': 4, 'seconds': 11}","{'minutes': 2, 'seconds': 42}",5,5,PUNT,False,3,24,3,24
+40175455516,401754555,SMU,ACC,Syracuse,ACC,16,False,3,25,75,"{'minutes': 4, 'seconds': 11}",3,12,88,"{'minutes': 2, 'seconds': 7}","{'minutes': 2, 'seconds': 4}",3,-13,PUNT,True,24,3,24,3
+40175455517,401754555,Syracuse,ACC,SMU,ACC,17,False,3,55,55,"{'minutes': 2, 'seconds': 7}",3,52,52,"{'minutes': 1, 'seconds': 7}","{'minutes': 1, 'seconds': 0}",3,3,PUNT,False,3,24,3,24
+40175455518,401754555,SMU,ACC,Syracuse,ACC,18,True,3,23,77,"{'minutes': 1, 'seconds': 7}",4,100,0,"{'minutes': 12, 'seconds': 37}","{'minutes': 3, 'seconds': 30}",9,77,TD,True,24,3,31,3
+40175455519,401754555,Syracuse,ACC,SMU,ACC,19,True,4,75,75,"{'minutes': 12, 'seconds': 37}",4,0,0,"{'minutes': 9, 'seconds': 59}","{'minutes': 2, 'seconds': 38}",8,75,TD,False,3,31,10,31
+40175455520,401754555,SMU,ACC,Syracuse,ACC,20,False,4,25,75,"{'minutes': 9, 'seconds': 59}",4,23,77,"{'minutes': 9, 'seconds': 13}","{'minutes': 0, 'seconds': 46}",2,-2,INT,True,31,10,31,10
+40175455521,401754555,Syracuse,ACC,SMU,ACC,21,False,4,29,29,"{'minutes': 9, 'seconds': 13}",4,29,29,"{'minutes': 9, 'seconds': 7}","{'minutes': 0, 'seconds': 6}",1,0,INT,False,10,31,10,31
+40175455522,401754555,SMU,ACC,Syracuse,ACC,22,True,4,5,95,"{'minutes': 9, 'seconds': 7}",4,0,100,"{'minutes': 8, 'seconds': 55}","{'minutes': 0, 'seconds': 12}",1,-5,SF,True,31,12,31,12
+40175455523,401754555,Syracuse,ACC,SMU,ACC,23,True,4,62,62,"{'minutes': 8, 'seconds': 49}",4,0,0,"{'minutes': 5, 'seconds': 20}","{'minutes': 3, 'seconds': 29}",8,62,TD,False,12,31,18,31
+40175455524,401754555,SMU,ACC,Syracuse,ACC,24,False,4,44,56,"{'minutes': 5, 'seconds': 16}",4,71,29,"{'minutes': 1, 'seconds': 2}","{'minutes': 4, 'seconds': 14}",9,27,DOWNS,True,31,18,31,18
+40175455525,401754555,Syracuse,ACC,SMU,ACC,25,False,4,71,71,"{'minutes': 1, 'seconds': 2}",4,51,51,"{'minutes': 0, 'seconds': 14}","{'minutes': 0, 'seconds': 48}",4,20,INT,False,18,31,18,31
+40175455526,401754555,SMU,ACC,Syracuse,ACC,26,False,4,3,97,"{'minutes': 0, 'seconds': 14}",4,2,98,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 14}",1,-1,END OF GAME,True,31,18,31,18
+4017545681,401754568,Syracuse,ACC,Pittsburgh,ACC,1,False,1,24,76,"{'minutes': 14, 'seconds': 55}",1,25,75,"{'minutes': 13, 'seconds': 44}","{'minutes': 1, 'seconds': 11}",3,1,INT,True,0,0,0,0
+4017545682,401754568,Pittsburgh,ACC,Syracuse,ACC,2,True,1,37,37,"{'minutes': 13, 'seconds': 44}",1,0,0,"{'minutes': 11, 'seconds': 49}","{'minutes': 1, 'seconds': 55}",3,37,TD,False,0,0,7,0
+4017545683,401754568,Syracuse,ACC,Pittsburgh,ACC,3,False,1,10,90,"{'minutes': 11, 'seconds': 43}",1,18,82,"{'minutes': 10, 'seconds': 16}","{'minutes': 1, 'seconds': 27}",3,8,PUNT,True,0,7,0,7
+4017545684,401754568,Pittsburgh,ACC,Syracuse,ACC,4,False,1,61,61,"{'minutes': 10, 'seconds': 16}",1,59,59,"{'minutes': 8, 'seconds': 33}","{'minutes': 1, 'seconds': 43}",3,2,PUNT,False,7,0,7,0
+4017545685,401754568,Syracuse,ACC,Pittsburgh,ACC,5,False,1,11,89,"{'minutes': 8, 'seconds': 33}",1,21,79,"{'minutes': 4, 'seconds': 28}","{'minutes': 4, 'seconds': 5}",6,10,PUNT,True,0,7,0,7
+4017545686,401754568,Pittsburgh,ACC,Syracuse,ACC,6,False,1,76,76,"{'minutes': 4, 'seconds': 28}",1,87,87,"{'minutes': 3, 'seconds': 0}","{'minutes': 1, 'seconds': 28}",3,-11,INT,False,7,0,7,0
+4017545687,401754568,Syracuse,ACC,Pittsburgh,ACC,7,True,1,88,12,"{'minutes': 3, 'seconds': 0}",1,100,0,"{'minutes': 2, 'seconds': 8}","{'minutes': 0, 'seconds': 52}",2,12,TD,True,0,7,7,7
+4017545688,401754568,Pittsburgh,ACC,Syracuse,ACC,8,True,1,75,75,"{'minutes': 2, 'seconds': 8}",2,13,13,"{'minutes': 11, 'seconds': 0}","{'minutes': 6, 'seconds': 8}",14,62,FG,False,7,7,10,7
+4017545689,401754568,Syracuse,ACC,Pittsburgh,ACC,9,False,2,25,75,"{'minutes': 11, 'seconds': 0}",2,52,48,"{'minutes': 5, 'seconds': 42}","{'minutes': 5, 'seconds': 18}",9,27,PUNT,True,7,10,7,10
+40175456810,401754568,Pittsburgh,ACC,Syracuse,ACC,10,False,2,95,95,"{'minutes': 5, 'seconds': 42}",2,86,86,"{'minutes': 2, 'seconds': 43}","{'minutes': 2, 'seconds': 59}",6,9,PUNT,False,10,7,10,7
+40175456811,401754568,Syracuse,ACC,Pittsburgh,ACC,11,False,2,37,63,"{'minutes': 2, 'seconds': 43}",2,50,50,"{'minutes': 1, 'seconds': 49}","{'minutes': 0, 'seconds': 54}",2,13,INT,True,7,10,7,10
+40175456812,401754568,Pittsburgh,ACC,Syracuse,ACC,12,False,2,61,61,"{'minutes': 1, 'seconds': 49}",2,65,65,"{'minutes': 0, 'seconds': 30}","{'minutes': 1, 'seconds': 19}",5,-4,PUNT,False,10,7,10,7
+40175456813,401754568,Syracuse,ACC,Pittsburgh,ACC,13,True,2,20,80,"{'minutes': 0, 'seconds': 30}",2,23,77,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 28}",3,3,PUNT RETURN TD,True,7,10,7,17
+40175456814,401754568,Pittsburgh,ACC,Syracuse,ACC,14,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,24,24,"{'minutes': 11, 'seconds': 20}","{'minutes': 3, 'seconds': 40}",9,51,FG,False,17,7,20,7
+40175456815,401754568,Syracuse,ACC,Pittsburgh,ACC,15,False,3,22,78,"{'minutes': 11, 'seconds': 13}",3,30,70,"{'minutes': 9, 'seconds': 2}","{'minutes': 2, 'seconds': 11}",3,8,PUNT,True,7,20,7,20
+40175456816,401754568,Pittsburgh,ACC,Syracuse,ACC,16,False,3,72,72,"{'minutes': 9, 'seconds': 2}",3,74,74,"{'minutes': 7, 'seconds': 1}","{'minutes': 2, 'seconds': 1}",3,-2,PUNT,False,20,7,20,7
+40175456817,401754568,Syracuse,ACC,Pittsburgh,ACC,17,False,3,20,80,"{'minutes': 7, 'seconds': 1}",3,33,67,"{'minutes': 3, 'seconds': 53}","{'minutes': 3, 'seconds': 8}",6,13,PUNT,True,7,20,7,20
+40175456818,401754568,Pittsburgh,ACC,Syracuse,ACC,18,False,3,80,80,"{'minutes': 3, 'seconds': 53}",3,83,83,"{'minutes': 2, 'seconds': 37}","{'minutes': 1, 'seconds': 16}",3,-3,PUNT,False,20,7,20,7
+40175456819,401754568,Syracuse,ACC,Pittsburgh,ACC,19,False,3,47,53,"{'minutes': 2, 'seconds': 37}",3,36,64,"{'minutes': 0, 'seconds': 42}","{'minutes': 1, 'seconds': 55}",3,-11,PUNT,True,7,20,7,20
+40175456820,401754568,Pittsburgh,ACC,Syracuse,ACC,20,False,3,83,83,"{'minutes': 0, 'seconds': 42}",4,58,58,"{'minutes': 13, 'seconds': 26}","{'minutes': 2, 'seconds': 16}",5,25,PUNT,False,20,7,20,7
+40175456821,401754568,Syracuse,ACC,Pittsburgh,ACC,21,False,4,9,91,"{'minutes': 13, 'seconds': 26}",4,40,60,"{'minutes': 11, 'seconds': 37}","{'minutes': 1, 'seconds': 49}",5,31,INT,True,7,20,7,20
+40175456822,401754568,Pittsburgh,ACC,Syracuse,ACC,22,True,4,18,18,"{'minutes': 11, 'seconds': 37}",4,14,14,"{'minutes': 10, 'seconds': 48}","{'minutes': 0, 'seconds': 49}",4,4,FG,False,20,7,23,7
+40175456823,401754568,Syracuse,ACC,Pittsburgh,ACC,23,True,4,35,65,"{'minutes': 10, 'seconds': 41}",4,100,0,"{'minutes': 6, 'seconds': 19}","{'minutes': 4, 'seconds': 22}",12,65,TD,True,7,23,13,23
+40175456824,401754568,Syracuse,ACC,Pittsburgh,ACC,24,False,4,45,55,"{'minutes': 6, 'seconds': 18}",4,35,65,"{'minutes': 5, 'seconds': 25}","{'minutes': 0, 'seconds': 53}",5,-10,DOWNS,True,13,23,13,23
+40175456825,401754568,Pittsburgh,ACC,Syracuse,ACC,25,True,4,35,35,"{'minutes': 5, 'seconds': 25}",4,0,0,"{'minutes': 1, 'seconds': 57}","{'minutes': 3, 'seconds': 28}",10,35,TD,False,23,13,30,13
+40175456826,401754568,Syracuse,ACC,Pittsburgh,ACC,26,False,4,25,75,"{'minutes': 1, 'seconds': 57}",4,24,76,"{'minutes': 0, 'seconds': 55}","{'minutes': 1, 'seconds': 2}",5,-1,DOWNS,True,13,30,13,30
+40175456827,401754568,Pittsburgh,ACC,Syracuse,ACC,27,False,4,24,24,"{'minutes': 0, 'seconds': 55}",4,29,29,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 55}",2,-5,END OF GAME,False,30,13,30,13
+4017545712,401754571,Georgia Tech,ACC,Syracuse,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,46,54,"{'minutes': 14, 'seconds': 22}","{'minutes': 0, 'seconds': 38}",2,17,FUMBLE,True,0,0,0,0
+4017545713,401754571,Syracuse,ACC,Georgia Tech,ACC,2,True,1,42,42,"{'minutes': 13, 'seconds': 59}",1,9,9,"{'minutes': 10, 'seconds': 59}","{'minutes': 3, 'seconds': 23}",5,33,FG,False,0,0,3,0
+4017545715,401754571,Georgia Tech,ACC,Syracuse,ACC,3,True,1,25,75,"{'minutes': 10, 'seconds': 59}",1,97,3,"{'minutes': 6, 'seconds': 16}","{'minutes': 4, 'seconds': 43}",11,72,FG,True,0,3,3,3
+4017545717,401754571,Syracuse,ACC,Georgia Tech,ACC,4,False,1,75,75,"{'minutes': 6, 'seconds': 16}",1,72,72,"{'minutes': 5, 'seconds': 46}","{'minutes': 0, 'seconds': 52}",3,3,PUNT,False,3,3,3,3
+4017545718,401754571,Georgia Tech,ACC,Syracuse,ACC,5,False,1,24,76,"{'minutes': 5, 'seconds': 32}",1,38,62,"{'minutes': 2, 'seconds': 52}","{'minutes': 3, 'seconds': 7}",5,14,PUNT,True,3,3,3,3
+4017545719,401754571,Syracuse,ACC,Georgia Tech,ACC,6,False,1,80,80,"{'minutes': 2, 'seconds': 8}",1,75,75,"{'minutes': 1, 'seconds': 0}","{'minutes': 1, 'seconds': 17}",3,5,PUNT,False,3,3,3,3
+40175457110,401754571,Georgia Tech,ACC,Syracuse,ACC,7,True,1,32,68,"{'minutes': 0, 'seconds': 41}",2,87,13,"{'minutes': 12, 'seconds': 5}","{'minutes': 3, 'seconds': 55}",10,68,TD,True,3,3,10,3
+40175457112,401754571,Syracuse,ACC,Georgia Tech,ACC,8,False,2,78,78,"{'minutes': 12, 'seconds': 0}",2,57,57,"{'minutes': 7, 'seconds': 56}","{'minutes': 4, 'seconds': 4}",6,21,PUNT,False,3,10,3,10
+40175457113,401754571,Georgia Tech,ACC,Syracuse,ACC,9,True,2,35,65,"{'minutes': 7, 'seconds': 49}",2,97,3,"{'minutes': 4, 'seconds': 1}","{'minutes': 3, 'seconds': 47}",9,65,TD,True,10,3,17,3
+40175457115,401754571,Syracuse,ACC,Georgia Tech,ACC,10,False,2,75,75,"{'minutes': 4, 'seconds': 9}",2,39,39,"{'minutes': 0, 'seconds': 45}","{'minutes': 3, 'seconds': 24}",8,36,DOWNS,False,3,17,3,17
+40175457116,401754571,Georgia Tech,ACC,Syracuse,ACC,11,True,2,39,61,"{'minutes': 0, 'seconds': 40}",2,70,30,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 44}",6,31,FG,True,17,3,20,3
+40175457118,401754571,Georgia Tech,ACC,Syracuse,ACC,12,False,2,35,65,"{'minutes': 0, 'seconds': 1}",2,45,55,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",2,10,END OF HALF,True,20,3,20,3
+40175457119,401754571,Syracuse,ACC,Georgia Tech,ACC,13,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,3,3,"{'minutes': 14, 'seconds': 15}","{'minutes': 0, 'seconds': 41}",2,75,TD,False,3,20,10,20
+40175457121,401754571,Georgia Tech,ACC,Syracuse,ACC,14,True,3,25,75,"{'minutes': 14, 'seconds': 19}",3,97,3,"{'minutes': 11, 'seconds': 2}","{'minutes': 3, 'seconds': 17}",7,75,TD,True,20,10,27,10
+40175457123,401754571,Syracuse,ACC,Georgia Tech,ACC,15,False,3,75,75,"{'minutes': 11, 'seconds': 2}",3,66,66,"{'minutes': 8, 'seconds': 40}","{'minutes': 2, 'seconds': 22}",3,9,PUNT,False,10,27,10,27
+40175457124,401754571,Georgia Tech,ACC,Syracuse,ACC,16,True,3,35,65,"{'minutes': 8, 'seconds': 19}",3,97,3,"{'minutes': 6, 'seconds': 1}","{'minutes': 2, 'seconds': 39}",5,65,TD,True,27,10,34,10
+40175457126,401754571,Syracuse,ACC,Georgia Tech,ACC,17,False,3,89,89,"{'minutes': 5, 'seconds': 57}",3,17,17,"{'minutes': 0, 'seconds': 43}","{'minutes': 5, 'seconds': 14}",14,72,FUMBLE,False,10,34,10,34
+40175457127,401754571,Georgia Tech,ACC,Syracuse,ACC,18,False,3,17,83,"{'minutes': 0, 'seconds': 12}",4,21,79,"{'minutes': 13, 'seconds': 37}","{'minutes': 2, 'seconds': 6}",3,72,PUNT,True,34,10,34,10
+40175457128,401754571,Syracuse,ACC,Georgia Tech,ACC,19,True,4,89,89,"{'minutes': 13, 'seconds': 11}",4,3,3,"{'minutes': 7, 'seconds': 58}","{'minutes': 5, 'seconds': 39}",16,89,TD,False,10,34,16,34
+40175457130,401754571,Georgia Tech,ACC,Syracuse,ACC,20,True,4,54,46,"{'minutes': 7, 'seconds': 57}",4,97,3,"{'minutes': 3, 'seconds': 47}","{'minutes': 4, 'seconds': 10}",7,46,TD,True,34,16,41,16
+40175457132,401754571,Syracuse,ACC,Georgia Tech,ACC,21,False,4,75,75,"{'minutes': 3, 'seconds': 47}",4,67,67,"{'minutes': 2, 'seconds': 33}","{'minutes': 1, 'seconds': 14}",4,8,DOWNS,False,16,41,16,41
+40175457133,401754571,Georgia Tech,ACC,Syracuse,ACC,22,False,4,67,33,"{'minutes': 2, 'seconds': 6}",4,88,12,"{'minutes': 0, 'seconds': 1}","{'minutes': 2, 'seconds': 33}",5,21,END OF GAME,True,41,16,41,16
+4017545752,401754575,North Carolina,ACC,Syracuse,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,54,54,"{'minutes': 13, 'seconds': 32}","{'minutes': 1, 'seconds': 28}",4,21,PUNT,False,0,0,0,0
+4017545753,401754575,Syracuse,ACC,North Carolina,ACC,2,False,1,14,86,"{'minutes': 13, 'seconds': 5}",1,9,91,"{'minutes': 11, 'seconds': 33}","{'minutes': 2, 'seconds': 13}",3,-5,PUNT,True,0,0,7,3
+4017545754,401754575,North Carolina,ACC,Syracuse,ACC,3,True,1,57,57,"{'minutes': 11, 'seconds': 13}",1,6,6,"{'minutes': 7, 'seconds': 59}","{'minutes': 3, 'seconds': 20}",7,52,FG,False,0,0,3,7
+4017545756,401754575,Syracuse,ACC,North Carolina,ACC,4,False,1,25,75,"{'minutes': 7, 'seconds': 59}",1,28,72,"{'minutes': 6, 'seconds': 53}","{'minutes': 1, 'seconds': 6}",3,3,PUNT,True,0,3,0,3
+4017545757,401754575,North Carolina,ACC,Syracuse,ACC,5,True,1,75,75,"{'minutes': 6, 'seconds': 35}",1,97,97,"{'minutes': 4, 'seconds': 38}","{'minutes': 2, 'seconds': 15}",4,-25,FUMBLE RETURN TD,False,3,0,3,7
+4017545759,401754575,North Carolina,ACC,Syracuse,ACC,6,False,1,75,75,"{'minutes': 4, 'seconds': 38}",1,69,69,"{'minutes': 2, 'seconds': 58}","{'minutes': 1, 'seconds': 40}",3,6,PUNT,False,-1,4,-1,4
+40175457510,401754575,Syracuse,ACC,North Carolina,ACC,7,True,1,37,63,"{'minutes': 2, 'seconds': 39}",2,87,13,"{'minutes': 12, 'seconds': 17}","{'minutes': 5, 'seconds': 41}",13,50,FG,True,4,-1,10,3
+40175457512,401754575,North Carolina,ACC,Syracuse,ACC,8,False,2,75,75,"{'minutes': 12, 'seconds': 17}",2,52,52,"{'minutes': 9, 'seconds': 26}","{'minutes': 2, 'seconds': 51}",4,23,PUNT,False,3,10,3,10
+40175457513,401754575,Syracuse,ACC,North Carolina,ACC,9,False,2,20,80,"{'minutes': 9, 'seconds': 26}",2,32,68,"{'minutes': 8, 'seconds': 0}","{'minutes': 1, 'seconds': 26}",3,12,PUNT,True,10,3,10,3
+40175457514,401754575,North Carolina,ACC,Syracuse,ACC,10,False,2,79,79,"{'minutes': 7, 'seconds': 52}",2,70,70,"{'minutes': 6, 'seconds': 12}","{'minutes': 1, 'seconds': 48}",3,9,PUNT,False,3,10,3,10
+40175457515,401754575,Syracuse,ACC,North Carolina,ACC,11,False,2,27,73,"{'minutes': 5, 'seconds': 48}",2,53,47,"{'minutes': 4, 'seconds': 41}","{'minutes': 1, 'seconds': 31}",4,26,PUNT,True,10,3,10,3
+40175457516,401754575,North Carolina,ACC,Syracuse,ACC,12,True,2,92,92,"{'minutes': 4, 'seconds': 30}",2,24,24,"{'minutes': 0, 'seconds': 36}","{'minutes': 4, 'seconds': 5}",8,67,FG,False,3,10,6,10
+40175457518,401754575,Syracuse,ACC,North Carolina,ACC,13,False,2,25,75,"{'minutes': 0, 'seconds': 36}",2,23,77,"{'minutes': 0, 'seconds': 32}","{'minutes': 0, 'seconds': 36}",1,-2,END OF HALF,True,10,6,10,6
+40175457520,401754575,Syracuse,ACC,North Carolina,ACC,14,False,3,25,75,"{'minutes': 14, 'seconds': 58}",3,33,67,"{'minutes': 13, 'seconds': 39}","{'minutes': 1, 'seconds': 19}",3,8,PUNT,True,10,6,10,6
+40175457521,401754575,North Carolina,ACC,Syracuse,ACC,15,True,3,63,63,"{'minutes': 13, 'seconds': 28}",3,3,3,"{'minutes': 13, 'seconds': 28}","{'minutes': 0, 'seconds': 13}",1,72,TD,False,13,10,13,10
+40175457523,401754575,Syracuse,ACC,North Carolina,ACC,16,False,3,24,76,"{'minutes': 13, 'seconds': 20}",3,58,42,"{'minutes': 7, 'seconds': 18}","{'minutes': 6, 'seconds': 2}",9,34,PUNT,True,10,19,10,19
+40175457524,401754575,North Carolina,ACC,Syracuse,ACC,17,True,3,80,80,"{'minutes': 6, 'seconds': 47}",3,3,3,"{'minutes': 0, 'seconds': 8}","{'minutes': 7, 'seconds': 10}",12,80,TD,False,20,10,25,10
+40175457526,401754575,Syracuse,ACC,North Carolina,ACC,18,False,3,25,75,"{'minutes': 0, 'seconds': 8}",4,34,66,"{'minutes': 12, 'seconds': 53}","{'minutes': 2, 'seconds': 15}",5,9,FUMBLE,True,10,20,10,20
+40175457527,401754575,North Carolina,ACC,Syracuse,ACC,19,True,4,34,34,"{'minutes': 12, 'seconds': 42}",4,13,13,"{'minutes': 10, 'seconds': 35}","{'minutes': 2, 'seconds': 18}",4,34,TD,False,20,10,27,10
+40175457529,401754575,Syracuse,ACC,North Carolina,ACC,20,False,4,25,75,"{'minutes': 10, 'seconds': 35}",4,56,44,"{'minutes': 8, 'seconds': 21}","{'minutes': 2, 'seconds': 14}",7,31,DOWNS,True,10,27,10,27
+40175457530,401754575,North Carolina,ACC,Syracuse,ACC,21,False,4,55,55,"{'minutes': 8, 'seconds': 17}",4,9,9,"{'minutes': 0, 'seconds': 28}","{'minutes': 8, 'seconds': 21}",14,46,END OF GAME,False,27,10,27,10
+4017545872,401754587,Miami,ACC,Syracuse,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,45,55,"{'minutes': 11, 'seconds': 28}","{'minutes': 3, 'seconds': 32}",7,20,PUNT,True,0,0,0,0
+4017545873,401754587,Syracuse,ACC,Miami,ACC,2,False,1,80,80,"{'minutes': 11, 'seconds': 18}",1,55,55,"{'minutes': 7, 'seconds': 17}","{'minutes': 4, 'seconds': 11}",8,25,PUNT,False,0,0,0,0
+4017545874,401754587,Miami,ACC,Syracuse,ACC,3,False,1,2,98,"{'minutes': 7, 'seconds': 12}",1,39,61,"{'minutes': 1, 'seconds': 8}","{'minutes': 6, 'seconds': 9}",10,37,PUNT,True,0,0,0,0
+4017545875,401754587,Syracuse,ACC,Miami,ACC,4,False,1,80,80,"{'minutes': 1, 'seconds': 2}",2,82,82,"{'minutes': 14, 'seconds': 45}","{'minutes': 1, 'seconds': 23}",3,-2,PUNT,False,0,0,0,0
+4017545876,401754587,Miami,ACC,Syracuse,ACC,5,False,2,14,86,"{'minutes': 14, 'seconds': 39}",2,23,77,"{'minutes': 13, 'seconds': 22}","{'minutes': 1, 'seconds': 23}",4,9,PUNT,True,0,0,0,0
+4017545877,401754587,Syracuse,ACC,Miami,ACC,6,False,2,68,68,"{'minutes': 13, 'seconds': 22}",2,45,45,"{'minutes': 9, 'seconds': 17}","{'minutes': 4, 'seconds': 5}",9,23,PUNT,False,0,0,0,0
+4017545878,401754587,Miami,ACC,Syracuse,ACC,7,False,2,20,80,"{'minutes': 9, 'seconds': 11}",2,26,74,"{'minutes': 7, 'seconds': 49}","{'minutes': 1, 'seconds': 28}",3,6,PUNT,True,0,0,0,0
+4017545879,401754587,Syracuse,ACC,Miami,ACC,8,False,2,61,61,"{'minutes': 7, 'seconds': 41}",2,54,54,"{'minutes': 5, 'seconds': 21}","{'minutes': 2, 'seconds': 28}",3,7,PUNT,False,0,0,0,0
+40175458710,401754587,Miami,ACC,Syracuse,ACC,9,True,2,10,90,"{'minutes': 5, 'seconds': 11}",2,78,22,"{'minutes': 2, 'seconds': 13}","{'minutes': 3, 'seconds': 8}",5,90,TD,True,0,0,7,0
+40175458712,401754587,Syracuse,ACC,Miami,ACC,10,True,2,75,75,"{'minutes': 2, 'seconds': 11}",2,73,73,"{'minutes': 1, 'seconds': 50}","{'minutes': 0, 'seconds': 21}",3,2,INT TD,False,0,6,0,14
+40175458714,401754587,Syracuse,ACC,Miami,ACC,11,False,2,75,75,"{'minutes': 1, 'seconds': 50}",2,13,13,"{'minutes': 0, 'seconds': 7}","{'minutes': 1, 'seconds': 43}",10,61,FUMBLE,False,0,14,0,14
+40175458715,401754587,Miami,ACC,Syracuse,ACC,12,False,2,14,86,"{'minutes': 0, 'seconds': 6}",2,12,88,"{'minutes': 0, 'seconds': 6}","{'minutes': 0, 'seconds': 7}",1,-2,END OF HALF,True,14,0,14,0
+40175458717,401754587,Syracuse,ACC,Miami,ACC,13,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,20,20,"{'minutes': 11, 'seconds': 12}","{'minutes': 3, 'seconds': 48}",8,55,FG,False,0,14,3,14
+40175458719,401754587,Miami,ACC,Syracuse,ACC,14,True,3,22,78,"{'minutes': 11, 'seconds': 6}",3,97,3,"{'minutes': 9, 'seconds': 57}","{'minutes': 1, 'seconds': 9}",3,78,TD,True,14,3,21,3
+40175458721,401754587,Syracuse,ACC,Miami,ACC,15,False,3,75,75,"{'minutes': 9, 'seconds': 57}",3,66,66,"{'minutes': 7, 'seconds': 17}","{'minutes': 2, 'seconds': 40}",6,9,PUNT,False,3,21,3,21
+40175458722,401754587,Miami,ACC,Syracuse,ACC,16,True,3,17,83,"{'minutes': 7, 'seconds': 8}",3,97,3,"{'minutes': 2, 'seconds': 25}","{'minutes': 4, 'seconds': 52}",9,83,TD,True,21,3,28,3
+40175458724,401754587,Syracuse,ACC,Miami,ACC,17,False,3,75,75,"{'minutes': 2, 'seconds': 25}",3,67,67,"{'minutes': 1, 'seconds': 28}","{'minutes': 0, 'seconds': 57}",2,-11,INT,False,3,28,3,28
+40175458725,401754587,Miami,ACC,Syracuse,ACC,18,True,3,77,23,"{'minutes': 1, 'seconds': 17}",3,82,18,"{'minutes': 0, 'seconds': 1}","{'minutes': 1, 'seconds': 28}",4,5,FG,True,28,3,31,3
+40175458727,401754587,Syracuse,ACC,Miami,ACC,19,False,4,75,75,"{'minutes': 15, 'seconds': 0}",4,79,79,"{'minutes': 13, 'seconds': 7}","{'minutes': 1, 'seconds': 53}",3,-4,PUNT,False,3,31,3,31
+40175458728,401754587,Miami,ACC,Syracuse,ACC,20,False,4,23,77,"{'minutes': 13, 'seconds': 0}",4,38,62,"{'minutes': 9, 'seconds': 23}","{'minutes': 3, 'seconds': 44}",6,15,PUNT,True,31,3,31,3
+40175458729,401754587,Syracuse,ACC,Miami,ACC,21,False,4,84,84,"{'minutes': 9, 'seconds': 15}",4,49,49,"{'minutes': 5, 'seconds': 49}","{'minutes': 3, 'seconds': 34}",9,35,DOWNS,False,3,31,3,31
+40175458730,401754587,Miami,ACC,Syracuse,ACC,22,True,4,49,51,"{'minutes': 5, 'seconds': 41}",4,97,3,"{'minutes': 2, 'seconds': 53}","{'minutes': 2, 'seconds': 56}",5,51,TD,True,31,3,38,3
+40175458732,401754587,Syracuse,ACC,Miami,ACC,23,True,4,75,75,"{'minutes': 2, 'seconds': 53}",4,3,3,"{'minutes': 0, 'seconds': 21}","{'minutes': 2, 'seconds': 32}",8,75,TD,False,3,38,10,38
+40175458734,401754587,Miami,ACC,Syracuse,ACC,24,False,4,28,72,"{'minutes': 0, 'seconds': 16}",4,31,69,"{'minutes': 0, 'seconds': 14}","{'minutes': 0, 'seconds': 16}",1,3,END OF GAME,True,38,10,38,10
+4017546042,401754604,Syracuse,ACC,Notre Dame,FBS Independents,1,True,1,59,59,"{'minutes': 14, 'seconds': 53}",1,97,97,"{'minutes': 14, 'seconds': 3}","{'minutes': 0, 'seconds': 50}",2,-2,INT TD,False,0,0,0,7
+4017546044,401754604,Syracuse,ACC,Notre Dame,FBS Independents,2,True,1,85,85,"{'minutes': 13, 'seconds': 57}",1,97,97,"{'minutes': 12, 'seconds': 19}","{'minutes': 1, 'seconds': 38}",3,0,PUNT TD,False,0,7,0,14
+4017546046,401754604,Syracuse,ACC,Notre Dame,FBS Independents,3,True,1,75,75,"{'minutes': 12, 'seconds': 19}",1,97,97,"{'minutes': 9, 'seconds': 43}","{'minutes': 2, 'seconds': 36}",6,16,INT TD,False,0,14,0,21
+4017546048,401754604,Syracuse,ACC,Notre Dame,FBS Independents,4,False,1,80,80,"{'minutes': 9, 'seconds': 37}",1,80,80,"{'minutes': 7, 'seconds': 8}","{'minutes': 2, 'seconds': 29}",3,-15,PUNT,False,0,21,0,21
+4017546049,401754604,Notre Dame,FBS Independents,Syracuse,ACC,5,True,1,41,59,"{'minutes': 6, 'seconds': 59}",1,97,3,"{'minutes': 6, 'seconds': 32}","{'minutes': 0, 'seconds': 36}",2,59,TD,True,21,0,28,0
+40175460411,401754604,Syracuse,ACC,Notre Dame,FBS Independents,6,False,1,80,80,"{'minutes': 6, 'seconds': 24}",1,74,74,"{'minutes': 4, 'seconds': 53}","{'minutes': 1, 'seconds': 31}",3,6,PUNT,False,0,28,0,28
+40175460412,401754604,Notre Dame,FBS Independents,Syracuse,ACC,7,True,1,31,69,"{'minutes': 4, 'seconds': 46}",1,97,3,"{'minutes': 4, 'seconds': 1}","{'minutes': 0, 'seconds': 52}",3,69,TD,True,28,0,35,0
+40175460414,401754604,Syracuse,ACC,Notre Dame,FBS Independents,8,False,1,75,75,"{'minutes': 4, 'seconds': 1}",1,84,84,"{'minutes': 2, 'seconds': 19}","{'minutes': 1, 'seconds': 42}",3,-9,PUNT,False,0,35,0,35
+40175460415,401754604,Notre Dame,FBS Independents,Syracuse,ACC,9,True,1,64,36,"{'minutes': 2, 'seconds': 13}",2,97,3,"{'minutes': 14, 'seconds': 56}","{'minutes': 2, 'seconds': 23}",6,36,TD,True,35,0,42,0
+40175460417,401754604,Syracuse,ACC,Notre Dame,FBS Independents,10,False,2,75,75,"{'minutes': 14, 'seconds': 56}",2,41,41,"{'minutes': 10, 'seconds': 35}","{'minutes': 4, 'seconds': 21}",10,34,DOWNS,False,0,42,0,42
+40175460418,401754604,Notre Dame,FBS Independents,Syracuse,ACC,11,True,2,41,59,"{'minutes': 8, 'seconds': 56}",2,97,3,"{'minutes': 6, 'seconds': 49}","{'minutes': 3, 'seconds': 46}",4,59,TD,True,42,0,49,0
+40175460420,401754604,Syracuse,ACC,Notre Dame,FBS Independents,12,False,2,75,75,"{'minutes': 6, 'seconds': 49}",2,66,66,"{'minutes': 6, 'seconds': 1}","{'minutes': 0, 'seconds': 48}",5,9,PUNT,False,0,49,0,49
+40175460421,401754604,Notre Dame,FBS Independents,Syracuse,ACC,13,False,2,23,77,"{'minutes': 5, 'seconds': 51}",2,12,88,"{'minutes': 4, 'seconds': 30}","{'minutes': 1, 'seconds': 31}",3,-11,PUNT,True,49,0,49,0
+40175460422,401754604,Syracuse,ACC,Notre Dame,FBS Independents,14,False,2,62,62,"{'minutes': 4, 'seconds': 24}",2,33,33,"{'minutes': 0, 'seconds': 4}","{'minutes': 4, 'seconds': 26}",9,32,MISSED FG,False,0,49,0,49
+40175460423,401754604,Notre Dame,FBS Independents,Syracuse,ACC,15,False,2,30,70,"{'minutes': 0, 'seconds': 4}",2,29,71,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 4}",1,-1,END OF HALF,True,49,0,49,0
+40175460425,401754604,Notre Dame,FBS Independents,Syracuse,ACC,16,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,97,3,"{'minutes': 14, 'seconds': 23}","{'minutes': 0, 'seconds': 37}",3,75,TD,True,49,0,56,0
+40175460427,401754604,Syracuse,ACC,Notre Dame,FBS Independents,17,False,3,75,75,"{'minutes': 14, 'seconds': 25}",3,53,53,"{'minutes': 9, 'seconds': 45}","{'minutes': 4, 'seconds': 40}",6,22,PUNT,False,0,56,0,56
+40175460428,401754604,Notre Dame,FBS Independents,Syracuse,ACC,18,False,3,20,80,"{'minutes': 9, 'seconds': 40}",3,22,78,"{'minutes': 8, 'seconds': 8}","{'minutes': 1, 'seconds': 37}",3,2,PUNT,True,56,0,56,0
+40175460429,401754604,Syracuse,ACC,Notre Dame,FBS Independents,19,False,3,71,71,"{'minutes': 8, 'seconds': 3}",3,21,21,"{'minutes': 0, 'seconds': 55}","{'minutes': 7, 'seconds': 13}",13,50,INT,False,0,56,0,56
+40175460430,401754604,Notre Dame,FBS Independents,Syracuse,ACC,20,True,3,21,79,"{'minutes': 0, 'seconds': 41}",4,97,3,"{'minutes': 13, 'seconds': 32}","{'minutes': 2, 'seconds': 23}",6,79,TD,True,56,0,63,0
+40175460432,401754604,Syracuse,ACC,Notre Dame,FBS Independents,21,False,4,75,75,"{'minutes': 13, 'seconds': 32}",4,57,57,"{'minutes': 10, 'seconds': 20}","{'minutes': 3, 'seconds': 12}",6,14,DOWNS,False,0,63,0,63
+40175460433,401754604,Notre Dame,FBS Independents,Syracuse,ACC,22,True,4,61,39,"{'minutes': 10, 'seconds': 12}",4,97,3,"{'minutes': 6, 'seconds': 6}","{'minutes': 4, 'seconds': 14}",7,39,TD,True,63,0,70,0
+40175460435,401754604,Syracuse,ACC,Notre Dame,FBS Independents,23,True,4,75,75,"{'minutes': 6, 'seconds': 6}",4,3,3,"{'minutes': 0, 'seconds': 7}","{'minutes': 5, 'seconds': 59}",12,75,TD,False,0,70,7,70
+40175460437,401754604,Notre Dame,FBS Independents,Syracuse,ACC,24,False,4,33,67,"{'minutes': 0, 'seconds': 4}",4,32,68,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 4}",1,-1,END OF GAME,True,70,7,70,7
+4017546082,401754608,Boston College,ACC,Syracuse,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,47,47,"{'minutes': 10, 'seconds': 31}","{'minutes': 4, 'seconds': 29}",8,28,PUNT,False,0,0,0,0
+4017546083,401754608,Syracuse,ACC,Boston College,ACC,2,False,1,11,89,"{'minutes': 10, 'seconds': 21}",1,11,89,"{'minutes': 7, 'seconds': 58}","{'minutes': 2, 'seconds': 33}",3,0,PUNT,True,0,0,0,0
+4017546084,401754608,Boston College,ACC,Syracuse,ACC,3,True,1,40,40,"{'minutes': 7, 'seconds': 40}",1,12,12,"{'minutes': 4, 'seconds': 4}","{'minutes': 3, 'seconds': 54}",7,28,FG,False,0,0,3,0
+4017546086,401754608,Syracuse,ACC,Boston College,ACC,4,True,1,17,83,"{'minutes': 3, 'seconds': 59}",2,70,30,"{'minutes': 14, 'seconds': 15}","{'minutes': 4, 'seconds': 44}",8,53,FG,True,0,3,3,3
+4017546088,401754608,Boston College,ACC,Syracuse,ACC,5,False,2,75,75,"{'minutes': 14, 'seconds': 15}",2,69,69,"{'minutes': 12, 'seconds': 41}","{'minutes': 1, 'seconds': 34}",3,6,PUNT,False,3,3,3,3
+4017546089,401754608,Syracuse,ACC,Boston College,ACC,6,True,2,24,76,"{'minutes': 12, 'seconds': 15}",2,89,11,"{'minutes': 3, 'seconds': 5}","{'minutes': 9, 'seconds': 36}",14,65,FG,True,3,3,6,3
+40175460811,401754608,Boston College,ACC,Syracuse,ACC,7,True,2,75,75,"{'minutes': 3, 'seconds': 5}",2,13,13,"{'minutes': 0, 'seconds': 28}","{'minutes': 2, 'seconds': 37}",9,62,FG,False,3,6,6,6
+40175460813,401754608,Syracuse,ACC,Boston College,ACC,8,False,2,35,65,"{'minutes': 0, 'seconds': 28}",2,42,58,"{'minutes': 0, 'seconds': 19}","{'minutes': 0, 'seconds': 28}",1,7,END OF HALF,True,6,6,6,6
+40175460815,401754608,Syracuse,ACC,Boston College,ACC,9,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,25,75,"{'minutes': 12, 'seconds': 53}","{'minutes': 2, 'seconds': 7}",3,0,PUNT,True,6,6,6,6
+40175460816,401754608,Boston College,ACC,Syracuse,ACC,10,True,3,79,79,"{'minutes': 12, 'seconds': 35}",3,3,3,"{'minutes': 11, 'seconds': 54}","{'minutes': 0, 'seconds': 59}",3,79,TD,False,6,6,13,6
+40175460818,401754608,Syracuse,ACC,Boston College,ACC,11,False,3,25,75,"{'minutes': 11, 'seconds': 54}",3,34,66,"{'minutes': 9, 'seconds': 41}","{'minutes': 2, 'seconds': 13}",4,9,PUNT,True,6,13,6,13
+40175460819,401754608,Boston College,ACC,Syracuse,ACC,12,False,3,73,73,"{'minutes': 9, 'seconds': 24}",3,22,22,"{'minutes': 7, 'seconds': 7}","{'minutes': 2, 'seconds': 34}",6,51,MISSED FG,False,13,6,13,6
+40175460820,401754608,Syracuse,ACC,Boston College,ACC,13,False,3,22,78,"{'minutes': 6, 'seconds': 54}",3,20,80,"{'minutes': 5, 'seconds': 11}","{'minutes': 1, 'seconds': 56}",3,-2,PUNT,True,6,13,6,13
+40175460821,401754608,Boston College,ACC,Syracuse,ACC,14,True,3,69,69,"{'minutes': 4, 'seconds': 51}",3,3,3,"{'minutes': 0, 'seconds': 59}","{'minutes': 4, 'seconds': 12}",8,69,TD,False,13,6,20,6
+40175460823,401754608,Syracuse,ACC,Boston College,ACC,15,False,3,25,75,"{'minutes': 0, 'seconds': 59}",4,30,70,"{'minutes': 14, 'seconds': 10}","{'minutes': 1, 'seconds': 49}",5,5,PUNT,True,6,20,6,20
+40175460824,401754608,Boston College,ACC,Syracuse,ACC,16,True,4,71,71,"{'minutes': 13, 'seconds': 53}",4,3,3,"{'minutes': 13, 'seconds': 35}","{'minutes': 0, 'seconds': 35}",2,71,TD,False,20,6,27,6
+40175460826,401754608,Syracuse,ACC,Boston College,ACC,17,False,4,24,76,"{'minutes': 13, 'seconds': 29}",4,25,75,"{'minutes': 12, 'seconds': 32}","{'minutes': 0, 'seconds': 57}",3,1,PUNT,True,6,27,6,27
+40175460827,401754608,Boston College,ACC,Syracuse,ACC,18,True,4,68,68,"{'minutes': 12, 'seconds': 26}",4,3,3,"{'minutes': 9, 'seconds': 24}","{'minutes': 3, 'seconds': 8}",7,68,TD,False,27,6,34,6
+40175460829,401754608,Syracuse,ACC,Boston College,ACC,19,True,4,25,75,"{'minutes': 9, 'seconds': 24}",4,97,3,"{'minutes': 3, 'seconds': 20}","{'minutes': 6, 'seconds': 4}",12,75,TD,True,6,34,12,34
+40175460831,401754608,Boston College,ACC,Syracuse,ACC,20,False,4,43,43,"{'minutes': 3, 'seconds': 19}",4,39,39,"{'minutes': 1, 'seconds': 8}","{'minutes': 2, 'seconds': 11}",4,4,DOWNS,False,34,12,34,12
+40175460832,401754608,Syracuse,ACC,Boston College,ACC,21,False,4,39,61,"{'minutes': 0, 'seconds': 58}",4,66,34,"{'minutes': 0, 'seconds': 36}","{'minutes': 0, 'seconds': 32}",5,27,DOWNS,True,12,34,12,34
+40175460833,401754608,Boston College,ACC,Syracuse,ACC,22,False,4,66,66,"{'minutes': 0, 'seconds': 31}",4,68,68,"{'minutes': 0, 'seconds': 31}","{'minutes': 0, 'seconds': 36}",1,-2,Uncategorized,False,34,12,34,12
+4017546181,401754618,Syracuse,ACC,UConn,FBS Independents,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,93,7,"{'minutes': 9, 'seconds': 38}","{'minutes': 5, 'seconds': 22}",11,68,DOWNS,True,0,0,0,0
+4017546182,401754618,UConn,FBS Independents,Syracuse,ACC,2,False,1,93,93,"{'minutes': 9, 'seconds': 38}",1,51,51,"{'minutes': 6, 'seconds': 26}","{'minutes': 3, 'seconds': 12}",7,42,PUNT,False,0,0,0,0
+4017546183,401754618,Syracuse,ACC,UConn,FBS Independents,3,False,1,10,90,"{'minutes': 6, 'seconds': 26}",1,13,87,"{'minutes': 4, 'seconds': 51}","{'minutes': 1, 'seconds': 35}",3,3,PUNT,True,0,0,0,0
+4017546184,401754618,UConn,FBS Independents,Syracuse,ACC,4,True,1,60,60,"{'minutes': 4, 'seconds': 51}",2,0,0,"{'minutes': 14, 'seconds': 55}","{'minutes': 4, 'seconds': 56}",10,60,TD,False,0,0,7,0
+4017546185,401754618,Syracuse,ACC,UConn,FBS Independents,5,False,2,25,75,"{'minutes': 14, 'seconds': 55}",2,63,37,"{'minutes': 9, 'seconds': 5}","{'minutes': 5, 'seconds': 50}",13,38,FUMBLE,True,0,7,0,7
+4017546186,401754618,UConn,FBS Independents,Syracuse,ACC,6,False,2,63,63,"{'minutes': 9, 'seconds': 5}",2,69,69,"{'minutes': 7, 'seconds': 31}","{'minutes': 1, 'seconds': 34}",3,-6,PUNT,False,7,0,7,0
+4017546187,401754618,Syracuse,ACC,UConn,FBS Independents,7,False,2,30,70,"{'minutes': 7, 'seconds': 31}",2,29,71,"{'minutes': 6, 'seconds': 10}","{'minutes': 1, 'seconds': 21}",3,-1,PUNT,True,0,7,0,7
+4017546188,401754618,UConn,FBS Independents,Syracuse,ACC,8,False,2,78,78,"{'minutes': 6, 'seconds': 10}",2,81,81,"{'minutes': 4, 'seconds': 32}","{'minutes': 1, 'seconds': 38}",4,-3,DOWNS,False,7,0,7,0
+4017546189,401754618,Syracuse,ACC,UConn,FBS Independents,9,True,2,81,19,"{'minutes': 4, 'seconds': 32}",2,80,20,"{'minutes': 3, 'seconds': 37}","{'minutes': 0, 'seconds': 55}",4,-1,FG,True,0,7,3,7
+40175461810,401754618,UConn,FBS Independents,Syracuse,ACC,10,True,2,77,77,"{'minutes': 3, 'seconds': 31}",2,0,0,"{'minutes': 1, 'seconds': 2}","{'minutes': 2, 'seconds': 29}",6,77,TD,False,7,3,14,3
+40175461811,401754618,Syracuse,ACC,UConn,FBS Independents,11,True,2,25,75,"{'minutes': 1, 'seconds': 2}",2,86,14,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 2}",8,61,FG,True,3,14,6,14
+40175461812,401754618,UConn,FBS Independents,Syracuse,ACC,12,True,3,90,90,"{'minutes': 14, 'seconds': 57}",3,17,17,"{'minutes': 9, 'seconds': 55}","{'minutes': 5, 'seconds': 2}",10,73,FG,False,14,6,17,6
+40175461813,401754618,Syracuse,ACC,UConn,FBS Independents,13,False,3,16,84,"{'minutes': 9, 'seconds': 50}",3,23,77,"{'minutes': 8, 'seconds': 9}","{'minutes': 1, 'seconds': 41}",3,7,PUNT,True,6,17,6,17
+40175461814,401754618,UConn,FBS Independents,Syracuse,ACC,14,False,3,85,85,"{'minutes': 8, 'seconds': 9}",3,77,77,"{'minutes': 6, 'seconds': 16}","{'minutes': 1, 'seconds': 53}",3,8,PUNT,False,17,6,17,6
+40175461815,401754618,Syracuse,ACC,UConn,FBS Independents,15,False,3,31,69,"{'minutes': 6, 'seconds': 16}",3,24,76,"{'minutes': 5, 'seconds': 24}","{'minutes': 0, 'seconds': 52}",3,-7,PUNT,True,6,17,6,17
+40175461816,401754618,UConn,FBS Independents,Syracuse,ACC,16,False,3,73,73,"{'minutes': 5, 'seconds': 24}",3,44,44,"{'minutes': 2, 'seconds': 5}","{'minutes': 3, 'seconds': 19}",6,29,PUNT,False,17,6,17,6
+40175461817,401754618,Syracuse,ACC,UConn,FBS Independents,17,False,3,3,97,"{'minutes': 2, 'seconds': 5}",3,24,76,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 5}",6,21,PUNT,True,6,17,6,17
+40175461818,401754618,UConn,FBS Independents,Syracuse,ACC,18,False,4,75,75,"{'minutes': 15, 'seconds': 0}",4,67,67,"{'minutes': 13, 'seconds': 59}","{'minutes': 1, 'seconds': 1}",3,8,PUNT,False,17,6,17,6
+40175461819,401754618,Syracuse,ACC,UConn,FBS Independents,19,False,4,20,80,"{'minutes': 13, 'seconds': 59}",4,70,30,"{'minutes': 11, 'seconds': 49}","{'minutes': 2, 'seconds': 10}",6,50,MISSED FG,True,6,17,6,17
+40175461820,401754618,UConn,FBS Independents,Syracuse,ACC,20,False,4,70,70,"{'minutes': 11, 'seconds': 49}",4,66,66,"{'minutes': 10, 'seconds': 45}","{'minutes': 1, 'seconds': 4}",3,4,PUNT,False,17,6,17,6
+40175461821,401754618,Syracuse,ACC,UConn,FBS Independents,21,False,4,18,82,"{'minutes': 10, 'seconds': 45}",4,37,63,"{'minutes': 10, 'seconds': 10}","{'minutes': 0, 'seconds': 35}",2,19,INT,True,6,17,6,17
+40175461822,401754618,UConn,FBS Independents,Syracuse,ACC,22,False,4,55,55,"{'minutes': 10, 'seconds': 10}",4,41,41,"{'minutes': 7, 'seconds': 15}","{'minutes': 2, 'seconds': 55}",5,14,PUNT,False,17,6,17,6
+40175461823,401754618,Syracuse,ACC,UConn,FBS Independents,23,True,4,10,90,"{'minutes': 7, 'seconds': 15}",4,100,0,"{'minutes': 5, 'seconds': 41}","{'minutes': 1, 'seconds': 34}",7,90,TD,True,6,17,12,17
+40175461824,401754618,UConn,FBS Independents,Syracuse,ACC,24,False,4,75,75,"{'minutes': 5, 'seconds': 41}",4,40,40,"{'minutes': 2, 'seconds': 6}","{'minutes': 3, 'seconds': 35}",6,35,PUNT,False,17,12,17,12
+40175461825,401754618,Syracuse,ACC,UConn,FBS Independents,25,True,4,20,80,"{'minutes': 2, 'seconds': 6}",4,100,0,"{'minutes': 0, 'seconds': 48}","{'minutes': 1, 'seconds': 18}",10,80,TD,True,12,17,20,17
+40175461826,401754618,UConn,FBS Independents,Syracuse,ACC,26,True,4,75,75,"{'minutes': 0, 'seconds': 48}",4,23,23,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 47}",8,52,FG,False,17,20,20,20
+40175461827,401754618,Syracuse,ACC,UConn,FBS Independents,27,False,4,25,75,"{'minutes': 0, 'seconds': 1}",4,23,77,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 1}",1,-2,END OF GAME,True,20,20,20,20

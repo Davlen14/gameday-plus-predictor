@@ -1,0 +1,288 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017526771,401752677,Texas,SEC,Ohio State,Big Ten,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,42,42,"{'minutes': 10, 'seconds': 32}","{'minutes': 4, 'seconds': 28}",9,33,DOWNS,False,0,0,0,0
+4017526772,401752677,Ohio State,Big Ten,Texas,SEC,2,False,1,42,58,"{'minutes': 10, 'seconds': 32}",1,51,49,"{'minutes': 8, 'seconds': 29}","{'minutes': 2, 'seconds': 3}",4,9,DOWNS,True,0,0,0,0
+4017526773,401752677,Texas,SEC,Ohio State,Big Ten,3,False,1,51,51,"{'minutes': 8, 'seconds': 29}",1,47,47,"{'minutes': 6, 'seconds': 34}","{'minutes': 1, 'seconds': 55}",3,4,PUNT,False,0,0,0,0
+4017526774,401752677,Ohio State,Big Ten,Texas,SEC,4,False,1,8,92,"{'minutes': 6, 'seconds': 34}",1,25,75,"{'minutes': 3, 'seconds': 35}","{'minutes': 2, 'seconds': 59}",6,17,PUNT,True,0,0,0,0
+4017526775,401752677,Texas,SEC,Ohio State,Big Ten,5,False,1,75,75,"{'minutes': 3, 'seconds': 35}",1,72,72,"{'minutes': 1, 'seconds': 58}","{'minutes': 1, 'seconds': 37}",3,3,PUNT,False,0,0,0,0
+4017526776,401752677,Ohio State,Big Ten,Texas,SEC,6,True,1,20,80,"{'minutes': 1, 'seconds': 58}",2,100,0,"{'minutes': 8, 'seconds': 57}","{'minutes': 8, 'seconds': 1}",13,80,TD,True,0,0,7,0
+4017526777,401752677,Texas,SEC,Ohio State,Big Ten,7,False,2,75,75,"{'minutes': 8, 'seconds': 57}",2,54,54,"{'minutes': 5, 'seconds': 5}","{'minutes': 3, 'seconds': 52}",8,21,PUNT,False,0,7,0,7
+4017526778,401752677,Ohio State,Big Ten,Texas,SEC,8,False,2,2,98,"{'minutes': 5, 'seconds': 5}",2,23,77,"{'minutes': 1, 'seconds': 54}","{'minutes': 3, 'seconds': 11}",6,21,PUNT,True,7,0,7,0
+4017526779,401752677,Texas,SEC,Ohio State,Big Ten,9,False,2,53,53,"{'minutes': 1, 'seconds': 54}",2,45,45,"{'minutes': 0, 'seconds': 35}","{'minutes': 1, 'seconds': 19}",3,8,PUNT,False,0,7,0,7
+40175267710,401752677,Ohio State,Big Ten,Texas,SEC,10,False,2,3,97,"{'minutes': 0, 'seconds': 35}",2,4,96,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 35}",1,1,END OF HALF,True,7,0,7,0
+40175267711,401752677,Ohio State,Big Ten,Texas,SEC,11,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,31,69,"{'minutes': 13, 'seconds': 34}","{'minutes': 1, 'seconds': 26}",3,6,PUNT,True,7,0,7,0
+40175267712,401752677,Texas,SEC,Ohio State,Big Ten,12,False,3,71,71,"{'minutes': 13, 'seconds': 34}",3,1,1,"{'minutes': 6, 'seconds': 40}","{'minutes': 6, 'seconds': 54}",15,70,DOWNS,False,0,7,0,7
+40175267713,401752677,Ohio State,Big Ten,Texas,SEC,13,False,3,1,99,"{'minutes': 6, 'seconds': 40}",3,8,92,"{'minutes': 3, 'seconds': 58}","{'minutes': 2, 'seconds': 42}",3,7,PUNT,True,7,0,7,0
+40175267714,401752677,Texas,SEC,Ohio State,Big Ten,14,False,3,50,50,"{'minutes': 3, 'seconds': 58}",3,52,52,"{'minutes': 3, 'seconds': 1}","{'minutes': 0, 'seconds': 57}",3,-2,INT,False,0,7,0,7
+40175267715,401752677,Ohio State,Big Ten,Texas,SEC,15,True,3,32,68,"{'minutes': 3, 'seconds': 1}",4,100,0,"{'minutes': 13, 'seconds': 8}","{'minutes': 4, 'seconds': 53}",7,68,TD,True,7,0,14,0
+40175267716,401752677,Texas,SEC,Ohio State,Big Ten,16,False,4,85,85,"{'minutes': 13, 'seconds': 2}",4,9,9,"{'minutes': 7, 'seconds': 56}","{'minutes': 5, 'seconds': 6}",13,76,DOWNS,False,0,14,0,14
+40175267717,401752677,Ohio State,Big Ten,Texas,SEC,17,False,4,9,91,"{'minutes': 7, 'seconds': 56}",4,20,80,"{'minutes': 4, 'seconds': 10}","{'minutes': 3, 'seconds': 46}",5,11,PUNT,True,14,0,14,0
+40175267718,401752677,Texas,SEC,Ohio State,Big Ten,18,True,4,60,60,"{'minutes': 4, 'seconds': 10}",4,0,0,"{'minutes': 3, 'seconds': 28}","{'minutes': 0, 'seconds': 42}",4,60,TD,False,0,14,7,14
+40175267719,401752677,Ohio State,Big Ten,Texas,SEC,19,False,4,25,75,"{'minutes': 3, 'seconds': 28}",4,30,70,"{'minutes': 2, 'seconds': 26}","{'minutes': 1, 'seconds': 2}",3,5,PUNT,True,14,7,14,7
+40175267720,401752677,Texas,SEC,Ohio State,Big Ten,20,False,4,85,85,"{'minutes': 2, 'seconds': 26}",4,47,47,"{'minutes': 1, 'seconds': 27}","{'minutes': 0, 'seconds': 59}",6,38,DOWNS,False,7,14,7,14
+40175267721,401752677,Ohio State,Big Ten,Texas,SEC,21,False,4,47,53,"{'minutes': 1, 'seconds': 27}",4,35,65,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 27}",3,-12,END OF GAME,True,14,7,14,7
+4017526931,401752693,Texas,SEC,San José State,Mountain West,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,21,79,"{'minutes': 13, 'seconds': 54}","{'minutes': 1, 'seconds': 6}",4,-4,PUNT,True,0,0,0,0
+4017526932,401752693,San José State,Mountain West,Texas,SEC,2,False,1,59,59,"{'minutes': 13, 'seconds': 54}",1,29,29,"{'minutes': 10, 'seconds': 22}","{'minutes': 3, 'seconds': 32}",10,30,MISSED FG,False,0,0,0,0
+4017526933,401752693,Texas,SEC,San José State,Mountain West,3,False,1,29,71,"{'minutes': 10, 'seconds': 22}",1,45,55,"{'minutes': 7, 'seconds': 56}","{'minutes': 2, 'seconds': 26}",5,16,PUNT,True,0,0,0,0
+4017526934,401752693,San José State,Mountain West,Texas,SEC,4,False,1,86,86,"{'minutes': 7, 'seconds': 56}",1,59,59,"{'minutes': 4, 'seconds': 10}","{'minutes': 3, 'seconds': 46}",8,27,PUNT,False,0,0,0,0
+4017526935,401752693,Texas,SEC,San José State,Mountain West,5,True,1,10,90,"{'minutes': 4, 'seconds': 10}",1,100,0,"{'minutes': 2, 'seconds': 52}","{'minutes': 1, 'seconds': 18}",3,90,TD,True,0,0,7,0
+4017526936,401752693,San José State,Mountain West,Texas,SEC,6,False,1,75,75,"{'minutes': 2, 'seconds': 52}",1,75,75,"{'minutes': 2, 'seconds': 44}","{'minutes': 0, 'seconds': 8}",1,0,INT,False,0,7,0,7
+4017526937,401752693,Texas,SEC,San José State,Mountain West,7,True,1,66,34,"{'minutes': 2, 'seconds': 44}",1,100,0,"{'minutes': 0, 'seconds': 12}","{'minutes': 2, 'seconds': 32}",5,34,TD,True,7,0,14,0
+4017526938,401752693,San José State,Mountain West,Texas,SEC,8,False,1,94,94,"{'minutes': 0, 'seconds': 12}",2,67,67,"{'minutes': 14, 'seconds': 53}","{'minutes': 0, 'seconds': 19}",2,11,FUMBLE,False,0,14,0,14
+4017526939,401752693,Texas,SEC,San José State,Mountain West,9,True,2,64,36,"{'minutes': 14, 'seconds': 53}",2,100,0,"{'minutes': 14, 'seconds': 45}","{'minutes': 0, 'seconds': 8}",1,36,TD,True,21,0,21,0
+40175269310,401752693,San José State,Mountain West,Texas,SEC,10,False,2,75,75,"{'minutes': 14, 'seconds': 45}",2,78,78,"{'minutes': 13, 'seconds': 21}","{'minutes': 1, 'seconds': 24}",3,-3,FUMBLE,False,0,21,0,21
+40175269311,401752693,Texas,SEC,San José State,Mountain West,11,True,2,99,1,"{'minutes': 13, 'seconds': 21}",2,100,0,"{'minutes': 12, 'seconds': 56}","{'minutes': 0, 'seconds': 25}",2,1,TD,True,21,0,28,0
+40175269312,401752693,San José State,Mountain West,Texas,SEC,12,True,2,75,75,"{'minutes': 12, 'seconds': 56}",2,0,0,"{'minutes': 8, 'seconds': 19}","{'minutes': 4, 'seconds': 37}",8,75,TD,False,0,28,7,28
+40175269313,401752693,Texas,SEC,San José State,Mountain West,13,False,2,42,58,"{'minutes': 8, 'seconds': 19}",2,57,43,"{'minutes': 5, 'seconds': 28}","{'minutes': 2, 'seconds': 51}",5,15,PUNT,True,28,7,28,7
+40175269314,401752693,San José State,Mountain West,Texas,SEC,14,False,2,80,80,"{'minutes': 5, 'seconds': 28}",2,64,64,"{'minutes': 3, 'seconds': 56}","{'minutes': 1, 'seconds': 32}",4,16,PUNT,False,7,28,7,28
+40175269315,401752693,Texas,SEC,San José State,Mountain West,15,False,2,8,92,"{'minutes': 3, 'seconds': 56}",2,7,93,"{'minutes': 3, 'seconds': 31}","{'minutes': 0, 'seconds': 25}",3,-1,PUNT,True,28,7,28,7
+40175269316,401752693,San José State,Mountain West,Texas,SEC,16,False,2,41,41,"{'minutes': 3, 'seconds': 31}",2,36,36,"{'minutes': 2, 'seconds': 51}","{'minutes': 0, 'seconds': 40}",2,15,FUMBLE,False,7,28,7,28
+40175269317,401752693,Texas,SEC,San José State,Mountain West,17,False,2,50,50,"{'minutes': 2, 'seconds': 51}",2,87,13,"{'minutes': 0, 'seconds': 38}","{'minutes': 2, 'seconds': 13}",6,37,INT,True,28,7,28,7
+40175269318,401752693,San José State,Mountain West,Texas,SEC,18,False,2,59,59,"{'minutes': 0, 'seconds': 38}",2,32,32,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 38}",4,27,DOWNS,False,7,28,7,28
+40175269320,401752693,San José State,Mountain West,Texas,SEC,19,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,83,83,"{'minutes': 14, 'seconds': 3}","{'minutes': 0, 'seconds': 57}",3,-8,PUNT,False,7,28,7,28
+40175269321,401752693,Texas,SEC,San José State,Mountain West,20,True,3,39,61,"{'minutes': 14, 'seconds': 3}",3,71,29,"{'minutes': 10, 'seconds': 50}","{'minutes': 3, 'seconds': 13}",7,32,FG,True,28,7,31,7
+40175269322,401752693,San José State,Mountain West,Texas,SEC,21,False,3,100,100,"{'minutes': 10, 'seconds': 50}",3,48,48,"{'minutes': 6, 'seconds': 52}","{'minutes': 3, 'seconds': 58}",6,27,PUNT,False,7,31,7,31
+40175269323,401752693,Texas,SEC,San José State,Mountain West,22,False,3,8,92,"{'minutes': 6, 'seconds': 52}",3,1,99,"{'minutes': 5, 'seconds': 4}","{'minutes': 1, 'seconds': 48}",3,-7,PUNT,True,31,7,31,7
+40175269324,401752693,San José State,Mountain West,Texas,SEC,23,False,3,38,38,"{'minutes': 5, 'seconds': 4}",3,37,37,"{'minutes': 4, 'seconds': 13}","{'minutes': 0, 'seconds': 51}",4,1,DOWNS,False,7,31,7,31
+40175269325,401752693,Texas,SEC,San José State,Mountain West,24,True,3,37,63,"{'minutes': 4, 'seconds': 13}",3,100,0,"{'minutes': 0, 'seconds': 43}","{'minutes': 3, 'seconds': 30}",6,63,TD,True,31,7,38,7
+40175269326,401752693,San José State,Mountain West,Texas,SEC,25,False,3,75,75,"{'minutes': 0, 'seconds': 43}",4,11,11,"{'minutes': 10, 'seconds': 34}","{'minutes': 5, 'seconds': 9}",13,64,DOWNS,False,7,38,7,38
+40175269327,401752693,Texas,SEC,San José State,Mountain West,26,False,4,11,89,"{'minutes': 10, 'seconds': 34}",4,52,48,"{'minutes': 6, 'seconds': 58}","{'minutes': 3, 'seconds': 36}",6,41,PUNT,True,38,7,38,7
+40175269328,401752693,San José State,Mountain West,Texas,SEC,27,False,4,80,80,"{'minutes': 6, 'seconds': 58}",4,74,74,"{'minutes': 6, 'seconds': 0}","{'minutes': 0, 'seconds': 58}",3,6,PUNT,False,7,38,7,38
+40175269329,401752693,Texas,SEC,San José State,Mountain West,28,False,4,36,64,"{'minutes': 6, 'seconds': 0}",4,79,21,"{'minutes': 1, 'seconds': 16}","{'minutes': 4, 'seconds': 44}",10,49,FUMBLE,True,38,7,38,7
+40175269330,401752693,San José State,Mountain West,Texas,SEC,29,False,4,85,85,"{'minutes': 1, 'seconds': 16}",4,80,80,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 16}",3,5,END OF GAME,False,7,38,7,38
+4017527061,401752706,Texas,SEC,UTEP,Conference USA,1,False,1,21,79,"{'minutes': 14, 'seconds': 54}",1,56,44,"{'minutes': 11, 'seconds': 54}","{'minutes': 3, 'seconds': 0}",6,35,DOWNS,True,0,0,0,0
+4017527062,401752706,UTEP,Conference USA,Texas,SEC,2,False,0,56,56,"{'minutes': 0, 'seconds': 0}",1,47,47,"{'minutes': 10, 'seconds': 22}","{'minutes': 0, 'seconds': 0}",4,9,DOWNS,False,0,0,0,0
+4017527063,401752706,Texas,SEC,UTEP,Conference USA,3,True,1,47,53,"{'minutes': 10, 'seconds': 22}",1,100,0,"{'minutes': 5, 'seconds': 26}","{'minutes': 4, 'seconds': 56}",9,53,TD,True,0,0,7,0
+4017527064,401752706,UTEP,Conference USA,Texas,SEC,4,False,1,97,97,"{'minutes': 5, 'seconds': 22}",1,88,88,"{'minutes': 2, 'seconds': 12}","{'minutes': 3, 'seconds': 10}",6,9,PUNT,False,0,7,0,7
+4017527065,401752706,Texas,SEC,UTEP,Conference USA,5,False,1,69,31,"{'minutes': 2, 'seconds': 12}",2,90,10,"{'minutes': 13, 'seconds': 39}","{'minutes': 3, 'seconds': 33}",8,21,INT,True,7,0,7,0
+4017527066,401752706,UTEP,Conference USA,Texas,SEC,6,False,2,95,95,"{'minutes': 13, 'seconds': 39}",2,91,91,"{'minutes': 11, 'seconds': 43}","{'minutes': 1, 'seconds': 56}",3,4,PUNT,False,0,7,0,7
+4017527067,401752706,Texas,SEC,UTEP,Conference USA,7,False,2,44,56,"{'minutes': 11, 'seconds': 43}",2,66,34,"{'minutes': 8, 'seconds': 59}","{'minutes': 2, 'seconds': 44}",6,22,DOWNS,True,7,0,7,0
+4017527068,401752706,UTEP,Conference USA,Texas,SEC,8,False,2,66,66,"{'minutes': 8, 'seconds': 59}",2,33,33,"{'minutes': 8, 'seconds': 15}","{'minutes': 0, 'seconds': 44}",2,33,INT,False,0,7,0,7
+4017527069,401752706,Texas,SEC,UTEP,Conference USA,9,False,2,38,62,"{'minutes': 8, 'seconds': 15}",2,38,62,"{'minutes': 7, 'seconds': 50}","{'minutes': 0, 'seconds': 25}",3,0,PUNT,True,7,0,7,0
+40175270610,401752706,UTEP,Conference USA,Texas,SEC,10,False,2,82,82,"{'minutes': 7, 'seconds': 50}",2,73,73,"{'minutes': 5, 'seconds': 57}","{'minutes': 1, 'seconds': 53}",3,9,PUNT,False,0,7,0,7
+40175270611,401752706,Texas,SEC,UTEP,Conference USA,11,False,2,8,92,"{'minutes': 5, 'seconds': 57}",2,20,80,"{'minutes': 4, 'seconds': 5}","{'minutes': 1, 'seconds': 52}",4,12,PUNT,True,7,0,7,0
+40175270612,401752706,UTEP,Conference USA,Texas,SEC,12,True,2,78,78,"{'minutes': 4, 'seconds': 5}",2,22,22,"{'minutes': 1, 'seconds': 55}","{'minutes': 2, 'seconds': 10}",7,56,FG,False,0,7,3,7
+40175270613,401752706,Texas,SEC,UTEP,Conference USA,13,False,2,22,78,"{'minutes': 1, 'seconds': 48}",2,27,73,"{'minutes': 1, 'seconds': 27}","{'minutes': 0, 'seconds': 21}",3,5,PUNT,True,7,3,7,3
+40175270614,401752706,UTEP,Conference USA,Texas,SEC,14,False,2,68,68,"{'minutes': 1, 'seconds': 27}",2,67,67,"{'minutes': 0, 'seconds': 54}","{'minutes': 0, 'seconds': 33}",3,1,PUNT,False,3,7,3,7
+40175270615,401752706,Texas,SEC,UTEP,Conference USA,15,True,2,60,40,"{'minutes': 0, 'seconds': 54}",2,100,0,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 53}",7,40,TD,True,7,3,14,3
+40175270616,401752706,UTEP,Conference USA,Texas,SEC,16,False,2,75,75,"{'minutes': 0, 'seconds': 1}",2,73,73,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 1}",1,2,END OF HALF,False,3,14,3,14
+40175270617,401752706,UTEP,Conference USA,Texas,SEC,17,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,64,64,"{'minutes': 12, 'seconds': 45}","{'minutes': 2, 'seconds': 15}",6,11,PUNT,False,3,14,3,14
+40175270618,401752706,Texas,SEC,UTEP,Conference USA,18,True,3,62,38,"{'minutes': 12, 'seconds': 45}",3,87,13,"{'minutes': 7, 'seconds': 50}","{'minutes': 4, 'seconds': 55}",9,25,FG,True,14,3,17,3
+40175270619,401752706,UTEP,Conference USA,Texas,SEC,19,False,3,75,75,"{'minutes': 7, 'seconds': 50}",3,75,75,"{'minutes': 6, 'seconds': 41}","{'minutes': 1, 'seconds': 9}",3,0,INT,False,3,17,3,17
+40175270620,401752706,Texas,SEC,UTEP,Conference USA,20,True,3,51,49,"{'minutes': 6, 'seconds': 41}",3,88,12,"{'minutes': 1, 'seconds': 41}","{'minutes': 5, 'seconds': 0}",10,37,FG,True,17,3,20,3
+40175270621,401752706,UTEP,Conference USA,Texas,SEC,21,False,3,75,75,"{'minutes': 1, 'seconds': 41}",4,53,53,"{'minutes': 14, 'seconds': 32}","{'minutes': 2, 'seconds': 9}",7,22,DOWNS,False,3,20,3,20
+40175270622,401752706,Texas,SEC,UTEP,Conference USA,22,True,4,53,47,"{'minutes': 14, 'seconds': 32}",4,100,0,"{'minutes': 10, 'seconds': 52}","{'minutes': 3, 'seconds': 40}",8,47,TD,True,20,3,27,3
+40175270623,401752706,UTEP,Conference USA,Texas,SEC,23,False,4,75,75,"{'minutes': 10, 'seconds': 52}",4,20,20,"{'minutes': 8, 'seconds': 11}","{'minutes': 2, 'seconds': 41}",8,55,DOWNS,False,3,27,3,27
+40175270624,401752706,Texas,SEC,UTEP,Conference USA,24,False,4,20,80,"{'minutes': 8, 'seconds': 11}",4,34,66,"{'minutes': 4, 'seconds': 53}","{'minutes': 3, 'seconds': 18}",6,14,PUNT,True,27,3,27,3
+40175270625,401752706,UTEP,Conference USA,Texas,SEC,25,True,4,87,87,"{'minutes': 4, 'seconds': 53}",4,0,0,"{'minutes': 1, 'seconds': 57}","{'minutes': 2, 'seconds': 56}",7,87,TD,False,3,27,10,27
+40175270626,401752706,Texas,SEC,UTEP,Conference USA,26,False,4,53,47,"{'minutes': 1, 'seconds': 57}",4,83,17,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 57}",4,30,END OF GAME,True,27,10,27,10
+4017527231,401752723,Sam Houston,Conference USA,Texas,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,69,69,"{'minutes': 11, 'seconds': 52}","{'minutes': 3, 'seconds': 8}",3,6,PUNT,False,0,0,0,0
+4017527232,401752723,Texas,SEC,Sam Houston,Conference USA,2,True,1,24,76,"{'minutes': 11, 'seconds': 52}",1,100,0,"{'minutes': 6, 'seconds': 23}","{'minutes': 5, 'seconds': 29}",12,76,TD,True,0,0,7,0
+4017527233,401752723,Sam Houston,Conference USA,Texas,SEC,3,False,1,75,75,"{'minutes': 6, 'seconds': 23}",1,82,82,"{'minutes': 4, 'seconds': 42}","{'minutes': 1, 'seconds': 41}",3,-7,PUNT,False,0,7,0,7
+4017527234,401752723,Texas,SEC,Sam Houston,Conference USA,4,True,1,40,60,"{'minutes': 4, 'seconds': 42}",1,100,0,"{'minutes': 0, 'seconds': 45}","{'minutes': 3, 'seconds': 57}",9,60,TD,True,7,0,14,0
+4017527235,401752723,Sam Houston,Conference USA,Texas,SEC,5,False,1,65,65,"{'minutes': 0, 'seconds': 45}",2,72,72,"{'minutes': 14, 'seconds': 5}","{'minutes': 1, 'seconds': 40}",3,-7,PUNT,False,0,14,0,14
+4017527236,401752723,Texas,SEC,Sam Houston,Conference USA,6,True,2,30,70,"{'minutes': 14, 'seconds': 5}",2,100,0,"{'minutes': 12, 'seconds': 50}","{'minutes': 1, 'seconds': 15}",3,70,TD,True,14,0,21,0
+4017527237,401752723,Sam Houston,Conference USA,Texas,SEC,7,False,2,75,75,"{'minutes': 12, 'seconds': 50}",2,71,71,"{'minutes': 10, 'seconds': 5}","{'minutes': 2, 'seconds': 45}",3,4,PUNT,False,0,21,0,21
+4017527238,401752723,Texas,SEC,Sam Houston,Conference USA,8,True,2,29,71,"{'minutes': 10, 'seconds': 5}",2,89,11,"{'minutes': 5, 'seconds': 50}","{'minutes': 4, 'seconds': 15}",7,60,FG,True,21,0,24,0
+4017527239,401752723,Sam Houston,Conference USA,Texas,SEC,9,False,2,75,75,"{'minutes': 5, 'seconds': 50}",2,74,74,"{'minutes': 4, 'seconds': 12}","{'minutes': 1, 'seconds': 38}",3,1,PUNT,False,0,24,0,24
+40175272310,401752723,Texas,SEC,Sam Houston,Conference USA,10,True,2,30,70,"{'minutes': 4, 'seconds': 12}",2,100,0,"{'minutes': 1, 'seconds': 25}","{'minutes': 2, 'seconds': 47}",7,70,TD,True,24,0,31,0
+40175272311,401752723,Sam Houston,Conference USA,Texas,SEC,11,False,2,75,75,"{'minutes': 1, 'seconds': 25}",2,42,42,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 25}",8,33,INT,False,0,31,0,31
+40175272312,401752723,Texas,SEC,Sam Houston,Conference USA,12,True,3,25,75,"{'minutes': 14, 'seconds': 54}",3,100,0,"{'minutes': 13, 'seconds': 51}","{'minutes': 1, 'seconds': 3}",3,75,TD,True,31,0,38,0
+40175272319,401752723,Sam Houston,Conference USA,Texas,SEC,13,False,4,75,75,"{'minutes': 13, 'seconds': 22}",4,49,49,"{'minutes': 11, 'seconds': 11}","{'minutes': 2, 'seconds': 11}",6,26,PUNT,False,0,55,0,55
+40175272320,401752723,Texas,SEC,Sam Houston,Conference USA,14,False,4,10,90,"{'minutes': 11, 'seconds': 11}",4,24,76,"{'minutes': 7, 'seconds': 0}","{'minutes': 4, 'seconds': 11}",7,14,PUNT,True,55,0,55,0
+40175272321,401752723,Sam Houston,Conference USA,Texas,SEC,15,False,4,72,72,"{'minutes': 7, 'seconds': 0}",4,88,88,"{'minutes': 4, 'seconds': 45}","{'minutes': 2, 'seconds': 15}",4,-16,PUNT,False,0,55,0,55
+40175272322,401752723,Texas,SEC,Sam Houston,Conference USA,16,False,4,47,53,"{'minutes': 4, 'seconds': 45}",4,42,58,"{'minutes': 2, 'seconds': 5}","{'minutes': 2, 'seconds': 40}",4,-5,PUNT,True,55,0,55,0
+40175272323,401752723,Sam Houston,Conference USA,Texas,SEC,17,False,4,80,80,"{'minutes': 2, 'seconds': 5}",4,72,72,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 5}",6,8,END OF GAME,False,0,55,0,55
+4017527271,401752727,Florida,SEC,Texas,SEC,1,True,1,16,84,"{'minutes': 14, 'seconds': 50}",1,100,0,"{'minutes': 7, 'seconds': 58}","{'minutes': 6, 'seconds': 52}",13,84,TD,True,0,0,7,0
+4017527272,401752727,Texas,SEC,Florida,SEC,2,False,1,70,70,"{'minutes': 7, 'seconds': 58}",1,40,40,"{'minutes': 5, 'seconds': 12}","{'minutes': 2, 'seconds': 46}",7,30,PUNT,False,0,7,0,7
+4017527273,401752727,Florida,SEC,Texas,SEC,3,True,1,20,80,"{'minutes': 5, 'seconds': 12}",1,84,16,"{'minutes': 1, 'seconds': 0}","{'minutes': 4, 'seconds': 12}",10,64,FG,True,7,0,10,0
+4017527274,401752727,Texas,SEC,Florida,SEC,4,False,1,75,75,"{'minutes': 1, 'seconds': 0}",2,62,62,"{'minutes': 13, 'seconds': 37}","{'minutes': 2, 'seconds': 23}",6,13,PUNT,False,0,10,0,10
+4017527275,401752727,Florida,SEC,Texas,SEC,5,False,2,20,80,"{'minutes': 13, 'seconds': 37}",2,66,34,"{'minutes': 12, 'seconds': 6}","{'minutes': 1, 'seconds': 31}",3,46,FUMBLE,True,10,0,10,0
+4017527276,401752727,Texas,SEC,Florida,SEC,6,True,2,45,45,"{'minutes': 12, 'seconds': 6}",2,0,0,"{'minutes': 9, 'seconds': 55}","{'minutes': 2, 'seconds': 11}",4,45,TD,False,0,10,7,10
+4017527277,401752727,Florida,SEC,Texas,SEC,7,True,2,23,77,"{'minutes': 9, 'seconds': 52}",2,100,0,"{'minutes': 4, 'seconds': 55}","{'minutes': 4, 'seconds': 57}",10,77,TD,True,10,7,17,7
+4017527278,401752727,Texas,SEC,Florida,SEC,8,True,2,75,75,"{'minutes': 4, 'seconds': 55}",2,74,74,"{'minutes': 3, 'seconds': 52}","{'minutes': 1, 'seconds': 3}",3,1,PUNT,False,7,17,7,19
+4017527279,401752727,Florida,SEC,Texas,SEC,9,False,2,40,60,"{'minutes': 3, 'seconds': 42}",2,37,63,"{'minutes': 1, 'seconds': 46}","{'minutes': 1, 'seconds': 56}",3,-3,PUNT,True,19,7,19,7
+40175272710,401752727,Texas,SEC,Florida,SEC,10,False,2,88,88,"{'minutes': 1, 'seconds': 46}",2,95,95,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 46}",3,-7,END OF HALF,False,7,19,7,19
+40175272711,401752727,Texas,SEC,Florida,SEC,11,False,3,70,70,"{'minutes': 15, 'seconds': 0}",3,74,74,"{'minutes': 13, 'seconds': 10}","{'minutes': 1, 'seconds': 50}",3,-4,PUNT,False,7,19,7,19
+40175272712,401752727,Florida,SEC,Texas,SEC,12,False,3,28,72,"{'minutes': 13, 'seconds': 10}",3,35,65,"{'minutes': 11, 'seconds': 2}","{'minutes': 2, 'seconds': 8}",3,7,PUNT,True,19,7,19,7
+40175272713,401752727,Texas,SEC,Florida,SEC,13,False,3,65,65,"{'minutes': 11, 'seconds': 2}",3,40,40,"{'minutes': 8, 'seconds': 50}","{'minutes': 2, 'seconds': 12}",4,25,PUNT,False,7,19,7,19
+40175272714,401752727,Florida,SEC,Texas,SEC,14,True,3,20,80,"{'minutes': 8, 'seconds': 50}",3,80,20,"{'minutes': 5, 'seconds': 37}","{'minutes': 3, 'seconds': 13}",5,60,FG,True,19,7,22,7
+40175272715,401752727,Texas,SEC,Florida,SEC,15,True,3,75,75,"{'minutes': 5, 'seconds': 37}",3,0,0,"{'minutes': 2, 'seconds': 43}","{'minutes': 2, 'seconds': 54}",6,75,TD,False,7,22,14,22
+40175272716,401752727,Florida,SEC,Texas,SEC,16,True,3,25,75,"{'minutes': 2, 'seconds': 43}",3,100,0,"{'minutes': 0, 'seconds': 38}","{'minutes': 2, 'seconds': 5}",5,75,TD,True,22,14,29,14
+40175272717,401752727,Texas,SEC,Florida,SEC,17,False,3,75,75,"{'minutes': 0, 'seconds': 38}",4,39,39,"{'minutes': 13, 'seconds': 6}","{'minutes': 2, 'seconds': 32}",5,36,INT,False,14,29,14,29
+40175272718,401752727,Florida,SEC,Texas,SEC,18,False,4,38,62,"{'minutes': 13, 'seconds': 6}",4,56,44,"{'minutes': 9, 'seconds': 56}","{'minutes': 3, 'seconds': 10}",6,18,PUNT,True,29,14,29,14
+40175272719,401752727,Texas,SEC,Florida,SEC,19,False,4,85,85,"{'minutes': 9, 'seconds': 56}",4,83,83,"{'minutes': 7, 'seconds': 33}","{'minutes': 2, 'seconds': 23}",4,2,INT,False,14,29,14,29
+40175272720,401752727,Florida,SEC,Texas,SEC,20,False,4,43,57,"{'minutes': 7, 'seconds': 33}",4,44,56,"{'minutes': 6, 'seconds': 43}","{'minutes': 0, 'seconds': 50}",2,1,INT,True,29,14,29,14
+40175272721,401752727,Texas,SEC,Florida,SEC,21,False,4,74,74,"{'minutes': 6, 'seconds': 43}",4,80,80,"{'minutes': 5, 'seconds': 15}","{'minutes': 1, 'seconds': 28}",3,-6,PUNT,False,14,29,14,29
+40175272722,401752727,Florida,SEC,Texas,SEC,22,False,4,35,65,"{'minutes': 5, 'seconds': 15}",4,38,62,"{'minutes': 4, 'seconds': 50}","{'minutes': 0, 'seconds': 25}",3,3,PUNT,True,29,14,29,14
+40175272723,401752727,Texas,SEC,Florida,SEC,23,True,4,69,69,"{'minutes': 4, 'seconds': 50}",4,0,0,"{'minutes': 3, 'seconds': 20}","{'minutes': 1, 'seconds': 30}",5,69,TD,False,14,29,21,29
+40175272724,401752727,Florida,SEC,Texas,SEC,24,False,4,5,95,"{'minutes': 3, 'seconds': 20}",4,25,75,"{'minutes': 0, 'seconds': 55}","{'minutes': 2, 'seconds': 25}",4,20,PUNT,True,29,21,29,21
+40175272725,401752727,Texas,SEC,Florida,SEC,25,False,4,69,69,"{'minutes': 0, 'seconds': 55}",4,42,42,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 55}",5,27,END OF GAME,False,21,29,21,29
+4017527361,401752736,Oklahoma,SEC,Texas,SEC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,23,23,"{'minutes': 11, 'seconds': 49}","{'minutes': 3, 'seconds': 11}",9,52,FG,False,0,0,3,0
+4017527362,401752736,Texas,SEC,Oklahoma,SEC,2,False,1,25,75,"{'minutes': 11, 'seconds': 49}",1,24,76,"{'minutes': 8, 'seconds': 32}","{'minutes': 3, 'seconds': 17}",4,-1,PUNT,True,0,3,0,3
+4017527363,401752736,Oklahoma,SEC,Texas,SEC,3,False,1,54,54,"{'minutes': 8, 'seconds': 32}",1,43,43,"{'minutes': 6, 'seconds': 6}","{'minutes': 2, 'seconds': 26}",6,11,PUNT,False,3,0,3,0
+4017527364,401752736,Texas,SEC,Oklahoma,SEC,4,False,1,20,80,"{'minutes': 6, 'seconds': 6}",1,20,80,"{'minutes': 5, 'seconds': 23}","{'minutes': 0, 'seconds': 43}",3,0,PUNT,True,0,3,0,3
+4017527365,401752736,Oklahoma,SEC,Texas,SEC,5,False,1,75,75,"{'minutes': 5, 'seconds': 23}",1,63,63,"{'minutes': 3, 'seconds': 37}","{'minutes': 1, 'seconds': 46}",5,12,INT,False,3,0,3,0
+4017527366,401752736,Texas,SEC,Oklahoma,SEC,6,False,1,42,58,"{'minutes': 3, 'seconds': 37}",1,63,37,"{'minutes': 0, 'seconds': 32}","{'minutes': 3, 'seconds': 5}",7,21,MISSED FG,True,0,3,0,3
+4017527367,401752736,Oklahoma,SEC,Texas,SEC,7,True,1,63,63,"{'minutes': 0, 'seconds': 32}",2,23,23,"{'minutes': 9, 'seconds': 9}","{'minutes': 6, 'seconds': 23}",12,40,FG,False,3,0,6,0
+4017527368,401752736,Texas,SEC,Oklahoma,SEC,8,True,2,22,78,"{'minutes': 9, 'seconds': 9}",2,97,3,"{'minutes': 4, 'seconds': 29}","{'minutes': 4, 'seconds': 40}",12,75,FG,True,0,6,3,6
+4017527369,401752736,Oklahoma,SEC,Texas,SEC,9,False,2,75,75,"{'minutes': 4, 'seconds': 24}",2,30,30,"{'minutes': 0, 'seconds': 2}","{'minutes': 4, 'seconds': 22}",9,45,INT,False,6,3,6,3
+40175273610,401752736,Texas,SEC,Oklahoma,SEC,10,False,2,20,80,"{'minutes': 0, 'seconds': 2}",2,19,81,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 2}",1,-1,END OF HALF,True,3,6,3,6
+40175273611,401752736,Texas,SEC,Oklahoma,SEC,11,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 7, 'seconds': 49}","{'minutes': 7, 'seconds': 11}",14,75,TD,True,3,6,10,6
+40175273612,401752736,Oklahoma,SEC,Texas,SEC,12,False,3,75,75,"{'minutes': 7, 'seconds': 49}",3,70,70,"{'minutes': 6, 'seconds': 42}","{'minutes': 1, 'seconds': 7}",3,5,PUNT,False,6,10,6,10
+40175273613,401752736,Texas,SEC,Oklahoma,SEC,13,True,3,5,95,"{'minutes': 6, 'seconds': 42}",3,70,30,"{'minutes': 0, 'seconds': 27}","{'minutes': 6, 'seconds': 15}",13,65,FG,True,10,6,13,6
+40175273614,401752736,Oklahoma,SEC,Texas,SEC,14,False,3,75,75,"{'minutes': 0, 'seconds': 21}",4,56,56,"{'minutes': 13, 'seconds': 38}","{'minutes': 1, 'seconds': 43}",4,19,INT,False,6,13,6,13
+40175273615,401752736,Texas,SEC,Oklahoma,SEC,15,False,4,56,44,"{'minutes': 13, 'seconds': 38}",4,63,37,"{'minutes': 11, 'seconds': 33}","{'minutes': 2, 'seconds': 5}",4,7,MISSED FG,True,13,6,13,6
+40175273616,401752736,Oklahoma,SEC,Texas,SEC,16,True,4,63,63,"{'minutes': 11, 'seconds': 33}",4,73,73,"{'minutes': 9, 'seconds': 59}","{'minutes': 1, 'seconds': 34}",4,-11,PUNT RETURN TD,False,6,13,6,20
+40175273617,401752736,Oklahoma,SEC,Texas,SEC,17,False,4,65,65,"{'minutes': 9, 'seconds': 54}",4,37,37,"{'minutes': 5, 'seconds': 36}","{'minutes': 4, 'seconds': 18}",9,28,DOWNS,False,6,20,6,20
+40175273618,401752736,Texas,SEC,Oklahoma,SEC,18,True,4,37,63,"{'minutes': 5, 'seconds': 36}",4,79,21,"{'minutes': 2, 'seconds': 59}","{'minutes': 2, 'seconds': 37}",7,42,FG,True,20,6,23,6
+40175273619,401752736,Oklahoma,SEC,Texas,SEC,19,False,4,75,75,"{'minutes': 2, 'seconds': 59}",4,45,45,"{'minutes': 1, 'seconds': 3}","{'minutes': 1, 'seconds': 56}",10,27,DOWNS,False,6,23,6,23
+40175273620,401752736,Texas,SEC,Oklahoma,SEC,20,False,4,48,52,"{'minutes': 1, 'seconds': 3}",4,47,53,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 3}",2,-1,END OF GAME,True,23,6,23,6
+4017527431,401752743,Kentucky,SEC,Texas,SEC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,84,16,"{'minutes': 9, 'seconds': 17}","{'minutes': 5, 'seconds': 43}",11,59,DOWNS,True,0,0,0,0
+4017527432,401752743,Texas,SEC,Kentucky,SEC,2,False,1,84,84,"{'minutes': 9, 'seconds': 17}",1,66,66,"{'minutes': 7, 'seconds': 10}","{'minutes': 2, 'seconds': 7}",6,18,PUNT,False,0,0,0,0
+4017527433,401752743,Kentucky,SEC,Texas,SEC,3,False,1,32,68,"{'minutes': 7, 'seconds': 10}",1,41,59,"{'minutes': 6, 'seconds': 12}","{'minutes': 0, 'seconds': 58}",3,9,PUNT,True,0,0,0,0
+4017527434,401752743,Texas,SEC,Kentucky,SEC,4,False,1,87,87,"{'minutes': 6, 'seconds': 12}",1,55,55,"{'minutes': 3, 'seconds': 45}","{'minutes': 2, 'seconds': 27}",6,32,PUNT,False,0,0,0,0
+4017527435,401752743,Kentucky,SEC,Texas,SEC,5,False,1,19,81,"{'minutes': 3, 'seconds': 45}",2,56,44,"{'minutes': 12, 'seconds': 39}","{'minutes': 6, 'seconds': 6}",10,37,PUNT,True,0,0,0,0
+4017527436,401752743,Texas,SEC,Kentucky,SEC,6,False,2,80,80,"{'minutes': 12, 'seconds': 39}",2,38,38,"{'minutes': 9, 'seconds': 4}","{'minutes': 3, 'seconds': 35}",7,42,PUNT,False,0,0,0,0
+4017527437,401752743,Kentucky,SEC,Texas,SEC,7,False,2,9,91,"{'minutes': 9, 'seconds': 4}",2,7,93,"{'minutes': 7, 'seconds': 8}","{'minutes': 1, 'seconds': 56}",3,-2,PUNT,True,0,0,0,0
+4017527438,401752743,Texas,SEC,Kentucky,SEC,8,True,2,5,5,"{'minutes': 7, 'seconds': 8}",2,0,0,"{'minutes': 6, 'seconds': 22}","{'minutes': 0, 'seconds': 46}",3,5,TD,False,0,0,7,0
+4017527439,401752743,Kentucky,SEC,Texas,SEC,9,False,2,25,75,"{'minutes': 6, 'seconds': 22}",2,42,58,"{'minutes': 3, 'seconds': 12}","{'minutes': 3, 'seconds': 10}",7,17,INT,True,0,7,0,7
+40175274310,401752743,Texas,SEC,Kentucky,SEC,10,False,2,46,46,"{'minutes': 3, 'seconds': 12}",2,39,39,"{'minutes': 1, 'seconds': 7}","{'minutes': 2, 'seconds': 5}",5,7,PUNT,False,7,0,7,0
+40175274311,401752743,Kentucky,SEC,Texas,SEC,11,False,2,10,90,"{'minutes': 1, 'seconds': 7}",2,65,35,"{'minutes': 0, 'seconds': 8}","{'minutes': 0, 'seconds': 59}",8,55,MISSED FG,True,0,7,0,7
+40175274312,401752743,Texas,SEC,Kentucky,SEC,12,False,2,65,65,"{'minutes': 0, 'seconds': 8}",2,66,66,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 8}",1,-1,END OF HALF,False,7,0,7,0
+40175274313,401752743,Texas,SEC,Kentucky,SEC,13,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,66,66,"{'minutes': 12, 'seconds': 53}","{'minutes': 2, 'seconds': 7}",3,9,PUNT,False,7,0,7,0
+40175274314,401752743,Kentucky,SEC,Texas,SEC,14,True,3,19,81,"{'minutes': 12, 'seconds': 53}",3,72,28,"{'minutes': 4, 'seconds': 9}","{'minutes': 8, 'seconds': 44}",15,53,FG,True,0,7,3,7
+40175274315,401752743,Texas,SEC,Kentucky,SEC,15,True,3,75,75,"{'minutes': 4, 'seconds': 9}",3,35,35,"{'minutes': 2, 'seconds': 5}","{'minutes': 2, 'seconds': 4}",6,40,FG,False,7,3,10,3
+40175274316,401752743,Kentucky,SEC,Texas,SEC,16,False,3,21,79,"{'minutes': 1, 'seconds': 57}",3,17,83,"{'minutes': 0, 'seconds': 32}","{'minutes': 1, 'seconds': 25}",3,-4,PUNT,True,3,10,3,10
+40175274317,401752743,Texas,SEC,Kentucky,SEC,17,False,3,68,68,"{'minutes': 0, 'seconds': 32}",4,81,81,"{'minutes': 14, 'seconds': 48}","{'minutes': 0, 'seconds': 44}",3,-13,PUNT,False,10,3,10,3
+40175274318,401752743,Kentucky,SEC,Texas,SEC,18,True,4,44,56,"{'minutes': 14, 'seconds': 48}",4,100,0,"{'minutes': 12, 'seconds': 4}","{'minutes': 2, 'seconds': 44}",5,56,TD,True,3,10,10,10
+40175274319,401752743,Texas,SEC,Kentucky,SEC,19,False,4,75,75,"{'minutes': 12, 'seconds': 4}",4,70,70,"{'minutes': 10, 'seconds': 47}","{'minutes': 1, 'seconds': 17}",3,5,PUNT,False,10,10,10,10
+40175274320,401752743,Kentucky,SEC,Texas,SEC,20,False,4,14,86,"{'minutes': 10, 'seconds': 47}",4,42,58,"{'minutes': 8, 'seconds': 7}","{'minutes': 2, 'seconds': 40}",5,28,PUNT,True,10,10,10,10
+40175274321,401752743,Texas,SEC,Kentucky,SEC,21,False,4,76,76,"{'minutes': 8, 'seconds': 7}",4,69,69,"{'minutes': 6, 'seconds': 38}","{'minutes': 1, 'seconds': 29}",3,7,PUNT,False,10,10,10,10
+40175274322,401752743,Kentucky,SEC,Texas,SEC,22,False,4,17,83,"{'minutes': 6, 'seconds': 38}",4,44,56,"{'minutes': 2, 'seconds': 36}","{'minutes': 4, 'seconds': 2}",7,27,PUNT,True,10,10,10,10
+40175274323,401752743,Texas,SEC,Kentucky,SEC,23,True,4,42,42,"{'minutes': 2, 'seconds': 36}",4,21,21,"{'minutes': 0, 'seconds': 57}","{'minutes': 1, 'seconds': 39}",7,21,FG,False,10,10,13,10
+40175274324,401752743,Kentucky,SEC,Texas,SEC,24,True,4,27,73,"{'minutes': 0, 'seconds': 51}",4,73,27,"{'minutes': 0, 'seconds': 9}","{'minutes': 0, 'seconds': 42}",7,46,FG,True,10,13,13,13
+40175274325,401752743,Texas,SEC,Kentucky,SEC,25,False,4,75,75,"{'minutes': 0, 'seconds': 0}",4,76,76,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",1,-1,END OF GAME,False,13,13,13,13
+-2896,401752743,Kentucky,SEC,Texas,SEC,26,False,5,75,25,"{'minutes': 0, 'seconds': 0}",5,99,1,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",5,24,DOWNS,True,0,0,0,0
+-2897,401752743,Texas,SEC,Kentucky,SEC,27,True,5,25,25,"{'minutes': 0, 'seconds': 0}",5,27,27,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,-2,END OF GAME,False,0,0,16,13
+4017527492,401752749,Mississippi State,SEC,Texas,SEC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,32,68,"{'minutes': 13, 'seconds': 59}","{'minutes': 1, 'seconds': 1}",3,7,PUNT,True,0,0,0,0
+4017527493,401752749,Texas,SEC,Mississippi State,SEC,2,True,1,63,63,"{'minutes': 13, 'seconds': 46}",1,3,3,"{'minutes': 13, 'seconds': 1}","{'minutes': 0, 'seconds': 58}",2,63,TD,False,0,0,7,0
+4017527495,401752749,Mississippi State,SEC,Texas,SEC,3,False,1,25,75,"{'minutes': 13, 'seconds': 1}",1,32,68,"{'minutes': 12, 'seconds': 10}","{'minutes': 1, 'seconds': 2}",3,7,PUNT,True,0,7,0,7
+4017527496,401752749,Texas,SEC,Mississippi State,SEC,4,False,1,95,95,"{'minutes': 11, 'seconds': 52}",1,87,87,"{'minutes': 10, 'seconds': 34}","{'minutes': 1, 'seconds': 23}",3,8,PUNT,False,7,0,7,0
+4017527497,401752749,Mississippi State,SEC,Texas,SEC,5,False,1,40,60,"{'minutes': 10, 'seconds': 29}",1,71,29,"{'minutes': 8, 'seconds': 52}","{'minutes': 1, 'seconds': 49}",7,31,MISSED FG,True,0,7,0,7
+4017527498,401752749,Texas,SEC,Mississippi State,SEC,6,False,1,71,71,"{'minutes': 8, 'seconds': 40}",1,80,80,"{'minutes': 7, 'seconds': 36}","{'minutes': 1, 'seconds': 11}",3,-9,PUNT,False,7,0,7,0
+4017527499,401752749,Mississippi State,SEC,Texas,SEC,7,True,1,47,53,"{'minutes': 7, 'seconds': 27}",1,97,3,"{'minutes': 5, 'seconds': 14}","{'minutes': 2, 'seconds': 22}",6,53,TD,True,0,7,7,7
+40175274911,401752749,Texas,SEC,Mississippi State,SEC,8,False,1,75,75,"{'minutes': 5, 'seconds': 14}",1,72,72,"{'minutes': 2, 'seconds': 59}","{'minutes': 2, 'seconds': 15}",4,3,PUNT,False,7,7,7,7
+40175274912,401752749,Mississippi State,SEC,Texas,SEC,9,False,1,28,72,"{'minutes': 2, 'seconds': 50}",1,37,63,"{'minutes': 1, 'seconds': 55}","{'minutes': 1, 'seconds': 4}",4,9,DOWNS,True,7,7,7,7
+40175274913,401752749,Texas,SEC,Mississippi State,SEC,10,True,1,37,37,"{'minutes': 1, 'seconds': 48}",2,25,25,"{'minutes': 12, 'seconds': 41}","{'minutes': 4, 'seconds': 14}",10,37,TD,False,7,7,59,62
+40175274915,401752749,Mississippi State,SEC,Texas,SEC,11,True,2,17,83,"{'minutes': 12, 'seconds': 37}",2,97,3,"{'minutes': 9, 'seconds': 21}","{'minutes': 3, 'seconds': 16}",11,83,TD,True,7,14,14,14
+40175274917,401752749,Texas,SEC,Mississippi State,SEC,12,False,2,75,75,"{'minutes': 9, 'seconds': 21}",2,55,55,"{'minutes': 6, 'seconds': 54}","{'minutes': 2, 'seconds': 33}",6,20,PUNT,False,14,14,14,14
+40175274918,401752749,Mississippi State,SEC,Texas,SEC,13,False,2,8,92,"{'minutes': 6, 'seconds': 39}",2,20,80,"{'minutes': 5, 'seconds': 59}","{'minutes': 0, 'seconds': 47}",4,12,PUNT,True,14,14,14,14
+40175274919,401752749,Texas,SEC,Mississippi State,SEC,14,False,2,58,58,"{'minutes': 5, 'seconds': 47}",2,60,60,"{'minutes': 5, 'seconds': 47}","{'minutes': 0, 'seconds': 14}",1,0,INT,False,14,14,14,14
+40175274920,401752749,Mississippi State,SEC,Texas,SEC,15,True,2,60,40,"{'minutes': 5, 'seconds': 40}",2,94,6,"{'minutes': 2, 'seconds': 30}","{'minutes': 3, 'seconds': 17}",7,34,FG,True,14,14,17,14
+40175274922,401752749,Texas,SEC,Mississippi State,SEC,16,False,2,75,75,"{'minutes': 2, 'seconds': 30}",2,74,74,"{'minutes': 1, 'seconds': 43}","{'minutes': 0, 'seconds': 47}",3,-6,PUNT,False,14,17,14,17
+40175274923,401752749,Mississippi State,SEC,Texas,SEC,17,True,2,40,60,"{'minutes': 1, 'seconds': 36}",2,97,3,"{'minutes': 0, 'seconds': 38}","{'minutes': 1, 'seconds': 5}",6,60,TD,True,17,14,24,14
+40175274925,401752749,Texas,SEC,Mississippi State,SEC,18,False,2,75,75,"{'minutes': 0, 'seconds': 38}",2,67,67,"{'minutes': 0, 'seconds': 5}","{'minutes': 0, 'seconds': 38}",4,8,PUNT,False,14,24,14,24
+40175274927,401752749,Texas,SEC,Mississippi State,SEC,19,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,11,11,"{'minutes': 10, 'seconds': 45}","{'minutes': 4, 'seconds': 19}",9,64,MISSED FG,False,14,24,14,24
+40175274928,401752749,Mississippi State,SEC,Texas,SEC,20,False,3,20,80,"{'minutes': 10, 'seconds': 33}",3,40,60,"{'minutes': 8, 'seconds': 44}","{'minutes': 1, 'seconds': 55}",4,20,PUNT,True,24,14,24,14
+40175274929,401752749,Texas,SEC,Mississippi State,SEC,21,False,3,88,88,"{'minutes': 8, 'seconds': 39}",3,80,80,"{'minutes': 7, 'seconds': 38}","{'minutes': 1, 'seconds': 18}",3,8,PUNT,False,14,24,14,24
+40175274930,401752749,Mississippi State,SEC,Texas,SEC,22,False,3,32,68,"{'minutes': 7, 'seconds': 28}",3,53,47,"{'minutes': 5, 'seconds': 35}","{'minutes': 1, 'seconds': 56}",5,11,DOWNS,True,24,14,24,14
+40175274931,401752749,Texas,SEC,Mississippi State,SEC,23,False,3,43,43,"{'minutes': 5, 'seconds': 28}",3,43,43,"{'minutes': 4, 'seconds': 9}","{'minutes': 1, 'seconds': 23}",3,0,PUNT,False,14,24,14,24
+40175274932,401752749,Mississippi State,SEC,Texas,SEC,24,True,3,20,80,"{'minutes': 4, 'seconds': 0}",3,97,3,"{'minutes': 0, 'seconds': 26}","{'minutes': 3, 'seconds': 43}",8,80,TD,True,24,14,31,14
+40175274934,401752749,Texas,SEC,Mississippi State,SEC,25,False,3,80,80,"{'minutes': 0, 'seconds': 20}",4,3,3,"{'minutes': 13, 'seconds': 18}","{'minutes': 2, 'seconds': 5}",5,80,TD,False,14,31,21,31
+40175274936,401752749,Mississippi State,SEC,Texas,SEC,26,True,4,25,75,"{'minutes': 13, 'seconds': 15}",4,97,3,"{'minutes': 12, 'seconds': 29}","{'minutes': 0, 'seconds': 46}",3,75,TD,True,31,14,38,21
+40175274938,401752749,Texas,SEC,Mississippi State,SEC,27,True,4,75,75,"{'minutes': 12, 'seconds': 29}",4,3,3,"{'minutes': 9, 'seconds': 34}","{'minutes': 2, 'seconds': 55}",9,75,TD,False,21,38,28,38
+40175274940,401752749,Mississippi State,SEC,Texas,SEC,28,False,4,25,75,"{'minutes': 9, 'seconds': 34}",4,16,84,"{'minutes': 7, 'seconds': 53}","{'minutes': 1, 'seconds': 41}",3,-9,PUNT,True,38,28,38,28
+40175274941,401752749,Texas,SEC,Mississippi State,SEC,29,True,4,61,61,"{'minutes': 7, 'seconds': 44}",4,8,8,"{'minutes': 4, 'seconds': 14}","{'minutes': 3, 'seconds': 39}",12,53,FG,False,28,38,31,38
+40175274943,401752749,Mississippi State,SEC,Texas,SEC,30,True,4,13,87,"{'minutes': 4, 'seconds': 8}",4,22,78,"{'minutes': 1, 'seconds': 47}","{'minutes': 2, 'seconds': 21}",3,9,PUNT TD,True,38,31,38,38
+40175274945,401752749,Mississippi State,SEC,Texas,SEC,31,False,4,25,75,"{'minutes': 1, 'seconds': 47}",4,50,50,"{'minutes': 0, 'seconds': 3}","{'minutes': 1, 'seconds': 44}",7,25,PUNT,True,38,38,38,38
+40175274946,401752749,Texas,SEC,Mississippi State,SEC,32,False,4,99,99,"{'minutes': 0, 'seconds': 3}",4,99,99,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 3}",1,0,END OF HALF,False,38,38,38,38
+40175274947,401752749,Texas,SEC,Mississippi State,SEC,33,True,5,25,25,"{'minutes': 0, 'seconds': 0}",5,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",3,25,TD,False,38,38,45,38
+40175274948,401752749,Mississippi State,SEC,Texas,SEC,34,False,5,75,25,"{'minutes': 0, 'seconds': 0}",5,65,35,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,-41,FUMBLE,True,38,45,38,45
+4017527582,401752758,Texas,SEC,Vanderbilt,SEC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 14, 'seconds': 49}","{'minutes': 0, 'seconds': 11}",1,75,TD,True,0,0,7,0
+4017527584,401752758,Vanderbilt,SEC,Texas,SEC,2,False,1,75,75,"{'minutes': 14, 'seconds': 49}",1,71,71,"{'minutes': 12, 'seconds': 46}","{'minutes': 2, 'seconds': 3}",4,4,FUMBLE,False,0,7,0,7
+4017527585,401752758,Texas,SEC,Vanderbilt,SEC,3,True,1,71,29,"{'minutes': 12, 'seconds': 46}",1,79,21,"{'minutes': 11, 'seconds': 38}","{'minutes': 1, 'seconds': 8}",5,8,FG,True,7,0,10,0
+4017527587,401752758,Vanderbilt,SEC,Texas,SEC,4,False,1,75,75,"{'minutes': 11, 'seconds': 38}",1,50,50,"{'minutes': 7, 'seconds': 12}","{'minutes': 4, 'seconds': 26}",6,25,PUNT,False,0,10,0,10
+4017527588,401752758,Texas,SEC,Vanderbilt,SEC,5,True,1,17,83,"{'minutes': 7, 'seconds': 12}",1,97,3,"{'minutes': 2, 'seconds': 11}","{'minutes': 5, 'seconds': 1}",10,83,TD,True,10,0,17,0
+40175275810,401752758,Vanderbilt,SEC,Texas,SEC,6,True,1,79,79,"{'minutes': 2, 'seconds': 6}",2,26,26,"{'minutes': 11, 'seconds': 22}","{'minutes': 5, 'seconds': 44}",9,53,FG,False,0,17,3,17
+40175275812,401752758,Texas,SEC,Vanderbilt,SEC,7,True,2,32,68,"{'minutes': 11, 'seconds': 17}",2,97,3,"{'minutes': 7, 'seconds': 2}","{'minutes': 4, 'seconds': 15}",8,68,TD,True,17,3,24,3
+40175275814,401752758,Vanderbilt,SEC,Texas,SEC,8,True,2,75,75,"{'minutes': 7, 'seconds': 2}",2,0,0,"{'minutes': 0, 'seconds': 11}","{'minutes': 6, 'seconds': 51}",13,75,TD,False,3,24,10,24
+40175275816,401752758,Texas,SEC,Vanderbilt,SEC,9,False,2,39,61,"{'minutes': 0, 'seconds': 7}",2,59,41,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 7}",2,20,END OF HALF,True,24,10,24,10
+40175275818,401752758,Vanderbilt,SEC,Texas,SEC,10,False,3,67,67,"{'minutes': 14, 'seconds': 54}",3,64,64,"{'minutes': 14, 'seconds': 27}","{'minutes': 0, 'seconds': 27}",3,3,PUNT,False,10,24,10,24
+40175275819,401752758,Texas,SEC,Vanderbilt,SEC,11,True,3,7,93,"{'minutes': 14, 'seconds': 27}",3,97,3,"{'minutes': 9, 'seconds': 12}","{'minutes': 5, 'seconds': 15}",11,93,TD,True,24,10,31,10
+40175275821,401752758,Vanderbilt,SEC,Texas,SEC,12,False,3,75,75,"{'minutes': 9, 'seconds': 12}",3,30,30,"{'minutes': 5, 'seconds': 37}","{'minutes': 3, 'seconds': 35}",8,45,MISSED FG,False,10,31,10,31
+40175275822,401752758,Texas,SEC,Vanderbilt,SEC,13,True,3,30,70,"{'minutes': 5, 'seconds': 37}",3,81,19,"{'minutes': 0, 'seconds': 6}","{'minutes': 5, 'seconds': 31}",11,51,FG,True,31,10,34,10
+40175275824,401752758,Vanderbilt,SEC,Texas,SEC,14,True,3,77,77,"{'minutes': 15, 'seconds': 0}",4,0,0,"{'minutes': 10, 'seconds': 5}","{'minutes': 4, 'seconds': 55}",8,77,TD,False,10,34,16,34
+40175275826,401752758,Texas,SEC,Vanderbilt,SEC,15,False,4,35,65,"{'minutes': 10, 'seconds': 1}",4,67,33,"{'minutes': 4, 'seconds': 4}","{'minutes': 5, 'seconds': 57}",10,32,MISSED FG,True,34,16,34,16
+40175275827,401752758,Vanderbilt,SEC,Texas,SEC,16,True,4,67,67,"{'minutes': 4, 'seconds': 4}",4,0,0,"{'minutes': 3, 'seconds': 54}","{'minutes': 0, 'seconds': 10}",1,67,TD,False,24,34,24,34
+40175275829,401752758,Texas,SEC,Vanderbilt,SEC,17,False,4,50,50,"{'minutes': 3, 'seconds': 53}",4,64,36,"{'minutes': 3, 'seconds': 4}","{'minutes': 0, 'seconds': 49}",4,14,PUNT,True,34,24,34,24
+40175275830,401752758,Vanderbilt,SEC,Texas,SEC,18,True,4,89,89,"{'minutes': 3, 'seconds': 4}",4,0,0,"{'minutes': 0, 'seconds': 33}","{'minutes': 2, 'seconds': 31}",12,89,TD,False,24,34,31,34
+40175275832,401752758,Texas,SEC,Vanderbilt,SEC,19,False,4,47,53,"{'minutes': 0, 'seconds': 33}",4,46,54,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 33}",1,-1,END OF GAME,True,34,31,34,31
+4017527662,401752766,Texas,SEC,Georgia,SEC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,16,16,"{'minutes': 8, 'seconds': 53}","{'minutes': 6, 'seconds': 7}",13,59,FG,False,0,0,3,0
+4017527664,401752766,Georgia,SEC,Texas,SEC,2,True,1,25,75,"{'minutes': 8, 'seconds': 53}",1,97,3,"{'minutes': 4, 'seconds': 12}","{'minutes': 4, 'seconds': 41}",9,75,TD,True,0,3,7,3
+4017527666,401752766,Texas,SEC,Georgia,SEC,3,False,1,75,75,"{'minutes': 4, 'seconds': 12}",1,74,74,"{'minutes': 2, 'seconds': 21}","{'minutes': 1, 'seconds': 51}",3,1,PUNT,False,3,7,3,7
+4017527667,401752766,Georgia,SEC,Texas,SEC,4,True,1,34,66,"{'minutes': 2, 'seconds': 15}",2,97,3,"{'minutes': 12, 'seconds': 49}","{'minutes': 4, 'seconds': 32}",8,66,TD,True,7,3,14,3
+4017527669,401752766,Texas,SEC,Georgia,SEC,5,False,2,91,91,"{'minutes': 12, 'seconds': 40}",2,56,56,"{'minutes': 11, 'seconds': 19}","{'minutes': 1, 'seconds': 21}",4,35,PUNT,False,3,14,3,14
+40175276610,401752766,Georgia,SEC,Texas,SEC,6,False,2,13,87,"{'minutes': 11, 'seconds': 13}",2,22,78,"{'minutes': 8, 'seconds': 8}","{'minutes': 3, 'seconds': 11}",6,16,PUNT,True,14,3,14,3
+40175276611,401752766,Texas,SEC,Georgia,SEC,7,False,2,70,70,"{'minutes': 7, 'seconds': 59}",2,16,16,"{'minutes': 6, 'seconds': 4}","{'minutes': 2, 'seconds': 4}",7,41,INT,False,3,14,3,14
+40175276612,401752766,Georgia,SEC,Texas,SEC,8,False,2,16,84,"{'minutes': 5, 'seconds': 59}",2,20,80,"{'minutes': 4, 'seconds': 29}","{'minutes': 1, 'seconds': 35}",3,4,PUNT,True,14,3,14,3
+40175276613,401752766,Texas,SEC,Georgia,SEC,9,False,2,46,46,"{'minutes': 4, 'seconds': 17}",2,43,43,"{'minutes': 2, 'seconds': 57}","{'minutes': 1, 'seconds': 32}",3,-2,PUNT,False,3,14,3,14
+40175276614,401752766,Georgia,SEC,Texas,SEC,10,False,2,16,84,"{'minutes': 2, 'seconds': 47}",2,55,45,"{'minutes': 0, 'seconds': 34}","{'minutes': 2, 'seconds': 23}",6,39,PUNT,True,14,3,14,3
+40175276615,401752766,Texas,SEC,Georgia,SEC,11,False,2,84,84,"{'minutes': 0, 'seconds': 44}",2,93,93,"{'minutes': 0, 'seconds': 34}","{'minutes': 0, 'seconds': 34}",1,-9,END OF HALF,False,3,14,3,14
+40175276617,401752766,Georgia,SEC,Texas,SEC,12,False,3,47,53,"{'minutes': 14, 'seconds': 53}",3,52,48,"{'minutes': 13, 'seconds': 43}","{'minutes': 1, 'seconds': 10}",3,5,PUNT,True,14,3,14,3
+40175276618,401752766,Texas,SEC,Georgia,SEC,13,False,3,80,80,"{'minutes': 13, 'seconds': 37}",3,56,56,"{'minutes': 8, 'seconds': 56}","{'minutes': 4, 'seconds': 47}",7,24,PUNT,False,3,14,3,14
+40175276619,401752766,Georgia,SEC,Texas,SEC,14,False,3,18,82,"{'minutes': 8, 'seconds': 45}",3,36,64,"{'minutes': 8, 'seconds': 11}","{'minutes': 0, 'seconds': 45}",2,6,INT,True,14,3,14,3
+40175276620,401752766,Texas,SEC,Georgia,SEC,15,True,3,36,36,"{'minutes': 8, 'seconds': 4}",3,3,3,"{'minutes': 5, 'seconds': 27}","{'minutes': 2, 'seconds': 44}",6,36,TD,False,3,14,10,14
+40175276622,401752766,Georgia,SEC,Texas,SEC,16,True,3,27,73,"{'minutes': 5, 'seconds': 21}",4,91,9,"{'minutes': 14, 'seconds': 20}","{'minutes': 6, 'seconds': 1}",10,73,TD,True,14,10,21,10
+40175276624,401752766,Georgia,SEC,Texas,SEC,17,True,4,47,53,"{'minutes': 14, 'seconds': 20}",4,97,3,"{'minutes': 8, 'seconds': 53}","{'minutes': 5, 'seconds': 27}",9,53,TD,True,21,10,28,10
+40175276626,401752766,Texas,SEC,Georgia,SEC,18,False,4,89,89,"{'minutes': 8, 'seconds': 49}",4,93,93,"{'minutes': 7, 'seconds': 49}","{'minutes': 1, 'seconds': 0}",3,-4,PUNT,False,10,28,10,28
+40175276627,401752766,Georgia,SEC,Texas,SEC,19,True,4,67,33,"{'minutes': 7, 'seconds': 44}",4,97,3,"{'minutes': 4, 'seconds': 43}","{'minutes': 3, 'seconds': 6}",5,33,TD,True,28,10,35,10
+40175276629,401752766,Texas,SEC,Georgia,SEC,20,False,4,75,75,"{'minutes': 4, 'seconds': 43}",4,11,11,"{'minutes': 2, 'seconds': 26}","{'minutes': 2, 'seconds': 17}",13,64,DOWNS,False,10,35,10,35
+40175276630,401752766,Georgia,SEC,Texas,SEC,21,False,4,11,89,"{'minutes': 2, 'seconds': 18}",4,7,93,"{'minutes': 0, 'seconds': 21}","{'minutes': 2, 'seconds': 5}",3,-4,PUNT,True,35,10,35,10
+40175276631,401752766,Texas,SEC,Georgia,SEC,22,False,4,56,56,"{'minutes': 0, 'seconds': 21}",4,52,52,"{'minutes': 0, 'seconds': 21}","{'minutes': 0, 'seconds': 21}",1,4,END OF GAME,False,10,35,10,35
+4017527802,401752780,Arkansas,SEC,Texas,SEC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,33,33,"{'minutes': 13, 'seconds': 11}","{'minutes': 1, 'seconds': 49}",5,42,FG,False,0,0,3,0
+40175278010,401752780,Arkansas,SEC,Texas,SEC,2,True,1,75,75,"{'minutes': 2, 'seconds': 32}",2,3,3,"{'minutes': 14, 'seconds': 9}","{'minutes': 3, 'seconds': 23}",7,75,TD,False,6,14,13,14
+4017527804,401752780,Texas,SEC,Arkansas,SEC,3,True,1,19,81,"{'minutes': 13, 'seconds': 4}",1,97,3,"{'minutes': 11, 'seconds': 29}","{'minutes': 1, 'seconds': 35}",4,81,TD,True,0,3,7,3
+4017527806,401752780,Arkansas,SEC,Texas,SEC,4,True,1,75,75,"{'minutes': 11, 'seconds': 29}",1,15,15,"{'minutes': 7, 'seconds': 34}","{'minutes': 3, 'seconds': 55}",7,60,FG,False,3,7,6,7
+4017527808,401752780,Texas,SEC,Arkansas,SEC,5,True,1,25,75,"{'minutes': 7, 'seconds': 34}",1,97,3,"{'minutes': 2, 'seconds': 32}","{'minutes': 5, 'seconds': 2}",10,75,TD,True,7,6,14,6
+40175278012,401752780,Texas,SEC,Arkansas,SEC,6,True,2,25,75,"{'minutes': 14, 'seconds': 9}",2,97,3,"{'minutes': 12, 'seconds': 26}","{'minutes': 1, 'seconds': 43}",5,75,TD,True,14,13,21,13
+40175278014,401752780,Arkansas,SEC,Texas,SEC,7,True,2,75,75,"{'minutes': 12, 'seconds': 26}",2,3,3,"{'minutes': 7, 'seconds': 24}","{'minutes': 5, 'seconds': 2}",11,75,TD,False,13,21,20,21
+40175278016,401752780,Texas,SEC,Arkansas,SEC,8,False,2,25,75,"{'minutes': 7, 'seconds': 24}",2,29,71,"{'minutes': 6, 'seconds': 46}","{'minutes': 0, 'seconds': 38}",3,4,PUNT,True,21,20,21,20
+40175278017,401752780,Arkansas,SEC,Texas,SEC,9,False,2,61,61,"{'minutes': 6, 'seconds': 30}",2,56,56,"{'minutes': 5, 'seconds': 0}","{'minutes': 1, 'seconds': 46}",3,0,PUNT,False,20,21,20,21
+40175278018,401752780,Texas,SEC,Arkansas,SEC,10,False,2,8,92,"{'minutes': 4, 'seconds': 56}",2,51,49,"{'minutes': 1, 'seconds': 40}","{'minutes': 3, 'seconds': 20}",8,43,PUNT,True,21,20,21,20
+40175278019,401752780,Arkansas,SEC,Texas,SEC,11,False,2,89,89,"{'minutes': 1, 'seconds': 36}",2,86,86,"{'minutes': 0, 'seconds': 50}","{'minutes': 0, 'seconds': 50}",3,3,PUNT,False,20,21,20,21
+40175278020,401752780,Texas,SEC,Arkansas,SEC,12,True,2,65,35,"{'minutes': 0, 'seconds': 44}",2,72,28,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 50}",4,9,FG,True,21,20,24,20
+40175278022,401752780,Texas,SEC,Arkansas,SEC,13,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,97,3,"{'minutes': 12, 'seconds': 32}","{'minutes': 2, 'seconds': 28}",5,75,TD,True,24,20,31,20
+40175278024,401752780,Arkansas,SEC,Texas,SEC,14,False,3,75,75,"{'minutes': 12, 'seconds': 32}",3,51,51,"{'minutes': 9, 'seconds': 41}","{'minutes': 2, 'seconds': 51}",5,18,INT,False,20,31,20,31
+40175278025,401752780,Texas,SEC,Arkansas,SEC,15,True,3,62,38,"{'minutes': 9, 'seconds': 36}",3,97,3,"{'minutes': 7, 'seconds': 5}","{'minutes': 2, 'seconds': 36}",7,38,TD,True,31,20,38,20
+40175278027,401752780,Arkansas,SEC,Texas,SEC,16,True,3,75,75,"{'minutes': 7, 'seconds': 5}",3,15,15,"{'minutes': 2, 'seconds': 18}","{'minutes': 4, 'seconds': 47}",13,60,FG,False,20,38,23,38
+40175278029,401752780,Texas,SEC,Arkansas,SEC,17,True,3,25,75,"{'minutes': 2, 'seconds': 18}",3,97,3,"{'minutes': 0, 'seconds': 50}","{'minutes': 1, 'seconds': 28}",5,75,TD,True,38,23,45,23
+40175278031,401752780,Arkansas,SEC,Texas,SEC,18,True,3,92,92,"{'minutes': 0, 'seconds': 43}",4,48,48,"{'minutes': 11, 'seconds': 30}","{'minutes': 4, 'seconds': 13}",10,44,FUMBLE TD,False,23,45,23,52
+40175278033,401752780,Arkansas,SEC,Texas,SEC,19,True,4,75,75,"{'minutes': 11, 'seconds': 30}",4,3,3,"{'minutes': 7, 'seconds': 46}","{'minutes': 3, 'seconds': 44}",10,75,TD,False,23,52,30,52
+40175278035,401752780,Texas,SEC,Arkansas,SEC,20,False,4,25,75,"{'minutes': 7, 'seconds': 46}",4,53,47,"{'minutes': 2, 'seconds': 6}","{'minutes': 5, 'seconds': 40}",8,28,PUNT,True,52,30,52,30
+40175278036,401752780,Arkansas,SEC,Texas,SEC,21,True,4,92,92,"{'minutes': 2, 'seconds': 1}",4,3,3,"{'minutes': 0, 'seconds': 16}","{'minutes': 1, 'seconds': 50}",9,92,TD,False,30,52,37,52
+40175278038,401752780,Texas,SEC,Arkansas,SEC,22,False,4,55,45,"{'minutes': 0, 'seconds': 16}",4,54,46,"{'minutes': 0, 'seconds': 11}","{'minutes': 0, 'seconds': 16}",1,-1,END OF GAME,True,52,37,52,37
+4017527922,401752792,Texas,SEC,Texas A&M,SEC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,35,65,"{'minutes': 12, 'seconds': 50}","{'minutes': 2, 'seconds': 10}",6,10,PUNT,True,0,0,0,0
+4017527923,401752792,Texas A&M,SEC,Texas,SEC,2,False,1,93,93,"{'minutes': 12, 'seconds': 50}",1,75,75,"{'minutes': 10, 'seconds': 12}","{'minutes': 2, 'seconds': 38}",5,18,PUNT,False,0,0,0,0
+4017527924,401752792,Texas,SEC,Texas A&M,SEC,3,False,1,36,64,"{'minutes': 10, 'seconds': 12}",1,38,62,"{'minutes': 9, 'seconds': 11}","{'minutes': 1, 'seconds': 1}",3,2,PUNT,True,0,0,0,0
+4017527925,401752792,Texas A&M,SEC,Texas,SEC,4,False,1,85,85,"{'minutes': 9, 'seconds': 11}",1,80,80,"{'minutes': 8, 'seconds': 12}","{'minutes': 0, 'seconds': 59}",3,5,PUNT,False,0,0,0,0
+4017527926,401752792,Texas,SEC,Texas A&M,SEC,5,False,1,27,73,"{'minutes': 8, 'seconds': 12}",1,39,61,"{'minutes': 6, 'seconds': 21}","{'minutes': 1, 'seconds': 51}",4,12,PUNT,True,0,0,0,0
+4017527927,401752792,Texas A&M,SEC,Texas,SEC,6,False,1,87,87,"{'minutes': 6, 'seconds': 21}",1,18,18,"{'minutes': 1, 'seconds': 46}","{'minutes': 4, 'seconds': 35}",10,69,MISSED FG,False,0,0,0,0
+4017527928,401752792,Texas,SEC,Texas A&M,SEC,7,True,1,20,80,"{'minutes': 1, 'seconds': 46}",2,77,23,"{'minutes': 12, 'seconds': 4}","{'minutes': 4, 'seconds': 42}",14,57,FG,True,0,0,3,0
+40175279210,401752792,Texas A&M,SEC,Texas,SEC,8,True,2,75,75,"{'minutes': 11, 'seconds': 59}",2,13,13,"{'minutes': 6, 'seconds': 41}","{'minutes': 5, 'seconds': 18}",9,62,FG,False,0,3,3,3
+40175279212,401752792,Texas,SEC,Texas A&M,SEC,9,False,2,35,65,"{'minutes': 6, 'seconds': 36}",2,29,71,"{'minutes': 5, 'seconds': 11}","{'minutes': 1, 'seconds': 25}",3,-6,PUNT,True,3,3,3,3
+40175279213,401752792,Texas A&M,SEC,Texas,SEC,10,True,2,42,42,"{'minutes': 5, 'seconds': 11}",2,0,0,"{'minutes': 0, 'seconds': 56}","{'minutes': 4, 'seconds': 15}",9,42,TD,False,3,3,10,3
+40175279215,401752792,Texas,SEC,Texas A&M,SEC,11,False,2,23,77,"{'minutes': 0, 'seconds': 52}",2,58,42,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 50}",7,27,PUNT,True,3,10,3,10
+40175279216,401752792,Texas A&M,SEC,Texas,SEC,12,False,2,80,80,"{'minutes': 0, 'seconds': 2}",2,81,81,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 2}",1,-1,END OF HALF,False,10,3,10,3
+40175279218,401752792,Texas A&M,SEC,Texas,SEC,13,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,73,73,"{'minutes': 13, 'seconds': 50}","{'minutes': 1, 'seconds': 10}",3,2,PUNT,False,10,3,10,3
+40175279219,401752792,Texas,SEC,Texas A&M,SEC,14,True,3,22,78,"{'minutes': 13, 'seconds': 50}",3,72,28,"{'minutes': 11, 'seconds': 56}","{'minutes': 1, 'seconds': 54}",5,50,FG,True,3,10,6,10
+40175279221,401752792,Texas A&M,SEC,Texas,SEC,15,False,3,78,78,"{'minutes': 11, 'seconds': 48}",3,70,70,"{'minutes': 10, 'seconds': 16}","{'minutes': 1, 'seconds': 32}",3,8,PUNT,False,10,6,10,6
+40175279222,401752792,Texas,SEC,Texas A&M,SEC,16,True,3,30,70,"{'minutes': 10, 'seconds': 16}",3,97,3,"{'minutes': 7, 'seconds': 12}","{'minutes': 3, 'seconds': 4}",6,70,TD,True,6,10,13,10
+40175279224,401752792,Texas A&M,SEC,Texas,SEC,17,False,3,75,75,"{'minutes': 7, 'seconds': 12}",3,55,55,"{'minutes': 3, 'seconds': 11}","{'minutes': 4, 'seconds': 1}",6,20,PUNT,False,10,13,10,13
+40175279225,401752792,Texas,SEC,Texas A&M,SEC,18,True,3,17,83,"{'minutes': 3, 'seconds': 11}",4,97,3,"{'minutes': 14, 'seconds': 57}","{'minutes': 3, 'seconds': 14}",6,83,TD,True,13,10,20,10
+40175279227,401752792,Texas A&M,SEC,Texas,SEC,19,False,4,71,71,"{'minutes': 14, 'seconds': 51}",4,67,67,"{'minutes': 12, 'seconds': 31}","{'minutes': 2, 'seconds': 20}",3,4,PUNT,False,10,20,10,20
+40175279228,401752792,Texas,SEC,Texas A&M,SEC,20,False,4,34,66,"{'minutes': 12, 'seconds': 31}",4,32,68,"{'minutes': 10, 'seconds': 52}","{'minutes': 1, 'seconds': 39}",3,-2,PUNT,True,20,10,20,10
+40175279229,401752792,Texas A&M,SEC,Texas,SEC,21,True,4,59,59,"{'minutes': 10, 'seconds': 45}",4,0,0,"{'minutes': 9, 'seconds': 15}","{'minutes': 1, 'seconds': 37}",6,59,TD,False,10,20,17,20
+40175279231,401752792,Texas,SEC,Texas A&M,SEC,22,True,4,37,63,"{'minutes': 9, 'seconds': 7}",4,97,3,"{'minutes': 7, 'seconds': 4}","{'minutes': 2, 'seconds': 3}",4,63,TD,True,20,17,27,17
+40175279233,401752792,Texas A&M,SEC,Texas,SEC,23,False,4,75,75,"{'minutes': 7, 'seconds': 4}",4,18,18,"{'minutes': 3, 'seconds': 41}","{'minutes': 3, 'seconds': 23}",9,57,INT,False,17,27,17,27
+40175279234,401752792,Texas,SEC,Texas A&M,SEC,24,False,4,3,97,"{'minutes': 3, 'seconds': 41}",4,6,94,"{'minutes': 2, 'seconds': 32}","{'minutes': 1, 'seconds': 9}",3,3,PUNT,True,27,17,27,17
+40175279236,401752792,Texas,SEC,Texas A&M,SEC,25,False,4,32,68,"{'minutes': 2, 'seconds': 26}",4,52,48,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 26}",4,20,END OF HALF,True,27,17,27,17

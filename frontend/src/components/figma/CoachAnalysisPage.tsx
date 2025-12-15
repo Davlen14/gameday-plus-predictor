@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Users, ArrowLeft, Trophy, TrendingUp, Target, Award, Home, Plane, Calendar, Star, BarChart3, Zap, Radar } from 'lucide-react';
+import { Users, ArrowLeft, Trophy, TrendingUp, Target, Award, Home, Plane, Calendar, Star, BarChart3, Zap, Radar, LineChart } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { CoachRadarChart } from './CoachRadarChart';
 import { CoachSpiralTimeline } from './CoachSpiralTimeline';
 import { CoachSunburst } from './CoachSunburst';
+import { CoachTimeline } from './CoachTimeline';
 import laneKiffinData from '../../data/lane_kiffin_master.json';
 import jamesFranklinData from '../../data/james_franklin_master.json';
 import coachRankings from '../../data/coaches_advanced_rankings.json';
+
+// Timeline data imports
+import kiffinTimeline from '../../data/coach_timelines/kiffin_ole_miss_FULL_timeline.json';
+import franklinTimeline from '../../data/coach_timelines/franklin_penn_state_timeline.json';
 
 interface CoachAnalysisPageProps {
   onBack: () => void;
@@ -705,6 +710,37 @@ export const CoachAnalysisPage: React.FC<CoachAnalysisPageProps> = ({ onBack }) 
                 
                 {/* James Franklin Sunburst */}
                 <CoachSunburst coachData={jamesFranklinData} />
+              </div>
+            </div>
+
+            {/* AP Poll Rankings Timeline Charts */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-light text-white mb-6 flex items-center gap-3 tracking-tight">
+                <LineChart className="w-7 h-7 text-emerald-400" />
+                AP Poll Rankings Timeline
+              </h2>
+              <p className="text-gray-400 text-sm mb-6">
+                Historical AP Poll rankings throughout each coach's career. Click on school logos to see detailed performance at each stop.
+              </p>
+
+              <div className="space-y-6">
+                {/* Lane Kiffin Timeline */}
+                <CoachTimeline
+                  coachName={(laneKiffinData as any).metadata.coach}
+                  schoolName={(laneKiffinData as any).current_team.name}
+                  teamColor={(laneKiffinData as any).current_team.primary_color}
+                  teamLogo={(laneKiffinData as any).current_team.logo}
+                  timelineData={kiffinTimeline}
+                />
+
+                {/* James Franklin Timeline */}
+                <CoachTimeline
+                  coachName={(jamesFranklinData as any).metadata.coach}
+                  schoolName={(jamesFranklinData as any).current_team.name}
+                  teamColor={(jamesFranklinData as any).current_team.primary_color}
+                  teamLogo={(jamesFranklinData as any).current_team.logo}
+                  timelineData={franklinTimeline}
+                />
               </div>
             </div>
 

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Pass Visualization - Utah vs Ohio State</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0e1a 0%, #1a1f35 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 211, 238, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn.active {
+            background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+        }
+
+        .field-container {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            background: linear-gradient(180deg, #2d5016 0%, #1e3a0f 50%, #2d5016 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+            border: 3px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #field {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .field-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .yard-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.4);
+            left: 0;
+        }
+
+        .yard-number {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 28px;
+            font-weight: 900;
+            font-family: 'Arial Black', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .end-zone {
+            position: absolute;
+            width: 100%;
+            height: 10%;
+            opacity: 0.15;
+        }
+
+        .end-zone.top {
+            top: 0;
+            background: linear-gradient(180deg, #3b82f6 0%, transparent 100%);
+        }
+
+        .end-zone.bottom {
+            bottom: 0;
+            background: linear-gradient(0deg, #f43f5e 0%, transparent 100%);
+        }
+
+        .pass-arc {
+            position: absolute;
+            stroke-width: 3;
+            fill: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .pass-arc:hover {
+            stroke-width: 5;
+            opacity: 1;
+            filter: drop-shadow(0 0 20px currentColor);
+        }
+
+        .pass-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .pass-point:hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+
+        .pass-point.complete {
+            background: #22d3ee;
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.6);
+        }
+
+        .pass-point.incomplete {
+            background: #f43f5e;
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.6);
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px 20px;
+            border-radius: 12px;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+            border: 2px solid rgba(34, 211, 238, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            min-width: 250px;
+        }
+
+        .tooltip.show {
+            display: block;
+        }
+
+        .tooltip-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #22d3ee;
+        }
+
+        .tooltip-content {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+
+        .tooltip-content strong {
+            color: #fff;
+        }
+
+        .stats-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card h3 {
+            font-size: 14px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .stat-card .value {
+            font-size: 36px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-card .label {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .play-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            z-index: 10;
+            border: 2px solid rgba(34, 211, 238, 0.3);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏈 3D PASS VISUALIZATION</h1>
+            <div class="subtitle">Utah Utes vs Ohio State Buckeyes - 2022 Rose Bowl</div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary active" onclick="filterPasses('all')">All Passes</button>
+            <button class="btn btn-secondary" onclick="filterPasses('complete')">Completions</button>
+            <button class="btn btn-secondary" onclick="filterPasses('incomplete')">Incompletions</button>
+            <button class="btn btn-secondary" onclick="filterPasses('utah')">Utah</button>
+            <button class="btn btn-secondary" onclick="filterPasses('ohio')">Ohio State</button>
+            <button class="btn btn-secondary" onclick="filterPasses('deep')">Deep (15+ Air Yds)</button>
+            <button class="btn btn-secondary" onclick="toggleAnimation()">🎬 Toggle Animation</button>
+        </div>
+
+        <div class="field-container">
+            <div class="play-counter" id="playCounter">Loading...</div>
+            <div id="field">
+                <svg class="field-lines" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="completeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="incompleteGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#e11d48;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="end-zone top"></div>
+                <div class="end-zone bottom"></div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #22d3ee;"></div>
+                <span>Completion</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f43f5e;"></div>
+                <span>Incomplete</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #3b82f6;"></div>
+                <span>Ohio State</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f59e0b;"></div>
+                <span>Utah</span>
+            </div>
+        </div>
+
+        <div class="stats-panel">
+            <div class="stat-card">
+                <h3>Total Passes</h3>
+                <div class="value" id="totalPasses">0</div>
+                <div class="label">Attempts visualized</div>
+            </div>
+            <div class="stat-card">
+                <h3>Avg Air Yards</h3>
+                <div class="value" id="avgAirYards">0</div>
+                <div class="label">Average depth of target</div>
+            </div>
+            <div class="stat-card">
+                <h3>Completion %</h3>
+                <div class="value" id="compPct">0%</div>
+                <div class="label">Overall completion rate</div>
+            </div>
+            <div class="stat-card">
+                <h3>Deep Shots</h3>
+                <div class="value" id="deepShots">0</div>
+                <div class="label">Passes 15+ air yards</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tooltip" id="tooltip">
+        <div class="tooltip-title" id="tooltipTitle"></div>
+        <div class="tooltip-content" id="tooltipContent"></div>
+    </div>
+
+    <script>
+        let passData = [];
+        let currentFilter = 'all';
+        let animationEnabled = true;
+
+        // Load data and initialize
+        async function loadPassData() {
+            try {
+                const response = await fetch('utah_ohio_state_air_yards.json');
+                const data = await response.json();
+                
+                // Process QB stats to create pass visualizations
+                const passes = [];
+                
+                for (const [qbName, qbStats] of Object.entries(data.qb_stats)) {
+                    if (qbName === 'TEAM') continue;
+                    
+                    const team = qbName === 'C.J. Stroud' ? 'Ohio State' : 'Utah';
+                    const teamColor = team === 'Ohio State' ? '#3b82f6' : '#f59e0b';
+                    
+                    // Create pass data points from receiver stats
+                    for (const [receiver, recStats] of Object.entries(qbStats.receiver_stats || {})) {
+                        for (let i = 0; i < recStats.receptions; i++) {
+                            const avgAirYards = recStats.air_yards / recStats.receptions;
+                            const avgYards = recStats.yards / recStats.receptions;
+                            
+                            passes.push({
+                                qb: qbName,
+                                receiver: receiver,
+                                team: team,
+                                teamColor: teamColor,
+                                complete: true,
+                                airYards: avgAirYards,
+                                totalYards: avgYards,
+                                yac: avgYards - avgAirYards,
+                                startYard: Math.random() * 80 + 10, // Random field position
+                                endYard: null // Calculated based on air yards
+                            });
+                        }
+                        
+                        // Add incomplete targets
+                        const incompletions = recStats.targets - recStats.receptions;
+                        for (let i = 0; i < incompletions; i++) {
+                            passes.push({
+                                qb: qbName,
+                                receiver: receiver,
+                                team: team,
+                                teamColor: teamColor,
+                                complete: false,
+                                airYards: 12, // Estimated
+                                totalYards: 0,
+                                yac: 0,
+                                startYard: Math.random() * 80 + 10,
+                                endYard: null
+                            });
+                        }
+                    }
+                }
+                
+                // Calculate end yards
+                passes.forEach(pass => {
+                    pass.endYard = pass.startYard + (pass.airYards * (pass.team === 'Ohio State' ? 1 : -1));
+                    pass.endYard = Math.max(0, Math.min(100, pass.endYard));
+                });
+                
+                passData = passes;
+                drawField();
+                updateStats();
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('playCounter').textContent = 'Error loading data';
+            }
+        }
+
+        function drawField() {
+            const field = document.getElementById('field');
+            const svg = field.querySelector('svg');
+            const fieldHeight = field.offsetHeight;
+            const fieldWidth = field.offsetWidth;
+            
+            // Draw yard lines
+            for (let i = 0; i <= 100; i += 10) {
+                const yPos = (i / 100) * fieldHeight;
+                
+                // Major yard line
+                const line = document.createElement('div');
+                line.className = 'yard-line';
+                line.style.top = yPos + 'px';
+                if (i % 10 === 0) {
+                    line.style.height = '3px';
+                    line.style.background = 'rgba(255, 255, 255, 0.6)';
+                }
+                field.appendChild(line);
+                
+                // Yard numbers
+                if (i > 0 && i < 100 && i % 10 === 0) {
+                    const yardNum = i <= 50 ? i : 100 - i;
+                    
+                    const numLeft = document.createElement('div');
+                    numLeft.className = 'yard-number';
+                    numLeft.textContent = yardNum;
+                    numLeft.style.top = (yPos - 20) + 'px';
+                    numLeft.style.left = '30px';
+                    field.appendChild(numLeft);
+                    
+                    const numRight = document.createElement('div');
+                    numRight.className = 'yard-number';
+                    numRight.textContent = yardNum;
+                    numRight.style.top = (yPos - 20) + 'px';
+                    numRight.style.right = '30px';
+                    field.appendChild(numRight);
+                }
+            }
+            
+            // Draw passes
+            const filteredPasses = getFilteredPasses();
+            
+            filteredPasses.forEach((pass, index) => {
+                setTimeout(() => {
+                    drawPass(pass, svg, fieldHeight, fieldWidth);
+                }, animationEnabled ? index * 50 : 0);
+            });
+            
+            document.getElementById('playCounter').textContent = `${filteredPasses.length} Passes`;
+        }
+
+        function drawPass(pass, svg, fieldHeight, fieldWidth) {
+            const startY = (pass.startYard / 100) * fieldHeight;
+            const endY = (pass.endYard / 100) * fieldHeight;
+            const startX = fieldWidth * 0.5 + (Math.random() - 0.5) * fieldWidth * 0.3;
+            const endX = fieldWidth * 0.5 + (Math.random() - 0.5) * fieldWidth * 0.6;
+            
+            // Calculate arc control point for 3D effect
+            const midX = (startX + endX) / 2;
+            const midY = (startY + endY) / 2;
+            const arcHeight = Math.abs(endY - startY) * 0.3;
+            const controlY = midY - arcHeight;
+            
+            // Create SVG path for arc
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            const pathData = `M ${startX} ${startY} Q ${midX} ${controlY} ${endX} ${endY}`;
+            path.setAttribute('d', pathData);
+            path.setAttribute('class', 'pass-arc');
+            path.setAttribute('stroke', pass.complete ? 'url(#completeGradient)' : 'url(#incompleteGradient)');
+            path.setAttribute('data-pass', JSON.stringify(pass));
+            
+            svg.appendChild(path);
+            
+            // Start point
+            const startPoint = document.createElement('div');
+            startPoint.className = 'pass-point ' + (pass.complete ? 'complete' : 'incomplete');
+            startPoint.style.left = startX + 'px';
+            startPoint.style.top = startY + 'px';
+            startPoint.style.background = pass.teamColor;
+            startPoint.setAttribute('data-pass', JSON.stringify(pass));
+            startPoint.onmouseenter = (e) => showTooltip(e, pass);
+            startPoint.onmouseleave = hideTooltip;
+            
+            svg.parentElement.appendChild(startPoint);
+            
+            // End point
+            const endPoint = document.createElement('div');
+            endPoint.className = 'pass-point ' + (pass.complete ? 'complete' : 'incomplete');
+            endPoint.style.left = endX + 'px';
+            endPoint.style.top = endY + 'px';
+            endPoint.style.background = pass.complete ? '#22d3ee' : '#f43f5e';
+            endPoint.setAttribute('data-pass', JSON.stringify(pass));
+            endPoint.onmouseenter = (e) => showTooltip(e, pass);
+            endPoint.onmouseleave = hideTooltip;
+            
+            svg.parentElement.appendChild(endPoint);
+        }
+
+        function showTooltip(e, pass) {
+            const tooltip = document.getElementById('tooltip');
+            const title = document.getElementById('tooltipTitle');
+            const content = document.getElementById('tooltipContent');
+            
+            title.textContent = `${pass.qb} ➜ ${pass.receiver}`;
+            content.innerHTML = `
+                <div><strong>Team:</strong> ${pass.team}</div>
+                <div><strong>Result:</strong> ${pass.complete ? '✅ Complete' : '❌ Incomplete'}</div>
+                <div><strong>Air Yards:</strong> ${pass.airYards.toFixed(1)} yds</div>
+                ${pass.complete ? `<div><strong>Total Yards:</strong> ${pass.totalYards.toFixed(1)} yds</div>` : ''}
+                ${pass.complete ? `<div><strong>YAC:</strong> ${pass.yac.toFixed(1)} yds</div>` : ''}
+            `;
+            
+            tooltip.style.left = (e.pageX + 15) + 'px';
+            tooltip.style.top = (e.pageY + 15) + 'px';
+            tooltip.classList.add('show');
+        }
+
+        function hideTooltip() {
+            document.getElementById('tooltip').classList.remove('show');
+        }
+
+        function getFilteredPasses() {
+            return passData.filter(pass => {
+                if (currentFilter === 'all') return true;
+                if (currentFilter === 'complete') return pass.complete;
+                if (currentFilter === 'incomplete') return !pass.complete;
+                if (currentFilter === 'utah') return pass.team === 'Utah';
+                if (currentFilter === 'ohio') return pass.team === 'Ohio State';
+                if (currentFilter === 'deep') return pass.airYards >= 15;
+                return true;
+            });
+        }
+
+        function filterPasses(filter) {
+            currentFilter = filter;
+            
+            // Update button states
+            document.querySelectorAll('.controls .btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('btn-secondary');
+                btn.classList.remove('btn-primary');
+            });
+            event.target.classList.add('active');
+            event.target.classList.add('btn-primary');
+            event.target.classList.remove('btn-secondary');
+            
+            // Clear and redraw
+            const field = document.getElementById('field');
+            field.querySelectorAll('.pass-arc, .pass-point').forEach(el => el.remove());
+            
+            drawField();
+            updateStats();
+        }
+
+        function toggleAnimation() {
+            animationEnabled = !animationEnabled;
+            event.target.textContent = animationEnabled ? '🎬 Animation: ON' : '🎬 Animation: OFF';
+        }
+
+        function updateStats() {
+            const filtered = getFilteredPasses();
+            const completions = filtered.filter(p => p.complete).length;
+            const totalAirYards = filtered.reduce((sum, p) => sum + p.airYards, 0);
+            const deepShots = filtered.filter(p => p.airYards >= 15).length;
+            
+            document.getElementById('totalPasses').textContent = filtered.length;
+            document.getElementById('avgAirYards').textContent = filtered.length > 0 ? (totalAirYards / filtered.length).toFixed(1) : '0';
+            document.getElementById('compPct').textContent = filtered.length > 0 ? ((completions / filtered.length) * 100).toFixed(1) + '%' : '0%';
+            document.getElementById('deepShots').textContent = deepShots;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPassData();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const field = document.getElementById('field');
+            field.querySelectorAll('.pass-arc, .pass-point, .yard-line, .yard-number').forEach(el => el.remove());
+            drawField();
+        });
+    </script>
+</body>
+</html>

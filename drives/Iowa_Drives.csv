@@ -1,0 +1,258 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017527991,401752799,Iowa,Big Ten,UAlbany,CAA,1,True,1,35,65,"{'minutes': 15, 'seconds': 0}",1,90,10,"{'minutes': 8, 'seconds': 51}","{'minutes': 6, 'seconds': 9}",13,55,FG,True,0,0,3,0
+4017527992,401752799,UAlbany,CAA,Iowa,Big Ten,2,False,1,75,75,"{'minutes': 8, 'seconds': 51}",1,67,67,"{'minutes': 6, 'seconds': 42}","{'minutes': 2, 'seconds': 9}",3,8,PUNT,False,0,3,0,3
+4017527993,401752799,Iowa,Big Ten,UAlbany,CAA,3,False,1,25,75,"{'minutes': 6, 'seconds': 42}",1,21,79,"{'minutes': 4, 'seconds': 37}","{'minutes': 2, 'seconds': 5}",3,-4,PUNT,True,3,0,3,0
+4017527994,401752799,UAlbany,CAA,Iowa,Big Ten,4,False,1,68,68,"{'minutes': 4, 'seconds': 37}",1,50,50,"{'minutes': 2, 'seconds': 19}","{'minutes': 2, 'seconds': 18}",7,18,PUNT,False,0,3,0,3
+4017527995,401752799,Iowa,Big Ten,UAlbany,CAA,5,False,1,15,85,"{'minutes': 2, 'seconds': 19}",1,15,85,"{'minutes': 1, 'seconds': 24}","{'minutes': 0, 'seconds': 55}",3,0,PUNT,True,3,0,3,0
+4017527996,401752799,UAlbany,CAA,Iowa,Big Ten,6,True,1,68,68,"{'minutes': 1, 'seconds': 24}",2,0,0,"{'minutes': 11, 'seconds': 33}","{'minutes': 4, 'seconds': 51}",9,68,TD,False,0,3,7,3
+4017527997,401752799,Iowa,Big Ten,UAlbany,CAA,7,True,2,35,65,"{'minutes': 11, 'seconds': 33}",2,100,0,"{'minutes': 7, 'seconds': 28}","{'minutes': 4, 'seconds': 5}",7,65,TD,True,3,7,10,7
+4017527998,401752799,UAlbany,CAA,Iowa,Big Ten,8,False,2,85,85,"{'minutes': 7, 'seconds': 22}",2,62,62,"{'minutes': 4, 'seconds': 40}","{'minutes': 2, 'seconds': 42}",5,23,PUNT,False,7,10,7,10
+4017527999,401752799,Iowa,Big Ten,UAlbany,CAA,9,True,2,39,61,"{'minutes': 4, 'seconds': 40}",2,100,0,"{'minutes': 1, 'seconds': 51}","{'minutes': 2, 'seconds': 49}",7,61,TD,True,10,7,17,7
+40175279910,401752799,UAlbany,CAA,Iowa,Big Ten,10,False,2,75,75,"{'minutes': 1, 'seconds': 51}",2,48,48,"{'minutes': 0, 'seconds': 8}","{'minutes': 1, 'seconds': 43}",4,27,PUNT,False,7,17,7,17
+40175279911,401752799,Iowa,Big Ten,UAlbany,CAA,11,False,2,9,91,"{'minutes': 0, 'seconds': 8}",2,13,87,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 8}",1,4,END OF HALF,True,17,7,17,7
+40175279912,401752799,UAlbany,CAA,Iowa,Big Ten,12,False,3,85,85,"{'minutes': 14, 'seconds': 56}",3,76,76,"{'minutes': 13, 'seconds': 55}","{'minutes': 1, 'seconds': 1}",3,9,PUNT,False,7,17,7,17
+40175279913,401752799,Iowa,Big Ten,UAlbany,CAA,13,True,3,40,60,"{'minutes': 13, 'seconds': 55}",3,100,0,"{'minutes': 5, 'seconds': 27}","{'minutes': 8, 'seconds': 28}",14,60,TD,True,17,7,24,7
+40175279914,401752799,UAlbany,CAA,Iowa,Big Ten,14,False,3,75,75,"{'minutes': 5, 'seconds': 27}",3,74,74,"{'minutes': 4, 'seconds': 16}","{'minutes': 1, 'seconds': 11}",3,1,PUNT,False,7,24,7,24
+40175279915,401752799,Iowa,Big Ten,UAlbany,CAA,15,True,3,14,86,"{'minutes': 4, 'seconds': 16}",4,63,37,"{'minutes': 14, 'seconds': 18}","{'minutes': 4, 'seconds': 58}",10,49,FG,True,24,7,27,7
+40175279916,401752799,UAlbany,CAA,Iowa,Big Ten,16,False,4,80,80,"{'minutes': 14, 'seconds': 13}",4,70,70,"{'minutes': 10, 'seconds': 36}","{'minutes': 3, 'seconds': 37}",5,10,PUNT,False,7,27,7,27
+40175279917,401752799,Iowa,Big Ten,UAlbany,CAA,17,True,4,34,66,"{'minutes': 10, 'seconds': 36}",4,100,0,"{'minutes': 3, 'seconds': 42}","{'minutes': 6, 'seconds': 54}",12,66,TD,True,27,7,34,7
+40175279918,401752799,UAlbany,CAA,Iowa,Big Ten,18,False,4,75,75,"{'minutes': 3, 'seconds': 42}",4,82,82,"{'minutes': 1, 'seconds': 50}","{'minutes': 1, 'seconds': 52}",3,-7,PUNT,False,7,34,7,34
+40175279919,401752799,Iowa,Big Ten,UAlbany,CAA,19,False,4,53,47,"{'minutes': 1, 'seconds': 50}",4,50,50,"{'minutes': 1, 'seconds': 44}","{'minutes': 0, 'seconds': 6}",1,-3,FUMBLE,True,34,7,34,7
+40175279920,401752799,UAlbany,CAA,Iowa,Big Ten,20,False,4,50,50,"{'minutes': 1, 'seconds': 44}",4,30,30,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 44}",5,20,END OF GAME,False,7,34,7,34
+4017528221,401752822,Iowa,Big Ten,Iowa State,Big 12,1,False,1,87,87,"{'minutes': 14, 'seconds': 55}",1,78,78,"{'minutes': 12, 'seconds': 41}","{'minutes': 2, 'seconds': 14}",3,9,PUNT,False,0,0,0,0
+4017528222,401752822,Iowa State,Big 12,Iowa,Big Ten,2,True,1,45,55,"{'minutes': 12, 'seconds': 41}",1,74,26,"{'minutes': 8, 'seconds': 42}","{'minutes': 3, 'seconds': 59}",8,29,FG,True,0,0,3,0
+4017528223,401752822,Iowa,Big Ten,Iowa State,Big 12,3,False,1,75,75,"{'minutes': 8, 'seconds': 42}",1,78,78,"{'minutes': 7, 'seconds': 9}","{'minutes': 1, 'seconds': 33}",3,-3,PUNT,False,0,3,0,3
+4017528224,401752822,Iowa State,Big 12,Iowa,Big Ten,4,True,1,24,76,"{'minutes': 7, 'seconds': 9}",1,91,9,"{'minutes': 3, 'seconds': 18}","{'minutes': 3, 'seconds': 51}",10,67,FG,True,3,0,6,0
+4017528225,401752822,Iowa,Big Ten,Iowa State,Big 12,5,False,1,75,75,"{'minutes': 3, 'seconds': 18}",1,76,76,"{'minutes': 0, 'seconds': 3}","{'minutes': 3, 'seconds': 15}",6,-1,PUNT,False,0,6,0,6
+4017528226,401752822,Iowa,Big Ten,Iowa State,Big 12,6,True,1,33,33,"{'minutes': 0, 'seconds': 3}",2,12,12,"{'minutes': 12, 'seconds': 53}","{'minutes': 2, 'seconds': 10}",5,21,FG,False,0,6,3,6
+4017528227,401752822,Iowa State,Big 12,Iowa,Big Ten,7,False,2,25,75,"{'minutes': 12, 'seconds': 53}",2,30,70,"{'minutes': 10, 'seconds': 53}","{'minutes': 2, 'seconds': 0}",3,5,PUNT,True,6,3,6,3
+4017528228,401752822,Iowa,Big Ten,Iowa State,Big 12,8,False,2,70,70,"{'minutes': 10, 'seconds': 53}",2,65,65,"{'minutes': 9, 'seconds': 41}","{'minutes': 1, 'seconds': 12}",3,15,PUNT,False,3,6,3,6
+4017528229,401752822,Iowa State,Big 12,Iowa,Big Ten,9,False,2,10,90,"{'minutes': 9, 'seconds': 41}",2,18,82,"{'minutes': 8, 'seconds': 14}","{'minutes': 1, 'seconds': 27}",3,8,PUNT,True,6,3,6,3
+40175282210,401752822,Iowa,Big Ten,Iowa State,Big 12,10,False,2,65,65,"{'minutes': 8, 'seconds': 14}",2,67,67,"{'minutes': 7, 'seconds': 35}","{'minutes': 0, 'seconds': 39}",2,-2,INT,False,3,6,3,6
+40175282211,401752822,Iowa State,Big 12,Iowa,Big Ten,11,True,2,82,18,"{'minutes': 7, 'seconds': 35}",2,100,0,"{'minutes': 4, 'seconds': 50}","{'minutes': 2, 'seconds': 45}",5,18,TD,True,6,3,13,3
+40175282212,401752822,Iowa,Big Ten,Iowa State,Big 12,12,True,2,85,85,"{'minutes': 4, 'seconds': 43}",2,0,0,"{'minutes': 0, 'seconds': 27}","{'minutes': 4, 'seconds': 16}",16,85,TD,False,3,13,10,13
+40175282213,401752822,Iowa State,Big 12,Iowa,Big Ten,13,False,2,25,75,"{'minutes': 0, 'seconds': 27}",2,35,65,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 27}",1,10,END OF HALF,True,13,10,13,10
+40175282214,401752822,Iowa State,Big 12,Iowa,Big Ten,14,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,23,77,"{'minutes': 13, 'seconds': 56}","{'minutes': 1, 'seconds': 4}",3,-2,PUNT,True,13,10,13,10
+40175282215,401752822,Iowa,Big Ten,Iowa State,Big 12,15,True,3,95,95,"{'minutes': 13, 'seconds': 56}",3,18,18,"{'minutes': 4, 'seconds': 28}","{'minutes': 9, 'seconds': 28}",16,77,FG,False,10,13,13,13
+40175282216,401752822,Iowa State,Big 12,Iowa,Big Ten,16,False,3,3,97,"{'minutes': 4, 'seconds': 27}",4,56,44,"{'minutes': 13, 'seconds': 27}","{'minutes': 6, 'seconds': 0}",12,53,PUNT,True,13,13,13,13
+40175282217,401752822,Iowa,Big Ten,Iowa State,Big 12,17,False,4,89,89,"{'minutes': 13, 'seconds': 27}",4,49,49,"{'minutes': 8, 'seconds': 21}","{'minutes': 5, 'seconds': 6}",7,40,PUNT,False,13,13,13,13
+40175282218,401752822,Iowa State,Big 12,Iowa,Big Ten,18,True,4,10,90,"{'minutes': 8, 'seconds': 21}",4,65,35,"{'minutes': 1, 'seconds': 52}","{'minutes': 6, 'seconds': 29}",13,55,FG,True,13,13,16,13
+40175282219,401752822,Iowa,Big Ten,Iowa State,Big 12,19,False,4,76,76,"{'minutes': 1, 'seconds': 48}",4,81,81,"{'minutes': 0, 'seconds': 49}","{'minutes': 0, 'seconds': 59}",4,-5,DOWNS,False,13,16,13,16
+40175282220,401752822,Iowa State,Big 12,Iowa,Big Ten,20,False,4,81,19,"{'minutes': 0, 'seconds': 49}",4,81,19,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 49}",2,0,END OF GAME,True,16,13,16,13
+4017528301,401752830,Iowa,Big Ten,Massachusetts,Mid-American,1,True,1,32,68,"{'minutes': 14, 'seconds': 54}",1,100,0,"{'minutes': 13, 'seconds': 29}","{'minutes': 1, 'seconds': 25}",3,68,TD,True,0,0,7,0
+4017528302,401752830,Massachusetts,Mid-American,Iowa,Big Ten,2,False,1,75,75,"{'minutes': 13, 'seconds': 29}",1,79,79,"{'minutes': 11, 'seconds': 13}","{'minutes': 2, 'seconds': 16}",3,-4,PUNT,False,0,7,0,7
+4017528303,401752830,Iowa,Big Ten,Massachusetts,Mid-American,3,True,1,61,39,"{'minutes': 11, 'seconds': 13}",1,100,0,"{'minutes': 7, 'seconds': 41}","{'minutes': 3, 'seconds': 32}",7,39,TD,True,7,0,13,0
+4017528304,401752830,Massachusetts,Mid-American,Iowa,Big Ten,4,False,1,75,75,"{'minutes': 7, 'seconds': 41}",1,76,76,"{'minutes': 5, 'seconds': 33}","{'minutes': 2, 'seconds': 8}",3,-1,PUNT,False,0,13,0,13
+4017528305,401752830,Iowa,Big Ten,Massachusetts,Mid-American,5,True,1,48,52,"{'minutes': 5, 'seconds': 33}",1,100,0,"{'minutes': 2, 'seconds': 8}","{'minutes': 3, 'seconds': 25}",7,52,TD,True,13,0,20,0
+4017528306,401752830,Massachusetts,Mid-American,Iowa,Big Ten,6,False,1,75,75,"{'minutes': 2, 'seconds': 8}",1,85,85,"{'minutes': 0, 'seconds': 24}","{'minutes': 1, 'seconds': 44}",3,-10,PUNT,False,0,20,0,20
+4017528307,401752830,Iowa,Big Ten,Massachusetts,Mid-American,7,False,1,48,52,"{'minutes': 0, 'seconds': 24}",2,54,46,"{'minutes': 14, 'seconds': 10}","{'minutes': 1, 'seconds': 14}",3,6,PUNT,True,20,0,20,0
+4017528308,401752830,Massachusetts,Mid-American,Iowa,Big Ten,8,True,2,21,21,"{'minutes': 14, 'seconds': 10}",2,0,0,"{'minutes': 11, 'seconds': 50}","{'minutes': 2, 'seconds': 20}",4,21,TD,False,0,20,7,20
+4017528309,401752830,Iowa,Big Ten,Massachusetts,Mid-American,9,True,2,34,66,"{'minutes': 11, 'seconds': 43}",2,64,36,"{'minutes': 9, 'seconds': 50}","{'minutes': 1, 'seconds': 53}",6,30,FG,True,20,7,23,7
+40175283010,401752830,Massachusetts,Mid-American,Iowa,Big Ten,10,False,2,75,75,"{'minutes': 9, 'seconds': 50}",2,87,87,"{'minutes': 7, 'seconds': 24}","{'minutes': 2, 'seconds': 26}",3,-12,PUNT,False,7,23,7,23
+40175283011,401752830,Iowa,Big Ten,Massachusetts,Mid-American,11,False,2,78,22,"{'minutes': 7, 'seconds': 24}",2,80,20,"{'minutes': 5, 'seconds': 56}","{'minutes': 1, 'seconds': 28}",4,2,MISSED FG,True,23,7,23,7
+40175283012,401752830,Massachusetts,Mid-American,Iowa,Big Ten,12,False,2,80,80,"{'minutes': 5, 'seconds': 56}",2,51,51,"{'minutes': 1, 'seconds': 28}","{'minutes': 4, 'seconds': 28}",8,29,DOWNS,False,7,23,7,23
+40175283013,401752830,Iowa,Big Ten,Massachusetts,Mid-American,13,True,2,51,49,"{'minutes': 1, 'seconds': 28}",2,100,0,"{'minutes': 0, 'seconds': 26}","{'minutes': 1, 'seconds': 2}",7,49,TD,True,23,7,30,7
+40175283014,401752830,Massachusetts,Mid-American,Iowa,Big Ten,14,False,2,75,75,"{'minutes': 0, 'seconds': 26}",2,69,69,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 26}",1,6,END OF HALF,False,7,30,7,30
+40175283015,401752830,Massachusetts,Mid-American,Iowa,Big Ten,15,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,64,64,"{'minutes': 12, 'seconds': 39}","{'minutes': 2, 'seconds': 21}",5,11,PUNT RETURN TD,False,7,30,7,37
+40175283016,401752830,Massachusetts,Mid-American,Iowa,Big Ten,16,False,3,75,75,"{'minutes': 12, 'seconds': 39}",3,72,72,"{'minutes': 11, 'seconds': 9}","{'minutes': 1, 'seconds': 30}",3,3,PUNT,False,7,37,7,37
+40175283017,401752830,Iowa,Big Ten,Massachusetts,Mid-American,17,True,3,30,70,"{'minutes': 11, 'seconds': 9}",3,91,9,"{'minutes': 2, 'seconds': 58}","{'minutes': 8, 'seconds': 11}",16,61,FG,True,37,7,40,7
+40175283018,401752830,Massachusetts,Mid-American,Iowa,Big Ten,18,False,3,75,75,"{'minutes': 2, 'seconds': 58}",3,43,43,"{'minutes': 0, 'seconds': 9}","{'minutes': 2, 'seconds': 49}",7,32,DOWNS,False,7,40,7,40
+40175283019,401752830,Iowa,Big Ten,Massachusetts,Mid-American,19,True,3,43,57,"{'minutes': 0, 'seconds': 9}",4,100,0,"{'minutes': 11, 'seconds': 4}","{'minutes': 4, 'seconds': 5}",10,57,TD,True,40,7,47,7
+40175283020,401752830,Massachusetts,Mid-American,Iowa,Big Ten,20,False,4,75,75,"{'minutes': 11, 'seconds': 4}",4,51,51,"{'minutes': 9, 'seconds': 1}","{'minutes': 2, 'seconds': 3}",4,24,PUNT,False,7,47,7,47
+40175283021,401752830,Iowa,Big Ten,Massachusetts,Mid-American,21,False,4,23,77,"{'minutes': 9, 'seconds': 1}",4,89,11,"{'minutes': 3, 'seconds': 25}","{'minutes': 5, 'seconds': 36}",11,66,DOWNS,True,47,7,47,7
+40175283022,401752830,Massachusetts,Mid-American,Iowa,Big Ten,22,False,4,89,89,"{'minutes': 3, 'seconds': 25}",4,74,74,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 25}",5,15,END OF GAME,False,7,47,7,47
+4017528441,401752844,Rutgers,Big Ten,Iowa,Big Ten,1,True,1,25,75,"{'minutes': 14, 'seconds': 48}",1,100,0,"{'minutes': 12, 'seconds': 39}","{'minutes': 2, 'seconds': 9}",6,75,TD,True,0,7,7,8
+4017528442,401752844,Iowa,Big Ten,Rutgers,Big Ten,2,False,1,75,75,"{'minutes': 12, 'seconds': 39}",1,79,79,"{'minutes': 11, 'seconds': 34}","{'minutes': 1, 'seconds': 5}",3,-4,PUNT,False,7,7,7,7
+4017528443,401752844,Rutgers,Big Ten,Iowa,Big Ten,3,True,1,37,63,"{'minutes': 11, 'seconds': 34}",1,100,0,"{'minutes': 6, 'seconds': 3}","{'minutes': 5, 'seconds': 31}",12,63,TD,True,7,7,14,7
+4017528444,401752844,Iowa,Big Ten,Rutgers,Big Ten,4,True,1,75,75,"{'minutes': 6, 'seconds': 3}",1,0,0,"{'minutes': 2, 'seconds': 24}","{'minutes': 3, 'seconds': 39}",6,75,TD,False,7,14,14,14
+4017528445,401752844,Rutgers,Big Ten,Iowa,Big Ten,5,True,1,25,75,"{'minutes': 2, 'seconds': 24}",2,100,0,"{'minutes': 12, 'seconds': 7}","{'minutes': 5, 'seconds': 17}",9,75,TD,True,14,14,21,14
+4017528446,401752844,Iowa,Big Ten,Rutgers,Big Ten,6,True,2,73,73,"{'minutes': 12, 'seconds': 8}",2,0,0,"{'minutes': 8, 'seconds': 0}","{'minutes': 4, 'seconds': 8}",7,73,TD,False,14,21,21,21
+4017528447,401752844,Rutgers,Big Ten,Iowa,Big Ten,7,False,2,25,75,"{'minutes': 8, 'seconds': 0}",2,81,19,"{'minutes': 2, 'seconds': 40}","{'minutes': 5, 'seconds': 20}",12,56,MISSED FG,True,21,21,21,21
+4017528448,401752844,Iowa,Big Ten,Rutgers,Big Ten,8,False,2,80,80,"{'minutes': 2, 'seconds': 40}",2,53,53,"{'minutes': 1, 'seconds': 14}","{'minutes': 1, 'seconds': 26}",6,27,PUNT,False,21,21,21,21
+4017528449,401752844,Rutgers,Big Ten,Iowa,Big Ten,9,False,2,11,89,"{'minutes': 1, 'seconds': 14}",2,20,80,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 14}",3,9,PUNT,True,21,21,21,21
+40175284410,401752844,Rutgers,Big Ten,Iowa,Big Ten,10,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,26,74,"{'minutes': 13, 'seconds': 46}","{'minutes': 1, 'seconds': 14}",3,1,PUNT,True,21,21,21,21
+40175284411,401752844,Iowa,Big Ten,Rutgers,Big Ten,11,False,3,65,65,"{'minutes': 13, 'seconds': 46}",3,22,22,"{'minutes': 9, 'seconds': 37}","{'minutes': 4, 'seconds': 9}",8,43,MISSED FG,False,21,21,21,21
+40175284412,401752844,Rutgers,Big Ten,Iowa,Big Ten,12,False,3,22,78,"{'minutes': 9, 'seconds': 37}",3,28,72,"{'minutes': 8, 'seconds': 37}","{'minutes': 1, 'seconds': 0}",3,6,PUNT,True,21,21,21,21
+40175284413,401752844,Iowa,Big Ten,Rutgers,Big Ten,13,False,3,96,96,"{'minutes': 8, 'seconds': 37}",3,97,97,"{'minutes': 6, 'seconds': 30}","{'minutes': 2, 'seconds': 7}",3,-1,PUNT,False,21,21,21,21
+40175284414,401752844,Rutgers,Big Ten,Iowa,Big Ten,14,False,3,43,57,"{'minutes': 6, 'seconds': 30}",3,89,11,"{'minutes': 3, 'seconds': 46}","{'minutes': 2, 'seconds': 44}",6,46,MISSED FG,True,21,21,21,21
+40175284415,401752844,Iowa,Big Ten,Rutgers,Big Ten,15,True,3,77,77,"{'minutes': 3, 'seconds': 46}",4,8,8,"{'minutes': 14, 'seconds': 2}","{'minutes': 4, 'seconds': 44}",10,69,FG,False,21,21,24,21
+40175284416,401752844,Rutgers,Big Ten,Iowa,Big Ten,16,True,4,25,75,"{'minutes': 14, 'seconds': 2}",4,100,0,"{'minutes': 9, 'seconds': 44}","{'minutes': 4, 'seconds': 18}",9,75,TD,True,21,24,28,24
+40175284417,401752844,Iowa,Big Ten,Rutgers,Big Ten,17,True,4,80,80,"{'minutes': 9, 'seconds': 34}",4,0,0,"{'minutes': 5, 'seconds': 39}","{'minutes': 3, 'seconds': 55}",7,80,TD,False,24,28,31,28
+40175284418,401752844,Rutgers,Big Ten,Iowa,Big Ten,18,False,4,25,75,"{'minutes': 5, 'seconds': 39}",4,27,73,"{'minutes': 4, 'seconds': 18}","{'minutes': 1, 'seconds': 21}",3,2,INT,True,28,31,28,31
+40175284419,401752844,Iowa,Big Ten,Rutgers,Big Ten,19,True,4,35,35,"{'minutes': 4, 'seconds': 18}",4,0,0,"{'minutes': 2, 'seconds': 14}","{'minutes': 2, 'seconds': 4}",6,35,TD,False,31,28,38,28
+40175284420,401752844,Rutgers,Big Ten,Iowa,Big Ten,20,False,4,25,75,"{'minutes': 2, 'seconds': 14}",4,42,58,"{'minutes': 1, 'seconds': 28}","{'minutes': 0, 'seconds': 46}",6,17,DOWNS,True,28,38,28,38
+40175284421,401752844,Iowa,Big Ten,Rutgers,Big Ten,21,False,4,42,42,"{'minutes': 1, 'seconds': 28}",4,48,48,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 28}",2,-6,END OF GAME,False,38,28,38,28
+4017528531,401752853,Iowa,Big Ten,Indiana,Big Ten,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,26,74,"{'minutes': 14, 'seconds': 16}","{'minutes': 0, 'seconds': 44}",2,1,INT,True,0,0,0,0
+4017528532,401752853,Indiana,Big Ten,Iowa,Big Ten,2,True,1,24,24,"{'minutes': 14, 'seconds': 16}",1,0,0,"{'minutes': 13, 'seconds': 33}","{'minutes': 0, 'seconds': 43}",2,24,TD,False,0,0,7,0
+4017528533,401752853,Iowa,Big Ten,Indiana,Big Ten,3,False,1,25,75,"{'minutes': 13, 'seconds': 33}",1,38,62,"{'minutes': 10, 'seconds': 52}","{'minutes': 2, 'seconds': 41}",5,13,PUNT,True,0,7,0,7
+4017528534,401752853,Indiana,Big Ten,Iowa,Big Ten,4,False,1,85,85,"{'minutes': 10, 'seconds': 52}",1,82,82,"{'minutes': 8, 'seconds': 42}","{'minutes': 2, 'seconds': 10}",3,3,PUNT,False,7,0,7,0
+4017528535,401752853,Iowa,Big Ten,Indiana,Big Ten,5,True,1,55,45,"{'minutes': 8, 'seconds': 42}",1,78,22,"{'minutes': 6, 'seconds': 25}","{'minutes': 2, 'seconds': 17}",5,23,FG,True,0,7,3,7
+4017528536,401752853,Indiana,Big Ten,Iowa,Big Ten,6,False,1,75,75,"{'minutes': 6, 'seconds': 25}",1,57,57,"{'minutes': 3, 'seconds': 1}","{'minutes': 3, 'seconds': 24}",6,18,PUNT,False,7,3,7,3
+4017528537,401752853,Iowa,Big Ten,Indiana,Big Ten,7,False,1,21,79,"{'minutes': 3, 'seconds': 1}",2,60,40,"{'minutes': 11, 'seconds': 5}","{'minutes': 6, 'seconds': 56}",12,39,PUNT,True,3,7,3,7
+4017528538,401752853,Indiana,Big Ten,Iowa,Big Ten,8,False,2,97,97,"{'minutes': 11, 'seconds': 5}",2,27,27,"{'minutes': 5, 'seconds': 53}","{'minutes': 5, 'seconds': 12}",10,70,DOWNS,False,7,3,7,3
+4017528539,401752853,Iowa,Big Ten,Indiana,Big Ten,9,True,2,27,73,"{'minutes': 5, 'seconds': 53}",2,100,0,"{'minutes': 0, 'seconds': 22}","{'minutes': 5, 'seconds': 31}",11,73,TD,True,3,7,10,7
+40175285310,401752853,Indiana,Big Ten,Iowa,Big Ten,10,True,2,75,75,"{'minutes': 0, 'seconds': 22}",2,28,28,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 19}",3,47,FG,False,7,10,10,10
+40175285311,401752853,Indiana,Big Ten,Iowa,Big Ten,11,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,48,48,"{'minutes': 11, 'seconds': 27}","{'minutes': 3, 'seconds': 33}",7,27,PUNT,False,10,10,10,10
+40175285312,401752853,Iowa,Big Ten,Indiana,Big Ten,12,False,3,10,90,"{'minutes': 11, 'seconds': 27}",3,29,71,"{'minutes': 9, 'seconds': 5}","{'minutes': 2, 'seconds': 22}",5,19,PUNT,True,10,10,10,10
+40175285313,401752853,Indiana,Big Ten,Iowa,Big Ten,13,False,3,58,58,"{'minutes': 9, 'seconds': 5}",3,55,55,"{'minutes': 8, 'seconds': 15}","{'minutes': 0, 'seconds': 50}",3,3,PUNT,False,10,10,10,10
+40175285314,401752853,Iowa,Big Ten,Indiana,Big Ten,14,False,3,18,82,"{'minutes': 8, 'seconds': 15}",3,56,44,"{'minutes': 3, 'seconds': 41}","{'minutes': 4, 'seconds': 34}",8,38,PUNT,True,10,10,10,10
+40175285315,401752853,Indiana,Big Ten,Iowa,Big Ten,15,False,3,86,86,"{'minutes': 3, 'seconds': 41}",4,53,53,"{'minutes': 14, 'seconds': 56}","{'minutes': 3, 'seconds': 45}",7,33,DOWNS,False,10,10,10,10
+40175285316,401752853,Iowa,Big Ten,Indiana,Big Ten,16,True,4,53,47,"{'minutes': 14, 'seconds': 56}",4,64,36,"{'minutes': 12, 'seconds': 43}","{'minutes': 2, 'seconds': 13}",5,11,FG,True,10,10,13,10
+40175285317,401752853,Indiana,Big Ten,Iowa,Big Ten,17,True,4,75,75,"{'minutes': 12, 'seconds': 43}",4,26,26,"{'minutes': 9, 'seconds': 47}","{'minutes': 2, 'seconds': 56}",8,49,FG,False,10,13,13,13
+40175285318,401752853,Iowa,Big Ten,Indiana,Big Ten,18,False,4,25,75,"{'minutes': 9, 'seconds': 47}",4,61,39,"{'minutes': 6, 'seconds': 27}","{'minutes': 3, 'seconds': 20}",6,36,INT,True,13,13,13,13
+40175285319,401752853,Indiana,Big Ten,Iowa,Big Ten,19,False,4,77,77,"{'minutes': 6, 'seconds': 27}",4,46,46,"{'minutes': 2, 'seconds': 50}","{'minutes': 3, 'seconds': 37}",6,31,INT,False,13,13,13,13
+40175285320,401752853,Iowa,Big Ten,Indiana,Big Ten,20,False,4,71,29,"{'minutes': 2, 'seconds': 50}",4,76,24,"{'minutes': 2, 'seconds': 1}","{'minutes': 0, 'seconds': 49}",4,5,MISSED FG,True,13,13,13,13
+40175285321,401752853,Indiana,Big Ten,Iowa,Big Ten,21,True,4,76,76,"{'minutes': 2, 'seconds': 1}",4,0,0,"{'minutes': 1, 'seconds': 28}","{'minutes': 0, 'seconds': 33}",5,76,TD,False,13,13,20,13
+40175285322,401752853,Iowa,Big Ten,Indiana,Big Ten,22,False,4,25,75,"{'minutes': 1, 'seconds': 28}",4,51,49,"{'minutes': 0, 'seconds': 16}","{'minutes': 1, 'seconds': 12}",9,26,DOWNS,True,13,20,13,20
+40175285323,401752853,Indiana,Big Ten,Iowa,Big Ten,23,True,4,51,51,"{'minutes': 0, 'seconds': 16}",4,100,100,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 16}",4,-49,SF,False,20,13,20,15
+4017528691,401752869,Iowa,Big Ten,Wisconsin,Big Ten,1,False,1,70,70,"{'minutes': 14, 'seconds': 55}",1,63,63,"{'minutes': 13, 'seconds': 23}","{'minutes': 1, 'seconds': 32}",3,7,PUNT,False,0,0,0,0
+4017528692,401752869,Wisconsin,Big Ten,Iowa,Big Ten,2,False,1,21,79,"{'minutes': 13, 'seconds': 23}",1,43,57,"{'minutes': 10, 'seconds': 2}","{'minutes': 3, 'seconds': 21}",7,22,PUNT,True,0,0,0,0
+4017528693,401752869,Iowa,Big Ten,Wisconsin,Big Ten,3,True,1,80,80,"{'minutes': 10, 'seconds': 2}",1,14,14,"{'minutes': 4, 'seconds': 33}","{'minutes': 5, 'seconds': 29}",11,66,FG,False,0,0,3,0
+4017528694,401752869,Wisconsin,Big Ten,Iowa,Big Ten,4,False,1,25,75,"{'minutes': 4, 'seconds': 33}",1,27,73,"{'minutes': 3, 'seconds': 52}","{'minutes': 0, 'seconds': 41}",2,2,INT,True,0,3,0,3
+4017528695,401752869,Iowa,Big Ten,Wisconsin,Big Ten,5,True,1,24,24,"{'minutes': 3, 'seconds': 52}",1,0,0,"{'minutes': 2, 'seconds': 33}","{'minutes': 1, 'seconds': 19}",3,24,TD,False,3,0,10,0
+4017528696,401752869,Wisconsin,Big Ten,Iowa,Big Ten,6,False,1,25,75,"{'minutes': 2, 'seconds': 33}",1,41,59,"{'minutes': 1, 'seconds': 45}","{'minutes': 0, 'seconds': 48}",2,16,INT,True,0,10,0,10
+4017528697,401752869,Iowa,Big Ten,Wisconsin,Big Ten,7,True,1,1,1,"{'minutes': 1, 'seconds': 45}",1,0,0,"{'minutes': 1, 'seconds': 30}","{'minutes': 0, 'seconds': 15}",1,1,TD,False,17,0,17,0
+4017528698,401752869,Wisconsin,Big Ten,Iowa,Big Ten,8,False,1,25,75,"{'minutes': 1, 'seconds': 30}",1,34,66,"{'minutes': 0, 'seconds': 4}","{'minutes': 1, 'seconds': 26}",3,9,PUNT,True,0,17,0,17
+4017528699,401752869,Iowa,Big Ten,Wisconsin,Big Ten,9,False,1,61,61,"{'minutes': 0, 'seconds': 4}",1,61,61,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 3}",1,0,INT,False,17,0,17,0
+40175286910,401752869,Wisconsin,Big Ten,Iowa,Big Ten,10,False,2,37,63,"{'minutes': 15, 'seconds': 0}",2,28,72,"{'minutes': 14, 'seconds': 10}","{'minutes': 0, 'seconds': 50}",2,-9,FUMBLE,True,0,17,0,17
+40175286911,401752869,Iowa,Big Ten,Wisconsin,Big Ten,11,True,2,28,28,"{'minutes': 14, 'seconds': 10}",2,6,6,"{'minutes': 8, 'seconds': 44}","{'minutes': 5, 'seconds': 26}",9,22,FG,False,17,0,20,0
+40175286912,401752869,Wisconsin,Big Ten,Iowa,Big Ten,12,False,2,31,69,"{'minutes': 8, 'seconds': 40}",2,63,37,"{'minutes': 5, 'seconds': 57}","{'minutes': 2, 'seconds': 43}",6,32,DOWNS,True,0,20,0,20
+40175286913,401752869,Iowa,Big Ten,Wisconsin,Big Ten,13,False,2,63,63,"{'minutes': 5, 'seconds': 57}",2,59,59,"{'minutes': 4, 'seconds': 16}","{'minutes': 1, 'seconds': 41}",3,4,PUNT,False,20,0,20,0
+40175286914,401752869,Wisconsin,Big Ten,Iowa,Big Ten,14,False,2,18,82,"{'minutes': 4, 'seconds': 16}",2,58,42,"{'minutes': 1, 'seconds': 40}","{'minutes': 2, 'seconds': 36}",6,40,PUNT,True,0,20,0,20
+40175286915,401752869,Iowa,Big Ten,Wisconsin,Big Ten,15,True,2,94,94,"{'minutes': 1, 'seconds': 40}",2,31,31,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 40}",9,63,FG,False,20,0,23,0
+40175286916,401752869,Wisconsin,Big Ten,Iowa,Big Ten,16,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,31,69,"{'minutes': 12, 'seconds': 59}","{'minutes': 2, 'seconds': 1}",3,6,PUNT,True,0,23,0,23
+40175286917,401752869,Iowa,Big Ten,Wisconsin,Big Ten,17,True,3,59,59,"{'minutes': 12, 'seconds': 59}",3,0,0,"{'minutes': 10, 'seconds': 34}","{'minutes': 2, 'seconds': 25}",5,59,TD,False,23,0,30,0
+40175286918,401752869,Wisconsin,Big Ten,Iowa,Big Ten,18,False,3,24,76,"{'minutes': 10, 'seconds': 25}",3,55,45,"{'minutes': 4, 'seconds': 30}","{'minutes': 5, 'seconds': 55}",10,31,DOWNS,True,0,30,0,30
+40175286919,401752869,Iowa,Big Ten,Wisconsin,Big Ten,19,False,3,55,55,"{'minutes': 4, 'seconds': 30}",3,44,44,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 30}",6,11,PUNT,False,30,0,30,0
+40175286920,401752869,Wisconsin,Big Ten,Iowa,Big Ten,20,False,4,12,88,"{'minutes': 15, 'seconds': 0}",4,28,72,"{'minutes': 12, 'seconds': 3}","{'minutes': 2, 'seconds': 57}",6,16,PUNT,True,0,30,0,30
+40175286921,401752869,Iowa,Big Ten,Wisconsin,Big Ten,21,True,4,46,46,"{'minutes': 12, 'seconds': 3}",4,0,0,"{'minutes': 7, 'seconds': 25}","{'minutes': 4, 'seconds': 38}",10,46,TD,False,30,0,37,0
+40175286922,401752869,Wisconsin,Big Ten,Iowa,Big Ten,22,False,4,20,80,"{'minutes': 7, 'seconds': 18}",4,35,65,"{'minutes': 4, 'seconds': 23}","{'minutes': 2, 'seconds': 55}",5,15,PUNT,True,0,37,0,37
+40175286923,401752869,Iowa,Big Ten,Wisconsin,Big Ten,23,False,4,81,81,"{'minutes': 4, 'seconds': 23}",4,75,75,"{'minutes': 2, 'seconds': 12}","{'minutes': 2, 'seconds': 11}",3,6,PUNT,False,37,0,37,0
+40175286924,401752869,Wisconsin,Big Ten,Iowa,Big Ten,24,False,4,41,59,"{'minutes': 2, 'seconds': 12}",4,65,35,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 12}",5,24,END OF GAME,True,0,37,0,37
+4017528751,401752875,Iowa,Big Ten,Penn State,Big Ten,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,28,72,"{'minutes': 14, 'seconds': 11}","{'minutes': 0, 'seconds': 49}",3,3,INT,True,0,0,0,0
+4017528752,401752875,Penn State,Big Ten,Iowa,Big Ten,2,True,1,35,35,"{'minutes': 14, 'seconds': 11}",1,0,0,"{'minutes': 8, 'seconds': 45}","{'minutes': 5, 'seconds': 26}",10,35,TD,False,0,0,7,0
+4017528753,401752875,Iowa,Big Ten,Penn State,Big Ten,3,True,1,25,75,"{'minutes': 8, 'seconds': 45}",1,79,21,"{'minutes': 4, 'seconds': 24}","{'minutes': 4, 'seconds': 21}",9,54,FG,True,0,7,3,7
+4017528754,401752875,Penn State,Big Ten,Iowa,Big Ten,4,False,1,90,90,"{'minutes': 4, 'seconds': 18}",1,82,82,"{'minutes': 2, 'seconds': 14}","{'minutes': 2, 'seconds': 4}",3,8,PUNT,False,7,3,7,3
+4017528755,401752875,Iowa,Big Ten,Penn State,Big Ten,5,False,1,65,35,"{'minutes': 2, 'seconds': 14}",1,72,28,"{'minutes': 0, 'seconds': 29}","{'minutes': 1, 'seconds': 45}",4,7,MISSED FG,True,3,7,3,7
+4017528756,401752875,Penn State,Big Ten,Iowa,Big Ten,6,False,1,72,72,"{'minutes': 0, 'seconds': 29}",2,79,79,"{'minutes': 14, 'seconds': 41}","{'minutes': 0, 'seconds': 48}",3,-7,PUNT,False,7,3,7,3
+4017528757,401752875,Iowa,Big Ten,Penn State,Big Ten,7,False,2,34,66,"{'minutes': 14, 'seconds': 41}",2,36,64,"{'minutes': 12, 'seconds': 30}","{'minutes': 2, 'seconds': 11}",3,2,PUNT,True,3,7,3,7
+4017528758,401752875,Penn State,Big Ten,Iowa,Big Ten,8,False,2,90,90,"{'minutes': 12, 'seconds': 30}",2,38,38,"{'minutes': 6, 'seconds': 14}","{'minutes': 6, 'seconds': 16}",12,52,INT,False,7,3,7,3
+4017528759,401752875,Iowa,Big Ten,Penn State,Big Ten,9,False,2,4,96,"{'minutes': 6, 'seconds': 14}",2,39,61,"{'minutes': 1, 'seconds': 50}","{'minutes': 4, 'seconds': 24}",8,35,PUNT,True,3,7,3,7
+40175287510,401752875,Penn State,Big Ten,Iowa,Big Ten,10,False,2,80,80,"{'minutes': 1, 'seconds': 50}",2,76,76,"{'minutes': 1, 'seconds': 28}","{'minutes': 0, 'seconds': 22}",3,4,INT,False,7,3,7,3
+40175287511,401752875,Iowa,Big Ten,Penn State,Big Ten,11,True,2,99,1,"{'minutes': 1, 'seconds': 28}",2,100,0,"{'minutes': 1, 'seconds': 14}","{'minutes': 0, 'seconds': 14}",2,1,TD,True,3,7,10,7
+40175287512,401752875,Penn State,Big Ten,Iowa,Big Ten,12,False,2,75,75,"{'minutes': 1, 'seconds': 14}",2,69,69,"{'minutes': 0, 'seconds': 47}","{'minutes': 0, 'seconds': 27}",3,6,PUNT,False,7,10,7,10
+40175287513,401752875,Iowa,Big Ten,Penn State,Big Ten,13,True,2,25,75,"{'minutes': 0, 'seconds': 47}",2,52,48,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 47}",5,27,MISSED FG TD,True,10,7,10,14
+40175287514,401752875,Penn State,Big Ten,Iowa,Big Ten,14,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,0,0,"{'minutes': 9, 'seconds': 25}","{'minutes': 5, 'seconds': 35}",10,75,TD,False,14,10,21,10
+40175287515,401752875,Iowa,Big Ten,Penn State,Big Ten,15,True,3,26,74,"{'minutes': 9, 'seconds': 18}",3,100,0,"{'minutes': 4, 'seconds': 19}","{'minutes': 4, 'seconds': 59}",8,74,TD,True,10,21,16,21
+40175287516,401752875,Penn State,Big Ten,Iowa,Big Ten,16,False,3,80,80,"{'minutes': 4, 'seconds': 13}",3,60,60,"{'minutes': 0, 'seconds': 12}","{'minutes': 4, 'seconds': 1}",7,20,DOWNS,False,21,16,21,16
+40175287517,401752875,Iowa,Big Ten,Penn State,Big Ten,17,True,3,60,40,"{'minutes': 0, 'seconds': 12}",4,87,13,"{'minutes': 13, 'seconds': 17}","{'minutes': 1, 'seconds': 55}",5,27,FG,True,16,21,19,21
+40175287518,401752875,Penn State,Big Ten,Iowa,Big Ten,18,True,4,75,75,"{'minutes': 13, 'seconds': 17}",4,14,14,"{'minutes': 4, 'seconds': 56}","{'minutes': 8, 'seconds': 21}",16,61,FG,False,21,19,24,19
+40175287519,401752875,Iowa,Big Ten,Penn State,Big Ten,19,True,4,25,75,"{'minutes': 4, 'seconds': 56}",4,100,0,"{'minutes': 3, 'seconds': 54}","{'minutes': 1, 'seconds': 2}",2,75,TD,True,19,24,25,24
+40175287520,401752875,Penn State,Big Ten,Iowa,Big Ten,20,False,4,78,78,"{'minutes': 3, 'seconds': 48}",4,51,51,"{'minutes': 1, 'seconds': 14}","{'minutes': 2, 'seconds': 34}",8,27,DOWNS,False,24,25,24,25
+40175287521,401752875,Iowa,Big Ten,Penn State,Big Ten,21,False,4,51,49,"{'minutes': 1, 'seconds': 14}",4,69,31,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 14}",4,18,END OF GAME,True,25,24,25,24
+4017528822,401752882,Iowa,Big Ten,Minnesota,Big Ten,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 10, 'seconds': 6}","{'minutes': 4, 'seconds': 54}",9,75,TD,True,0,0,7,0
+4017528824,401752882,Minnesota,Big Ten,Iowa,Big Ten,2,False,1,76,76,"{'minutes': 10, 'seconds': 0}",1,71,71,"{'minutes': 8, 'seconds': 23}","{'minutes': 1, 'seconds': 37}",3,5,PUNT,False,0,7,0,7
+4017528825,401752882,Iowa,Big Ten,Minnesota,Big Ten,3,True,1,38,62,"{'minutes': 8, 'seconds': 17}",1,84,16,"{'minutes': 3, 'seconds': 19}","{'minutes': 5, 'seconds': 4}",10,46,FG,True,7,0,10,0
+4017528827,401752882,Minnesota,Big Ten,Iowa,Big Ten,4,True,1,84,84,"{'minutes': 3, 'seconds': 14}",1,97,97,"{'minutes': 2, 'seconds': 57}","{'minutes': 0, 'seconds': 17}",1,0,INT TD,False,0,10,0,17
+4017528829,401752882,Minnesota,Big Ten,Iowa,Big Ten,5,False,1,75,75,"{'minutes': 2, 'seconds': 57}",1,68,68,"{'minutes': 1, 'seconds': 28}","{'minutes': 1, 'seconds': 29}",3,7,PUNT,False,0,17,0,17
+40175288210,401752882,Iowa,Big Ten,Minnesota,Big Ten,6,True,1,55,45,"{'minutes': 1, 'seconds': 15}",2,97,3,"{'minutes': 13, 'seconds': 33}","{'minutes': 2, 'seconds': 55}",5,45,TD,True,17,0,24,0
+40175288212,401752882,Minnesota,Big Ten,Iowa,Big Ten,7,True,2,75,75,"{'minutes': 13, 'seconds': 33}",2,86,86,"{'minutes': 11, 'seconds': 23}","{'minutes': 2, 'seconds': 10}",3,-11,PUNT TD,False,0,24,0,31
+40175288214,401752882,Minnesota,Big Ten,Iowa,Big Ten,8,False,2,75,75,"{'minutes': 11, 'seconds': 23}",2,55,55,"{'minutes': 9, 'seconds': 36}","{'minutes': 2, 'seconds': 31}",5,20,PUNT,False,0,31,0,31
+40175288215,401752882,Iowa,Big Ten,Minnesota,Big Ten,9,False,2,20,80,"{'minutes': 8, 'seconds': 45}",2,21,79,"{'minutes': 6, 'seconds': 59}","{'minutes': 1, 'seconds': 53}",3,1,PUNT,True,31,0,31,0
+40175288216,401752882,Minnesota,Big Ten,Iowa,Big Ten,10,False,2,67,67,"{'minutes': 6, 'seconds': 40}",2,55,55,"{'minutes': 4, 'seconds': 9}","{'minutes': 2, 'seconds': 59}",6,12,PUNT,False,0,31,0,31
+40175288217,401752882,Iowa,Big Ten,Minnesota,Big Ten,11,False,2,23,77,"{'minutes': 3, 'seconds': 54}",2,42,58,"{'minutes': 0, 'seconds': 25}","{'minutes': 3, 'seconds': 35}",6,19,PUNT,True,31,0,31,0
+40175288218,401752882,Minnesota,Big Ten,Iowa,Big Ten,12,False,2,74,74,"{'minutes': 0, 'seconds': 24}",2,68,68,"{'minutes': 0, 'seconds': 24}","{'minutes': 0, 'seconds': 25}",1,6,END OF HALF,False,0,31,0,31
+40175288220,401752882,Minnesota,Big Ten,Iowa,Big Ten,13,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,58,58,"{'minutes': 14, 'seconds': 13}","{'minutes': 1, 'seconds': 22}",3,17,INT,False,0,31,0,31
+40175288221,401752882,Iowa,Big Ten,Minnesota,Big Ten,14,False,3,17,83,"{'minutes': 13, 'seconds': 25}",3,36,64,"{'minutes': 9, 'seconds': 53}","{'minutes': 3, 'seconds': 45}",5,19,PUNT,True,31,0,31,0
+40175288222,401752882,Minnesota,Big Ten,Iowa,Big Ten,15,False,3,82,82,"{'minutes': 9, 'seconds': 46}",3,80,80,"{'minutes': 7, 'seconds': 46}","{'minutes': 2, 'seconds': 7}",3,2,PUNT,False,0,31,0,31
+40175288223,401752882,Iowa,Big Ten,Minnesota,Big Ten,16,True,3,52,48,"{'minutes': 7, 'seconds': 38}",3,72,28,"{'minutes': 4, 'seconds': 6}","{'minutes': 3, 'seconds': 40}",6,20,FG,True,31,0,34,0
+40175288225,401752882,Minnesota,Big Ten,Iowa,Big Ten,17,True,3,75,75,"{'minutes': 4, 'seconds': 6}",3,16,16,"{'minutes': 0, 'seconds': 3}","{'minutes': 4, 'seconds': 3}",10,59,FG,False,0,34,3,34
+40175288227,401752882,Iowa,Big Ten,Minnesota,Big Ten,18,False,3,25,75,"{'minutes': 0, 'seconds': 3}",4,31,69,"{'minutes': 14, 'seconds': 2}","{'minutes': 1, 'seconds': 1}",3,6,PUNT,True,34,3,34,3
+40175288228,401752882,Minnesota,Big Ten,Iowa,Big Ten,19,False,4,70,70,"{'minutes': 13, 'seconds': 56}",4,69,69,"{'minutes': 13, 'seconds': 0}","{'minutes': 1, 'seconds': 2}",3,1,PUNT,False,3,34,3,34
+40175288229,401752882,Iowa,Big Ten,Minnesota,Big Ten,20,False,4,37,63,"{'minutes': 12, 'seconds': 47}",4,61,39,"{'minutes': 10, 'seconds': 2}","{'minutes': 3, 'seconds': 7}",5,24,PUNT,True,34,3,34,3
+40175288230,401752882,Minnesota,Big Ten,Iowa,Big Ten,21,False,4,80,80,"{'minutes': 9, 'seconds': 45}",4,79,79,"{'minutes': 8, 'seconds': 9}","{'minutes': 1, 'seconds': 44}",4,14,INT,False,3,34,3,34
+40175288231,401752882,Iowa,Big Ten,Minnesota,Big Ten,22,True,4,79,21,"{'minutes': 8, 'seconds': 1}",4,97,3,"{'minutes': 5, 'seconds': 30}","{'minutes': 2, 'seconds': 39}",5,21,TD,True,34,3,41,3
+40175288233,401752882,Minnesota,Big Ten,Iowa,Big Ten,23,False,4,75,75,"{'minutes': 5, 'seconds': 30}",4,44,44,"{'minutes': 0, 'seconds': 37}","{'minutes': 4, 'seconds': 53}",9,31,DOWNS,False,3,41,3,41
+40175288234,401752882,Iowa,Big Ten,Minnesota,Big Ten,24,False,4,44,56,"{'minutes': 0, 'seconds': 34}",4,42,58,"{'minutes': 0, 'seconds': 34}","{'minutes': 0, 'seconds': 37}",1,-2,END OF GAME,True,41,3,41,3
+4017528982,401752898,Iowa,Big Ten,Oregon,Big Ten,1,False,1,21,79,"{'minutes': 14, 'seconds': 55}",1,25,75,"{'minutes': 13, 'seconds': 18}","{'minutes': 1, 'seconds': 37}",3,4,PUNT,True,0,0,0,0
+4017528983,401752898,Oregon,Big Ten,Iowa,Big Ten,2,False,1,52,52,"{'minutes': 13, 'seconds': 14}",1,52,52,"{'minutes': 12, 'seconds': 56}","{'minutes': 0, 'seconds': 22}",3,0,PUNT,False,0,0,0,0
+4017528984,401752898,Iowa,Big Ten,Oregon,Big Ten,3,True,1,20,80,"{'minutes': 12, 'seconds': 50}",1,0,100,"{'minutes': 9, 'seconds': 55}","{'minutes': 3, 'seconds': 1}",6,-20,SF,True,0,0,0,2
+4017528986,401752898,Oregon,Big Ten,Iowa,Big Ten,4,False,1,67,67,"{'minutes': 9, 'seconds': 51}",1,23,23,"{'minutes': 5, 'seconds': 16}","{'minutes': 4, 'seconds': 35}",9,44,INT,False,2,0,2,0
+4017528987,401752898,Iowa,Big Ten,Oregon,Big Ten,5,False,1,20,80,"{'minutes': 5, 'seconds': 12}",1,37,63,"{'minutes': 0, 'seconds': 46}","{'minutes': 4, 'seconds': 30}",8,17,PUNT,True,0,2,0,2
+4017528988,401752898,Oregon,Big Ten,Iowa,Big Ten,6,True,1,82,82,"{'minutes': 0, 'seconds': 38}",2,3,3,"{'minutes': 11, 'seconds': 46}","{'minutes': 4, 'seconds': 0}",8,82,TD,False,2,0,9,0
+40175289810,401752898,Iowa,Big Ten,Oregon,Big Ten,7,True,2,25,75,"{'minutes': 11, 'seconds': 46}",2,97,3,"{'minutes': 5, 'seconds': 43}","{'minutes': 6, 'seconds': 3}",10,75,TD,True,0,9,7,9
+40175289812,401752898,Oregon,Big Ten,Iowa,Big Ten,8,False,2,75,75,"{'minutes': 5, 'seconds': 43}",2,68,68,"{'minutes': 3, 'seconds': 8}","{'minutes': 2, 'seconds': 35}",3,7,PUNT,False,9,7,9,7
+40175289813,401752898,Iowa,Big Ten,Oregon,Big Ten,9,False,2,27,73,"{'minutes': 3, 'seconds': 1}",2,46,54,"{'minutes': 1, 'seconds': 43}","{'minutes': 1, 'seconds': 25}",5,11,PUNT,True,7,9,7,9
+40175289814,401752898,Oregon,Big Ten,Iowa,Big Ten,10,True,2,80,80,"{'minutes': 1, 'seconds': 38}",2,28,28,"{'minutes': 0, 'seconds': 1}","{'minutes': 1, 'seconds': 43}",8,52,FG,False,9,7,12,7
+40175289816,401752898,Oregon,Big Ten,Iowa,Big Ten,11,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,71,71,"{'minutes': 13, 'seconds': 32}","{'minutes': 1, 'seconds': 28}",3,4,PUNT,False,12,7,12,7
+40175289817,401752898,Iowa,Big Ten,Oregon,Big Ten,12,False,3,33,67,"{'minutes': 13, 'seconds': 23}",3,87,13,"{'minutes': 7, 'seconds': 15}","{'minutes': 6, 'seconds': 46}",11,54,FUMBLE,True,7,12,7,12
+40175289818,401752898,Oregon,Big Ten,Iowa,Big Ten,13,True,3,87,87,"{'minutes': 5, 'seconds': 37}",3,22,22,"{'minutes': 0, 'seconds': 44}","{'minutes': 6, 'seconds': 2}",9,65,FG,False,12,7,15,7
+40175289820,401752898,Iowa,Big Ten,Oregon,Big Ten,14,True,3,25,75,"{'minutes': 0, 'seconds': 44}",4,60,40,"{'minutes': 12, 'seconds': 39}","{'minutes': 3, 'seconds': 5}",7,35,FG,True,7,15,10,15
+40175289822,401752898,Oregon,Big Ten,Iowa,Big Ten,15,False,4,75,75,"{'minutes': 12, 'seconds': 39}",4,37,37,"{'minutes': 8, 'seconds': 36}","{'minutes': 4, 'seconds': 3}",7,38,PUNT,False,15,10,15,10
+40175289823,401752898,Iowa,Big Ten,Oregon,Big Ten,16,True,4,7,93,"{'minutes': 8, 'seconds': 27}",4,97,3,"{'minutes': 1, 'seconds': 51}","{'minutes': 6, 'seconds': 45}",12,93,TD,True,10,15,16,15
+40175289825,401752898,Oregon,Big Ten,Iowa,Big Ten,17,True,4,75,75,"{'minutes': 1, 'seconds': 51}",4,21,21,"{'minutes': 0, 'seconds': 3}","{'minutes': 1, 'seconds': 48}",10,54,FG,False,15,14,18,16
+40175289827,401752898,Oregon,Big Ten,Iowa,Big Ten,18,False,4,65,65,"{'minutes': 0, 'seconds': 7}",4,65,65,"{'minutes': 0, 'seconds': 7}","{'minutes': 0, 'seconds': 0}",0,0,END OF GAME,False,18,16,18,16
+4017529072,401752907,Iowa,Big Ten,USC,Big Ten,1,True,1,69,69,"{'minutes': 15, 'seconds': 0}",1,3,3,"{'minutes': 11, 'seconds': 26}","{'minutes': 3, 'seconds': 34}",7,69,TD,False,0,0,7,0
+4017529074,401752907,USC,Big Ten,Iowa,Big Ten,2,False,1,25,75,"{'minutes': 11, 'seconds': 26}",1,27,73,"{'minutes': 10, 'seconds': 9}","{'minutes': 1, 'seconds': 17}",3,2,PUNT,True,0,7,0,7
+4017529075,401752907,Iowa,Big Ten,USC,Big Ten,3,False,1,46,46,"{'minutes': 10, 'seconds': 0}",1,43,43,"{'minutes': 9, 'seconds': 5}","{'minutes': 1, 'seconds': 4}",3,3,PUNT,False,7,0,7,0
+4017529076,401752907,USC,Big Ten,Iowa,Big Ten,4,False,1,13,87,"{'minutes': 8, 'seconds': 58}",1,45,55,"{'minutes': 4, 'seconds': 59}","{'minutes': 4, 'seconds': 6}",8,32,DOWNS,True,0,7,0,7
+4017529077,401752907,Iowa,Big Ten,USC,Big Ten,5,True,1,45,45,"{'minutes': 4, 'seconds': 53}",2,3,3,"{'minutes': 14, 'seconds': 12}","{'minutes': 5, 'seconds': 47}",9,45,TD,False,7,0,14,0
+4017529079,401752907,USC,Big Ten,Iowa,Big Ten,6,True,2,25,75,"{'minutes': 14, 'seconds': 12}",2,97,3,"{'minutes': 9, 'seconds': 15}","{'minutes': 4, 'seconds': 57}",11,75,TD,True,0,14,7,14
+40175290711,401752907,Iowa,Big Ten,USC,Big Ten,7,True,2,75,75,"{'minutes': 9, 'seconds': 15}",2,3,3,"{'minutes': 3, 'seconds': 24}","{'minutes': 5, 'seconds': 51}",9,75,TD,False,14,7,21,7
+40175290713,401752907,USC,Big Ten,Iowa,Big Ten,8,True,2,25,75,"{'minutes': 3, 'seconds': 24}",2,77,23,"{'minutes': 0, 'seconds': 39}","{'minutes': 2, 'seconds': 45}",8,52,FG,True,7,21,10,21
+40175290715,401752907,Iowa,Big Ten,USC,Big Ten,9,False,2,73,73,"{'minutes': 0, 'seconds': 32}",2,53,53,"{'minutes': 0, 'seconds': 7}","{'minutes': 0, 'seconds': 32}",3,20,END OF HALF,False,21,10,21,10
+40175290717,401752907,USC,Big Ten,Iowa,Big Ten,10,True,3,19,81,"{'minutes': 15, 'seconds': 0}",3,89,11,"{'minutes': 11, 'seconds': 11}","{'minutes': 3, 'seconds': 49}",9,70,FG,True,10,21,13,21
+40175290719,401752907,Iowa,Big Ten,USC,Big Ten,11,False,3,75,75,"{'minutes': 11, 'seconds': 11}",3,50,50,"{'minutes': 7, 'seconds': 47}","{'minutes': 3, 'seconds': 24}",5,25,PUNT,False,21,13,21,13
+40175290720,401752907,USC,Big Ten,Iowa,Big Ten,12,True,3,18,82,"{'minutes': 7, 'seconds': 37}",3,97,3,"{'minutes': 3, 'seconds': 33}","{'minutes': 4, 'seconds': 14}",9,82,TD,True,13,21,19,21
+40175290722,401752907,Iowa,Big Ten,USC,Big Ten,13,False,3,75,75,"{'minutes': 3, 'seconds': 33}",3,60,60,"{'minutes': 1, 'seconds': 52}","{'minutes': 1, 'seconds': 41}",4,19,INT,False,21,19,21,19
+40175290723,401752907,USC,Big Ten,Iowa,Big Ten,14,True,3,60,40,"{'minutes': 1, 'seconds': 43}",4,97,3,"{'minutes': 13, 'seconds': 36}","{'minutes': 3, 'seconds': 16}",6,40,TD,True,19,21,26,21
+40175290725,401752907,Iowa,Big Ten,USC,Big Ten,15,False,4,72,72,"{'minutes': 13, 'seconds': 29}",4,69,69,"{'minutes': 11, 'seconds': 26}","{'minutes': 2, 'seconds': 3}",3,3,PUNT,False,21,26,21,26
+40175290726,401752907,USC,Big Ten,Iowa,Big Ten,16,False,4,26,74,"{'minutes': 11, 'seconds': 18}",4,45,55,"{'minutes': 8, 'seconds': 33}","{'minutes': 2, 'seconds': 53}",5,19,PUNT,True,26,21,26,21
+40175290727,401752907,Iowa,Big Ten,USC,Big Ten,17,False,4,90,90,"{'minutes': 8, 'seconds': 33}",4,29,29,"{'minutes': 1, 'seconds': 59}","{'minutes': 6, 'seconds': 34}",10,61,DOWNS,False,21,26,21,26
+40175290728,401752907,USC,Big Ten,Iowa,Big Ten,18,False,4,29,71,"{'minutes': 7, 'seconds': 14}",4,57,43,"{'minutes': 0, 'seconds': 26}","{'minutes': 1, 'seconds': 59}",6,28,END OF GAME,True,26,21,26,21
+4017529132,401752913,Iowa,Big Ten,Michigan State,Big Ten,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,38,62,"{'minutes': 13, 'seconds': 26}","{'minutes': 1, 'seconds': 34}",5,13,PUNT,True,0,0,0,0
+4017529133,401752913,Michigan State,Big Ten,Iowa,Big Ten,2,False,1,67,67,"{'minutes': 13, 'seconds': 26}",1,45,45,"{'minutes': 10, 'seconds': 58}","{'minutes': 2, 'seconds': 28}",5,22,PUNT,False,0,0,0,0
+4017529134,401752913,Iowa,Big Ten,Michigan State,Big Ten,3,False,1,1,99,"{'minutes': 10, 'seconds': 58}",1,22,78,"{'minutes': 7, 'seconds': 29}","{'minutes': 3, 'seconds': 29}",5,21,PUNT,True,0,0,0,0
+4017529135,401752913,Michigan State,Big Ten,Iowa,Big Ten,4,False,1,66,66,"{'minutes': 7, 'seconds': 29}",1,69,69,"{'minutes': 5, 'seconds': 26}","{'minutes': 2, 'seconds': 3}",3,-3,PUNT,False,0,0,0,0
+4017529137,401752913,Michigan State,Big Ten,Iowa,Big Ten,5,True,1,94,94,"{'minutes': 4, 'seconds': 27}",1,86,86,"{'minutes': 3, 'seconds': 38}","{'minutes': 0, 'seconds': 0}",3,8,PUNT TD,False,0,0,0,7
+4017529139,401752913,Michigan State,Big Ten,Iowa,Big Ten,6,False,1,87,87,"{'minutes': 3, 'seconds': 38}",2,39,39,"{'minutes': 14, 'seconds': 12}","{'minutes': 4, 'seconds': 26}",9,48,PUNT,False,0,7,0,7
+4017529136,401752913,Iowa,Big Ten,Michigan State,Big Ten,7,False,1,56,44,"{'minutes': 5, 'seconds': 26}",1,94,6,"{'minutes': 4, 'seconds': 27}","{'minutes': 0, 'seconds': 59}",2,0,INT,True,7,0,7,0
+40175291310,401752913,Iowa,Big Ten,Michigan State,Big Ten,8,False,2,14,86,"{'minutes': 14, 'seconds': 12}",2,41,59,"{'minutes': 9, 'seconds': 13}","{'minutes': 4, 'seconds': 59}",7,27,PUNT,True,7,0,7,0
+40175291311,401752913,Michigan State,Big Ten,Iowa,Big Ten,9,True,2,87,87,"{'minutes': 9, 'seconds': 13}",2,9,9,"{'minutes': 2, 'seconds': 54}","{'minutes': 6, 'seconds': 19}",14,78,FG,False,0,7,3,7
+40175291313,401752913,Iowa,Big Ten,Michigan State,Big Ten,10,False,2,22,78,"{'minutes': 2, 'seconds': 49}",2,50,50,"{'minutes': 1, 'seconds': 9}","{'minutes': 1, 'seconds': 40}",7,28,PUNT,True,7,3,7,3
+40175291314,401752913,Michigan State,Big Ten,Iowa,Big Ten,11,False,2,90,90,"{'minutes': 1, 'seconds': 2}",2,57,57,"{'minutes': 0, 'seconds': 6}","{'minutes': 1, 'seconds': 3}",7,32,INT,False,3,7,3,7
+40175291315,401752913,Iowa,Big Ten,Michigan State,Big Ten,12,False,2,57,43,"{'minutes': 0, 'seconds': 2}",2,57,43,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 6}",2,0,MISSED FG,True,7,3,7,3
+40175291317,401752913,Michigan State,Big Ten,Iowa,Big Ten,13,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,66,66,"{'minutes': 12, 'seconds': 56}","{'minutes': 2, 'seconds': 4}",3,9,PUNT,False,3,7,3,7
+40175291318,401752913,Iowa,Big Ten,Michigan State,Big Ten,14,False,3,17,83,"{'minutes': 12, 'seconds': 47}",3,30,70,"{'minutes': 10, 'seconds': 11}","{'minutes': 2, 'seconds': 45}",6,21,FUMBLE,True,7,3,7,3
+40175291319,401752913,Michigan State,Big Ten,Iowa,Big Ten,15,True,3,38,38,"{'minutes': 10, 'seconds': 10}",3,3,3,"{'minutes': 8, 'seconds': 58}","{'minutes': 1, 'seconds': 13}",2,38,TD,False,3,7,10,7
+40175291321,401752913,Iowa,Big Ten,Michigan State,Big Ten,16,False,3,25,75,"{'minutes': 8, 'seconds': 58}",3,33,67,"{'minutes': 6, 'seconds': 48}","{'minutes': 2, 'seconds': 10}",3,8,PUNT,True,7,10,7,10
+40175291322,401752913,Michigan State,Big Ten,Iowa,Big Ten,17,True,3,80,80,"{'minutes': 6, 'seconds': 41}",3,3,3,"{'minutes': 1, 'seconds': 13}","{'minutes': 5, 'seconds': 35}",11,80,TD,False,10,7,17,7
+40175291324,401752913,Iowa,Big Ten,Michigan State,Big Ten,18,True,3,25,75,"{'minutes': 1, 'seconds': 13}",4,92,8,"{'minutes': 11, 'seconds': 27}","{'minutes': 4, 'seconds': 46}",9,67,FG,True,7,17,10,17
+40175291326,401752913,Michigan State,Big Ten,Iowa,Big Ten,19,False,4,75,75,"{'minutes': 11, 'seconds': 27}",4,67,67,"{'minutes': 10, 'seconds': 1}","{'minutes': 1, 'seconds': 26}",3,8,PUNT,False,17,10,17,10
+40175291327,401752913,Iowa,Big Ten,Michigan State,Big Ten,20,False,4,25,75,"{'minutes': 9, 'seconds': 47}",4,21,79,"{'minutes': 8, 'seconds': 20}","{'minutes': 1, 'seconds': 41}",3,-4,PUNT,True,10,17,10,17
+40175291328,401752913,Michigan State,Big Ten,Iowa,Big Ten,21,False,4,68,68,"{'minutes': 8, 'seconds': 12}",4,65,65,"{'minutes': 7, 'seconds': 22}","{'minutes': 0, 'seconds': 58}",3,3,PUNT,False,17,10,17,10
+40175291329,401752913,Iowa,Big Ten,Michigan State,Big Ten,22,False,4,54,46,"{'minutes': 7, 'seconds': 12}",4,67,33,"{'minutes': 3, 'seconds': 45}","{'minutes': 3, 'seconds': 37}",6,13,DOWNS,True,10,17,10,17
+40175291330,401752913,Michigan State,Big Ten,Iowa,Big Ten,23,False,4,67,67,"{'minutes': 3, 'seconds': 32}",4,72,72,"{'minutes': 2, 'seconds': 37}","{'minutes': 1, 'seconds': 8}",3,-5,PUNT,False,17,10,17,10
+40175291331,401752913,Iowa,Big Ten,Michigan State,Big Ten,24,True,4,58,42,"{'minutes': 2, 'seconds': 33}",4,97,3,"{'minutes': 1, 'seconds': 29}","{'minutes': 1, 'seconds': 8}",5,42,TD,True,10,17,17,17
+40175291333,401752913,Michigan State,Big Ten,Iowa,Big Ten,25,False,4,75,75,"{'minutes': 1, 'seconds': 29}",4,55,55,"{'minutes': 0, 'seconds': 41}","{'minutes': 0, 'seconds': 48}",4,20,PUNT,False,17,17,17,17
+40175291334,401752913,Iowa,Big Ten,Michigan State,Big Ten,26,True,4,21,79,"{'minutes': 0, 'seconds': 34}",4,75,25,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 41}",5,54,FG,True,17,17,20,17
+4017529162,401752916,Nebraska,Big Ten,Iowa,Big Ten,1,False,1,20,80,"{'minutes': 14, 'seconds': 56}",1,27,73,"{'minutes': 13, 'seconds': 47}","{'minutes': 1, 'seconds': 9}",3,7,PUNT,True,0,0,0,0
+4017529163,401752916,Iowa,Big Ten,Nebraska,Big Ten,2,False,1,62,62,"{'minutes': 13, 'seconds': 38}",1,58,58,"{'minutes': 12, 'seconds': 27}","{'minutes': 1, 'seconds': 20}",3,4,PUNT,False,0,0,0,0
+4017529164,401752916,Nebraska,Big Ten,Iowa,Big Ten,3,True,1,10,90,"{'minutes': 12, 'seconds': 17}",1,97,3,"{'minutes': 10, 'seconds': 40}","{'minutes': 1, 'seconds': 47}",4,90,TD,True,0,0,7,0
+4017529166,401752916,Iowa,Big Ten,Nebraska,Big Ten,4,True,1,29,29,"{'minutes': 10, 'seconds': 30}",1,23,23,"{'minutes': 8, 'seconds': 49}","{'minutes': 1, 'seconds': 41}",4,6,FG,False,0,7,3,7
+4017529168,401752916,Nebraska,Big Ten,Iowa,Big Ten,5,False,1,14,86,"{'minutes': 8, 'seconds': 44}",1,22,78,"{'minutes': 7, 'seconds': 12}","{'minutes': 1, 'seconds': 32}",3,8,PUNT,True,7,3,7,3
+4017529169,401752916,Iowa,Big Ten,Nebraska,Big Ten,6,True,1,51,51,"{'minutes': 6, 'seconds': 57}",1,3,3,"{'minutes': 5, 'seconds': 35}","{'minutes': 1, 'seconds': 37}",3,51,TD,False,3,7,10,7
+40175291611,401752916,Nebraska,Big Ten,Iowa,Big Ten,7,True,1,25,75,"{'minutes': 5, 'seconds': 35}",1,87,13,"{'minutes': 1, 'seconds': 13}","{'minutes': 4, 'seconds': 22}",11,62,FG,True,7,10,10,10
+40175291613,401752916,Nebraska,Big Ten,Iowa,Big Ten,8,True,1,74,26,"{'minutes': 1, 'seconds': 13}",2,89,11,"{'minutes': 13, 'seconds': 53}","{'minutes': 2, 'seconds': 20}",6,15,FG,True,10,10,13,10
+40175291615,401752916,Iowa,Big Ten,Nebraska,Big Ten,9,True,2,75,75,"{'minutes': 13, 'seconds': 53}",2,3,3,"{'minutes': 8, 'seconds': 13}","{'minutes': 5, 'seconds': 40}",10,75,TD,False,10,13,17,13
+40175291617,401752916,Nebraska,Big Ten,Iowa,Big Ten,10,True,2,27,73,"{'minutes': 8, 'seconds': 7}",2,82,18,"{'minutes': 2, 'seconds': 53}","{'minutes': 5, 'seconds': 14}",10,55,FG,True,13,17,16,17
+40175291619,401752916,Iowa,Big Ten,Nebraska,Big Ten,11,True,2,75,75,"{'minutes': 2, 'seconds': 53}",2,3,3,"{'minutes': 0, 'seconds': 37}","{'minutes': 2, 'seconds': 16}",9,75,TD,False,17,16,24,16
+40175291621,401752916,Nebraska,Big Ten,Iowa,Big Ten,12,False,2,28,72,"{'minutes': 0, 'seconds': 32}",2,31,69,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 32}",4,3,DOWNS,True,16,24,16,24
+40175291623,401752916,Iowa,Big Ten,Nebraska,Big Ten,13,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,58,58,"{'minutes': 11, 'seconds': 16}","{'minutes': 3, 'seconds': 44}",5,65,PUNT,False,24,16,26,16
+40175291625,401752916,Iowa,Big Ten,Nebraska,Big Ten,14,False,3,66,66,"{'minutes': 11, 'seconds': 10}",3,63,63,"{'minutes': 9, 'seconds': 27}","{'minutes': 1, 'seconds': 43}",3,3,PUNT,False,26,16,26,16
+40175291626,401752916,Nebraska,Big Ten,Iowa,Big Ten,15,False,3,35,65,"{'minutes': 9, 'seconds': 14}",3,41,59,"{'minutes': 8, 'seconds': 38}","{'minutes': 0, 'seconds': 49}",3,6,PUNT,True,16,26,16,26
+40175291627,401752916,Iowa,Big Ten,Nebraska,Big Ten,16,True,3,71,71,"{'minutes': 8, 'seconds': 29}",3,3,3,"{'minutes': 4, 'seconds': 47}","{'minutes': 3, 'seconds': 51}",7,71,TD,False,26,16,33,16
+40175291629,401752916,Nebraska,Big Ten,Iowa,Big Ten,17,False,3,25,75,"{'minutes': 4, 'seconds': 47}",3,29,71,"{'minutes': 3, 'seconds': 14}","{'minutes': 1, 'seconds': 33}",3,4,PUNT,True,16,33,16,33
+40175291630,401752916,Iowa,Big Ten,Nebraska,Big Ten,18,True,3,63,63,"{'minutes': 3, 'seconds': 6}",4,3,3,"{'minutes': 13, 'seconds': 40}","{'minutes': 4, 'seconds': 34}",9,63,TD,False,33,16,40,16
+40175291632,401752916,Nebraska,Big Ten,Iowa,Big Ten,19,False,4,26,74,"{'minutes': 13, 'seconds': 34}",4,99,1,"{'minutes': 6, 'seconds': 38}","{'minutes': 6, 'seconds': 56}",16,73,FUMBLE,True,16,40,16,40
+40175291633,401752916,Iowa,Big Ten,Nebraska,Big Ten,20,False,4,80,80,"{'minutes': 6, 'seconds': 27}",4,43,43,"{'minutes': 0, 'seconds': 0}","{'minutes': 6, 'seconds': 38}",10,37,END OF GAME,False,40,16,40,16

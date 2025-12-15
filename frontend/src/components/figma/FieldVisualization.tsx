@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './FieldVisualization.css';
 
 interface FieldVisualizationProps {
@@ -24,6 +24,12 @@ interface FieldVisualizationProps {
     logo?: string;
   };
   situation?: string;
+  playData?: {
+    play_type?: string;
+    yards_gained?: number;
+    start_yard_line?: number;
+    end_yard_line?: number;
+  };
 }
 
 const getOrdinalSuffix = (num: number): string => {
@@ -40,10 +46,76 @@ export const FieldVisualization: React.FC<FieldVisualizationProps> = ({
   fieldPosition,
   homeTeam,
   awayTeam,
-  situation
+  situation,
+  playData
 }) => {
+  const [animatedPosition, setAnimatedPosition] = useState(fieldPosition.yardLine);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [ballTrajectory, setBallTrajectory] = useState<number[]>([]);
+  const animationRef = useRef<number | null>(null);
+  const previousYardLine = useRef(fieldPosition.yardLine);
+
+  // Animate ball movement when yard line changes
+  useEffect(() => {
+    const startYard = previousYardLine.current;
+    const endYard = playData?.end_yard_line ?? fieldPosition.yardLine;
+    
+    // Only animate if there's actual movement
+    if (startYard !== endYard && Math.abs(startYard - endYard) > 0) {
+      setIsAnimating(true);
+      const distance = Math.abs(endYard - startYard);
+      const duration = Math.min(1500, 500 + distance * 30); // Dynamic duration based on distance
+      const startTime = Date.now();
+      
+      // Generate parabolic trajectory points for 3D effect
+      const generateTrajectory = () => {
+        const points: number[] = [];
+        for (let t = 0; t <= 1; t += 0.05) {
+          // Parabolic height calculation (peaks at midpoint)
+          const height = 4 * distance * t * (1 - t); // Max height proportional to distance
+          const position = startYard + (endYard - startYard) * t;
+          points.push(position);
+        }
+        return points;
+      };
+      
+      setBallTrajectory(generateTrajectory());
+      
+      const animate = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Ease-out animation for smooth deceleration
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const currentYard = startYard + (endYard - startYard) * easeProgress;
+        
+        setAnimatedPosition(currentYard);
+        
+        if (progress < 1) {
+          animationRef.current = requestAnimationFrame(animate);
+        } else {
+          setIsAnimating(false);
+          setBallTrajectory([]);
+          previousYardLine.current = endYard;
+        }
+      };
+      
+      animationRef.current = requestAnimationFrame(animate);
+      
+      return () => {
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+        }
+      };
+    } else {
+      // No animation needed, just update position
+      setAnimatedPosition(endYard);
+      previousYardLine.current = endYard;
+    }
+  }, [fieldPosition.yardLine, playData]);
+
   // Calculate ball position percentage (0-100)
-  const ballPositionPercent = (fieldPosition.yardLine / 100) * 100;
+  const ballPositionPercent = (animatedPosition / 100) * 100;
   
   // Determine which team has possession
   const isPossessionHome = possession.team.toLowerCase().includes(homeTeam.name.toLowerCase()) ||
@@ -139,13 +211,68 @@ export const FieldVisualization: React.FC<FieldVisualizationProps> = ({
             className="ball-position"
             style={{ left: `${ballPositionPercent}%` }}
           >
+            {/* 3D Ball Trajectory Arc (visible during animation) */}
+            {isAnimating && ballTrajectory.length > 0 && (
+              <svg
+                style={{
+                  position: 'absolute',
+                  top: '-80px',
+                  left: '-200px',
+                  width: '400px',
+                  height: '160px',
+                  pointerEvents: 'none',
+                  zIndex: 10,
+                  overflow: 'visible'
+                }}
+              >
+                <defs>
+                  <linearGradient id="ballTrailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor={possessionColor} stopOpacity="0.1" />
+                    <stop offset="50%" stopColor={possessionColor} stopOpacity="0.4" />
+                    <stop offset="100%" stopColor={possessionColor} stopOpacity="0.8" />
+                  </linearGradient>
+                  <filter id="ballGlow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                {/* Draw parabolic arc */}
+                <path
+                  d={(() => {
+                    const startYard = previousYardLine.current;
+                    const endYard = playData?.end_yard_line ?? fieldPosition.yardLine;
+                    const distance = Math.abs(endYard - startYard);
+                    const points = ballTrajectory.map((_, idx) => {
+                      const t = idx / (ballTrajectory.length - 1);
+                      const x = 200 + (t - 0.5) * 300; // Centered arc
+                      const y = 140 - (4 * distance * t * (1 - t) * 3); // Parabolic height
+                      return `${x},${y}`;
+                    });
+                    return `M ${points.join(' L ')}`;
+                  })()}
+                  stroke="url(#ballTrailGradient)"
+                  strokeWidth="4"
+                  fill="none"
+                  strokeLinecap="round"
+                  filter="url(#ballGlow)"
+                  opacity="0.7"
+                />
+              </svg>
+            )}
+
             <div 
               className="ball-marker"
               style={{
                 background: 'transparent',
                 boxShadow: 'none',
                 width: '64px',
-                height: '64px'
+                height: '64px',
+                transform: isAnimating ? 'scale(1.2) rotateY(360deg)' : 'scale(1)',
+                transition: isAnimating ? 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)' : 'none',
+                filter: isAnimating ? `drop-shadow(0 8px 24px ${possessionColor}90) brightness(1.3)` : 'none'
               }}
             >
               {possessionLogo ? (
@@ -157,13 +284,38 @@ export const FieldVisualization: React.FC<FieldVisualizationProps> = ({
                     height: '64px',
                     objectFit: 'contain',
                     filter: `drop-shadow(0 4px 12px ${possessionColor}80) brightness(1.1)`,
-                    opacity: 0.95
+                    opacity: 0.95,
+                    animation: isAnimating ? 'ballSpin 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)' : 'none'
                   }}
                 />
               ) : (
-                <span className="football-icon">🏈</span>
+                <span 
+                  className="football-icon"
+                  style={{
+                    animation: isAnimating ? 'ballSpin 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)' : 'none'
+                  }}
+                >
+                  🏈
+                </span>
               )}
             </div>
+            
+            {/* Pulsing ground indicator */}
+            {isAnimating && (
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '-8px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: '40px',
+                  height: '8px',
+                  background: `radial-gradient(ellipse, ${possessionColor}60 0%, transparent 70%)`,
+                  borderRadius: '50%',
+                  animation: 'groundPulse 0.6s ease-in-out infinite'
+                }}
+              />
+            )}
           </div>
           
           {/* Hash marks (decorative) */}

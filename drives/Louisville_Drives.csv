@@ -1,0 +1,300 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017527872,401752787,Kentucky,SEC,Louisville,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,59,59,"{'minutes': 12, 'seconds': 26}","{'minutes': 2, 'seconds': 34}",6,16,PUNT,False,0,0,0,0
+4017527873,401752787,Louisville,ACC,Kentucky,SEC,2,False,1,25,75,"{'minutes': 12, 'seconds': 16}",1,47,53,"{'minutes': 10, 'seconds': 27}","{'minutes': 1, 'seconds': 59}",4,22,PUNT,True,0,0,0,0
+4017527874,401752787,Kentucky,SEC,Louisville,ACC,3,False,1,89,89,"{'minutes': 10, 'seconds': 22}",1,68,68,"{'minutes': 6, 'seconds': 39}","{'minutes': 3, 'seconds': 48}",8,21,PUNT,False,0,0,0,0
+4017527875,401752787,Louisville,ACC,Kentucky,SEC,4,True,1,90,10,"{'minutes': 6, 'seconds': 33}",1,97,3,"{'minutes': 4, 'seconds': 44}","{'minutes': 1, 'seconds': 55}",4,10,TD,True,0,0,7,0
+4017527877,401752787,Kentucky,SEC,Louisville,ACC,5,False,1,75,75,"{'minutes': 4, 'seconds': 44}",1,34,34,"{'minutes': 2, 'seconds': 7}","{'minutes': 2, 'seconds': 37}",8,41,MISSED FG,False,0,7,0,7
+4017527878,401752787,Louisville,ACC,Kentucky,SEC,6,True,1,34,66,"{'minutes': 1, 'seconds': 47}",2,84,16,"{'minutes': 14, 'seconds': 56}","{'minutes': 2, 'seconds': 11}",6,50,FG,True,7,0,10,0
+40175278710,401752787,Kentucky,SEC,Louisville,ACC,7,False,2,90,90,"{'minutes': 14, 'seconds': 47}",2,86,86,"{'minutes': 12, 'seconds': 42}","{'minutes': 2, 'seconds': 5}",3,4,PUNT,False,0,10,0,10
+40175278711,401752787,Louisville,ACC,Kentucky,SEC,8,True,2,20,80,"{'minutes': 12, 'seconds': 31}",2,97,3,"{'minutes': 8, 'seconds': 18}","{'minutes': 4, 'seconds': 24}",8,80,TD,True,10,0,17,0
+40175278713,401752787,Kentucky,SEC,Louisville,ACC,9,False,2,79,79,"{'minutes': 8, 'seconds': 11}",2,85,85,"{'minutes': 6, 'seconds': 0}","{'minutes': 2, 'seconds': 11}",4,-6,PUNT,False,0,17,0,17
+40175278714,401752787,Louisville,ACC,Kentucky,SEC,10,True,2,46,54,"{'minutes': 5, 'seconds': 55}",2,94,6,"{'minutes': 1, 'seconds': 45}","{'minutes': 4, 'seconds': 15}",10,48,FG,True,17,0,20,0
+40175278716,401752787,Kentucky,SEC,Louisville,ACC,11,False,2,84,84,"{'minutes': 1, 'seconds': 41}",2,99,99,"{'minutes': 0, 'seconds': 56}","{'minutes': 0, 'seconds': 45}",3,-2,PUNT,False,0,20,0,20
+40175278717,401752787,Louisville,ACC,Kentucky,SEC,12,False,2,29,71,"{'minutes': 0, 'seconds': 48}",2,64,36,"{'minutes': 0, 'seconds': 19}","{'minutes': 0, 'seconds': 56}",6,35,END OF HALF,True,20,0,20,0
+40175278719,401752787,Louisville,ACC,Kentucky,SEC,13,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,43,57,"{'minutes': 12, 'seconds': 34}","{'minutes': 2, 'seconds': 26}",4,18,PUNT,True,20,0,20,0
+40175278720,401752787,Kentucky,SEC,Louisville,ACC,14,False,3,87,87,"{'minutes': 12, 'seconds': 31}",3,79,79,"{'minutes': 11, 'seconds': 30}","{'minutes': 1, 'seconds': 4}",3,8,PUNT,False,0,20,0,20
+40175278721,401752787,Louisville,ACC,Kentucky,SEC,15,False,3,63,37,"{'minutes': 10, 'seconds': 59}",3,62,38,"{'minutes': 10, 'seconds': 41}","{'minutes': 0, 'seconds': 49}",3,-1,PUNT,True,20,0,20,0
+40175278722,401752787,Kentucky,SEC,Louisville,ACC,16,False,3,94,94,"{'minutes': 10, 'seconds': 33}",3,85,85,"{'minutes': 9, 'seconds': 4}","{'minutes': 1, 'seconds': 37}",4,9,DOWNS,False,0,20,0,20
+40175278723,401752787,Louisville,ACC,Kentucky,SEC,17,True,3,85,15,"{'minutes': 8, 'seconds': 57}",3,97,3,"{'minutes': 8, 'seconds': 23}","{'minutes': 0, 'seconds': 41}",2,15,TD,True,20,0,27,0
+40175278725,401752787,Kentucky,SEC,Louisville,ACC,18,False,3,75,75,"{'minutes': 8, 'seconds': 22}",3,1,1,"{'minutes': 5, 'seconds': 55}","{'minutes': 2, 'seconds': 33}",6,44,INT,False,0,27,0,27
+40175278726,401752787,Louisville,ACC,Kentucky,SEC,19,True,3,1,99,"{'minutes': 5, 'seconds': 43}",4,97,3,"{'minutes': 10, 'seconds': 22}","{'minutes': 10, 'seconds': 27}",17,99,TD,True,27,0,34,0
+40175278728,401752787,Kentucky,SEC,Louisville,ACC,20,False,4,75,75,"{'minutes': 10, 'seconds': 22}",4,49,49,"{'minutes': 9, 'seconds': 50}","{'minutes': 0, 'seconds': 55}",2,26,DOWNS,False,0,34,0,34
+40175278729,401752787,Louisville,ACC,Kentucky,SEC,21,True,4,70,30,"{'minutes': 9, 'seconds': 4}",4,97,3,"{'minutes': 5, 'seconds': 23}","{'minutes': 4, 'seconds': 4}",6,30,TD,True,34,0,41,0
+40175278731,401752787,Kentucky,SEC,Louisville,ACC,22,False,4,75,75,"{'minutes': 5, 'seconds': 23}",4,69,69,"{'minutes': 4, 'seconds': 14}","{'minutes': 1, 'seconds': 9}",3,6,PUNT,False,0,41,0,41
+40175278732,401752787,Louisville,ACC,Kentucky,SEC,23,False,4,25,75,"{'minutes': 4, 'seconds': 8}",4,34,66,"{'minutes': 1, 'seconds': 53}","{'minutes': 2, 'seconds': 21}",3,9,PUNT,True,41,0,41,0
+40175278733,401752787,Kentucky,SEC,Louisville,ACC,24,False,4,96,96,"{'minutes': 1, 'seconds': 48}",4,93,93,"{'minutes': 0, 'seconds': 27}","{'minutes': 1, 'seconds': 53}",3,3,Uncategorized,False,0,41,0,41
+4017545191,401754519,Louisville,ACC,Eastern Kentucky,UAC,1,True,1,15,85,"{'minutes': 14, 'seconds': 55}",1,100,0,"{'minutes': 9, 'seconds': 48}","{'minutes': 5, 'seconds': 7}",10,85,TD,True,0,0,7,0
+4017545192,401754519,Eastern Kentucky,UAC,Louisville,ACC,2,True,1,54,54,"{'minutes': 9, 'seconds': 40}",1,59,59,"{'minutes': 7, 'seconds': 49}","{'minutes': 1, 'seconds': 51}",3,-5,PUNT RETURN TD,False,0,7,0,14
+4017545193,401754519,Eastern Kentucky,UAC,Louisville,ACC,3,False,1,75,75,"{'minutes': 7, 'seconds': 49}",1,82,82,"{'minutes': 5, 'seconds': 12}","{'minutes': 2, 'seconds': 37}",3,-7,PUNT,False,0,14,0,14
+4017545194,401754519,Louisville,ACC,Eastern Kentucky,UAC,4,True,1,21,79,"{'minutes': 5, 'seconds': 12}",1,100,0,"{'minutes': 0, 'seconds': 44}","{'minutes': 4, 'seconds': 28}",10,79,TD,True,14,0,21,0
+4017545195,401754519,Eastern Kentucky,UAC,Louisville,ACC,5,False,1,75,75,"{'minutes': 0, 'seconds': 44}",2,66,66,"{'minutes': 11, 'seconds': 57}","{'minutes': 3, 'seconds': 47}",6,9,PUNT,False,0,21,0,21
+4017545196,401754519,Louisville,ACC,Eastern Kentucky,UAC,6,True,2,25,75,"{'minutes': 11, 'seconds': 57}",2,100,0,"{'minutes': 11, 'seconds': 5}","{'minutes': 0, 'seconds': 52}",3,75,TD,True,21,0,28,0
+4017545197,401754519,Eastern Kentucky,UAC,Louisville,ACC,7,False,2,93,93,"{'minutes': 10, 'seconds': 57}",2,90,90,"{'minutes': 8, 'seconds': 35}","{'minutes': 2, 'seconds': 22}",3,3,PUNT,False,0,28,0,28
+4017545198,401754519,Louisville,ACC,Eastern Kentucky,UAC,8,True,2,70,30,"{'minutes': 8, 'seconds': 35}",2,100,0,"{'minutes': 8, 'seconds': 26}","{'minutes': 0, 'seconds': 9}",1,30,TD,True,35,0,35,0
+4017545199,401754519,Eastern Kentucky,UAC,Louisville,ACC,9,False,2,75,75,"{'minutes': 8, 'seconds': 26}",2,70,70,"{'minutes': 7, 'seconds': 0}","{'minutes': 1, 'seconds': 26}",3,5,PUNT,False,0,35,0,35
+40175451910,401754519,Louisville,ACC,Eastern Kentucky,UAC,10,True,2,33,67,"{'minutes': 7, 'seconds': 0}",2,100,0,"{'minutes': 2, 'seconds': 58}","{'minutes': 4, 'seconds': 2}",10,67,TD,True,35,0,41,0
+40175451911,401754519,Eastern Kentucky,UAC,Louisville,ACC,11,False,2,75,75,"{'minutes': 2, 'seconds': 58}",2,49,49,"{'minutes': 1, 'seconds': 1}","{'minutes': 1, 'seconds': 57}",4,26,PUNT,False,0,41,0,41
+40175451912,401754519,Louisville,ACC,Eastern Kentucky,UAC,12,True,2,10,90,"{'minutes': 1, 'seconds': 1}",2,21,79,"{'minutes': 0, 'seconds': 50}","{'minutes': 0, 'seconds': 11}",1,11,INT TD,True,41,0,41,7
+40175451913,401754519,Louisville,ACC,Eastern Kentucky,UAC,13,False,2,25,75,"{'minutes': 0, 'seconds': 50}",2,47,53,"{'minutes': 0, 'seconds': 6}","{'minutes': 0, 'seconds': 44}",4,22,INT,True,41,7,41,7
+40175451914,401754519,Eastern Kentucky,UAC,Louisville,ACC,14,False,2,46,46,"{'minutes': 0, 'seconds': 6}",2,52,52,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 6}",1,-6,END OF HALF,False,7,41,7,41
+40175451915,401754519,Eastern Kentucky,UAC,Louisville,ACC,15,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,71,71,"{'minutes': 14, 'seconds': 5}","{'minutes': 0, 'seconds': 55}",3,4,PUNT,False,7,41,7,41
+40175451916,401754519,Louisville,ACC,Eastern Kentucky,UAC,16,False,3,24,76,"{'minutes': 14, 'seconds': 5}",3,41,59,"{'minutes': 12, 'seconds': 8}","{'minutes': 1, 'seconds': 57}",5,17,PUNT,True,41,7,41,7
+40175451917,401754519,Eastern Kentucky,UAC,Louisville,ACC,17,False,3,84,84,"{'minutes': 12, 'seconds': 8}",3,80,80,"{'minutes': 10, 'seconds': 30}","{'minutes': 1, 'seconds': 38}",3,4,PUNT,False,7,41,7,41
+40175451918,401754519,Louisville,ACC,Eastern Kentucky,UAC,18,True,3,52,48,"{'minutes': 10, 'seconds': 30}",3,100,0,"{'minutes': 9, 'seconds': 6}","{'minutes': 1, 'seconds': 24}",4,48,TD,True,41,7,48,7
+40175451919,401754519,Eastern Kentucky,UAC,Louisville,ACC,19,False,3,75,75,"{'minutes': 9, 'seconds': 6}",3,43,43,"{'minutes': 5, 'seconds': 15}","{'minutes': 3, 'seconds': 51}",8,35,PUNT,False,7,48,7,48
+40175451920,401754519,Louisville,ACC,Eastern Kentucky,UAC,20,False,3,3,97,"{'minutes': 5, 'seconds': 15}",3,30,70,"{'minutes': 0, 'seconds': 50}","{'minutes': 4, 'seconds': 25}",7,27,INT,True,48,7,48,7
+40175451921,401754519,Eastern Kentucky,UAC,Louisville,ACC,21,True,3,16,16,"{'minutes': 0, 'seconds': 50}",4,0,0,"{'minutes': 14, 'seconds': 18}","{'minutes': 1, 'seconds': 32}",4,16,TD,False,7,48,14,48
+40175451922,401754519,Louisville,ACC,Eastern Kentucky,UAC,22,True,4,25,75,"{'minutes': 14, 'seconds': 18}",4,95,5,"{'minutes': 8, 'seconds': 23}","{'minutes': 5, 'seconds': 55}",11,70,FG,True,48,14,51,14
+40175451923,401754519,Eastern Kentucky,UAC,Louisville,ACC,23,True,4,90,90,"{'minutes': 8, 'seconds': 16}",4,21,21,"{'minutes': 1, 'seconds': 6}","{'minutes': 7, 'seconds': 10}",13,69,FG,False,14,51,17,51
+40175451924,401754519,Louisville,ACC,Eastern Kentucky,UAC,24,False,4,65,35,"{'minutes': 0, 'seconds': 55}",4,62,38,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 55}",2,-3,END OF GAME,True,51,17,51,17
+4017545281,401754528,Louisville,ACC,James Madison,Sun Belt,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,14,86,"{'minutes': 12, 'seconds': 50}","{'minutes': 2, 'seconds': 10}",3,-11,PUNT,True,0,0,0,0
+4017545282,401754528,James Madison,Sun Belt,Louisville,ACC,2,False,1,48,48,"{'minutes': 12, 'seconds': 50}",1,48,48,"{'minutes': 12, 'seconds': 28}","{'minutes': 0, 'seconds': 22}",3,0,PUNT,False,0,0,0,0
+4017545283,401754528,Louisville,ACC,James Madison,Sun Belt,3,False,1,20,80,"{'minutes': 12, 'seconds': 28}",1,39,61,"{'minutes': 9, 'seconds': 36}","{'minutes': 2, 'seconds': 52}",7,19,DOWNS,True,0,0,0,0
+4017545284,401754528,James Madison,Sun Belt,Louisville,ACC,4,True,1,39,39,"{'minutes': 9, 'seconds': 36}",1,0,0,"{'minutes': 4, 'seconds': 1}","{'minutes': 5, 'seconds': 35}",11,39,TD,False,0,0,7,0
+4017545285,401754528,Louisville,ACC,James Madison,Sun Belt,5,False,1,25,75,"{'minutes': 4, 'seconds': 1}",1,78,22,"{'minutes': 0, 'seconds': 46}","{'minutes': 3, 'seconds': 15}",7,44,FUMBLE,True,0,7,0,7
+4017545286,401754528,James Madison,Sun Belt,Louisville,ACC,6,False,1,69,69,"{'minutes': 0, 'seconds': 46}",2,40,40,"{'minutes': 11, 'seconds': 19}","{'minutes': 4, 'seconds': 27}",8,29,DOWNS,False,7,0,7,0
+4017545287,401754528,Louisville,ACC,James Madison,Sun Belt,7,True,2,40,60,"{'minutes': 11, 'seconds': 19}",2,96,4,"{'minutes': 5, 'seconds': 21}","{'minutes': 5, 'seconds': 58}",13,56,FG,True,0,7,3,7
+4017545288,401754528,James Madison,Sun Belt,Louisville,ACC,8,False,2,74,74,"{'minutes': 5, 'seconds': 21}",2,71,71,"{'minutes': 1, 'seconds': 42}","{'minutes': 3, 'seconds': 39}",7,3,PUNT,False,7,3,7,3
+4017545289,401754528,Louisville,ACC,James Madison,Sun Belt,9,True,2,63,37,"{'minutes': 1, 'seconds': 42}",2,80,20,"{'minutes': 0, 'seconds': 9}","{'minutes': 1, 'seconds': 33}",7,17,FG,True,3,7,6,7
+40175452810,401754528,James Madison,Sun Belt,Louisville,ACC,10,False,2,73,73,"{'minutes': 0, 'seconds': 9}",2,75,75,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 9}",1,-2,END OF HALF,False,7,6,7,6
+40175452811,401754528,James Madison,Sun Belt,Louisville,ACC,11,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,0,0,"{'minutes': 10, 'seconds': 10}","{'minutes': 4, 'seconds': 50}",9,75,TD,False,7,6,14,6
+40175452812,401754528,Louisville,ACC,James Madison,Sun Belt,12,True,3,25,75,"{'minutes': 10, 'seconds': 10}",3,100,0,"{'minutes': 8, 'seconds': 37}","{'minutes': 1, 'seconds': 33}",4,75,TD,True,6,14,14,14
+40175452813,401754528,James Madison,Sun Belt,Louisville,ACC,13,False,3,75,75,"{'minutes': 8, 'seconds': 37}",3,75,75,"{'minutes': 7, 'seconds': 31}","{'minutes': 1, 'seconds': 6}",3,0,PUNT,False,14,14,14,14
+40175452814,401754528,Louisville,ACC,James Madison,Sun Belt,14,False,3,39,61,"{'minutes': 7, 'seconds': 31}",3,44,56,"{'minutes': 6, 'seconds': 0}","{'minutes': 1, 'seconds': 31}",3,5,PUNT,True,14,14,14,14
+40175452815,401754528,James Madison,Sun Belt,Louisville,ACC,15,False,3,96,96,"{'minutes': 6, 'seconds': 0}",3,76,76,"{'minutes': 1, 'seconds': 31}","{'minutes': 4, 'seconds': 29}",7,19,PUNT,False,14,14,14,14
+40175452816,401754528,Louisville,ACC,James Madison,Sun Belt,16,False,3,35,65,"{'minutes': 1, 'seconds': 31}",4,43,57,"{'minutes': 15, 'seconds': 0}","{'minutes': 1, 'seconds': 31}",3,8,PUNT,True,14,14,14,14
+40175452817,401754528,James Madison,Sun Belt,Louisville,ACC,17,True,4,92,92,"{'minutes': 15, 'seconds': 0}",4,92,92,"{'minutes': 13, 'seconds': 5}","{'minutes': 1, 'seconds': 55}",3,-8,FUMBLE TD,False,14,14,14,20
+40175452818,401754528,James Madison,Sun Belt,Louisville,ACC,18,False,4,61,61,"{'minutes': 13, 'seconds': 5}",4,36,36,"{'minutes': 7, 'seconds': 29}","{'minutes': 5, 'seconds': 36}",9,25,DOWNS,False,14,20,14,20
+40175452819,401754528,Louisville,ACC,James Madison,Sun Belt,19,False,4,36,64,"{'minutes': 7, 'seconds': 29}",4,35,65,"{'minutes': 6, 'seconds': 31}","{'minutes': 0, 'seconds': 58}",3,-1,PUNT,True,20,14,20,14
+40175452820,401754528,James Madison,Sun Belt,Louisville,ACC,20,False,4,69,69,"{'minutes': 6, 'seconds': 31}",4,65,65,"{'minutes': 4, 'seconds': 25}","{'minutes': 2, 'seconds': 6}",3,4,PUNT,False,14,20,14,20
+40175452821,401754528,Louisville,ACC,James Madison,Sun Belt,21,True,4,19,81,"{'minutes': 4, 'seconds': 25}",4,100,0,"{'minutes': 3, 'seconds': 31}","{'minutes': 0, 'seconds': 54}",2,81,TD,True,20,14,28,14
+40175452822,401754528,James Madison,Sun Belt,Louisville,ACC,22,False,4,75,75,"{'minutes': 3, 'seconds': 31}",4,38,38,"{'minutes': 1, 'seconds': 27}","{'minutes': 2, 'seconds': 4}",8,37,INT,False,14,28,14,28
+40175452823,401754528,Louisville,ACC,James Madison,Sun Belt,23,False,4,11,89,"{'minutes': 1, 'seconds': 27}",4,14,86,"{'minutes': 1, 'seconds': 0}","{'minutes': 0, 'seconds': 27}",3,3,PUNT,True,28,14,28,14
+40175452824,401754528,James Madison,Sun Belt,Louisville,ACC,24,False,4,40,40,"{'minutes': 1, 'seconds': 0}",4,1,1,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 0}",6,39,END OF GAME,False,14,28,14,28
+4017545471,401754547,Pittsburgh,ACC,Louisville,ACC,1,True,1,11,89,"{'minutes': 14, 'seconds': 55}",1,88,12,"{'minutes': 11, 'seconds': 34}","{'minutes': 3, 'seconds': 21}",10,77,FG,True,0,0,3,0
+4017545472,401754547,Louisville,ACC,Pittsburgh,ACC,2,False,1,75,75,"{'minutes': 11, 'seconds': 34}",1,88,88,"{'minutes': 10, 'seconds': 21}","{'minutes': 1, 'seconds': 13}",3,-13,PUNT,False,0,3,0,3
+4017545473,401754547,Pittsburgh,ACC,Louisville,ACC,3,True,1,47,53,"{'minutes': 10, 'seconds': 21}",1,100,0,"{'minutes': 9, 'seconds': 53}","{'minutes': 0, 'seconds': 28}",2,53,TD,True,3,0,10,0
+4017545474,401754547,Louisville,ACC,Pittsburgh,ACC,4,False,1,86,86,"{'minutes': 9, 'seconds': 48}",1,55,55,"{'minutes': 5, 'seconds': 44}","{'minutes': 4, 'seconds': 4}",9,31,PUNT,False,0,10,0,10
+4017545475,401754547,Pittsburgh,ACC,Louisville,ACC,5,False,1,20,80,"{'minutes': 5, 'seconds': 44}",1,25,75,"{'minutes': 4, 'seconds': 27}","{'minutes': 1, 'seconds': 17}",3,5,PUNT,True,10,0,10,0
+4017545476,401754547,Louisville,ACC,Pittsburgh,ACC,6,True,1,63,63,"{'minutes': 4, 'seconds': 27}",1,40,40,"{'minutes': 1, 'seconds': 41}","{'minutes': 2, 'seconds': 46}",8,23,INT TD,False,0,10,0,17
+4017545477,401754547,Louisville,ACC,Pittsburgh,ACC,7,False,1,75,75,"{'minutes': 1, 'seconds': 41}",2,62,62,"{'minutes': 14, 'seconds': 3}","{'minutes': 2, 'seconds': 38}",5,13,PUNT,False,0,17,0,17
+4017545478,401754547,Louisville,ACC,Pittsburgh,ACC,8,True,2,3,3,"{'minutes': 14, 'seconds': 3}",2,0,0,"{'minutes': 12, 'seconds': 32}","{'minutes': 1, 'seconds': 31}",3,3,TD,False,0,17,7,17
+4017545479,401754547,Pittsburgh,ACC,Louisville,ACC,9,False,2,23,77,"{'minutes': 12, 'seconds': 23}",2,28,72,"{'minutes': 11, 'seconds': 14}","{'minutes': 1, 'seconds': 9}",3,5,PUNT,True,17,7,17,7
+40175454710,401754547,Louisville,ACC,Pittsburgh,ACC,10,True,2,82,82,"{'minutes': 11, 'seconds': 14}",2,17,17,"{'minutes': 5, 'seconds': 3}","{'minutes': 6, 'seconds': 11}",14,65,FG,False,7,17,10,17
+40175454711,401754547,Pittsburgh,ACC,Louisville,ACC,11,False,2,25,75,"{'minutes': 5, 'seconds': 3}",2,27,73,"{'minutes': 3, 'seconds': 48}","{'minutes': 1, 'seconds': 15}",4,2,FUMBLE,True,17,10,17,10
+40175454712,401754547,Louisville,ACC,Pittsburgh,ACC,12,True,2,25,25,"{'minutes': 3, 'seconds': 48}",2,0,0,"{'minutes': 3, 'seconds': 42}","{'minutes': 0, 'seconds': 6}",1,25,TD,False,17,17,17,17
+40175454713,401754547,Pittsburgh,ACC,Louisville,ACC,13,True,2,25,75,"{'minutes': 3, 'seconds': 42}",2,81,19,"{'minutes': 1, 'seconds': 42}","{'minutes': 2, 'seconds': 0}",9,56,FG,True,17,17,20,17
+40175454714,401754547,Louisville,ACC,Pittsburgh,ACC,14,False,2,79,79,"{'minutes': 1, 'seconds': 37}",2,71,71,"{'minutes': 0, 'seconds': 51}","{'minutes': 0, 'seconds': 46}",3,8,PUNT,False,17,20,17,20
+40175454715,401754547,Pittsburgh,ACC,Louisville,ACC,15,True,2,34,66,"{'minutes': 0, 'seconds': 51}",2,100,0,"{'minutes': 0, 'seconds': 19}","{'minutes': 0, 'seconds': 32}",4,66,TD,True,20,17,27,17
+40175454716,401754547,Louisville,ACC,Pittsburgh,ACC,16,False,2,75,75,"{'minutes': 0, 'seconds': 19}",2,71,71,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 19}",1,4,END OF HALF,False,17,27,17,27
+40175454717,401754547,Louisville,ACC,Pittsburgh,ACC,17,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,39,39,"{'minutes': 11, 'seconds': 44}","{'minutes': 3, 'seconds': 16}",7,36,FG,False,17,27,20,27
+40175454718,401754547,Pittsburgh,ACC,Louisville,ACC,18,False,3,25,75,"{'minutes': 11, 'seconds': 44}",3,27,73,"{'minutes': 10, 'seconds': 25}","{'minutes': 1, 'seconds': 19}",3,2,PUNT,True,27,20,27,20
+40175454719,401754547,Louisville,ACC,Pittsburgh,ACC,19,False,3,65,65,"{'minutes': 10, 'seconds': 25}",3,38,38,"{'minutes': 6, 'seconds': 55}","{'minutes': 3, 'seconds': 30}",9,27,MISSED FG,False,20,27,20,27
+40175454720,401754547,Pittsburgh,ACC,Louisville,ACC,20,False,3,38,62,"{'minutes': 6, 'seconds': 55}",3,96,4,"{'minutes': 5, 'seconds': 35}","{'minutes': 1, 'seconds': 20}",3,58,INT,True,27,20,27,20
+40175454721,401754547,Louisville,ACC,Pittsburgh,ACC,21,False,3,98,98,"{'minutes': 5, 'seconds': 35}",3,70,70,"{'minutes': 0, 'seconds': 47}","{'minutes': 4, 'seconds': 48}",7,28,PUNT,False,20,27,20,27
+40175454722,401754547,Pittsburgh,ACC,Louisville,ACC,22,False,3,44,56,"{'minutes': 0, 'seconds': 47}",4,61,39,"{'minutes': 13, 'seconds': 23}","{'minutes': 2, 'seconds': 24}",5,17,DOWNS,True,27,20,27,20
+40175454723,401754547,Louisville,ACC,Pittsburgh,ACC,23,True,4,61,61,"{'minutes': 13, 'seconds': 23}",4,0,0,"{'minutes': 10, 'seconds': 49}","{'minutes': 2, 'seconds': 34}",6,61,TD,False,20,27,27,27
+40175454724,401754547,Pittsburgh,ACC,Louisville,ACC,24,False,4,25,75,"{'minutes': 10, 'seconds': 49}",4,18,82,"{'minutes': 10, 'seconds': 1}","{'minutes': 0, 'seconds': 48}",2,-7,INT,True,27,27,27,27
+40175454725,401754547,Louisville,ACC,Pittsburgh,ACC,25,True,4,30,30,"{'minutes': 10, 'seconds': 1}",4,0,0,"{'minutes': 7, 'seconds': 3}","{'minutes': 2, 'seconds': 58}",6,30,TD,False,27,27,34,27
+40175454726,401754547,Pittsburgh,ACC,Louisville,ACC,26,False,4,28,72,"{'minutes': 6, 'seconds': 54}",4,48,52,"{'minutes': 2, 'seconds': 46}","{'minutes': 4, 'seconds': 8}",7,20,DOWNS,True,27,34,27,34
+40175454727,401754547,Louisville,ACC,Pittsburgh,ACC,27,False,4,48,48,"{'minutes': 2, 'seconds': 46}",4,40,40,"{'minutes': 0, 'seconds': 18}","{'minutes': 2, 'seconds': 28}",5,8,PUNT,False,34,27,34,27
+40175454728,401754547,Pittsburgh,ACC,Louisville,ACC,28,False,4,8,92,"{'minutes': 0, 'seconds': 18}",4,8,92,"{'minutes': 0, 'seconds': 4}","{'minutes': 0, 'seconds': 14}",2,0,INT,True,27,34,27,34
+40175454729,401754547,Louisville,ACC,Pittsburgh,ACC,29,False,4,26,26,"{'minutes': 0, 'seconds': 4}",4,27,27,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 4}",1,-1,END OF GAME,False,34,27,34,27
+4017545541,401754554,Virginia,ACC,Louisville,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,53,53,"{'minutes': 11, 'seconds': 48}","{'minutes': 3, 'seconds': 12}",6,22,PUNT,False,0,0,0,0
+4017545542,401754554,Louisville,ACC,Virginia,ACC,2,True,1,14,86,"{'minutes': 11, 'seconds': 48}",1,63,37,"{'minutes': 6, 'seconds': 12}","{'minutes': 5, 'seconds': 36}",11,47,FUMBLE TD,True,0,0,0,7
+4017545543,401754554,Louisville,ACC,Virginia,ACC,3,True,1,25,75,"{'minutes': 6, 'seconds': 12}",1,100,0,"{'minutes': 0, 'seconds': 1}","{'minutes': 6, 'seconds': 11}",12,75,TD,True,0,7,7,7
+4017545544,401754554,Virginia,ACC,Louisville,ACC,4,True,2,75,75,"{'minutes': 15, 'seconds': 0}",2,0,0,"{'minutes': 6, 'seconds': 56}","{'minutes': 8, 'seconds': 4}",16,75,TD,False,7,7,14,7
+4017545545,401754554,Louisville,ACC,Virginia,ACC,5,True,2,30,70,"{'minutes': 6, 'seconds': 56}",2,100,0,"{'minutes': 3, 'seconds': 26}","{'minutes': 3, 'seconds': 30}",7,70,TD,True,7,14,14,14
+4017545546,401754554,Virginia,ACC,Louisville,ACC,6,False,2,75,75,"{'minutes': 3, 'seconds': 26}",2,49,49,"{'minutes': 1, 'seconds': 10}","{'minutes': 2, 'seconds': 16}",5,26,PUNT,False,14,14,14,14
+4017545547,401754554,Louisville,ACC,Virginia,ACC,7,False,2,49,51,"{'minutes': 1, 'seconds': 10}",2,75,25,"{'minutes': 0, 'seconds': 2}","{'minutes': 1, 'seconds': 8}",7,26,MISSED FG,True,14,14,14,14
+4017545548,401754554,Virginia,ACC,Louisville,ACC,8,False,2,75,75,"{'minutes': 0, 'seconds': 2}",2,77,77,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 2}",1,-2,END OF HALF,False,14,14,14,14
+4017545549,401754554,Louisville,ACC,Virginia,ACC,9,False,3,13,87,"{'minutes': 15, 'seconds': 0}",3,13,87,"{'minutes': 10, 'seconds': 51}","{'minutes': 4, 'seconds': 9}",6,0,PUNT,True,14,14,14,14
+40175455410,401754554,Virginia,ACC,Louisville,ACC,10,False,3,50,50,"{'minutes': 10, 'seconds': 51}",3,35,35,"{'minutes': 7, 'seconds': 31}","{'minutes': 3, 'seconds': 20}",7,15,DOWNS,False,14,14,14,14
+40175455411,401754554,Louisville,ACC,Virginia,ACC,11,True,3,35,65,"{'minutes': 7, 'seconds': 31}",3,46,54,"{'minutes': 6, 'seconds': 25}","{'minutes': 1, 'seconds': 6}",4,11,INT TD,True,14,14,14,21
+40175455412,401754554,Louisville,ACC,Virginia,ACC,12,False,3,25,75,"{'minutes': 6, 'seconds': 25}",3,31,69,"{'minutes': 4, 'seconds': 57}","{'minutes': 1, 'seconds': 28}",3,6,PUNT,True,14,21,14,21
+40175455413,401754554,Virginia,ACC,Louisville,ACC,13,False,3,69,69,"{'minutes': 4, 'seconds': 57}",3,72,72,"{'minutes': 2, 'seconds': 42}","{'minutes': 2, 'seconds': 15}",3,-3,PUNT,False,21,14,21,14
+40175455414,401754554,Louisville,ACC,Virginia,ACC,14,False,3,1,99,"{'minutes': 2, 'seconds': 42}",3,2,98,"{'minutes': 1, 'seconds': 43}","{'minutes': 0, 'seconds': 59}",3,1,PUNT,True,14,21,14,21
+40175455415,401754554,Virginia,ACC,Louisville,ACC,15,True,3,40,40,"{'minutes': 1, 'seconds': 43}",3,29,29,"{'minutes': 0, 'seconds': 30}","{'minutes': 1, 'seconds': 13}",5,11,FG,False,21,14,24,14
+40175455416,401754554,Louisville,ACC,Virginia,ACC,16,False,3,27,73,"{'minutes': 0, 'seconds': 30}",4,38,62,"{'minutes': 13, 'seconds': 30}","{'minutes': 2, 'seconds': 0}",4,11,PUNT,True,14,24,14,24
+40175455417,401754554,Virginia,ACC,Louisville,ACC,17,False,4,80,80,"{'minutes': 13, 'seconds': 30}",4,76,76,"{'minutes': 12, 'seconds': 29}","{'minutes': 1, 'seconds': 1}",3,4,PUNT,False,24,14,24,14
+40175455418,401754554,Louisville,ACC,Virginia,ACC,18,True,4,45,55,"{'minutes': 12, 'seconds': 29}",4,100,0,"{'minutes': 9, 'seconds': 41}","{'minutes': 2, 'seconds': 48}",6,55,TD,True,14,24,21,24
+40175455419,401754554,Virginia,ACC,Louisville,ACC,19,False,4,75,75,"{'minutes': 9, 'seconds': 41}",4,54,54,"{'minutes': 4, 'seconds': 31}","{'minutes': 5, 'seconds': 10}",9,21,PUNT,False,24,21,24,21
+40175455420,401754554,Louisville,ACC,Virginia,ACC,20,True,4,28,72,"{'minutes': 4, 'seconds': 31}",4,68,32,"{'minutes': 1, 'seconds': 8}","{'minutes': 3, 'seconds': 23}",10,40,FG,True,21,24,24,24
+40175455421,401754554,Virginia,ACC,Louisville,ACC,21,False,4,75,75,"{'minutes': 1, 'seconds': 8}",4,62,62,"{'minutes': 15, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",6,13,END OF GAME,False,24,24,24,24
+-2880,401754554,Louisville,ACC,Virginia,ACC,22,True,5,75,25,"{'minutes': 0, 'seconds': 0}",5,94,6,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",5,19,DOWNS,True,0,0,27,24
+-2881,401754554,Virginia,ACC,Louisville,ACC,23,True,5,75,75,"{'minutes': 0, 'seconds': 0}",5,2,2,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,25,TD,False,24,27,30,27
+4017545641,401754564,Louisville,ACC,Miami,ACC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,0,0,"{'minutes': 8, 'seconds': 55}","{'minutes': 6, 'seconds': 5}",11,75,TD,False,0,0,7,0
+4017545642,401754564,Miami,ACC,Louisville,ACC,2,False,1,25,75,"{'minutes': 8, 'seconds': 55}",1,18,82,"{'minutes': 7, 'seconds': 15}","{'minutes': 1, 'seconds': 40}",3,-7,PUNT,True,0,7,0,7
+4017545643,401754564,Louisville,ACC,Miami,ACC,3,True,1,46,46,"{'minutes': 7, 'seconds': 15}",1,0,0,"{'minutes': 5, 'seconds': 9}","{'minutes': 2, 'seconds': 6}",4,46,TD,False,7,0,14,0
+4017545644,401754564,Miami,ACC,Louisville,ACC,4,True,1,25,75,"{'minutes': 5, 'seconds': 9}",1,100,0,"{'minutes': 2, 'seconds': 19}","{'minutes': 2, 'seconds': 50}",5,75,TD,True,0,14,7,14
+4017545645,401754564,Louisville,ACC,Miami,ACC,5,False,1,75,75,"{'minutes': 2, 'seconds': 19}",2,54,54,"{'minutes': 14, 'seconds': 39}","{'minutes': 2, 'seconds': 40}",7,21,PUNT,False,14,7,14,7
+4017545646,401754564,Miami,ACC,Louisville,ACC,6,False,2,7,93,"{'minutes': 14, 'seconds': 39}",2,18,82,"{'minutes': 13, 'seconds': 4}","{'minutes': 1, 'seconds': 35}",3,11,INT,True,7,14,7,14
+4017545647,401754564,Louisville,ACC,Miami,ACC,7,False,2,68,68,"{'minutes': 13, 'seconds': 4}",2,46,46,"{'minutes': 9, 'seconds': 1}","{'minutes': 4, 'seconds': 3}",6,22,PUNT,False,14,7,14,7
+4017545648,401754564,Miami,ACC,Louisville,ACC,8,False,2,11,89,"{'minutes': 9, 'seconds': 1}",2,32,68,"{'minutes': 7, 'seconds': 15}","{'minutes': 1, 'seconds': 46}",4,21,INT,True,7,14,7,14
+4017545649,401754564,Louisville,ACC,Miami,ACC,9,False,2,68,68,"{'minutes': 7, 'seconds': 15}",2,70,70,"{'minutes': 5, 'seconds': 30}","{'minutes': 1, 'seconds': 45}",4,-2,PUNT,False,14,7,14,7
+40175456410,401754564,Miami,ACC,Louisville,ACC,10,True,2,30,70,"{'minutes': 5, 'seconds': 30}",2,91,9,"{'minutes': 1, 'seconds': 56}","{'minutes': 3, 'seconds': 34}",7,61,FG,True,7,14,10,14
+40175456411,401754564,Louisville,ACC,Miami,ACC,11,False,2,75,75,"{'minutes': 1, 'seconds': 56}",2,45,45,"{'minutes': 0, 'seconds': 4}","{'minutes': 1, 'seconds': 52}",7,30,PUNT,False,14,10,14,10
+40175456412,401754564,Miami,ACC,Louisville,ACC,12,False,2,20,80,"{'minutes': 0, 'seconds': 4}",2,19,81,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 4}",1,-1,END OF HALF,True,10,14,10,14
+40175456413,401754564,Miami,ACC,Louisville,ACC,13,False,3,10,90,"{'minutes': 14, 'seconds': 55}",3,17,83,"{'minutes': 13, 'seconds': 20}","{'minutes': 1, 'seconds': 35}",3,7,PUNT,True,10,14,10,14
+40175456414,401754564,Louisville,ACC,Miami,ACC,14,True,3,64,64,"{'minutes': 13, 'seconds': 20}",3,30,30,"{'minutes': 10, 'seconds': 58}","{'minutes': 2, 'seconds': 22}",6,34,FG,False,14,10,17,10
+40175456415,401754564,Miami,ACC,Louisville,ACC,15,False,3,25,75,"{'minutes': 10, 'seconds': 58}",3,40,60,"{'minutes': 7, 'seconds': 30}","{'minutes': 3, 'seconds': 28}",6,15,PUNT,True,10,17,10,17
+40175456416,401754564,Louisville,ACC,Miami,ACC,16,False,3,92,92,"{'minutes': 7, 'seconds': 30}",3,78,78,"{'minutes': 4, 'seconds': 43}","{'minutes': 2, 'seconds': 47}",5,14,PUNT,False,17,10,17,10
+40175456417,401754564,Miami,ACC,Louisville,ACC,17,True,3,45,55,"{'minutes': 4, 'seconds': 43}",3,77,23,"{'minutes': 1, 'seconds': 51}","{'minutes': 2, 'seconds': 52}",6,32,FG,True,10,17,13,17
+40175456418,401754564,Louisville,ACC,Miami,ACC,18,True,3,75,75,"{'minutes': 1, 'seconds': 51}",4,0,0,"{'minutes': 13, 'seconds': 27}","{'minutes': 3, 'seconds': 24}",8,75,TD,False,17,13,24,13
+40175456419,401754564,Miami,ACC,Louisville,ACC,19,False,4,25,75,"{'minutes': 13, 'seconds': 27}",4,56,44,"{'minutes': 7, 'seconds': 50}","{'minutes': 5, 'seconds': 37}",10,31,INT,True,13,24,13,24
+40175456420,401754564,Louisville,ACC,Miami,ACC,20,False,4,72,72,"{'minutes': 7, 'seconds': 50}",4,75,75,"{'minutes': 7, 'seconds': 42}","{'minutes': 0, 'seconds': 8}",1,-3,FUMBLE,False,24,13,24,13
+40175456421,401754564,Miami,ACC,Louisville,ACC,21,True,4,88,12,"{'minutes': 7, 'seconds': 42}",4,100,0,"{'minutes': 7, 'seconds': 37}","{'minutes': 0, 'seconds': 5}",1,12,TD,True,21,24,21,24
+40175456422,401754564,Louisville,ACC,Miami,ACC,22,False,4,75,75,"{'minutes': 7, 'seconds': 37}",4,51,51,"{'minutes': 4, 'seconds': 5}","{'minutes': 3, 'seconds': 32}",7,24,PUNT,False,24,21,24,21
+40175456423,401754564,Miami,ACC,Louisville,ACC,23,False,4,15,85,"{'minutes': 4, 'seconds': 5}",4,69,31,"{'minutes': 0, 'seconds': 32}","{'minutes': 3, 'seconds': 33}",12,54,INT,True,21,24,21,24
+40175456424,401754564,Louisville,ACC,Miami,ACC,24,False,4,70,70,"{'minutes': 0, 'seconds': 32}",4,73,73,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 32}",3,-3,END OF GAME,False,24,21,24,21
+4017545702,401754570,Boston College,ACC,Louisville,ACC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,20,20,"{'minutes': 6, 'seconds': 36}","{'minutes': 8, 'seconds': 24}",15,55,FG,False,0,0,3,0
+4017545704,401754570,Louisville,ACC,Boston College,ACC,2,True,1,25,75,"{'minutes': 6, 'seconds': 36}",1,97,3,"{'minutes': 4, 'seconds': 49}","{'minutes': 1, 'seconds': 47}",3,75,TD,True,0,3,7,3
+4017545706,401754570,Boston College,ACC,Louisville,ACC,3,True,1,75,75,"{'minutes': 4, 'seconds': 49}",2,3,3,"{'minutes': 14, 'seconds': 56}","{'minutes': 4, 'seconds': 53}",10,75,TD,False,3,7,10,7
+4017545708,401754570,Louisville,ACC,Boston College,ACC,4,False,2,25,75,"{'minutes': 14, 'seconds': 56}",2,31,69,"{'minutes': 13, 'seconds': 58}","{'minutes': 0, 'seconds': 58}",3,6,PUNT,True,7,10,7,10
+4017545709,401754570,Boston College,ACC,Louisville,ACC,5,False,2,73,73,"{'minutes': 13, 'seconds': 52}",2,38,38,"{'minutes': 10, 'seconds': 44}","{'minutes': 3, 'seconds': 54}",7,35,DOWNS,False,10,7,10,7
+40175457010,401754570,Louisville,ACC,Boston College,ACC,6,False,2,38,62,"{'minutes': 9, 'seconds': 57}",2,53,47,"{'minutes': 8, 'seconds': 38}","{'minutes': 1, 'seconds': 26}",4,15,PUNT,True,7,10,7,10
+40175457011,401754570,Boston College,ACC,Louisville,ACC,7,False,2,85,85,"{'minutes': 8, 'seconds': 32}",2,44,44,"{'minutes': 2, 'seconds': 52}","{'minutes': 5, 'seconds': 46}",13,41,DOWNS,False,10,7,10,7
+40175457012,401754570,Louisville,ACC,Boston College,ACC,8,True,2,44,56,"{'minutes': 2, 'seconds': 51}",2,97,3,"{'minutes': 1, 'seconds': 42}","{'minutes': 1, 'seconds': 10}",5,56,TD,True,7,10,14,10
+40175457014,401754570,Boston College,ACC,Louisville,ACC,9,False,2,75,75,"{'minutes': 1, 'seconds': 42}",2,75,75,"{'minutes': 1, 'seconds': 11}","{'minutes': 0, 'seconds': 31}",3,0,PUNT,False,10,14,10,14
+40175457015,401754570,Louisville,ACC,Boston College,ACC,10,True,2,38,62,"{'minutes': 1, 'seconds': 2}",2,97,3,"{'minutes': 1, 'seconds': 2}","{'minutes': 0, 'seconds': 9}",1,62,TD,True,21,10,21,10
+40175457017,401754570,Boston College,ACC,Louisville,ACC,11,False,2,75,75,"{'minutes': 1, 'seconds': 2}",2,73,73,"{'minutes': 0, 'seconds': 37}","{'minutes': 0, 'seconds': 25}",3,2,PUNT,False,10,21,10,21
+40175457018,401754570,Louisville,ACC,Boston College,ACC,12,False,2,34,66,"{'minutes': 0, 'seconds': 30}",2,66,34,"{'minutes': 0, 'seconds': 5}","{'minutes': 0, 'seconds': 37}",6,32,MISSED FG,True,21,10,21,10
+40175457020,401754570,Louisville,ACC,Boston College,ACC,13,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,34,66,"{'minutes': 14, 'seconds': 50}","{'minutes': 0, 'seconds': 10}",1,0,FUMBLE,True,21,10,21,10
+40175457021,401754570,Boston College,ACC,Louisville,ACC,14,True,3,34,34,"{'minutes': 14, 'seconds': 45}",3,3,3,"{'minutes': 14, 'seconds': 8}","{'minutes': 0, 'seconds': 42}",2,34,TD,False,10,21,17,21
+40175457023,401754570,Louisville,ACC,Boston College,ACC,15,False,3,25,75,"{'minutes': 14, 'seconds': 8}",3,45,55,"{'minutes': 11, 'seconds': 51}","{'minutes': 2, 'seconds': 17}",4,20,PUNT,True,21,17,21,17
+40175457024,401754570,Boston College,ACC,Louisville,ACC,16,False,3,75,75,"{'minutes': 11, 'seconds': 44}",3,68,68,"{'minutes': 10, 'seconds': 23}","{'minutes': 1, 'seconds': 28}",2,7,PUNT,False,17,21,17,21
+40175457025,401754570,Louisville,ACC,Boston College,ACC,17,False,3,30,70,"{'minutes': 10, 'seconds': 18}",3,46,54,"{'minutes': 8, 'seconds': 6}","{'minutes': 2, 'seconds': 17}",5,16,PUNT,True,21,17,21,17
+40175457026,401754570,Boston College,ACC,Louisville,ACC,18,False,3,74,74,"{'minutes': 8, 'seconds': 2}",3,73,73,"{'minutes': 8, 'seconds': 2}","{'minutes': 0, 'seconds': 16}",1,1,FUMBLE,False,17,21,17,21
+40175457027,401754570,Louisville,ACC,Boston College,ACC,19,True,3,73,27,"{'minutes': 7, 'seconds': 42}",3,97,3,"{'minutes': 7, 'seconds': 34}","{'minutes': 0, 'seconds': 16}",2,27,TD,True,21,17,28,17
+40175457029,401754570,Boston College,ACC,Louisville,ACC,20,False,3,75,75,"{'minutes': 7, 'seconds': 34}",3,69,69,"{'minutes': 6, 'seconds': 6}","{'minutes': 1, 'seconds': 28}",3,-9,PUNT,False,17,28,17,28
+40175457030,401754570,Louisville,ACC,Boston College,ACC,21,False,3,29,71,"{'minutes': 5, 'seconds': 58}",3,74,26,"{'minutes': 2, 'seconds': 28}","{'minutes': 3, 'seconds': 38}",7,45,INT,True,28,17,28,17
+40175457031,401754570,Boston College,ACC,Louisville,ACC,22,False,3,68,68,"{'minutes': 2, 'seconds': 17}",3,67,67,"{'minutes': 2, 'seconds': 17}","{'minutes': 0, 'seconds': 40}",2,1,INT,False,17,28,17,28
+40175457032,401754570,Louisville,ACC,Boston College,ACC,23,False,3,66,34,"{'minutes': 1, 'seconds': 44}",4,62,38,"{'minutes': 14, 'seconds': 54}","{'minutes': 1, 'seconds': 54}",3,-4,PUNT,True,28,17,28,17
+40175457033,401754570,Boston College,ACC,Louisville,ACC,24,False,4,95,95,"{'minutes': 14, 'seconds': 48}",4,89,89,"{'minutes': 13, 'seconds': 37}","{'minutes': 1, 'seconds': 56}",3,6,PUNT,False,17,28,17,28
+40175457034,401754570,Louisville,ACC,Boston College,ACC,25,False,4,55,45,"{'minutes': 12, 'seconds': 46}",4,60,40,"{'minutes': 12, 'seconds': 4}","{'minutes': 1, 'seconds': 36}",3,3,FUMBLE,True,28,17,28,17
+40175457035,401754570,Boston College,ACC,Louisville,ACC,26,False,4,58,58,"{'minutes': 11, 'seconds': 14}",4,70,70,"{'minutes': 10, 'seconds': 34}","{'minutes': 0, 'seconds': 48}",2,-5,INT,False,17,28,17,28
+40175457036,401754570,Louisville,ACC,Boston College,ACC,27,True,4,70,30,"{'minutes': 10, 'seconds': 27}",4,77,23,"{'minutes': 8, 'seconds': 13}","{'minutes': 2, 'seconds': 21}",4,7,FG,True,28,17,31,17
+40175457038,401754570,Boston College,ACC,Louisville,ACC,28,True,4,68,68,"{'minutes': 8, 'seconds': 5}",4,3,3,"{'minutes': 6, 'seconds': 17}","{'minutes': 1, 'seconds': 48}",8,68,TD,False,17,31,24,31
+40175457040,401754570,Louisville,ACC,Boston College,ACC,29,False,4,25,75,"{'minutes': 6, 'seconds': 17}",4,34,66,"{'minutes': 5, 'seconds': 24}","{'minutes': 1, 'seconds': 33}",3,9,PUNT,True,31,24,31,24
+40175457041,401754570,Boston College,ACC,Louisville,ACC,30,False,4,73,73,"{'minutes': 4, 'seconds': 29}",4,56,56,"{'minutes': 2, 'seconds': 59}","{'minutes': 1, 'seconds': 45}",5,17,PUNT,False,24,31,24,31
+40175457042,401754570,Louisville,ACC,Boston College,ACC,31,True,4,17,83,"{'minutes': 2, 'seconds': 52}",4,97,3,"{'minutes': 1, 'seconds': 49}","{'minutes': 1, 'seconds': 10}",5,83,TD,True,31,24,38,24
+40175457044,401754570,Boston College,ACC,Louisville,ACC,32,False,4,75,75,"{'minutes': 1, 'seconds': 49}",4,83,83,"{'minutes': 0, 'seconds': 57}","{'minutes': 0, 'seconds': 52}",4,-8,DOWNS,False,24,38,24,38
+40175457045,401754570,Louisville,ACC,Boston College,ACC,33,False,4,83,17,"{'minutes': 0, 'seconds': 46}",4,81,19,"{'minutes': 0, 'seconds': 27}","{'minutes': 0, 'seconds': 57}",2,-2,END OF GAME,True,38,24,38,24
+4017545802,401754580,Virginia Tech,ACC,Louisville,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,36,64,"{'minutes': 13, 'seconds': 40}","{'minutes': 1, 'seconds': 20}",4,11,PUNT,True,0,0,0,0
+4017545803,401754580,Louisville,ACC,Virginia Tech,ACC,2,True,1,62,62,"{'minutes': 13, 'seconds': 34}",1,3,3,"{'minutes': 12, 'seconds': 58}","{'minutes': 0, 'seconds': 42}",2,62,TD,False,0,0,7,0
+4017545805,401754580,Virginia Tech,ACC,Louisville,ACC,3,False,1,25,75,"{'minutes': 12, 'seconds': 58}",1,41,59,"{'minutes': 9, 'seconds': 53}","{'minutes': 3, 'seconds': 5}",6,16,PUNT,True,0,7,0,7
+4017545806,401754580,Louisville,ACC,Virginia Tech,ACC,4,False,1,80,80,"{'minutes': 9, 'seconds': 41}",1,63,63,"{'minutes': 6, 'seconds': 53}","{'minutes': 3, 'seconds': 0}",5,12,INT,False,7,0,7,0
+4017545807,401754580,Virginia Tech,ACC,Louisville,ACC,5,True,1,63,37,"{'minutes': 6, 'seconds': 39}",1,97,3,"{'minutes': 1, 'seconds': 57}","{'minutes': 4, 'seconds': 56}",9,37,TD,True,0,7,7,7
+4017545809,401754580,Louisville,ACC,Virginia Tech,ACC,6,True,1,75,75,"{'minutes': 1, 'seconds': 57}",1,76,76,"{'minutes': 0, 'seconds': 52}","{'minutes': 1, 'seconds': 5}",3,-1,SF,False,7,7,7,9
+40175458011,401754580,Virginia Tech,ACC,Louisville,ACC,7,False,1,25,75,"{'minutes': 0, 'seconds': 52}",2,30,70,"{'minutes': 14, 'seconds': 11}","{'minutes': 1, 'seconds': 41}",3,5,PUNT,True,9,7,9,7
+40175458012,401754580,Louisville,ACC,Virginia Tech,ACC,8,False,2,98,98,"{'minutes': 13, 'seconds': 55}",2,89,89,"{'minutes': 12, 'seconds': 5}","{'minutes': 2, 'seconds': 6}",3,9,PUNT,False,7,9,7,9
+40175458013,401754580,Virginia Tech,ACC,Louisville,ACC,9,True,2,46,54,"{'minutes': 11, 'seconds': 44}",2,93,7,"{'minutes': 8, 'seconds': 25}","{'minutes': 3, 'seconds': 40}",8,54,TD,True,9,7,16,7
+40175458015,401754580,Louisville,ACC,Virginia Tech,ACC,10,False,2,75,75,"{'minutes': 8, 'seconds': 25}",2,22,22,"{'minutes': 3, 'seconds': 7}","{'minutes': 5, 'seconds': 18}",11,53,DOWNS,False,7,16,7,16
+40175458016,401754580,Virginia Tech,ACC,Louisville,ACC,11,False,2,22,78,"{'minutes': 3, 'seconds': 7}",2,52,48,"{'minutes': 0, 'seconds': 50}","{'minutes': 2, 'seconds': 17}",5,30,PUNT,True,16,7,16,7
+40175458017,401754580,Louisville,ACC,Virginia Tech,ACC,12,False,2,90,90,"{'minutes': 0, 'seconds': 35}",2,83,83,"{'minutes': 0, 'seconds': 4}","{'minutes': 0, 'seconds': 50}",4,7,END OF HALF,False,7,16,7,16
+40175458019,401754580,Louisville,ACC,Virginia Tech,ACC,13,False,3,67,67,"{'minutes': 14, 'seconds': 45}",3,48,48,"{'minutes': 13, 'seconds': 21}","{'minutes': 1, 'seconds': 24}",5,57,PUNT,False,7,16,7,16
+40175458020,401754580,Virginia Tech,ACC,Louisville,ACC,14,False,3,10,90,"{'minutes': 13, 'seconds': 7}",3,16,84,"{'minutes': 12, 'seconds': 2}","{'minutes': 1, 'seconds': 19}",3,6,PUNT,True,16,7,16,7
+40175458021,401754580,Louisville,ACC,Virginia Tech,ACC,15,True,3,53,53,"{'minutes': 11, 'seconds': 45}",3,3,3,"{'minutes': 9, 'seconds': 7}","{'minutes': 2, 'seconds': 55}",6,53,TD,False,7,16,14,16
+40175458023,401754580,Virginia Tech,ACC,Louisville,ACC,16,False,3,12,88,"{'minutes': 8, 'seconds': 52}",3,25,75,"{'minutes': 5, 'seconds': 42}","{'minutes': 3, 'seconds': 10}",6,13,PUNT,True,16,14,16,14
+40175458024,401754580,Louisville,ACC,Virginia Tech,ACC,17,True,3,5,5,"{'minutes': 5, 'seconds': 28}",3,3,3,"{'minutes': 5, 'seconds': 1}","{'minutes': 0, 'seconds': 41}",2,5,TD,False,14,16,21,16
+40175458026,401754580,Virginia Tech,ACC,Louisville,ACC,18,False,3,25,75,"{'minutes': 5, 'seconds': 1}",3,55,45,"{'minutes': 2, 'seconds': 7}","{'minutes': 2, 'seconds': 54}",6,30,PUNT,True,16,21,16,21
+40175458027,401754580,Louisville,ACC,Virginia Tech,ACC,19,False,3,87,87,"{'minutes': 2, 'seconds': 7}",4,37,37,"{'minutes': 12, 'seconds': 5}","{'minutes': 5, 'seconds': 2}",8,50,PUNT,False,21,16,21,16
+40175458028,401754580,Virginia Tech,ACC,Louisville,ACC,20,False,4,20,80,"{'minutes': 11, 'seconds': 52}",4,20,80,"{'minutes': 10, 'seconds': 45}","{'minutes': 1, 'seconds': 20}",3,0,PUNT,True,16,21,16,21
+40175458029,401754580,Louisville,ACC,Virginia Tech,ACC,21,False,4,50,50,"{'minutes': 10, 'seconds': 27}",4,45,45,"{'minutes': 9, 'seconds': 9}","{'minutes': 1, 'seconds': 36}",3,5,PUNT,False,21,16,21,16
+40175458030,401754580,Virginia Tech,ACC,Louisville,ACC,22,False,4,20,80,"{'minutes': 8, 'seconds': 55}",4,63,37,"{'minutes': 5, 'seconds': 57}","{'minutes': 3, 'seconds': 12}",7,43,DOWNS,True,16,21,16,21
+40175458031,401754580,Louisville,ACC,Virginia Tech,ACC,23,True,4,63,63,"{'minutes': 5, 'seconds': 40}",4,3,3,"{'minutes': 2, 'seconds': 16}","{'minutes': 3, 'seconds': 41}",7,63,TD,False,21,16,28,16
+40175458033,401754580,Virginia Tech,ACC,Louisville,ACC,24,False,4,25,75,"{'minutes': 2, 'seconds': 16}",4,27,73,"{'minutes': 1, 'seconds': 47}","{'minutes': 0, 'seconds': 29}",4,2,DOWNS,True,16,28,16,28
+40175458034,401754580,Louisville,ACC,Virginia Tech,ACC,25,False,4,27,27,"{'minutes': 1, 'seconds': 39}",4,17,17,"{'minutes': 0, 'seconds': 20}","{'minutes': 1, 'seconds': 47}",4,10,END OF GAME,False,28,16,28,16
+4017545852,401754585,California,ACC,Louisville,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,22,22,"{'minutes': 10, 'seconds': 33}","{'minutes': 4, 'seconds': 27}",11,53,MISSED FG,False,0,0,0,0
+4017545853,401754585,Louisville,ACC,California,ACC,2,True,1,22,78,"{'minutes': 10, 'seconds': 33}",1,100,0,"{'minutes': 5, 'seconds': 11}","{'minutes': 5, 'seconds': 22}",10,78,TD,True,0,0,7,0
+4017545855,401754585,California,ACC,Louisville,ACC,3,False,1,75,75,"{'minutes': 5, 'seconds': 11}",1,70,70,"{'minutes': 4, 'seconds': 13}","{'minutes': 0, 'seconds': 58}",3,5,PUNT,False,0,7,0,7
+4017545856,401754585,Louisville,ACC,California,ACC,4,False,1,31,69,"{'minutes': 4, 'seconds': 13}",1,33,67,"{'minutes': 2, 'seconds': 47}","{'minutes': 1, 'seconds': 26}",3,2,PUNT,True,7,0,7,0
+4017545857,401754585,California,ACC,Louisville,ACC,5,True,1,74,74,"{'minutes': 2, 'seconds': 47}",1,0,0,"{'minutes': 0, 'seconds': 40}","{'minutes': 2, 'seconds': 7}",6,74,TD,False,0,7,7,7
+4017545859,401754585,Louisville,ACC,California,ACC,6,True,1,21,79,"{'minutes': 0, 'seconds': 36}",2,12,88,"{'minutes': 11, 'seconds': 1}","{'minutes': 4, 'seconds': 35}",12,67,FG,True,7,7,26,29
+40175458511,401754585,California,ACC,Louisville,ACC,7,True,2,75,75,"{'minutes': 11, 'seconds': 1}",2,10,10,"{'minutes': 5, 'seconds': 58}","{'minutes': 5, 'seconds': 3}",9,65,FG,False,7,10,10,10
+40175458513,401754585,Louisville,ACC,California,ACC,8,True,2,25,75,"{'minutes': 5, 'seconds': 58}",2,69,31,"{'minutes': 2, 'seconds': 34}","{'minutes': 3, 'seconds': 24}",7,44,FG,True,10,10,13,10
+40175458515,401754585,California,ACC,Louisville,ACC,9,True,2,75,75,"{'minutes': 2, 'seconds': 34}",2,2,2,"{'minutes': 0, 'seconds': 7}","{'minutes': 2, 'seconds': 27}",9,73,TD,False,10,13,17,13
+40175458517,401754585,Louisville,ACC,California,ACC,10,False,2,34,66,"{'minutes': 0, 'seconds': 2}",2,52,48,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 2}",1,18,END OF HALF,True,13,17,13,17
+40175458519,401754585,Louisville,ACC,California,ACC,11,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,17,83,"{'minutes': 14, 'seconds': 6}","{'minutes': 0, 'seconds': 54}",2,-8,INT,True,13,17,13,17
+40175458520,401754585,California,ACC,Louisville,ACC,12,True,3,37,37,"{'minutes': 14, 'seconds': 6}",3,27,27,"{'minutes': 11, 'seconds': 34}","{'minutes': 2, 'seconds': 32}",6,10,FG,False,17,13,20,13
+40175458522,401754585,Louisville,ACC,California,ACC,13,True,3,25,75,"{'minutes': 11, 'seconds': 34}",3,100,0,"{'minutes': 7, 'seconds': 43}","{'minutes': 3, 'seconds': 51}",8,75,TD,True,13,20,20,20
+40175458524,401754585,California,ACC,Louisville,ACC,14,True,3,75,75,"{'minutes': 7, 'seconds': 43}",3,8,8,"{'minutes': 0, 'seconds': 23}","{'minutes': 7, 'seconds': 20}",13,67,FG,False,20,20,23,20
+40175458526,401754585,Louisville,ACC,California,ACC,15,True,3,16,84,"{'minutes': 0, 'seconds': 16}",4,79,21,"{'minutes': 11, 'seconds': 8}","{'minutes': 4, 'seconds': 8}",10,63,FG,True,20,23,23,23
+40175458528,401754585,California,ACC,Louisville,ACC,16,False,4,75,75,"{'minutes': 11, 'seconds': 8}",4,74,74,"{'minutes': 10, 'seconds': 20}","{'minutes': 0, 'seconds': 48}",3,1,PUNT,False,23,23,23,23
+40175458529,401754585,Louisville,ACC,California,ACC,17,False,4,40,60,"{'minutes': 10, 'seconds': 20}",4,40,60,"{'minutes': 7, 'seconds': 46}","{'minutes': 2, 'seconds': 34}",3,0,PUNT,True,23,23,23,23
+40175458530,401754585,California,ACC,Louisville,ACC,18,False,4,81,81,"{'minutes': 7, 'seconds': 46}",4,73,73,"{'minutes': 6, 'seconds': 20}","{'minutes': 1, 'seconds': 26}",3,8,PUNT,False,23,23,23,23
+40175458531,401754585,Louisville,ACC,California,ACC,19,False,4,33,67,"{'minutes': 6, 'seconds': 20}",4,48,52,"{'minutes': 3, 'seconds': 36}","{'minutes': 2, 'seconds': 44}",6,15,PUNT,True,23,23,23,23
+40175458532,401754585,California,ACC,Louisville,ACC,20,False,4,97,97,"{'minutes': 3, 'seconds': 36}",4,62,62,"{'minutes': 1, 'seconds': 9}","{'minutes': 2, 'seconds': 27}",5,32,PUNT,False,23,23,23,23
+40175458533,401754585,Louisville,ACC,California,ACC,21,False,4,25,75,"{'minutes': 1, 'seconds': 9}",4,30,70,"{'minutes': 0, 'seconds': 40}","{'minutes': 0, 'seconds': 29}",3,5,PUNT,True,23,23,23,23
+40175458534,401754585,California,ACC,Louisville,ACC,22,False,4,62,62,"{'minutes': 0, 'seconds': 40}",4,68,68,"{'minutes': 0, 'seconds': 23}","{'minutes': 0, 'seconds': 17}",3,-6,PUNT,False,23,23,23,23
+40175458535,401754585,Louisville,ACC,California,ACC,23,False,4,50,50,"{'minutes': 0, 'seconds': 23}",4,48,52,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 23}",4,-2,END OF HALF,True,23,23,23,23
+40175458536,401754585,Louisville,ACC,California,ACC,24,True,5,75,25,"{'minutes': 0, 'seconds': 0}",5,69,31,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,-6,FG,True,23,23,26,23
+40175458537,401754585,California,ACC,Louisville,ACC,25,True,5,25,25,"{'minutes': 0, 'seconds': 0}",5,0,0,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",7,25,TD,False,23,26,29,26
+4017545912,401754591,Clemson,ACC,Louisville,ACC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,10,10,"{'minutes': 8, 'seconds': 38}","{'minutes': 6, 'seconds': 22}",12,65,FG,False,0,0,3,0
+4017545914,401754591,Louisville,ACC,Clemson,ACC,2,False,1,25,75,"{'minutes': 8, 'seconds': 38}",1,27,73,"{'minutes': 6, 'seconds': 46}","{'minutes': 1, 'seconds': 52}",3,2,PUNT,True,0,3,0,3
+4017545915,401754591,Clemson,ACC,Louisville,ACC,3,False,1,75,75,"{'minutes': 6, 'seconds': 41}",1,57,57,"{'minutes': 3, 'seconds': 57}","{'minutes': 2, 'seconds': 49}",5,18,PUNT,False,3,0,3,0
+4017545916,401754591,Louisville,ACC,Clemson,ACC,4,True,1,12,88,"{'minutes': 3, 'seconds': 50}",1,67,33,"{'minutes': 0, 'seconds': 45}","{'minutes': 3, 'seconds': 12}",8,55,FG,True,0,3,3,3
+4017545918,401754591,Clemson,ACC,Louisville,ACC,5,False,1,75,75,"{'minutes': 0, 'seconds': 45}",2,64,64,"{'minutes': 13, 'seconds': 34}","{'minutes': 2, 'seconds': 11}",3,11,PUNT,False,3,3,3,3
+4017545919,401754591,Louisville,ACC,Clemson,ACC,6,False,2,15,85,"{'minutes': 13, 'seconds': 25}",2,50,50,"{'minutes': 11, 'seconds': 4}","{'minutes': 2, 'seconds': 30}",5,35,PUNT,True,3,3,3,3
+40175459110,401754591,Clemson,ACC,Louisville,ACC,7,False,2,94,94,"{'minutes': 11, 'seconds': 1}",2,93,93,"{'minutes': 10, 'seconds': 1}","{'minutes': 1, 'seconds': 3}",3,1,PUNT,False,3,3,3,3
+40175459111,401754591,Louisville,ACC,Clemson,ACC,8,True,2,62,38,"{'minutes': 9, 'seconds': 52}",2,97,3,"{'minutes': 8, 'seconds': 47}","{'minutes': 1, 'seconds': 14}",3,38,TD,True,3,3,9,3
+40175459113,401754591,Clemson,ACC,Louisville,ACC,9,False,2,75,75,"{'minutes': 8, 'seconds': 47}",2,45,45,"{'minutes': 5, 'seconds': 26}","{'minutes': 3, 'seconds': 21}",6,30,PUNT,False,3,9,3,9
+40175459114,401754591,Louisville,ACC,Clemson,ACC,10,False,2,7,93,"{'minutes': 5, 'seconds': 18}",2,25,75,"{'minutes': 3, 'seconds': 20}","{'minutes': 2, 'seconds': 6}",4,18,FUMBLE,True,9,3,9,3
+40175459115,401754591,Clemson,ACC,Louisville,ACC,11,True,2,25,25,"{'minutes': 3, 'seconds': 13}",2,3,3,"{'minutes': 3, 'seconds': 13}","{'minutes': 0, 'seconds': 7}",1,25,TD,False,10,9,10,9
+40175459117,401754591,Louisville,ACC,Clemson,ACC,12,False,2,25,75,"{'minutes': 3, 'seconds': 13}",2,46,54,"{'minutes': 1, 'seconds': 1}","{'minutes': 2, 'seconds': 12}",6,21,PUNT,True,9,10,9,10
+40175459118,401754591,Clemson,ACC,Louisville,ACC,13,False,2,91,91,"{'minutes': 0, 'seconds': 54}",2,85,85,"{'minutes': 0, 'seconds': 6}","{'minutes': 1, 'seconds': 1}",4,6,DOWNS,False,10,9,10,9
+40175459120,401754591,Louisville,ACC,Clemson,ACC,14,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,97,3,"{'minutes': 11, 'seconds': 16}","{'minutes': 3, 'seconds': 44}",7,75,TD,True,9,10,16,10
+40175459122,401754591,Clemson,ACC,Louisville,ACC,15,True,3,75,75,"{'minutes': 11, 'seconds': 16}",3,30,30,"{'minutes': 7, 'seconds': 7}","{'minutes': 4, 'seconds': 9}",8,45,FG,False,10,16,13,16
+40175459124,401754591,Louisville,ACC,Clemson,ACC,16,True,3,25,75,"{'minutes': 7, 'seconds': 7}",3,79,21,"{'minutes': 1, 'seconds': 32}","{'minutes': 5, 'seconds': 35}",10,54,FG,True,16,13,19,13
+40175459126,401754591,Clemson,ACC,Louisville,ACC,17,False,3,75,75,"{'minutes': 1, 'seconds': 32}",4,2,2,"{'minutes': 11, 'seconds': 29}","{'minutes': 5, 'seconds': 6}",10,73,FUMBLE,False,13,19,13,19
+40175459127,401754591,Louisville,ACC,Clemson,ACC,18,False,4,4,96,"{'minutes': 11, 'seconds': 24}",4,7,93,"{'minutes': 9, 'seconds': 24}","{'minutes': 2, 'seconds': 2}",3,4,PUNT,True,19,13,19,20
+40175459128,401754591,Clemson,ACC,Louisville,ACC,19,True,4,56,56,"{'minutes': 9, 'seconds': 17}",4,3,3,"{'minutes': 7, 'seconds': 16}","{'minutes': 2, 'seconds': 8}",6,56,TD,False,13,19,20,19
+40175459130,401754591,Louisville,ACC,Clemson,ACC,20,False,4,25,75,"{'minutes': 7, 'seconds': 16}",4,68,32,"{'minutes': 4, 'seconds': 6}","{'minutes': 3, 'seconds': 10}",5,43,MISSED FG,True,19,20,19,20
+40175459131,401754591,Clemson,ACC,Louisville,ACC,21,False,4,68,68,"{'minutes': 3, 'seconds': 56}",4,77,77,"{'minutes': 2, 'seconds': 31}","{'minutes': 1, 'seconds': 35}",4,-9,DOWNS,False,20,19,20,19
+40175459132,401754591,Louisville,ACC,Clemson,ACC,22,False,4,77,23,"{'minutes': 2, 'seconds': 31}",4,57,43,"{'minutes': 1, 'seconds': 30}","{'minutes': 1, 'seconds': 1}",4,-20,MISSED FG,True,19,20,19,20
+40175459133,401754591,Clemson,ACC,Louisville,ACC,23,False,4,72,72,"{'minutes': 1, 'seconds': 30}",4,60,60,"{'minutes': 0, 'seconds': 30}","{'minutes': 1, 'seconds': 0}",3,12,PUNT,False,20,19,20,19
+40175459134,401754591,Louisville,ACC,Clemson,ACC,24,False,4,9,91,"{'minutes': 0, 'seconds': 25}",4,29,71,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 27}",5,20,DOWNS,True,19,20,19,20
+40175459135,401754591,Clemson,ACC,Louisville,ACC,25,False,4,29,29,"{'minutes': 0, 'seconds': 2}",4,31,31,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 3}",1,-2,END OF GAME,False,20,19,20,19
+4017546022,401754602,SMU,ACC,Louisville,ACC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 10, 'seconds': 40}","{'minutes': 4, 'seconds': 20}",9,75,TD,True,0,0,7,0
+4017546024,401754602,Louisville,ACC,SMU,ACC,2,True,1,75,75,"{'minutes': 10, 'seconds': 40}",1,18,18,"{'minutes': 4, 'seconds': 15}","{'minutes': 6, 'seconds': 25}",12,57,FG,False,0,7,3,7
+4017546026,401754602,SMU,ACC,Louisville,ACC,3,False,1,25,75,"{'minutes': 4, 'seconds': 15}",1,55,45,"{'minutes': 0, 'seconds': 38}","{'minutes': 3, 'seconds': 37}",7,30,PUNT,True,7,3,7,3
+4017546027,401754602,Louisville,ACC,SMU,ACC,4,False,1,88,88,"{'minutes': 0, 'seconds': 29}",2,81,81,"{'minutes': 14, 'seconds': 12}","{'minutes': 1, 'seconds': 26}",3,7,PUNT,False,3,7,3,7
+4017546028,401754602,SMU,ACC,Louisville,ACC,5,True,2,41,59,"{'minutes': 14, 'seconds': 12}",2,97,3,"{'minutes': 8, 'seconds': 53}","{'minutes': 5, 'seconds': 19}",10,59,TD,True,7,3,14,3
+40175460210,401754602,Louisville,ACC,SMU,ACC,6,False,2,65,65,"{'minutes': 8, 'seconds': 53}",2,62,62,"{'minutes': 6, 'seconds': 54}","{'minutes': 1, 'seconds': 59}",3,3,PUNT,False,3,14,3,14
+40175460211,401754602,SMU,ACC,Louisville,ACC,7,True,2,30,70,"{'minutes': 6, 'seconds': 50}",2,97,3,"{'minutes': 3, 'seconds': 25}","{'minutes': 3, 'seconds': 29}",7,70,TD,True,14,3,21,3
+40175460213,401754602,Louisville,ACC,SMU,ACC,8,True,2,75,75,"{'minutes': 3, 'seconds': 25}",2,10,10,"{'minutes': 1, 'seconds': 44}","{'minutes': 1, 'seconds': 41}",6,63,FG,False,3,21,6,21
+40175460215,401754602,SMU,ACC,Louisville,ACC,9,False,2,18,82,"{'minutes': 1, 'seconds': 38}",2,31,69,"{'minutes': 0, 'seconds': 34}","{'minutes': 1, 'seconds': 38}",6,13,END OF HALF,True,21,6,21,6
+40175460217,401754602,Louisville,ACC,SMU,ACC,10,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,30,30,"{'minutes': 10, 'seconds': 23}","{'minutes': 4, 'seconds': 37}",8,25,PUNT,False,6,21,6,21
+40175460218,401754602,SMU,ACC,Louisville,ACC,11,False,3,17,83,"{'minutes': 10, 'seconds': 15}",3,57,43,"{'minutes': 7, 'seconds': 7}","{'minutes': 3, 'seconds': 16}",8,40,PUNT,True,21,6,21,6
+40175460219,401754602,Louisville,ACC,SMU,ACC,12,False,3,70,70,"{'minutes': 7, 'seconds': 2}",3,62,62,"{'minutes': 5, 'seconds': 40}","{'minutes': 1, 'seconds': 27}",3,8,PUNT,False,6,21,6,21
+40175460220,401754602,SMU,ACC,Louisville,ACC,13,True,3,8,92,"{'minutes': 5, 'seconds': 31}",3,68,32,"{'minutes': 0, 'seconds': 48}","{'minutes': 4, 'seconds': 52}",12,60,FG,True,21,6,24,6
+40175460222,401754602,Louisville,ACC,SMU,ACC,14,False,3,35,35,"{'minutes': 0, 'seconds': 48}",4,71,71,"{'minutes': 14, 'seconds': 51}","{'minutes': 0, 'seconds': 54}",3,-36,PUNT,False,6,24,6,24
+40175460223,401754602,SMU,ACC,Louisville,ACC,15,True,4,32,68,"{'minutes': 14, 'seconds': 43}",4,97,3,"{'minutes': 9, 'seconds': 38}","{'minutes': 5, 'seconds': 13}",9,68,TD,True,24,6,31,6
+40175460225,401754602,Louisville,ACC,SMU,ACC,16,False,4,75,75,"{'minutes': 9, 'seconds': 32}",4,74,74,"{'minutes': 8, 'seconds': 11}","{'minutes': 1, 'seconds': 21}",3,1,PUNT,False,6,31,6,31
+40175460226,401754602,SMU,ACC,Louisville,ACC,17,True,4,35,65,"{'minutes': 8, 'seconds': 4}",4,97,3,"{'minutes': 6, 'seconds': 3}","{'minutes': 2, 'seconds': 8}",4,65,TD,True,31,6,38,6
+40175460228,401754602,Louisville,ACC,SMU,ACC,18,False,4,73,73,"{'minutes': 5, 'seconds': 48}",4,17,17,"{'minutes': 3, 'seconds': 44}","{'minutes': 2, 'seconds': 4}",5,39,INT,False,6,38,6,38
+40175460229,401754602,SMU,ACC,Louisville,ACC,19,False,4,17,83,"{'minutes': 3, 'seconds': 32}",4,23,77,"{'minutes': 1, 'seconds': 46}","{'minutes': 1, 'seconds': 58}",3,6,PUNT,True,38,6,38,6
+40175460230,401754602,Louisville,ACC,SMU,ACC,20,False,4,73,73,"{'minutes': 1, 'seconds': 40}",4,53,53,"{'minutes': 0, 'seconds': 6}","{'minutes': 1, 'seconds': 46}",5,20,END OF GAME,False,6,38,6,38
+4017546421,401754642,Bowling Green,Mid-American,Louisville,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,65,65,"{'minutes': 13, 'seconds': 2}","{'minutes': 1, 'seconds': 58}",4,10,PUNT,False,0,0,0,0
+4017546422,401754642,Louisville,ACC,Bowling Green,Mid-American,2,False,1,23,77,"{'minutes': 13, 'seconds': 2}",1,32,68,"{'minutes': 11, 'seconds': 42}","{'minutes': 1, 'seconds': 20}",3,9,PUNT,True,0,0,0,0
+4017546423,401754642,Bowling Green,Mid-American,Louisville,ACC,3,False,1,93,93,"{'minutes': 11, 'seconds': 42}",1,67,67,"{'minutes': 8, 'seconds': 51}","{'minutes': 2, 'seconds': 51}",5,26,PUNT,False,0,0,0,0
+4017546424,401754642,Bowling Green,Mid-American,Louisville,ACC,4,True,1,38,38,"{'minutes': 8, 'seconds': 51}",1,30,30,"{'minutes': 6, 'seconds': 44}","{'minutes': 2, 'seconds': 7}",4,8,FG,False,0,0,3,0
+4017546425,401754642,Louisville,ACC,Bowling Green,Mid-American,5,True,1,40,60,"{'minutes': 6, 'seconds': 35}",1,100,0,"{'minutes': 2, 'seconds': 3}","{'minutes': 4, 'seconds': 32}",7,60,TD,True,0,3,7,3
+4017546426,401754642,Bowling Green,Mid-American,Louisville,ACC,6,False,1,75,75,"{'minutes': 2, 'seconds': 3}",2,39,39,"{'minutes': 14, 'seconds': 47}","{'minutes': 2, 'seconds': 16}",5,36,INT,False,3,7,3,7
+4017546427,401754642,Louisville,ACC,Bowling Green,Mid-American,7,True,2,21,79,"{'minutes': 14, 'seconds': 47}",2,100,0,"{'minutes': 10, 'seconds': 50}","{'minutes': 3, 'seconds': 57}",8,80,TD,True,7,3,14,3
+4017546428,401754642,Bowling Green,Mid-American,Louisville,ACC,8,True,2,75,75,"{'minutes': 10, 'seconds': 27}",2,79,79,"{'minutes': 8, 'seconds': 13}","{'minutes': 2, 'seconds': 14}",3,-4,PUNT RETURN TD,False,3,14,3,21
+4017546429,401754642,Bowling Green,Mid-American,Louisville,ACC,9,False,2,75,75,"{'minutes': 8, 'seconds': 13}",2,58,58,"{'minutes': 5, 'seconds': 22}","{'minutes': 2, 'seconds': 51}",6,17,PUNT,False,3,21,3,21
+40175464210,401754642,Louisville,ACC,Bowling Green,Mid-American,10,False,2,20,80,"{'minutes': 5, 'seconds': 22}",2,24,76,"{'minutes': 3, 'seconds': 33}","{'minutes': 1, 'seconds': 49}",3,4,PUNT,True,21,3,21,3
+40175464211,401754642,Bowling Green,Mid-American,Louisville,ACC,11,False,2,64,64,"{'minutes': 3, 'seconds': 33}",2,15,15,"{'minutes': 0, 'seconds': 22}","{'minutes': 3, 'seconds': 11}",9,49,INT,False,3,21,3,21
+40175464212,401754642,Louisville,ACC,Bowling Green,Mid-American,12,False,2,17,83,"{'minutes': 0, 'seconds': 22}",2,47,53,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 22}",3,30,END OF HALF,True,21,3,21,3
+40175464213,401754642,Louisville,ACC,Bowling Green,Mid-American,13,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,93,7,"{'minutes': 10, 'seconds': 34}","{'minutes': 4, 'seconds': 26}",8,68,FG,True,21,3,24,3
+40175464214,401754642,Bowling Green,Mid-American,Louisville,ACC,14,False,3,75,75,"{'minutes': 10, 'seconds': 34}",3,72,72,"{'minutes': 8, 'seconds': 28}","{'minutes': 2, 'seconds': 6}",3,3,PUNT,False,3,24,3,24
+40175464215,401754642,Louisville,ACC,Bowling Green,Mid-American,15,True,3,45,55,"{'minutes': 8, 'seconds': 28}",3,78,22,"{'minutes': 7, 'seconds': 21}","{'minutes': 1, 'seconds': 7}",5,33,FG,True,24,3,27,3
+40175464216,401754642,Bowling Green,Mid-American,Louisville,ACC,16,False,3,75,75,"{'minutes': 7, 'seconds': 21}",3,75,75,"{'minutes': 6, 'seconds': 34}","{'minutes': 0, 'seconds': 47}",3,0,PUNT,False,3,27,3,27
+40175464217,401754642,Louisville,ACC,Bowling Green,Mid-American,17,True,3,35,65,"{'minutes': 6, 'seconds': 34}",3,61,39,"{'minutes': 2, 'seconds': 24}","{'minutes': 4, 'seconds': 10}",8,26,FG,True,27,3,30,3
+40175464218,401754642,Bowling Green,Mid-American,Louisville,ACC,18,False,3,75,75,"{'minutes': 2, 'seconds': 24}",4,69,69,"{'minutes': 14, 'seconds': 50}","{'minutes': 2, 'seconds': 34}",3,6,PUNT,False,3,30,3,30
+40175464219,401754642,Louisville,ACC,Bowling Green,Mid-American,19,True,4,65,35,"{'minutes': 14, 'seconds': 50}",4,70,30,"{'minutes': 12, 'seconds': 53}","{'minutes': 1, 'seconds': 57}",4,5,FG,True,30,3,33,3
+40175464220,401754642,Bowling Green,Mid-American,Louisville,ACC,20,True,4,75,75,"{'minutes': 12, 'seconds': 53}",4,0,0,"{'minutes': 12, 'seconds': 37}","{'minutes': 0, 'seconds': 16}",2,75,TD,False,3,33,10,33
+40175464221,401754642,Louisville,ACC,Bowling Green,Mid-American,21,True,4,25,75,"{'minutes': 12, 'seconds': 30}",4,100,0,"{'minutes': 6, 'seconds': 50}","{'minutes': 5, 'seconds': 40}",10,75,TD,True,33,10,40,10
+40175464222,401754642,Bowling Green,Mid-American,Louisville,ACC,22,True,4,75,75,"{'minutes': 6, 'seconds': 43}",4,0,0,"{'minutes': 4, 'seconds': 16}","{'minutes': 2, 'seconds': 27}",4,75,TD,False,10,40,17,40
+40175464223,401754642,Louisville,ACC,Bowling Green,Mid-American,23,False,4,25,75,"{'minutes': 4, 'seconds': 16}",4,42,58,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 16}",7,17,END OF GAME,True,40,17,40,17

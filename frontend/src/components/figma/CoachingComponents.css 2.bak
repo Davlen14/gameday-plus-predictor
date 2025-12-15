@@ -1,0 +1,120 @@
+/* Coaching Component Styles - No Animations */
+
+/* Glassmorphism Enhancement */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Factor Card Styles */
+.factor-card {
+  opacity: 1;
+}
+
+/* Rank Badge Styles */
+.rank-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rank-badge .badge {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 0.875rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Momentum Indicator Styles */
+.momentum .progress-bar {
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.momentum .fill {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #10b981);
+}
+
+/* Comparison Bar Styles */
+.comparison-bar {
+  margin-bottom: 1rem;
+}
+
+.comparison-bar .bar-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.comparison-bar .bar {
+  height: 100%;
+}
+
+/* Coach Profile Card */
+.coach-profile-card {
+  /* No animations */
+}
+
+/* Animations removed */
+
+/* Circular Progress Styles */
+.circular-progress {
+  position: relative;
+  display: inline-block;
+}
+
+.circular-progress svg {
+  transform: rotate(-90deg);
+}
+
+.circular-progress circle {
+  /* No transition */
+}
+
+/* Factor Card Grid Responsive */
+@media (max-width: 768px) {
+  .factor-card {
+    /* No animations */
+  }
+}
+
+/* Badge Animations removed */
+.badge {
+  /* No animation */
+}
+
+/* Hover Effects for Stats removed */
+.stat {
+  /* No transitions */
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Success/Error Colors */
+.text-success {
+  color: #22c55e;
+}
+
+.text-error {
+  color: #ef4444;
+}
+
+.text-warning {
+  color: #f59e0b;
+}
+
+/* Smooth Transitions removed */

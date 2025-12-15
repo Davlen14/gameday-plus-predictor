@@ -1,0 +1,212 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                    COACH DATABASE FACTORY - SYSTEM MAP                     ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  PHASE 1: DATABASE SETUP                                                   │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  $ python setup_master_db.py                                               │
+│                                                                             │
+│  Creates: instance/coaches_master.db                                       │
+│  ┌─────────────────────────────────────────────────────┐                  │
+│  │  11 TABLES:                                          │                  │
+│  │  • coaches (metadata + headshots)                    │                  │
+│  │  • stints (coaching history)                         │                  │
+│  │  • games (full game records)                         │                  │
+│  │  • rankings (AP Poll history)                        │                  │
+│  │  • draft_picks (NFL talent)                          │                  │
+│  │  • situational_stats (home/away, blowouts)           │                  │
+│  │  • vs_coaches (head-to-head)                         │                  │
+│  │  • season_analytics (PPG, YPP, FPI, SP+)             │                  │
+│  │  • recruiting_classes (247Sports)                    │                  │
+│  │  • talent_composite (team talent ratings)            │                  │
+│  │  • transfer_portal (portal activity)                 │                  │
+│  └─────────────────────────────────────────────────────┘                  │
+│                                                                             │
+│  Capacity: 134 FBS coaches, ~50,000 total rows                             │
+│                                                                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  PHASE 2: DATA INGESTION                                                   │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Option A: Single Coach (Manual)                                           │
+│  ────────────────────────────────────────────────────                      │
+│  from ingest_coach import CoachIngestor                                    │
+│                                                                             │
+│  ingestor = CoachIngestor(api_key="YOUR_KEY")                              │
+│  ingestor.ingest("Kirby Smart")                                            │
+│                                                                             │
+│                                                                             │
+│  Option B: Batch Processing (Recommended)                                  │
+│  ────────────────────────────────────────────────────                      │
+│  $ python batch_ingest.py --conference SEC                                 │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────┐                  │
+│  │  INGESTION PIPELINE (per coach):                    │                  │
+│  │                                                      │                  │
+│  │  1. Fetch metadata + headshot (CFBD API)            │                  │
+│  │  2. Retrieve all games for all stints                │                  │
+│  │  3. Auto-fix FBS opponent metrics (FPI/SP+)          │                  │
+│  │  4. Calculate situational stats                      │                  │
+│  │  5. Calculate vs coaches records                     │                  │
+│  │  6. Calculate season analytics                       │                  │
+│  │  7. Fetch recruiting class data                      │                  │
+│  │  8. Fetch talent composite ratings                   │                  │
+│  │  9. Fetch transfer portal data                       │                  │
+│  │                                                      │                  │
+│  │  ⏱️  Est. Time: 30-60 seconds per coach              │                  │
+│  │  📡 API Calls: 7-9 per coach                         │                  │
+│  │  💾 Data Inserted: 200-400 rows per coach            │                  │
+│  └─────────────────────────────────────────────────────┘                  │
+│                                                                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  PHASE 3: API SERVER                                                       │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  $ python app_master.py                                                    │
+│                                                                             │
+│  Server: http://localhost:5555                                             │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────┐                  │
+│  │  13 DYNAMIC ENDPOINTS:                               │                  │
+│  │                                                      │                  │
+│  │  Discovery:                                          │                  │
+│  │  • GET /api/coaches                                  │                  │
+│  │  • GET /api/search?q=<name>                          │                  │
+│  │  • GET /api/stats                                    │                  │
+│  │                                                      │                  │
+│  │  Coach Data (replace <id> with coach ID):            │                  │
+│  │  • GET /api/coach/<id>                               │                  │
+│  │  • GET /api/coach/<id>/stints                        │                  │
+│  │  • GET /api/coach/<id>/games                         │                  │
+│  │  • GET /api/coach/<id>/rankings                      │                  │
+│  │  • GET /api/coach/<id>/draft_picks                   │                  │
+│  │  • GET /api/coach/<id>/situational                   │                  │
+│  │  • GET /api/coach/<id>/vs_coaches                    │                  │
+│  │  • GET /api/coach/<id>/season_analytics              │                  │
+│  │  • GET /api/coach/<id>/recruiting                    │                  │
+│  │  • GET /api/coach/<id>/talent                        │                  │
+│  │  • GET /api/coach/<id>/portal                        │                  │
+│  └─────────────────────────────────────────────────────┘                  │
+│                                                                             │
+│  All endpoints return JSON with filtering/pagination support               │
+│                                                                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  API QUOTA MANAGEMENT                                                      │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  CFBD Free Tier: 1,000 calls/month                                         │
+│                                                                             │
+│  Conference Breakdown:                                                     │
+│  ┌──────────────────┬────────┬──────────────┐                             │
+│  │ Conference       │ Coaches│ API Calls    │                             │
+│  ├──────────────────┼────────┼──────────────┤                             │
+│  │ Independent      │    3   │   ~21        │  ← START HERE               │
+│  │ C-USA            │    9   │   ~63        │                             │
+│  │ MAC              │   12   │   ~84        │                             │
+│  │ Mountain West    │   12   │   ~84        │                             │
+│  │ AAC              │   14   │   ~98        │                             │
+│  │ Sun Belt         │   14   │   ~98        │                             │
+│  │ SEC              │   16   │  ~112        │                             │
+│  │ Big 12           │   16   │  ~112        │                             │
+│  │ ACC              │   17   │  ~119        │                             │
+│  │ Big Ten          │   18   │  ~126        │                             │
+│  ├──────────────────┼────────┼──────────────┤                             │
+│  │ TOTAL            │  134   │  ~940        │  ⚠️  94% of monthly quota   │
+│  └──────────────────┴────────┴──────────────┘                             │
+│                                                                             │
+│  Strategy: Ingest 1-2 conferences per day/week                             │
+│                                                                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  TESTING & VALIDATION                                                      │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Automated Test Suite:                                                     │
+│  $ ./test_system.sh                                                        │
+│                                                                             │
+│  ✓ Creates coaches_master.db                                               │
+│  ✓ Ingests Independent conference (3 coaches)                              │
+│  ✓ Starts Flask API on port 5555                                           │
+│  ✓ Tests all 13 endpoints                                                  │
+│  ✓ Validates data integrity                                                │
+│  ✓ Reports statistics                                                      │
+│                                                                             │
+│  Manual Validation:                                                        │
+│  $ curl http://localhost:5555/api/stats                                    │
+│                                                                             │
+│  Expected Output (after full ingestion):                                   │
+│  {                                                                          │
+│    "coaches": 134,                                                          │
+│    "games": 18000-20000,                                                    │
+│    "stints": 200-250,                                                       │
+│    "recruiting_classes": 1500-2000,                                         │
+│    "talent_composite": 1200-1500                                            │
+│  }                                                                          │
+│                                                                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  FILE STRUCTURE                                                            │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Production System (4 files, 1,770 lines):                                 │
+│  ├── setup_master_db.py        (320 lines) - Database factory              │
+│  ├── ingest_coach.py           (650 lines) - Coach ingestion engine        │
+│  ├── batch_ingest.py           (380 lines) - Batch processor               │
+│  └── app_master.py             (420 lines) - Flask API                     │
+│                                                                             │
+│  Documentation (3 files, 2,000+ lines):                                    │
+│  ├── COACH_DATABASE_FACTORY_README.md  - Complete system guide             │
+│  ├── MIGRATION_GUIDE.md                - Prototype → Production            │
+│  └── QUICK_REFERENCE.md                - Command cheat sheet              │
+│                                                                             │
+│  Testing:                                                                  │
+│  └── test_system.sh            (120 lines) - Automated validation          │
+│                                                                             │
+│  Prototype (Kept as backup):                                               │
+│  ├── instance/campbell_test.db          - Single-coach database            │
+│  ├── view_campbell_db.py                - Original Flask app               │
+│  └── populate_*.py                      - Original helper scripts          │
+│                                                                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│  QUICK START (5 MINUTES)                                                   │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  1. Create database:                                                       │
+│     $ python setup_master_db.py                                            │
+│                                                                             │
+│  2. Set API key:                                                           │
+│     $ export CFBD_API_KEY="your_key_here"                                  │
+│                                                                             │
+│  3. Test system:                                                           │
+│     $ ./test_system.sh                                                     │
+│                                                                             │
+│  4. Ingest first conference:                                               │
+│     $ python batch_ingest.py --conference Independent                      │
+│                                                                             │
+│  5. Start API:                                                             │
+│     $ python app_master.py                                                 │
+│                                                                             │
+│  6. Test it:                                                               │
+│     $ curl http://localhost:5555/api/coaches                               │
+│                                                                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  SYSTEM STATUS: ✅ PRODUCTION READY                                        ║
+║  Database: Universal (1-134 coaches)                                       ║
+║  API: RESTful JSON endpoints                                               ║
+║  Documentation: Complete                                                   ║
+║  Testing: Automated validation                                             ║
+╚════════════════════════════════════════════════════════════════════════════╝

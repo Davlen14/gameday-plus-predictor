@@ -28,14 +28,14 @@ const ComprehensiveMetricsDashboard: React.FC<ComprehensiveMetricsProps> = ({
     return null;
   }
 
-  const teamData = predictionData.team_selector;
-  const away = teamData?.away_team;
-  const home = teamData?.home_team;
+  const teamSelector = predictionData.ui_components?.team_selector || {};
+  const away = teamSelector?.away;
+  const home = teamSelector?.home;
   const awayColor = away?.primary_color || '#3B82F6';
   const homeColor = home?.primary_color || '#EF4444';
 
-  const homeTeam = predictionData.home_team || home?.name || 'Home';
-  const awayTeam = predictionData.away_team || away?.name || 'Away';
+  const homeTeam = home?.name || predictionData.home_team || 'Home';
+  const awayTeam = away?.name || predictionData.away_team || 'Away';
 
   // Find team data in power rankings
   const homeRankingData = powerRankingsData.teams?.find(

@@ -1,0 +1,3967 @@
+{
+  "metadata": {
+    "generated": "2025-12-01 04:29:46.599167",
+    "coach": "Kalen DeBoer",
+    "headshot": null,
+    "schools": [
+      "Alabama"
+    ],
+    "description": "Comprehensive Kalen DeBoer coaching profile with all statistics, games, and analysis"
+  },
+  "career_summary": {
+    "record": "10-2",
+    "win_pct": 83.3,
+    "games": 12
+  },
+  "analytics": {
+    "home_record": {
+      "wins": 6,
+      "losses": 1,
+      "ties": 0
+    },
+    "away_record": {
+      "wins": 4,
+      "losses": 1,
+      "ties": 0
+    },
+    "neutral_record": {
+      "wins": 0,
+      "losses": 0,
+      "ties": 0
+    },
+    "signature_wins": [],
+    "bad_losses": [],
+    "ats_record": {},
+    "over_under_record": {},
+    "conference_record": {},
+    "bowl_record": {}
+  },
+  "stint_analytics": {},
+  "pre_arrival": {},
+  "stints": [
+    {
+      "school": "Alabama",
+      "start_year": 2025,
+      "end_year": 2025,
+      "record": "10-2",
+      "win_pct": 83.3,
+      "games": 12
+    }
+  ],
+  "games": [
+    {
+      "id": 401752665,
+      "season": 2025,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Florida State",
+      "awayTeam": "Alabama",
+      "homePoints": 31,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 4.8906927608722865,
+      "conferenceGame": false,
+      "school": "Alabama"
+    },
+    {
+      "id": 401752681,
+      "season": 2025,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Alabama",
+      "awayTeam": "UL Monroe",
+      "homePoints": 73,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 2.6501214200961605,
+      "conferenceGame": false,
+      "school": "Alabama"
+    },
+    {
+      "id": 401752696,
+      "season": 2025,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Alabama",
+      "awayTeam": "Wisconsin",
+      "homePoints": 38,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 3.036218096573123,
+      "conferenceGame": false,
+      "school": "Alabama"
+    },
+    {
+      "id": 401752718,
+      "season": 2025,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Georgia",
+      "awayTeam": "Alabama",
+      "homePoints": 21,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 6.310283181926513,
+      "conferenceGame": true,
+      "school": "Alabama"
+    },
+    {
+      "id": 401752726,
+      "season": 2025,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Alabama",
+      "awayTeam": "Vanderbilt",
+      "homePoints": 30,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 5.76137188563929,
+      "conferenceGame": true,
+      "school": "Alabama"
+    },
+    {
+      "id": 401752734,
+      "season": 2025,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Missouri",
+      "awayTeam": "Alabama",
+      "homePoints": 24,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 6.769031039615297,
+      "conferenceGame": true,
+      "school": "Alabama"
+    },
+    {
+      "id": 401752738,
+      "season": 2025,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Alabama",
+      "awayTeam": "Tennessee",
+      "homePoints": 37,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 4.577807755089341,
+      "conferenceGame": true,
+      "school": "Alabama"
+    },
+    {
+      "id": 401752751,
+      "season": 2025,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "South Carolina",
+      "awayTeam": "Alabama",
+      "homePoints": 22,
+      "awayPoints": 29,
+      "neutralSite": false,
+      "excitement": 6.965500888933744,
+      "conferenceGame": true,
+      "school": "Alabama"
+    },
+    {
+      "id": 401752759,
+      "season": 2025,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Alabama",
+      "awayTeam": "LSU",
+      "homePoints": 20,
+      "awayPoints": 9,
+      "neutralSite": false,
+      "excitement": 4.702523288331052,
+      "conferenceGame": true,
+      "school": "Alabama"
+    },
+    {
+      "id": 401752765,
+      "season": 2025,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Alabama",
+      "awayTeam": "Oklahoma",
+      "homePoints": 21,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 6.7106854101740625,
+      "conferenceGame": true,
+      "school": "Alabama"
+    },
+    {
+      "id": 401752773,
+      "season": 2025,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Alabama",
+      "awayTeam": "Eastern Illinois",
+      "homePoints": 56,
+      "awayPoints": 0,
+      "neutralSite": false,
+      "excitement": 2.8102442053527406,
+      "conferenceGame": false,
+      "school": "Alabama"
+    },
+    {
+      "id": 401752784,
+      "season": 2025,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Auburn",
+      "awayTeam": "Alabama",
+      "homePoints": 20,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 6.498412085382101,
+      "conferenceGame": true,
+      "school": "Alabama"
+    },
+    {
+      "id": 401777351,
+      "season": 2025,
+      "week": 15,
+      "seasonType": "regular",
+      "homeTeam": "Alabama",
+      "awayTeam": "Georgia",
+      "homePoints": null,
+      "awayPoints": null,
+      "neutralSite": true,
+      "excitement": null,
+      "conferenceGame": true,
+      "school": "Alabama"
+    }
+  ],
+  "rankings": [
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2015,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 3,
+      "points": 1322,
+      "poll": {
+        "season": 2015,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1440,
+      "poll": {
+        "season": 2016,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1469,
+      "poll": {
+        "season": 2016,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1513,
+      "poll": {
+        "season": 2017,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1521,
+      "poll": {
+        "season": 2017,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1462,
+      "poll": {
+        "season": 2018,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1505,
+      "poll": {
+        "season": 2018,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1496,
+      "poll": {
+        "season": 2019,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1159,
+      "poll": {
+        "season": 2019,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 3,
+      "points": 1422,
+      "poll": {
+        "season": 2020,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2020,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1464,
+      "poll": {
+        "season": 2021,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1548,
+      "poll": {
+        "season": 2021,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1566,
+      "poll": {
+        "season": 2022,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 5,
+      "points": 1303,
+      "poll": {
+        "season": 2022,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1398,
+      "poll": {
+        "season": 2023,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 5,
+      "points": 1321,
+      "poll": {
+        "season": 2023,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 5,
+      "points": 1260,
+      "poll": {
+        "season": 2024,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 17,
+      "points": 415,
+      "poll": {
+        "season": 2024,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1179,
+      "poll": {
+        "season": 2025,
+        "week": 1
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1420,
+      "poll": {
+        "season": 2015,
+        "week": 2
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1518,
+      "poll": {
+        "season": 2016,
+        "week": 2
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1524,
+      "poll": {
+        "season": 2017,
+        "week": 2
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1511,
+      "poll": {
+        "season": 2018,
+        "week": 2
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1493,
+      "poll": {
+        "season": 2019,
+        "week": 2
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1571,
+      "poll": {
+        "season": 2021,
+        "week": 2
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1552,
+      "poll": {
+        "season": 2022,
+        "week": 2
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 3,
+      "points": 1424,
+      "poll": {
+        "season": 2023,
+        "week": 2
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1309,
+      "poll": {
+        "season": 2024,
+        "week": 2
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 21,
+      "points": 360,
+      "poll": {
+        "season": 2025,
+        "week": 2
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1423,
+      "poll": {
+        "season": 2015,
+        "week": 3
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1520,
+      "poll": {
+        "season": 2016,
+        "week": 3
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1522,
+      "poll": {
+        "season": 2017,
+        "week": 3
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1517,
+      "poll": {
+        "season": 2018,
+        "week": 3
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1489,
+      "poll": {
+        "season": 2019,
+        "week": 3
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1456,
+      "poll": {
+        "season": 2020,
+        "week": 3
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1572,
+      "poll": {
+        "season": 2021,
+        "week": 3
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1496,
+      "poll": {
+        "season": 2022,
+        "week": 3
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 10,
+      "points": 953,
+      "poll": {
+        "season": 2023,
+        "week": 3
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1331,
+      "poll": {
+        "season": 2024,
+        "week": 3
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 19,
+      "points": 396,
+      "poll": {
+        "season": 2025,
+        "week": 3
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 12,
+      "points": 882,
+      "poll": {
+        "season": 2015,
+        "week": 4
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1510,
+      "poll": {
+        "season": 2016,
+        "week": 4
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1504,
+      "poll": {
+        "season": 2017,
+        "week": 4
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1521,
+      "poll": {
+        "season": 2018,
+        "week": 4
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1488,
+      "poll": {
+        "season": 2019,
+        "week": 4
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1458,
+      "poll": {
+        "season": 2020,
+        "week": 4
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1547,
+      "poll": {
+        "season": 2021,
+        "week": 4
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1492,
+      "poll": {
+        "season": 2022,
+        "week": 4
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 13,
+      "points": 796,
+      "poll": {
+        "season": 2023,
+        "week": 4
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1358,
+      "poll": {
+        "season": 2024,
+        "week": 4
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 14,
+      "points": 599,
+      "poll": {
+        "season": 2025,
+        "week": 4
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 13,
+      "points": 850,
+      "poll": {
+        "season": 2015,
+        "week": 5
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1511,
+      "poll": {
+        "season": 2016,
+        "week": 5
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1515,
+      "poll": {
+        "season": 2017,
+        "week": 5
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1523,
+      "poll": {
+        "season": 2018,
+        "week": 5
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1485,
+      "poll": {
+        "season": 2019,
+        "week": 5
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1473,
+      "poll": {
+        "season": 2020,
+        "week": 5
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1546,
+      "poll": {
+        "season": 2021,
+        "week": 5
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1487,
+      "poll": {
+        "season": 2022,
+        "week": 5
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 12,
+      "points": 862,
+      "poll": {
+        "season": 2023,
+        "week": 5
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1328,
+      "poll": {
+        "season": 2024,
+        "week": 5
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 17,
+      "points": 595,
+      "poll": {
+        "season": 2025,
+        "week": 5
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1026,
+      "poll": {
+        "season": 2015,
+        "week": 6
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1514,
+      "poll": {
+        "season": 2016,
+        "week": 6
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1506,
+      "poll": {
+        "season": 2017,
+        "week": 6
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1497,
+      "poll": {
+        "season": 2018,
+        "week": 6
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1478,
+      "poll": {
+        "season": 2019,
+        "week": 6
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1488,
+      "poll": {
+        "season": 2020,
+        "week": 6
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1541,
+      "poll": {
+        "season": 2021,
+        "week": 6
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1523,
+      "poll": {
+        "season": 2022,
+        "week": 6
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 11,
+      "points": 921,
+      "poll": {
+        "season": 2023,
+        "week": 6
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1549,
+      "poll": {
+        "season": 2024,
+        "week": 6
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 10,
+      "points": 1057,
+      "poll": {
+        "season": 2025,
+        "week": 6
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 10,
+      "points": 1034,
+      "poll": {
+        "season": 2015,
+        "week": 7
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1520,
+      "poll": {
+        "season": 2016,
+        "week": 7
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1507,
+      "poll": {
+        "season": 2017,
+        "week": 7
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1522,
+      "poll": {
+        "season": 2018,
+        "week": 7
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1503,
+      "poll": {
+        "season": 2019,
+        "week": 7
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1463,
+      "poll": {
+        "season": 2020,
+        "week": 7
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 5,
+      "points": 1286,
+      "poll": {
+        "season": 2021,
+        "week": 7
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 3,
+      "points": 1489,
+      "poll": {
+        "season": 2022,
+        "week": 7
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 11,
+      "points": 971,
+      "poll": {
+        "season": 2023,
+        "week": 7
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 7,
+      "points": 1182,
+      "poll": {
+        "season": 2024,
+        "week": 7
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1202,
+      "poll": {
+        "season": 2025,
+        "week": 7
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1133,
+      "poll": {
+        "season": 2015,
+        "week": 8
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1524,
+      "poll": {
+        "season": 2016,
+        "week": 8
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2017,
+        "week": 8
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1524,
+      "poll": {
+        "season": 2018,
+        "week": 8
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1503,
+      "poll": {
+        "season": 2019,
+        "week": 8
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1494,
+      "poll": {
+        "season": 2020,
+        "week": 8
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1393,
+      "poll": {
+        "season": 2021,
+        "week": 8
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 6,
+      "points": 1232,
+      "poll": {
+        "season": 2022,
+        "week": 8
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 11,
+      "points": 987,
+      "poll": {
+        "season": 2023,
+        "week": 8
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 7,
+      "points": 1127,
+      "poll": {
+        "season": 2024,
+        "week": 8
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 6,
+      "points": 1315,
+      "poll": {
+        "season": 2025,
+        "week": 8
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 7,
+      "points": 1163,
+      "poll": {
+        "season": 2015,
+        "week": 9
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1524,
+      "poll": {
+        "season": 2016,
+        "week": 9
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2017,
+        "week": 9
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2018,
+        "week": 9
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1486,
+      "poll": {
+        "season": 2019,
+        "week": 9
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1494,
+      "poll": {
+        "season": 2020,
+        "week": 9
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 3,
+      "points": 1417,
+      "poll": {
+        "season": 2021,
+        "week": 9
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 6,
+      "points": 1266,
+      "poll": {
+        "season": 2022,
+        "week": 9
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 9,
+      "points": 1071,
+      "poll": {
+        "season": 2023,
+        "week": 9
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 15,
+      "points": 643,
+      "poll": {
+        "season": 2024,
+        "week": 9
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1463,
+      "poll": {
+        "season": 2025,
+        "week": 9
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 7,
+      "points": 1160,
+      "poll": {
+        "season": 2015,
+        "week": 10
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1524,
+      "poll": {
+        "season": 2016,
+        "week": 10
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1523,
+      "poll": {
+        "season": 2017,
+        "week": 10
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1500,
+      "poll": {
+        "season": 2018,
+        "week": 10
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1474,
+      "poll": {
+        "season": 2019,
+        "week": 10
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1513,
+      "poll": {
+        "season": 2020,
+        "week": 10
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 3,
+      "points": 1413,
+      "poll": {
+        "season": 2021,
+        "week": 10
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 6,
+      "points": 1258,
+      "poll": {
+        "season": 2022,
+        "week": 10
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1114,
+      "poll": {
+        "season": 2023,
+        "week": 10
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 14,
+      "points": 706,
+      "poll": {
+        "season": 2024,
+        "week": 10
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1445,
+      "poll": {
+        "season": 2025,
+        "week": 10
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 3,
+      "points": 1376,
+      "poll": {
+        "season": 2015,
+        "week": 11
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1524,
+      "poll": {
+        "season": 2016,
+        "week": 11
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1520,
+      "poll": {
+        "season": 2017,
+        "week": 11
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1500,
+      "poll": {
+        "season": 2018,
+        "week": 11
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1472,
+      "poll": {
+        "season": 2019,
+        "week": 11
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1547,
+      "poll": {
+        "season": 2020,
+        "week": 11
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 3,
+      "points": 1436,
+      "poll": {
+        "season": 2021,
+        "week": 11
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 10,
+      "points": 1009,
+      "poll": {
+        "season": 2022,
+        "week": 11
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1143,
+      "poll": {
+        "season": 2023,
+        "week": 11
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 11,
+      "points": 867,
+      "poll": {
+        "season": 2024,
+        "week": 11
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1447,
+      "poll": {
+        "season": 2025,
+        "week": 11
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 3,
+      "points": 1424,
+      "poll": {
+        "season": 2015,
+        "week": 12
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2016,
+        "week": 12
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1521,
+      "poll": {
+        "season": 2017,
+        "week": 12
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2018,
+        "week": 12
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1312,
+      "poll": {
+        "season": 2019,
+        "week": 12
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1548,
+      "poll": {
+        "season": 2020,
+        "week": 12
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1449,
+      "poll": {
+        "season": 2021,
+        "week": 12
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1140,
+      "poll": {
+        "season": 2022,
+        "week": 12
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1141,
+      "poll": {
+        "season": 2023,
+        "week": 12
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 9,
+      "points": 1036,
+      "poll": {
+        "season": 2024,
+        "week": 12
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1427,
+      "poll": {
+        "season": 2025,
+        "week": 12
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1469,
+      "poll": {
+        "season": 2015,
+        "week": 13
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2016,
+        "week": 13
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1522,
+      "poll": {
+        "season": 2017,
+        "week": 13
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2018,
+        "week": 13
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 5,
+      "points": 1263,
+      "poll": {
+        "season": 2019,
+        "week": 13
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1550,
+      "poll": {
+        "season": 2020,
+        "week": 13
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 3,
+      "points": 1423,
+      "poll": {
+        "season": 2021,
+        "week": 13
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1131,
+      "poll": {
+        "season": 2022,
+        "week": 13
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1138,
+      "poll": {
+        "season": 2023,
+        "week": 13
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 7,
+      "points": 1130,
+      "poll": {
+        "season": 2024,
+        "week": 13
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 10,
+      "points": 1062,
+      "poll": {
+        "season": 2025,
+        "week": 13
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1469,
+      "poll": {
+        "season": 2015,
+        "week": 14
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2016,
+        "week": 14
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 5,
+      "points": 1254,
+      "poll": {
+        "season": 2017,
+        "week": 14
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2018,
+        "week": 14
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 5,
+      "points": 1283,
+      "poll": {
+        "season": 2019,
+        "week": 14
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1550,
+      "poll": {
+        "season": 2020,
+        "week": 14
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1388,
+      "poll": {
+        "season": 2021,
+        "week": 14
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 6,
+      "points": 1243,
+      "poll": {
+        "season": 2022,
+        "week": 14
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 8,
+      "points": 1125,
+      "poll": {
+        "season": 2023,
+        "week": 14
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 13,
+      "points": 739,
+      "poll": {
+        "season": 2024,
+        "week": 14
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 10,
+      "points": 1056,
+      "poll": {
+        "season": 2025,
+        "week": 14
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 2,
+      "points": 1465,
+      "poll": {
+        "season": 2015,
+        "week": 15
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2016,
+        "week": 15
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 4,
+      "points": 1307,
+      "poll": {
+        "season": 2017,
+        "week": 15
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1525,
+      "poll": {
+        "season": 2018,
+        "week": 15
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 9,
+      "points": 995,
+      "poll": {
+        "season": 2019,
+        "week": 15
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1550,
+      "poll": {
+        "season": 2020,
+        "week": 15
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1535,
+      "poll": {
+        "season": 2021,
+        "week": 15
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 5,
+      "points": 1285,
+      "poll": {
+        "season": 2022,
+        "week": 15
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 5,
+      "points": 1329,
+      "poll": {
+        "season": 2023,
+        "week": 15
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 11,
+      "points": 840,
+      "poll": {
+        "season": 2024,
+        "week": 15
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 10,
+      "points": 1053,
+      "poll": {
+        "season": 2025,
+        "week": 15
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 9,
+      "points": 1011,
+      "poll": {
+        "season": 2019,
+        "week": 16
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 1,
+      "points": 1550,
+      "poll": {
+        "season": 2020,
+        "week": 16
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "rank": 11,
+      "points": 838,
+      "poll": {
+        "season": 2024,
+        "week": 16
+      },
+      "team": {
+        "school": "Alabama"
+      }
+    }
+  ],
+  "draft_picks": [
+    {
+      "year": 2016,
+      "round": 1,
+      "overall": 18,
+      "name": "Ryan Kelly",
+      "position": {
+        "abbreviation": "C"
+      },
+      "draftTeam": {
+        "displayName": "Indianapolis Colts"
+      },
+      "height": 76,
+      "weight": 311
+    },
+    {
+      "year": 2016,
+      "round": 2,
+      "overall": 41,
+      "name": "Reggie Ragland",
+      "position": {
+        "abbreviation": "ILB"
+      },
+      "draftTeam": {
+        "displayName": "Buffalo Bills"
+      },
+      "height": 73,
+      "weight": 247
+    },
+    {
+      "year": 2016,
+      "round": 2,
+      "overall": 45,
+      "name": "Derrick Henry",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Tennessee Titans"
+      },
+      "height": 75,
+      "weight": 247
+    },
+    {
+      "year": 2016,
+      "round": 2,
+      "overall": 46,
+      "name": "A'Shawn Robinson",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Detroit Lions"
+      },
+      "height": 76,
+      "weight": 307
+    },
+    {
+      "year": 2016,
+      "round": 2,
+      "overall": 49,
+      "name": "Jarran Reed",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Seattle Seahawks"
+      },
+      "height": 75,
+      "weight": 307
+    },
+    {
+      "year": 2016,
+      "round": 2,
+      "overall": 60,
+      "name": "Cyrus Jones",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "New England Patriots"
+      },
+      "height": 70,
+      "weight": 197
+    },
+    {
+      "year": 2016,
+      "round": 3,
+      "overall": 73,
+      "name": "Kenyan Drake",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Miami Dolphins"
+      },
+      "height": 73,
+      "weight": 210
+    },
+    {
+      "year": 2017,
+      "round": 1,
+      "overall": 16,
+      "name": "Marlon Humphrey",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "Baltimore Ravens"
+      },
+      "height": 72,
+      "weight": 197
+    },
+    {
+      "year": 2017,
+      "round": 1,
+      "overall": 17,
+      "name": "Jonathan Allen",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Washington"
+      },
+      "height": 75,
+      "weight": 286
+    },
+    {
+      "year": 2017,
+      "round": 1,
+      "overall": 19,
+      "name": "O.J. Howard",
+      "position": {
+        "abbreviation": "TE"
+      },
+      "draftTeam": {
+        "displayName": "Tampa Bay Buccaneers"
+      },
+      "height": 78,
+      "weight": 251
+    },
+    {
+      "year": 2017,
+      "round": 1,
+      "overall": 31,
+      "name": "Reuben Foster",
+      "position": {
+        "abbreviation": "ILB"
+      },
+      "draftTeam": {
+        "displayName": "San Francisco 49ers"
+      },
+      "height": 72,
+      "weight": 229
+    },
+    {
+      "year": 2017,
+      "round": 2,
+      "overall": 34,
+      "name": "Cam Robinson",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Jacksonville Jaguars"
+      },
+      "height": 78,
+      "weight": 322
+    },
+    {
+      "year": 2017,
+      "round": 2,
+      "overall": 49,
+      "name": "Ryan Anderson",
+      "position": {
+        "abbreviation": "OLB"
+      },
+      "draftTeam": {
+        "displayName": "Washington"
+      },
+      "height": 74,
+      "weight": 253
+    },
+    {
+      "year": 2017,
+      "round": 2,
+      "overall": 55,
+      "name": "Dalvin Tomlinson",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "New York Giants"
+      },
+      "height": 75,
+      "weight": 310
+    },
+    {
+      "year": 2017,
+      "round": 3,
+      "overall": 78,
+      "name": "Tim Williams",
+      "position": {
+        "abbreviation": "OLB"
+      },
+      "draftTeam": {
+        "displayName": "Baltimore Ravens"
+      },
+      "height": 75,
+      "weight": 244
+    },
+    {
+      "year": 2017,
+      "round": 3,
+      "overall": 79,
+      "name": "ArDarius Stewart",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "New York Jets"
+      },
+      "height": 71,
+      "weight": 204
+    },
+    {
+      "year": 2017,
+      "round": 4,
+      "overall": 112,
+      "name": "Eddie Jackson",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Chicago Bears"
+      },
+      "height": 72,
+      "weight": 201
+    },
+    {
+      "year": 2018,
+      "round": 1,
+      "overall": 11,
+      "name": "Minkah Fitzpatrick",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Miami Dolphins"
+      },
+      "height": 72,
+      "weight": 204
+    },
+    {
+      "year": 2018,
+      "round": 1,
+      "overall": 13,
+      "name": "Da'Ron Payne",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Washington"
+      },
+      "height": 75,
+      "weight": 311
+    },
+    {
+      "year": 2018,
+      "round": 1,
+      "overall": 22,
+      "name": "Rashaan Evans",
+      "position": {
+        "abbreviation": "ILB"
+      },
+      "draftTeam": {
+        "displayName": "Tennessee Titans"
+      },
+      "height": 74,
+      "weight": 232
+    },
+    {
+      "year": 2018,
+      "round": 1,
+      "overall": 26,
+      "name": "Calvin Ridley",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Atlanta Falcons"
+      },
+      "height": 73,
+      "weight": 189
+    },
+    {
+      "year": 2018,
+      "round": 3,
+      "overall": 93,
+      "name": "Ronnie Harrison",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Jacksonville Jaguars"
+      },
+      "height": 74,
+      "weight": 207
+    },
+    {
+      "year": 2018,
+      "round": 4,
+      "overall": 114,
+      "name": "Da'Shawn Hand",
+      "position": {
+        "abbreviation": "DE"
+      },
+      "draftTeam": {
+        "displayName": "Detroit Lions"
+      },
+      "height": 76,
+      "weight": 297
+    },
+    {
+      "year": 2018,
+      "round": 4,
+      "overall": 118,
+      "name": "Anthony Averett",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "Baltimore Ravens"
+      },
+      "height": 71,
+      "weight": 183
+    },
+    {
+      "year": 2018,
+      "round": 5,
+      "overall": 172,
+      "name": "JK Scott",
+      "position": {
+        "abbreviation": "P"
+      },
+      "draftTeam": {
+        "displayName": "Green Bay Packers"
+      },
+      "height": 77,
+      "weight": 207
+    },
+    {
+      "year": 2018,
+      "round": 6,
+      "overall": 197,
+      "name": "Shaun Dion Hamilton",
+      "position": {
+        "abbreviation": "ILB"
+      },
+      "draftTeam": {
+        "displayName": "Washington"
+      },
+      "height": 72,
+      "weight": 228
+    },
+    {
+      "year": 2018,
+      "round": 6,
+      "overall": 215,
+      "name": "Bradley Bozeman",
+      "position": {
+        "abbreviation": "C"
+      },
+      "draftTeam": {
+        "displayName": "Baltimore Ravens"
+      },
+      "height": 77,
+      "weight": 317
+    },
+    {
+      "year": 2018,
+      "round": 7,
+      "overall": 236,
+      "name": "Bo Scarbrough",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Dallas Cowboys"
+      },
+      "height": 73,
+      "weight": 228
+    },
+    {
+      "year": 2018,
+      "round": 7,
+      "overall": 246,
+      "name": "Joshua Frazier",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Pittsburgh Steelers"
+      },
+      "height": 75,
+      "weight": 321
+    },
+    {
+      "year": 2019,
+      "round": 1,
+      "overall": 3,
+      "name": "Quinnen Williams",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "New York Jets"
+      },
+      "height": 75,
+      "weight": 303
+    },
+    {
+      "year": 2019,
+      "round": 1,
+      "overall": 11,
+      "name": "Jonah Williams",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Cincinnati Bengals"
+      },
+      "height": 77,
+      "weight": 302
+    },
+    {
+      "year": 2019,
+      "round": 1,
+      "overall": 24,
+      "name": "Josh Jacobs",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Las Vegas Raiders"
+      },
+      "height": 70,
+      "weight": 220
+    },
+    {
+      "year": 2019,
+      "round": 2,
+      "overall": 50,
+      "name": "Irv Smith Jr.",
+      "position": {
+        "abbreviation": "TE"
+      },
+      "draftTeam": {
+        "displayName": "Minnesota Vikings"
+      },
+      "height": 74,
+      "weight": 242
+    },
+    {
+      "year": 2019,
+      "round": 3,
+      "overall": 87,
+      "name": "Damien Harris",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "New England Patriots"
+      },
+      "height": 70,
+      "weight": 216
+    },
+    {
+      "year": 2019,
+      "round": 4,
+      "overall": 115,
+      "name": "Christian Miller",
+      "position": {
+        "abbreviation": "OLB"
+      },
+      "draftTeam": {
+        "displayName": "Carolina Panthers"
+      },
+      "height": 75,
+      "weight": 247
+    },
+    {
+      "year": 2019,
+      "round": 5,
+      "overall": 139,
+      "name": "Deionte Thompson",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Arizona Cardinals"
+      },
+      "height": 73,
+      "weight": 195
+    },
+    {
+      "year": 2019,
+      "round": 5,
+      "overall": 153,
+      "name": "Ross Pierschbacher",
+      "position": {
+        "abbreviation": "OG"
+      },
+      "draftTeam": {
+        "displayName": "Washington"
+      },
+      "height": 76,
+      "weight": 307
+    },
+    {
+      "year": 2019,
+      "round": 5,
+      "overall": 155,
+      "name": "Mack Wilson",
+      "position": {
+        "abbreviation": "ILB"
+      },
+      "draftTeam": {
+        "displayName": "Cleveland Browns"
+      },
+      "height": 73,
+      "weight": 240
+    },
+    {
+      "year": 2019,
+      "round": 6,
+      "overall": 192,
+      "name": "Isaiah Buggs",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Pittsburgh Steelers"
+      },
+      "height": 75,
+      "weight": 306
+    },
+    {
+      "year": 2020,
+      "round": 1,
+      "overall": 5,
+      "name": "Tua Tagovailoa",
+      "position": {
+        "abbreviation": "QB"
+      },
+      "draftTeam": {
+        "displayName": "Miami Dolphins"
+      },
+      "height": 72,
+      "weight": 217
+    },
+    {
+      "year": 2020,
+      "round": 1,
+      "overall": 10,
+      "name": "Jedrick Wills Jr.",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Cleveland Browns"
+      },
+      "height": 76,
+      "weight": 312
+    },
+    {
+      "year": 2020,
+      "round": 1,
+      "overall": 12,
+      "name": "Henry Ruggs III",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Las Vegas Raiders"
+      },
+      "height": 71,
+      "weight": 188
+    },
+    {
+      "year": 2020,
+      "round": 1,
+      "overall": 15,
+      "name": "Jerry Jeudy",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Denver Broncos"
+      },
+      "height": 73,
+      "weight": 193
+    },
+    {
+      "year": 2020,
+      "round": 2,
+      "overall": 36,
+      "name": "Xavier McKinney",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "New York Giants"
+      },
+      "height": 72,
+      "weight": 201
+    },
+    {
+      "year": 2020,
+      "round": 2,
+      "overall": 51,
+      "name": "Trevon Diggs",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "Dallas Cowboys"
+      },
+      "height": 73,
+      "weight": 205
+    },
+    {
+      "year": 2020,
+      "round": 2,
+      "overall": 56,
+      "name": "Raekwon Davis",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Miami Dolphins"
+      },
+      "height": 78,
+      "weight": 311
+    },
+    {
+      "year": 2020,
+      "round": 3,
+      "overall": 84,
+      "name": "Terrell Lewis",
+      "position": {
+        "abbreviation": "OLB"
+      },
+      "draftTeam": {
+        "displayName": "Los Angeles Rams"
+      },
+      "height": 77,
+      "weight": 262
+    },
+    {
+      "year": 2020,
+      "round": 3,
+      "overall": 87,
+      "name": "Anfernee Jennings",
+      "position": {
+        "abbreviation": "OLB"
+      },
+      "draftTeam": {
+        "displayName": "New England Patriots"
+      },
+      "height": 74,
+      "weight": 256
+    },
+    {
+      "year": 2021,
+      "round": 1,
+      "overall": 6,
+      "name": "Jaylen Waddle",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Miami Dolphins"
+      },
+      "height": 70,
+      "weight": 180
+    },
+    {
+      "year": 2021,
+      "round": 1,
+      "overall": 9,
+      "name": "Pat Surtain II",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "Denver Broncos"
+      },
+      "height": 74,
+      "weight": 208
+    },
+    {
+      "year": 2021,
+      "round": 1,
+      "overall": 10,
+      "name": "DeVonta Smith",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Philadelphia Eagles"
+      },
+      "height": 72,
+      "weight": 170
+    },
+    {
+      "year": 2021,
+      "round": 1,
+      "overall": 15,
+      "name": "Mac Jones",
+      "position": {
+        "abbreviation": "QB"
+      },
+      "draftTeam": {
+        "displayName": "New England Patriots"
+      },
+      "height": 75,
+      "weight": 217
+    },
+    {
+      "year": 2021,
+      "round": 1,
+      "overall": 17,
+      "name": "Alex Leatherwood",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Las Vegas Raiders"
+      },
+      "height": 77,
+      "weight": 312
+    },
+    {
+      "year": 2021,
+      "round": 1,
+      "overall": 24,
+      "name": "Najee Harris",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Pittsburgh Steelers"
+      },
+      "height": 73,
+      "weight": 232
+    },
+    {
+      "year": 2021,
+      "round": 2,
+      "overall": 37,
+      "name": "Landon Dickerson",
+      "position": {
+        "abbreviation": "C"
+      },
+      "draftTeam": {
+        "displayName": "Philadelphia Eagles"
+      },
+      "height": 78,
+      "weight": 333
+    },
+    {
+      "year": 2021,
+      "round": 2,
+      "overall": 38,
+      "name": "Christian Barmore",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "New England Patriots"
+      },
+      "height": 76,
+      "weight": 310
+    },
+    {
+      "year": 2021,
+      "round": 6,
+      "overall": 193,
+      "name": "Deonte Brown",
+      "position": {
+        "abbreviation": "OG"
+      },
+      "draftTeam": {
+        "displayName": "Carolina Panthers"
+      },
+      "height": 75,
+      "weight": 344
+    },
+    {
+      "year": 2021,
+      "round": 6,
+      "overall": 222,
+      "name": "Thomas Fletcher",
+      "position": {
+        "abbreviation": "LS"
+      },
+      "draftTeam": {
+        "displayName": "Carolina Panthers"
+      },
+      "height": 73,
+      "weight": 235
+    },
+    {
+      "year": 2022,
+      "round": 1,
+      "overall": 7,
+      "name": "Evan Neal",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "New York Giants"
+      },
+      "height": 80,
+      "weight": 337
+    },
+    {
+      "year": 2022,
+      "round": 1,
+      "overall": 12,
+      "name": "Jameson Williams",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Detroit Lions"
+      },
+      "height": 74,
+      "weight": 179
+    },
+    {
+      "year": 2022,
+      "round": 2,
+      "overall": 44,
+      "name": "John Metchie III",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Houston Texans"
+      },
+      "height": 71,
+      "weight": 187
+    },
+    {
+      "year": 2022,
+      "round": 2,
+      "overall": 47,
+      "name": "Phidarian Mathis",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Washington"
+      },
+      "height": 76,
+      "weight": 310
+    },
+    {
+      "year": 2022,
+      "round": 3,
+      "overall": 75,
+      "name": "Christian Harris",
+      "position": {
+        "abbreviation": "ILB"
+      },
+      "draftTeam": {
+        "displayName": "Houston Texans"
+      },
+      "height": 73,
+      "weight": 226
+    },
+    {
+      "year": 2022,
+      "round": 3,
+      "overall": 98,
+      "name": "Brian Robinson Jr.",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Washington"
+      },
+      "height": 74,
+      "weight": 225
+    },
+    {
+      "year": 2022,
+      "round": 4,
+      "overall": 119,
+      "name": "Jalyn Armour-Davis",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "Baltimore Ravens"
+      },
+      "height": 73,
+      "weight": 197
+    },
+    {
+      "year": 2023,
+      "round": 1,
+      "overall": 1,
+      "name": "Bryce Young",
+      "position": {
+        "abbreviation": "QB"
+      },
+      "draftTeam": {
+        "displayName": "Carolina Panthers"
+      },
+      "height": 70,
+      "weight": 204
+    },
+    {
+      "year": 2023,
+      "round": 1,
+      "overall": 3,
+      "name": "Will Anderson Jr.",
+      "position": {
+        "abbreviation": "OLB"
+      },
+      "draftTeam": {
+        "displayName": "Houston Texans"
+      },
+      "height": 76,
+      "weight": 253
+    },
+    {
+      "year": 2023,
+      "round": 1,
+      "overall": 12,
+      "name": "Jahmyr Gibbs",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Detroit Lions"
+      },
+      "height": 69,
+      "weight": 199
+    },
+    {
+      "year": 2023,
+      "round": 2,
+      "overall": 45,
+      "name": "Brian Branch",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Detroit Lions"
+      },
+      "height": 72,
+      "weight": 190
+    },
+    {
+      "year": 2023,
+      "round": 3,
+      "overall": 65,
+      "name": "Tyler Steen",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Philadelphia Eagles"
+      },
+      "height": 78,
+      "weight": 321
+    },
+    {
+      "year": 2023,
+      "round": 3,
+      "overall": 70,
+      "name": "Byron Young",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Las Vegas Raiders"
+      },
+      "height": 75,
+      "weight": 294
+    },
+    {
+      "year": 2023,
+      "round": 3,
+      "overall": 95,
+      "name": "Jordan Battle",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Cincinnati Bengals"
+      },
+      "height": 73,
+      "weight": 209
+    },
+    {
+      "year": 2023,
+      "round": 3,
+      "overall": 101,
+      "name": "Cameron Latu",
+      "position": {
+        "abbreviation": "TE"
+      },
+      "draftTeam": {
+        "displayName": "San Francisco 49ers"
+      },
+      "height": 76,
+      "weight": 242
+    },
+    {
+      "year": 2023,
+      "round": 5,
+      "overall": 167,
+      "name": "Henry To'oTo'o",
+      "position": {
+        "abbreviation": "ILB"
+      },
+      "draftTeam": {
+        "displayName": "Houston Texans"
+      },
+      "height": 73,
+      "weight": 227
+    },
+    {
+      "year": 2023,
+      "round": 7,
+      "overall": 224,
+      "name": "DeMarcco Hellams",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Atlanta Falcons"
+      },
+      "height": 73,
+      "weight": 203
+    },
+    {
+      "year": 2024,
+      "round": 1,
+      "overall": 7,
+      "name": "JC Latham",
+      "position": {
+        "abbreviation": "OT"
+      },
+      "draftTeam": {
+        "displayName": "Tennessee Titans"
+      },
+      "height": 78,
+      "weight": 342
+    },
+    {
+      "year": 2024,
+      "round": 1,
+      "overall": 17,
+      "name": "Dallas Turner",
+      "position": {
+        "abbreviation": "EDGE"
+      },
+      "draftTeam": {
+        "displayName": "Minnesota Vikings"
+      },
+      "height": 75,
+      "weight": 247
+    },
+    {
+      "year": 2024,
+      "round": 1,
+      "overall": 24,
+      "name": "Terrion Arnold",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "Detroit Lions"
+      },
+      "height": 72,
+      "weight": 189
+    },
+    {
+      "year": 2024,
+      "round": 2,
+      "overall": 41,
+      "name": "Kool-Aid McKinstry",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "New Orleans Saints"
+      },
+      "height": 72,
+      "weight": 199
+    },
+    {
+      "year": 2024,
+      "round": 2,
+      "overall": 57,
+      "name": "Chris Braswell",
+      "position": {
+        "abbreviation": "EDGE"
+      },
+      "draftTeam": {
+        "displayName": "Tampa Bay Buccaneers"
+      },
+      "height": 75,
+      "weight": 251
+    },
+    {
+      "year": 2024,
+      "round": 3,
+      "overall": 80,
+      "name": "Jermaine Burton",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Cincinnati Bengals"
+      },
+      "height": 72,
+      "weight": 196
+    },
+    {
+      "year": 2024,
+      "round": 4,
+      "overall": 105,
+      "name": "Justin Eboigbe",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Los Angeles Chargers"
+      },
+      "height": 76,
+      "weight": 297
+    },
+    {
+      "year": 2024,
+      "round": 6,
+      "overall": 186,
+      "name": "Jase McClellan",
+      "position": {
+        "abbreviation": "RB"
+      },
+      "draftTeam": {
+        "displayName": "Atlanta Falcons"
+      },
+      "height": 70,
+      "weight": 221
+    },
+    {
+      "year": 2024,
+      "round": 6,
+      "overall": 203,
+      "name": "Will Reichard",
+      "position": {
+        "abbreviation": "PK"
+      },
+      "draftTeam": {
+        "displayName": "Minnesota Vikings"
+      },
+      "height": 73,
+      "weight": 187
+    },
+    {
+      "year": 2024,
+      "round": 7,
+      "overall": 257,
+      "name": "Jaylen Key",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "New York Jets"
+      },
+      "height": 73,
+      "weight": 208
+    },
+    {
+      "year": 2025,
+      "round": 1,
+      "overall": 12,
+      "name": "Tyler Booker",
+      "position": {
+        "abbreviation": "OG"
+      },
+      "draftTeam": {
+        "displayName": "Dallas Cowboys"
+      },
+      "height": 77,
+      "weight": 321
+    },
+    {
+      "year": 2025,
+      "round": 1,
+      "overall": 31,
+      "name": "Jihaad Campbell",
+      "position": {
+        "abbreviation": "LB"
+      },
+      "draftTeam": {
+        "displayName": "Philadelphia Eagles"
+      },
+      "height": 75,
+      "weight": 235
+    },
+    {
+      "year": 2025,
+      "round": 3,
+      "overall": 92,
+      "name": "Jalen Milroe",
+      "position": {
+        "abbreviation": "QB"
+      },
+      "draftTeam": {
+        "displayName": "Seattle Seahawks"
+      },
+      "height": 74,
+      "weight": 217
+    },
+    {
+      "year": 2025,
+      "round": 4,
+      "overall": 130,
+      "name": "Malachi Moore",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "New York Jets"
+      },
+      "height": 71,
+      "weight": 196
+    },
+    {
+      "year": 2025,
+      "round": 4,
+      "overall": 134,
+      "name": "Que Robinson",
+      "position": {
+        "abbreviation": "EDGE"
+      },
+      "draftTeam": {
+        "displayName": "Denver Broncos"
+      },
+      "height": 76,
+      "weight": 243
+    },
+    {
+      "year": 2025,
+      "round": 5,
+      "overall": 175,
+      "name": "Robbie Ouzts",
+      "position": {
+        "abbreviation": "TE"
+      },
+      "draftTeam": {
+        "displayName": "Seattle Seahawks"
+      },
+      "height": 75,
+      "weight": 274
+    },
+    {
+      "year": 2025,
+      "round": 6,
+      "overall": 190,
+      "name": "Tim Smith",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Indianapolis Colts"
+      },
+      "height": 76,
+      "weight": 302
+    }
+  ],
+  "talent_ratings": [
+    {
+      "year": 2015,
+      "talent": 981.9,
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "year": 2016,
+      "talent": 982.66,
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "year": 2017,
+      "talent": 997.57,
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "year": 2018,
+      "talent": 978.54,
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "year": 2019,
+      "talent": 984.96,
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "year": 2020,
+      "talent": 985.86,
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "year": 2021,
+      "talent": 1004.04,
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "year": 2022,
+      "talent": 1016.79,
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "year": 2023,
+      "talent": 1015.43,
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "year": 2024,
+      "talent": 1018.28,
+      "team": {
+        "school": "Alabama"
+      }
+    },
+    {
+      "year": 2025,
+      "talent": 993.55,
+      "team": {
+        "school": "Alabama"
+      }
+    }
+  ],
+  "ratings": [],
+  "opponent_ratings": [],
+  "teams": {},
+  "betting_lines": [
+    {
+      "id": 401752665,
+      "season": 2025,
+      "week": 1,
+      "homeTeam": "Florida State",
+      "awayTeam": "Alabama",
+      "homePoints": 31,
+      "awayPoints": 17,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 13.5,
+          "overUnder": 50.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 13.5,
+          "overUnder": 46.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 13.5,
+          "overUnder": 47
+        }
+      ]
+    },
+    {
+      "id": 401752681,
+      "season": 2025,
+      "week": 2,
+      "homeTeam": "Alabama",
+      "awayTeam": "UL Monroe",
+      "homePoints": 73,
+      "awayPoints": 0,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -34.0,
+          "overUnder": 50
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -34.5,
+          "overUnder": 50.5
+        }
+      ]
+    },
+    {
+      "id": 401752696,
+      "season": 2025,
+      "week": 3,
+      "homeTeam": "Alabama",
+      "awayTeam": "Wisconsin",
+      "homePoints": 38,
+      "awayPoints": 14,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -17.5,
+          "overUnder": 45.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -18.5,
+          "overUnder": 45.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -19.5,
+          "overUnder": 45
+        }
+      ]
+    },
+    {
+      "id": 401752718,
+      "season": 2025,
+      "week": 5,
+      "homeTeam": "Georgia",
+      "awayTeam": "Alabama",
+      "homePoints": 21,
+      "awayPoints": 24,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -2.5,
+          "overUnder": 53.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -2.5,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -2.0,
+          "overUnder": 54
+        }
+      ]
+    },
+    {
+      "id": 401752726,
+      "season": 2025,
+      "week": 6,
+      "homeTeam": "Alabama",
+      "awayTeam": "Vanderbilt",
+      "homePoints": 30,
+      "awayPoints": 14,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -13.5,
+          "overUnder": 58.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -13.5,
+          "overUnder": 57.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -13.5,
+          "overUnder": 57.5
+        }
+      ]
+    },
+    {
+      "id": 401752734,
+      "season": 2025,
+      "week": 7,
+      "homeTeam": "Missouri",
+      "awayTeam": "Alabama",
+      "homePoints": 24,
+      "awayPoints": 27,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 3.5,
+          "overUnder": 50.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 3,
+          "overUnder": 50.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 3.0,
+          "overUnder": 52
+        }
+      ]
+    },
+    {
+      "id": 401752738,
+      "season": 2025,
+      "week": 8,
+      "homeTeam": "Alabama",
+      "awayTeam": "Tennessee",
+      "homePoints": 37,
+      "awayPoints": 20,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -8.5,
+          "overUnder": 60.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -9.0,
+          "overUnder": 60.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -8.5,
+          "overUnder": 61.5
+        }
+      ]
+    },
+    {
+      "id": 401752751,
+      "season": 2025,
+      "week": 9,
+      "homeTeam": "South Carolina",
+      "awayTeam": "Alabama",
+      "homePoints": 22,
+      "awayPoints": 29,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 11.5,
+          "overUnder": 47.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 12.5,
+          "overUnder": 47.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 11.5,
+          "overUnder": 48
+        }
+      ]
+    },
+    {
+      "id": 401752759,
+      "season": 2025,
+      "week": 11,
+      "homeTeam": "Alabama",
+      "awayTeam": "LSU",
+      "homePoints": 20,
+      "awayPoints": 9,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -10.5,
+          "overUnder": 49.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -10.0,
+          "overUnder": 49.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -10,
+          "overUnder": 49.5
+        }
+      ]
+    },
+    {
+      "id": 401752765,
+      "season": 2025,
+      "week": 12,
+      "homeTeam": "Alabama",
+      "awayTeam": "Oklahoma",
+      "homePoints": 21,
+      "awayPoints": 23,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -6.5,
+          "overUnder": 45.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -6.5,
+          "overUnder": 46.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -6.5,
+          "overUnder": 45.5
+        }
+      ]
+    },
+    {
+      "id": 401752773,
+      "season": 2025,
+      "week": 13,
+      "homeTeam": "Alabama",
+      "awayTeam": "Eastern Illinois",
+      "homePoints": 56,
+      "awayPoints": 0,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -50.5,
+          "overUnder": 57.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -49.0,
+          "overUnder": 57
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -54.5,
+          "overUnder": 59.5
+        }
+      ]
+    },
+    {
+      "id": 401752784,
+      "season": 2025,
+      "week": 14,
+      "homeTeam": "Auburn",
+      "awayTeam": "Alabama",
+      "homePoints": 20,
+      "awayPoints": 27,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 6.5,
+          "overUnder": 48.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 7,
+          "overUnder": 48.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 7.0,
+          "overUnder": 48
+        }
+      ]
+    },
+    {
+      "id": 401777351,
+      "season": 2025,
+      "week": 15,
+      "homeTeam": "Alabama",
+      "awayTeam": "Georgia",
+      "homePoints": null,
+      "awayPoints": null,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 2.5,
+          "overUnder": 47.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 2.5,
+          "overUnder": null
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 2.5,
+          "overUnder": 48
+        }
+      ]
+    }
+  ]
+}

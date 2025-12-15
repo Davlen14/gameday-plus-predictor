@@ -111,9 +111,14 @@ export const CoachTimeline: React.FC<CoachTimelineProps> = ({
   useEffect(() => {
     if (!chartRef.current || !timelineData) return;
 
-    // Destroy existing chart
+    // Destroy existing chart safely
     if (chartInstance.current) {
-      chartInstance.current.destroy();
+      try {
+        chartInstance.current.destroy();
+      } catch (e) {
+        // Chart may already be destroyed
+      }
+      chartInstance.current = null;
     }
 
     const { data, metadata } = timelineData;
@@ -341,7 +346,12 @@ export const CoachTimeline: React.FC<CoachTimelineProps> = ({
 
     return () => {
       if (chartInstance.current) {
-        chartInstance.current.destroy();
+        try {
+          chartInstance.current.destroy();
+        } catch (e) {
+          // Chart may already be destroyed
+        }
+        chartInstance.current = null;
       }
     };
   }, [timelineData, coachName, schoolName, teamColor, teamLogo, hasMultipleSchools, careerSchools]);
@@ -412,118 +422,6 @@ export const CoachTimeline: React.FC<CoachTimelineProps> = ({
 
       <div ref={chartRef} style={{ width: '100%', height: '300px' }} />
       
-      {/* Metadata stats */}
-      {timelineData.metadata && (
-        <div className="grid grid-cols-3 gap-4 mt-4 pt-4 border-t" style={{ borderColor: `${effectiveColor}30` }}>
-          <div className="text-center p-3 rounded-lg" style={{ 
-            background: `linear-gradient(135deg, ${effectiveColor}15, rgba(15, 23, 42, 0.8))`,
-            border: `1px solid ${effectiveColor}30`
-          }}>
-            <div className="text-xs text-gray-400 mb-1">Peak Talent</div>
-            <div className="text-lg font-bold" style={{ color: effectiveColor }}>
-              {timelineData.metadata.peak_talent?.talent ? timelineData.metadata.peak_talent.talent.toFixed(1) : '-'}
-            </div>
-            <div className="text-xs text-gray-500">
-              {timelineData.metadata.peak_talent?.year || ''}
-            </div>
-          </div>
-        <div className="text-center p-3 rounded-lg" style={{ 
-          background: `linear-gradient(135deg, ${effectiveColor}15, rgba(15, 23, 42, 0.8))`,
-          border: `1px solid ${effectiveColor}30`
-        }}>
-          <div className="text-xs text-gray-400 mb-1">Top Draft Year</div>
-          <div className="text-lg font-bold" style={{ color: effectiveColor }}>
-            {timelineData.metadata.top_draft_years?.[0]?.total || 0} picks
-          </div>
-          <div className="text-xs text-gray-500">
-            {timelineData.metadata.top_draft_years?.[0]?.year || 'N/A'} {timelineData.metadata.top_draft_years?.[0]?.round1 ? `(${timelineData.metadata.top_draft_years[0].round1} Rd 1)` : ''}
-          </div>
-        </div>
-        <div className="text-center p-3 rounded-lg" style={{ 
-          background: `linear-gradient(135deg, ${effectiveColor}15, rgba(15, 23, 42, 0.8))`,
-          border: `1px solid ${effectiveColor}30`
-        }}>
-          <div className="text-xs text-gray-400 mb-1">#1 Rankings</div>
-          <div className="text-lg font-bold" style={{ color: effectiveColor }}>
-            {timelineData.metadata.top_rankings_count || 0}
-          </div>
-          <div className="text-xs text-gray-500">
-            {(timelineData.metadata.top_rankings_count || 0) > 0 ? 'weeks at #1' : 'never ranked #1'}
-          </div>
-        </div>
-        </div>
-      )}
-      
-      {/* Career Schools Grid - Only show if multiple schools */}
-      {hasMultipleSchools && careerSchools.length > 0 && (
-        <div className="mt-6 pt-6 border-t" style={{ borderColor: `${effectiveColor}30` }}>
-          <h4 className="text-lg font-bold text-white mb-4">Coaching Career</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {careerSchools.map((school: any, index: number) => {
-              // Handle flexible field names
-              const schoolName = school.school_name || school.school || 'Unknown School';
-              const schoolColor = school.team_color || school.teamColor || teamColor;
-              const schoolLogo = school.team_logo || school.teamLogo || 'https://a.espncdn.com/i/teamlogos/ncaa/500/default.png';
-              const winPct = typeof school.win_pct === 'number' ? school.win_pct.toFixed(1) : (school.win_pct || '0');
-              
-              return (
-                <div
-                  key={index}
-                  onClick={() => setSelectedSchool(getSchoolModalData(school))}
-                  className="cursor-pointer p-4 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl relative group"
-                  style={{
-                    background: `linear-gradient(135deg, ${schoolColor}15, rgba(15, 23, 42, 0.8))`,
-                    border: `1px solid ${schoolColor}30`,
-                    boxShadow: `0 4px 16px ${schoolColor}20`
-                  }}
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <img 
-                      src={schoolLogo} 
-                      alt={schoolName} 
-                      className="w-12 h-12 object-contain" 
-                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                    />
-                    <div className="flex-1">
-                      <h5 className="font-bold text-base" style={{ color: schoolColor }}>
-                        {schoolName}
-                      </h5>
-                      <p className="text-xs text-gray-400">{school.years || 'N/A'}</p>
-                    </div>
-                    {/* View Details Icon */}
-                    <div className="opacity-50 group-hover:opacity-100 transition-opacity">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="text-center p-2 rounded-lg" style={{ 
-                      background: `${schoolColor}10`,
-                      border: `1px solid ${schoolColor}20`
-                    }}>
-                      <div className="text-lg font-bold" style={{ color: schoolColor }}>
-                        {school.record || 'N/A'}
-                      </div>
-                      <div className="text-xs text-gray-400">Record</div>
-                    </div>
-                    <div className="text-center p-2 rounded-lg" style={{ 
-                      background: `${schoolColor}10`,
-                      border: `1px solid ${schoolColor}20`
-                    }}>
-                      <div className="text-lg font-bold" style={{ color: schoolColor }}>
-                        {winPct}%
-                      </div>
-                      <div className="text-xs text-gray-400">Win %</div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
       
       {/* School Detail Modal */}
       {selectedSchool && (

@@ -1,0 +1,277 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017543731,401754373,NC State,ACC,East Carolina,American Athletic,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,89,11,"{'minutes': 8, 'seconds': 34}","{'minutes': 6, 'seconds': 26}",15,64,FG,True,0,0,3,0
+4017543732,401754373,East Carolina,American Athletic,NC State,ACC,2,False,1,75,75,"{'minutes': 8, 'seconds': 34}",1,74,74,"{'minutes': 7, 'seconds': 31}","{'minutes': 1, 'seconds': 3}",3,1,PUNT,False,0,3,0,3
+4017543733,401754373,NC State,ACC,East Carolina,American Athletic,3,False,1,27,73,"{'minutes': 7, 'seconds': 31}",1,39,61,"{'minutes': 3, 'seconds': 54}","{'minutes': 3, 'seconds': 37}",6,12,PUNT,True,3,0,3,0
+4017543734,401754373,East Carolina,American Athletic,NC State,ACC,4,False,1,79,79,"{'minutes': 3, 'seconds': 54}",1,82,82,"{'minutes': 2, 'seconds': 4}","{'minutes': 1, 'seconds': 50}",3,-3,PUNT,False,0,3,0,3
+4017543735,401754373,NC State,ACC,East Carolina,American Athletic,5,True,1,39,61,"{'minutes': 2, 'seconds': 4}",2,100,0,"{'minutes': 13, 'seconds': 33}","{'minutes': 3, 'seconds': 31}",7,61,TD,True,3,0,10,0
+4017543736,401754373,East Carolina,American Athletic,NC State,ACC,6,False,2,66,66,"{'minutes': 13, 'seconds': 27}",2,89,89,"{'minutes': 11, 'seconds': 45}","{'minutes': 1, 'seconds': 42}",3,-23,PUNT,False,0,10,0,10
+4017543737,401754373,NC State,ACC,East Carolina,American Athletic,7,True,2,52,48,"{'minutes': 11, 'seconds': 45}",2,100,0,"{'minutes': 11, 'seconds': 3}","{'minutes': 0, 'seconds': 42}",2,48,TD,True,10,0,17,0
+4017543738,401754373,East Carolina,American Athletic,NC State,ACC,8,False,2,75,75,"{'minutes': 11, 'seconds': 3}",2,78,78,"{'minutes': 9, 'seconds': 46}","{'minutes': 1, 'seconds': 17}",3,-3,PUNT,False,0,17,0,17
+4017543739,401754373,NC State,ACC,East Carolina,American Athletic,9,False,2,40,60,"{'minutes': 9, 'seconds': 46}",2,41,59,"{'minutes': 8, 'seconds': 13}","{'minutes': 1, 'seconds': 33}",3,1,PUNT,True,17,0,17,0
+40175437310,401754373,East Carolina,American Athletic,NC State,ACC,10,False,2,80,80,"{'minutes': 8, 'seconds': 13}",2,29,29,"{'minutes': 6, 'seconds': 14}","{'minutes': 1, 'seconds': 59}",8,51,DOWNS,False,0,17,0,17
+40175437311,401754373,NC State,ACC,East Carolina,American Athletic,11,False,2,29,71,"{'minutes': 6, 'seconds': 14}",2,44,56,"{'minutes': 4, 'seconds': 4}","{'minutes': 2, 'seconds': 10}",6,15,PUNT,True,17,0,17,0
+40175437312,401754373,East Carolina,American Athletic,NC State,ACC,12,True,2,86,86,"{'minutes': 4, 'seconds': 4}",2,0,0,"{'minutes': 2, 'seconds': 21}","{'minutes': 1, 'seconds': 43}",6,86,TD,False,0,17,7,17
+40175437313,401754373,NC State,ACC,East Carolina,American Athletic,13,False,2,25,75,"{'minutes': 2, 'seconds': 21}",2,51,49,"{'minutes': 0, 'seconds': 28}","{'minutes': 1, 'seconds': 53}",7,26,INT,True,17,7,17,7
+40175437314,401754373,East Carolina,American Athletic,NC State,ACC,14,False,2,43,43,"{'minutes': 0, 'seconds': 28}",2,35,35,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 28}",5,8,MISSED FG,False,7,17,7,17
+40175437315,401754373,East Carolina,American Athletic,NC State,ACC,15,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,36,36,"{'minutes': 13, 'seconds': 2}","{'minutes': 1, 'seconds': 58}",8,39,DOWNS,False,7,17,7,17
+40175437316,401754373,NC State,ACC,East Carolina,American Athletic,16,False,3,36,64,"{'minutes': 13, 'seconds': 2}",3,40,60,"{'minutes': 11, 'seconds': 41}","{'minutes': 1, 'seconds': 21}",3,4,PUNT,True,17,7,17,7
+40175437317,401754373,East Carolina,American Athletic,NC State,ACC,17,False,3,83,83,"{'minutes': 11, 'seconds': 41}",3,65,65,"{'minutes': 8, 'seconds': 36}","{'minutes': 3, 'seconds': 5}",7,18,PUNT,False,7,17,7,17
+40175437318,401754373,NC State,ACC,East Carolina,American Athletic,18,True,3,20,80,"{'minutes': 8, 'seconds': 36}",3,100,0,"{'minutes': 3, 'seconds': 43}","{'minutes': 4, 'seconds': 53}",10,80,TD,True,17,7,24,7
+40175437319,401754373,East Carolina,American Athletic,NC State,ACC,19,True,3,72,72,"{'minutes': 3, 'seconds': 38}",4,0,0,"{'minutes': 14, 'seconds': 56}","{'minutes': 3, 'seconds': 42}",9,72,TD,False,7,24,14,24
+40175437320,401754373,NC State,ACC,East Carolina,American Athletic,20,False,4,25,75,"{'minutes': 14, 'seconds': 56}",4,77,23,"{'minutes': 12, 'seconds': 23}","{'minutes': 2, 'seconds': 33}",6,52,MISSED FG,True,24,14,24,14
+40175437321,401754373,East Carolina,American Athletic,NC State,ACC,21,True,4,77,77,"{'minutes': 12, 'seconds': 23}",4,16,16,"{'minutes': 8, 'seconds': 32}","{'minutes': 3, 'seconds': 51}",9,61,FG,False,14,24,17,24
+40175437322,401754373,NC State,ACC,East Carolina,American Athletic,22,False,4,25,75,"{'minutes': 8, 'seconds': 32}",4,71,29,"{'minutes': 5, 'seconds': 41}","{'minutes': 2, 'seconds': 51}",5,46,MISSED FG,True,24,17,24,17
+40175437323,401754373,East Carolina,American Athletic,NC State,ACC,23,False,4,71,71,"{'minutes': 5, 'seconds': 41}",4,10,10,"{'minutes': 0, 'seconds': 37}","{'minutes': 5, 'seconds': 4}",12,61,DOWNS,False,17,24,17,24
+40175437324,401754373,NC State,ACC,East Carolina,American Athletic,24,False,4,10,90,"{'minutes': 0, 'seconds': 37}",4,2,98,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 37}",3,-8,END OF GAME,True,24,17,24,17
+4017545241,401754524,Virginia,ACC,NC State,ACC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,0,0,"{'minutes': 10, 'seconds': 37}","{'minutes': 4, 'seconds': 23}",10,75,TD,False,0,0,7,0
+4017545242,401754524,NC State,ACC,Virginia,ACC,2,True,1,25,75,"{'minutes': 10, 'seconds': 37}",1,100,0,"{'minutes': 8, 'seconds': 26}","{'minutes': 2, 'seconds': 11}",5,75,TD,True,0,7,7,7
+4017545243,401754524,Virginia,ACC,NC State,ACC,3,True,1,75,75,"{'minutes': 8, 'seconds': 26}",1,0,0,"{'minutes': 3, 'seconds': 41}","{'minutes': 4, 'seconds': 45}",12,75,TD,False,7,7,14,7
+4017545244,401754524,NC State,ACC,Virginia,ACC,4,True,1,25,75,"{'minutes': 3, 'seconds': 41}",2,100,0,"{'minutes': 14, 'seconds': 23}","{'minutes': 4, 'seconds': 18}",9,75,TD,True,7,14,14,14
+4017545245,401754524,Virginia,ACC,NC State,ACC,5,False,2,75,75,"{'minutes': 14, 'seconds': 23}",2,58,58,"{'minutes': 12, 'seconds': 26}","{'minutes': 1, 'seconds': 57}",6,17,PUNT,False,14,14,14,14
+4017545246,401754524,NC State,ACC,Virginia,ACC,6,False,2,18,82,"{'minutes': 12, 'seconds': 26}",2,27,73,"{'minutes': 10, 'seconds': 20}","{'minutes': 2, 'seconds': 6}",3,9,PUNT,True,14,14,14,14
+4017545247,401754524,Virginia,ACC,NC State,ACC,7,True,2,71,71,"{'minutes': 10, 'seconds': 20}",2,12,12,"{'minutes': 4, 'seconds': 8}","{'minutes': 6, 'seconds': 12}",11,59,FG,False,14,14,17,14
+4017545248,401754524,NC State,ACC,Virginia,ACC,8,False,2,25,75,"{'minutes': 4, 'seconds': 8}",2,26,74,"{'minutes': 3, 'seconds': 4}","{'minutes': 1, 'seconds': 4}",3,1,PUNT,True,14,17,14,17
+4017545249,401754524,Virginia,ACC,NC State,ACC,9,True,2,27,27,"{'minutes': 3, 'seconds': 4}",2,0,0,"{'minutes': 0, 'seconds': 17}","{'minutes': 2, 'seconds': 47}",7,27,TD,False,17,14,24,14
+40175452410,401754524,NC State,ACC,Virginia,ACC,10,False,2,25,75,"{'minutes': 0, 'seconds': 17}",2,27,73,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 17}",1,2,END OF HALF,True,14,24,14,24
+40175452411,401754524,NC State,ACC,Virginia,ACC,11,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 10, 'seconds': 46}","{'minutes': 4, 'seconds': 14}",8,75,TD,True,14,24,21,24
+40175452412,401754524,Virginia,ACC,NC State,ACC,12,False,3,75,75,"{'minutes': 10, 'seconds': 46}",3,60,60,"{'minutes': 9, 'seconds': 20}","{'minutes': 1, 'seconds': 26}",5,15,PUNT,False,24,21,24,21
+40175452413,401754524,NC State,ACC,Virginia,ACC,13,True,3,20,80,"{'minutes': 9, 'seconds': 20}",3,100,0,"{'minutes': 6, 'seconds': 39}","{'minutes': 2, 'seconds': 41}",5,80,TD,True,21,24,28,24
+40175452414,401754524,Virginia,ACC,NC State,ACC,14,True,3,75,75,"{'minutes': 6, 'seconds': 39}",3,0,0,"{'minutes': 5, 'seconds': 11}","{'minutes': 1, 'seconds': 28}",3,75,TD,False,24,28,31,28
+40175452415,401754524,NC State,ACC,Virginia,ACC,15,True,3,25,75,"{'minutes': 5, 'seconds': 11}",3,100,0,"{'minutes': 0, 'seconds': 45}","{'minutes': 4, 'seconds': 26}",9,75,TD,True,28,31,35,31
+40175452416,401754524,Virginia,ACC,NC State,ACC,16,False,3,77,77,"{'minutes': 0, 'seconds': 39}",4,30,30,"{'minutes': 13, 'seconds': 20}","{'minutes': 2, 'seconds': 19}",5,47,MISSED FG,False,31,35,31,35
+40175452417,401754524,NC State,ACC,Virginia,ACC,17,False,4,30,70,"{'minutes': 13, 'seconds': 20}",4,33,67,"{'minutes': 12, 'seconds': 29}","{'minutes': 0, 'seconds': 51}",3,3,PUNT,True,35,31,35,31
+40175452418,401754524,Virginia,ACC,NC State,ACC,18,False,4,58,58,"{'minutes': 12, 'seconds': 29}",4,8,8,"{'minutes': 6, 'seconds': 37}","{'minutes': 5, 'seconds': 52}",11,50,DOWNS,False,31,35,31,35
+40175452419,401754524,NC State,ACC,Virginia,ACC,19,False,4,8,92,"{'minutes': 6, 'seconds': 37}",4,33,67,"{'minutes': 2, 'seconds': 12}","{'minutes': 4, 'seconds': 25}",10,25,PUNT,True,35,31,35,31
+40175452420,401754524,Virginia,ACC,NC State,ACC,20,False,4,81,81,"{'minutes': 2, 'seconds': 12}",4,12,12,"{'minutes': 1, 'seconds': 2}","{'minutes': 1, 'seconds': 10}",7,69,INT,False,31,35,31,35
+40175452421,401754524,NC State,ACC,Virginia,ACC,21,False,4,20,80,"{'minutes': 1, 'seconds': 2}",4,16,84,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 2}",2,-4,END OF GAME,True,35,31,35,31
+4017545311,401754531,Wake Forest,ACC,NC State,ACC,1,True,1,100,0,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 14, 'seconds': 48}","{'minutes': 0, 'seconds': 12}",0,0,TD,True,0,0,7,0
+4017545312,401754531,NC State,ACC,Wake Forest,ACC,2,False,1,75,75,"{'minutes': 14, 'seconds': 48}",1,45,45,"{'minutes': 10, 'seconds': 6}","{'minutes': 4, 'seconds': 42}",10,30,PUNT,False,0,7,0,7
+4017545313,401754531,Wake Forest,ACC,NC State,ACC,3,True,1,7,93,"{'minutes': 10, 'seconds': 6}",1,100,0,"{'minutes': 7, 'seconds': 19}","{'minutes': 2, 'seconds': 47}",7,93,TD,True,7,0,14,0
+4017545314,401754531,NC State,ACC,Wake Forest,ACC,4,True,1,75,75,"{'minutes': 7, 'seconds': 19}",1,0,0,"{'minutes': 2, 'seconds': 35}","{'minutes': 4, 'seconds': 44}",8,75,TD,False,0,14,7,14
+4017545315,401754531,Wake Forest,ACC,NC State,ACC,5,True,1,25,75,"{'minutes': 2, 'seconds': 35}",1,41,59,"{'minutes': 1, 'seconds': 19}","{'minutes': 1, 'seconds': 16}",4,16,INT TD,True,14,7,14,14
+4017545316,401754531,Wake Forest,ACC,NC State,ACC,6,True,1,25,75,"{'minutes': 1, 'seconds': 19}",2,100,0,"{'minutes': 12, 'seconds': 12}","{'minutes': 4, 'seconds': 7}",9,75,TD,True,14,14,21,14
+4017545317,401754531,NC State,ACC,Wake Forest,ACC,7,False,2,75,75,"{'minutes': 12, 'seconds': 12}",2,42,42,"{'minutes': 8, 'seconds': 57}","{'minutes': 3, 'seconds': 15}",6,33,PUNT,False,14,21,14,21
+4017545318,401754531,Wake Forest,ACC,NC State,ACC,8,True,2,20,80,"{'minutes': 8, 'seconds': 57}",2,89,11,"{'minutes': 4, 'seconds': 7}","{'minutes': 4, 'seconds': 50}",11,69,FG,True,21,14,24,14
+4017545319,401754531,NC State,ACC,Wake Forest,ACC,9,True,2,75,75,"{'minutes': 4, 'seconds': 7}",2,7,7,"{'minutes': 1, 'seconds': 0}","{'minutes': 3, 'seconds': 7}",11,68,FG,False,14,24,17,24
+40175453110,401754531,Wake Forest,ACC,NC State,ACC,10,False,2,22,78,"{'minutes': 1, 'seconds': 0}",2,30,70,"{'minutes': 0, 'seconds': 19}","{'minutes': 0, 'seconds': 41}",3,8,PUNT,True,24,17,24,17
+40175453111,401754531,NC State,ACC,Wake Forest,ACC,11,False,2,80,80,"{'minutes': 0, 'seconds': 19}",2,72,72,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 19}",1,8,END OF HALF,False,17,24,17,24
+40175453112,401754531,NC State,ACC,Wake Forest,ACC,12,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,60,60,"{'minutes': 12, 'seconds': 18}","{'minutes': 2, 'seconds': 42}",5,15,PUNT,False,17,24,17,24
+40175453113,401754531,Wake Forest,ACC,NC State,ACC,13,False,3,22,78,"{'minutes': 12, 'seconds': 18}",3,26,74,"{'minutes': 10, 'seconds': 8}","{'minutes': 2, 'seconds': 10}",3,4,PUNT,True,24,17,24,17
+40175453114,401754531,NC State,ACC,Wake Forest,ACC,14,True,3,70,70,"{'minutes': 10, 'seconds': 8}",3,0,0,"{'minutes': 6, 'seconds': 22}","{'minutes': 3, 'seconds': 46}",8,70,TD,False,17,24,24,24
+40175453115,401754531,Wake Forest,ACC,NC State,ACC,15,False,3,25,75,"{'minutes': 6, 'seconds': 22}",3,28,72,"{'minutes': 5, 'seconds': 9}","{'minutes': 1, 'seconds': 13}",3,3,PUNT,True,24,24,24,24
+40175453116,401754531,NC State,ACC,Wake Forest,ACC,16,False,3,65,65,"{'minutes': 5, 'seconds': 9}",3,62,62,"{'minutes': 1, 'seconds': 52}","{'minutes': 3, 'seconds': 17}",7,3,PUNT,False,24,24,24,24
+40175453117,401754531,Wake Forest,ACC,NC State,ACC,17,False,3,23,77,"{'minutes': 1, 'seconds': 52}",3,19,81,"{'minutes': 0, 'seconds': 31}","{'minutes': 1, 'seconds': 21}",3,-4,PUNT,True,24,24,24,24
+40175453118,401754531,NC State,ACC,Wake Forest,ACC,18,True,3,70,70,"{'minutes': 0, 'seconds': 31}",4,0,0,"{'minutes': 12, 'seconds': 37}","{'minutes': 2, 'seconds': 54}",5,70,TD,False,24,24,31,24
+40175453119,401754531,Wake Forest,ACC,NC State,ACC,19,False,4,25,75,"{'minutes': 12, 'seconds': 37}",4,29,71,"{'minutes': 11, 'seconds': 50}","{'minutes': 0, 'seconds': 47}",3,4,PUNT,True,24,31,24,31
+40175453120,401754531,NC State,ACC,Wake Forest,ACC,20,True,4,51,51,"{'minutes': 11, 'seconds': 50}",4,20,20,"{'minutes': 6, 'seconds': 19}","{'minutes': 5, 'seconds': 31}",8,31,FG,False,31,24,34,24
+40175453121,401754531,Wake Forest,ACC,NC State,ACC,21,False,4,25,75,"{'minutes': 6, 'seconds': 19}",4,42,58,"{'minutes': 5, 'seconds': 2}","{'minutes': 1, 'seconds': 17}",4,17,INT,True,24,34,24,34
+40175453122,401754531,NC State,ACC,Wake Forest,ACC,22,False,4,56,56,"{'minutes': 5, 'seconds': 2}",4,48,48,"{'minutes': 2, 'seconds': 54}","{'minutes': 2, 'seconds': 8}",6,8,PUNT,False,34,24,34,24
+40175453123,401754531,Wake Forest,ACC,NC State,ACC,23,False,4,6,94,"{'minutes': 2, 'seconds': 54}",4,21,79,"{'minutes': 1, 'seconds': 40}","{'minutes': 1, 'seconds': 14}",8,15,DOWNS,True,24,34,24,34
+40175453124,401754531,NC State,ACC,Wake Forest,ACC,24,False,4,21,21,"{'minutes': 1, 'seconds': 40}",4,24,24,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 40}",3,-3,END OF GAME,False,34,24,34,24
+4017545381,401754538,NC State,ACC,Duke,ACC,1,True,1,74,74,"{'minutes': 14, 'seconds': 55}",1,0,0,"{'minutes': 14, 'seconds': 10}","{'minutes': 0, 'seconds': 45}",3,74,TD,False,0,0,7,0
+4017545382,401754538,Duke,ACC,NC State,ACC,2,True,1,30,70,"{'minutes': 14, 'seconds': 5}",1,100,0,"{'minutes': 10, 'seconds': 49}","{'minutes': 3, 'seconds': 16}",10,70,TD,True,0,7,7,7
+4017545383,401754538,NC State,ACC,Duke,ACC,3,False,1,75,75,"{'minutes': 10, 'seconds': 49}",1,73,73,"{'minutes': 10, 'seconds': 9}","{'minutes': 0, 'seconds': 40}",2,2,INT,False,7,7,7,7
+4017545384,401754538,Duke,ACC,NC State,ACC,4,False,1,55,45,"{'minutes': 10, 'seconds': 9}",1,48,52,"{'minutes': 8, 'seconds': 31}","{'minutes': 1, 'seconds': 38}",3,-7,PUNT,True,7,7,7,7
+4017545385,401754538,NC State,ACC,Duke,ACC,5,True,1,99,99,"{'minutes': 8, 'seconds': 31}",2,0,0,"{'minutes': 14, 'seconds': 18}","{'minutes': 9, 'seconds': 13}",16,99,TD,False,7,7,14,7
+4017545386,401754538,Duke,ACC,NC State,ACC,6,False,2,25,75,"{'minutes': 14, 'seconds': 18}",2,51,49,"{'minutes': 10, 'seconds': 39}","{'minutes': 3, 'seconds': 39}",6,26,PUNT,True,7,14,7,14
+4017545387,401754538,NC State,ACC,Duke,ACC,7,True,2,80,80,"{'minutes': 10, 'seconds': 39}",2,0,0,"{'minutes': 5, 'seconds': 45}","{'minutes': 4, 'seconds': 54}",10,80,TD,False,14,7,20,7
+4017545388,401754538,Duke,ACC,NC State,ACC,8,True,2,28,72,"{'minutes': 5, 'seconds': 40}",2,100,0,"{'minutes': 2, 'seconds': 20}","{'minutes': 3, 'seconds': 20}",10,72,TD,True,7,20,14,20
+4017545389,401754538,NC State,ACC,Duke,ACC,9,False,2,75,75,"{'minutes': 2, 'seconds': 20}",2,24,24,"{'minutes': 0, 'seconds': 45}","{'minutes': 1, 'seconds': 35}",6,51,INT,False,20,14,20,14
+40175453810,401754538,Duke,ACC,NC State,ACC,10,True,2,88,12,"{'minutes': 0, 'seconds': 45}",2,100,0,"{'minutes': 0, 'seconds': 16}","{'minutes': 0, 'seconds': 29}",2,12,TD,True,14,20,21,20
+40175453811,401754538,NC State,ACC,Duke,ACC,11,False,2,74,74,"{'minutes': 0, 'seconds': 12}",2,76,76,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 12}",1,-2,END OF HALF,False,20,21,20,21
+40175453812,401754538,Duke,ACC,NC State,ACC,12,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 13, 'seconds': 30}","{'minutes': 1, 'seconds': 30}",4,75,TD,True,21,20,28,20
+40175453813,401754538,NC State,ACC,Duke,ACC,13,True,3,75,75,"{'minutes': 13, 'seconds': 30}",3,0,0,"{'minutes': 11, 'seconds': 53}","{'minutes': 1, 'seconds': 37}",4,75,TD,False,20,28,26,28
+40175453814,401754538,Duke,ACC,NC State,ACC,14,True,3,25,75,"{'minutes': 11, 'seconds': 53}",3,100,0,"{'minutes': 8, 'seconds': 32}","{'minutes': 3, 'seconds': 21}",8,75,TD,True,28,26,35,26
+40175453815,401754538,NC State,ACC,Duke,ACC,15,False,3,65,65,"{'minutes': 8, 'seconds': 27}",3,8,8,"{'minutes': 5, 'seconds': 40}","{'minutes': 2, 'seconds': 47}",6,57,MISSED FG,False,26,35,26,35
+40175453816,401754538,Duke,ACC,NC State,ACC,16,False,3,16,84,"{'minutes': 5, 'seconds': 40}",3,17,83,"{'minutes': 3, 'seconds': 43}","{'minutes': 1, 'seconds': 57}",3,1,PUNT,True,35,26,35,26
+40175453817,401754538,NC State,ACC,Duke,ACC,17,False,3,40,40,"{'minutes': 3, 'seconds': 43}",3,37,37,"{'minutes': 2, 'seconds': 17}","{'minutes': 1, 'seconds': 26}",4,3,DOWNS,False,26,35,26,35
+40175453818,401754538,Duke,ACC,NC State,ACC,18,True,3,37,63,"{'minutes': 2, 'seconds': 17}",4,74,26,"{'minutes': 14, 'seconds': 18}","{'minutes': 2, 'seconds': 59}",8,37,FG,True,35,26,38,26
+40175453819,401754538,NC State,ACC,Duke,ACC,19,False,4,80,80,"{'minutes': 14, 'seconds': 14}",4,67,67,"{'minutes': 13, 'seconds': 33}","{'minutes': 0, 'seconds': 41}",3,13,FUMBLE,False,26,38,26,38
+40175453820,401754538,Duke,ACC,NC State,ACC,20,False,4,67,33,"{'minutes': 13, 'seconds': 33}",4,57,43,"{'minutes': 11, 'seconds': 27}","{'minutes': 2, 'seconds': 6}",3,-10,PUNT,True,38,26,38,26
+40175453821,401754538,NC State,ACC,Duke,ACC,21,True,4,95,95,"{'minutes': 11, 'seconds': 27}",4,0,0,"{'minutes': 4, 'seconds': 1}","{'minutes': 7, 'seconds': 26}",15,95,TD,False,26,38,33,38
+40175453822,401754538,Duke,ACC,NC State,ACC,22,True,4,25,75,"{'minutes': 4, 'seconds': 1}",4,100,0,"{'minutes': 2, 'seconds': 19}","{'minutes': 1, 'seconds': 42}",3,75,TD,True,38,33,45,33
+40175453823,401754538,NC State,ACC,Duke,ACC,23,False,4,75,75,"{'minutes': 2, 'seconds': 19}",4,57,57,"{'minutes': 1, 'seconds': 24}","{'minutes': 0, 'seconds': 55}",5,18,INT,False,33,45,33,45
+40175453824,401754538,Duke,ACC,NC State,ACC,24,False,4,37,63,"{'minutes': 1, 'seconds': 24}",4,50,50,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 24}",4,13,END OF GAME,True,45,33,45,33
+4017545481,401754548,Virginia Tech,ACC,NC State,ACC,1,False,1,79,79,"{'minutes': 14, 'seconds': 56}",1,53,53,"{'minutes': 11, 'seconds': 48}","{'minutes': 3, 'seconds': 8}",6,26,PUNT,False,0,0,0,0
+4017545482,401754548,NC State,ACC,Virginia Tech,ACC,2,False,1,10,90,"{'minutes': 11, 'seconds': 48}",1,7,93,"{'minutes': 9, 'seconds': 51}","{'minutes': 1, 'seconds': 57}",3,-3,PUNT,True,0,0,0,0
+4017545483,401754548,Virginia Tech,ACC,NC State,ACC,3,True,1,40,40,"{'minutes': 9, 'seconds': 51}",1,21,21,"{'minutes': 8, 'seconds': 51}","{'minutes': 1, 'seconds': 0}",5,19,FG,False,0,0,3,0
+4017545484,401754548,NC State,ACC,Virginia Tech,ACC,4,True,1,25,75,"{'minutes': 8, 'seconds': 51}",1,100,0,"{'minutes': 2, 'seconds': 38}","{'minutes': 6, 'seconds': 13}",12,75,TD,True,0,3,7,3
+4017545485,401754548,Virginia Tech,ACC,NC State,ACC,5,False,1,75,75,"{'minutes': 2, 'seconds': 38}",1,72,72,"{'minutes': 1, 'seconds': 52}","{'minutes': 0, 'seconds': 46}",3,3,PUNT,False,3,7,3,7
+4017545486,401754548,NC State,ACC,Virginia Tech,ACC,6,False,1,32,68,"{'minutes': 1, 'seconds': 52}",2,62,38,"{'minutes': 14, 'seconds': 7}","{'minutes': 2, 'seconds': 45}",6,30,DOWNS,True,7,3,7,3
+4017545487,401754548,Virginia Tech,ACC,NC State,ACC,7,True,2,62,62,"{'minutes': 14, 'seconds': 7}",2,0,0,"{'minutes': 9, 'seconds': 26}","{'minutes': 4, 'seconds': 41}",10,62,TD,False,3,7,10,7
+4017545488,401754548,NC State,ACC,Virginia Tech,ACC,8,False,2,25,75,"{'minutes': 9, 'seconds': 26}",2,37,63,"{'minutes': 6, 'seconds': 33}","{'minutes': 2, 'seconds': 53}",6,12,PUNT,True,7,10,7,10
+4017545489,401754548,Virginia Tech,ACC,NC State,ACC,9,True,2,92,92,"{'minutes': 6, 'seconds': 33}",2,15,15,"{'minutes': 2, 'seconds': 26}","{'minutes': 4, 'seconds': 7}",11,77,FG,False,10,7,13,7
+40175454810,401754548,NC State,ACC,Virginia Tech,ACC,10,False,2,25,75,"{'minutes': 2, 'seconds': 26}",2,27,73,"{'minutes': 1, 'seconds': 33}","{'minutes': 0, 'seconds': 53}",3,2,PUNT,True,7,13,7,13
+40175454811,401754548,Virginia Tech,ACC,NC State,ACC,11,False,2,69,69,"{'minutes': 1, 'seconds': 33}",2,46,46,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 33}",5,23,END OF HALF,False,13,7,13,7
+40175454812,401754548,NC State,ACC,Virginia Tech,ACC,12,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 9, 'seconds': 10}","{'minutes': 5, 'seconds': 50}",12,75,TD,True,7,13,14,13
+40175454813,401754548,Virginia Tech,ACC,NC State,ACC,13,False,3,79,79,"{'minutes': 9, 'seconds': 5}",3,52,52,"{'minutes': 3, 'seconds': 13}","{'minutes': 5, 'seconds': 52}",10,27,PUNT,False,13,14,13,14
+40175454814,401754548,NC State,ACC,Virginia Tech,ACC,14,False,3,20,80,"{'minutes': 3, 'seconds': 13}",3,23,77,"{'minutes': 1, 'seconds': 4}","{'minutes': 2, 'seconds': 9}",3,3,PUNT,True,14,13,14,13
+40175454815,401754548,Virginia Tech,ACC,NC State,ACC,15,True,3,89,89,"{'minutes': 1, 'seconds': 4}",3,0,0,"{'minutes': 0, 'seconds': 20}","{'minutes': 0, 'seconds': 44}",2,89,TD,False,13,14,20,14
+40175454816,401754548,NC State,ACC,Virginia Tech,ACC,16,True,3,25,75,"{'minutes': 0, 'seconds': 20}",4,100,0,"{'minutes': 10, 'seconds': 58}","{'minutes': 4, 'seconds': 22}",10,75,TD,True,14,20,21,20
+40175454817,401754548,Virginia Tech,ACC,NC State,ACC,17,True,4,65,65,"{'minutes': 10, 'seconds': 51}",4,30,30,"{'minutes': 6, 'seconds': 31}","{'minutes': 4, 'seconds': 20}",9,35,FG,False,20,21,23,21
+40175454818,401754548,NC State,ACC,Virginia Tech,ACC,18,False,4,25,75,"{'minutes': 6, 'seconds': 31}",4,34,66,"{'minutes': 4, 'seconds': 16}","{'minutes': 2, 'seconds': 15}",4,9,PUNT,True,21,23,21,23
+40175454819,401754548,Virginia Tech,ACC,NC State,ACC,19,False,4,81,81,"{'minutes': 4, 'seconds': 16}",4,60,60,"{'minutes': 1, 'seconds': 36}","{'minutes': 2, 'seconds': 40}",6,21,PUNT,False,23,21,23,21
+40175454820,401754548,NC State,ACC,Virginia Tech,ACC,20,False,4,18,82,"{'minutes': 1, 'seconds': 36}",4,44,56,"{'minutes': 0, 'seconds': 42}","{'minutes': 0, 'seconds': 54}",7,26,DOWNS,True,21,23,21,23
+40175454821,401754548,Virginia Tech,ACC,NC State,ACC,21,False,4,44,44,"{'minutes': 0, 'seconds': 42}",4,50,50,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 42}",1,-6,END OF GAME,False,23,21,23,21
+4017545571,401754557,NC State,ACC,Campbell,CAA,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 13, 'seconds': 3}","{'minutes': 1, 'seconds': 57}",5,75,TD,True,0,0,7,0
+4017545572,401754557,Campbell,CAA,NC State,ACC,2,False,1,75,75,"{'minutes': 13, 'seconds': 3}",1,46,46,"{'minutes': 9, 'seconds': 40}","{'minutes': 3, 'seconds': 23}",9,29,PUNT,False,0,7,0,7
+4017545573,401754557,Campbell,CAA,NC State,ACC,3,True,1,14,14,"{'minutes': 9, 'seconds': 40}",1,0,0,"{'minutes': 8, 'seconds': 54}","{'minutes': 0, 'seconds': 46}",2,14,TD,False,0,7,7,7
+4017545574,401754557,NC State,ACC,Campbell,CAA,4,True,1,25,75,"{'minutes': 8, 'seconds': 54}",1,100,0,"{'minutes': 8, 'seconds': 13}","{'minutes': 0, 'seconds': 41}",2,75,TD,True,7,7,14,7
+4017545575,401754557,Campbell,CAA,NC State,ACC,5,False,1,75,75,"{'minutes': 8, 'seconds': 13}",1,71,71,"{'minutes': 4, 'seconds': 43}","{'minutes': 3, 'seconds': 30}",6,4,PUNT,False,7,14,7,14
+4017545576,401754557,NC State,ACC,Campbell,CAA,6,True,1,34,66,"{'minutes': 4, 'seconds': 43}",1,100,0,"{'minutes': 2, 'seconds': 48}","{'minutes': 1, 'seconds': 55}",5,66,TD,True,14,7,21,7
+4017545577,401754557,Campbell,CAA,NC State,ACC,7,False,1,75,75,"{'minutes': 2, 'seconds': 48}",1,80,80,"{'minutes': 1, 'seconds': 11}","{'minutes': 1, 'seconds': 37}",3,-5,PUNT,False,7,21,7,21
+4017545578,401754557,NC State,ACC,Campbell,CAA,8,True,1,49,51,"{'minutes': 1, 'seconds': 11}",2,100,0,"{'minutes': 13, 'seconds': 45}","{'minutes': 2, 'seconds': 26}",4,51,TD,True,21,7,28,7
+4017545579,401754557,Campbell,CAA,NC State,ACC,9,False,2,65,65,"{'minutes': 13, 'seconds': 45}",2,26,26,"{'minutes': 10, 'seconds': 31}","{'minutes': 3, 'seconds': 14}",7,39,DOWNS,False,7,28,7,28
+40175455710,401754557,NC State,ACC,Campbell,CAA,10,True,2,26,74,"{'minutes': 10, 'seconds': 31}",2,100,0,"{'minutes': 8, 'seconds': 33}","{'minutes': 1, 'seconds': 58}",5,74,TD,True,28,7,35,7
+40175455711,401754557,Campbell,CAA,NC State,ACC,11,False,2,75,75,"{'minutes': 8, 'seconds': 33}",2,68,68,"{'minutes': 6, 'seconds': 2}","{'minutes': 2, 'seconds': 31}",4,7,PUNT,False,7,35,7,35
+40175455712,401754557,NC State,ACC,Campbell,CAA,12,True,2,12,88,"{'minutes': 6, 'seconds': 2}",2,100,0,"{'minutes': 2, 'seconds': 28}","{'minutes': 3, 'seconds': 34}",7,88,TD,True,35,7,42,7
+40175455713,401754557,Campbell,CAA,NC State,ACC,13,False,2,75,75,"{'minutes': 2, 'seconds': 28}",2,66,66,"{'minutes': 1, 'seconds': 44}","{'minutes': 0, 'seconds': 44}",3,9,PUNT,False,7,42,7,42
+40175455714,401754557,NC State,ACC,Campbell,CAA,14,True,2,32,68,"{'minutes': 1, 'seconds': 44}",2,100,0,"{'minutes': 0, 'seconds': 43}","{'minutes': 1, 'seconds': 1}",3,68,TD,True,42,7,49,7
+40175455715,401754557,Campbell,CAA,NC State,ACC,15,False,2,75,75,"{'minutes': 0, 'seconds': 43}",2,73,73,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 43}",1,2,END OF HALF,False,7,49,7,49
+40175455716,401754557,Campbell,CAA,NC State,ACC,16,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,43,43,"{'minutes': 10, 'seconds': 36}","{'minutes': 4, 'seconds': 24}",10,32,DOWNS,False,7,49,7,49
+40175455717,401754557,NC State,ACC,Campbell,CAA,17,True,3,43,57,"{'minutes': 10, 'seconds': 36}",3,100,0,"{'minutes': 6, 'seconds': 6}","{'minutes': 4, 'seconds': 30}",9,57,TD,True,49,7,56,7
+40175455718,401754557,Campbell,CAA,NC State,ACC,18,False,3,75,75,"{'minutes': 6, 'seconds': 6}",3,41,41,"{'minutes': 1, 'seconds': 1}","{'minutes': 5, 'seconds': 5}",8,34,PUNT,False,7,56,7,56
+40175455719,401754557,NC State,ACC,Campbell,CAA,19,False,3,20,80,"{'minutes': 1, 'seconds': 1}",4,22,78,"{'minutes': 14, 'seconds': 48}","{'minutes': 1, 'seconds': 13}",3,2,PUNT,True,56,7,56,7
+40175455720,401754557,Campbell,CAA,NC State,ACC,20,False,4,58,58,"{'minutes': 14, 'seconds': 48}",4,52,52,"{'minutes': 13, 'seconds': 12}","{'minutes': 1, 'seconds': 36}",3,6,PUNT,False,7,56,7,56
+40175455721,401754557,NC State,ACC,Campbell,CAA,21,False,4,13,87,"{'minutes': 13, 'seconds': 12}",4,42,58,"{'minutes': 10, 'seconds': 19}","{'minutes': 2, 'seconds': 53}",7,29,PUNT,True,56,7,56,7
+40175455722,401754557,Campbell,CAA,NC State,ACC,22,False,4,85,85,"{'minutes': 10, 'seconds': 19}",4,80,80,"{'minutes': 8, 'seconds': 46}","{'minutes': 1, 'seconds': 33}",3,5,PUNT,False,7,56,7,56
+40175455723,401754557,NC State,ACC,Campbell,CAA,23,False,4,57,43,"{'minutes': 8, 'seconds': 46}",4,68,32,"{'minutes': 6, 'seconds': 18}","{'minutes': 2, 'seconds': 28}",5,11,INT,True,56,7,56,7
+40175455724,401754557,Campbell,CAA,NC State,ACC,24,True,4,41,41,"{'minutes': 6, 'seconds': 18}",4,29,29,"{'minutes': 4, 'seconds': 9}","{'minutes': 2, 'seconds': 9}",4,12,FG,False,7,56,10,56
+40175455725,401754557,NC State,ACC,Campbell,CAA,25,False,4,25,75,"{'minutes': 4, 'seconds': 9}",4,36,64,"{'minutes': 1, 'seconds': 45}","{'minutes': 2, 'seconds': 24}",5,11,PUNT,True,56,10,56,10
+40175455726,401754557,Campbell,CAA,NC State,ACC,26,False,4,78,78,"{'minutes': 1, 'seconds': 45}",4,77,77,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 45}",3,1,END OF GAME,False,10,56,10,56
+4017545621,401754562,NC State,ACC,Notre Dame,FBS Independents,1,False,1,82,82,"{'minutes': 14, 'seconds': 51}",1,85,85,"{'minutes': 12, 'seconds': 53}","{'minutes': 1, 'seconds': 58}",3,-3,PUNT,False,0,0,0,0
+4017545622,401754562,Notre Dame,FBS Independents,NC State,ACC,2,True,1,42,58,"{'minutes': 12, 'seconds': 53}",1,100,0,"{'minutes': 9, 'seconds': 49}","{'minutes': 3, 'seconds': 4}",6,58,TD,True,0,0,7,0
+4017545623,401754562,NC State,ACC,Notre Dame,FBS Independents,3,False,1,75,75,"{'minutes': 9, 'seconds': 49}",1,69,69,"{'minutes': 8, 'seconds': 31}","{'minutes': 1, 'seconds': 18}",3,6,PUNT,False,0,7,0,7
+4017545624,401754562,Notre Dame,FBS Independents,NC State,ACC,4,False,1,31,69,"{'minutes': 8, 'seconds': 31}",1,83,17,"{'minutes': 3, 'seconds': 15}","{'minutes': 5, 'seconds': 16}",9,52,DOWNS,True,7,0,7,0
+4017545625,401754562,NC State,ACC,Notre Dame,FBS Independents,5,True,1,83,83,"{'minutes': 3, 'seconds': 15}",2,0,0,"{'minutes': 13, 'seconds': 48}","{'minutes': 4, 'seconds': 27}",11,83,TD,False,0,7,7,7
+4017545626,401754562,Notre Dame,FBS Independents,NC State,ACC,6,False,2,23,77,"{'minutes': 13, 'seconds': 41}",2,43,57,"{'minutes': 12, 'seconds': 5}","{'minutes': 1, 'seconds': 36}",4,20,PUNT,True,7,7,7,7
+4017545627,401754562,NC State,ACC,Notre Dame,FBS Independents,7,False,2,83,83,"{'minutes': 12, 'seconds': 5}",2,47,47,"{'minutes': 7, 'seconds': 48}","{'minutes': 4, 'seconds': 17}",8,36,PUNT,False,7,7,7,7
+4017545628,401754562,Notre Dame,FBS Independents,NC State,ACC,8,False,2,10,90,"{'minutes': 7, 'seconds': 48}",2,16,84,"{'minutes': 6, 'seconds': 5}","{'minutes': 1, 'seconds': 43}",3,6,PUNT,True,7,7,7,7
+4017545629,401754562,NC State,ACC,Notre Dame,FBS Independents,9,False,2,63,63,"{'minutes': 6, 'seconds': 5}",2,68,68,"{'minutes': 4, 'seconds': 6}","{'minutes': 1, 'seconds': 59}",3,-5,PUNT,False,7,7,7,7
+40175456210,401754562,Notre Dame,FBS Independents,NC State,ACC,10,False,2,32,68,"{'minutes': 4, 'seconds': 6}",2,92,8,"{'minutes': 1, 'seconds': 51}","{'minutes': 2, 'seconds': 15}",6,60,INT,True,7,7,7,7
+40175456211,401754562,NC State,ACC,Notre Dame,FBS Independents,11,False,2,80,80,"{'minutes': 1, 'seconds': 51}",2,61,61,"{'minutes': 0, 'seconds': 23}","{'minutes': 1, 'seconds': 28}",6,19,PUNT,False,7,7,7,7
+40175456212,401754562,Notre Dame,FBS Independents,NC State,ACC,12,True,2,30,70,"{'minutes': 0, 'seconds': 23}",2,70,30,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 23}",5,40,FG,True,7,7,10,7
+40175456213,401754562,Notre Dame,FBS Independents,NC State,ACC,13,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,25,75,"{'minutes': 14, 'seconds': 7}","{'minutes': 0, 'seconds': 53}",3,0,PUNT,True,10,7,10,7
+40175456214,401754562,NC State,ACC,Notre Dame,FBS Independents,14,False,3,68,68,"{'minutes': 14, 'seconds': 7}",3,64,64,"{'minutes': 12, 'seconds': 54}","{'minutes': 1, 'seconds': 13}",3,4,PUNT,False,7,10,7,10
+40175456215,401754562,Notre Dame,FBS Independents,NC State,ACC,15,True,3,10,90,"{'minutes': 12, 'seconds': 54}",3,100,0,"{'minutes': 6, 'seconds': 58}","{'minutes': 5, 'seconds': 56}",11,90,TD,True,10,7,17,7
+40175456216,401754562,NC State,ACC,Notre Dame,FBS Independents,16,False,3,75,75,"{'minutes': 6, 'seconds': 58}",3,56,56,"{'minutes': 4, 'seconds': 14}","{'minutes': 2, 'seconds': 44}",5,19,PUNT,False,7,17,7,17
+40175456217,401754562,Notre Dame,FBS Independents,NC State,ACC,17,True,3,20,80,"{'minutes': 4, 'seconds': 14}",3,100,0,"{'minutes': 2, 'seconds': 46}","{'minutes': 1, 'seconds': 28}",5,80,TD,True,17,7,24,7
+40175456218,401754562,NC State,ACC,Notre Dame,FBS Independents,18,False,3,75,75,"{'minutes': 2, 'seconds': 46}",4,52,52,"{'minutes': 14, 'seconds': 4}","{'minutes': 3, 'seconds': 42}",6,23,INT,False,7,24,7,24
+40175456219,401754562,Notre Dame,FBS Independents,NC State,ACC,19,True,4,83,17,"{'minutes': 14, 'seconds': 4}",4,84,16,"{'minutes': 12, 'seconds': 48}","{'minutes': 1, 'seconds': 16}",4,1,FG,True,24,7,27,7
+40175456220,401754562,NC State,ACC,Notre Dame,FBS Independents,20,False,4,75,75,"{'minutes': 12, 'seconds': 48}",4,68,68,"{'minutes': 11, 'seconds': 33}","{'minutes': 1, 'seconds': 15}",3,7,INT,False,7,27,7,27
+40175456221,401754562,Notre Dame,FBS Independents,NC State,ACC,21,False,4,80,20,"{'minutes': 11, 'seconds': 33}",4,98,2,"{'minutes': 9, 'seconds': 37}","{'minutes': 1, 'seconds': 56}",5,18,FUMBLE,True,27,7,27,7
+40175456222,401754562,NC State,ACC,Notre Dame,FBS Independents,22,True,4,98,98,"{'minutes': 9, 'seconds': 37}",4,100,100,"{'minutes': 9, 'seconds': 17}","{'minutes': 0, 'seconds': 20}",1,-2,SF,False,7,27,7,29
+40175456223,401754562,Notre Dame,FBS Independents,NC State,ACC,23,True,4,18,82,"{'minutes': 8, 'seconds': 54}",4,100,0,"{'minutes': 5, 'seconds': 13}","{'minutes': 3, 'seconds': 41}",10,82,TD,True,29,7,36,7
+40175456224,401754562,NC State,ACC,Notre Dame,FBS Independents,24,False,4,75,75,"{'minutes': 5, 'seconds': 13}",4,29,29,"{'minutes': 1, 'seconds': 16}","{'minutes': 3, 'seconds': 57}",7,46,INT,False,7,36,7,36
+40175456225,401754562,Notre Dame,FBS Independents,NC State,ACC,25,False,4,20,80,"{'minutes': 1, 'seconds': 16}",4,18,82,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 16}",2,-2,END OF GAME,True,36,7,36,7
+4017545742,401754574,NC State,ACC,Pittsburgh,ACC,1,False,1,77,77,"{'minutes': 14, 'seconds': 56}",1,75,75,"{'minutes': 13, 'seconds': 42}","{'minutes': 1, 'seconds': 14}",3,2,PUNT,False,0,0,0,0
+4017545743,401754574,Pittsburgh,ACC,NC State,ACC,2,True,1,51,49,"{'minutes': 13, 'seconds': 32}",1,97,3,"{'minutes': 11, 'seconds': 13}","{'minutes': 2, 'seconds': 29}",7,49,TD,True,0,0,7,0
+4017545745,401754574,NC State,ACC,Pittsburgh,ACC,3,False,1,80,80,"{'minutes': 11, 'seconds': 8}",1,74,74,"{'minutes': 10, 'seconds': 6}","{'minutes': 1, 'seconds': 2}",3,6,PUNT,False,0,7,0,7
+4017545746,401754574,Pittsburgh,ACC,NC State,ACC,4,True,1,22,78,"{'minutes': 10, 'seconds': 3}",1,84,16,"{'minutes': 6, 'seconds': 5}","{'minutes': 4, 'seconds': 1}",10,62,FG,True,7,0,10,0
+4017545748,401754574,NC State,ACC,Pittsburgh,ACC,5,True,1,74,74,"{'minutes': 6, 'seconds': 0}",1,3,3,"{'minutes': 3, 'seconds': 8}","{'minutes': 2, 'seconds': 52}",6,74,TD,False,0,10,7,10
+40175457410,401754574,Pittsburgh,ACC,NC State,ACC,6,True,1,17,83,"{'minutes': 3, 'seconds': 3}",2,97,3,"{'minutes': 14, 'seconds': 57}","{'minutes': 3, 'seconds': 6}",7,83,TD,True,10,7,17,7
+40175457412,401754574,NC State,ACC,Pittsburgh,ACC,7,True,2,65,65,"{'minutes': 14, 'seconds': 57}",2,3,3,"{'minutes': 14, 'seconds': 46}","{'minutes': 0, 'seconds': 11}",1,65,TD,False,7,17,14,17
+40175457414,401754574,Pittsburgh,ACC,NC State,ACC,8,False,2,13,87,"{'minutes': 14, 'seconds': 40}",2,12,88,"{'minutes': 13, 'seconds': 18}","{'minutes': 1, 'seconds': 22}",3,-1,PUNT,True,17,14,17,14
+40175457415,401754574,NC State,ACC,Pittsburgh,ACC,9,False,2,60,60,"{'minutes': 13, 'seconds': 12}",2,43,43,"{'minutes': 10, 'seconds': 34}","{'minutes': 2, 'seconds': 44}",6,17,PUNT,False,14,17,14,17
+40175457416,401754574,Pittsburgh,ACC,NC State,ACC,10,True,2,10,90,"{'minutes': 10, 'seconds': 22}",2,97,3,"{'minutes': 7, 'seconds': 15}","{'minutes': 3, 'seconds': 19}",7,90,TD,True,17,14,24,14
+40175457418,401754574,NC State,ACC,Pittsburgh,ACC,11,False,2,80,80,"{'minutes': 7, 'seconds': 9}",2,76,76,"{'minutes': 5, 'seconds': 49}","{'minutes': 1, 'seconds': 20}",3,4,PUNT,False,14,24,14,24
+40175457419,401754574,Pittsburgh,ACC,NC State,ACC,12,False,2,32,68,"{'minutes': 5, 'seconds': 45}",2,32,68,"{'minutes': 5, 'seconds': 29}","{'minutes': 0, 'seconds': 20}",3,0,PUNT,True,24,14,24,14
+40175457420,401754574,NC State,ACC,Pittsburgh,ACC,13,True,2,83,83,"{'minutes': 5, 'seconds': 21}",2,3,3,"{'minutes': 3, 'seconds': 20}","{'minutes': 2, 'seconds': 9}",4,83,TD,False,14,24,21,24
+40175457422,401754574,Pittsburgh,ACC,NC State,ACC,14,True,2,25,75,"{'minutes': 3, 'seconds': 20}",2,97,3,"{'minutes': 0, 'seconds': 12}","{'minutes': 3, 'seconds': 8}",9,75,TD,True,24,21,31,21
+40175457424,401754574,NC State,ACC,Pittsburgh,ACC,15,False,2,91,91,"{'minutes': 0, 'seconds': 9}",2,85,85,"{'minutes': 0, 'seconds': 7}","{'minutes': 0, 'seconds': 9}",1,6,END OF HALF,False,21,31,21,31
+40175457426,401754574,Pittsburgh,ACC,NC State,ACC,16,True,3,34,66,"{'minutes': 14, 'seconds': 54}",3,77,23,"{'minutes': 12, 'seconds': 42}","{'minutes': 2, 'seconds': 12}",10,43,FG,True,31,21,34,21
+40175457428,401754574,NC State,ACC,Pittsburgh,ACC,17,False,3,58,58,"{'minutes': 12, 'seconds': 35}",3,52,52,"{'minutes': 10, 'seconds': 58}","{'minutes': 1, 'seconds': 37}",3,6,PUNT,False,21,34,21,34
+40175457429,401754574,Pittsburgh,ACC,NC State,ACC,18,True,3,16,84,"{'minutes': 10, 'seconds': 46}",3,97,3,"{'minutes': 10, 'seconds': 46}","{'minutes': 0, 'seconds': 12}",1,84,TD,True,40,21,40,21
+40175457431,401754574,NC State,ACC,Pittsburgh,ACC,19,False,3,65,65,"{'minutes': 10, 'seconds': 46}",3,51,51,"{'minutes': 9, 'seconds': 49}","{'minutes': 0, 'seconds': 57}",3,14,FUMBLE,False,21,40,21,40
+40175457432,401754574,Pittsburgh,ACC,NC State,ACC,20,True,3,51,49,"{'minutes': 9, 'seconds': 43}",3,83,17,"{'minutes': 7, 'seconds': 2}","{'minutes': 2, 'seconds': 47}",7,32,FG,True,40,21,43,21
+40175457434,401754574,NC State,ACC,Pittsburgh,ACC,21,False,3,63,63,"{'minutes': 6, 'seconds': 56}",3,56,56,"{'minutes': 4, 'seconds': 47}","{'minutes': 2, 'seconds': 9}",4,7,DOWNS,False,21,43,21,43
+40175457435,401754574,Pittsburgh,ACC,NC State,ACC,22,True,3,56,44,"{'minutes': 4, 'seconds': 41}",3,75,25,"{'minutes': 1, 'seconds': 55}","{'minutes': 2, 'seconds': 52}",5,19,FG,True,43,21,46,21
+40175457437,401754574,NC State,ACC,Pittsburgh,ACC,23,False,3,75,75,"{'minutes': 1, 'seconds': 55}",3,67,67,"{'minutes': 1, 'seconds': 22}","{'minutes': 1, 'seconds': 15}",4,8,DOWNS,False,21,46,21,46
+40175457438,401754574,Pittsburgh,ACC,NC State,ACC,24,False,3,67,33,"{'minutes': 0, 'seconds': 36}",4,70,30,"{'minutes': 14, 'seconds': 51}","{'minutes': 0, 'seconds': 49}",4,3,MISSED FG,True,46,21,46,21
+40175457439,401754574,NC State,ACC,Pittsburgh,ACC,25,True,4,70,70,"{'minutes': 14, 'seconds': 44}",4,3,3,"{'minutes': 11, 'seconds': 16}","{'minutes': 3, 'seconds': 35}",9,70,TD,False,21,46,28,46
+40175457441,401754574,Pittsburgh,ACC,NC State,ACC,26,True,4,57,43,"{'minutes': 11, 'seconds': 16}",4,97,3,"{'minutes': 6, 'seconds': 59}","{'minutes': 4, 'seconds': 17}",7,43,TD,True,46,28,53,28
+40175457443,401754574,NC State,ACC,Pittsburgh,ACC,27,False,4,76,76,"{'minutes': 6, 'seconds': 55}",4,68,68,"{'minutes': 5, 'seconds': 45}","{'minutes': 1, 'seconds': 48}",4,8,DOWNS,False,28,53,28,53
+40175457444,401754574,Pittsburgh,ACC,NC State,ACC,28,False,4,68,32,"{'minutes': 4, 'seconds': 59}",4,70,30,"{'minutes': 2, 'seconds': 22}","{'minutes': 2, 'seconds': 45}",5,22,INT,True,53,28,53,28
+40175457445,401754574,NC State,ACC,Pittsburgh,ACC,29,True,4,70,70,"{'minutes': 2, 'seconds': 15}",4,3,3,"{'minutes': 1, 'seconds': 0}","{'minutes': 1, 'seconds': 22}",6,70,TD,False,28,53,34,53
+40175457447,401754574,Pittsburgh,ACC,NC State,ACC,30,False,4,65,35,"{'minutes': 1, 'seconds': 0}",4,17,83,"{'minutes': 0, 'seconds': 13}","{'minutes': 0, 'seconds': 56}",2,1,END OF GAME,True,53,34,53,34
+4017545792,401754579,NC State,ACC,Georgia Tech,ACC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 8, 'seconds': 49}","{'minutes': 6, 'seconds': 11}",10,75,TD,True,0,0,7,0
+4017545794,401754579,Georgia Tech,ACC,NC State,ACC,2,True,1,75,75,"{'minutes': 8, 'seconds': 49}",1,3,3,"{'minutes': 6, 'seconds': 49}","{'minutes': 2, 'seconds': 0}",4,75,TD,False,0,7,7,7
+4017545796,401754579,NC State,ACC,Georgia Tech,ACC,3,True,1,22,78,"{'minutes': 6, 'seconds': 44}",1,97,3,"{'minutes': 1, 'seconds': 59}","{'minutes': 4, 'seconds': 45}",10,78,TD,True,7,7,14,7
+4017545798,401754579,Georgia Tech,ACC,NC State,ACC,4,True,1,70,70,"{'minutes': 1, 'seconds': 54}",2,26,26,"{'minutes': 13, 'seconds': 49}","{'minutes': 3, 'seconds': 5}",9,44,FG,False,7,14,10,14
+40175457910,401754579,NC State,ACC,Georgia Tech,ACC,5,False,2,25,75,"{'minutes': 13, 'seconds': 49}",2,28,72,"{'minutes': 11, 'seconds': 51}","{'minutes': 1, 'seconds': 58}",3,3,PUNT,True,14,10,14,10
+40175457911,401754579,Georgia Tech,ACC,NC State,ACC,6,True,2,60,60,"{'minutes': 11, 'seconds': 51}",2,3,3,"{'minutes': 6, 'seconds': 25}","{'minutes': 5, 'seconds': 26}",10,60,TD,False,10,14,17,14
+40175457913,401754579,NC State,ACC,Georgia Tech,ACC,7,True,2,25,75,"{'minutes': 6, 'seconds': 25}",2,97,3,"{'minutes': 3, 'seconds': 7}","{'minutes': 3, 'seconds': 24}",7,75,FUMBLE,True,14,17,21,17
+40175457915,401754579,Georgia Tech,ACC,NC State,ACC,8,False,2,75,75,"{'minutes': 3, 'seconds': 1}",2,37,37,"{'minutes': 0, 'seconds': 56}","{'minutes': 2, 'seconds': 5}",8,38,MISSED FG,False,17,21,17,21
+40175457916,401754579,NC State,ACC,Georgia Tech,ACC,9,True,2,37,63,"{'minutes': 0, 'seconds': 56}",2,83,17,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 56}",8,46,FG,True,21,17,24,17
+40175457918,401754579,Georgia Tech,ACC,NC State,ACC,10,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,5,5,"{'minutes': 8, 'seconds': 10}","{'minutes': 6, 'seconds': 50}",12,70,FG,False,17,24,20,24
+40175457920,401754579,NC State,ACC,Georgia Tech,ACC,11,True,3,25,75,"{'minutes': 8, 'seconds': 10}",3,97,3,"{'minutes': 7, 'seconds': 0}","{'minutes': 1, 'seconds': 10}",3,75,TD,True,24,20,31,20
+40175457922,401754579,Georgia Tech,ACC,NC State,ACC,12,True,3,83,83,"{'minutes': 6, 'seconds': 56}",3,12,12,"{'minutes': 4, 'seconds': 52}","{'minutes': 2, 'seconds': 4}",5,71,FG,False,20,31,23,31
+40175457924,401754579,NC State,ACC,Georgia Tech,ACC,13,True,3,20,80,"{'minutes': 4, 'seconds': 47}",3,97,3,"{'minutes': 2, 'seconds': 49}","{'minutes': 1, 'seconds': 58}",5,80,TD,True,31,23,38,23
+40175457926,401754579,Georgia Tech,ACC,NC State,ACC,14,True,3,75,75,"{'minutes': 2, 'seconds': 49}",3,3,3,"{'minutes': 0, 'seconds': 8}","{'minutes': 2, 'seconds': 41}",7,75,TD,False,23,38,30,38
+40175457928,401754579,NC State,ACC,Georgia Tech,ACC,15,True,3,25,75,"{'minutes': 0, 'seconds': 8}",4,80,20,"{'minutes': 9, 'seconds': 46}","{'minutes': 5, 'seconds': 22}",11,55,FG,True,38,30,41,30
+40175457930,401754579,Georgia Tech,ACC,NC State,ACC,16,False,4,75,75,"{'minutes': 9, 'seconds': 46}",4,76,76,"{'minutes': 8, 'seconds': 25}","{'minutes': 1, 'seconds': 21}",3,-1,PUNT,False,30,41,30,41
+40175457931,401754579,NC State,ACC,Georgia Tech,ACC,17,True,4,24,76,"{'minutes': 8, 'seconds': 25}",4,97,3,"{'minutes': 4, 'seconds': 7}","{'minutes': 4, 'seconds': 18}",9,76,TD,True,41,30,48,30
+40175457933,401754579,Georgia Tech,ACC,NC State,ACC,18,True,4,76,76,"{'minutes': 4, 'seconds': 2}",4,3,3,"{'minutes': 2, 'seconds': 22}","{'minutes': 1, 'seconds': 40}",8,76,TD,False,30,48,36,48
+40175457935,401754579,NC State,ACC,Georgia Tech,ACC,19,False,4,54,46,"{'minutes': 2, 'seconds': 21}",4,55,45,"{'minutes': 1, 'seconds': 9}","{'minutes': 1, 'seconds': 12}",3,1,PUNT,True,48,36,48,36
+40175457936,401754579,Georgia Tech,ACC,NC State,ACC,20,False,4,88,88,"{'minutes': 1, 'seconds': 9}",4,27,27,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 9}",8,61,END OF GAME,False,36,48,36,48
+4017545952,401754595,NC State,ACC,Miami,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,55,55,"{'minutes': 12, 'seconds': 50}","{'minutes': 2, 'seconds': 10}",4,20,PUNT,False,0,0,0,0
+4017545953,401754595,Miami,ACC,NC State,ACC,2,True,1,9,91,"{'minutes': 12, 'seconds': 36}",1,86,14,"{'minutes': 7, 'seconds': 13}","{'minutes': 5, 'seconds': 37}",11,77,FG,True,0,0,3,0
+4017545955,401754595,NC State,ACC,Miami,ACC,3,False,1,75,75,"{'minutes': 7, 'seconds': 13}",1,76,76,"{'minutes': 6, 'seconds': 24}","{'minutes': 0, 'seconds': 49}",3,-1,PUNT,False,0,3,0,3
+4017545956,401754595,Miami,ACC,NC State,ACC,4,False,1,30,70,"{'minutes': 6, 'seconds': 15}",1,49,51,"{'minutes': 4, 'seconds': 23}","{'minutes': 2, 'seconds': 1}",5,21,FUMBLE,True,3,0,3,0
+4017545957,401754595,NC State,ACC,Miami,ACC,5,True,1,51,51,"{'minutes': 4, 'seconds': 23}",1,48,48,"{'minutes': 3, 'seconds': 36}","{'minutes': 0, 'seconds': 47}",2,-1,INT TD,False,0,3,0,10
+4017545959,401754595,NC State,ACC,Miami,ACC,6,False,1,75,75,"{'minutes': 3, 'seconds': 36}",1,50,50,"{'minutes': 1, 'seconds': 11}","{'minutes': 2, 'seconds': 25}",6,25,INT,False,0,10,0,10
+40175459510,401754595,Miami,ACC,NC State,ACC,7,False,1,37,63,"{'minutes': 0, 'seconds': 59}",2,45,55,"{'minutes': 14, 'seconds': 47}","{'minutes': 1, 'seconds': 24}",3,8,PUNT,True,10,0,10,0
+40175459511,401754595,NC State,ACC,Miami,ACC,8,False,2,90,90,"{'minutes': 14, 'seconds': 47}",2,84,84,"{'minutes': 12, 'seconds': 55}","{'minutes': 1, 'seconds': 59}",3,6,PUNT,False,0,10,0,24
+40175459512,401754595,Miami,ACC,NC State,ACC,9,True,2,53,47,"{'minutes': 12, 'seconds': 44}",2,100,0,"{'minutes': 11, 'seconds': 16}","{'minutes': 1, 'seconds': 32}",3,48,TD,True,10,0,24,0
+40175459514,401754595,NC State,ACC,Miami,ACC,10,False,2,75,75,"{'minutes': 11, 'seconds': 16}",2,73,73,"{'minutes': 9, 'seconds': 52}","{'minutes': 1, 'seconds': 24}",3,2,PUNT,False,0,17,0,17
+40175459515,401754595,Miami,ACC,NC State,ACC,11,False,2,23,77,"{'minutes': 9, 'seconds': 33}",2,47,53,"{'minutes': 6, 'seconds': 16}","{'minutes': 3, 'seconds': 36}",4,24,PUNT,True,17,0,17,0
+40175459516,401754595,NC State,ACC,Miami,ACC,12,False,2,92,92,"{'minutes': 6, 'seconds': 16}",2,73,73,"{'minutes': 3, 'seconds': 16}","{'minutes': 3, 'seconds': 0}",6,19,PUNT,False,0,17,0,17
+40175459517,401754595,Miami,ACC,NC State,ACC,13,True,2,34,66,"{'minutes': 2, 'seconds': 18}",2,100,0,"{'minutes': 0, 'seconds': 33}","{'minutes': 2, 'seconds': 43}",9,66,TD,True,17,0,24,0
+40175459519,401754595,NC State,ACC,Miami,ACC,14,False,2,75,75,"{'minutes': 0, 'seconds': 33}",2,73,73,"{'minutes': 0, 'seconds': 32}","{'minutes': 0, 'seconds': 33}",1,2,END OF HALF,False,0,24,0,24
+40175459521,401754595,Miami,ACC,NC State,ACC,15,True,3,15,85,"{'minutes': 14, 'seconds': 53}",3,100,0,"{'minutes': 9, 'seconds': 55}","{'minutes': 4, 'seconds': 58}",8,85,TD,True,24,0,31,0
+40175459523,401754595,NC State,ACC,Miami,ACC,16,False,3,75,75,"{'minutes': 9, 'seconds': 55}",3,75,75,"{'minutes': 9, 'seconds': 4}","{'minutes': 0, 'seconds': 51}",3,0,PUNT,False,0,31,0,31
+40175459524,401754595,Miami,ACC,NC State,ACC,17,True,3,13,87,"{'minutes': 8, 'seconds': 57}",3,80,20,"{'minutes': 3, 'seconds': 51}","{'minutes': 5, 'seconds': 13}",10,67,FG,True,31,0,34,0
+40175459526,401754595,NC State,ACC,Miami,ACC,18,False,3,75,75,"{'minutes': 3, 'seconds': 51}",3,62,62,"{'minutes': 1, 'seconds': 15}","{'minutes': 2, 'seconds': 36}",6,7,PUNT,False,0,34,0,34
+40175459527,401754595,Miami,ACC,NC State,ACC,19,True,3,12,88,"{'minutes': 1, 'seconds': 7}",4,100,0,"{'minutes': 11, 'seconds': 48}","{'minutes': 4, 'seconds': 27}",8,88,TD,True,34,0,41,0
+40175459529,401754595,NC State,ACC,Miami,ACC,20,False,4,75,75,"{'minutes': 11, 'seconds': 48}",4,81,81,"{'minutes': 10, 'seconds': 6}","{'minutes': 1, 'seconds': 42}",3,-6,PUNT,False,0,41,0,41
+40175459530,401754595,Miami,ACC,NC State,ACC,21,False,4,46,54,"{'minutes': 9, 'seconds': 55}",4,75,25,"{'minutes': 7, 'seconds': 19}","{'minutes': 2, 'seconds': 47}",6,29,MISSED FG,True,41,0,41,0
+40175459531,401754595,NC State,ACC,Miami,ACC,22,True,4,75,75,"{'minutes': 7, 'seconds': 19}",4,0,0,"{'minutes': 2, 'seconds': 18}","{'minutes': 5, 'seconds': 1}",10,75,TD,False,0,41,7,41
+40175459533,401754595,Miami,ACC,NC State,ACC,23,False,4,25,75,"{'minutes': 2, 'seconds': 18}",4,73,27,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 18}",6,48,END OF GAME,True,41,7,41,7
+4017545982,401754598,NC State,ACC,Florida State,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,46,54,"{'minutes': 11, 'seconds': 50}","{'minutes': 3, 'seconds': 10}",5,21,PUNT,True,0,0,0,0
+4017545983,401754598,Florida State,ACC,NC State,ACC,2,False,1,90,90,"{'minutes': 11, 'seconds': 43}",1,9,9,"{'minutes': 8, 'seconds': 1}","{'minutes': 3, 'seconds': 49}",9,56,INT,False,0,0,0,0
+4017545984,401754598,NC State,ACC,Florida State,ACC,3,True,1,27,73,"{'minutes': 7, 'seconds': 58}",1,97,3,"{'minutes': 2, 'seconds': 56}","{'minutes': 5, 'seconds': 5}",9,73,TD,True,0,0,7,0
+4017545986,401754598,Florida State,ACC,NC State,ACC,4,True,1,80,80,"{'minutes': 2, 'seconds': 50}",2,28,28,"{'minutes': 14, 'seconds': 6}","{'minutes': 3, 'seconds': 44}",10,52,FG,False,0,7,3,7
+4017545988,401754598,NC State,ACC,Florida State,ACC,5,False,2,25,75,"{'minutes': 14, 'seconds': 6}",2,51,49,"{'minutes': 10, 'seconds': 54}","{'minutes': 3, 'seconds': 12}",5,26,PUNT,True,7,3,7,3
+4017545989,401754598,Florida State,ACC,NC State,ACC,6,False,2,85,85,"{'minutes': 10, 'seconds': 46}",2,17,17,"{'minutes': 2, 'seconds': 56}","{'minutes': 7, 'seconds': 58}",17,68,MISSED FG,False,3,7,3,7
+40175459810,401754598,NC State,ACC,Florida State,ACC,7,False,2,20,80,"{'minutes': 2, 'seconds': 52}",2,17,83,"{'minutes': 1, 'seconds': 49}","{'minutes': 1, 'seconds': 7}",4,-3,PUNT,True,7,3,7,3
+40175459811,401754598,Florida State,ACC,NC State,ACC,8,False,2,53,53,"{'minutes': 1, 'seconds': 44}",2,47,47,"{'minutes': 0, 'seconds': 43}","{'minutes': 1, 'seconds': 6}",3,6,PUNT,False,3,7,3,7
+40175459812,401754598,NC State,ACC,Florida State,ACC,9,False,2,8,92,"{'minutes': 0, 'seconds': 34}",2,21,79,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 43}",7,13,END OF HALF,True,7,3,7,3
+40175459814,401754598,Florida State,ACC,NC State,ACC,10,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,70,70,"{'minutes': 13, 'seconds': 16}","{'minutes': 1, 'seconds': 44}",3,5,PUNT,False,3,7,3,7
+40175459815,401754598,NC State,ACC,Florida State,ACC,11,True,3,21,79,"{'minutes': 13, 'seconds': 12}",3,97,3,"{'minutes': 4, 'seconds': 17}","{'minutes': 8, 'seconds': 59}",15,79,TD,True,7,3,14,3
+40175459817,401754598,Florida State,ACC,NC State,ACC,12,False,3,83,83,"{'minutes': 4, 'seconds': 12}",3,50,50,"{'minutes': 1, 'seconds': 12}","{'minutes': 3, 'seconds': 0}",9,33,DOWNS,False,3,14,3,14
+40175459818,401754598,NC State,ACC,Florida State,ACC,13,False,3,50,50,"{'minutes': 1, 'seconds': 6}",4,53,47,"{'minutes': 12, 'seconds': 59}","{'minutes': 3, 'seconds': 13}",6,3,PUNT,True,14,3,14,3
+40175459819,401754598,Florida State,ACC,NC State,ACC,14,True,4,86,86,"{'minutes': 12, 'seconds': 52}",4,3,3,"{'minutes': 8, 'seconds': 17}","{'minutes': 4, 'seconds': 42}",10,86,TD,False,3,14,11,14
+40175459821,401754598,NC State,ACC,Florida State,ACC,15,False,4,25,75,"{'minutes': 8, 'seconds': 17}",4,40,60,"{'minutes': 3, 'seconds': 53}","{'minutes': 4, 'seconds': 24}",7,15,PUNT,True,14,11,14,11
+40175459822,401754598,NC State,ACC,Florida State,ACC,16,False,4,40,60,"{'minutes': 3, 'seconds': 46}",4,44,56,"{'minutes': 2, 'seconds': 28}","{'minutes': 1, 'seconds': 32}",3,4,FUMBLE,True,14,11,14,11
+40175459823,401754598,NC State,ACC,Florida State,ACC,17,True,4,84,16,"{'minutes': 2, 'seconds': 16}",4,97,3,"{'minutes': 1, 'seconds': 47}","{'minutes': 0, 'seconds': 34}",4,16,TD,True,14,11,21,11
+40175459825,401754598,Florida State,ACC,NC State,ACC,18,False,4,64,64,"{'minutes': 1, 'seconds': 47}",4,33,33,"{'minutes': 1, 'seconds': 16}","{'minutes': 0, 'seconds': 31}",5,31,MISSED FG,False,11,21,11,21
+40175459826,401754598,NC State,ACC,Florida State,ACC,19,False,4,33,67,"{'minutes': 1, 'seconds': 16}",4,38,62,"{'minutes': 0, 'seconds': 18}","{'minutes': 0, 'seconds': 58}",3,5,PUNT,True,21,11,21,11
+40175459827,401754598,Florida State,ACC,NC State,ACC,20,False,4,74,74,"{'minutes': 0, 'seconds': 10}",4,12,12,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 18}",3,31,END OF GAME,False,11,21,11,21
+4017546122,401754612,NC State,ACC,North Carolina,ACC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 10, 'seconds': 10}","{'minutes': 4, 'seconds': 50}",11,75,TD,True,0,0,7,0
+4017546124,401754612,North Carolina,ACC,NC State,ACC,2,False,1,78,78,"{'minutes': 10, 'seconds': 4}",1,70,70,"{'minutes': 8, 'seconds': 48}","{'minutes': 1, 'seconds': 16}",3,8,PUNT,False,0,7,0,7
+4017546125,401754612,NC State,ACC,North Carolina,ACC,3,True,1,24,76,"{'minutes': 8, 'seconds': 40}",1,97,3,"{'minutes': 3, 'seconds': 26}","{'minutes': 5, 'seconds': 22}",12,76,TD,True,7,0,14,0
+4017546127,401754612,North Carolina,ACC,NC State,ACC,4,True,1,80,80,"{'minutes': 3, 'seconds': 17}",2,3,3,"{'minutes': 13, 'seconds': 3}","{'minutes': 5, 'seconds': 14}",9,80,TD,False,0,14,7,14
+4017546129,401754612,NC State,ACC,North Carolina,ACC,5,True,2,25,75,"{'minutes': 13, 'seconds': 3}",2,97,3,"{'minutes': 7, 'seconds': 12}","{'minutes': 5, 'seconds': 51}",11,75,TD,True,14,7,21,7
+40175461211,401754612,North Carolina,ACC,NC State,ACC,6,True,2,75,75,"{'minutes': 7, 'seconds': 12}",2,30,30,"{'minutes': 1, 'seconds': 49}","{'minutes': 5, 'seconds': 23}",11,45,FG,False,7,21,10,21
+40175461213,401754612,NC State,ACC,North Carolina,ACC,7,True,2,25,75,"{'minutes': 1, 'seconds': 49}",2,92,8,"{'minutes': 0, 'seconds': 18}","{'minutes': 1, 'seconds': 31}",11,75,TD,True,21,10,28,10
+40175461215,401754612,North Carolina,ACC,NC State,ACC,8,False,2,75,75,"{'minutes': 0, 'seconds': 18}",2,86,86,"{'minutes': 0, 'seconds': 9}","{'minutes': 0, 'seconds': 18}",1,-11,END OF HALF,False,10,28,10,28
+40175461217,401754612,North Carolina,ACC,NC State,ACC,9,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,72,72,"{'minutes': 12, 'seconds': 53}","{'minutes': 2, 'seconds': 7}",4,3,PUNT,False,10,28,10,28
+40175461218,401754612,NC State,ACC,North Carolina,ACC,10,False,3,35,65,"{'minutes': 12, 'seconds': 45}",3,36,64,"{'minutes': 10, 'seconds': 35}","{'minutes': 2, 'seconds': 18}",3,1,PUNT,True,28,10,28,10
+40175461219,401754612,North Carolina,ACC,NC State,ACC,11,False,3,86,86,"{'minutes': 10, 'seconds': 29}",3,81,81,"{'minutes': 9, 'seconds': 33}","{'minutes': 1, 'seconds': 2}",3,5,PUNT,False,10,28,10,28
+40175461220,401754612,NC State,ACC,North Carolina,ACC,12,False,3,45,55,"{'minutes': 9, 'seconds': 24}",3,48,52,"{'minutes': 8, 'seconds': 7}","{'minutes': 1, 'seconds': 26}",3,3,PUNT,True,28,10,28,10
+40175461221,401754612,North Carolina,ACC,NC State,ACC,13,True,3,89,89,"{'minutes': 7, 'seconds': 58}",3,11,11,"{'minutes': 3, 'seconds': 16}","{'minutes': 4, 'seconds': 51}",12,78,FG,False,10,28,13,28
+40175461223,401754612,NC State,ACC,North Carolina,ACC,14,True,3,25,75,"{'minutes': 3, 'seconds': 16}",4,97,3,"{'minutes': 14, 'seconds': 52}","{'minutes': 3, 'seconds': 24}",8,75,TD,True,28,13,35,13
+40175461225,401754612,North Carolina,ACC,NC State,ACC,15,False,4,35,35,"{'minutes': 14, 'seconds': 52}",4,58,58,"{'minutes': 12, 'seconds': 31}","{'minutes': 2, 'seconds': 26}",8,17,FUMBLE,False,13,35,13,35
+40175461226,401754612,NC State,ACC,North Carolina,ACC,16,True,4,58,42,"{'minutes': 12, 'seconds': 21}",4,97,3,"{'minutes': 5, 'seconds': 34}","{'minutes': 6, 'seconds': 52}",10,42,TD,True,35,13,42,13
+40175461228,401754612,North Carolina,ACC,NC State,ACC,17,True,4,65,65,"{'minutes': 5, 'seconds': 34}",4,3,3,"{'minutes': 1, 'seconds': 25}","{'minutes': 4, 'seconds': 9}",11,65,TD,False,13,42,19,42
+40175461230,401754612,NC State,ACC,North Carolina,ACC,18,False,4,58,42,"{'minutes': 1, 'seconds': 24}",4,82,18,"{'minutes': 0, 'seconds': 16}","{'minutes': 1, 'seconds': 24}",3,24,Uncategorized,True,42,19,42,19

@@ -1,197 +1,262 @@
-# 🏈 Gameday+ AI Development Guide
+# Gameday+ Development Guide
 
-> **🤖 Essential Knowledge for AI Coding Agents**  
-> Complete architectural understanding and development patterns for the Gameday+ college football prediction platform.
-
-## 🎯 Architecture Overview
-
-Gameday+ is a **sophisticated prediction engine** with a modern React frontend:
-- **Core Engine**: `LightningPredictor` class in `graphqlpredictor.py` (3,549 lines of advanced ML)
-- **API Layer**: Flask server (`app.py`) that wraps the engine for web consumption  
-- **Frontend**: React TypeScript app with 24+ glassmorphism UI components
-- **Data Sources**: College Football Data GraphQL API, EPA metrics, sportsbook lines, weather data
-
-## � Development Workflow
-
-### **Starting the Full Stack**
-```bash
-./start-fullstack.sh  # Launches both servers in macOS Terminal tabs
-```
-- **Backend**: Flask on `http://localhost:5002` 
-- **Frontend**: React on `http://localhost:5173`
-- **Script validates**: `app.py` exists, `frontend/` directory, `.venv` virtual environment
-
-### **Critical Development Patterns**
-
-#### **1. Data Flow Architecture**
-```
-React UI → Flask /predict → LightningPredictor → GraphQL APIs → JSON Response → UI Components
-```
-
-#### **2. Team Data Management** 
-- **Source**: `fbs.json` (130+ FBS teams with IDs, names, logos, colors)
-- **Conversion**: `get_team_id()` function handles name→ID mapping with fuzzy matching
-- **Frontend**: `teamService.js` loads teams locally (no API calls needed)
-
-#### **3. Prediction Engine Integration**
-- **Core**: `LightningPredictor.predict_game()` method processes all analysis
-- **Output**: 18 comprehensive analysis sections (EPA, market comparison, confidence, etc.)
-- **API Wrapper**: Flask formats engine output as structured JSON for React consumption
-
-## � Key Data Patterns
-
-### **API Response Structure**
-The `/predict` endpoint returns structured JSON matching these UI components:
-```json
-{
-  "confidence": { "overall_confidence": 85.2, "breakdown": {...} },
-  "contextual_analysis": { "weather": {...}, "rankings": {...} },
-  "final_prediction": { "spread": -7.5, "total": 67.0 },
-  "market_comparison": { "sportsbooks": [...] }
-}
-```
-
-### **Known Hardcoded Data Issues** ⚠️
-**Priority fixes needed:**
-- **Weather data**: Always shows 73.2°F, 8.1mph wind, 0.0 precipitation (`app.py` lines 271-274)
-- **Confidence breakdown**: Static base values of 88%, +3%, +8% (`app.py` lines 257-261)  
-- **API endpoint**: Frontend hardcoded to `localhost:5002` (needs environment config)
-
-### **Component Integration Pattern**
-React components expect prediction data via props:
-```tsx
-interface ComponentProps {
-  predictionData?: {
-    confidence?: { overall_confidence: number; breakdown: {...} };
-    // 18+ other analysis sections
-  };
-}
-```
-
-## 🔧 Development Guidelines
-
-### **When Working with Predictions**
-1. **Use Flask `/predict` endpoint** - never call GraphQL directly from frontend
-2. **Test with both formats**: `POST /predict` (JSON) and `GET /predict/home/away` (URL params)  
-3. **Debug with `run.py`** - shows detailed terminal output of same prediction logic
-4. **Validate team names** with `fbs.json` - supports fuzzy matching and aliases
-
-### **Debugging Tools**
-- **`debug_frontend_data.html`**: Test frontend data flow in browser
-- **`test_api.py`**: Validate Flask API endpoints  
-- **`run.py`**: See detailed prediction analysis in terminal
-- **`python app.py`**: Start backend only for API testing
-
-### **Component Architecture**
-- **24 Figma components** in `frontend/src/components/figma/`
-- **Glassmorphism styling** with Tailwind + custom CSS
-- **Real-time data binding** via Zustand store (`store.js`)
-- **TypeScript interfaces** for prediction data types
-
-### **Deployment Configuration**
-- **Railway**: Uses `Procfile`, `railway.json`, `build.sh`  
-- **Gunicorn**: Production WSGI server with 120s timeout
-- **Environment**: Python 3.11+ (specified in `runtime.txt`)
-
-## 🎯 Common Tasks
-
-### **Adding New Analysis Sections**
-1. Extend `LightningPredictor` class in `graphqlpredictor.py`
-2. Update JSON formatter in `app.py` 
-3. Create React component in `frontend/src/components/figma/`
-4. Add component to main `App.tsx`
-
-### **Fixing Data Integration**
-1. Check data structure in browser DevTools Network tab
-2. Verify API response matches component props interface
-3. Use fallback/demo data while debugging live integration
-
-### **Performance Optimization** 
-- GraphQL queries are batched in single call (`predict_game()` method)
-- Frontend team data loaded once from `fbs.json` 
-- Heavy computation cached in prediction engine
-
-## 🎯 **Current Project Status & Known Issues**
-
-### **✅ What's Working Perfectly**
-- ✅ **React Frontend**: 24 sophisticated glassmorphism components with real data
-- ✅ **Flask Backend**: Comprehensive prediction engine with 18 analysis sections  
-- ✅ **Data Integration**: Teams, players, EPA, coaching records, AP polls all dynamic
-- ✅ **Market Analysis**: Live sportsbook integration with value betting recommendations
-- ✅ **Railway Deployment**: Configured with Procfile, railway.json, build.sh
-- ✅ **UI Components**: All 24 Figma components displaying real prediction data
-- ✅ **Team Selection**: Dynamic team dropdowns with real FBS data
-- ✅ **Player Impact**: Enhanced player analysis with efficiency scores
-- ✅ **Advanced Metrics**: EPA comparisons, field position, drive efficiency
-
-### **🔍 Current Issues Identified**
-
-#### **1. ✅ Weather Data System (COMPLETED - STEP 2 ✓)**
-**Solution Implemented**: Weather system now uses real API data from College Football Data GraphQL API:
-- Temperature: Uses actual game weather (e.g., 81.3°F for Miami vs Louisville)
-- Wind Speed: Uses actual conditions (e.g., 6.9 mph for Miami vs Louisville)  
-- Precipitation: Real weather data from API
-- All weather data now dynamic and game-specific instead of hardcoded values
-
-**Files Fixed**:
-- ✅ `graphqlpredictor.py`: Enhanced weather data capture from currentGame API
-- ✅ `app.py`: Updated Flask API to serve real weather data
-- ✅ **Status**: Production ready with 4 core weather fields displaying correctly
-
-#### **2. ✅ Confidence Calculations (COMPLETED - STEP 2 ✓)**
-**Solution Implemented**: Model confidence breakdown now uses dynamic calculations:
-- Base Data Quality: Calculated from actual data quality metrics
-- Consistency Factor: Dynamic based on prediction consistency
-- Differential Strength: Calculated from team differential analysis
-
-**Files Fixed**:
-- ✅ `app.py`: Updated confidence calculations with dynamic values
-- ✅ **Status**: Production ready with real confidence metrics
-
-#### **3. ✅ Advanced Coach Rankings System (COMPLETED - STEP 2.5 ✓)**
-**Solution Implemented**: Comprehensive 9-factor coaching analysis emphasizing 2025 performance:
-- **Data-Driven vs Reputation**: See `ESPN_vs_DATA_RANKINGS.md` for comparison with ESPN's May 2025 subjective rankings
-- **Talent Context**: Penalizes coaches who underachieve with elite rosters (Kirby Smart #37 despite ESPN #1)
-- **2025 Heavy Weighting**: 25% current season + 15% weighted recent (2025=50%, 2024=30%, 2023=15%, 2022=5%)
-- **9 Factors**: Season performance, recent trend, career win%, talent context, big games, recruiting, NFL development, betting, consistency
-- **Normalization**: Top coach = 99/100 with proportional scaling
-
-**Key Rankings**:
-- #1 Ryan Day (99.0/100): 12-0 in 2025, meeting elite expectations
-- #2 Kalen DeBoer (81.0/100): 10-2 at Alabama, solid post-Saban transition
-- #3 Lane Kiffin (75.7/100): 11-1 at Ole Miss, elite 2025 season
-- #7 Curt Cignetti (63.8/100): 12-0 at Indiana, +59% hottest trend
-
-**Files**:
-- ✅ `advanced_coach_rankings.py`: Main ranking engine
-- ✅ `data/coaches_advanced_rankings.json`: Output with enhanced_analysis
-- ✅ `frontend/src/data/coaches_advanced_rankings.json`: Frontend copy
-- ✅ `ESPN_vs_DATA_RANKINGS.md`: Detailed comparison explaining differences
-- ✅ `graphqlpredictor.py`: Updated to use coaches_advanced_rankings.json
-- ✅ **Status**: Production ready, dramatically different from ESPN's reputation-based rankings
-
-#### **3. Railway API Configuration (Enhancement - STEP 3 ⏳)**
-**Problem**: React app currently points to localhost for API calls
-**File to Fix**: `frontend/src/App.tsx` has hardcoded localhost URL
-**Solution**: Use config system for dynamic API endpoint based on environment
-
-### **🚀 Project Transformation Achievement**
-**Before**: 3,000+ line HTML file with basic styling and hardcoded data
-**After**: Professional React application with:
-- 24 sophisticated UI components
-- TypeScript for type safety
-- Glassmorphism design with animations
-- Environment-based configuration
-- Zustand state management
-- Real-time prediction engine integration
-
-### **📊 Technical Excellence**
-- **Database**: 155 QBs, 616 WRs analyzed per prediction
-- **Market Integration**: 3+ sportsbooks with live line comparisons
-- **Advanced Analytics**: EPA, success rates, field position metrics
-- **Coaching Analysis**: Historical performance vs ranked teams
-- **Player Impact**: Individual efficiency scores and team differentials
+## Project Overview
+Gameday+ is a full-stack college football prediction platform with ML-powered analytics, betting line analysis, and rivalry game tracking.
 
 ---
 
-*⚡ Focus on the prediction engine (`graphqlpredictor.py`) and API wrapper (`app.py`) - these contain the core business logic. The React frontend is primarily a beautiful interface to display the engine's sophisticated analysis.*
+## Application Architecture
+
+### Two Main Server Applications
+
+#### 1. **start-fullstack.sh** - Full Production Stack
+**Purpose**: Launches your complete **full stack** (backend + frontend)
+
+**Servers it starts**:
+- 🐍 **Flask backend** (`app.py`) on **port 5002** - Your prediction engine with complex ML
+- 🎨 **React frontend** (`npm run dev`) on **port 5173** - The UI
+
+**What it does**: 
+- Opens TWO separate Terminal tabs (one for each server)
+- Runs health checks to verify both are running
+- Pipes logs to `logs/backend.log` and `logs/frontend.log`
+
+**Target**: Full production-ready app with UI
+
+**How to run**:
+```bash
+cd /Users/davlenswain/Desktop/Gameday_Graphql_Model
+./start-fullstack.sh
+```
+
+---
+
+#### 2. **app_master.py** - Coach Database API
+**Purpose**: A **standalone coach database API** for exploring coaching data
+
+**Server it starts**:
+- Single Flask app on **port 5555** (different from 5002!)
+- Only serves coach/team/recruiting data from `coaches_master.db`
+- NO React frontend needed
+- NO prediction engine (`graphqlpredictor.py`)
+- Much simpler imports (just Flask, sqlite3, pathlib)
+
+**What it does**: 
+- Serves database endpoints like `/api/coaches`, `/api/coach/<id>`, etc.
+- Renders HTML templates for exploration dashboards
+
+**Target**: Database explorer/API for coaching data only
+
+**How to run**:
+```bash
+cd /Users/davlenswain/Desktop/Gameday_Graphql_Model
+source .venv/bin/activate
+python app_master.py
+```
+
+**Available URLs** (access at `http://localhost:5555`):
+
+**General**
+- `http://localhost:5555/` - API documentation homepage
+- `http://localhost:5555/fbs.json` - FBS teams JSON data
+
+**UI Pages**
+- `http://localhost:5555/gamedaylive` - **🏈 Main landing page with game cards slider**
+- `http://localhost:5555/coaches` - Coaches list page
+- `http://localhost:5555/coach/<id>` - Coach detail page
+- `http://localhost:5555/teams` - Teams list page
+- `http://localhost:5555/team/<id>` - Team detail page
+- `http://localhost:5555/nil` - NIL overview page
+- `http://localhost:5555/nil/team/<id>` - NIL team page
+- `http://localhost:5555/drives-explorer` - Drives explorer dashboard
+- `http://localhost:5555/predictions` - Predictions page
+
+**⚠️ IMPORTANT: When working on templates (HTML/CSS), ALWAYS use `app_master.py` on port 5555**
+
+**API Endpoints - Coaches**
+- `http://localhost:5555/api/coaches` - List all coaches
+- `http://localhost:5555/api/coach/<id>` - Coach details
+- `http://localhost:5555/api/coach/<id>/stints` - Coaching history
+- `http://localhost:5555/api/coach/<id>/games` - Game history
+- `http://localhost:5555/api/coach/<id>/rankings` - AP Poll history
+- `http://localhost:5555/api/coach/<id>/draft_picks` - NFL draft picks
+- `http://localhost:5555/api/coach/<id>/situational` - Situational stats
+- `http://localhost:5555/api/coach/<id>/situational_stats` - Situational stats (alt)
+- `http://localhost:5555/api/coach/<id>/vs_coaches` - Head-to-head records
+- `http://localhost:5555/api/coach/<id>/season_analytics` - Season analytics
+- `http://localhost:5555/api/coach/<id>/recruiting` - Recruiting classes
+- `http://localhost:5555/api/coach/<id>/recruiting_classes` - Recruiting classes (alt)
+- `http://localhost:5555/api/coach/<id>/talent` - Talent composite
+- `http://localhost:5555/api/coach/<id>/talent_composite` - Talent composite (alt)
+- `http://localhost:5555/api/coach/<id>/portal` - Transfer portal
+- `http://localhost:5555/api/coach/<id>/transfer_portal` - Transfer portal (alt)
+
+**API Endpoints - Teams**
+- `http://localhost:5555/api/teams` - List all teams
+- `http://localhost:5555/api/team/<id>` - Team details
+- `http://localhost:5555/api/team/<id>/roster` - Team roster
+
+**API Endpoints - Search & Stats**
+- `http://localhost:5555/api/search?q=<query>` - Search coaches/teams
+- `http://localhost:5555/api/stats` - General stats
+- `http://localhost:5555/api/predictions/table/<table_name>` - Prediction table data
+- `http://localhost:5555/api/upcoming-games` - Upcoming games
+
+**API Endpoints - NIL**
+- `http://localhost:5555/api/nil/teams` - NIL teams list
+- `http://localhost:5555/api/nil/team/<id>` - NIL team data
+- `http://localhost:5555/api/nil/team/<id>/players` - NIL team players
+- `http://localhost:5555/api/nil/team/<id>/positions` - NIL team positions
+
+**API Endpoints - Drives**
+- `http://localhost:5555/api/drives/teams` - All teams with drives
+- `http://localhost:5555/api/drives/team/<team_name>/drives` - Team drives
+- `http://localhost:5555/api/drives/team/<team_name>/stats` - Team drive stats
+- `http://localhost:5555/api/drives/drive/<id>/plays` - Drive plays
+
+
+
+## Comparison Table
+
+| Feature | start-fullstack.sh | app_master.py |
+|---------|---|---|
+| **Purpose** | Full prediction platform | Coach database explorer |
+| **Backend Port** | 5002 | 5555 |
+| **Complexity** | Complex (ML predictor) | Simple (database queries) |
+| **Includes Frontend?** | ✅ Yes (React) | ❌ No |
+| **Imports heavy modules?** | ✅ Yes (graphqlpredictor, betting_lines_manager) | ❌ No (just sqlite3) |
+| **Database Used** | `predictions.db` | `coaches_master.db` |
+| **Startup Speed** | Slower (complex imports) | Faster (minimal dependencies) |
+
+---
+
+## Key Modules
+
+### Heavy Import Modules (used in app.py)
+- **graphqlpredictor.py** - ML prediction engine
+- **betting_lines_manager.py** - Now uses **lazy loading** to avoid network calls on startup
+- **game_media_service.py** - Game broadcast information
+- **batch_rivalry_analyzer.py** - Rivalry game analysis
+
+### Light Import Modules (used in app_master.py)
+- **sqlite3** - Database queries only
+- **pathlib** - File path handling
+- **Flask** - Web framework
+
+---
+
+## Important Implementation Notes
+
+### Lazy Loading Pattern (betting_lines_manager.py)
+The `betting_lines_manager.py` module uses **lazy initialization** to prevent blocking on startup:
+
+```python
+def __init__(self):
+    self.games_data = None
+    self.current_week_data = None
+    self._initialized = False
+
+def _ensure_initialized(self):
+    """Lazy load data on first access"""
+    if not self._initialized:
+        self.games_data = self._load_games_data()
+        self.current_week_data = self._load_current_week_data()
+        self._initialized = True
+```
+
+This prevents the app from hanging when the GraphQL API is slow or unreachable during startup. Data is only fetched when first needed.
+
+---
+
+## Betting Lines & Database Updates
+
+### Updating Betting Lines
+The application stores betting lines from multiple sportsbooks in the `sportsbook_lines` table. Lines should be refreshed regularly as they change frequently.
+
+**Database Structure**:
+- `upcoming_games` - Main game data with basic consensus lines
+- `sportsbook_lines` - Multiple sportsbook lines per game (DraftKings, Bovada, etc.)
+
+**Update betting lines from GraphQL API**:
+```bash
+cd /Users/davlenswain/Desktop/Gameday_Graphql_Model
+python update_betting_lines.py
+```
+
+**What it does**:
+- Fetches latest spreads and over/unders from GraphQL API
+- Stores lines from multiple sportsbooks (DraftKings, Bovada, etc.)
+- Updates existing lines or inserts new ones
+- Shows coverage summary by provider
+
+**Sample output**:
+```
+✅ Fetched 45 games
+✅ Updated 0 lines, inserted 80 new lines
+📊 Sportsbook Coverage:
+  DraftKings: 39 games
+  Bovada: 39 games
+```
+
+**When to update**:
+- Before making predictions for games
+- Daily during bowl season / playoffs
+- When lines move significantly (injury news, weather, etc.)
+
+**View current lines**:
+```bash
+python -c "import sqlite3; conn = sqlite3.connect('instance/predictions.db'); cursor = conn.cursor(); cursor.execute('SELECT home_team, away_team, provider, spread, over_under FROM sportsbook_lines LIMIT 10'); [print(f\"{row[1]} @ {row[0]}: {row[2]} - Spread {row[3]}, O/U {row[4]}\") for row in cursor.fetchall()]"
+```
+
+**How it works**:
+1. `betting_lines_manager.py` queries `sportsbook_lines` table first
+2. Falls back to `upcoming_games` table if multi-sportsbook data unavailable
+3. Finally falls back to GraphQL API or JSON files
+4. All sportsbook lines display in Market Analysis section of predictions
+
+---
+
+## Troubleshooting
+
+### App won't start / hangs on startup
+1. Check if `betting_lines_manager` is properly using lazy loading (no network calls in `__init__`)
+2. Try `app_master.py` instead - it has minimal dependencies
+3. Verify database files exist in `instance/` directory
+4. Check for stuck processes: `pkill -9 python`
+
+### Ports already in use
+```bash
+# Kill process on port 5002
+lsof -ti :5002 | xargs kill -9
+
+# Kill process on port 5173
+lsof -ti :5173 | xargs kill -9
+
+# Kill process on port 5555
+lsof -ti :5555 | xargs kill -9
+```
+
+### Database connection issues
+```bash
+# Test database integrity
+python -c "import sqlite3; conn = sqlite3.connect('instance/coaches_master.db'); print(f'Tables: {len(conn.execute(\"SELECT name FROM sqlite_master WHERE type=\\\"table\\\"\").fetchall())}')"
+```
+
+---
+
+## Startup Sequence
+
+### app.py startup flow:
+1. Import Flask & extensions
+2. Import `graphqlpredictor` (database helper loads)
+3. Import `betting_lines_manager` (lazy init - no network calls)
+4. Import `game_media_service`, `batch_rivalry_analyzer`, `espn_player_service`
+5. Define routes
+6. Wait for requests → data loads on first prediction request
+
+### app_master.py startup flow:
+1. Import Flask & extensions
+2. Import sqlite3 & templates
+3. Define routes
+4. Start server immediately
+5. Database queries on-demand per request

@@ -24,7 +24,9 @@ import { WeightsBreakdown } from './components/figma/WeightsBreakdown';
 import { ComponentBreakdown } from './components/figma/ComponentBreakdown';
 import { ComprehensiveTeamStats } from './components/figma/ComprehensiveStats';
 import { CoachingComparison } from './components/figma/CoachingComparison';
+import CoachesComparison from './components/CoachesComparison';
 import { DriveEfficiency } from './components/figma/DriveEfficiency';
+import { DriveEfficiencyGameFlow } from './components/figma/DriveEfficiencyGameFlow';
 import { ExtendedDefensiveAnalytics } from './components/figma/ExtendedDefensiveAnalytics';
 import ComprehensiveRatingsComparison from './components/figma/ComprehensiveRatingsComparison';
 import { SeasonRecords } from './components/figma/SeasonRecords';
@@ -60,6 +62,10 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [liveData, setLiveData] = useState<any | null>(null);
+  const [replayMode, setReplayMode] = useState<boolean>(false);
+  const [replayPlayIndex, setReplayPlayIndex] = useState<number>(0);
+  const [replayQuarter, setReplayQuarter] = useState<number>(0); // 0 = all quarters
+  const [replaySpeed, setReplaySpeed] = useState<number>(1); // 1x, 2x, 4x
   const [selectedTeams, setSelectedTeams] = useState<{ home: string; away: string } | null>(null);
   const [currentMatchup, setCurrentMatchup] = useState<{ home: string; away: string } | null>(null);
   const [insightMode, setInsightMode] = useState(false);
@@ -69,14 +75,8 @@ export default function App() {
   const intervalRef = useRef<number | null>(null);
   const gameSummaryRef = useRef<HTMLDivElement | null>(null);
   
-  // Fetch live game data
-  // NOTE: Live game data feature is currently disabled
+  // Fetch live game data from ESPN API
   const fetchLiveData = async (homeTeam: string, awayTeam: string) => {
-    // Live game endpoint is currently unavailable (503)
-    // Commenting out to prevent console errors
-    // When the feature is re-enabled, uncomment the code below
-    
-    /*
     try {
       const response = await fetch(
         `${CONFIG.API.BASE_URL}/api/live-game?home=${encodeURIComponent(homeTeam)}&away=${encodeURIComponent(awayTeam)}`
@@ -84,24 +84,24 @@ export default function App() {
       
       if (!response.ok) {
         console.error('Live data fetch failed');
+        setLiveData(null);
         return;
       }
       
       const data = await response.json();
       
-      // Only set live data if game is actually live
-      if (data.game_info?.is_live) {
+      // Set live data for both live and finished games (for replay functionality)
+      if (data.game_info?.is_live || data.game_info?.status === 'final' || data.game_info?.status === 'post') {
+        console.log('Game data received:', data);
         setLiveData(data);
       } else {
+        console.log('Game not available');
         setLiveData(null);
       }
     } catch (error) {
       console.error('Error fetching live data:', error);
+      setLiveData(null);
     }
-    */
-    
-    // Set live data to null since feature is disabled
-    setLiveData(null);
   };
   
   // Auto-refresh effect for live data
@@ -111,24 +111,24 @@ export default function App() {
       clearInterval(intervalRef.current);
     }
     
-    // Only start polling if we have teams selected and live data is active
-    if (selectedTeams && liveData?.game_info?.is_live) {
+    // Only start polling if we have teams selected
+    if (selectedTeams) {
       // Initial fetch
       fetchLiveData(selectedTeams.home, selectedTeams.away);
       
-      // Set up polling every 30 seconds
+      // Set up polling every 15 seconds for live games
       intervalRef.current = window.setInterval(() => {
         fetchLiveData(selectedTeams.home, selectedTeams.away);
-      }, 30000);
+      }, 15000);
     }
     
-    // Cleanup on unmount or when dependencies change
+    // Cleanup on unmount or when teams change
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
       }
     };
-  }, [selectedTeams, liveData?.game_info?.is_live]);
+  }, [selectedTeams]);
 
   const handlePrediction = async (homeTeam: string, awayTeam: string) => {
     setIsLoading(true);
@@ -352,6 +352,22 @@ export default function App() {
               >
                 <Users className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-blue-400 drop-shadow-sm" />
               </button>
+
+              {/* CFP Charts Button */}
+              <a
+                href="/CoolerVisuals.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-2 sm:p-3 md:p-4 backdrop-blur-sm backdrop-blur-xl border border-yellow-500/30 hover:border-yellow-500/50 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 hover:bg-yellow-900/30 shadow-lg hover:shadow-xl"
+                aria-label="CFP Charts"
+                title="CFP Charts & Metrics Dashboard"
+              >
+                <img 
+                  src="/CFP.png" 
+                  alt="CFP" 
+                  className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 object-contain group-hover:scale-110 transition-transform duration-300"
+                />
+              </a>
             </div>
 
             {/* Main Title */}
@@ -501,6 +517,463 @@ export default function App() {
               {/* 7-11. Win Probability, Final Score, Confidence, Spread vs Market, Recommended Bets */}
               <PredictionCards predictionData={predictionData} isLoading={isLoading} error={error || undefined} />
           
+          {/* ============================================================================================================= */}
+          {/* 🔴 LIVE GAME SECTION - Only shows when game is in progress */}
+          {/* Shows real-time field position, score, and plays right after win probability */}
+          {/* ============================================================================================================= */}
+          
+          {liveData && (liveData.game_info?.is_live || replayMode || liveData.game_info?.status === 'post' || liveData.game_info?.status === 'final') && (
+            <>
+              {/* Show Start Replay button for finished games */}
+              {!replayMode && !liveData.game_info?.is_live && (liveData.game_info?.status === 'final' || liveData.game_info?.status === 'post') && (
+                <div style={{
+                  background: 'rgba(15, 23, 42, 0.4)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  borderRadius: '16px',
+                  padding: '28px',
+                  marginBottom: '24px',
+                  border: '1px solid rgba(148, 163, 184, 0.2)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset',
+                  textAlign: 'center'
+                }}>
+                  <div style={{ marginBottom: '20px' }}>
+                    <h3 style={{ margin: '0 0 10px 0', fontSize: '20px', fontWeight: 600, color: 'rgba(255, 255, 255, 0.95)', letterSpacing: '-0.01em' }}>
+                      Game Complete
+                    </h3>
+                    <p style={{ margin: 0, fontSize: '14px', color: 'rgba(255, 255, 255, 0.6)', fontWeight: 400 }}>
+                      Review all {liveData.plays?.length || 0} plays with interactive field visualization
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setReplayMode(true);
+                      setReplayPlayIndex(0);
+                      setReplayQuarter(0);
+                    }}
+                    style={{
+                      background: 'rgba(59, 130, 246, 0.15)',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      borderRadius: '12px',
+                      padding: '14px 32px',
+                      color: 'rgba(255, 255, 255, 0.95)',
+                      cursor: 'pointer',
+                      fontSize: '15px',
+                      fontWeight: 600,
+                      boxShadow: '0 4px 16px rgba(59, 130, 246, 0.2)',
+                      transition: 'all 0.2s ease',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '10px'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(59, 130, 246, 0.25)';
+                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow = '0 6px 24px rgba(59, 130, 246, 0.3)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(59, 130, 246, 0.15)';
+                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(59, 130, 246, 0.2)';
+                    }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Start Game Replay
+                  </button>
+                </div>
+              )}
+              
+              {!replayMode && liveData.game_info?.is_live && (
+                <LiveGameBadge 
+                  period={liveData.game_state.period}
+                  clock={liveData.game_state.clock}
+                />
+              )}
+              
+              {replayMode && (
+                <div style={{
+                  background: 'rgba(15, 23, 42, 0.4)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  borderRadius: '16px',
+                  padding: '24px',
+                  marginBottom: '24px',
+                  border: '1px solid rgba(148, 163, 184, 0.2)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+                    <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 600, color: 'rgba(255, 255, 255, 0.95)', letterSpacing: '-0.01em' }}>
+                      Game Replay
+                    </h3>
+                    <button
+                      onClick={() => {
+                        setReplayMode(false);
+                        setReplayPlayIndex(0);
+                        setReplayQuarter(0);
+                      }}
+                      style={{
+                        background: 'rgba(239, 68, 68, 0.15)',
+                        border: '1px solid rgba(239, 68, 68, 0.3)',
+                        borderRadius: '8px',
+                        padding: '8px 16px',
+                        color: 'rgba(255, 255, 255, 0.9)',
+                        cursor: 'pointer',
+                        fontSize: '13px',
+                        fontWeight: 600,
+                        transition: 'all 0.2s ease',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = 'rgba(239, 68, 68, 0.25)';
+                        e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.5)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'rgba(239, 68, 68, 0.15)';
+                        e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+                      }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                      </svg>
+                      Exit
+                    </button>
+                  </div>
+                  
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '20px' }}>
+                    <div style={{ flex: 1, minWidth: '200px' }}>
+                      <label style={{ display: 'block', fontSize: '11px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
+                        Quarter
+                      </label>
+                      <select
+                        value={replayQuarter}
+                        onChange={(e) => {
+                          setReplayQuarter(parseInt(e.target.value));
+                          setReplayPlayIndex(0);
+                        }}
+                        style={{
+                          width: '100%',
+                          background: 'rgba(15, 23, 42, 0.6)',
+                          border: '1px solid rgba(148, 163, 184, 0.2)',
+                          borderRadius: '10px',
+                          padding: '12px 14px',
+                          color: 'rgba(255, 255, 255, 0.95)',
+                          fontSize: '14px',
+                          fontWeight: 500,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease',
+                          outline: 'none'
+                        }}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(148, 163, 184, 0.2)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }}
+                      >
+                        <option value={0}>All Quarters</option>
+                        <option value={1}>1st Quarter</option>
+                        <option value={2}>2nd Quarter</option>
+                        <option value={3}>3rd Quarter</option>
+                        <option value={4}>4th Quarter</option>
+                      </select>
+                    </div>
+                    
+                    <div style={{ flex: 1, minWidth: '200px' }}>
+                      <label style={{ display: 'block', fontSize: '11px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
+                        Speed
+                      </label>
+                      <select
+                        value={replaySpeed}
+                        onChange={(e) => setReplaySpeed(parseFloat(e.target.value))}
+                        style={{
+                          width: '100%',
+                          background: 'rgba(15, 23, 42, 0.6)',
+                          border: '1px solid rgba(148, 163, 184, 0.2)',
+                          borderRadius: '10px',
+                          padding: '12px 14px',
+                          color: 'rgba(255, 255, 255, 0.95)',
+                          fontSize: '14px',
+                          fontWeight: 500,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease',
+                          outline: 'none'
+                        }}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(148, 163, 184, 0.2)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }}
+                      >
+                        <option value={0.5}>0.5x</option>
+                        <option value={1}>1.0x</option>
+                        <option value={2}>2.0x</option>
+                        <option value={4}>4.0x</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div style={{ 
+                    display: 'flex', 
+                    gap: '12px', 
+                    alignItems: 'center',
+                    background: 'rgba(15, 23, 42, 0.4)',
+                    padding: '16px',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(148, 163, 184, 0.15)'
+                  }}>
+                    <button
+                      onClick={() => setReplayPlayIndex(Math.max(0, replayPlayIndex - 1))}
+                      disabled={replayPlayIndex === 0}
+                      style={{
+                        background: replayPlayIndex === 0 ? 'rgba(148, 163, 184, 0.1)' : 'rgba(59, 130, 246, 0.15)',
+                        border: `1px solid ${replayPlayIndex === 0 ? 'rgba(148, 163, 184, 0.2)' : 'rgba(59, 130, 246, 0.3)'}`,
+                        borderRadius: '10px',
+                        padding: '12px 18px',
+                        color: replayPlayIndex === 0 ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.9)',
+                        cursor: replayPlayIndex === 0 ? 'not-allowed' : 'pointer',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        transition: 'all 0.2s ease',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px'
+                      }}
+                      onMouseEnter={(e) => {
+                        if (replayPlayIndex !== 0) {
+                          e.currentTarget.style.background = 'rgba(59, 130, 246, 0.25)';
+                          e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (replayPlayIndex !== 0) {
+                          e.currentTarget.style.background = 'rgba(59, 130, 246, 0.15)';
+                          e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                        }
+                      }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                        <line x1="5" y1="19" x2="5" y2="5"></line>
+                      </svg>
+                      Previous
+                    </button>
+                    
+                    <div style={{
+                      flex: 1,
+                      textAlign: 'center',
+                      fontSize: '14px',
+                      color: 'rgba(255, 255, 255, 0.9)',
+                      fontWeight: 600,
+                      background: 'rgba(59, 130, 246, 0.1)',
+                      padding: '12px 20px',
+                      borderRadius: '10px',
+                      border: '1px solid rgba(59, 130, 246, 0.2)'
+                    }}>
+                      Play {replayPlayIndex + 1} of {(() => {
+                        if (!liveData?.plays) return 0;
+                        if (replayQuarter === 0) return liveData.plays.length;
+                        return liveData.plays.filter((p: any) => p.period === replayQuarter).length;
+                      })()}
+                    </div>
+                    
+                    <button
+                      onClick={() => {
+                        const maxPlays = (() => {
+                          if (!liveData?.plays) return 0;
+                          if (replayQuarter === 0) return liveData.plays.length;
+                          return liveData.plays.filter((p: any) => p.period === replayQuarter).length;
+                        })();
+                        setReplayPlayIndex(Math.min(maxPlays - 1, replayPlayIndex + 1));
+                      }}
+                      disabled={!liveData?.plays || replayPlayIndex >= (() => {
+                        if (!liveData?.plays) return 0;
+                        if (replayQuarter === 0) return liveData.plays.length - 1;
+                        return liveData.plays.filter((p: any) => p.period === replayQuarter).length - 1;
+                      })()}
+                      style={{
+                        background: (!liveData?.plays || replayPlayIndex >= (() => {
+                          if (!liveData?.plays) return 0;
+                          if (replayQuarter === 0) return liveData.plays.length - 1;
+                          return liveData.plays.filter((p: any) => p.period === replayQuarter).length - 1;
+                        })()) ? 'rgba(148, 163, 184, 0.1)' : 'rgba(59, 130, 246, 0.15)',
+                        border: `1px solid ${(!liveData?.plays || replayPlayIndex >= (() => {
+                          if (!liveData?.plays) return 0;
+                          if (replayQuarter === 0) return liveData.plays.length - 1;
+                          return liveData.plays.filter((p: any) => p.period === replayQuarter).length - 1;
+                        })()) ? 'rgba(148, 163, 184, 0.2)' : 'rgba(59, 130, 246, 0.3)'}`,
+                        borderRadius: '10px',
+                        padding: '12px 18px',
+                        color: (!liveData?.plays || replayPlayIndex >= (() => {
+                          if (!liveData?.plays) return 0;
+                          if (replayQuarter === 0) return liveData.plays.length - 1;
+                          return liveData.plays.filter((p: any) => p.period === replayQuarter).length - 1;
+                        })()) ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.9)',
+                        cursor: (!liveData?.plays || replayPlayIndex >= (() => {
+                          if (!liveData?.plays) return 0;
+                          if (replayQuarter === 0) return liveData.plays.length - 1;
+                          return liveData.plays.filter((p: any) => p.period === replayQuarter).length - 1;
+                        })()) ? 'not-allowed' : 'pointer',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        transition: 'all 0.2s ease',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px'
+                      }}
+                      onMouseEnter={(e) => {
+                        const isDisabled = !liveData?.plays || replayPlayIndex >= (() => {
+                          if (!liveData?.plays) return 0;
+                          if (replayQuarter === 0) return liveData.plays.length - 1;
+                          return liveData.plays.filter((p: any) => p.period === replayQuarter).length - 1;
+                        })();
+                        if (!isDisabled) {
+                          e.currentTarget.style.background = 'rgba(59, 130, 246, 0.25)';
+                          e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        const isDisabled = !liveData?.plays || replayPlayIndex >= (() => {
+                          if (!liveData?.plays) return 0;
+                          if (replayQuarter === 0) return liveData.plays.length - 1;
+                          return liveData.plays.filter((p: any) => p.period === replayQuarter).length - 1;
+                        })();
+                        if (!isDisabled) {
+                          e.currentTarget.style.background = 'rgba(59, 130, 246, 0.15)';
+                          e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                        }
+                      }}
+                    >
+                      Next
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                        <line x1="19" y1="5" x2="19" y2="19"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              )}
+              
+              <FieldVisualization
+                possession={{
+                  team: (() => {
+                    if (replayMode && liveData?.plays?.length) {
+                      const filteredPlays = replayQuarter === 0
+                        ? liveData.plays 
+                        : liveData.plays.filter((p: any) => p.period === replayQuarter);
+                      const currentPlay = filteredPlays[replayPlayIndex];
+                      return currentPlay?.offense === 'home' ? liveData.game_info.home_team : liveData.game_info.away_team;
+                    }
+                    return liveData.game_state.possession === 'home'
+                      ? liveData.game_info.home_team 
+                      : liveData.game_info.away_team;
+                  })(),
+                  logo: (() => {
+                    if (replayMode && liveData?.plays?.length) {
+                      const filteredPlays = replayQuarter === 0
+                        ? liveData.plays 
+                        : liveData.plays.filter((p: any) => p.period === replayQuarter);
+                      const currentPlay = filteredPlays[replayPlayIndex];
+                      return currentPlay?.offense === 'home' ? liveData.game_info.home_logo : liveData.game_info.away_logo;
+                    }
+                    return liveData.game_state.possession === 'home'
+                      ? liveData.game_info.home_logo
+                      : liveData.game_info.away_logo;
+                  })()
+                }}
+                fieldPosition={{
+                  yardLine: (() => {
+                    if (replayMode && liveData?.plays?.length) {
+                      const filteredPlays = replayQuarter === 0
+                        ? liveData.plays 
+                        : liveData.plays.filter((p: any) => p.period === replayQuarter);
+                      const currentPlay = filteredPlays[replayPlayIndex];
+                      return currentPlay?.yard_line || 50;
+                    }
+                    return liveData.field_position?.yard_line || 50;
+                  })(),
+                  down: (() => {
+                    if (replayMode && liveData?.plays?.length) {
+                      const filteredPlays = replayQuarter === 0
+                        ? liveData.plays 
+                        : liveData.plays.filter((p: any) => p.period === replayQuarter);
+                      const currentPlay = filteredPlays[replayPlayIndex];
+                      return currentPlay?.down || 1;
+                    }
+                    return liveData.field_position?.down || 1;
+                  })(),
+                  distance: (() => {
+                    if (replayMode && liveData?.plays?.length) {
+                      const filteredPlays = replayQuarter === 0
+                        ? liveData.plays 
+                        : liveData.plays.filter((p: any) => p.period === replayQuarter);
+                      const currentPlay = filteredPlays[replayPlayIndex];
+                      return currentPlay?.distance || 10;
+                    }
+                    return liveData.field_position?.distance || 10;
+                  })()
+                }}
+                playData={(() => {
+                  if (replayMode && liveData?.plays?.length) {
+                    const filteredPlays = replayQuarter === 0
+                      ? liveData.plays 
+                      : liveData.plays.filter((p: any) => p.period === replayQuarter);
+                    const currentPlay = filteredPlays[replayPlayIndex];
+                    const prevPlay = replayPlayIndex > 0 ? filteredPlays[replayPlayIndex - 1] : null;
+                    return {
+                      play_type: currentPlay?.play_type,
+                      yards_gained: currentPlay?.yards_gained,
+                      start_yard_line: prevPlay?.yard_line || currentPlay?.yard_line,
+                      end_yard_line: currentPlay?.yard_line
+                    };
+                  }
+                  return undefined;
+                })()}
+                homeTeam={{
+                  name: liveData.game_info.home_team,
+                  abbr: liveData.game_info.home_abbr,
+                  color: liveData.game_info.home_color || '#1a7a42',
+                  logo: liveData.game_info.home_logo
+                }}
+                awayTeam={{
+                  name: liveData.game_info.away_team,
+                  abbr: liveData.game_info.away_abbr,
+                  color: liveData.game_info.away_color || '#0d5c2f',
+                  logo: liveData.game_info.away_logo
+                }}
+                situation={liveData.game_state.situation}
+              />              <WinProbabilityLive
+                liveData={liveData}
+                predictionData={predictionData}
+              />
+              
+              <LivePlaysFeed
+                plays={(() => {
+                  if (replayMode && liveData?.plays?.length) {
+                    const filteredPlays = replayQuarter === 0 
+                      ? liveData.plays 
+                      : liveData.plays.filter((p: any) => p.period === replayQuarter);
+                    return filteredPlays;
+                  }
+                  return liveData.recent_plays || liveData.plays || [];
+                })()}
+                showEPA={true}
+                predictionData={predictionData}
+              />
+            </>
+          )}
+          
           {/* Final Summary with Predicted Score & Key Factors */}
           <FinalPredictionSummary predictionData={predictionData} />
           
@@ -515,11 +988,14 @@ export default function App() {
           {/* 16. Elite vs Ranked Performance (Coaching Comparison) */}
           <CoachingComparison predictionData={predictionData} />
           
+          {/* 16b. Comprehensive Coaches Head-to-Head Analysis */}
+          <CoachesComparison predictionData={predictionData} />
+          
           {/* 17. Key Player Impact Analysis */}
           <KeyPlayerImpact predictionData={predictionData} />
           
-          {/* 18. Player Props (Top 8-10 opportunities) */}
-          <PlayerPropsPanel predictionData={predictionData} />
+          {/* 18. Player Props (Top 8-10 opportunities) - HIDDEN */}
+          {/* <PlayerPropsPanel predictionData={predictionData} /> */}
           
           {/* ========================================================================= */}
           {/* 🧠 TIER 3: ADVANCED ANALYTICS (2-5 minutes) */}
@@ -528,9 +1004,6 @@ export default function App() {
           
           {/* 19. EPA Comparison */}
           <EPAComparison predictionData={predictionData} />
-          
-          {/* 20. Win Probability Analysis */}
-          <WinProbability predictionData={predictionData} />
           
           {/* 21. Comprehensive Differential Analysis */}
           <DifferentialAnalysis predictionData={predictionData} />
@@ -544,8 +1017,8 @@ export default function App() {
           {/* 25. Field Position Metrics */}
           <FieldPositionMetrics predictionData={predictionData} />
           
-          {/* 26. Drive Efficiency & Game Flow */}
-          <DriveEfficiency predictionData={predictionData} />
+          {/* 26. Drive Efficiency & Game Flow Analytics (Combined) */}
+          <DriveEfficiencyGameFlow predictionData={predictionData} />
           
           {/* 27-28. Defensive Statistics & Game Control Metrics */}
           <ExtendedDefensiveAnalytics predictionData={predictionData} />
@@ -592,62 +1065,7 @@ export default function App() {
           
           {/* 40. Arbitrage Calculator */}
           {/* <ArbitrageCalculator predictionData={predictionData} /> */}
-          
-          {/* ========================================================================= */}
-          {/* 🔴 LIVE GAME SECTION - Only shows when game is in progress */}
-          {/* Overlays above content when game is live */}
-          {/* ========================================================================= */}
-          
-          {liveData?.game_info?.is_live && (
-            <>
-              <LiveGameBadge 
-                period={liveData.game_state.period}
-                clock={liveData.game_state.clock}
-              />
-              
-              <FieldVisualization
-                possession={{
-                  team: liveData.game_state.possession === 'home' 
-                    ? liveData.game_info.home_team 
-                    : liveData.game_info.away_team,
-                  logo: liveData.game_state.possession === 'home'
-                    ? predictionData?.team_selector?.home_team?.logo
-                    : predictionData?.team_selector?.away_team?.logo
-                }}
-                fieldPosition={{
-                  yardLine: liveData.field_position?.yard_line || 50,
-                  down: parseInt(liveData.game_state.situation?.match(/(\d+)(?:st|nd|rd|th)/)?.[1] || '1'),
-                  distance: parseInt(liveData.game_state.situation?.match(/& (\d+)/)?.[1] || '10')
-                }}
-                homeTeam={{
-                  name: liveData.game_info.home_team,
-                  abbr: liveData.game_info.home_team.substring(0, 3).toUpperCase(),
-                  color: predictionData?.team_selector?.home_team?.primary_color || '#1a7a42',
-                  logo: predictionData?.team_selector?.home_team?.logo
-                }}
-                awayTeam={{
-                  name: liveData.game_info.away_team,
-                  abbr: liveData.game_info.away_team.substring(0, 3).toUpperCase(),
-                  color: predictionData?.team_selector?.away_team?.primary_color || '#0d5c2f',
-                  logo: predictionData?.team_selector?.away_team?.logo
-                }}
-                situation={liveData.game_state.situation}
-              />
-              
-              <WinProbabilityLive
-                liveData={liveData}
-                predictionData={predictionData}
-              />
-              
-              <LivePlaysFeed
-                plays={liveData.plays?.recent_plays || []}
-                showEPA={true}
-                predictionData={predictionData}
-              />
-            </>
-          )}
-          
-          {/* Prediction Results - Shows after game is complete */}
+
           {predictionData && (
             <PredictionResults 
               predictionData={predictionData}
@@ -657,11 +1075,6 @@ export default function App() {
           {/* ========================================================================= */}
           {/* 📖 TIER 6 CONTINUED: REFERENCE - Terms & Definitions */}
           {/* ========================================================================= */}
-          
-          {/* Game Summary & Prediction Rationale - Comprehensive breakdown */}
-          <div id="game-summary-rationale">
-            <GameSummaryRationale predictionData={predictionData} />
-          </div>
           
           {/* 41. Metrics Glossary - Educational resource */}
           <Glossary predictionData={predictionData} />

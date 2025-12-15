@@ -1,11 +1,12 @@
-from flask import Flask, request, jsonify, send_file, send_from_directory
+from flask import Flask, request, jsonify, send_file, send_from_directory, render_template
 from flask_cors import CORS
 import asyncio
 import os
 import json
+import sqlite3
 from graphqlpredictor import LightningPredictor
 from run import format_prediction_output
-from prediction_validator import PredictionValidator, apply_prediction_fixes
+# from prediction_validator import PredictionValidator, apply_prediction_fixes
 from betting_lines_manager import betting_manager
 from game_media_service import get_game_media_service
 from real_data_props_generator import RealDataPlayerPropsEngine
@@ -13,12 +14,14 @@ from dataclasses import asdict
 from rivalry_config import is_rivalry_game, get_rivalry_info
 from batch_rivalry_analyzer import BatchRivalryAnalyzer
 from espn_player_service import ESPNPlayerService
+from advanced_drive_analytics import drive_analytics
 
 app = Flask(__name__)
 # Configure CORS - allow same origin and local development
 CORS(app, origins=[
     "https://graphqlmodel-production.up.railway.app",
     "http://localhost:5173",
+    "http://localhost:5555",
     "http://localhost:3000"
 ], methods=['GET', 'POST', 'OPTIONS'], allow_headers=['Content-Type', 'Authorization'])
 
@@ -645,8 +648,59 @@ def calculate_ratings_comparison(predictor, away_team, home_team):
         "consistency_advantage": consistency_advantage
     }
 
+def get_team_stats_from_db(team_name, season=2025):
+    """
+    Fetch comprehensive team stats from database (coaches_master.db)
+    Includes all advanced metrics + newly added box score stats
+    """
+    import sqlite3
+    from pathlib import Path
+    
+    db_path = Path(__file__).parent / 'instance' / 'coaches_master.db'
+    
+    try:
+        conn = sqlite3.connect(db_path)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        query = """
+            SELECT ts.*
+            FROM team_seasons ts
+            JOIN teams t ON ts.team_id = t.id
+            WHERE t.school = ? AND ts.season = ?
+        """
+        cursor.execute(query, (team_name, season))
+        row = cursor.fetchone()
+        conn.close()
+        
+        if row:
+            return dict(row)
+        return {}
+    except Exception as e:
+        print(f"Error fetching stats for {team_name}: {e}")
+        return {}
+
+def merge_team_stats_with_db(stats_dict, team_name, season=2025):
+    """
+    Merge GraphQL stats with database stats
+    Database stats take priority for newly added fields
+    """
+    if not stats_dict:
+        stats_dict = {}
+    
+    # Get database stats
+    db_stats = get_team_stats_from_db(team_name, season)
+    
+    if db_stats:
+        # Merge, with database stats overriding GraphQL stats
+        stats_dict.update(db_stats)
+    
+    return stats_dict
+
 def convert_comprehensive_stats_to_dict(stats):
-    """Convert ComprehensiveTeamStats dataclass to dictionary for JSON serialization"""
+    """
+    Convert ComprehensiveTeamStats dataclass to dictionary for JSON serialization
+    """
     if stats is None:
         return {}
     
@@ -672,6 +726,111 @@ def convert_drive_metrics_to_dict(drives):
     return {
         k: v for k, v in drives.__dict__.items()
     }
+
+def analyze_team_drives_for_ui(team_name):
+    """
+    Analyze drive data for a team from power5_drives_only.json
+    Returns structured data matching the UI component expectations
+    """
+    import json
+    from collections import defaultdict
+    
+    try:
+        # Load drives data
+        drives_file = 'data/power5_drives_only.json'
+        with open(drives_file, 'r') as f:
+            all_drives = json.load(f)
+        
+        # Filter drives where this team is on offense
+        team_drives = [d for d in all_drives if d.get('offense') == team_name]
+        
+        if not team_drives:
+            return None
+        
+        # Quarter analysis
+        quarters = defaultdict(lambda: {'total': 0, 'scored': 0})
+        for drive in team_drives:
+            period = drive.get('startPeriod', 0)
+            quarters[period]['total'] += 1
+            if drive.get('scoring', False):
+                quarters[period]['scored'] += 1
+        
+        quarter_data = []
+        for q in [1, 2, 3, 4]:
+            if quarters[q]['total'] > 0:
+                quarter_data.append({
+                    'quarter': f'Q{q}',
+                    'drives': quarters[q]['total'],
+                    'scoringPct': round((quarters[q]['scored'] / quarters[q]['total']) * 100, 1),
+                    'scored': quarters[q]['scored']
+                })
+        
+        # Field position analysis
+        field_zones = {
+            'Own 1-20': {'total': 0, 'scored': 0},
+            'Own 21-40': {'total': 0, 'scored': 0},
+            'Own 41-Mid': {'total': 0, 'scored': 0},
+            'Opp Territory': {'total': 0, 'scored': 0}
+        }
+        
+        for drive in team_drives:
+            start_yard = drive.get('startYardline', 0)
+            scored = drive.get('scoring', False)
+            
+            if start_yard <= 20:
+                zone = 'Own 1-20'
+            elif start_yard <= 40:
+                zone = 'Own 21-40'
+            elif start_yard <= 50:
+                zone = 'Own 41-Mid'
+            else:
+                zone = 'Opp Territory'
+            
+            field_zones[zone]['total'] += 1
+            if scored:
+                field_zones[zone]['scored'] += 1
+        
+        field_position_data = []
+        for zone in ['Own 1-20', 'Own 21-40', 'Own 41-Mid', 'Opp Territory']:
+            stats = field_zones[zone]
+            if stats['total'] > 0:
+                field_position_data.append({
+                    'zone': zone,
+                    'drives': stats['total'],
+                    'scoringPct': round((stats['scored'] / stats['total']) * 100, 1),
+                    'scored': stats['scored']
+                })
+        
+        # Drive outcomes
+        outcomes = defaultdict(int)
+        for drive in team_drives:
+            result = drive.get('driveResult', 'UNKNOWN')
+            outcomes[result] += 1
+        
+        total_drives = len(team_drives)
+        td_count = outcomes.get('TD', 0)
+        fg_count = outcomes.get('FG', 0)
+        punt_count = outcomes.get('PUNT', 0)
+        turnover_count = sum(outcomes.get(key, 0) for key in ['INT', 'FUMBLE', 'INT TD', 'FUMBLE TD'])
+        
+        drive_outcomes = {
+            'touchdowns': round((td_count / total_drives) * 100, 1),
+            'fieldGoals': round((fg_count / total_drives) * 100, 1),
+            'punts': round((punt_count / total_drives) * 100, 1),
+            'turnovers': round((turnover_count / total_drives) * 100, 1),
+            'totalScoring': round(((td_count + fg_count) / total_drives) * 100, 1),
+            'total_drives': total_drives
+        }
+        
+        return {
+            'quarter_data': quarter_data,
+            'field_position_data': field_position_data,
+            'drive_outcomes': drive_outcomes
+        }
+        
+    except Exception as e:
+        print(f"Error analyzing drives for {team_name}: {e}")
+        return None
 
 def generate_game_summary_and_rationale(prediction, details, home_team_data, away_team_data, predictor, betting_analysis=None):
     """
@@ -1190,23 +1349,25 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
     market_spread = getattr(prediction, 'market_spread', 0) or 0
     market_total = getattr(prediction, 'market_total', 0) or 0
     
-    # FIXED: Correct score calculation logic
-    # Spread represents how much the HOME team is favored by (positive = home favored)
-    # If home is favored by +7, they score 7 more than away team
-    # Total = home_score + away_score, so:
-    # home_score = (total + spread) / 2
-    # away_score = (total - spread) / 2
-    
-    home_score = round((prediction.predicted_total + prediction.predicted_spread) / 2)
-    away_score = round((prediction.predicted_total - prediction.predicted_spread) / 2)
-    
-    # Ensure no negative scores (safety check)
-    if home_score < 0:
-        away_score += abs(home_score)
-        home_score = 0
-    elif away_score < 0:
-        home_score += abs(away_score)
-        away_score = 0
+    # Use consistent scores from GamePrediction if available (prevents inconsistency bug)
+    if hasattr(prediction, 'home_predicted_score') and prediction.home_predicted_score is not None:
+        home_score = prediction.home_predicted_score
+        away_score = prediction.away_predicted_score
+        print(f"🎯 Using consistent scores: {prediction.home_team} {home_score}, {prediction.away_team} {away_score}")
+    else:
+        # Fallback to calculation (for backward compatibility)
+        # Spread represents how much the HOME team is favored by (positive = home favored)
+        home_score = round((prediction.predicted_total + prediction.predicted_spread) / 2)
+        away_score = round((prediction.predicted_total - prediction.predicted_spread) / 2)
+        
+        # Ensure no negative scores (safety check)
+        if home_score < 0:
+            away_score += abs(home_score)
+            home_score = 0
+        elif away_score < 0:
+            home_score += abs(away_score)
+            away_score = 0
+        print(f"🔄 Using calculated scores: {prediction.home_team} {home_score}, {prediction.away_team} {away_score}")
     
     # Get weather data
     weather_data = get_val(details, 'weather', default={})
@@ -1411,10 +1572,18 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
             prediction.home_team,
             prediction.away_team
         ) if betting_analysis.get('sportsbooks', {}).get('individual_books') else {},
-        # NEW: Team Statistics for UI components showing zeros
+        # NEW: Team Statistics for UI components - Enhanced with database stats
         "team_statistics": {
-            "home": convert_comprehensive_stats_to_dict(getattr(prediction, 'home_team_stats', None)),
-            "away": convert_comprehensive_stats_to_dict(getattr(prediction, 'away_team_stats', None))
+            "home": merge_team_stats_with_db(
+                convert_comprehensive_stats_to_dict(getattr(prediction, 'home_team_stats', None)),
+                prediction.home_team,
+                2025
+            ),
+            "away": merge_team_stats_with_db(
+                convert_comprehensive_stats_to_dict(getattr(prediction, 'away_team_stats', None)),
+                prediction.away_team,
+                2025
+            )
         },
         "coaching_data": {
             "home": convert_coaching_metrics_to_dict(getattr(prediction, 'home_coaching', None)),
@@ -1423,6 +1592,10 @@ def format_prediction_for_api(prediction, home_team_data, away_team_data, predic
         "drive_metrics": {
             "home": convert_drive_metrics_to_dict(getattr(prediction, 'home_drive_metrics', None)),
             "away": convert_drive_metrics_to_dict(getattr(prediction, 'away_drive_metrics', None))
+        },
+        "drive_analytics": {
+            "home": analyze_team_drives_for_ui(prediction.home_team),
+            "away": analyze_team_drives_for_ui(prediction.away_team)
         }
     }
     
@@ -1596,7 +1769,7 @@ def predict_game():
             )
             
             # Apply consistency fixes
-            prediction = apply_prediction_fixes(prediction)
+            # prediction = apply_prediction_fixes(prediction)
             
             # Print the same detailed output as run.py to terminal
             print(f"\n🏈 {prediction.away_team} @ {prediction.home_team}")
@@ -1673,20 +1846,20 @@ def predict_game():
             comprehensive_analysis = format_prediction_for_api(prediction, home_team_data, away_team_data, predictor)
             
             # Validate prediction consistency
-            validation_results = PredictionValidator.validate_full_prediction({
-                'predicted_spread': prediction.predicted_spread,
-                'predicted_total': prediction.predicted_total,
-                'home_win_prob': prediction.home_win_prob,
-                'ui_components': comprehensive_analysis.get('ui_components', {})
-            })
+            # validation_results = PredictionValidator.validate_full_prediction({
+            #     'predicted_spread': prediction.predicted_spread,
+            #     'predicted_total': prediction.predicted_total,
+            #     'home_win_prob': prediction.home_win_prob,
+            #     'ui_components': comprehensive_analysis.get('ui_components', {})
+            # })
             
             # Log validation results
-            if not validation_results['is_valid']:
-                print(f"⚠️ VALIDATION ERRORS: {validation_results['errors']}")
-            if validation_results['warnings']:
-                print(f"🔍 VALIDATION WARNINGS: {validation_results['warnings']}")
-            if validation_results['consistency_checks']:
-                print(f"✅ CONSISTENCY CHECKS: {validation_results['consistency_checks']}")
+            # if not validation_results['is_valid']:
+            #     print(f"⚠️ VALIDATION ERRORS: {validation_results['errors']}")
+            # if validation_results['warnings']:
+            #     print(f"🔍 VALIDATION WARNINGS: {validation_results['warnings']}")
+            # if validation_results['consistency_checks']:
+            #     print(f"✅ CONSISTENCY CHECKS: {validation_results['consistency_checks']}")
             
             # The formatted analysis is already printed by format_prediction_output
             
@@ -1769,6 +1942,35 @@ def predict_game_get(home_team, away_team):
     except Exception as e:
         return jsonify({
             "error": f"Prediction failed: {str(e)}"
+        }), 500
+
+@app.route('/advanced-drive-analytics/<home_team>/<away_team>', methods=['GET'])
+def get_advanced_drive_analytics(home_team, away_team):
+    """Get comprehensive drive analytics and quarter-by-quarter predictions"""
+    try:
+        # Get drive metrics for both teams
+        home_metrics = drive_analytics.get_team_drive_metrics(home_team, season=2025)
+        away_metrics = drive_analytics.get_team_drive_metrics(away_team, season=2025)
+        
+        # Get quarter predictions
+        quarter_predictions = drive_analytics.predict_quarter_outcomes(home_team, away_team, season=2025)
+        
+        return jsonify({
+            'home_team': home_team,
+            'away_team': away_team,
+            'home_metrics': home_metrics,
+            'away_metrics': away_metrics,
+            'quarter_predictions': quarter_predictions,
+            'summary': {
+                'home_explosive_advantage': home_metrics['explosive_pct'] > away_metrics['explosive_pct'],
+                'home_methodical_advantage': home_metrics['methodical_pct'] > away_metrics['methodical_pct'],
+                'home_redzone_advantage': home_metrics['red_zone_efficiency'] > away_metrics['red_zone_efficiency'],
+                'home_quick_strike_advantage': home_metrics['quick_strike_pct'] > away_metrics['quick_strike_pct']
+            }
+        })
+    except Exception as e:
+        return jsonify({
+            "error": f"Drive analytics failed: {str(e)}"
         }), 500
 
 @app.route('/predict-detailed/<home_team>/<away_team>', methods=['GET'])
@@ -1882,8 +2084,11 @@ def predict_game_detailed(home_team, away_team):
 
 @app.route('/api/live-game', methods=['GET'])
 def get_live_game():
-    """Fetch live game data including win probability, field position, and plays"""
+    """Fetch live game data from ESPN API including field position, scores, and plays"""
     try:
+        import requests
+        import json as json_lib
+        
         home_team = request.args.get('home')
         away_team = request.args.get('away')
         
@@ -1892,19 +2097,212 @@ def get_live_game():
                 'error': 'Both home and away team names are required'
             }), 400
         
-        # NOTE: Live game data feature is currently disabled
-        # This endpoint would fetch real-time game data from College Football Data API
-        # For now, return a placeholder response
-        return jsonify({
-            'status': 'unavailable',
-            'message': 'Live game data feature is currently unavailable',
-            'home_team': home_team,
-            'away_team': away_team,
-            'note': 'Use the /predict endpoint for pre-game analysis'
-        }), 503
+        # Load team mappings from fbs.json
+        with open('fbs.json', 'r') as f:
+            teams_data = json_lib.load(f)
+        
+        # Find team info from fbs.json
+        home_info = None
+        away_info = None
+        for team in teams_data:
+            if team['school'].lower() == home_team.lower() or home_team.lower() in team['school'].lower():
+                home_info = team
+            if team['school'].lower() == away_team.lower() or away_team.lower() in team['school'].lower():
+                away_info = team
+        
+        # Fetch current games from ESPN scoreboard
+        scoreboard_url = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard"
+        scoreboard_response = requests.get(scoreboard_url, timeout=10)
+        scoreboard_data = scoreboard_response.json()
+        
+        # Find the matching game
+        game_id = None
+        for event in scoreboard_data.get('events', []):
+            event_name = event.get('name', '').lower()
+            if (home_team.lower() in event_name or (home_info and home_info['school'].lower() in event_name)) and \
+               (away_team.lower() in event_name or (away_info and away_info['school'].lower() in event_name)):
+                game_id = event['id']
+                break
+        
+        if not game_id:
+            return jsonify({
+                'game_info': {
+                    'is_live': False,
+                    'home_team': home_team,
+                    'away_team': away_team
+                },
+                'message': 'Game not found or not currently live'
+            }), 200
+        
+        # Fetch detailed game data
+        summary_url = f"https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event={game_id}"
+        summary_response = requests.get(summary_url, timeout=10)
+        game_data = summary_response.json()
+        
+        # Extract game state
+        header = game_data.get('header', {})
+        competitions = header.get('competitions', [{}])[0]
+        status = competitions.get('status', {})
+        competitors = competitions.get('competitors', [])
+        
+        # Determine home/away from competitors
+        home_competitor = next((c for c in competitors if c.get('homeAway') == 'home'), {})
+        away_competitor = next((c for c in competitors if c.get('homeAway') == 'away'), {})
+        
+        is_live = status.get('type', {}).get('state') == 'in'
+        
+        # Extract current drive and field position
+        drives = game_data.get('drives', {})
+        current_drive = drives.get('current', {})
+        previous_drives = drives.get('previous', [])
+        
+        # Get the most recent play for field position
+        field_position_data = {}
+        possession_team_id = None
+        
+        if current_drive and current_drive.get('plays'):
+            last_play = current_drive['plays'][-1]
+            end_data = last_play.get('end', {})
+            field_position_data = {
+                'yard_line': end_data.get('yardsToEndzone', 50),
+                'down': end_data.get('down', 1),
+                'distance': end_data.get('distance', 10),
+                'possession_text': end_data.get('possessionText', '50'),
+                'down_distance_text': end_data.get('shortDownDistanceText', '1st & 10')
+            }
+            possession_team_id = current_drive.get('team', {}).get('id')
+        elif previous_drives:
+            last_drive = previous_drives[-1]
+            if last_drive.get('plays'):
+                last_play = last_drive['plays'][-1]
+                end_data = last_play.get('end', {})
+                field_position_data = {
+                    'yard_line': end_data.get('yardsToEndzone', 50),
+                    'down': end_data.get('down', 1),
+                    'distance': end_data.get('distance', 10),
+                    'possession_text': end_data.get('possessionText', '50'),
+                    'down_distance_text': end_data.get('shortDownDistanceText', '1st & 10')
+                }
+                possession_team_id = last_drive.get('team', {}).get('id')
+        
+        # Determine possession
+        possession_team = 'home'
+        if possession_team_id:
+            if str(possession_team_id) == str(away_competitor.get('team', {}).get('id')):
+                possession_team = 'away'
+        
+        # Extract all plays from drives
+        all_plays = []
+        
+        # Get plays from previous drives
+        for drive in previous_drives:
+            if isinstance(drive, dict):
+                for play in drive.get('plays', []):
+                    # Transform ESPN play data to our frontend format
+                    team_participants = play.get('teamParticipants', [])
+                    offense_team = next((t for t in team_participants if t.get('type') == 'offense'), {})
+                    offense_team_id = offense_team.get('id', '')
+                    
+                    # Determine team name
+                    if str(offense_team_id) == str(home_competitor.get('team', {}).get('id')):
+                        team_name = home_competitor.get('team', {}).get('abbreviation', home_team)
+                    else:
+                        team_name = away_competitor.get('team', {}).get('abbreviation', away_team)
+                    
+                    # Extract play details
+                    start_pos = play.get('start', {})
+                    end_pos = play.get('end', {})
+                    
+                    all_plays.append({
+                        'id': play.get('id', ''),
+                        'period': play.get('period', {}).get('number', 1),
+                        'clock': play.get('clock', {}).get('displayValue', ''),
+                        'team': team_name,
+                        'offense': 'home' if str(offense_team_id) == str(home_competitor.get('team', {}).get('id')) else 'away',
+                        'down': start_pos.get('down'),
+                        'distance': start_pos.get('distance'),
+                        'yard_line': start_pos.get('yardsToEndzone'),
+                        'yards_to_goal': start_pos.get('yardsToEndzone'),
+                        'yards_gained': play.get('statYardage', 0),
+                        'play_type': play.get('type', {}).get('text', ''),
+                        'play_text': play.get('text', ''),
+                        'home_score': play.get('homeScore', 0),
+                        'away_score': play.get('awayScore', 0),
+                        'epa': play.get('expectedPoints', {}).get('added') if play.get('expectedPoints') else None,
+                        'success': play.get('statYardage', 0) >= start_pos.get('distance', 0) if start_pos.get('down', 0) in [3, 4] else None
+                    })
+        
+        # Get plays from current drive
+        if current_drive and isinstance(current_drive, dict):
+            for play in current_drive.get('plays', []):
+                team_participants = play.get('teamParticipants', [])
+                offense_team = next((t for t in team_participants if t.get('type') == 'offense'), {})
+                offense_team_id = offense_team.get('id', '')
+                
+                if str(offense_team_id) == str(home_competitor.get('team', {}).get('id')):
+                    team_name = home_competitor.get('team', {}).get('abbreviation', home_team)
+                else:
+                    team_name = away_competitor.get('team', {}).get('abbreviation', away_team)
+                
+                start_pos = play.get('start', {})
+                end_pos = play.get('end', {})
+                
+                all_plays.append({
+                    'id': play.get('id', ''),
+                    'period': play.get('period', {}).get('number', 1),
+                    'clock': play.get('clock', {}).get('displayValue', ''),
+                    'team': team_name,
+                    'offense': 'home' if str(offense_team_id) == str(home_competitor.get('team', {}).get('id')) else 'away',
+                    'down': start_pos.get('down'),
+                    'distance': start_pos.get('distance'),
+                    'yard_line': start_pos.get('yardsToEndzone'),
+                    'yards_to_goal': start_pos.get('yardsToEndzone'),
+                    'yards_gained': play.get('statYardage', 0),
+                    'play_type': play.get('type', {}).get('text', ''),
+                    'play_text': play.get('text', ''),
+                    'home_score': play.get('homeScore', 0),
+                    'away_score': play.get('awayScore', 0),
+                    'epa': play.get('expectedPoints', {}).get('added') if play.get('expectedPoints') else None,
+                    'success': play.get('statYardage', 0) >= start_pos.get('distance', 0) if start_pos.get('down', 0) in [3, 4] else None
+                })
+        
+        # Build response
+        response_data = {
+            'game_info': {
+                'is_live': is_live,
+                'status': status.get('type', {}).get('state', 'unknown'),  # 'in', 'pre', 'post'
+                'status_detail': status.get('type', {}).get('detail', ''),  # e.g., 'Final', 'Halftime'
+                'home_team': home_competitor.get('team', {}).get('displayName', home_team),
+                'away_team': away_competitor.get('team', {}).get('displayName', away_team),
+                'home_abbr': home_competitor.get('team', {}).get('abbreviation', ''),
+                'away_abbr': away_competitor.get('team', {}).get('abbreviation', ''),
+                'home_logo': home_info['logos'][0] if home_info and home_info.get('logos') else home_competitor.get('team', {}).get('logo'),
+                'away_logo': away_info['logos'][0] if away_info and away_info.get('logos') else away_competitor.get('team', {}).get('logo'),
+                'home_color': '#' + home_competitor.get('team', {}).get('color', home_info.get('color', '1a7a42') if home_info else '1a7a42'),
+                'away_color': '#' + away_competitor.get('team', {}).get('color', away_info.get('color', '0d5c2f') if away_info else '0d5c2f')
+            },
+            'game_state': {
+                'period': status.get('period', 1),
+                'clock': status.get('displayClock', '15:00'),
+                'possession': possession_team,
+                'situation': field_position_data.get('down_distance_text', '1st & 10'),
+                'home_score': int(home_competitor.get('score', 0)),
+                'away_score': int(away_competitor.get('score', 0))
+            },
+            'field_position': field_position_data,
+            'win_probability': {
+                'home': competitions.get('situation', {}).get('lastPlay', {}).get('probability', {}).get('homeWinPercentage', 50.0),
+                'away': competitions.get('situation', {}).get('lastPlay', {}).get('probability', {}).get('awayWinPercentage', 50.0)
+            },
+            'plays': all_plays,  # All plays for replay functionality
+            'recent_plays': all_plays[-50:] if len(all_plays) > 50 else all_plays,  # Last 50 plays for live feed
+            'total_plays': len(all_plays)
+        }
+        
+        return jsonify(response_data), 200
         
     except Exception as e:
-        print(f"Error fetching live game data: {e}")
+        print(f"Error fetching live game data from ESPN: {e}")
         import traceback
         traceback.print_exc()
         return jsonify({
@@ -1941,6 +2339,633 @@ def get_teams():
             
     except Exception as e:
         return jsonify({'error': f'Failed to load teams: {str(e)}'}), 500
+
+@app.route('/api/team/<int:team_id>/drives-stats', methods=['GET'])
+def get_team_drives_stats(team_id):
+    """Get drive statistics for a team from the drives database"""
+    try:
+        import sqlite3
+        
+        conn = sqlite3.connect('gameday_analytics.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        # Get total drives and games played for calculating drives per game
+        cursor.execute("""
+            SELECT 
+                COUNT(DISTINCT d.id) as total_drives,
+                COUNT(DISTINCT d.game_id) as games_played,
+                AVG(d.yards) as avg_yards_per_drive,
+                SUM(d.plays) as total_plays,
+                SUM(CASE WHEN d.scoring = 1 THEN 1 ELSE 0 END) as scoring_drives,
+                SUM(CASE WHEN d.drive_result LIKE '%TD%' THEN 1 ELSE 0 END) as td_drives,
+                SUM(CASE WHEN d.drive_result LIKE '%FG%' OR d.drive_result LIKE '%FGA%' THEN 1 ELSE 0 END) as fg_drives,
+                SUM(CASE WHEN d.drive_result LIKE '%PUNT%' THEN 1 ELSE 0 END) as punt_drives,
+                SUM(CASE WHEN d.drive_result LIKE '%INT%' OR d.drive_result LIKE '%FUMBLE%' THEN 1 ELSE 0 END) as turnover_drives
+            FROM drives d
+            WHERE d.offense_team_id = ?
+        """, (team_id,))
+        
+        stats = dict(cursor.fetchone())
+        
+        # Calculate drives per game
+        games_played = stats['games_played'] or 1
+        stats['drives_per_game'] = round(stats['total_drives'] / games_played, 1)
+        
+        # Calculate percentages
+        total = stats['total_drives'] or 1
+        stats['td_rate'] = round((stats['td_drives'] / total) * 100, 1)
+        stats['scoring_rate'] = round((stats['scoring_drives'] / total) * 100, 1)
+        
+        conn.close()
+        
+        return jsonify({'success': True, 'stats': stats})
+    except Exception as e:
+        print(f"❌ Error getting drives stats for team {team_id}: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/coach/<int:coach_id>/timeline', methods=['GET'])
+def get_coach_timeline(coach_id):
+    """Get coach timeline data for visualization"""
+    try:
+        conn = sqlite3.connect('instance/coaches_master.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        # Get timeline data
+        cursor.execute("""
+            SELECT 
+                coach_name,
+                career_record,
+                career_win_pct,
+                max_win_streak,
+                total_ranked_wins,
+                weekly_data,
+                monthly_data,
+                yearly_data,
+                plot_bands,
+                flags,
+                generated_at
+            FROM coach_timeline_data
+            WHERE coach_id = ?
+        """, (coach_id,))
+        
+        row = cursor.fetchone()
+        
+        if not row:
+            # Try to get basic coach info
+            cursor.execute("SELECT name, headshot_url FROM coaches WHERE id = ?", (coach_id,))
+            coach = cursor.fetchone()
+            if coach:
+                return jsonify({
+                    'coachName': coach['name'],
+                    'coachHeadshot': coach['headshot_url'],
+                    'data': [],
+                    'metadata': {
+                        'record': '0-0',
+                        'win_pct': '0.0'
+                    },
+                    'career_schools': []
+                }), 200
+            return jsonify({'error': 'Coach not found'}), 404
+        
+        # Parse JSON fields
+        import json
+        weekly_data = json.loads(row['weekly_data']) if row['weekly_data'] else []
+        plot_bands = json.loads(row['plot_bands']) if row['plot_bands'] else []
+        
+        # Get coach headshot and career schools
+        cursor.execute("""
+            SELECT c.headshot_url, s.school, s.start_year, s.end_year, s.record, s.win_pct
+            FROM coaches c
+            LEFT JOIN stints s ON c.id = s.coach_id
+            WHERE c.id = ?
+            ORDER BY s.start_year
+        """, (coach_id,))
+        
+        coach_data = cursor.fetchall()
+        headshot = coach_data[0]['headshot_url'] if coach_data else None
+        
+        # Build career schools array
+        career_schools = []
+        for stint in coach_data:
+            if stint['school']:
+                # Get team data from fbs.json via database or use defaults
+                cursor.execute("""
+                    SELECT t.logos, t.color, t.alt_color 
+                    FROM teams t 
+                    WHERE t.school = ?
+                    LIMIT 1
+                """, (stint['school'],))
+                team_row = cursor.fetchone()
+                
+                if team_row and team_row['logos']:
+                    import json
+                    logos = json.loads(team_row['logos'])
+                    team_logo = logos[0] if logos else None
+                    team_color = team_row['color'] or team_row['alt_color']
+                else:
+                    team_logo = None
+                    team_color = '#666666'
+                
+                career_schools.append({
+                    'school_name': stint['school'],
+                    'school': stint['school'],
+                    'years': f"{stint['start_year']}-{stint['end_year'] if stint['end_year'] != stint['start_year'] else stint['start_year']}",
+                    'record': stint['record'],
+                    'win_pct': float(stint['win_pct']) if stint['win_pct'] else 0.0,
+                    'team_logo': team_logo,
+                    'team_color': team_color
+                })
+        
+        conn.close()
+        
+        return jsonify({
+            'coachName': row['coach_name'],
+            'coachHeadshot': headshot,
+            'data': weekly_data,
+            'metadata': {
+                'record': row['career_record'],
+                'win_pct': f"{float(row['career_win_pct']):.1f}" if row['career_win_pct'] else '0.0',
+                'max_win_streak': row['max_win_streak'],
+                'total_ranked_wins': row['total_ranked_wins']
+            },
+            'career_schools': career_schools,
+            'plot_bands': plot_bands
+        }), 200
+        
+    except Exception as e:
+        print(f"❌ Error getting timeline for coach {coach_id}: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/coaches/comparison', methods=['GET'])
+def get_coaches_comparison():
+    """Get comprehensive coach comparison data from coaches_master.db"""
+    try:
+        home_team = request.args.get('home_team')
+        away_team = request.args.get('away_team')
+        
+        if not home_team or not away_team:
+            return jsonify({'error': 'Both home_team and away_team required'}), 400
+        
+        print(f"\n👔 Coaches Comparison Request: {home_team} vs {away_team}")
+        
+        conn = sqlite3.connect('instance/coaches_master.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        def get_coach_comprehensive_data(team_name):
+            """Get all coach data for a team"""
+            # Get coach and school info
+            # Try exact match first, looking for active coaches (end_year >= 2024)
+            cursor.execute("""
+                SELECT c.id, c.name, c.headshot_url, s.school
+                FROM coaches c
+                JOIN stints s ON c.id = s.coach_id
+                WHERE s.school = ? AND s.end_year >= 2024
+                ORDER BY s.end_year DESC
+                LIMIT 1
+            """, (team_name,))
+            
+            coach_row = cursor.fetchone()
+            
+            # If not found, try fuzzy match
+            if not coach_row:
+                print(f"⚠️ Exact match failed for {team_name}, trying fuzzy match...")
+                cursor.execute("""
+                    SELECT c.id, c.name, c.headshot_url, s.school
+                    FROM coaches c
+                    JOIN stints s ON c.id = s.coach_id
+                    WHERE s.school LIKE ? AND s.end_year >= 2024
+                    ORDER BY s.end_year DESC
+                    LIMIT 1
+                """, (f"%{team_name}%",))
+                coach_row = cursor.fetchone()
+
+            if not coach_row:
+                print(f"❌ No coach found for {team_name}")
+                return None
+            
+            print(f"✅ Found coach for {team_name}: {coach_row['name']} ({coach_row['school']})")
+            
+            coach_id = coach_row['id']
+            coach_name = coach_row['name']
+            headshot_url = coach_row['headshot_url']
+            
+            # Get team colors and logo from teams table
+            cursor.execute("""
+                SELECT color, alt_color, logo_url
+                FROM teams
+                WHERE school = ?
+            """, (team_name,))
+            team_row = cursor.fetchone()
+            team_color = team_row['color'] if team_row else None
+            team_alt_color = team_row['alt_color'] if team_row else None
+            team_logo = team_row['logo_url'] if team_row else None
+            
+            # Career summary
+            cursor.execute("""
+                SELECT 
+                    SUM(CASE WHEN g.result = 'W' THEN 1 ELSE 0 END) as wins,
+                    SUM(CASE WHEN g.result = 'L' THEN 1 ELSE 0 END) as losses,
+                    COUNT(DISTINCT g.season || '-' || g.week) as total_games,
+                    COUNT(DISTINCT g.season) as seasons
+                FROM games g
+                WHERE g.coach_id = ?
+            """, (coach_id,))
+            career = cursor.fetchone()
+            
+            total_games = career['total_games']
+            wins = career['wins']
+            win_pct = wins / total_games if total_games > 0 else 0
+            
+            # Last 10 games
+            cursor.execute("""
+                SELECT result, (coach_score - opponent_score) as diff
+                FROM games
+                WHERE coach_id = ?
+                ORDER BY season DESC, week DESC
+                LIMIT 10
+            """, (coach_id,))
+            last_10 = cursor.fetchall()
+            last_10_wins = sum(1 for g in last_10 if g['result'] == 'W')
+            last_10_losses = len(last_10) - last_10_wins
+            last_10_diff = sum(g['diff'] for g in last_10) / len(last_10) if last_10 else 0
+            
+            # Stints
+            cursor.execute("""
+                SELECT school, start_year, end_year, record, win_pct, games_coached as games
+                FROM stints
+                WHERE coach_id = ?
+                ORDER BY start_year DESC
+            """, (coach_id,))
+            stints = [dict(row) for row in cursor.fetchall()]
+            
+            # Situational stats by school
+            cursor.execute("""
+                SELECT school, 
+                       vs_ranked_record as vs_ranked, 
+                       vs_top_10_record as vs_top_10, 
+                       home_record as home, 
+                       away_record as away, 
+                       neutral_record as neutral, 
+                       (one_score_wins || '-' || one_score_losses) as one_score,
+                       (blowout_wins || '-' || blowout_losses) as blowouts, 
+                       conference_record as conference
+                FROM situational_stats
+                WHERE coach_id = ?
+            """, (coach_id,))
+            situational = [dict(row) for row in cursor.fetchall()]
+            
+            # Season analytics (all seasons) - need to join with games for record
+            cursor.execute("""
+                SELECT 
+                    sa.season,
+                    sa.school,
+                    COALESCE(
+                        (SELECT COUNT(DISTINCT week) FROM games WHERE coach_id = ? AND season = sa.season AND school = sa.school AND result = 'W'),
+                        0
+                    ) || '-' || 
+                    COALESCE(
+                        (SELECT COUNT(DISTINCT week) FROM games WHERE coach_id = ? AND season = sa.season AND school = sa.school AND result = 'L'),
+                        0
+                    ) as record,
+                    CAST(COALESCE(
+                        (SELECT COUNT(DISTINCT week) FROM games WHERE coach_id = ? AND season = sa.season AND school = sa.school AND result = 'W'),
+                        0
+                    ) AS FLOAT) / NULLIF(
+                        (SELECT COUNT(DISTINCT week) FROM games WHERE coach_id = ? AND season = sa.season AND school = sa.school),
+                        0
+                    ) as win_pct,
+                    sa.points_per_game as ppg,
+                    sa.points_allowed_pg as papg,
+                    sa.yards_per_play as ypp,
+                    sa.sp_overall,
+                    sa.sp_offense,
+                    sa.sp_defense,
+                    sa.fpi,
+                    sa.srs,
+                    sa.third_down_pct,
+                    sa.fourth_down_pct
+                FROM season_analytics sa
+                WHERE sa.coach_id = ?
+                ORDER BY sa.season DESC
+            """, (coach_id, coach_id, coach_id, coach_id, coach_id))
+            seasons = [dict(row) for row in cursor.fetchall()]
+            
+            # 2025 season detail
+            season_2025 = next((s for s in seasons if s['season'] == 2025), None)
+            
+            # Key players 2025
+            cursor.execute("""
+                SELECT player_name as name, position, passing_yards, rushing_yards, receiving_yards
+                FROM player_season_stats
+                WHERE team = ? AND season = 2025
+                ORDER BY 
+                    COALESCE(passing_yards, 0) + 
+                    COALESCE(rushing_yards, 0) + 
+                    COALESCE(receiving_yards, 0) DESC
+                LIMIT 5
+            """, (team_name,))
+            key_players = [dict(row) for row in cursor.fetchall()]
+            
+            # Get 2025 games for trend chart
+            cursor.execute("""
+                SELECT 
+                    week,
+                    opponent,
+                    opponent_logo,
+                    result,
+                    coach_score as points_for,
+                    opponent_score as points_against,
+                    (coach_score - opponent_score) as diff
+                FROM games
+                WHERE coach_id = ? AND season = 2025
+                ORDER BY week ASC
+            """, (coach_id,))
+            games_2025 = [dict(row) for row in cursor.fetchall()]
+            
+            if season_2025:
+                season_2025['key_players_2025'] = key_players
+                season_2025['games'] = games_2025
+            
+            # Recruiting classes
+            cursor.execute("""
+                SELECT year, class_rank
+                FROM recruiting_classes
+                WHERE coach_id = ?
+                ORDER BY year DESC
+            """, (coach_id,))
+            recruiting = [dict(row) for row in cursor.fetchall()]
+            
+            # Talent composite
+            cursor.execute("""
+                SELECT year, talent_rating, talent_rank
+                FROM talent_composite
+                WHERE coach_id = ?
+                ORDER BY year DESC
+            """, (coach_id,))
+            talent = [dict(row) for row in cursor.fetchall()]
+            
+            # Transfer portal
+            cursor.execute("""
+                SELECT season, transfers_in as "in", transfers_out as "out",
+                       (transfers_in - transfers_out) as net,
+                       avg_rating_in, avg_rating_out
+                FROM transfer_portal
+                WHERE coach_id = ?
+                ORDER BY season DESC
+            """, (coach_id,))
+            portal = [dict(row) for row in cursor.fetchall()]
+            
+            # Draft picks
+            cursor.execute("""
+                SELECT 
+                    COUNT(*) as total,
+                    SUM(CASE WHEN round = 1 THEN 1 ELSE 0 END) as r1,
+                    SUM(CASE WHEN round = 2 THEN 1 ELSE 0 END) as r2,
+                    SUM(CASE WHEN round = 3 THEN 1 ELSE 0 END) as r3,
+                    SUM(CASE WHEN round >= 4 THEN 1 ELSE 0 END) as r4plus
+                FROM draft_picks
+                WHERE coach_id = ?
+            """, (coach_id,))
+            draft_summary = dict(cursor.fetchone())
+            
+            cursor.execute("""
+                SELECT year, COUNT(*) as picks,
+                       SUM(CASE WHEN round = 1 THEN 1 ELSE 0 END) as r1,
+                       SUM(CASE WHEN round = 2 THEN 1 ELSE 0 END) as r2,
+                       SUM(CASE WHEN round = 3 THEN 1 ELSE 0 END) as r3,
+                       SUM(CASE WHEN round >= 4 THEN 1 ELSE 0 END) as r4plus
+                FROM draft_picks
+                WHERE coach_id = ?
+                GROUP BY year
+                ORDER BY year DESC
+                LIMIT 5
+            """, (coach_id,))
+            draft_by_year = [dict(row) for row in cursor.fetchall()]
+            
+            # NIL strategy
+            cursor.execute("""
+                SELECT total_valuation, total_players as player_count, avg_valuation as avg_valuation_per_player
+                FROM nil_team_summary
+                WHERE team_name = ?
+            """, (team_name,))
+            nil_row = cursor.fetchone()
+            nil_strategy = dict(nil_row) if nil_row else None
+            
+            # Build coaching archetype (simplified version)
+            archetype_key = f"{coach_name.lower().replace(' ', '_')}_{team_name.lower().replace(' ', '_')}"
+            archetype = {
+                "offensive_identity": {
+                    "style": "Data-driven offense" if season_2025 and season_2025.get('sp_offense', 0) > 30 else "Balanced attack",
+                    "philosophy": f"Averaging {season_2025['ppg']:.1f} PPG" if season_2025 else "N/A"
+                },
+                "defensive_philosophy": {
+                    "style": "Elite defense" if season_2025 and season_2025.get('sp_defense', 100) < 20 else "Solid defense"
+                },
+                "game_management": {
+                    "aggression_level": "Aggressive" if season_2025 and season_2025.get('fourth_down_pct', 0) > 55 else "Moderate",
+                    "fourth_down_conversion_avg": f"{season_2025['fourth_down_pct']:.1f}%" if season_2025 else "N/A"
+                },
+                "nil_strategy": {
+                    "total_valuation": nil_strategy['total_valuation'] if nil_strategy else 0,
+                    "players": nil_strategy['player_count'] if nil_strategy else 0,
+                    "avg_per_player": nil_strategy['avg_valuation_per_player'] if nil_strategy else 0
+                },
+                "archetype_summary": f"{coach_name} is building a competitive program at {team_name}"
+            }
+            
+            return {
+                "profile": {
+                    "coach_id": coach_id,
+                    "coach_name": coach_name,
+                    "school": team_name,
+                    "headshot_url": headshot_url,
+                    "team_color": team_color,
+                    "secondary_color": team_alt_color,
+                    "team_logo": team_logo
+                },
+                "career_summary": {
+                    "record": f"{wins}-{career['losses']}",
+                    "win_pct": win_pct,
+                    "total_games": total_games,
+                    "seasons_coached": career['seasons'],
+                    "last_10_record": f"{last_10_wins}-{last_10_losses}",
+                    "last_10_avg_point_diff": round(last_10_diff, 1)
+                },
+                "stints": stints,
+                "situational_by_school": situational,
+                "seasons": seasons,
+                "season_2025_detail": season_2025,
+                "recruiting_classes": recruiting,
+                "talent_composite": talent,
+                "transfer_portal": portal,
+                "draft_picks": {
+                    "recent_total": draft_summary['total'],
+                    "breakdown": {
+                        "r1": draft_summary['r1'],
+                        "r2": draft_summary['r2'],
+                        "r3": draft_summary['r3'],
+                        "r4plus": draft_summary['r4plus']
+                    },
+                    "years": draft_by_year
+                },
+                "coaching_archetype_analysis": {
+                    archetype_key: archetype
+                },
+                "advanced_performance_metrics": {}
+            }
+        
+        coach1_data = get_coach_comprehensive_data(home_team)
+        coach2_data = get_coach_comprehensive_data(away_team)
+        
+        conn.close()
+        
+        if not coach1_data or not coach2_data:
+            return jsonify({
+                'error': 'Coach data not found for one or both teams',
+                'home_team': home_team,
+                'away_team': away_team
+            }), 404
+        
+        # Build comparative analysis
+        comparative_analysis = {
+            "lane_kiffin_vs_bret_bielema": {
+                "record_comparison": f"{coach1_data['career_summary']['record']} vs {coach2_data['career_summary']['record']}",
+                "points_per_game": f"{coach1_data['season_2025_detail']['ppg']:.1f} vs {coach2_data['season_2025_detail']['ppg']:.1f}" if coach1_data.get('season_2025_detail') and coach2_data.get('season_2025_detail') else "N/A"
+            },
+            "philosophy_clash": {
+                "offensive_approach": f"{home_team} high-powered vs {away_team} balanced",
+                "tempo": "Contrasting styles create fascinating matchup",
+                "recruiting": "Different position priorities reflect coaching philosophies"
+            }
+        }
+        
+        # Build hypothetical matchup
+        coach1_win_pct = coach1_data['career_summary']['win_pct']
+        coach2_win_pct = coach2_data['career_summary']['win_pct']
+        
+        if coach1_win_pct > coach2_win_pct:
+            favorite = home_team
+            favorite_prob = "60-65%"
+            underdog = away_team
+        else:
+            favorite = away_team
+            favorite_prob = "60-65%"
+            underdog = home_team
+        
+        hypothetical_matchup = {
+            "head_to_head_never_met": f"{coach1_data['profile']['coach_name']} and {coach2_data['profile']['coach_name']} have never faced each other as head coaches",
+            "prediction_framework": {
+                "ole_miss_advantages": [
+                    f"Higher win percentage ({coach1_win_pct*100:.1f}% vs {coach2_win_pct*100:.1f}%)",
+                    f"More seasons coached ({coach1_data['career_summary']['seasons_coached']} vs {coach2_data['career_summary']['seasons_coached']})"
+                ] if coach1_win_pct > coach2_win_pct else [],
+                "illinois_advantages": [
+                    f"Higher win percentage ({coach2_win_pct*100:.1f}% vs {coach1_win_pct*100:.1f}%)",
+                    "Underdog mentality"
+                ] if coach2_win_pct > coach1_win_pct else [],
+                "stylistic_matchup": {
+                    "tempo": "Contrasting coaching styles",
+                    "advantage": favorite,
+                    "critical_factor": "Which coach can impose their style on the game?"
+                },
+                "game_script_scenarios": [
+                    {
+                        "scenario": f"{favorite} Dominance",
+                        "probability": favorite_prob,
+                        "description": f"{favorite} imposes their will and controls the game",
+                        "score_prediction": f"{favorite} wins by 10-14"
+                    },
+                    {
+                        "scenario": f"{underdog} Upset",
+                        "probability": "20-25%",
+                        "description": f"{underdog} executes perfect game plan",
+                        "score_prediction": f"{underdog} wins close game"
+                    },
+                    {
+                        "scenario": "Shootout",
+                        "probability": "15-20%",
+                        "description": "Both offenses clicking, comes down to final possession",
+                        "score_prediction": "High-scoring thriller"
+                    }
+                ],
+                "final_prediction": {
+                    "winner": f"{favorite} favored",
+                    "confidence": "Moderate (60-65%)",
+                    "reasoning": f"Based on career records and current season performance, {favorite} has the edge",
+                    "upset_path_for_illinois": f"{underdog} must control tempo and win turnover battle"
+                }
+            }
+        }
+        
+        result = {
+            "coach1": coach1_data,
+            "coach2": coach2_data,
+            "comparative_analysis": comparative_analysis,
+            "hypothetical_matchup": hypothetical_matchup
+        }
+        
+        print(f"✅ Coach comparison data built successfully")
+        return jsonify(result)
+        
+    except Exception as e:
+        print(f"❌ Error getting coach comparison: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/key-players/<team1>/<team2>', methods=['GET'])
+def get_key_players(team1, team2):
+    """Get key player stats for matchup from coaches_master.db"""
+    try:
+        print(f"\n🏈 Key Players Request: {team1} vs {team2}")
+        
+        coaches_db_path = os.path.join(app.instance_path, 'coaches_master.db')
+        conn = sqlite3.connect(coaches_db_path)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        # Get top 5 players per team by total yards
+        query = """
+            SELECT player_name, position, player_id,
+                   passing_yards, passing_tds, pass_attempts, completions, interceptions,
+                   rushing_yards, rushing_tds, carries,
+                   receiving_yards, receiving_tds, receptions,
+                   (COALESCE(passing_yards,0) + COALESCE(rushing_yards,0) + COALESCE(receiving_yards,0)) as total_yards,
+                   headshot_url, team_logo_url
+            FROM player_season_stats 
+            WHERE team = ? AND season = 2025
+            ORDER BY total_yards DESC 
+            LIMIT 5
+        """
+        
+        # Fetch team1 players
+        cursor.execute(query, (team1,))
+        team1_players = [dict(row) for row in cursor.fetchall()]
+        
+        # Fetch team2 players
+        cursor.execute(query, (team2,))
+        team2_players = [dict(row) for row in cursor.fetchall()]
+        
+        conn.close()
+        
+        return jsonify({
+            'success': True,
+            'team1': team1,
+            'team2': team2,
+            'team1_players': team1_players,
+            'team2_players': team2_players
+        })
+        
+    except Exception as e:
+        print(f"❌ Error getting key players: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/api/player-props/<team1>/<team2>', methods=['GET'])
 def get_player_props(team1, team2):
@@ -2088,20 +3113,142 @@ def n8n_data_update_webhook():
             'message': str(e)
         }), 400
 
-# Serve React Frontend
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def serve_react_app(path):
-    """Serve the React frontend"""
+@app.route('/api/upcoming-games', methods=['GET'])
+def get_upcoming_games():
+    """
+    Get upcoming games from predictions database
+    Supports filtering by season_type (regular or postseason)
+    
+    Query params:
+        season_type: 'regular', 'postseason', or omit for all
+    """
     try:
-        # Serve static files
-        if path and os.path.exists(os.path.join('frontend/dist', path)):
-            return send_from_directory('frontend/dist', path)
+        import sqlite3
+        
+        season_type = request.args.get('season_type', None)
+        
+        conn = sqlite3.connect('instance/predictions.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        # Build query with optional season_type filter
+        if season_type:
+            cursor.execute("""
+                SELECT 
+                    id, start_date, week, season_type,
+                    home_team, home_id, home_abbreviation, home_logo, home_color, home_alt_color, home_record, home_rank,
+                    away_team, away_id, away_abbreviation, away_logo, away_color, away_alt_color, away_record, away_rank,
+                    spread, over_under, home_moneyline, away_moneyline,
+                    venue, neutral_site,
+                    home_fpi, away_fpi, home_conference, away_conference
+                FROM upcoming_games
+                WHERE season_type = ?
+                ORDER BY start_date ASC
+            """, (season_type,))
         else:
-            # Serve index.html for React Router
-            return send_from_directory('frontend/dist', 'index.html')
+            cursor.execute("""
+                SELECT 
+                    id, start_date, week, season_type,
+                    home_team, home_id, home_abbreviation, home_logo, home_color, home_alt_color, home_record, home_rank,
+                    away_team, away_id, away_abbreviation, away_logo, away_color, away_alt_color, away_record, away_rank,
+                    spread, over_under, home_moneyline, away_moneyline,
+                    venue, neutral_site,
+                    home_fpi, away_fpi, home_conference, away_conference
+                FROM upcoming_games
+                ORDER BY start_date ASC
+            """)
+        
+        games = []
+        for row in cursor.fetchall():
+            games.append({
+                'id': row['id'],
+                'date': row['start_date'],
+                'week': row['week'],
+                'seasonType': row['season_type'],
+                'home': {
+                    'id': row['home_id'],
+                    'team': row['home_team'],
+                    'abbr': row['home_abbreviation'],
+                    'logo': row['home_logo'],
+                    'color': row['home_color'],
+                    'altColor': row['home_alt_color'],
+                    'record': row['home_record'],
+                    'rank': row['home_rank'],
+                    'fpi': row['home_fpi'],
+                    'conference': row['home_conference']
+                },
+                'away': {
+                    'id': row['away_id'],
+                    'team': row['away_team'],
+                    'abbr': row['away_abbreviation'],
+                    'logo': row['away_logo'],
+                    'color': row['away_color'],
+                    'altColor': row['away_alt_color'],
+                    'record': row['away_record'],
+                    'rank': row['away_rank'],
+                    'fpi': row['away_fpi'],
+                    'conference': row['away_conference']
+                },
+                'betting': {
+                    'spread': row['spread'],
+                    'overUnder': row['over_under'],
+                    'homeMoneyline': row['home_moneyline'],
+                    'awayMoneyline': row['away_moneyline']
+                },
+                'venue': row['venue'],
+                'neutralSite': row['neutral_site']
+            })
+        
+        conn.close()
+        return jsonify({'games': games, 'count': len(games)})
     except Exception as e:
-        return jsonify({'error': 'Frontend not available', 'details': str(e)}), 404
+        print(f"Error fetching upcoming games: {e}")
+        return jsonify({'error': str(e)}), 500
+
+# Serve gamedaylive.html template as main UI
+@app.route('/')
+@app.route('/gamedaylive')
+def gamedaylive():
+    """Serve the gamedaylive HTML template"""
+    return render_template('gamedaylive.html')
+
+# Serve React Predictor App at /predictor
+@app.route('/predictor')
+@app.route('/predictor/')
+def serve_predictor_root():
+    """Serve the React predictor app index"""
+    try:
+        frontend_dist = os.path.join('frontend', 'dist')
+        if os.path.exists(frontend_dist):
+            return send_from_directory(frontend_dist, 'index.html')
+        else:
+            return jsonify({
+                'error': 'Predictor frontend not built',
+                'message': 'Run `cd frontend && npm run build` to build the React app'
+            }), 404
+    except Exception as e:
+        return jsonify({'error': 'Error serving predictor', 'details': str(e)}), 500
+
+@app.route('/predictor/<path:path>')
+def serve_predictor_assets(path):
+    """Serve React predictor app assets and handle client-side routing"""
+    try:
+        frontend_dist = os.path.join('frontend', 'dist')
+        if os.path.exists(frontend_dist):
+            # Try to serve the requested file
+            file_path = os.path.join(frontend_dist, path)
+            if os.path.exists(file_path) and os.path.isfile(file_path):
+                return send_from_directory(frontend_dist, path)
+            else:
+                # Fall back to index.html for React Router
+                return send_from_directory(frontend_dist, 'index.html')
+        else:
+            return jsonify({
+                'error': 'Predictor frontend not built',
+                'message': 'Run `cd frontend && npm run build` to build the React app'
+            }), 404
+    except Exception as e:
+        return jsonify({'error': 'Error serving predictor assets', 'details': str(e)}), 500
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5002))  # Changed from 5001 to 5002

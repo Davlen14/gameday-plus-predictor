@@ -1,9 +1,26 @@
 import React from 'react';
 import { GlassCard } from './GlassCard';
-import { Zap, Target, TrendingUp, Clock, CheckCircle, BarChart3 } from 'lucide-react';
+import { Zap, Target, TrendingUp, Clock, CheckCircle, BarChart3, Activity, Shield, Crosshair } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { extractSection } from '../../utils/teamUtils';
 import { InsightBox } from './InsightBox';
+import {
+  LineChart,
+  Line,
+  BarChart,
+  Bar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
+} from 'recharts';
 
 interface DriveEfficiencyProps {
   team1Data?: any;
@@ -948,11 +965,35 @@ export function DriveEfficiency({ team1Data, team2Data, predictionData }: DriveE
   const awayTeam = predictionData?.team_selector?.away_team;
   const homeTeam = predictionData?.team_selector?.home_team;
 
-  // Parse drive analytics from section [17]
+  // Parse drive analytics from API
   const parseDriveData = () => {
+    // Try to get structured drive analytics from API first
+    const driveAnalytics = predictionData?.drive_analytics;
+    
+    if (driveAnalytics?.home && driveAnalytics?.away) {
+      console.log('✅ Using structured drive analytics from API');
+      
+      return {
+        quarterData: {
+          team1: driveAnalytics.away.quarter_data || mockQuarterData.team1,
+          team2: driveAnalytics.home.quarter_data || mockQuarterData.team2
+        },
+        fieldPositionData: {
+          team1: driveAnalytics.away.field_position_data || mockFieldPositionData.team1,
+          team2: driveAnalytics.home.field_position_data || mockFieldPositionData.team2
+        },
+        driveOutcomes: {
+          team1: driveAnalytics.away.drive_outcomes || mockDriveOutcomes.team1,
+          team2: driveAnalytics.home.drive_outcomes || mockDriveOutcomes.team2
+        }
+      };
+    }
+    
+    // Fallback to parsing from formatted_analysis section [17]
     const section = predictionData?.formatted_analysis ? extractSection(predictionData.formatted_analysis, 17) : null;
     
     if (!section || !awayTeam || !homeTeam) {
+      console.log('⚠️ Using mock drive data');
       return {
         quarterData: mockQuarterData,
         fieldPositionData: mockFieldPositionData,
@@ -1070,11 +1111,11 @@ export function DriveEfficiency({ team1Data, team2Data, predictionData }: DriveE
   const { quarterData, fieldPositionData, driveOutcomes } = parseDriveData();
 
   // Extract scoring percentages for spider charts
-  const team1QuarterScoring = quarterData.team1.map(q => q.scoringPct);
-  const team2QuarterScoring = quarterData.team2.map(q => q.scoringPct);
+  const team1QuarterScoring = quarterData.team1.map((q: { scoringPct: number }) => q.scoringPct);
+  const team2QuarterScoring = quarterData.team2.map((q: { scoringPct: number }) => q.scoringPct);
   
-  const team1FieldPositionScoring = fieldPositionData.team1.map(fp => fp.scoringPct);
-  const team2FieldPositionScoring = fieldPositionData.team2.map(fp => fp.scoringPct);
+  const team1FieldPositionScoring = fieldPositionData.team1.map((fp: { scoringPct: number }) => fp.scoringPct);
+  const team2FieldPositionScoring = fieldPositionData.team2.map((fp: { scoringPct: number }) => fp.scoringPct);
 
   const quarterCategories = ['Q1', 'Q2', 'Q3', 'Q4'];
   const fieldPositionCategories = ['Own 1-20', 'Own 21-40', 'Own 41-Mid', 'Opp Territory'];
@@ -1087,15 +1128,392 @@ export function DriveEfficiency({ team1Data, team2Data, predictionData }: DriveE
   const team1Color = awayTeam?.primary_color || "#ce1141";
   const team2Color = homeTeam?.primary_color || "#ff5f05";
 
+  // Prepare data for modern charts
+  const quarterChartData = quarterCategories.map((q, idx) => ({
+    quarter: q,
+    [team1Name]: team1QuarterScoring[idx],
+    [team2Name]: team2QuarterScoring[idx]
+  }));
+
+  const fieldPositionChartData = fieldPositionCategories.map((zone, idx) => ({
+    zone: zone.replace('Own ', '').replace('Opp ', 'Opp '),
+    [team1Name]: team1FieldPositionScoring[idx],
+    [team2Name]: team2FieldPositionScoring[idx]
+  }));
+
+  const radarChartData = [
+    {
+      metric: 'TD%',
+      [team1Name]: driveOutcomes.team1.touchdowns,
+      [team2Name]: driveOutcomes.team2.touchdowns
+    },
+    {
+      metric: 'FG%',
+      [team1Name]: driveOutcomes.team1.fieldGoals,
+      [team2Name]: driveOutcomes.team2.fieldGoals
+    },
+    {
+      metric: 'POWER',
+      [team1Name]: driveOutcomes.team1.totalScoring,
+      [team2Name]: driveOutcomes.team2.totalScoring
+    },
+    {
+      metric: 'PUNT',
+      [team1Name]: driveOutcomes.team1.punts,
+      [team2Name]: driveOutcomes.team2.punts
+    },
+    {
+      metric: 'TO%',
+      [team1Name]: driveOutcomes.team1.turnovers,
+      [team2Name]: driveOutcomes.team2.turnovers
+    }
+  ];
+
   return (
-    <GlassCard glowColor="from-slate-500/20 to-gray-500/20" className="p-3 border-slate-500/40">
-      <div className="flex items-center gap-2 mb-4">
-        <div className="p-1.5 rounded-lg bg-slate-500/20 border border-slate-500/40">
-          <Zap className="w-4 h-4 text-green-400" />
+    <GlassCard glowColor="from-slate-500/20 to-gray-500/20" className="p-6 border-slate-500/40">
+      {/* Tactical Header */}
+      <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-700/50">
+        <div className="flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-slate-800/60 border border-slate-600/40">
+            <Crosshair className="w-5 h-5 text-cyan-400 animate-pulse" />
+          </div>
+          <div>
+            <h3 className="text-white font-bold text-lg uppercase tracking-wider">Tactical Drive Analytics</h3>
+            <p className="text-slate-400 text-xs uppercase tracking-widest font-mono">Efficiency Velocity & Zone Mastery</p>
+          </div>
         </div>
-        <h3 className="text-white font-semibold text-sm">Drive Efficiency & Game Flow Analytics</h3>
+        <div className="flex gap-4">
+          <div className="text-center px-3 py-2 bg-slate-900/50 rounded border border-slate-700">
+            <div className="text-xs text-slate-500 uppercase font-mono">Unit A</div>
+            <div className="font-bold text-sm" style={{ color: team1Color }}>{team1Name}</div>
+          </div>
+          <div className="text-center px-3 py-2 bg-slate-900/50 rounded border border-slate-700">
+            <div className="text-xs text-slate-500 uppercase font-mono">Unit B</div>
+            <div className="font-bold text-sm" style={{ color: team2Color }}>{team2Name}</div>
+          </div>
+        </div>
       </div>
 
+      {/* Main Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
+        
+        {/* Quarter Performance - Sharp Line Chart */}
+        <div className="lg:col-span-8 bg-[#0a0a0a] border border-slate-800 rounded-lg p-6">
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h4 className="text-white font-bold uppercase tracking-wider flex items-center gap-2 text-sm">
+                <Activity className="w-4 h-4 text-cyan-400" />
+                Efficiency Velocity
+              </h4>
+              <p className="text-xs text-slate-500 font-mono mt-1">Quarter-by-Quarter Scoring %</p>
+            </div>
+            <div className="text-right font-mono text-xs">
+              <div className="text-slate-500">MAX VARIANCE</div>
+              <div className="text-cyan-400 font-bold">
+                {Math.max(...quarterChartData.map(d => Math.abs(d[team1Name] - d[team2Name]))).toFixed(1)}%
+              </div>
+            </div>
+          </div>
+          
+          <div className="h-[320px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={quarterChartData}>
+                <defs>
+                  <linearGradient id="team1Gradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={team1Color} stopOpacity={0.1} />
+                    <stop offset="100%" stopColor={team1Color} stopOpacity={0} />
+                  </linearGradient>
+                  <linearGradient id="team2Gradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={team2Color} stopOpacity={0.1} />
+                    <stop offset="100%" stopColor={team2Color} stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke="#1a1a1a" />
+                <XAxis 
+                  dataKey="quarter" 
+                  stroke="#666" 
+                  style={{ fontSize: '12px', fontFamily: 'monospace' }}
+                />
+                <YAxis 
+                  stroke="#666" 
+                  style={{ fontSize: '12px', fontFamily: 'monospace' }}
+                  domain={[0, 100]}
+                  tickFormatter={(val) => `${val}%`}
+                />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(0,0,0,0.95)',
+                    border: '1px solid #333',
+                    borderRadius: '4px',
+                    fontFamily: 'monospace'
+                  }}
+                  labelStyle={{ color: '#fff' }}
+                  itemStyle={{ color: '#fff' }}
+                  formatter={(value: any) => `${value}%`}
+                />
+                <Legend 
+                  wrapperStyle={{ fontFamily: 'monospace', fontSize: '11px' }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey={team1Name}
+                  stroke={team1Color}
+                  strokeWidth={2}
+                  dot={{ r: 4, fill: '#000', stroke: team1Color, strokeWidth: 2 }}
+                  activeDot={{ r: 6 }}
+                  fill="url(#team1Gradient)"
+                />
+                <Line
+                  type="monotone"
+                  dataKey={team2Name}
+                  stroke={team2Color}
+                  strokeWidth={2}
+                  strokeDasharray="5 5"
+                  dot={{ r: 4, fill: '#000', stroke: team2Color, strokeWidth: 2 }}
+                  activeDot={{ r: 6 }}
+                  fill="url(#team2Gradient)"
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Quarter Deltas */}
+          <div className="mt-4 grid grid-cols-4 gap-2 bg-slate-900/50 p-3 border border-slate-800 rounded">
+            {quarterChartData.map((data, idx) => {
+              const delta = data[team1Name] - data[team2Name];
+              const leader = delta > 0 ? team1Name : team2Name;
+              return (
+                <div key={idx} className="text-center border-r border-slate-800 last:border-r-0">
+                  <div className="text-[10px] text-slate-500 uppercase font-mono">{data.quarter}</div>
+                  <div className={`font-mono text-xs font-bold ${delta > 0 ? 'text-cyan-400' : 'text-orange-400'}`}>
+                    {Math.abs(delta).toFixed(1)}%
+                  </div>
+                  <div className="text-[9px] text-slate-600">{leader.split(' ').pop()}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Metrics Column */}
+        <div className="lg:col-span-4 flex flex-col gap-4">
+          
+          {/* Ball Security Index */}
+          <div className="bg-[#0a0a0a] border border-slate-800 rounded-lg p-5">
+            <h4 className="text-xs font-bold uppercase text-slate-400 mb-4 border-b border-slate-800 pb-2 font-mono">
+              Ball Security Index
+            </h4>
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-center">
+                <div className="text-3xl font-bold font-mono" style={{ color: team1Color, textShadow: `0 0 8px ${team1Color}` }}>
+                  {driveOutcomes.team1.turnovers.toFixed(1)}<span className="text-sm">%</span>
+                </div>
+                <div className="text-[10px] uppercase tracking-widest mt-1 text-slate-500">{team1Name} Risk</div>
+              </div>
+              <div className="text-slate-600 text-xl font-thin">VS</div>
+              <div className="text-center">
+                <div className="text-3xl font-bold font-mono" style={{ color: team2Color, textShadow: `0 0 8px ${team2Color}` }}>
+                  {driveOutcomes.team2.turnovers.toFixed(1)}<span className="text-sm">%</span>
+                </div>
+                <div className="text-[10px] uppercase tracking-widest mt-1 text-slate-500">{team2Name} Risk</div>
+              </div>
+            </div>
+            <div className="font-mono text-xs text-center border border-dashed border-slate-700 p-2 rounded" style={{
+              background: driveOutcomes.team1.turnovers < driveOutcomes.team2.turnovers 
+                ? 'rgba(0, 255, 136, 0.05)' 
+                : 'rgba(255, 170, 0, 0.05)',
+              color: driveOutcomes.team1.turnovers < driveOutcomes.team2.turnovers ? '#00ff88' : '#ffaa00',
+              borderColor: driveOutcomes.team1.turnovers < driveOutcomes.team2.turnovers ? '#00ff88' : '#ffaa00'
+            }}>
+              <Shield className="w-3 h-3 inline mr-1" />
+              {driveOutcomes.team1.turnovers < driveOutcomes.team2.turnovers ? team1Name : team2Name} ADVANTAGE
+            </div>
+          </div>
+
+          {/* Scoring Efficiency Bars */}
+          <div className="bg-[#0a0a0a] border border-slate-800 rounded-lg p-5">
+            <h4 className="text-xs font-bold uppercase text-slate-400 mb-4 border-b border-slate-800 pb-2 font-mono">
+              Power Success Rate
+            </h4>
+            
+            <div className="mb-4">
+              <div className="flex justify-between text-xs mb-2 font-mono">
+                <span className="text-slate-400">{team1Name}</span>
+                <span className="text-white font-bold">{driveOutcomes.team1.totalScoring.toFixed(1)}%</span>
+              </div>
+              <div className="h-3 bg-slate-900 w-full relative border border-slate-800">
+                <div 
+                  style={{ width: `${driveOutcomes.team1.totalScoring}%`, backgroundColor: team1Color, boxShadow: `0 0 10px ${team1Color}` }}
+                  className="h-full transition-all duration-500"
+                />
+              </div>
+            </div>
+
+            <div>
+              <div className="flex justify-between text-xs mb-2 font-mono">
+                <span className="text-slate-400">{team2Name}</span>
+                <span className="text-white font-bold">{driveOutcomes.team2.totalScoring.toFixed(1)}%</span>
+              </div>
+              <div className="h-3 bg-slate-900 w-full relative border border-slate-800">
+                <div 
+                  style={{ width: `${driveOutcomes.team2.totalScoring}%`, backgroundColor: team2Color, boxShadow: `0 0 10px ${team2Color}` }}
+                  className="h-full transition-all duration-500 opacity-80"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* TD vs FG Split */}
+          <div className="bg-[#0a0a0a] border border-slate-800 rounded-lg p-5 flex-grow flex flex-col justify-center">
+            <h4 className="text-xs font-bold uppercase text-slate-400 mb-3 font-mono">TD/FG Split</h4>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="text-center p-2 bg-slate-900/50 border border-slate-800 rounded">
+                <div className="text-[10px] text-slate-500 uppercase">TDs</div>
+                <div className="text-lg font-bold font-mono" style={{ color: team1Color }}>
+                  {driveOutcomes.team1.touchdowns.toFixed(1)}%
+                </div>
+              </div>
+              <div className="text-center p-2 bg-slate-900/50 border border-slate-800 rounded">
+                <div className="text-[10px] text-slate-500 uppercase">TDs</div>
+                <div className="text-lg font-bold font-mono" style={{ color: team2Color }}>
+                  {driveOutcomes.team2.touchdowns.toFixed(1)}%
+                </div>
+              </div>
+              <div className="text-center p-2 bg-slate-900/50 border border-slate-800 rounded">
+                <div className="text-[10px] text-slate-500 uppercase">FGs</div>
+                <div className="text-sm font-bold font-mono text-cyan-400">
+                  {driveOutcomes.team1.fieldGoals.toFixed(1)}%
+                </div>
+              </div>
+              <div className="text-center p-2 bg-slate-900/50 border border-slate-800 rounded">
+                <div className="text-[10px] text-slate-500 uppercase">FGs</div>
+                <div className="text-sm font-bold font-mono text-orange-400">
+                  {driveOutcomes.team2.fieldGoals.toFixed(1)}%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Field Position & Radar Charts */}
+      <div className="grid grid-cols-1 lg:grid-cols-7 gap-6 mb-6">
+        
+        {/* Field Position Histogram */}
+        <div className="lg:col-span-4 bg-[#0a0a0a] border border-slate-800 rounded-lg p-6">
+          <div className="flex justify-between items-start mb-6">
+            <div>
+              <h4 className="text-white font-bold uppercase tracking-wider flex items-center gap-2 text-sm">
+                <Target className="w-4 h-4 text-cyan-400" />
+                Zone Mastery
+              </h4>
+              <p className="text-xs text-slate-500 font-mono mt-1">Scoring Probability by Field Position</p>
+            </div>
+          </div>
+          
+          <div className="h-[280px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={fieldPositionChartData}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#1a1a1a" />
+                <XAxis 
+                  dataKey="zone" 
+                  stroke="#666" 
+                  style={{ fontSize: '10px', fontFamily: 'monospace' }}
+                  angle={-20}
+                  textAnchor="end"
+                  height={60}
+                />
+                <YAxis 
+                  stroke="#666" 
+                  style={{ fontSize: '12px', fontFamily: 'monospace' }}
+                  tickFormatter={(val) => `${val}%`}
+                />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(0,0,0,0.95)',
+                    border: '1px solid #333',
+                    borderRadius: '4px',
+                    fontFamily: 'monospace'
+                  }}
+                  formatter={(value: any) => `${value}%`}
+                />
+                <Bar 
+                  dataKey={team1Name} 
+                  fill={team1Color} 
+                  opacity={0.9}
+                  radius={[4, 4, 0, 0]}
+                />
+                <Bar 
+                  dataKey={team2Name} 
+                  fill="transparent" 
+                  stroke={team2Color}
+                  strokeWidth={2}
+                  radius={[4, 4, 0, 0]}
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        {/* Drive Outcome Radar */}
+        <div className="lg:col-span-3 bg-[#0a0a0a] border border-slate-800 rounded-lg p-6">
+          <div className="mb-6">
+            <h4 className="text-white font-bold uppercase tracking-wider flex items-center gap-2 text-sm">
+              <Crosshair className="w-4 h-4 text-cyan-400" />
+              Outcome Profile
+            </h4>
+            <p className="text-xs text-slate-500 font-mono mt-1">Drive Result Distribution</p>
+          </div>
+          
+          <div className="h-[280px] w-full flex justify-center items-center relative">
+            <ResponsiveContainer width="100%" height="100%">
+              <RadarChart data={radarChartData}>
+                <PolarGrid stroke="#333" />
+                <PolarAngleAxis 
+                  dataKey="metric" 
+                  stroke="#fff"
+                  style={{ fontSize: '11px', fontFamily: 'monospace', fill: '#fff' }}
+                />
+                <PolarRadiusAxis 
+                  angle={90} 
+                  domain={[0, 100]} 
+                  tick={false}
+                  stroke="#444"
+                />
+                <Radar
+                  name={team1Name}
+                  dataKey={team1Name}
+                  stroke={team1Color}
+                  fill={team1Color}
+                  fillOpacity={0.15}
+                  strokeWidth={2}
+                />
+                <Radar
+                  name={team2Name}
+                  dataKey={team2Name}
+                  stroke={team2Color}
+                  fill={team2Color}
+                  fillOpacity={0.15}
+                  strokeWidth={2}
+                />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(0,0,0,0.95)',
+                    border: '1px solid #333',
+                    borderRadius: '4px',
+                    fontFamily: 'monospace'
+                  }}
+                />
+              </RadarChart>
+            </ResponsiveContainer>
+            {/* Decorative circle overlay */}
+            <div className="absolute inset-0 rounded-full border border-dashed border-slate-800/50 w-[180px] h-[180px] m-auto pointer-events-none" />
+          </div>
+        </div>
+      </div>
+
+      {/* OLD VISUALIZATIONS BELOW - KEEPING FOR REFERENCE */}
+      <div className="hidden">
       {/* Quarter Performance Analytics */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Quarter-by-Quarter Performance - Mirroring Field Position Design */}
@@ -1304,7 +1722,7 @@ export function DriveEfficiency({ team1Data, team2Data, predictionData }: DriveE
               </tr>
             </thead>
             <tbody>
-              {fieldPositionData.team1.map((position, index) => (
+              {fieldPositionData.team1.map((position: { zone: string; drives: number; scoringPct: number }, index: number) => (
                 <tr key={position.zone} className="border-b border-slate-700/30 hover:bg-white/5 transition-colors">
                   <td className="py-3 px-4 text-slate-300 font-medium">{position.zone}</td>
                   <td className="py-3 px-4 text-center">
@@ -1455,14 +1873,16 @@ export function DriveEfficiency({ team1Data, team2Data, predictionData }: DriveE
           </div>
         </div>
       </div>
+      </div>
+      {/* END HIDDEN OLD CONTENT */}
 
       {/* Insight Box */}
       <InsightBox
         whatItMeans="Drive efficiency combines scoring %, explosive plays, methodical drives, 3&outs, and red zone success. Scoring drives % = % of possessions ending in points. Explosive drives have 3+ plays of 15+ yards. Methodical drives = 10+ plays grinding defenses."
-        whyItMatters={`Teams scoring on 40%+ of drives average 30+ PPG. Explosive drives (fast scores) preserve defense energy. Methodical drives (8+ minutes) dominate time of possession and wear down opponents. Total scoring efficiency: ${driveOutcomes.team1.totalScoring.toFixed(1)}% vs ${driveOutcomes.team2.totalScoring.toFixed(1)}%. Quarter-by-quarter average: ${(team1QuarterScoring.reduce((a, b) => a + b, 0) / 4).toFixed(1)}% vs ${(team2QuarterScoring.reduce((a, b) => a + b, 0) / 4).toFixed(1)}%.`}
+        whyItMatters={`Teams scoring on 40%+ of drives average 30+ PPG. Explosive drives (fast scores) preserve defense energy. Methodical drives (8+ minutes) dominate time of possession and wear down opponents. Total scoring efficiency: ${driveOutcomes.team1.totalScoring.toFixed(1)}% vs ${driveOutcomes.team2.totalScoring.toFixed(1)}%. Quarter-by-quarter average: ${(team1QuarterScoring.reduce((a: number, b: number) => a + b, 0) / 4).toFixed(1)}% vs ${(team2QuarterScoring.reduce((a: number, b: number) => a + b, 0) / 4).toFixed(1)}%.`}
         whoHasEdge={{
           team: driveOutcomes.team1.totalScoring > driveOutcomes.team2.totalScoring ? team1Name : team2Name,
-          reason: `${driveOutcomes.team1.totalScoring > driveOutcomes.team2.totalScoring ? team1Name : team2Name} scores on ${Math.max(driveOutcomes.team1.totalScoring, driveOutcomes.team2.totalScoring).toFixed(1)}% of drives vs opponent's ${Math.min(driveOutcomes.team1.totalScoring, driveOutcomes.team2.totalScoring).toFixed(1)}%, a ${Math.abs(driveOutcomes.team1.totalScoring - driveOutcomes.team2.totalScoring).toFixed(1)}pt per game advantage. TD rate: ${Math.max(driveOutcomes.team1.touchdowns, driveOutcomes.team2.touchdowns).toFixed(1)}% vs ${Math.min(driveOutcomes.team1.touchdowns, driveOutcomes.team2.touchdowns).toFixed(1)}%. Field position mastery in ${fieldPositionData.team1.reduce((max, pos, i) => pos.scoringPct > max ? fieldPositionData.team1[i].zone : max, '')} zone.`,
+          reason: `${driveOutcomes.team1.totalScoring > driveOutcomes.team2.totalScoring ? team1Name : team2Name} scores on ${Math.max(driveOutcomes.team1.totalScoring, driveOutcomes.team2.totalScoring).toFixed(1)}% of drives vs opponent's ${Math.min(driveOutcomes.team1.totalScoring, driveOutcomes.team2.totalScoring).toFixed(1)}%, a ${Math.abs(driveOutcomes.team1.totalScoring - driveOutcomes.team2.totalScoring).toFixed(1)}pt per game advantage. TD rate: ${Math.max(driveOutcomes.team1.touchdowns, driveOutcomes.team2.touchdowns).toFixed(1)}% vs ${Math.min(driveOutcomes.team1.touchdowns, driveOutcomes.team2.touchdowns).toFixed(1)}%. Field position mastery in ${fieldPositionData.team1.reduce((max: any, pos: { scoringPct: number; zone: string }, i: number) => pos.scoringPct > max ? fieldPositionData.team1[i].zone : max, '')} zone.`,
           magnitude: Math.abs(driveOutcomes.team1.totalScoring - driveOutcomes.team2.totalScoring) > 15 ? 'major' : 
                      Math.abs(driveOutcomes.team1.totalScoring - driveOutcomes.team2.totalScoring) > 10 ? 'significant' : 
                      Math.abs(driveOutcomes.team1.totalScoring - driveOutcomes.team2.totalScoring) > 5 ? 'moderate' : 'small'

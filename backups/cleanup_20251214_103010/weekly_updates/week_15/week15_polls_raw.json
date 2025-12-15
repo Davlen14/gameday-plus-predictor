@@ -1,0 +1,756 @@
+{
+  "data": {
+    "pollRank": [
+      {
+        "rank": 1,
+        "firstPlaceVotes": 61,
+        "points": 1645,
+        "team": {
+          "teamId": 194,
+          "school": "Ohio State"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "firstPlaceVotes": 63,
+        "points": 1575,
+        "team": {
+          "teamId": 194,
+          "school": "Ohio State"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "firstPlaceVotes": 5,
+        "points": 1589,
+        "team": {
+          "teamId": 84,
+          "school": "Indiana"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "firstPlaceVotes": 0,
+        "points": 1510,
+        "team": {
+          "teamId": 84,
+          "school": "Indiana"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 3,
+        "firstPlaceVotes": 0,
+        "points": 1438,
+        "team": {
+          "teamId": 61,
+          "school": "Georgia"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 3,
+        "firstPlaceVotes": 0,
+        "points": 1504,
+        "team": {
+          "teamId": 61,
+          "school": "Georgia"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "firstPlaceVotes": 0,
+        "points": 1396,
+        "team": {
+          "teamId": 2483,
+          "school": "Oregon"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "firstPlaceVotes": 0,
+        "points": 1353,
+        "team": {
+          "teamId": 2483,
+          "school": "Oregon"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 5,
+        "firstPlaceVotes": 0,
+        "points": 1306,
+        "team": {
+          "teamId": 145,
+          "school": "Ole Miss"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 5,
+        "firstPlaceVotes": 0,
+        "points": 1366,
+        "team": {
+          "teamId": 2641,
+          "school": "Texas Tech"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "firstPlaceVotes": 0,
+        "points": 1350,
+        "team": {
+          "teamId": 145,
+          "school": "Ole Miss"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "firstPlaceVotes": 0,
+        "points": 1266,
+        "team": {
+          "teamId": 2641,
+          "school": "Texas Tech"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 7,
+        "firstPlaceVotes": 0,
+        "points": 1178,
+        "team": {
+          "teamId": 245,
+          "school": "Texas A&M"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 7,
+        "firstPlaceVotes": 0,
+        "points": 1282,
+        "team": {
+          "teamId": 245,
+          "school": "Texas A&M"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 8,
+        "firstPlaceVotes": 0,
+        "points": 1140,
+        "team": {
+          "teamId": 201,
+          "school": "Oklahoma"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 8,
+        "firstPlaceVotes": 0,
+        "points": 1106,
+        "team": {
+          "teamId": 201,
+          "school": "Oklahoma"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 9,
+        "firstPlaceVotes": 0,
+        "points": 1061,
+        "team": {
+          "teamId": 87,
+          "school": "Notre Dame"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 9,
+        "firstPlaceVotes": 0,
+        "points": 1100,
+        "team": {
+          "teamId": 87,
+          "school": "Notre Dame"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 10,
+        "firstPlaceVotes": 0,
+        "points": 1053,
+        "team": {
+          "teamId": 333,
+          "school": "Alabama"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 10,
+        "firstPlaceVotes": 0,
+        "points": 1019,
+        "team": {
+          "teamId": 333,
+          "school": "Alabama"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 11,
+        "firstPlaceVotes": 0,
+        "points": 942,
+        "team": {
+          "teamId": 252,
+          "school": "BYU"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 11,
+        "firstPlaceVotes": 0,
+        "points": 982,
+        "team": {
+          "teamId": 252,
+          "school": "BYU"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 12,
+        "firstPlaceVotes": 0,
+        "points": 855,
+        "team": {
+          "teamId": 238,
+          "school": "Vanderbilt"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 12,
+        "firstPlaceVotes": 0,
+        "points": 898,
+        "team": {
+          "teamId": 2390,
+          "school": "Miami"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 13,
+        "firstPlaceVotes": 0,
+        "points": 871,
+        "team": {
+          "teamId": 238,
+          "school": "Vanderbilt"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 13,
+        "firstPlaceVotes": 0,
+        "points": 844,
+        "team": {
+          "teamId": 2390,
+          "school": "Miami"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 14,
+        "firstPlaceVotes": 0,
+        "points": 753,
+        "team": {
+          "teamId": 251,
+          "school": "Texas"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 14,
+        "firstPlaceVotes": 0,
+        "points": 861,
+        "team": {
+          "teamId": 251,
+          "school": "Texas"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 15,
+        "firstPlaceVotes": 0,
+        "points": 750,
+        "team": {
+          "teamId": 254,
+          "school": "Utah"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 15,
+        "firstPlaceVotes": 0,
+        "points": 739,
+        "team": {
+          "teamId": 254,
+          "school": "Utah"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 16,
+        "firstPlaceVotes": 0,
+        "points": 637,
+        "team": {
+          "teamId": 258,
+          "school": "Virginia"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 16,
+        "firstPlaceVotes": 0,
+        "points": 613,
+        "team": {
+          "teamId": 258,
+          "school": "Virginia"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 17,
+        "firstPlaceVotes": 0,
+        "points": 505,
+        "team": {
+          "teamId": 30,
+          "school": "USC"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 17,
+        "firstPlaceVotes": 0,
+        "points": 566,
+        "team": {
+          "teamId": 30,
+          "school": "USC"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 18,
+        "firstPlaceVotes": 0,
+        "points": 441,
+        "team": {
+          "teamId": 130,
+          "school": "Michigan"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 18,
+        "firstPlaceVotes": 0,
+        "points": 427,
+        "team": {
+          "teamId": 130,
+          "school": "Michigan"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 19,
+        "firstPlaceVotes": 0,
+        "points": 356,
+        "team": {
+          "teamId": 256,
+          "school": "James Madison"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 19,
+        "firstPlaceVotes": 0,
+        "points": 417,
+        "team": {
+          "teamId": 256,
+          "school": "James Madison"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 20,
+        "firstPlaceVotes": 0,
+        "points": 345,
+        "team": {
+          "teamId": 249,
+          "school": "North Texas"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 20,
+        "firstPlaceVotes": 0,
+        "points": 402,
+        "team": {
+          "teamId": 249,
+          "school": "North Texas"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 21,
+        "firstPlaceVotes": 0,
+        "points": 373,
+        "team": {
+          "teamId": 2655,
+          "school": "Tulane"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 21,
+        "firstPlaceVotes": 0,
+        "points": 300,
+        "team": {
+          "teamId": 2655,
+          "school": "Tulane"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 22,
+        "firstPlaceVotes": 0,
+        "points": 223,
+        "team": {
+          "teamId": 12,
+          "school": "Arizona"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 22,
+        "firstPlaceVotes": 0,
+        "points": 257,
+        "team": {
+          "teamId": 12,
+          "school": "Arizona"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 23,
+        "firstPlaceVotes": 0,
+        "points": 146,
+        "team": {
+          "teamId": 2426,
+          "school": "Navy"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 23,
+        "firstPlaceVotes": 0,
+        "points": 170,
+        "team": {
+          "teamId": 59,
+          "school": "Georgia Tech"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 24,
+        "firstPlaceVotes": 0,
+        "points": 135,
+        "team": {
+          "teamId": 2633,
+          "school": "Tennessee"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 24,
+        "firstPlaceVotes": 0,
+        "points": 90,
+        "team": {
+          "teamId": 59,
+          "school": "Georgia Tech"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      },
+      {
+        "rank": 25,
+        "firstPlaceVotes": 0,
+        "points": 107,
+        "team": {
+          "teamId": 2426,
+          "school": "Navy"
+        },
+        "poll": {
+          "pollType": {
+            "name": "Coaches Poll",
+            "shortName": "Coaches Poll"
+          }
+        }
+      },
+      {
+        "rank": 25,
+        "firstPlaceVotes": 0,
+        "points": 73,
+        "team": {
+          "teamId": 142,
+          "school": "Missouri"
+        },
+        "poll": {
+          "pollType": {
+            "name": "AP Top 25",
+            "shortName": "AP Poll"
+          }
+        }
+      }
+    ]
+  }
+}

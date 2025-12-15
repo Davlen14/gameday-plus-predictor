@@ -61,22 +61,33 @@ const PredictionCardsContent = () => {
         );
     }
 
+    // Extract data from ui_components
+    const predictionCards = data.ui_components?.prediction_cards || {};
+    const teamSelector = data.ui_components?.team_selector || {};
+    const finalPrediction = data.ui_components?.final_prediction || {};
+    
+    const homeWinProb = predictionCards.win_probability?.home_team_prob || 50;
+    const awayWinProb = predictionCards.win_probability?.away_team_prob || 50;
+    const confidence = predictionCards.confidence || data.confidence || 50;
+    const predictedSpread = predictionCards.predicted_spread || data.spread || 0;
+    const predictedTotal = predictionCards.predicted_total || data.total || 0;
+
     // Determine winner and confidence styling
     const getWinnerType = () => {
-        if (data.home_win_probability > 60) return 'positive';
-        if (data.home_win_probability < 40) return 'negative';
+        if (homeWinProb > 60) return 'positive';
+        if (homeWinProb < 40) return 'negative';
         return 'warning';
     };
 
     const getConfidenceType = () => {
-        if (data.confidence > 80) return 'positive';
-        if (data.confidence > 60) return 'warning';
+        if (confidence > 80) return 'positive';
+        if (confidence > 60) return 'warning';
         return 'neutral';
     };
 
     const getSpreadType = () => {
-        if (Math.abs(data.spread) > 10) return 'warning';
-        if (Math.abs(data.spread) < 3) return 'neutral';
+        if (Math.abs(predictedSpread) > 10) return 'warning';
+        if (Math.abs(predictedSpread) < 3) return 'neutral';
         return 'positive';
     };
 
@@ -86,28 +97,28 @@ const PredictionCardsContent = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <PredictionCard
                     label="🏆 Predicted Winner"
-                    value={data.predicted_winner}
-                    detail={`${data.home_win_probability.toFixed(1)}% chance`}
+                    value={data.predicted_winner || teamSelector.home?.name}
+                    detail={`${homeWinProb.toFixed(1)}% chance`}
                     type={getWinnerType()}
                 />
                 
                 <PredictionCard
                     label="📊 Point Spread"
-                    value={data.spread > 0 ? `+${data.spread.toFixed(1)}` : data.spread.toFixed(1)}
-                    detail={`${data.home_team} ${data.spread > 0 ? 'getting' : 'favored by'} ${Math.abs(data.spread).toFixed(1)}`}
+                    value={predictedSpread > 0 ? `+${predictedSpread.toFixed(1)}` : predictedSpread.toFixed(1)}
+                    detail={`${teamSelector.home?.name || data.home_team} ${predictedSpread > 0 ? 'getting' : 'favored by'} ${Math.abs(predictedSpread).toFixed(1)}`}
                     type={getSpreadType()}
                 />
                 
                 <PredictionCard
                     label="🔢 Predicted Total"
-                    value={data.total.toFixed(1)}
+                    value={predictedTotal.toFixed(1)}
                     detail="Combined points"
                     type="neutral"
                 />
                 
                 <PredictionCard
                     label="🎪 Confidence"
-                    value={`${data.confidence.toFixed(1)}%`}
+                    value={`${confidence.toFixed(1)}%`}
                     detail="Model certainty"
                     type={getConfidenceType()}
                 />
@@ -119,21 +130,21 @@ const PredictionCardsContent = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
                         {/* Away Team */}
                         <div className="space-y-4">
-                            {data.enhanced_teams?.away && (
+                            {teamSelector.away && (
                                 <div className="flex items-center justify-center gap-3">
                                     <img 
-                                        src={data.enhanced_teams.away.logos.light} 
-                                        alt={data.away_team}
+                                        src={teamSelector.away.logo} 
+                                        alt={teamSelector.away.name}
                                         className="w-16 h-16 object-contain"
                                     />
                                     <div>
-                                        <div className="text-white font-bold text-lg">{data.away_team}</div>
+                                        <div className="text-white font-bold text-lg">{teamSelector.away.name}</div>
                                         <div className="text-slate-400">Away</div>
                                     </div>
                                 </div>
                             )}
                             <div className="metric-value-neutral text-4xl font-bold analytical-number">
-                                {data.away_score}
+                                {finalPrediction.predicted_score?.away || data.away_score}
                             </div>
                         </div>
 
@@ -142,21 +153,21 @@ const PredictionCardsContent = () => {
 
                         {/* Home Team */}
                         <div className="space-y-4">
-                            {data.enhanced_teams?.home && (
+                            {teamSelector.home && (
                                 <div className="flex items-center justify-center gap-3">
                                     <img 
-                                        src={data.enhanced_teams.home.logos.light} 
-                                        alt={data.home_team}
+                                        src={teamSelector.home.logo} 
+                                        alt={teamSelector.home.name}
                                         className="w-16 h-16 object-contain"
                                     />
                                     <div>
-                                        <div className="text-white font-bold text-lg">{data.home_team}</div>
+                                        <div className="text-white font-bold text-lg">{teamSelector.home.name}</div>
                                         <div className="text-slate-400">Home</div>
                                     </div>
                                 </div>
                             )}
                             <div className="metric-value-neutral text-4xl font-bold analytical-number">
-                                {data.home_score}
+                                {finalPrediction.predicted_score?.home || data.home_score}
                             </div>
                         </div>
                     </div>

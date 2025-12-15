@@ -9,6 +9,8 @@ import math
 import warnings
 import statistics
 import logging
+from database_helper import DatabaseHelper
+from prediction_engine import PredictionEngine
 # import numpy as np  # Available if needed for future enhancements
 # from scipy.optimize import minimize  # For future parameter optimization
 # from scipy.special import expit  # logistic sigmoid function
@@ -412,6 +414,10 @@ class GamePrediction:
     # Game scheduling information
     game_date: Optional[str] = None
     game_time: Optional[str] = None
+    
+    # Individual team predicted scores (for consistency)
+    home_predicted_score: Optional[float] = None
+    away_predicted_score: Optional[float] = None
 
 class FixedBettingAnalyzer:
     """Fixed betting analysis with proper normalization and edge calculations"""
@@ -1054,6 +1060,10 @@ class ArbitrageDetector:
         return round(efficiency, 1)
 
 class LightningPredictor:
+    # Class-level cache for static data (loaded once, reused for all instances)
+    _static_data_cache = None
+    _cache_initialized = False
+    
     @staticmethod
     def _generate_realistic_weather(home_team_name: str, game_date: str = None) -> Dict[str, float]:
         """
@@ -1285,6 +1295,9 @@ class LightningPredictor:
         self.current_week = 15
         self.current_year = 2025
         
+        # Initialize prediction engine
+        self.prediction_engine = PredictionEngine()
+        
         # Dixon-Coles decay parameter (tuned via cross-validation)
         # Higher xi = more emphasis on recent games
         self.decay_xi = 0.0065  # Optimal value for college football (approx 3 week half-life)
@@ -1314,88 +1327,182 @@ class LightningPredictor:
         
         self.WEIGHTS = self.BASE_WEIGHTS.copy()  # Will be overridden per prediction
         
-        # Load all static data files for comprehensive analysis
-        self.static_data = self._load_all_static_data()
+        # Load static data from cache (loaded once, reused across instances)
+        self.static_data = self._get_cached_static_data()
         print("✅ Static data loaded successfully!")
 
-    def _load_all_static_data(self) -> Dict:
-        """Load all static JSON data files for comprehensive team analysis"""
+    @classmethod
+    def _get_cached_static_data(cls) -> Dict:
+        """Get static data from cache, loading it if needed (lazy initialization)"""
+        if not cls._cache_initialized:
+            print("⏳ Loading static data on first prediction request...")
+            cls._static_data_cache = cls._load_all_static_data_static()
+            cls._cache_initialized = True
+            print("✅ Cache initialized and ready for reuse")
+        return cls._static_data_cache
+    
+    @staticmethod
+    def _load_all_static_data_static() -> Dict:
+        """Load all static data - now using database instead of JSON files"""
         try:
-            # Base path for data files (week_15 for most stats)
+            # Initialize database helper
+            db = DatabaseHelper()
+            print("✅ Using database for drive and coach data")
+            
+            # Base path for data files (week_15 for remaining JSON files)
+            base_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_15')
+            
+            # Load coaches rankings from DATABASE (replacing JSON file)
+            print("📊 Loading coaches rankings from predictions.db...")
+            try:
+                coaches_polls_db = db.get_coaches_rankings_from_db()
+                coaches_polls = {'coaches': coaches_polls_db}
+                print(f"✅ Loaded {len(coaches_polls_db)} coaches from predictions.db")
+            except Exception as e:
+                print(f"⚠️  Could not load coaches from database: {e}")
+                coaches_polls = {'coaches': []}
+            
+            # Load AP polls
+            ap_polls = db.get_ap_polls()
+            print(f"✅ Loaded {len(ap_polls)} weeks of AP polls from database")
+            
+            # Load backtesting data if available for enhanced calibration
+            # Load FBS comprehensive ratings from DATABASE (replacing JSON file)
+            print("📊 Loading FBS ratings from predictions.db...")
+            backtesting_data = {}
+            try:
+                fbs_ratings_db = db.get_fbs_ratings_from_db()
+                backtesting_data = {'teams': fbs_ratings_db}
+                print(f"✅ Loaded {len(fbs_ratings_db)} FBS team ratings from predictions.db")
+            except Exception as e:
+                print(f"⚠️  Could not load FBS ratings from database: {e}")
+                backtesting_data = {'teams': []}
+            
+            # Load player metrics from DATABASE (replacing JSON files)
+            print("   📊 Loading player metrics from predictions.db...")
+            try:
+                player_metrics_db = db.get_player_metrics_from_db()
+                
+                # Organize by position
+                player_data = {}
+                for position in ['qbs', 'wrs', 'rbs', 'tes', 'dbs', 'dls', 'lbs']:
+                    player_data[position] = [p for p in player_metrics_db if p.get('position', '').upper() == position.upper().rstrip('s')]
+                
+                print(f"   ✅ Loaded {len(player_metrics_db)} player metrics from predictions.db")
+            except Exception as e:
+                print(f"   ⚠️  Could not load player metrics: {e}")
+                player_data = {position: [] for position in ['qbs', 'wrs', 'rbs', 'tes', 'dbs', 'dls', 'lbs']}
+            
+            return {
+                'coaches_polls': coaches_polls,
+                'ap_polls': ap_polls,
+                'backtesting_data': backtesting_data,
+                'player_metrics': player_data
+            }
+        except Exception as e:
+            print(f"❌ Error loading static data: {e}")
+            return {
+                'coaches_polls': {'coaches': []},
+                'ap_polls': [],
+                'backtesting_data': {'teams': []},
+                'player_metrics': {position: [] for position in ['qbs', 'wrs', 'rbs', 'tes', 'dbs', 'dls', 'lbs']}
+            }
+
+    def _load_all_static_data(self) -> Dict:
+        """Load all static data - now using database instead of JSON files (DEPRECATED - use _get_cached_static_data instead)"""
+        try:
+            # Initialize database helper
+            db = DatabaseHelper()
+            print("✅ Using database for drive and coach data")
+            
+            # Base path for data files (week_15 for remaining JSON files)
             base_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_15')
             # Coaching data path (load from main data folder for latest updates)
             coaching_base_path = os.path.join(os.path.dirname(__file__), 'data')
             
-            # Load comprehensive team stats
-            with open(os.path.join(base_path, 'fbs_teams_stats_only.json'), 'r') as f:
-                fbs_stats = json.load(f)
+            # Load comprehensive team stats from DATABASE
+            print("📊 Loading EPA stats from database...")
+            fbs_stats = db.get_all_team_epa_stats()
+            print(f"✅ Loaded {len(fbs_stats)} teams EPA stats from database")
             
-            # Load Power 5 efficiency data
-            with open(os.path.join(base_path, 'react_power5_efficiency.json'), 'r') as f:
-                power5_efficiency = json.load(f)
+            # Load Power 5 efficiency data from DATABASE
+            print("📊 Loading drive efficiency from database...")
+            power5_efficiency = db.get_drive_efficiency()
+            print(f"✅ Loaded {len(power5_efficiency)} teams drive efficiency from database")
             
-            # Load drive-level data
-            with open(os.path.join(base_path, 'power5_drives_only.json'), 'r') as f:
-                drive_data = json.load(f)
+            # Load drive-level data from DATABASE
+            print("📊 Loading 11,507 drives from database...")
+            drive_data = db.get_drives()
             
-            # Load historical win probabilities for calibration
-            with open(os.path.join(base_path, 'complete_win_probabilities.json'), 'r') as f:
-                historical_probs = json.load(f)
+            # Load historical win probabilities for calibration from DATABASE
+            print("📊 Loading historical win probabilities from database...")
+            historical_probs = db.get_historical_win_probabilities()
+            print(f"✅ Loaded {len(historical_probs)} historical games from database")
             
-            # Load AP and Coaches poll data
-            with open(os.path.join(base_path, 'ap.json'), 'r') as f:
-                ap_polls = json.load(f)
+            # Load AP poll data from DATABASE
+            print("📊 Loading AP poll rankings from database...")
+            ap_polls = db.get_ap_polls()
+            print(f"✅ Loaded {len(ap_polls)} weeks of AP polls from database")
             
-            with open(os.path.join(base_path, 'coaches_simplified_ranked.json'), 'r') as f:
-                coaches_polls = json.load(f)
+            # Load coaches rankings from DATABASE (replacing JSON file)
+            print("📊 Loading coaches rankings from predictions.db...")
+            try:
+                coaches_polls_db = db.get_coaches_rankings_from_db()
+                coaches_polls = {'coaches': coaches_polls_db}
+                print(f"✅ Loaded {len(coaches_polls_db)} coaches from predictions.db")
+            except Exception as e:
+                print(f"⚠️  Could not load coaches from database: {e}")
+                coaches_polls = {'coaches': []}
             
-            # Load conference and ranking data
-            with open(os.path.join(base_path, 'react_fbs_conferences.json'), 'r') as f:
-                conference_data = json.load(f)
+            # Load conference data from DATABASE
+            conference_data_db = db.get_conferences()
+            # Convert to dict format expected by code
+            conference_data = {conf['name']: conf for conf in conference_data_db}
             
-            with open(os.path.join(base_path, 'react_fbs_team_rankings.json'), 'r') as f:
-                team_rankings = json.load(f)
+            # Load team rankings from DATABASE
+            team_rankings_db = db.get_team_rankings()
+            # Convert to dict format expected by code
+            team_rankings = {team['team_name']: team for team in team_rankings_db}
             
-            # Load season summaries
-            with open(os.path.join(base_path, 'team_season_summaries_clean.json'), 'r') as f:
-                season_summaries = json.load(f)
+            # Load season summaries from DATABASE
+            print("📊 Loading season summaries from database...")
+            season_summaries = db.get_all_season_summaries()
+            print(f"✅ Loaded {len(season_summaries)} teams season summaries from database")
             
-            # Load elite coaching data with ADVANCED RANKINGS (talent context, trends, big game performance)
-            coaches_path = os.path.join(coaching_base_path, 'coaches_advanced_rankings.json')
-            with open(coaches_path, 'r') as f:
-                coaches_data = json.load(f)
-            print(f"✅ Loaded ADVANCED coaching rankings from: {coaches_path}")
+            # Load elite coaching data with ADVANCED RANKINGS from DATABASE
+            print("📊 Loading 72 coach rankings from database...")
+            coaches_data_db = db.get_coach_rankings()
+            # Convert to list format expected by code
+            coaches_data = coaches_data_db
+            print(f"✅ Loaded ADVANCED coaching rankings from database")
             
             # ENHANCED DATA LOADING - New files for improved accuracy
             
-            # Load team-organized Power 5 drives for better drive analysis
-            with open(os.path.join(base_path, 'react_power5_teams.json'), 'r') as f:
-                power5_teams_drives = json.load(f)
+            # Skip team-organized Power 5 drives - using drives_complete from database
+            print("ℹ️  Using drives_complete table (11,507 drives) instead of react_power5_teams.json")
+            power5_teams_drives = {}  # Empty dict - using drive_data from database instead
             
-            # Load structured offensive stats with metadata
-            with open(os.path.join(base_path, 'fbs_offensive_stats.json'), 'r') as f:
-                structured_offensive_stats = json.load(f)
+            # Load structured offensive stats from DATABASE
+            print("📊 Loading offensive stats from database...")
+            structured_offensive_stats = db.get_all_offensive_stats()
+            print(f"✅ Loaded {len(structured_offensive_stats.get('offensive_stats', {}))} teams offensive stats from database")
             
-            # Load structured defensive stats with metadata
-            with open(os.path.join(base_path, 'fbs_defensive_stats.json'), 'r') as f:
-                structured_defensive_stats = json.load(f)
+            # Load structured defensive stats from DATABASE
+            print("📊 Loading defensive stats from database...")
+            structured_defensive_stats = db.get_all_defensive_stats()
+            print(f"✅ Loaded {len(structured_defensive_stats.get('defensive_stats', {}))} teams defensive stats from database")
             
             # Load backtesting data if available for enhanced calibration
+            # Load FBS comprehensive ratings from DATABASE (replacing JSON file)
+            print("📊 Loading FBS ratings from predictions.db...")
             backtesting_data = {}
             try:
-                # Use weekly_updates/week_15 comprehensive ratings
-                backtesting_path = os.path.join(os.path.dirname(__file__), 'weekly_updates', 'week_15')
-                ratings_file = 'all_fbs_ratings_comprehensive_2025_20251203_054653.json'
-                
-                ratings_path = os.path.join(backtesting_path, ratings_file)
-                if os.path.exists(ratings_path):
-                    with open(ratings_path, 'r') as f:
-                        backtesting_data = json.load(f)
-                    print(f"✅ Loaded Week 15 ratings data from {ratings_file}")
-                else:
-                    print(f"⚠️  Week 15 ratings file not found at {ratings_path}")
+                fbs_ratings_db = db.get_fbs_ratings_from_db()
+                backtesting_data = {'teams': fbs_ratings_db}
+                print(f"✅ Loaded {len(fbs_ratings_db)} FBS team ratings from predictions.db")
             except Exception as e:
-                print(f"⚠️  Week 15 ratings data not found - using standard calibration: {e}")
+                print(f"⚠️  Could not load FBS ratings from database: {e}")
+                backtesting_data = {'teams': []}
             
             # Process and organize data
             processed_backtesting = self._process_backtesting_data(backtesting_data)
@@ -3396,6 +3503,28 @@ class LightningPredictor:
         print("⚖️  WEIGHTED COMPOSITE CALCULATION (DYNAMIC)")
         print("="*80)
         
+        # 🚨 NEW ENHANCED PREDICTION ENGINE
+        print("\n🚀 ENHANCED PREDICTION ENGINE (with normalization & new data)")
+        
+        # Get team names for database lookups
+        home_team_name = data.get('homeTeam', [{}])[0].get('school', 'Home') if data.get('homeTeam') else 'Home'
+        away_team_name = data.get('awayTeam', [{}])[0].get('school', 'Away') if data.get('awayTeam') else 'Away'
+        
+        # Use enhanced prediction engine
+        enhanced_prediction = self.prediction_engine.calculate_enhanced_prediction(
+            home_team_name, away_team_name, home_metrics, away_metrics, data
+        )
+        
+        print(f"\n📊 ENHANCED PREDICTION RESULTS:")
+        print(f"   🏟️ Neutral Site: {'YES' if enhanced_prediction['is_neutral_site'] else 'NO'}")
+        print(f"   🏠 Home Field Advantage: {enhanced_prediction['home_field_advantage']:.1f} points")
+        print(f"   📈 Component Contributions:")
+        for component, value in enhanced_prediction['component_contributions'].items():
+            print(f"      • {component.replace('_', ' ').title()}: {value:+.3f}")
+        print(f"   🎯 Enhanced Spread: {enhanced_prediction['predicted_spread']:+.1f}")
+        print(f"   🎯 Enhanced Total: {enhanced_prediction['predicted_total']:.1f}")
+        
+        # For compatibility, still calculate legacy method but show comparison
         raw_differential = (
             opponent_adjusted_score * self.WEIGHTS['opponent_adjusted_metrics'] +
             market_consensus * self.WEIGHTS['market_consensus'] +
@@ -3404,16 +3533,20 @@ class LightningPredictor:
             contextual_score * self.WEIGHTS['contextual_factors']
         )
         
+        print(f"\n📊 LEGACY MODEL COMPARISON:")
         print(f"   Opponent-Adjusted ({self.WEIGHTS['opponent_adjusted_metrics']:.0%}): {opponent_adjusted_score * self.WEIGHTS['opponent_adjusted_metrics']:.3f}")
         print(f"   Market Consensus ({self.WEIGHTS['market_consensus']:.0%}):   {market_consensus * self.WEIGHTS['market_consensus']:.3f}")
         print(f"   Composite Ratings ({self.WEIGHTS['composite_ratings']:.0%}):  {composite_score * self.WEIGHTS['composite_ratings']:.3f}")
         print(f"   Key Player Impact ({self.WEIGHTS['key_player_impact']:.0%}):  {player_impact * self.WEIGHTS['key_player_impact']:.3f}")
         print(f"   Contextual Factors ({self.WEIGHTS['contextual_factors']:.0%}): {contextual_score * self.WEIGHTS['contextual_factors']:.3f}")
-        print(f"\n   🎯 RAW DIFFERENTIAL: {raw_differential:.3f}")
+        print(f"   🎯 Legacy Raw Differential: {raw_differential:.3f}")
 
-        # Current week adjustments
-        home_field_advantage = 2.5  # Standard 2.5 point home field
+        # Use enhanced prediction for final results
+        home_field_advantage = enhanced_prediction['home_field_advantage']
         conference_game_bonus = self._check_conference_rivalry(data)
+        
+        # Override raw_differential with enhanced prediction  
+        raw_differential = enhanced_prediction['raw_prediction'] * 7.0  # Convert back to point spread scale
         
         # Calculate all differential metrics for enhanced prediction
         epa_differential = (home_metrics.epa - home_metrics.epa_allowed) - (away_metrics.epa - away_metrics.epa_allowed)
@@ -3543,14 +3676,15 @@ class LightningPredictor:
         # Using the inverse logit formula: spread = ln(p/(1-p)) * conversion_factor
         # FIXED: Use higher conversion factor for college football (more volatile than NFL)
         # College football has bigger talent gaps and score differentials
-        if home_win_prob > 0.01 and home_win_prob < 0.99:
-            predicted_spread = math.log(home_win_prob / (1 - home_win_prob)) * 11.0  # Increased to match actual spreads
-        else:
-            # Edge case: if probability is extreme, use even larger conversion factor
-            # For extreme cases, use higher factor to properly scale large differentials
-            predicted_spread = math.log(home_win_prob / (1 - home_win_prob)) * 14.0
+        # Use enhanced spread from prediction engine instead of legacy calculation
+        predicted_spread = enhanced_prediction['predicted_spread']
+        
+        print(f"\n🚀 USING ENHANCED PREDICTION:")
+        print(f"   📊 Enhanced Spread: {predicted_spread:+.1f}")
+        print(f"   📊 Legacy would have been: {math.log(home_win_prob / (1 - home_win_prob)) * 11.0:+.1f}")
 
-        predicted_total = self._calculate_total(home_metrics, away_metrics, data)
+        # Use enhanced total from prediction engine
+        predicted_total = enhanced_prediction['predicted_total']
         
         # Apply defensive dampener to total if defensive mismatch exists
         predicted_total = predicted_total * defensive_dampener
@@ -3560,11 +3694,25 @@ class LightningPredictor:
         # Ensure reasonable spread bounds for college football
         predicted_spread = max(min(predicted_spread, 35), -35)  # Cap spreads at ±35
         
-        # Calculate implied scores - FIXED LOGIC
+        # 🚨 CRITICAL FIX: Ensure win probability and final score are consistent
+        # Convert win probability back to spread for consistency check
+        prob_implied_spread = math.log(home_win_prob / (1 - home_win_prob)) * 11.0
+        
+        # Use the spread that matches the win probability
+        consistent_spread = predicted_spread  # From enhanced engine
+        
+        # If there's a big discrepancy, use the one that matches win probability
+        spread_discrepancy = abs(consistent_spread - prob_implied_spread)
+        if spread_discrepancy > 3.0:
+            print(f"   ⚠️  Spread/Probability mismatch detected: {spread_discrepancy:.1f} points")
+            print(f"   🔧 Using probability-consistent spread: {prob_implied_spread:+.1f}")
+            consistent_spread = prob_implied_spread
+        
+        # Calculate implied scores using CONSISTENT spread
         # If home team is favored by +X (positive spread), they should score more
         # home_score = (total + spread) / 2, away_score = (total - spread) / 2
-        home_implied_score = (predicted_total + predicted_spread) / 2
-        away_implied_score = (predicted_total - predicted_spread) / 2
+        home_implied_score = (predicted_total + consistent_spread) / 2
+        away_implied_score = (predicted_total - consistent_spread) / 2
         
         # Handle extreme cases where a team would have negative points
         if home_implied_score < 0:
@@ -3574,14 +3722,42 @@ class LightningPredictor:
             away_implied_score = 0
             home_implied_score = predicted_total
         
+        # Verify consistency between final score and win probability
+        final_favorite = home_team_name if home_implied_score > away_implied_score else away_team_name
+        prob_favorite = home_team_name if home_win_prob > 0.5 else away_team_name
+        
+        if final_favorite != prob_favorite:
+            print(f"   🚨 CONSISTENCY ERROR DETECTED!")
+            print(f"   Final Score says: {final_favorite} wins")
+            print(f"   Win Probability says: {prob_favorite} favored")
+            print(f"   🔧 FIXING: Adjusting final score to match win probability")
+            
+            # Force consistency: if home team has >50% win prob, they should win the game
+            if home_win_prob > 0.5:
+                # Home team should win - ensure home_score > away_score
+                margin = abs(consistent_spread)
+                home_implied_score = (predicted_total + margin) / 2
+                away_implied_score = (predicted_total - margin) / 2
+            else:
+                # Away team should win - ensure away_score > home_score  
+                margin = abs(consistent_spread)
+                home_implied_score = (predicted_total - margin) / 2
+                away_implied_score = (predicted_total + margin) / 2
+
         print("\n" + "="*80)
-        print("🎯 FINAL PREDICTION")
+        print("🎯 FINAL PREDICTION (CONSISTENCY VERIFIED)")
         print("="*80)
-        print(f"   Spread: {predicted_spread:+.1f} (Home)")
+        print(f"   Spread: {consistent_spread:+.1f} (Home)")
         print(f"   Total: {predicted_total:.1f}")
         print(f"   {home_team_name}: {home_implied_score:.0f} points")
         print(f"   {away_team_name}: {away_implied_score:.0f} points")
         print(f"   Win Probability: {home_team_name} {home_win_prob:.1%} | {away_team_name} {(1-home_win_prob):.1%}")
+        
+        # Final consistency check
+        score_winner = home_team_name if home_implied_score > away_implied_score else away_team_name  
+        prob_winner = home_team_name if home_win_prob > 0.5 else away_team_name
+        consistency_status = "✅ CONSISTENT" if score_winner == prob_winner else "🚨 STILL INCONSISTENT"
+        print(f"   {consistency_status}: Score winner ({score_winner}) matches probability favorite ({prob_winner})")
         
         # MARKET VALIDATION: Check if prediction is significantly off from consensus
         if market_lines and len(market_lines) > 0:
@@ -3794,7 +3970,7 @@ class LightningPredictor:
             home_team=home_team_name,
             away_team=away_team_name,
             home_win_prob=home_win_prob,
-            predicted_spread=round(predicted_spread, 1),
+            predicted_spread=round(consistent_spread, 1),
             predicted_total=round(predicted_total, 1),
             confidence=confidence,
             key_factors=self._identify_enhanced_key_factors(
@@ -3812,11 +3988,48 @@ class LightningPredictor:
             media_info=data.get('gameMedia', []),
             # Game scheduling information
             game_date=game_date,
-            game_time=game_time
+            game_time=game_time,
+            # Individual consistent scores
+            home_predicted_score=round(home_implied_score, 0),
+            away_predicted_score=round(away_implied_score, 0)
         )
 
         # Validate against market and adjust confidence
         market_lines = data.get('marketLines', [])
+        
+        # Fallback: If GraphQL API doesn't have market lines, try betting lines manager
+        if not market_lines:
+            print(f"   📊 No market lines from GraphQL API, checking database...")
+            try:
+                from betting_lines_manager import BettingLinesManager
+                betting_manager = BettingLinesManager()
+                game_data = betting_manager.find_game_by_teams(home_team_name, away_team_name)
+                if game_data and isinstance(game_data, dict) and game_data.get('lines'):
+                    database_lines = game_data['lines']
+                    if isinstance(database_lines, list):
+                        print(f"   ✅ Found {len(database_lines)} market lines in database")
+                        # Convert to expected format for _validate_against_market
+                        market_lines = []
+                        for line in database_lines:
+                            if isinstance(line, dict):
+                                market_lines.append({
+                                    'spread': line.get('spread'),
+                                    'spreadOpen': line.get('spreadOpen'),
+                                    'overUnder': line.get('overUnder'),
+                                    'overUnderOpen': line.get('overUnderOpen'),
+                                    'moneylineHome': line.get('homeMoneyline'),
+                                    'moneylineAway': line.get('awayMoneyline'),
+                                    'provider': {'name': line.get('provider', 'Unknown')}
+                                })
+                    else:
+                        print(f"   ❌ Database lines not in expected format: {type(database_lines)}")
+                else:
+                    print(f"   ❌ No market lines found in database either")
+            except Exception as e:
+                print(f"   ⚠️  Error accessing database market lines: {e}")
+                import traceback
+                print(f"   🔍 Full error: {traceback.format_exc()}")
+        
         prediction = self._validate_against_market(prediction, market_lines)
 
         # Display algorithm weights and methodology for transparency
@@ -4015,110 +4228,32 @@ class LightningPredictor:
         return weighted_sum / total_weight if total_weight > 0 else 0
 
     def _calculate_advanced_metrics_differential(self, home_metrics: Dict, away_metrics: Dict) -> Tuple[float, Dict]:
-        """Calculate advanced metrics differential using all available team metrics"""
+        """Calculate advanced metrics differential using prediction engine"""
         if not home_metrics or not away_metrics:
             return 0.0, {}
         
         print(f"🚀 ADVANCED METRICS ANALYSIS:")
         
-        # 1. Passing vs Rushing Efficiency (25% of advanced metrics)
-        home_passing_net = home_metrics.get('passingEpa', 0) - home_metrics.get('passingEpaAllowed', 0)
-        away_passing_net = away_metrics.get('passingEpa', 0) - away_metrics.get('passingEpaAllowed', 0)
-        passing_differential = home_passing_net - away_passing_net
-        
-        home_rushing_net = home_metrics.get('rushingEpa', 0) - home_metrics.get('rushingEpaAllowed', 0)
-        away_rushing_net = away_metrics.get('rushingEpa', 0) - away_metrics.get('rushingEpaAllowed', 0)
-        rushing_differential = home_rushing_net - away_rushing_net
-        
-        print(f"   🎯 Passing EPA Differential: {passing_differential:.3f}")
-        print(f"   🏃 Rushing EPA Differential: {rushing_differential:.3f}")
-        
-        # 2. Overall EPA and Success Rates
-        home_epa_net = home_metrics.get('epa', 0) - home_metrics.get('epaAllowed', 0)
-        away_epa_net = away_metrics.get('epa', 0) - away_metrics.get('epaAllowed', 0)
-        epa_differential = home_epa_net - away_epa_net
-        
-        home_success_net = home_metrics.get('success', 0) - home_metrics.get('successAllowed', 0)
-        away_success_net = away_metrics.get('success', 0) - away_metrics.get('successAllowed', 0)
-        success_rate_diff = home_success_net - away_success_net
-        
-        home_explosiveness_net = home_metrics.get('explosiveness', 0) - home_metrics.get('explosivenessAllowed', 0)
-        away_explosiveness_net = away_metrics.get('explosiveness', 0) - away_metrics.get('explosivenessAllowed', 0)
-        explosiveness_diff = home_explosiveness_net - away_explosiveness_net
-        
-        # 3. Situational Success Rates (20% of advanced metrics)
-        home_passing_downs = home_metrics.get('passingDownsSuccess', 0) - home_metrics.get('passingDownsSuccessAllowed', 0)
-        away_passing_downs = away_metrics.get('passingDownsSuccess', 0) - away_metrics.get('passingDownsSuccessAllowed', 0)
-        passing_downs_diff = home_passing_downs - away_passing_downs
-        
-        home_standard_downs = home_metrics.get('standardDownsSuccess', 0) - home_metrics.get('standardDownsSuccessAllowed', 0)
-        away_standard_downs = away_metrics.get('standardDownsSuccess', 0) - away_metrics.get('standardDownsSuccessAllowed', 0)
-        standard_downs_diff = home_standard_downs - away_standard_downs
-        
-        print(f"   📊 Passing Downs Success Diff: {passing_downs_diff:.3f}")
-        print(f"   📊 Standard Downs Success Diff: {standard_downs_diff:.3f}")
-        
-        # 4. Field Position and Yards Analysis (30% of advanced metrics)
-        # Line yards (between tackles)
-        home_line_yards = home_metrics.get('lineYards', 0) - home_metrics.get('lineYardsAllowed', 0)
-        away_line_yards = away_metrics.get('lineYards', 0) - away_metrics.get('lineYardsAllowed', 0)
-        line_yards_diff = home_line_yards - away_line_yards
-        
-        # Second level yards (linebackers)
-        home_second_level = home_metrics.get('secondLevelYards', 0) - home_metrics.get('secondLevelYardsAllowed', 0)
-        away_second_level = away_metrics.get('secondLevelYards', 0) - away_metrics.get('secondLevelYardsAllowed', 0)
-        second_level_diff = home_second_level - away_second_level
-        
-        # Open field yards (safeties/big plays)
-        home_open_field = home_metrics.get('openFieldYards', 0) - home_metrics.get('openFieldYardsAllowed', 0)
-        away_open_field = away_metrics.get('openFieldYards', 0) - away_metrics.get('openFieldYardsAllowed', 0)
-        open_field_diff = home_open_field - away_open_field
-        
-        print(f"   🛡️ Line Yards Differential: {line_yards_diff:.3f}")
-        print(f"   🏃‍♂️ Second Level Yards Diff: {second_level_diff:.3f}")
-        print(f"   💨 Open Field Yards Diff: {open_field_diff:.3f}")
-        
-        # 5. Big Play Capability (25% of advanced metrics)
-        home_highlights = home_metrics.get('highlightYards', 0) - home_metrics.get('highlightYardsAllowed', 0)
-        away_highlights = away_metrics.get('highlightYards', 0) - away_metrics.get('highlightYardsAllowed', 0)
-        highlight_yards_diff = home_highlights - away_highlights
-        
-        print(f"   ⭐ Highlight Yards Differential: {highlight_yards_diff:.3f}")
-        
-        # Weighted composite of all advanced metrics
-        advanced_differential = (
-            (passing_differential * 0.15 + rushing_differential * 0.10) +  # 25% passing/rushing
-            (passing_downs_diff * 0.12 + standard_downs_diff * 0.08) +    # 20% situational
-            (line_yards_diff * 0.10 + second_level_diff * 0.10 + open_field_diff * 0.10) +  # 30% field position
-            (highlight_yards_diff * 0.15)  # 15% big plays
+        # Use prediction engine for calculation
+        advanced_differential, metrics_details = self.prediction_engine.calculate_advanced_metrics_differential(
+            home_metrics, away_metrics
         )
         
+        # Display calculated differentials (keeping existing display logic)
+        print(f"   🎯 Passing EPA Differential: {metrics_details.get('passing_epa_diff', 0):.3f}")
+        print(f"   🏃 Rushing EPA Differential: {metrics_details.get('rushing_epa_diff', 0):.3f}")
+        print(f"   📊 Passing Downs Success Diff: {metrics_details.get('passing_downs_diff', 0):.3f}")
+        print(f"   📊 Standard Downs Success Diff: {metrics_details.get('standard_downs_diff', 0):.3f}")
+        print(f"   🛡️ Line Yards Differential: {metrics_details.get('line_yards_diff', 0):.3f}")
+        print(f"   🏃‍♂️ Second Level Yards Diff: {metrics_details.get('second_level_diff', 0):.3f}")
+        print(f"   💨 Open Field Yards Diff: {metrics_details.get('open_field_diff', 0):.3f}")
+        print(f"   ⭐ Highlight Yards Differential: {metrics_details.get('highlight_yards_diff', 0):.3f}")
         print(f"   🎯 ADVANCED DIFFERENTIAL: {advanced_differential:.3f}")
-        
-        # Create detailed metrics dictionary
-        metrics_details = {
-            'overall_epa_diff': epa_differential,
-            'passing_epa_diff': passing_differential,
-            'rushing_epa_diff': rushing_differential,
-            'success_rate_diff': success_rate_diff,
-            'explosiveness_diff': explosiveness_diff,
-            'passing_downs_diff': passing_downs_diff,
-            'standard_downs_diff': standard_downs_diff,
-            'line_yards_diff': line_yards_diff,
-            'second_level_diff': second_level_diff,
-            'open_field_diff': open_field_diff,
-            'highlight_yards_diff': highlight_yards_diff,
-            'epa_defense_diff': -epa_differential,  # Inverted for defensive perspective
-            'passing_defense_diff': -passing_differential,
-            'rushing_defense_diff': -rushing_differential,
-            'success_defense_diff': -success_rate_diff,
-            'explosiveness_defense_diff': -explosiveness_diff,
-            'situational_defense_diff': -(passing_downs_diff + standard_downs_diff) / 2
-        }
         
         return advanced_differential, metrics_details
 
-    def _analyze_market_lines(self, current_lines: List[Dict]) -> float:
+    def _calculate_qb_advantage(self, home_qb: Dict, away_qb: Dict) -> float:
+        """Calculate QB advantage between teams"""
         """Analyze betting market lines for consensus signals"""
         if not current_lines:
             print(f"📊 MARKET LINES ANALYSIS:")
@@ -4274,24 +4409,20 @@ class LightningPredictor:
             'dls': 'all_dls'
         }
         
-        # Try to load actual data files first
-        files_loaded = 0
-        for position, file_path in json_files.items():
-            try:
-                if os.path.exists(file_path):
-                    with open(file_path, 'r') as f:
-                        data = json.load(f)
-                        player_data[position] = data.get(json_keys[position], [])
-                        files_loaded += 1
-                else:
-                    player_data[position] = []
-            except Exception as e:
-                print(f"   ⚠️  Could not load {position} data: {e}")
+        # Load player metrics from DATABASE (replacing JSON files)
+        print("   📊 Loading player metrics from predictions.db...")
+        try:
+            player_metrics_db = db.get_player_metrics_from_db()
+            
+            # Organize by position
+            for position in ['qbs', 'wrs', 'rbs', 'tes', 'dbs', 'dls', 'lbs']:
+                player_data[position] = [p for p in player_metrics_db if p.get('position', '').upper() == position.upper().rstrip('s')]
+            
+            print(f"   ✅ Loaded {len(player_metrics_db)} player metrics from predictions.db")
+        except Exception as e:
+            print(f"   ⚠️  Could not load player metrics from database: {e}")
+            for position in ['qbs', 'wrs', 'rbs', 'tes', 'dbs', 'dls', 'lbs']:
                 player_data[position] = []
-        
-        # If no comprehensive files were loaded, use fallback mock data
-        if files_loaded == 0:
-            print(f"   📊 Using fallback player data for week 9 analysis...")
             player_data = self._create_fallback_player_data()
         
         return player_data
@@ -4715,6 +4846,52 @@ class LightningPredictor:
         
         return composite_diff
 
+    def _analyze_market_lines(self, market_lines: List[Dict]) -> float:
+        """Analyze market lines to extract consensus value for prediction model"""
+        if not market_lines or len(market_lines) == 0:
+            print("   📊 No market lines available")
+            return 0.0
+        
+        valid_spreads = []
+        valid_totals = []
+        
+        # Extract valid spreads and totals from market lines
+        for line in market_lines:
+            spread = line.get('spread')
+            total = line.get('overUnder')
+            provider = line.get('provider', {}).get('name', 'Unknown')
+            
+            if spread is not None:
+                valid_spreads.append(spread)
+            if total is not None:
+                valid_totals.append(total)
+                
+        if not valid_spreads:
+            print("   📊 No valid spreads in market lines")
+            return 0.0
+        
+        # Calculate market consensus spread
+        avg_market_spread = sum(valid_spreads) / len(valid_spreads)
+        avg_market_total = sum(valid_totals) / len(valid_totals) if valid_totals else 0
+        
+        # Market signal contribution: convert spread to normalized value for weighted model
+        # Positive spread (home favored) = positive signal
+        # Negative spread (away favored) = negative signal 
+        # Scale by 0.1 to keep in reasonable range for composite model
+        market_signal = avg_market_spread * 0.1
+        
+        print(f"   📊 Market Lines Analysis:")
+        print(f"   Books Count: {len(market_lines)}")
+        print(f"   Valid Spreads: {len(valid_spreads)} (range: {min(valid_spreads):+.1f} to {max(valid_spreads):+.1f})")
+        if valid_totals:
+            print(f"   Valid Totals: {len(valid_totals)} (range: {min(valid_totals):.1f} to {max(valid_totals):.1f})")
+        print(f"   Market Consensus Spread: {avg_market_spread:+.1f}")
+        if avg_market_total > 0:
+            print(f"   Market Consensus Total: {avg_market_total:.1f}")
+        print(f"   Market Signal for Model: {market_signal:+.3f}")
+        
+        return market_signal
+
     def _calculate_enhanced_weather_impact(self, weather_data: Dict) -> float:
         """Calculate weather impact on game performance using unified weather data structure"""
         if not weather_data:
@@ -5134,89 +5311,46 @@ class LightningPredictor:
         return prediction
 
     def _calculate_total(self, home_metrics: TeamMetrics, away_metrics: TeamMetrics, data: Dict) -> float:
-        """Calculate predicted total points"""
-        # Base total for college football (more realistic)
-        base_total = 50.0
+        """Calculate predicted total points using enhanced prediction engine"""
+        # Get team names for enhanced calculation
+        home_team_name = data.get('homeTeam', [{}])[0].get('school', 'Home') if data.get('homeTeam') else 'Home'
+        away_team_name = data.get('awayTeam', [{}])[0].get('school', 'Away') if data.get('awayTeam') else 'Away'
         
-        # Offensive contributions (how much each team can score)
-        home_offensive_rating = (home_metrics.epa + home_metrics.explosiveness + home_metrics.success_rate) / 3
-        away_offensive_rating = (away_metrics.epa + away_metrics.explosiveness + away_metrics.success_rate) / 3
+        # Load analytics and drive data for total calculation
+        analytics_data = self.prediction_engine.load_season_analytics(home_team_name, away_team_name)
+        drive_data = self.prediction_engine.load_drive_efficiency(home_team_name, away_team_name)
         
-        # Defensive contributions (how much they allow) - improved calculation
-        home_defensive_rating = home_metrics.epa_allowed  # Lower is better defense
-        away_defensive_rating = away_metrics.epa_allowed  # Lower is better defense
-        
-        # Calculate expected points for each team (more balanced approach)
-        home_expected_points = base_total/2 + (home_offensive_rating * 15) - (away_defensive_rating * 10) + 2.5  # home field
-        away_expected_points = base_total/2 + (away_offensive_rating * 15) - (home_defensive_rating * 10)
-        
-        # Ensure minimum realistic scores
-        home_expected_points = max(home_expected_points, 10)  # Minimum 10 points
-        away_expected_points = max(away_expected_points, 10)  # Minimum 10 points
-        
-        total = home_expected_points + away_expected_points
-        
-        # Ensure reasonable total bounds for college football
-        return max(min(total, 85), 40)  # Between 40-85 points
+        return self.prediction_engine._calculate_enhanced_total(analytics_data, drive_data, home_team_name, away_team_name)
 
     def _calculate_enhanced_confidence(self, data: Dict, differential: float, home_metrics: TeamMetrics, away_metrics: TeamMetrics) -> float:
-        """Calculate enhanced prediction confidence with historical factors AND new endpoints"""
-        # Base confidence on data availability
-        has_metrics = bool(data.get('homeTeamMetrics') and data.get('awayTeamMetrics'))
-        has_recent_games = bool(data.get('homeRecentGames') and data.get('awayRecentGames'))
-        has_historical = bool(data.get('homeHistoricalMetrics') and data.get('awayHistoricalMetrics'))
-        has_season_games = bool(data.get('homeSeasonGames') and data.get('awaySeasonGames'))
+        """Calculate enhanced prediction confidence using prediction engine"""
+        # Prepare data completeness dictionary
+        data_completeness = {
+            'has_metrics': bool(data.get('homeTeamMetrics') and data.get('awayTeamMetrics')),
+            'has_recent_games': bool(data.get('homeRecentGames') and data.get('awayRecentGames')),
+            'has_historical': bool(data.get('homeHistoricalMetrics') and data.get('awayHistoricalMetrics')),
+            'has_season_games': bool(data.get('homeSeasonGames') and data.get('awaySeasonGames')),
+            'has_ratings': bool(data.get('homeRatings') and data.get('awayRatings')),
+            'has_weather': bool(data.get('gameWeather')),
+            'has_polls': bool(data.get('currentPolls')),
+            'has_calendar': bool(data.get('weeklyCalendar'))
+        }
         
-        # NEW ENHANCED DATA SOURCES (working schema)
-        has_ratings = bool(data.get('homeRatings') and data.get('awayRatings'))
-        has_weather = bool(data.get('gameWeather'))
-        has_polls = bool(data.get('currentPolls'))  # Limited functionality
-        has_calendar = bool(data.get('weeklyCalendar'))
-
-        base_confidence = 0.4  # Base confidence
-        if has_metrics:
-            base_confidence += 0.15
-        if has_recent_games:
-            base_confidence += 0.1
-        if has_historical:
-            base_confidence += 0.1
-        if has_season_games:
-            base_confidence += 0.1
-            
-        # WORKING CONFIDENCE BOOSTS
-        if has_ratings:
-            base_confidence += 0.08  # Composite ratings (ELO + FPI) validation
-        if has_weather:
-            base_confidence += 0.03  # Weather context
-        if has_polls:
-            base_confidence += 0.02  # Limited poll data
-        if has_calendar:
-            base_confidence += 0.02  # Bye week accuracy
-
-        # Boost confidence for consistent teams
-        consistency_boost = (home_metrics.consistency_score + away_metrics.consistency_score) / 2 * 0.1
-        
-        # Boost confidence for larger differentials
-        differential_boost = min(differential / 20, 0.15)
-        
-        # Reduce confidence if trends are conflicting
-        trend_consistency = 1 - abs(home_metrics.season_trend - away_metrics.season_trend) / 2
-        trend_factor = trend_consistency * 0.05
-        
-        # Market agreement boost - removed since no market data
-        market_agreement_boost = 0.0
-
-        total_confidence = min(
-            base_confidence + consistency_boost + differential_boost + trend_factor + market_agreement_boost, 
-            0.95
+        # Calculate confidence using prediction engine
+        total_confidence = self.prediction_engine.calculate_confidence(
+            data_completeness,
+            home_metrics,
+            away_metrics,
+            abs(differential)
         )
         
+        # Display confidence breakdown (keeping existing display logic)
         print(f"🔢 CONFIDENCE BREAKDOWN:")
-        print(f"   Base Data: {base_confidence:.2f}")
-        print(f"   Consistency: +{consistency_boost:.2f}")
-        print(f"   Differential: +{differential_boost:.2f}")
-        print(f"   Trend Factor: +{trend_factor:.2f}")
-        print(f"   Weather/Calendar: +{0.05 if has_weather or has_calendar else 0:.2f}")
+        print(f"   Base Data: {0.4 + (0.15 if data_completeness['has_metrics'] else 0) + (0.1 if data_completeness['has_recent_games'] else 0):.2f}")
+        print(f"   Consistency: +{(home_metrics.consistency_score + away_metrics.consistency_score) / 2 * 0.1:.2f}")
+        print(f"   Differential: +{min(abs(differential) / 20, 0.15):.2f}")
+        print(f"   Trend Factor: +{(1 - abs(home_metrics.season_trend - away_metrics.season_trend) / 2) * 0.05:.2f}")
+        print(f"   Weather/Calendar: +{0.05 if data_completeness['has_weather'] or data_completeness['has_calendar'] else 0:.2f}")
         print(f"   TOTAL CONFIDENCE: {total_confidence:.2f}")
         
         return total_confidence

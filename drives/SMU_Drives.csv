@@ -1,0 +1,305 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017529422,401752942,SMU,ACC,Wake Forest,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,74,74,"{'minutes': 13, 'seconds': 42}","{'minutes': 1, 'seconds': 18}",4,13,PUNT,False,0,0,0,0
+4017529423,401752942,Wake Forest,ACC,SMU,ACC,2,False,1,26,74,"{'minutes': 13, 'seconds': 42}",0,22,78,"{'minutes': 11, 'seconds': 44}","{'minutes': 1, 'seconds': 58}",3,-4,PUNT,True,0,0,0,0
+4017529424,401752942,SMU,ACC,Wake Forest,ACC,3,False,1,63,63,"{'minutes': 11, 'seconds': 44}",0,55,55,"{'minutes': 10, 'seconds': 34}","{'minutes': 1, 'seconds': 10}",4,8,DOWNS,False,0,0,0,0
+4017529425,401752942,Wake Forest,ACC,SMU,ACC,4,False,1,55,45,"{'minutes': 10, 'seconds': 34}",0,43,57,"{'minutes': 9, 'seconds': 6}","{'minutes': 1, 'seconds': 28}",3,-12,PUNT,True,0,0,0,0
+4017529426,401752942,SMU,ACC,Wake Forest,ACC,5,False,1,87,87,"{'minutes': 9, 'seconds': 6}",1,89,89,"{'minutes': 8, 'seconds': 11}","{'minutes': 0, 'seconds': 55}",3,-2,PUNT,False,0,0,0,0
+4017529427,401752942,Wake Forest,ACC,SMU,ACC,6,True,1,80,20,"{'minutes': 8, 'seconds': 11}",1,92,8,"{'minutes': 4, 'seconds': 59}","{'minutes': 3, 'seconds': 12}",7,12,FG,True,0,0,3,0
+4017529429,401752942,SMU,ACC,Wake Forest,ACC,7,False,1,75,75,"{'minutes': 4, 'seconds': 59}",1,73,73,"{'minutes': 3, 'seconds': 7}","{'minutes': 1, 'seconds': 52}",3,2,PUNT,False,0,3,0,3
+40175294210,401752942,Wake Forest,ACC,SMU,ACC,8,False,1,37,63,"{'minutes': 3, 'seconds': 7}",1,40,60,"{'minutes': 1, 'seconds': 44}","{'minutes': 1, 'seconds': 23}",3,3,PUNT,True,3,0,3,0
+40175294211,401752942,SMU,ACC,Wake Forest,ACC,9,True,1,71,71,"{'minutes': 1, 'seconds': 44}",2,19,19,"{'minutes': 11, 'seconds': 53}","{'minutes': 4, 'seconds': 51}",12,52,FG,False,0,3,3,3
+40175294213,401752942,Wake Forest,ACC,SMU,ACC,10,False,2,30,70,"{'minutes': 11, 'seconds': 52}",2,65,35,"{'minutes': 11, 'seconds': 52}","{'minutes': 0, 'seconds': 53}",3,1,PUNT,True,3,3,3,3
+40175294214,401752942,SMU,ACC,Wake Forest,ACC,11,False,2,85,85,"{'minutes': 10, 'seconds': 59}",2,86,86,"{'minutes': 10, 'seconds': 50}","{'minutes': 0, 'seconds': 9}",2,-1,FUMBLE,False,3,3,3,3
+40175294215,401752942,Wake Forest,ACC,SMU,ACC,12,True,2,86,14,"{'minutes': 10, 'seconds': 50}",2,97,3,"{'minutes': 10, 'seconds': 9}","{'minutes': 0, 'seconds': 41}",2,14,TD,True,3,3,10,3
+40175294217,401752942,SMU,ACC,Wake Forest,ACC,13,False,2,75,75,"{'minutes': 10, 'seconds': 9}",2,66,66,"{'minutes': 8, 'seconds': 16}","{'minutes': 1, 'seconds': 53}",3,9,PUNT,False,3,10,3,10
+40175294218,401752942,Wake Forest,ACC,SMU,ACC,14,False,2,47,53,"{'minutes': 8, 'seconds': 16}",2,54,46,"{'minutes': 6, 'seconds': 42}","{'minutes': 1, 'seconds': 34}",3,7,PUNT,True,10,3,10,3
+40175294219,401752942,SMU,ACC,Wake Forest,ACC,15,True,2,87,87,"{'minutes': 6, 'seconds': 42}",2,18,18,"{'minutes': 3, 'seconds': 53}","{'minutes': 2, 'seconds': 49}",8,69,FG,False,3,10,6,10
+40175294221,401752942,Wake Forest,ACC,SMU,ACC,16,False,2,25,75,"{'minutes': 3, 'seconds': 53}",2,42,58,"{'minutes': 1, 'seconds': 45}","{'minutes': 2, 'seconds': 7}",4,17,PUNT,True,10,6,10,6
+40175294222,401752942,SMU,ACC,Wake Forest,ACC,17,False,2,85,85,"{'minutes': 1, 'seconds': 46}",2,88,88,"{'minutes': 0, 'seconds': 49}","{'minutes': 0, 'seconds': 57}",3,-2,PUNT,False,6,10,6,10
+40175294223,401752942,SMU,ACC,Wake Forest,ACC,18,False,2,46,46,"{'minutes': 0, 'seconds': 49}",0,43,43,"{'minutes': 0, 'seconds': 39}","{'minutes': 0, 'seconds': 10}",2,3,INT,False,6,10,6,10
+40175294224,401752942,Wake Forest,ACC,SMU,ACC,19,False,2,33,67,"{'minutes': 0, 'seconds': 34}",2,33,67,"{'minutes': 0, 'seconds': 34}","{'minutes': 0, 'seconds': 12}",2,0,INT,True,10,6,10,6
+40175294225,401752942,SMU,ACC,Wake Forest,ACC,20,False,2,52,52,"{'minutes': 0, 'seconds': 27}",0,38,38,"{'minutes': 0, 'seconds': 15}","{'minutes': 0, 'seconds': 12}",2,14,FUMBLE,False,6,10,6,10
+40175294226,401752942,Wake Forest,ACC,SMU,ACC,21,False,2,38,62,"{'minutes': 0, 'seconds': 7}",2,63,37,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 15}",3,25,MISSED FG,True,10,6,10,6
+40175294228,401752942,Wake Forest,ACC,SMU,ACC,22,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,41,59,"{'minutes': 14, 'seconds': 0}","{'minutes': 1, 'seconds': 5}",3,16,INT,True,10,6,10,6
+40175294229,401752942,SMU,ACC,Wake Forest,ACC,23,False,3,30,30,"{'minutes': 13, 'seconds': 55}",3,26,26,"{'minutes': 11, 'seconds': 51}","{'minutes': 2, 'seconds': 4}",5,4,MISSED FG,False,6,10,6,10
+40175294230,401752942,Wake Forest,ACC,SMU,ACC,24,False,3,26,74,"{'minutes': 11, 'seconds': 48}",3,34,66,"{'minutes': 10, 'seconds': 23}","{'minutes': 1, 'seconds': 28}",3,8,PUNT,True,10,6,10,6
+40175294231,401752942,SMU,ACC,Wake Forest,ACC,25,False,3,68,68,"{'minutes': 10, 'seconds': 23}",3,63,63,"{'minutes': 9, 'seconds': 11}","{'minutes': 1, 'seconds': 12}",3,5,PUNT,False,6,10,6,10
+40175294232,401752942,Wake Forest,ACC,SMU,ACC,26,False,3,20,80,"{'minutes': 9, 'seconds': 4}",3,41,59,"{'minutes': 5, 'seconds': 52}","{'minutes': 3, 'seconds': 19}",7,21,DOWNS,True,10,6,10,6
+40175294233,401752942,SMU,ACC,Wake Forest,ACC,27,True,3,41,41,"{'minutes': 5, 'seconds': 52}",3,0,0,"{'minutes': 2, 'seconds': 58}","{'minutes': 2, 'seconds': 54}",6,41,TD,False,6,10,12,10
+40175294235,401752942,Wake Forest,ACC,SMU,ACC,28,False,3,29,71,"{'minutes': 2, 'seconds': 53}",4,97,3,"{'minutes': 13, 'seconds': 28}","{'minutes': 4, 'seconds': 29}",10,68,FUMBLE,True,10,12,10,12
+40175294236,401752942,SMU,ACC,Wake Forest,ACC,29,False,4,94,94,"{'minutes': 13, 'seconds': 24}",4,85,85,"{'minutes': 12, 'seconds': 3}","{'minutes': 1, 'seconds': 21}",3,9,PUNT,False,12,10,12,10
+40175294237,401752942,Wake Forest,ACC,SMU,ACC,30,False,4,20,80,"{'minutes': 11, 'seconds': 56}",4,53,47,"{'minutes': 7, 'seconds': 46}","{'minutes': 4, 'seconds': 23}",8,33,PUNT,True,10,12,10,12
+40175294238,401752942,SMU,ACC,Wake Forest,ACC,31,False,4,87,87,"{'minutes': 7, 'seconds': 40}",4,81,81,"{'minutes': 5, 'seconds': 29}","{'minutes': 2, 'seconds': 11}",4,6,PUNT,False,12,10,12,10
+40175294239,401752942,Wake Forest,ACC,SMU,ACC,32,False,4,34,66,"{'minutes': 5, 'seconds': 20}",4,94,6,"{'minutes': 1, 'seconds': 52}","{'minutes': 3, 'seconds': 37}",8,60,FUMBLE,True,10,12,10,12
+40175294240,401752942,SMU,ACC,Wake Forest,ACC,33,False,4,94,94,"{'minutes': 1, 'seconds': 52}",4,86,86,"{'minutes': 0, 'seconds': 12}","{'minutes': 1, 'seconds': 40}",3,8,PUNT,False,12,10,12,10
+40175294241,401752942,Wake Forest,ACC,SMU,ACC,34,True,4,42,58,"{'minutes': 0, 'seconds': 6}",4,67,33,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 12}",3,25,FG,True,10,12,13,12
+4017545211,401754521,SMU,ACC,East Texas A&M,Southland,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 14, 'seconds': 7}","{'minutes': 0, 'seconds': 53}",3,75,TD,True,0,0,7,0
+4017545212,401754521,East Texas A&M,Southland,SMU,ACC,2,False,1,63,63,"{'minutes': 14, 'seconds': 1}",1,45,45,"{'minutes': 9, 'seconds': 7}","{'minutes': 4, 'seconds': 54}",6,18,PUNT,False,0,7,0,7
+4017545213,401754521,SMU,ACC,East Texas A&M,Southland,3,False,1,9,91,"{'minutes': 9, 'seconds': 7}",1,35,65,"{'minutes': 6, 'seconds': 23}","{'minutes': 2, 'seconds': 44}",7,26,PUNT,True,7,0,7,0
+4017545214,401754521,East Texas A&M,Southland,SMU,ACC,4,True,1,88,88,"{'minutes': 6, 'seconds': 23}",1,91,91,"{'minutes': 5, 'seconds': 32}","{'minutes': 0, 'seconds': 51}",3,-3,INT TD,False,0,7,0,14
+4017545215,401754521,East Texas A&M,Southland,SMU,ACC,5,False,1,83,83,"{'minutes': 5, 'seconds': 25}",1,77,77,"{'minutes': 4, 'seconds': 3}","{'minutes': 1, 'seconds': 22}",3,6,PUNT,False,0,14,0,14
+4017545216,401754521,SMU,ACC,East Texas A&M,Southland,6,False,1,45,55,"{'minutes': 4, 'seconds': 3}",1,39,61,"{'minutes': 2, 'seconds': 36}","{'minutes': 1, 'seconds': 27}",3,-6,FUMBLE,True,14,0,14,0
+4017545217,401754521,East Texas A&M,Southland,SMU,ACC,7,False,1,39,39,"{'minutes': 2, 'seconds': 36}",1,5,5,"{'minutes': 1, 'seconds': 13}","{'minutes': 1, 'seconds': 23}",5,34,MISSED FG,False,0,14,0,14
+4017545218,401754521,SMU,ACC,East Texas A&M,Southland,8,True,1,20,80,"{'minutes': 1, 'seconds': 13}",2,100,0,"{'minutes': 14, 'seconds': 12}","{'minutes': 2, 'seconds': 1}",6,80,TD,True,14,0,21,0
+4017545219,401754521,East Texas A&M,Southland,SMU,ACC,9,True,2,75,75,"{'minutes': 14, 'seconds': 12}",2,76,76,"{'minutes': 13, 'seconds': 1}","{'minutes': 1, 'seconds': 11}",3,-1,PUNT RETURN TD,False,0,21,0,27
+40175452110,401754521,SMU,ACC,East Texas A&M,Southland,10,False,2,35,65,"{'minutes': 13, 'seconds': 1}",2,93,7,"{'minutes': 8, 'seconds': 59}","{'minutes': 4, 'seconds': 2}",11,58,INT,True,21,0,21,0
+40175452111,401754521,East Texas A&M,Southland,SMU,ACC,11,True,2,80,80,"{'minutes': 8, 'seconds': 59}",2,12,12,"{'minutes': 5, 'seconds': 20}","{'minutes': 3, 'seconds': 39}",8,68,FG,False,0,21,3,21
+40175452112,401754521,SMU,ACC,East Texas A&M,Southland,12,False,2,25,75,"{'minutes': 5, 'seconds': 20}",2,44,56,"{'minutes': 4, 'seconds': 35}","{'minutes': 0, 'seconds': 45}",3,19,PUNT,True,21,3,21,3
+40175452113,401754521,East Texas A&M,Southland,SMU,ACC,13,False,2,64,64,"{'minutes': 4, 'seconds': 35}",2,62,62,"{'minutes': 2, 'seconds': 59}","{'minutes': 1, 'seconds': 36}",3,2,PUNT,False,3,21,3,21
+40175452114,401754521,SMU,ACC,East Texas A&M,Southland,14,False,2,21,79,"{'minutes': 2, 'seconds': 59}",2,31,69,"{'minutes': 0, 'seconds': 49}","{'minutes': 2, 'seconds': 10}",7,10,PUNT,True,21,3,21,3
+40175452115,401754521,East Texas A&M,Southland,SMU,ACC,15,False,2,83,83,"{'minutes': 0, 'seconds': 49}",2,79,79,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 49}",2,4,END OF HALF,False,3,21,3,21
+40175452116,401754521,East Texas A&M,Southland,SMU,ACC,16,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,8,8,"{'minutes': 9, 'seconds': 32}","{'minutes': 5, 'seconds': 28}",11,67,INT TD,False,3,21,3,28
+40175452117,401754521,East Texas A&M,Southland,SMU,ACC,17,False,3,76,76,"{'minutes': 9, 'seconds': 27}",3,79,79,"{'minutes': 7, 'seconds': 54}","{'minutes': 1, 'seconds': 33}",3,-3,PUNT,False,3,28,3,28
+40175452118,401754521,SMU,ACC,East Texas A&M,Southland,18,False,3,35,65,"{'minutes': 7, 'seconds': 54}",3,44,56,"{'minutes': 7, 'seconds': 1}","{'minutes': 0, 'seconds': 53}",4,9,DOWNS,True,28,3,28,3
+40175452119,401754521,East Texas A&M,Southland,SMU,ACC,19,False,3,44,44,"{'minutes': 7, 'seconds': 1}",3,19,19,"{'minutes': 3, 'seconds': 33}","{'minutes': 3, 'seconds': 28}",6,25,FUMBLE,False,3,28,3,28
+40175452120,401754521,SMU,ACC,East Texas A&M,Southland,20,True,3,19,81,"{'minutes': 3, 'seconds': 33}",4,100,0,"{'minutes': 14, 'seconds': 12}","{'minutes': 4, 'seconds': 21}",13,81,TD,True,28,3,35,3
+40175452121,401754521,East Texas A&M,Southland,SMU,ACC,21,False,4,75,75,"{'minutes': 14, 'seconds': 12}",4,68,68,"{'minutes': 10, 'seconds': 18}","{'minutes': 3, 'seconds': 54}",7,7,PUNT,False,3,35,3,35
+40175452122,401754521,SMU,ACC,East Texas A&M,Southland,22,True,4,53,47,"{'minutes': 10, 'seconds': 18}",4,100,0,"{'minutes': 9, 'seconds': 34}","{'minutes': 0, 'seconds': 44}",3,47,TD,True,35,3,42,3
+40175452123,401754521,East Texas A&M,Southland,SMU,ACC,23,True,4,80,80,"{'minutes': 9, 'seconds': 29}",4,0,0,"{'minutes': 2, 'seconds': 55}","{'minutes': 6, 'seconds': 34}",13,80,TD,False,3,42,10,42
+40175452124,401754521,SMU,ACC,East Texas A&M,Southland,24,False,4,25,75,"{'minutes': 2, 'seconds': 55}",4,46,54,"{'minutes': 1, 'seconds': 54}","{'minutes': 1, 'seconds': 1}",3,21,FUMBLE,True,42,10,42,10
+40175452125,401754521,East Texas A&M,Southland,SMU,ACC,25,True,4,46,46,"{'minutes': 1, 'seconds': 54}",4,15,15,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 54}",8,31,FG,False,10,42,13,42
+4017545251,401754525,SMU,ACC,Baylor,Big 12,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 14, 'seconds': 48}","{'minutes': 0, 'seconds': 12}",1,75,TD,True,0,0,7,0
+4017545252,401754525,Baylor,Big 12,SMU,ACC,2,False,1,65,65,"{'minutes': 14, 'seconds': 41}",1,43,43,"{'minutes': 9, 'seconds': 55}","{'minutes': 4, 'seconds': 46}",10,22,DOWNS,False,0,7,0,7
+4017545253,401754525,SMU,ACC,Baylor,Big 12,3,True,1,43,57,"{'minutes': 9, 'seconds': 55}",1,74,26,"{'minutes': 7, 'seconds': 3}","{'minutes': 2, 'seconds': 52}",8,31,FG,True,7,0,10,0
+4017545254,401754525,Baylor,Big 12,SMU,ACC,4,False,1,69,69,"{'minutes': 6, 'seconds': 57}",1,27,27,"{'minutes': 3, 'seconds': 14}","{'minutes': 3, 'seconds': 43}",9,42,DOWNS,False,0,10,0,10
+4017545255,401754525,SMU,ACC,Baylor,Big 12,5,False,1,27,73,"{'minutes': 3, 'seconds': 14}",1,46,54,"{'minutes': 0, 'seconds': 38}","{'minutes': 2, 'seconds': 36}",5,19,PUNT,True,10,0,10,0
+4017545256,401754525,Baylor,Big 12,SMU,ACC,6,True,1,81,81,"{'minutes': 0, 'seconds': 38}",2,0,0,"{'minutes': 12, 'seconds': 12}","{'minutes': 3, 'seconds': 26}",9,81,TD,False,0,10,7,10
+4017545257,401754525,SMU,ACC,Baylor,Big 12,7,True,2,35,65,"{'minutes': 12, 'seconds': 12}",2,100,0,"{'minutes': 7, 'seconds': 21}","{'minutes': 4, 'seconds': 51}",11,65,TD,True,10,7,17,7
+40175452511,401754525,SMU,ACC,Baylor,Big 12,8,False,2,15,85,"{'minutes': 0, 'seconds': 37}",2,16,84,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 37}",1,1,END OF HALF,True,10,7,24,21
+4017545258,401754525,Baylor,Big 12,SMU,ACC,9,True,2,75,75,"{'minutes': 7, 'seconds': 19}",2,0,0,"{'minutes': 5, 'seconds': 7}","{'minutes': 2, 'seconds': 12}",7,75,TD,False,7,17,14,17
+40175452513,401754525,SMU,ACC,Baylor,Big 12,10,False,3,47,53,"{'minutes': 13, 'seconds': 29}",3,66,34,"{'minutes': 10, 'seconds': 36}","{'minutes': 2, 'seconds': 53}",9,19,MISSED FG,True,17,7,24,21
+4017545259,401754525,SMU,ACC,Baylor,Big 12,11,True,2,25,75,"{'minutes': 5, 'seconds': 1}",2,100,0,"{'minutes': 4, 'seconds': 49}","{'minutes': 0, 'seconds': 12}",1,75,TD,True,17,14,24,14
+40175452510,401754525,Baylor,Big 12,SMU,ACC,12,True,2,79,79,"{'minutes': 4, 'seconds': 44}",2,0,0,"{'minutes': 0, 'seconds': 37}","{'minutes': 4, 'seconds': 7}",11,79,TD,False,14,24,21,24
+40175452517,401754525,Baylor,Big 12,SMU,ACC,13,False,3,80,80,"{'minutes': 2, 'seconds': 43}",3,72,72,"{'minutes': 1, 'seconds': 35}","{'minutes': 1, 'seconds': 8}",3,8,PUNT,False,14,24,24,24
+40175452519,401754525,Baylor,Big 12,SMU,ACC,14,False,4,72,72,"{'minutes': 14, 'seconds': 17}",4,65,65,"{'minutes': 13, 'seconds': 37}","{'minutes': 0, 'seconds': 40}",2,7,FUMBLE,False,21,24,24,31
+40175452512,401754525,Baylor,Big 12,SMU,ACC,15,False,3,82,82,"{'minutes': 14, 'seconds': 56}",3,47,47,"{'minutes': 13, 'seconds': 29}","{'minutes': 1, 'seconds': 27}",5,35,DOWNS,False,21,24,21,24
+40175452514,401754525,Baylor,Big 12,SMU,ACC,16,True,3,66,66,"{'minutes': 10, 'seconds': 36}",3,9,9,"{'minutes': 5, 'seconds': 4}","{'minutes': 5, 'seconds': 32}",12,57,FG,False,21,24,24,24
+40175452515,401754525,SMU,ACC,Baylor,Big 12,17,False,3,25,75,"{'minutes': 5, 'seconds': 4}",3,26,74,"{'minutes': 3, 'seconds': 41}","{'minutes': 1, 'seconds': 23}",3,0,PUNT,True,24,24,24,24
+40175452525,401754525,Baylor,Big 12,SMU,ACC,18,True,5,25,25,"{'minutes': 0, 'seconds': 0}",5,0,0,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",3,25,TD,False,24,24,45,45
+40175452516,401754525,SMU,ACC,Baylor,Big 12,19,False,3,78,22,"{'minutes': 3, 'seconds': 41}",3,88,12,"{'minutes': 2, 'seconds': 43}","{'minutes': 0, 'seconds': 58}",3,10,INT,True,24,24,24,24
+40175452526,401754525,SMU,ACC,Baylor,Big 12,20,True,5,75,25,"{'minutes': 0, 'seconds': 0}",5,100,0,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",1,25,TD,True,24,24,45,45
+40175452527,401754525,SMU,ACC,Baylor,Big 12,21,False,6,75,25,"{'minutes': 0, 'seconds': 0}",6,79,21,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,4,MISSED FG,True,24,24,38,38
+40175452518,401754525,SMU,ACC,Baylor,Big 12,22,True,3,25,75,"{'minutes': 1, 'seconds': 35}",4,100,0,"{'minutes': 14, 'seconds': 24}","{'minutes': 2, 'seconds': 11}",5,75,TD,True,24,24,31,24
+40175452528,401754525,Baylor,Big 12,SMU,ACC,23,True,6,25,25,"{'minutes': 0, 'seconds': 0}",6,9,9,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",7,16,FG,False,24,24,48,45
+40175452539,401754525,Baylor,Big 12,SMU,ACC,24,False,5,25,25,"{'minutes': 0, 'seconds': 0}",5,2,2,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,23,DOWNS,False,38,38,38,38
+40175452540,401754525,SMU,ACC,Baylor,Big 12,25,False,5,25,75,"{'minutes': 0, 'seconds': 0}",5,0,100,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",1,0,DOWNS,True,45,45,45,45
+4017545551,401754555,SMU,ACC,Syracuse,ACC,1,False,1,20,80,"{'minutes': 14, 'seconds': 52}",1,28,72,"{'minutes': 13, 'seconds': 42}","{'minutes': 1, 'seconds': 10}",3,8,PUNT,True,0,0,0,0
+4017545552,401754555,Syracuse,ACC,SMU,ACC,2,False,1,42,42,"{'minutes': 13, 'seconds': 42}",1,1,1,"{'minutes': 6, 'seconds': 39}","{'minutes': 7, 'seconds': 3}",12,41,DOWNS,False,0,0,0,0
+4017545553,401754555,SMU,ACC,Syracuse,ACC,3,False,1,1,99,"{'minutes': 6, 'seconds': 39}",1,37,63,"{'minutes': 3, 'seconds': 48}","{'minutes': 2, 'seconds': 51}",6,36,PUNT,True,0,0,0,0
+4017545554,401754555,Syracuse,ACC,SMU,ACC,4,False,1,90,90,"{'minutes': 3, 'seconds': 48}",1,90,90,"{'minutes': 3, 'seconds': 46}","{'minutes': 0, 'seconds': 2}",1,0,INT,False,0,0,0,0
+4017545555,401754555,SMU,ACC,Syracuse,ACC,5,True,1,87,13,"{'minutes': 3, 'seconds': 46}",1,91,9,"{'minutes': 2, 'seconds': 34}","{'minutes': 1, 'seconds': 12}",4,4,FG,True,0,0,3,0
+4017545556,401754555,Syracuse,ACC,SMU,ACC,6,False,1,75,75,"{'minutes': 2, 'seconds': 34}",1,58,58,"{'minutes': 0, 'seconds': 41}","{'minutes': 1, 'seconds': 53}",6,17,PUNT,False,0,3,0,3
+4017545557,401754555,SMU,ACC,Syracuse,ACC,7,True,1,22,78,"{'minutes': 0, 'seconds': 41}",2,100,0,"{'minutes': 12, 'seconds': 58}","{'minutes': 2, 'seconds': 43}",7,78,TD,True,3,0,10,0
+4017545558,401754555,Syracuse,ACC,SMU,ACC,8,False,2,79,79,"{'minutes': 12, 'seconds': 50}",2,60,60,"{'minutes': 9, 'seconds': 22}","{'minutes': 3, 'seconds': 28}",7,19,DOWNS,False,0,10,0,10
+4017545559,401754555,SMU,ACC,Syracuse,ACC,9,True,2,60,40,"{'minutes': 9, 'seconds': 22}",2,100,0,"{'minutes': 8, 'seconds': 2}","{'minutes': 1, 'seconds': 20}",3,40,TD,True,10,0,17,0
+40175455510,401754555,Syracuse,ACC,SMU,ACC,10,False,2,75,75,"{'minutes': 8, 'seconds': 2}",2,10,10,"{'minutes': 4, 'seconds': 36}","{'minutes': 3, 'seconds': 26}",10,65,DOWNS,False,0,17,0,17
+40175455511,401754555,SMU,ACC,Syracuse,ACC,11,True,2,10,90,"{'minutes': 4, 'seconds': 36}",2,100,0,"{'minutes': 2, 'seconds': 18}","{'minutes': 2, 'seconds': 18}",6,90,TD,True,17,0,24,0
+40175455512,401754555,Syracuse,ACC,SMU,ACC,12,True,2,82,82,"{'minutes': 2, 'seconds': 13}",2,20,20,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 13}",11,62,FG,False,0,24,3,24
+40175455513,401754555,Syracuse,ACC,SMU,ACC,13,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,75,75,"{'minutes': 12, 'seconds': 42}","{'minutes': 2, 'seconds': 18}",3,0,PUNT,False,3,24,3,24
+40175455514,401754555,SMU,ACC,Syracuse,ACC,14,False,3,25,75,"{'minutes': 12, 'seconds': 42}",3,76,24,"{'minutes': 6, 'seconds': 53}","{'minutes': 5, 'seconds': 49}",12,51,MISSED FG,True,24,3,24,3
+40175455515,401754555,Syracuse,ACC,SMU,ACC,15,False,3,76,76,"{'minutes': 6, 'seconds': 53}",3,71,71,"{'minutes': 4, 'seconds': 11}","{'minutes': 2, 'seconds': 42}",5,5,PUNT,False,3,24,3,24
+40175455516,401754555,SMU,ACC,Syracuse,ACC,16,False,3,25,75,"{'minutes': 4, 'seconds': 11}",3,12,88,"{'minutes': 2, 'seconds': 7}","{'minutes': 2, 'seconds': 4}",3,-13,PUNT,True,24,3,24,3
+40175455517,401754555,Syracuse,ACC,SMU,ACC,17,False,3,55,55,"{'minutes': 2, 'seconds': 7}",3,52,52,"{'minutes': 1, 'seconds': 7}","{'minutes': 1, 'seconds': 0}",3,3,PUNT,False,3,24,3,24
+40175455518,401754555,SMU,ACC,Syracuse,ACC,18,True,3,23,77,"{'minutes': 1, 'seconds': 7}",4,100,0,"{'minutes': 12, 'seconds': 37}","{'minutes': 3, 'seconds': 30}",9,77,TD,True,24,3,31,3
+40175455519,401754555,Syracuse,ACC,SMU,ACC,19,True,4,75,75,"{'minutes': 12, 'seconds': 37}",4,0,0,"{'minutes': 9, 'seconds': 59}","{'minutes': 2, 'seconds': 38}",8,75,TD,False,3,31,10,31
+40175455520,401754555,SMU,ACC,Syracuse,ACC,20,False,4,25,75,"{'minutes': 9, 'seconds': 59}",4,23,77,"{'minutes': 9, 'seconds': 13}","{'minutes': 0, 'seconds': 46}",2,-2,INT,True,31,10,31,10
+40175455521,401754555,Syracuse,ACC,SMU,ACC,21,False,4,29,29,"{'minutes': 9, 'seconds': 13}",4,29,29,"{'minutes': 9, 'seconds': 7}","{'minutes': 0, 'seconds': 6}",1,0,INT,False,10,31,10,31
+40175455522,401754555,SMU,ACC,Syracuse,ACC,22,True,4,5,95,"{'minutes': 9, 'seconds': 7}",4,0,100,"{'minutes': 8, 'seconds': 55}","{'minutes': 0, 'seconds': 12}",1,-5,SF,True,31,12,31,12
+40175455523,401754555,Syracuse,ACC,SMU,ACC,23,True,4,62,62,"{'minutes': 8, 'seconds': 49}",4,0,0,"{'minutes': 5, 'seconds': 20}","{'minutes': 3, 'seconds': 29}",8,62,TD,False,12,31,18,31
+40175455524,401754555,SMU,ACC,Syracuse,ACC,24,False,4,44,56,"{'minutes': 5, 'seconds': 16}",4,71,29,"{'minutes': 1, 'seconds': 2}","{'minutes': 4, 'seconds': 14}",9,27,DOWNS,True,31,18,31,18
+40175455525,401754555,Syracuse,ACC,SMU,ACC,25,False,4,71,71,"{'minutes': 1, 'seconds': 2}",4,51,51,"{'minutes': 0, 'seconds': 14}","{'minutes': 0, 'seconds': 48}",4,20,INT,False,18,31,18,31
+40175455526,401754555,SMU,ACC,Syracuse,ACC,26,False,4,3,97,"{'minutes': 0, 'seconds': 14}",4,2,98,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 14}",1,-1,END OF GAME,True,31,18,31,18
+4017545611,401754561,SMU,ACC,Stanford,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,14,86,"{'minutes': 13, 'seconds': 38}","{'minutes': 1, 'seconds': 22}",3,-11,PUNT,True,0,0,0,0
+4017545612,401754561,SMU,ACC,Stanford,ACC,2,False,1,50,50,"{'minutes': 13, 'seconds': 38}",1,50,50,"{'minutes': 12, 'seconds': 30}","{'minutes': 1, 'seconds': 8}",3,0,PUNT,True,0,0,0,0
+4017545613,401754561,Stanford,ACC,SMU,ACC,3,False,1,92,92,"{'minutes': 12, 'seconds': 30}",1,80,80,"{'minutes': 7, 'seconds': 55}","{'minutes': 4, 'seconds': 35}",7,12,PUNT,False,0,0,0,0
+4017545614,401754561,SMU,ACC,Stanford,ACC,4,True,1,25,75,"{'minutes': 7, 'seconds': 55}",1,100,0,"{'minutes': 2, 'seconds': 39}","{'minutes': 5, 'seconds': 16}",13,75,TD,True,0,0,7,0
+4017545615,401754561,Stanford,ACC,SMU,ACC,5,False,1,71,71,"{'minutes': 2, 'seconds': 31}",1,73,73,"{'minutes': 0, 'seconds': 36}","{'minutes': 1, 'seconds': 55}",4,-2,PUNT,False,0,7,0,7
+4017545616,401754561,SMU,ACC,Stanford,ACC,6,True,1,20,80,"{'minutes': 0, 'seconds': 36}",2,85,15,"{'minutes': 12, 'seconds': 30}","{'minutes': 3, 'seconds': 6}",8,65,FG,True,7,0,10,0
+4017545617,401754561,Stanford,ACC,SMU,ACC,7,False,2,75,75,"{'minutes': 12, 'seconds': 30}",2,2,2,"{'minutes': 2, 'seconds': 44}","{'minutes': 9, 'seconds': 46}",18,73,DOWNS,False,0,10,0,10
+4017545618,401754561,SMU,ACC,Stanford,ACC,8,True,2,2,98,"{'minutes': 2, 'seconds': 44}",2,100,0,"{'minutes': 0, 'seconds': 35}","{'minutes': 2, 'seconds': 9}",6,98,TD,True,10,0,17,0
+4017545619,401754561,Stanford,ACC,SMU,ACC,9,True,2,75,75,"{'minutes': 0, 'seconds': 35}",2,0,0,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 33}",4,75,TD,False,0,17,7,17
+40175456110,401754561,SMU,ACC,Stanford,ACC,10,False,2,25,75,"{'minutes': 0, 'seconds': 1}",2,24,76,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 1}",1,-1,END OF HALF,True,17,7,17,7
+40175456111,401754561,Stanford,ACC,SMU,ACC,11,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,72,72,"{'minutes': 10, 'seconds': 29}","{'minutes': 4, 'seconds': 31}",6,3,PUNT,False,7,17,7,17
+40175456112,401754561,SMU,ACC,Stanford,ACC,12,True,3,18,82,"{'minutes': 10, 'seconds': 29}",3,100,0,"{'minutes': 8, 'seconds': 22}","{'minutes': 2, 'seconds': 7}",5,82,TD,True,17,7,24,7
+40175456113,401754561,Stanford,ACC,SMU,ACC,13,False,3,75,75,"{'minutes': 8, 'seconds': 22}",3,90,90,"{'minutes': 6, 'seconds': 40}","{'minutes': 1, 'seconds': 42}",3,-15,PUNT,False,7,24,7,24
+40175456114,401754561,SMU,ACC,Stanford,ACC,14,False,3,32,68,"{'minutes': 6, 'seconds': 40}",3,25,75,"{'minutes': 5, 'seconds': 5}","{'minutes': 1, 'seconds': 35}",3,-7,PUNT,True,24,7,24,7
+40175456115,401754561,Stanford,ACC,SMU,ACC,15,True,3,66,66,"{'minutes': 5, 'seconds': 5}",3,16,16,"{'minutes': 0, 'seconds': 34}","{'minutes': 4, 'seconds': 31}",11,50,FG,False,7,24,10,24
+40175456116,401754561,SMU,ACC,Stanford,ACC,16,False,3,25,75,"{'minutes': 0, 'seconds': 34}",4,43,57,"{'minutes': 12, 'seconds': 52}","{'minutes': 2, 'seconds': 42}",5,18,PUNT,True,24,10,24,10
+40175456117,401754561,Stanford,ACC,SMU,ACC,17,True,4,95,95,"{'minutes': 12, 'seconds': 52}",4,5,5,"{'minutes': 6, 'seconds': 5}","{'minutes': 6, 'seconds': 47}",11,90,INT TD,False,10,24,10,31
+40175456118,401754561,Stanford,ACC,SMU,ACC,18,False,4,75,75,"{'minutes': 6, 'seconds': 5}",4,75,75,"{'minutes': 5, 'seconds': 35}","{'minutes': 0, 'seconds': 30}",3,0,PUNT,False,10,31,10,31
+40175456119,401754561,SMU,ACC,Stanford,ACC,19,True,4,24,76,"{'minutes': 5, 'seconds': 35}",4,69,31,"{'minutes': 1, 'seconds': 32}","{'minutes': 4, 'seconds': 3}",9,45,FG,True,31,10,34,10
+40175456120,401754561,Stanford,ACC,SMU,ACC,20,False,4,79,79,"{'minutes': 1, 'seconds': 27}",4,54,54,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 27}",8,25,END OF GAME,False,10,34,10,34
+4017545651,401754565,Clemson,ACC,SMU,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,43,57,"{'minutes': 11, 'seconds': 57}","{'minutes': 3, 'seconds': 3}",5,18,PUNT,True,0,0,0,0
+4017545652,401754565,SMU,ACC,Clemson,ACC,2,False,1,91,91,"{'minutes': 11, 'seconds': 57}",1,78,78,"{'minutes': 8, 'seconds': 38}","{'minutes': 3, 'seconds': 19}",5,13,PUNT,False,0,0,0,0
+4017545653,401754565,Clemson,ACC,SMU,ACC,3,False,1,33,67,"{'minutes': 8, 'seconds': 38}",1,50,50,"{'minutes': 6, 'seconds': 46}","{'minutes': 1, 'seconds': 52}",4,17,FUMBLE,True,0,0,0,0
+4017545654,401754565,SMU,ACC,Clemson,ACC,4,False,1,50,50,"{'minutes': 6, 'seconds': 46}",1,47,47,"{'minutes': 5, 'seconds': 49}","{'minutes': 0, 'seconds': 57}",3,3,PUNT,False,0,0,0,0
+4017545655,401754565,Clemson,ACC,SMU,ACC,5,False,1,20,80,"{'minutes': 5, 'seconds': 49}",1,29,71,"{'minutes': 4, 'seconds': 1}","{'minutes': 1, 'seconds': 48}",3,9,PUNT,True,0,0,0,0
+4017545656,401754565,SMU,ACC,Clemson,ACC,6,True,1,70,70,"{'minutes': 4, 'seconds': 1}",1,0,0,"{'minutes': 3, 'seconds': 52}","{'minutes': 0, 'seconds': 9}",1,70,TD,False,7,0,7,0
+4017545657,401754565,Clemson,ACC,SMU,ACC,7,False,1,25,75,"{'minutes': 3, 'seconds': 52}",1,34,66,"{'minutes': 2, 'seconds': 22}","{'minutes': 1, 'seconds': 30}",3,9,PUNT,True,0,7,0,7
+4017545658,401754565,SMU,ACC,Clemson,ACC,8,False,1,81,81,"{'minutes': 2, 'seconds': 22}",1,78,78,"{'minutes': 1, 'seconds': 31}","{'minutes': 0, 'seconds': 51}",3,3,PUNT,False,7,0,7,0
+4017545659,401754565,Clemson,ACC,SMU,ACC,9,False,1,40,60,"{'minutes': 1, 'seconds': 31}",1,37,63,"{'minutes': 0, 'seconds': 4}","{'minutes': 1, 'seconds': 27}",3,-3,PUNT,True,0,7,0,7
+40175456510,401754565,SMU,ACC,Clemson,ACC,10,True,1,67,67,"{'minutes': 0, 'seconds': 4}",2,34,34,"{'minutes': 11, 'seconds': 26}","{'minutes': 3, 'seconds': 38}",10,33,FG,False,7,0,10,0
+40175456511,401754565,Clemson,ACC,SMU,ACC,11,True,2,25,75,"{'minutes': 11, 'seconds': 26}",2,100,0,"{'minutes': 8, 'seconds': 51}","{'minutes': 2, 'seconds': 35}",6,75,TD,True,0,10,7,10
+40175456512,401754565,SMU,ACC,Clemson,ACC,12,True,2,75,75,"{'minutes': 8, 'seconds': 51}",2,31,31,"{'minutes': 4, 'seconds': 29}","{'minutes': 4, 'seconds': 22}",10,44,FG,False,10,7,13,7
+40175456513,401754565,Clemson,ACC,SMU,ACC,13,False,2,30,70,"{'minutes': 4, 'seconds': 24}",2,39,61,"{'minutes': 2, 'seconds': 53}","{'minutes': 1, 'seconds': 31}",4,9,DOWNS,True,7,13,7,13
+40175456514,401754565,SMU,ACC,Clemson,ACC,14,True,2,39,39,"{'minutes': 2, 'seconds': 53}",2,31,31,"{'minutes': 1, 'seconds': 9}","{'minutes': 1, 'seconds': 44}",8,8,FG,False,13,7,16,7
+40175456515,401754565,Clemson,ACC,SMU,ACC,15,False,2,25,75,"{'minutes': 1, 'seconds': 9}",2,33,67,"{'minutes': 0, 'seconds': 16}","{'minutes': 0, 'seconds': 53}",3,8,PUNT,True,7,16,7,16
+40175456516,401754565,SMU,ACC,Clemson,ACC,16,False,2,77,77,"{'minutes': 0, 'seconds': 16}",2,75,75,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 16}",1,2,END OF HALF,False,16,7,16,7
+40175456517,401754565,SMU,ACC,Clemson,ACC,17,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,59,59,"{'minutes': 13, 'seconds': 4}","{'minutes': 1, 'seconds': 56}",4,16,PUNT,False,16,7,16,7
+40175456518,401754565,Clemson,ACC,SMU,ACC,18,False,3,30,70,"{'minutes': 13, 'seconds': 4}",3,26,74,"{'minutes': 11, 'seconds': 12}","{'minutes': 1, 'seconds': 52}",3,-4,PUNT,True,7,16,7,16
+40175456519,401754565,SMU,ACC,Clemson,ACC,19,False,3,63,63,"{'minutes': 11, 'seconds': 12}",3,62,62,"{'minutes': 10, 'seconds': 11}","{'minutes': 1, 'seconds': 1}",3,1,PUNT,False,16,7,16,7
+40175456520,401754565,Clemson,ACC,SMU,ACC,20,True,3,26,74,"{'minutes': 10, 'seconds': 11}",3,100,0,"{'minutes': 8, 'seconds': 48}","{'minutes': 1, 'seconds': 23}",4,74,TD,True,7,16,14,16
+40175456521,401754565,SMU,ACC,Clemson,ACC,21,True,3,75,75,"{'minutes': 8, 'seconds': 48}",3,0,0,"{'minutes': 7, 'seconds': 29}","{'minutes': 1, 'seconds': 19}",4,75,TD,False,16,14,23,14
+40175456522,401754565,Clemson,ACC,SMU,ACC,22,True,3,25,75,"{'minutes': 7, 'seconds': 28}",3,90,10,"{'minutes': 0, 'seconds': 7}","{'minutes': 7, 'seconds': 21}",17,65,FG,True,14,23,17,23
+40175456523,401754565,SMU,ACC,Clemson,ACC,23,True,3,75,75,"{'minutes': 0, 'seconds': 7}",4,0,0,"{'minutes': 12, 'seconds': 30}","{'minutes': 2, 'seconds': 37}",6,75,TD,False,23,17,29,17
+40175456524,401754565,Clemson,ACC,SMU,ACC,24,False,4,25,75,"{'minutes': 12, 'seconds': 30}",4,28,72,"{'minutes': 11, 'seconds': 6}","{'minutes': 1, 'seconds': 24}",3,3,PUNT,True,17,29,17,29
+40175456525,401754565,SMU,ACC,Clemson,ACC,25,False,4,69,69,"{'minutes': 11, 'seconds': 6}",4,69,69,"{'minutes': 10, 'seconds': 11}","{'minutes': 0, 'seconds': 55}",3,0,INT,False,29,17,29,17
+40175456526,401754565,Clemson,ACC,SMU,ACC,26,True,4,51,49,"{'minutes': 10, 'seconds': 11}",4,100,0,"{'minutes': 6, 'seconds': 44}","{'minutes': 3, 'seconds': 27}",8,49,TD,True,17,29,24,29
+40175456527,401754565,SMU,ACC,Clemson,ACC,27,True,4,75,75,"{'minutes': 6, 'seconds': 44}",4,0,0,"{'minutes': 1, 'seconds': 3}","{'minutes': 5, 'seconds': 41}",13,75,TD,False,29,24,35,24
+40175456528,401754565,Clemson,ACC,SMU,ACC,28,False,4,14,86,"{'minutes': 0, 'seconds': 58}",4,47,53,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 58}",7,33,END OF GAME,True,24,35,24,35
+4017545812,401754581,Miami,ACC,SMU,ACC,1,False,1,70,70,"{'minutes': 14, 'seconds': 53}",1,52,52,"{'minutes': 12, 'seconds': 4}","{'minutes': 2, 'seconds': 49}",5,18,PUNT,False,0,0,0,0
+4017545813,401754581,SMU,ACC,Miami,ACC,2,False,1,10,90,"{'minutes': 11, 'seconds': 56}",1,62,38,"{'minutes': 8, 'seconds': 43}","{'minutes': 3, 'seconds': 21}",9,52,FUMBLE,True,0,0,0,0
+4017545814,401754581,Miami,ACC,SMU,ACC,3,True,1,62,62,"{'minutes': 8, 'seconds': 39}",1,3,3,"{'minutes': 4, 'seconds': 16}","{'minutes': 4, 'seconds': 27}",8,62,TD,False,0,0,7,0
+4017545816,401754581,SMU,ACC,Miami,ACC,4,False,1,43,57,"{'minutes': 4, 'seconds': 10}",1,47,53,"{'minutes': 2, 'seconds': 50}","{'minutes': 1, 'seconds': 20}",3,4,PUNT,True,0,7,0,7
+4017545817,401754581,Miami,ACC,SMU,ACC,5,False,1,83,83,"{'minutes': 2, 'seconds': 50}",2,39,39,"{'minutes': 12, 'seconds': 0}","{'minutes': 5, 'seconds': 50}",9,44,PUNT,False,7,0,7,0
+4017545818,401754581,SMU,ACC,Miami,ACC,6,False,2,20,80,"{'minutes': 11, 'seconds': 50}",2,58,42,"{'minutes': 10, 'seconds': 18}","{'minutes': 1, 'seconds': 42}",4,38,PUNT,True,0,7,0,7
+4017545819,401754581,Miami,ACC,SMU,ACC,7,False,2,88,88,"{'minutes': 10, 'seconds': 14}",2,72,72,"{'minutes': 9, 'seconds': 28}","{'minutes': 0, 'seconds': 50}",2,5,INT,False,7,0,7,0
+40175458110,401754581,SMU,ACC,Miami,ACC,8,True,2,72,28,"{'minutes': 9, 'seconds': 22}",2,99,1,"{'minutes': 9, 'seconds': 22}","{'minutes': 0, 'seconds': 6}",1,28,TD,True,7,7,7,7
+40175458112,401754581,Miami,ACC,SMU,ACC,9,False,2,90,90,"{'minutes': 9, 'seconds': 21}",2,73,73,"{'minutes': 6, 'seconds': 40}","{'minutes': 2, 'seconds': 41}",6,17,PUNT,False,7,7,7,7
+40175458113,401754581,SMU,ACC,Miami,ACC,10,False,2,20,80,"{'minutes': 6, 'seconds': 34}",2,21,79,"{'minutes': 5, 'seconds': 25}","{'minutes': 1, 'seconds': 15}",3,1,PUNT,True,7,7,7,7
+40175458114,401754581,Miami,ACC,SMU,ACC,11,False,2,65,65,"{'minutes': 5, 'seconds': 17}",2,44,44,"{'minutes': 2, 'seconds': 44}","{'minutes': 2, 'seconds': 41}",6,21,PUNT,False,7,7,7,7
+40175458115,401754581,SMU,ACC,Miami,ACC,12,False,2,8,92,"{'minutes': 2, 'seconds': 36}",2,7,93,"{'minutes': 0, 'seconds': 49}","{'minutes': 1, 'seconds': 55}",3,7,PUNT,True,7,7,7,7
+40175458116,401754581,Miami,ACC,SMU,ACC,13,True,2,9,9,"{'minutes': 0, 'seconds': 43}",2,4,4,"{'minutes': 0, 'seconds': 7}","{'minutes': 0, 'seconds': 42}",4,5,FG,False,7,7,10,7
+40175458118,401754581,SMU,ACC,Miami,ACC,14,False,2,25,75,"{'minutes': 0, 'seconds': 7}",2,24,76,"{'minutes': 0, 'seconds': 7}","{'minutes': 0, 'seconds': 7}",1,-1,END OF HALF,True,7,10,7,10
+40175458120,401754581,SMU,ACC,Miami,ACC,15,True,3,21,79,"{'minutes': 14, 'seconds': 54}",3,97,3,"{'minutes': 12, 'seconds': 11}","{'minutes': 2, 'seconds': 43}",9,79,TD,True,7,10,14,10
+40175458122,401754581,Miami,ACC,SMU,ACC,16,True,3,75,75,"{'minutes': 12, 'seconds': 5}",3,3,3,"{'minutes': 9, 'seconds': 6}","{'minutes': 2, 'seconds': 59}",7,75,TD,False,10,14,17,14
+40175458124,401754581,SMU,ACC,Miami,ACC,17,False,3,12,88,"{'minutes': 9, 'seconds': 0}",3,18,82,"{'minutes': 8, 'seconds': 19}","{'minutes': 0, 'seconds': 41}",3,6,PUNT,True,14,17,14,17
+40175458125,401754581,Miami,ACC,SMU,ACC,18,False,3,75,75,"{'minutes': 8, 'seconds': 13}",3,30,30,"{'minutes': 4, 'seconds': 3}","{'minutes': 4, 'seconds': 16}",9,45,DOWNS,False,17,14,17,14
+40175458126,401754581,SMU,ACC,Miami,ACC,19,True,3,30,70,"{'minutes': 3, 'seconds': 57}",3,74,26,"{'minutes': 0, 'seconds': 7}","{'minutes': 3, 'seconds': 56}",10,44,FG,True,14,17,17,17
+40175458128,401754581,Miami,ACC,SMU,ACC,20,True,3,75,75,"{'minutes': 0, 'seconds': 7}",4,26,26,"{'minutes': 9, 'seconds': 34}","{'minutes': 5, 'seconds': 33}",10,49,FG,False,17,17,20,17
+40175458130,401754581,SMU,ACC,Miami,ACC,21,False,4,25,75,"{'minutes': 9, 'seconds': 34}",4,75,25,"{'minutes': 6, 'seconds': 24}","{'minutes': 3, 'seconds': 10}",10,50,MISSED FG,True,17,20,17,20
+40175458131,401754581,Miami,ACC,SMU,ACC,22,False,4,75,75,"{'minutes': 6, 'seconds': 19}",4,50,50,"{'minutes': 2, 'seconds': 9}","{'minutes': 4, 'seconds': 15}",8,25,PUNT,False,20,17,20,17
+40175458132,401754581,SMU,ACC,Miami,ACC,23,True,4,10,90,"{'minutes': 2, 'seconds': 1}",4,79,21,"{'minutes': 0, 'seconds': 25}","{'minutes': 1, 'seconds': 44}",11,69,FG,True,17,20,20,20
+40175458134,401754581,Miami,ACC,SMU,ACC,24,False,4,75,75,"{'minutes': 0, 'seconds': 25}",4,76,76,"{'minutes': 0, 'seconds': 25}","{'minutes': 0, 'seconds': 25}",1,-1,END OF HALF,False,20,20,20,20
+40175458135,401754581,Miami,ACC,SMU,ACC,25,False,5,25,25,"{'minutes': 0, 'seconds': 0}",5,1,1,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",5,18,INT,False,20,20,20,20
+40175458136,401754581,SMU,ACC,Miami,ACC,26,True,5,75,25,"{'minutes': 0, 'seconds': 30}",5,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",6,25,TD,True,20,20,26,20
+4017545842,401754584,SMU,ACC,Boston College,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,83,83,"{'minutes': 14, 'seconds': 5}","{'minutes': 0, 'seconds': 55}",3,-8,PUNT,False,0,0,0,0
+4017545843,401754584,Boston College,ACC,SMU,ACC,2,False,1,37,63,"{'minutes': 14, 'seconds': 5}",1,47,53,"{'minutes': 11, 'seconds': 1}","{'minutes': 3, 'seconds': 4}",6,10,PUNT,True,0,0,0,0
+4017545844,401754584,SMU,ACC,Boston College,ACC,3,True,1,70,70,"{'minutes': 11, 'seconds': 1}",1,3,3,"{'minutes': 8, 'seconds': 56}","{'minutes': 2, 'seconds': 5}",7,70,TD,False,0,0,7,0
+4017545846,401754584,Boston College,ACC,SMU,ACC,4,False,1,25,75,"{'minutes': 8, 'seconds': 56}",1,33,67,"{'minutes': 7, 'seconds': 42}","{'minutes': 1, 'seconds': 14}",3,4,FUMBLE,True,0,7,0,7
+4017545847,401754584,SMU,ACC,Boston College,ACC,5,True,1,33,33,"{'minutes': 7, 'seconds': 42}",1,3,3,"{'minutes': 6, 'seconds': 35}","{'minutes': 1, 'seconds': 7}",5,30,FG,False,7,0,10,0
+4017545849,401754584,Boston College,ACC,SMU,ACC,6,False,1,25,75,"{'minutes': 6, 'seconds': 35}",1,53,47,"{'minutes': 4, 'seconds': 17}","{'minutes': 2, 'seconds': 18}",6,28,FUMBLE,True,0,10,0,10
+40175458410,401754584,SMU,ACC,Boston College,ACC,7,False,1,53,53,"{'minutes': 4, 'seconds': 17}",1,63,63,"{'minutes': 1, 'seconds': 32}","{'minutes': 2, 'seconds': 45}",3,-10,PUNT,False,10,0,10,0
+40175458411,401754584,Boston College,ACC,SMU,ACC,8,False,1,13,87,"{'minutes': 1, 'seconds': 32}",1,21,79,"{'minutes': 0, 'seconds': 1}","{'minutes': 1, 'seconds': 31}",3,8,PUNT,True,0,10,0,10
+40175458412,401754584,SMU,ACC,Boston College,ACC,9,False,1,66,66,"{'minutes': 0, 'seconds': 1}",2,41,41,"{'minutes': 14, 'seconds': 12}","{'minutes': 0, 'seconds': 49}",4,25,PUNT,False,10,0,10,0
+40175458413,401754584,Boston College,ACC,SMU,ACC,10,False,2,20,80,"{'minutes': 14, 'seconds': 12}",2,96,4,"{'minutes': 8, 'seconds': 37}","{'minutes': 5, 'seconds': 35}",11,76,DOWNS,True,0,10,0,10
+40175458414,401754584,SMU,ACC,Boston College,ACC,11,False,2,96,96,"{'minutes': 8, 'seconds': 37}",2,91,91,"{'minutes': 7, 'seconds': 28}","{'minutes': 1, 'seconds': 9}",3,5,PUNT,False,10,0,10,0
+40175458415,401754584,Boston College,ACC,SMU,ACC,12,False,2,41,59,"{'minutes': 7, 'seconds': 28}",2,68,32,"{'minutes': 4, 'seconds': 21}","{'minutes': 3, 'seconds': 7}",8,27,DOWNS,True,0,10,0,10
+40175458416,401754584,SMU,ACC,Boston College,ACC,13,True,2,68,68,"{'minutes': 4, 'seconds': 21}",2,3,3,"{'minutes': 3, 'seconds': 1}","{'minutes': 1, 'seconds': 20}",4,68,TD,False,10,0,17,0
+40175458418,401754584,Boston College,ACC,SMU,ACC,14,True,2,25,75,"{'minutes': 3, 'seconds': 1}",2,82,18,"{'minutes': 1, 'seconds': 11}","{'minutes': 1, 'seconds': 50}",8,57,FG,True,0,17,3,17
+40175458420,401754584,SMU,ACC,Boston College,ACC,15,False,2,91,91,"{'minutes': 1, 'seconds': 5}",2,63,63,"{'minutes': 0, 'seconds': 11}","{'minutes': 0, 'seconds': 54}",9,36,INT,False,17,3,17,6
+40175458421,401754584,Boston College,ACC,SMU,ACC,16,True,2,63,37,"{'minutes': 0, 'seconds': 11}",2,82,18,"{'minutes': 0, 'seconds': 4}","{'minutes': 0, 'seconds': 11}",2,19,FG,True,3,17,6,17
+40175458423,401754584,Boston College,ACC,SMU,ACC,17,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,39,61,"{'minutes': 12, 'seconds': 35}","{'minutes': 2, 'seconds': 25}",5,14,PUNT,True,6,17,6,17
+40175458424,401754584,SMU,ACC,Boston College,ACC,18,True,3,79,79,"{'minutes': 12, 'seconds': 35}",3,3,3,"{'minutes': 10, 'seconds': 2}","{'minutes': 2, 'seconds': 33}",7,79,TD,False,17,6,24,6
+40175458426,401754584,Boston College,ACC,SMU,ACC,19,False,3,25,75,"{'minutes': 10, 'seconds': 2}",3,39,61,"{'minutes': 8, 'seconds': 54}","{'minutes': 1, 'seconds': 8}",3,20,INT,True,6,24,6,24
+40175458427,401754584,SMU,ACC,Boston College,ACC,20,True,3,39,39,"{'minutes': 8, 'seconds': 54}",3,3,3,"{'minutes': 4, 'seconds': 46}","{'minutes': 4, 'seconds': 8}",7,39,TD,False,24,6,31,6
+40175458429,401754584,Boston College,ACC,SMU,ACC,21,False,3,65,35,"{'minutes': 4, 'seconds': 39}",3,67,33,"{'minutes': 0, 'seconds': 57}","{'minutes': 3, 'seconds': 42}",10,2,DOWNS,True,6,31,6,31
+40175458430,401754584,SMU,ACC,Boston College,ACC,22,True,3,67,67,"{'minutes': 0, 'seconds': 57}",4,3,3,"{'minutes': 13, 'seconds': 25}","{'minutes': 2, 'seconds': 32}",5,67,TD,False,31,6,38,6
+40175458432,401754584,Boston College,ACC,SMU,ACC,23,True,4,27,73,"{'minutes': 13, 'seconds': 21}",4,97,3,"{'minutes': 8, 'seconds': 59}","{'minutes': 4, 'seconds': 22}",13,73,TD,True,6,38,13,38
+40175458434,401754584,SMU,ACC,Boston College,ACC,24,True,4,75,75,"{'minutes': 8, 'seconds': 59}",4,3,3,"{'minutes': 6, 'seconds': 38}","{'minutes': 2, 'seconds': 21}",4,75,TD,False,38,13,45,13
+40175458436,401754584,Boston College,ACC,SMU,ACC,25,False,4,25,75,"{'minutes': 6, 'seconds': 39}",4,22,78,"{'minutes': 5, 'seconds': 1}","{'minutes': 1, 'seconds': 38}",3,-3,PUNT,True,13,45,13,45
+40175458437,401754584,SMU,ACC,Boston College,ACC,26,False,4,90,90,"{'minutes': 5, 'seconds': 1}",4,71,71,"{'minutes': 1, 'seconds': 1}","{'minutes': 4, 'seconds': 0}",6,19,PUNT,False,45,13,45,13
+40175458438,401754584,Boston College,ACC,SMU,ACC,27,False,4,23,77,"{'minutes': 1, 'seconds': 1}",4,95,5,"{'minutes': 0, 'seconds': 18}","{'minutes': 0, 'seconds': 43}",5,47,INT,True,13,45,13,45
+40175458439,401754584,SMU,ACC,Boston College,ACC,28,False,4,95,95,"{'minutes': 0, 'seconds': 18}",4,96,96,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 18}",1,-1,END OF GAME,False,45,13,45,13
+4017546022,401754602,SMU,ACC,Louisville,ACC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 10, 'seconds': 40}","{'minutes': 4, 'seconds': 20}",9,75,TD,True,0,0,7,0
+4017546024,401754602,Louisville,ACC,SMU,ACC,2,True,1,75,75,"{'minutes': 10, 'seconds': 40}",1,18,18,"{'minutes': 4, 'seconds': 15}","{'minutes': 6, 'seconds': 25}",12,57,FG,False,0,7,3,7
+4017546026,401754602,SMU,ACC,Louisville,ACC,3,False,1,25,75,"{'minutes': 4, 'seconds': 15}",1,55,45,"{'minutes': 0, 'seconds': 38}","{'minutes': 3, 'seconds': 37}",7,30,PUNT,True,7,3,7,3
+4017546027,401754602,Louisville,ACC,SMU,ACC,4,False,1,88,88,"{'minutes': 0, 'seconds': 29}",2,81,81,"{'minutes': 14, 'seconds': 12}","{'minutes': 1, 'seconds': 26}",3,7,PUNT,False,3,7,3,7
+4017546028,401754602,SMU,ACC,Louisville,ACC,5,True,2,41,59,"{'minutes': 14, 'seconds': 12}",2,97,3,"{'minutes': 8, 'seconds': 53}","{'minutes': 5, 'seconds': 19}",10,59,TD,True,7,3,14,3
+40175460210,401754602,Louisville,ACC,SMU,ACC,6,False,2,65,65,"{'minutes': 8, 'seconds': 53}",2,62,62,"{'minutes': 6, 'seconds': 54}","{'minutes': 1, 'seconds': 59}",3,3,PUNT,False,3,14,3,14
+40175460211,401754602,SMU,ACC,Louisville,ACC,7,True,2,30,70,"{'minutes': 6, 'seconds': 50}",2,97,3,"{'minutes': 3, 'seconds': 25}","{'minutes': 3, 'seconds': 29}",7,70,TD,True,14,3,21,3
+40175460213,401754602,Louisville,ACC,SMU,ACC,8,True,2,75,75,"{'minutes': 3, 'seconds': 25}",2,10,10,"{'minutes': 1, 'seconds': 44}","{'minutes': 1, 'seconds': 41}",6,63,FG,False,3,21,6,21
+40175460215,401754602,SMU,ACC,Louisville,ACC,9,False,2,18,82,"{'minutes': 1, 'seconds': 38}",2,31,69,"{'minutes': 0, 'seconds': 34}","{'minutes': 1, 'seconds': 38}",6,13,END OF HALF,True,21,6,21,6
+40175460217,401754602,Louisville,ACC,SMU,ACC,10,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,30,30,"{'minutes': 10, 'seconds': 23}","{'minutes': 4, 'seconds': 37}",8,25,PUNT,False,6,21,6,21
+40175460218,401754602,SMU,ACC,Louisville,ACC,11,False,3,17,83,"{'minutes': 10, 'seconds': 15}",3,57,43,"{'minutes': 7, 'seconds': 7}","{'minutes': 3, 'seconds': 16}",8,40,PUNT,True,21,6,21,6
+40175460219,401754602,Louisville,ACC,SMU,ACC,12,False,3,70,70,"{'minutes': 7, 'seconds': 2}",3,62,62,"{'minutes': 5, 'seconds': 40}","{'minutes': 1, 'seconds': 27}",3,8,PUNT,False,6,21,6,21
+40175460220,401754602,SMU,ACC,Louisville,ACC,13,True,3,8,92,"{'minutes': 5, 'seconds': 31}",3,68,32,"{'minutes': 0, 'seconds': 48}","{'minutes': 4, 'seconds': 52}",12,60,FG,True,21,6,24,6
+40175460222,401754602,Louisville,ACC,SMU,ACC,14,False,3,35,35,"{'minutes': 0, 'seconds': 48}",4,71,71,"{'minutes': 14, 'seconds': 51}","{'minutes': 0, 'seconds': 54}",3,-36,PUNT,False,6,24,6,24
+40175460223,401754602,SMU,ACC,Louisville,ACC,15,True,4,32,68,"{'minutes': 14, 'seconds': 43}",4,97,3,"{'minutes': 9, 'seconds': 38}","{'minutes': 5, 'seconds': 13}",9,68,TD,True,24,6,31,6
+40175460225,401754602,Louisville,ACC,SMU,ACC,16,False,4,75,75,"{'minutes': 9, 'seconds': 32}",4,74,74,"{'minutes': 8, 'seconds': 11}","{'minutes': 1, 'seconds': 21}",3,1,PUNT,False,6,31,6,31
+40175460226,401754602,SMU,ACC,Louisville,ACC,17,True,4,35,65,"{'minutes': 8, 'seconds': 4}",4,97,3,"{'minutes': 6, 'seconds': 3}","{'minutes': 2, 'seconds': 8}",4,65,TD,True,31,6,38,6
+40175460228,401754602,Louisville,ACC,SMU,ACC,18,False,4,73,73,"{'minutes': 5, 'seconds': 48}",4,17,17,"{'minutes': 3, 'seconds': 44}","{'minutes': 2, 'seconds': 4}",5,39,INT,False,6,38,6,38
+40175460229,401754602,SMU,ACC,Louisville,ACC,19,False,4,17,83,"{'minutes': 3, 'seconds': 32}",4,23,77,"{'minutes': 1, 'seconds': 46}","{'minutes': 1, 'seconds': 58}",3,6,PUNT,True,38,6,38,6
+40175460230,401754602,Louisville,ACC,SMU,ACC,20,False,4,73,73,"{'minutes': 1, 'seconds': 40}",4,53,53,"{'minutes': 0, 'seconds': 6}","{'minutes': 1, 'seconds': 46}",5,20,END OF GAME,False,6,38,6,38
+4017546092,401754609,California,ACC,SMU,ACC,1,False,1,17,83,"{'minutes': 14, 'seconds': 53}",1,33,67,"{'minutes': 11, 'seconds': 47}","{'minutes': 3, 'seconds': 6}",6,16,PUNT,True,0,0,0,0
+4017546093,401754609,SMU,ACC,California,ACC,2,False,1,70,70,"{'minutes': 11, 'seconds': 47}",1,58,58,"{'minutes': 9, 'seconds': 40}","{'minutes': 2, 'seconds': 7}",5,12,PUNT,False,0,0,0,0
+4017546094,401754609,California,ACC,SMU,ACC,3,True,1,18,82,"{'minutes': 9, 'seconds': 40}",1,78,22,"{'minutes': 3, 'seconds': 23}","{'minutes': 6, 'seconds': 17}",15,60,FG,True,0,0,3,0
+4017546096,401754609,SMU,ACC,California,ACC,4,True,1,80,80,"{'minutes': 3, 'seconds': 17}",1,0,0,"{'minutes': 1, 'seconds': 37}","{'minutes': 1, 'seconds': 40}",4,80,TD,False,0,3,7,3
+4017546098,401754609,California,ACC,SMU,ACC,5,True,1,18,82,"{'minutes': 1, 'seconds': 31}",2,100,0,"{'minutes': 13, 'seconds': 33}","{'minutes': 2, 'seconds': 58}",7,82,TD,True,3,7,10,7
+40175460910,401754609,SMU,ACC,California,ACC,6,False,2,85,85,"{'minutes': 13, 'seconds': 26}",2,85,85,"{'minutes': 13, 'seconds': 12}","{'minutes': 0, 'seconds': 14}",2,0,INT,False,7,10,7,10
+40175460911,401754609,California,ACC,SMU,ACC,7,True,2,83,17,"{'minutes': 13, 'seconds': 12}",2,100,0,"{'minutes': 10, 'seconds': 29}","{'minutes': 2, 'seconds': 43}",5,17,TD,True,10,7,17,7
+40175460913,401754609,SMU,ACC,California,ACC,8,False,2,81,81,"{'minutes': 10, 'seconds': 24}",2,50,50,"{'minutes': 6, 'seconds': 23}","{'minutes': 4, 'seconds': 1}",8,31,PUNT,False,7,17,7,17
+40175460914,401754609,California,ACC,SMU,ACC,9,False,2,14,86,"{'minutes': 6, 'seconds': 23}",2,72,28,"{'minutes': 1, 'seconds': 13}","{'minutes': 5, 'seconds': 10}",10,58,MISSED FG,True,17,7,17,7
+40175460915,401754609,SMU,ACC,California,ACC,10,False,2,72,72,"{'minutes': 1, 'seconds': 13}",2,52,52,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 13}",7,20,END OF HALF,False,7,17,7,17
+40175460917,401754609,SMU,ACC,California,ACC,11,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,68,68,"{'minutes': 13, 'seconds': 29}","{'minutes': 1, 'seconds': 31}",4,7,PUNT,False,7,17,7,17
+40175460918,401754609,California,ACC,SMU,ACC,12,True,3,25,75,"{'minutes': 13, 'seconds': 29}",3,100,0,"{'minutes': 8, 'seconds': 25}","{'minutes': 5, 'seconds': 4}",11,75,TD,True,17,7,24,7
+40175460920,401754609,SMU,ACC,California,ACC,13,True,3,75,75,"{'minutes': 8, 'seconds': 25}",3,0,0,"{'minutes': 4, 'seconds': 52}","{'minutes': 3, 'seconds': 33}",9,75,TD,False,7,24,14,24
+40175460922,401754609,California,ACC,SMU,ACC,14,True,3,25,75,"{'minutes': 4, 'seconds': 52}",4,100,0,"{'minutes': 14, 'seconds': 54}","{'minutes': 4, 'seconds': 58}",9,75,TD,True,24,14,31,14
+40175460924,401754609,SMU,ACC,California,ACC,15,True,4,75,75,"{'minutes': 14, 'seconds': 54}",4,0,0,"{'minutes': 12, 'seconds': 58}","{'minutes': 1, 'seconds': 56}",7,75,TD,False,14,31,21,31
+40175460926,401754609,California,ACC,SMU,ACC,16,False,4,32,68,"{'minutes': 12, 'seconds': 54}",4,36,64,"{'minutes': 11, 'seconds': 26}","{'minutes': 1, 'seconds': 28}",3,4,PUNT,True,31,21,31,21
+40175460927,401754609,SMU,ACC,California,ACC,17,True,4,71,71,"{'minutes': 11, 'seconds': 12}",4,0,0,"{'minutes': 7, 'seconds': 59}","{'minutes': 3, 'seconds': 27}",11,71,TD,False,21,31,28,31
+40175460929,401754609,California,ACC,SMU,ACC,18,False,4,25,75,"{'minutes': 7, 'seconds': 59}",4,35,65,"{'minutes': 4, 'seconds': 46}","{'minutes': 3, 'seconds': 13}",5,10,PUNT,True,31,28,31,28
+40175460930,401754609,SMU,ACC,California,ACC,19,True,4,73,73,"{'minutes': 4, 'seconds': 46}",4,0,0,"{'minutes': 2, 'seconds': 22}","{'minutes': 2, 'seconds': 24}",5,73,TD,False,28,31,35,31
+40175460932,401754609,California,ACC,SMU,ACC,20,True,4,25,75,"{'minutes': 2, 'seconds': 22}",4,100,0,"{'minutes': 0, 'seconds': 43}","{'minutes': 1, 'seconds': 39}",7,75,TD,True,31,35,38,35
+40175460934,401754609,SMU,ACC,California,ACC,21,False,4,75,75,"{'minutes': 0, 'seconds': 43}",4,35,35,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 40}",6,40,MISSED FG,False,35,38,35,38
+40175460935,401754609,California,ACC,SMU,ACC,22,False,4,35,65,"{'minutes': 0, 'seconds': 3}",4,34,66,"{'minutes': 0, 'seconds': 8}","{'minutes': 0, 'seconds': 3}",1,-1,END OF GAME,True,38,35,38,35
+4017546151,401754615,SMU,ACC,Missouri State,Conference USA,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,60,60,"{'minutes': 13, 'seconds': 46}","{'minutes': 1, 'seconds': 14}",4,15,INT,False,0,0,0,0
+4017546152,401754615,Missouri State,Conference USA,SMU,ACC,2,True,1,41,59,"{'minutes': 13, 'seconds': 46}",1,79,21,"{'minutes': 10, 'seconds': 21}","{'minutes': 3, 'seconds': 25}",7,38,FG,True,0,0,3,0
+4017546153,401754615,SMU,ACC,Missouri State,Conference USA,3,False,1,75,75,"{'minutes': 10, 'seconds': 21}",1,46,46,"{'minutes': 9, 'seconds': 47}","{'minutes': 0, 'seconds': 34}",3,29,FUMBLE,False,0,3,0,3
+4017546154,401754615,Missouri State,Conference USA,SMU,ACC,4,False,1,46,54,"{'minutes': 9, 'seconds': 47}",1,46,54,"{'minutes': 9, 'seconds': 38}","{'minutes': 0, 'seconds': 9}",1,0,INT,True,3,0,3,0
+4017546155,401754615,SMU,ACC,Missouri State,Conference USA,5,False,1,47,47,"{'minutes': 9, 'seconds': 38}",1,26,26,"{'minutes': 6, 'seconds': 57}","{'minutes': 2, 'seconds': 41}",5,21,MISSED FG,False,0,3,0,3
+4017546156,401754615,Missouri State,Conference USA,SMU,ACC,6,True,1,26,74,"{'minutes': 6, 'seconds': 57}",1,100,0,"{'minutes': 2, 'seconds': 59}","{'minutes': 3, 'seconds': 58}",6,74,TD,True,3,0,10,0
+4017546157,401754615,SMU,ACC,Missouri State,Conference USA,7,False,1,86,86,"{'minutes': 2, 'seconds': 55}",1,68,68,"{'minutes': 0, 'seconds': 19}","{'minutes': 2, 'seconds': 36}",6,18,PUNT,False,0,10,0,10
+4017546158,401754615,Missouri State,Conference USA,SMU,ACC,8,False,1,32,68,"{'minutes': 0, 'seconds': 19}",2,58,42,"{'minutes': 13, 'seconds': 34}","{'minutes': 1, 'seconds': 45}",4,26,PUNT,True,10,0,10,0
+4017546159,401754615,SMU,ACC,Missouri State,Conference USA,9,False,2,90,90,"{'minutes': 13, 'seconds': 34}",2,48,48,"{'minutes': 10, 'seconds': 35}","{'minutes': 2, 'seconds': 59}",6,42,PUNT,False,0,10,0,10
+40175461510,401754615,Missouri State,Conference USA,SMU,ACC,10,False,2,20,80,"{'minutes': 10, 'seconds': 35}",2,52,48,"{'minutes': 7, 'seconds': 36}","{'minutes': 2, 'seconds': 59}",5,32,PUNT,True,10,0,10,0
+40175461511,401754615,SMU,ACC,Missouri State,Conference USA,11,True,2,73,73,"{'minutes': 7, 'seconds': 36}",2,0,0,"{'minutes': 3, 'seconds': 42}","{'minutes': 3, 'seconds': 54}",12,73,TD,False,0,10,7,10
+40175461512,401754615,Missouri State,Conference USA,SMU,ACC,12,False,2,25,75,"{'minutes': 3, 'seconds': 42}",2,55,45,"{'minutes': 1, 'seconds': 52}","{'minutes': 1, 'seconds': 50}",4,30,PUNT,True,10,7,10,7
+40175461513,401754615,SMU,ACC,Missouri State,Conference USA,13,True,2,80,80,"{'minutes': 1, 'seconds': 52}",2,0,0,"{'minutes': 0, 'seconds': 33}","{'minutes': 1, 'seconds': 19}",8,80,TD,False,7,10,14,10
+40175461514,401754615,Missouri State,Conference USA,SMU,ACC,14,False,2,25,75,"{'minutes': 0, 'seconds': 33}",2,57,43,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 33}",7,32,MISSED FG,True,10,14,10,14
+40175461515,401754615,Missouri State,Conference USA,SMU,ACC,15,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,94,6,"{'minutes': 9, 'seconds': 27}","{'minutes': 5, 'seconds': 33}",9,69,INT,True,10,14,10,14
+40175461516,401754615,SMU,ACC,Missouri State,Conference USA,16,False,3,80,80,"{'minutes': 9, 'seconds': 27}",3,55,55,"{'minutes': 6, 'seconds': 29}","{'minutes': 2, 'seconds': 58}",6,25,PUNT,False,14,10,14,10
+40175461517,401754615,Missouri State,Conference USA,SMU,ACC,17,False,3,20,80,"{'minutes': 6, 'seconds': 29}",3,42,58,"{'minutes': 4, 'seconds': 21}","{'minutes': 2, 'seconds': 8}",4,22,PUNT,True,10,14,10,14
+40175461518,401754615,SMU,ACC,Missouri State,Conference USA,18,True,3,46,46,"{'minutes': 4, 'seconds': 21}",3,0,0,"{'minutes': 3, 'seconds': 3}","{'minutes': 1, 'seconds': 18}",3,46,TD,False,14,10,21,10
+40175461519,401754615,Missouri State,Conference USA,SMU,ACC,19,False,3,23,77,"{'minutes': 2, 'seconds': 56}",3,55,45,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 56}",5,32,DOWNS,True,10,21,10,21
+40175461520,401754615,SMU,ACC,Missouri State,Conference USA,20,True,4,55,55,"{'minutes': 15, 'seconds': 0}",4,0,0,"{'minutes': 12, 'seconds': 58}","{'minutes': 2, 'seconds': 2}",5,55,TD,False,21,10,28,10
+40175461521,401754615,Missouri State,Conference USA,SMU,ACC,21,False,4,25,75,"{'minutes': 12, 'seconds': 58}",4,30,70,"{'minutes': 9, 'seconds': 0}","{'minutes': 3, 'seconds': 58}",6,5,PUNT,True,10,28,10,28
+40175461522,401754615,SMU,ACC,Missouri State,Conference USA,22,False,4,59,59,"{'minutes': 9, 'seconds': 0}",4,53,53,"{'minutes': 7, 'seconds': 25}","{'minutes': 1, 'seconds': 35}",3,6,PUNT,False,28,10,28,10
+40175461523,401754615,Missouri State,Conference USA,SMU,ACC,23,False,4,20,80,"{'minutes': 7, 'seconds': 25}",4,29,71,"{'minutes': 5, 'seconds': 59}","{'minutes': 1, 'seconds': 26}",4,9,PUNT,True,10,28,10,28
+40175461524,401754615,SMU,ACC,Missouri State,Conference USA,24,False,4,83,83,"{'minutes': 5, 'seconds': 59}",4,66,66,"{'minutes': 1, 'seconds': 30}","{'minutes': 4, 'seconds': 29}",9,17,PUNT,False,28,10,28,10
+40175461525,401754615,Missouri State,Conference USA,SMU,ACC,25,False,4,23,77,"{'minutes': 1, 'seconds': 30}",4,47,53,"{'minutes': 0, 'seconds': 47}","{'minutes': 0, 'seconds': 43}",5,24,INT,True,10,28,10,28
+40175461526,401754615,SMU,ACC,Missouri State,Conference USA,26,False,4,59,59,"{'minutes': 0, 'seconds': 47}",4,51,51,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 47}",1,8,END OF GAME,False,28,10,28,10
+4017546361,401754636,SMU,ACC,TCU,Big 12,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,72,72,"{'minutes': 13, 'seconds': 19}","{'minutes': 1, 'seconds': 41}",3,3,PUNT,False,0,0,0,0
+4017546362,401754636,TCU,Big 12,SMU,ACC,2,True,1,33,67,"{'minutes': 13, 'seconds': 19}",1,100,0,"{'minutes': 8, 'seconds': 56}","{'minutes': 4, 'seconds': 23}",9,67,TD,True,0,0,7,0
+4017546363,401754636,SMU,ACC,TCU,Big 12,3,True,1,79,79,"{'minutes': 8, 'seconds': 50}",1,11,11,"{'minutes': 3, 'seconds': 32}","{'minutes': 5, 'seconds': 18}",12,68,FG,False,0,7,3,7
+4017546364,401754636,TCU,Big 12,SMU,ACC,4,True,1,25,75,"{'minutes': 3, 'seconds': 32}",2,100,0,"{'minutes': 14, 'seconds': 26}","{'minutes': 4, 'seconds': 6}",13,75,TD,True,7,3,14,3
+4017546365,401754636,SMU,ACC,TCU,Big 12,5,True,2,75,75,"{'minutes': 14, 'seconds': 20}",2,0,0,"{'minutes': 7, 'seconds': 21}","{'minutes': 6, 'seconds': 59}",12,75,TD,False,3,14,10,14
+4017546366,401754636,TCU,Big 12,SMU,ACC,6,False,2,32,68,"{'minutes': 7, 'seconds': 15}",2,83,17,"{'minutes': 2, 'seconds': 32}","{'minutes': 4, 'seconds': 43}",9,51,INT,True,14,10,14,10
+4017546367,401754636,SMU,ACC,TCU,Big 12,7,False,2,80,80,"{'minutes': 2, 'seconds': 32}",2,32,32,"{'minutes': 0, 'seconds': 30}","{'minutes': 2, 'seconds': 2}",7,48,MISSED FG,False,10,14,10,14
+4017546368,401754636,TCU,Big 12,SMU,ACC,8,False,2,32,68,"{'minutes': 0, 'seconds': 30}",2,52,48,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 29}",4,20,PUNT,True,14,10,14,10
+4017546369,401754636,SMU,ACC,TCU,Big 12,9,False,2,75,75,"{'minutes': 0, 'seconds': 1}",2,70,70,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 1}",1,5,END OF HALF,False,10,14,10,14
+40175463610,401754636,TCU,Big 12,SMU,ACC,10,False,3,25,75,"{'minutes': 14, 'seconds': 50}",3,45,55,"{'minutes': 13, 'seconds': 41}","{'minutes': 1, 'seconds': 9}",4,20,PUNT,True,14,10,14,10
+40175463611,401754636,SMU,ACC,TCU,Big 12,11,False,3,85,85,"{'minutes': 13, 'seconds': 41}",3,95,95,"{'minutes': 12, 'seconds': 21}","{'minutes': 1, 'seconds': 20}",3,-10,PUNT,False,10,14,10,14
+40175463612,401754636,TCU,Big 12,SMU,ACC,12,True,3,47,53,"{'minutes': 12, 'seconds': 21}",3,100,0,"{'minutes': 10, 'seconds': 50}","{'minutes': 1, 'seconds': 31}",4,53,TD,True,14,10,21,10
+40175463613,401754636,SMU,ACC,TCU,Big 12,13,True,3,75,75,"{'minutes': 10, 'seconds': 50}",3,0,0,"{'minutes': 5, 'seconds': 54}","{'minutes': 4, 'seconds': 56}",10,75,TD,False,10,21,17,21
+40175463614,401754636,TCU,Big 12,SMU,ACC,14,False,3,25,75,"{'minutes': 5, 'seconds': 54}",3,70,30,"{'minutes': 1, 'seconds': 49}","{'minutes': 4, 'seconds': 5}",11,45,MISSED FG,True,21,17,21,17
+40175463615,401754636,SMU,ACC,TCU,Big 12,15,False,3,70,70,"{'minutes': 1, 'seconds': 49}",3,64,64,"{'minutes': 0, 'seconds': 26}","{'minutes': 1, 'seconds': 23}",3,6,PUNT,False,17,21,17,21
+40175463616,401754636,TCU,Big 12,SMU,ACC,16,False,3,14,86,"{'minutes': 0, 'seconds': 26}",4,26,74,"{'minutes': 12, 'seconds': 19}","{'minutes': 2, 'seconds': 49}",6,12,PUNT,True,21,17,21,17
+40175463617,401754636,SMU,ACC,TCU,Big 12,17,True,4,65,65,"{'minutes': 12, 'seconds': 19}",4,0,0,"{'minutes': 10, 'seconds': 30}","{'minutes': 1, 'seconds': 49}",4,65,TD,False,17,21,24,21
+40175463618,401754636,TCU,Big 12,SMU,ACC,18,True,4,25,75,"{'minutes': 10, 'seconds': 30}",4,100,0,"{'minutes': 9, 'seconds': 18}","{'minutes': 1, 'seconds': 12}",3,75,TD,True,21,24,28,24
+40175463619,401754636,SMU,ACC,TCU,Big 12,19,False,4,75,75,"{'minutes': 9, 'seconds': 18}",4,75,75,"{'minutes': 8, 'seconds': 48}","{'minutes': 0, 'seconds': 30}",3,0,PUNT,False,24,28,24,28
+40175463620,401754636,TCU,Big 12,SMU,ACC,20,True,4,25,75,"{'minutes': 8, 'seconds': 48}",4,100,0,"{'minutes': 6, 'seconds': 3}","{'minutes': 2, 'seconds': 45}",6,75,TD,True,28,24,35,24
+40175463621,401754636,SMU,ACC,TCU,Big 12,21,False,4,73,73,"{'minutes': 5, 'seconds': 56}",4,63,63,"{'minutes': 4, 'seconds': 10}","{'minutes': 1, 'seconds': 46}",5,10,INT,False,24,35,24,35
+40175463622,401754636,TCU,Big 12,SMU,ACC,22,False,4,65,35,"{'minutes': 4, 'seconds': 10}",4,71,29,"{'minutes': 0, 'seconds': 57}","{'minutes': 3, 'seconds': 13}",8,6,DOWNS,True,35,24,35,24
+40175463623,401754636,SMU,ACC,TCU,Big 12,23,False,4,71,71,"{'minutes': 0, 'seconds': 57}",4,42,42,"{'minutes': 0, 'seconds': 7}","{'minutes': 0, 'seconds': 50}",4,29,INT,False,24,35,24,35
+40175463624,401754636,TCU,Big 12,SMU,ACC,24,False,4,65,35,"{'minutes': 0, 'seconds': 7}",4,63,37,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 5}",1,-2,Uncategorized,True,35,24,35,24

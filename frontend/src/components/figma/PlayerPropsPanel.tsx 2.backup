@@ -1,0 +1,400 @@
+import { useState, useEffect } from 'react';
+import { TrendingUp, TrendingDown, Minus, Target, Shield, Activity } from 'lucide-react';
+import { CONFIG } from '../../config';
+import { PlayerPropsModal } from './PlayerPropsModal';
+import { ImageWithFallback } from './figma/ImageWithFallback';
+
+interface GameLog {
+  week: number;
+  opponent: string;
+  home_away: string;
+  result: string;
+  stats: { [key: string]: number };
+  defense_rank: number | null;
+}
+
+interface PlayerProp {
+  player_name: string;
+  player_team: string;
+  position: string;
+  prop_type: string;
+  line?: number;
+  over_under_line: number;
+  confidence: number;
+  recommendation: string;
+  reasoning: string;
+  season_average: number;
+  weather_impact: string;
+  game_logs: GameLog[];
+  trend_analysis: {
+    last_3_games_avg: number;
+    last_5_games_avg: number;
+    season_avg: number;
+    vs_good_defenses_avg: number;
+    vs_poor_defenses_avg: number;
+    home_vs_away_diff: number;
+    trend_direction: string;
+  };
+  defensive_matchup: {
+    opponent: string;
+    category: string;
+    sp_plus_rank: number | null;
+    sp_plus_rating: number | null;
+  };
+  key_insights: string[];
+}
+
+interface PlayerPropsData {
+  matchup: {
+    team1: string;
+    team2: string;
+  };
+  team1_props: PlayerProp[];
+  team2_props: PlayerProp[];
+  total_props: number;
+}
+
+interface PlayerPropsPanelProps {
+  predictionData?: any;
+}
+
+// Reusable Player Prop Card Component
+const PlayerPropCard = ({ 
+  prop, 
+  teamStyle, 
+  onClick 
+}: { 
+  prop: PlayerProp; 
+  teamStyle: { logo: string; color: string; name: string }; 
+  onClick: () => void;
+}) => {
+  const getTrendIcon = (direction: string) => {
+    switch (direction) {
+      case 'improving':
+        return <TrendingUp className="w-3.5 h-3.5 text-green-400" />;
+      case 'declining':
+        return <TrendingDown className="w-3.5 h-3.5 text-red-400" />;
+      default:
+        return <Minus className="w-3.5 h-3.5 text-gray-400" />;
+    }
+  };
+
+  const getConfidenceColor = (confidence: number) => {
+    if (confidence >= 60) return 'text-green-400 bg-green-400/10';
+    if (confidence >= 50) return 'text-yellow-400 bg-yellow-400/10';
+    return 'text-red-400 bg-red-400/10';
+  };
+
+  const formatPropType = (type: string) => {
+    return type.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+  };
+
+  return (
+    <button
+      onClick={onClick}
+      className="relative overflow-hidden rounded-lg p-3 text-left transition-all hover:scale-[1.02] border backdrop-blur-sm group"
+      style={{
+        borderColor: `${teamStyle.color}40`,
+        background: `linear-gradient(135deg, ${teamStyle.color}15 0%, ${teamStyle.color}08 50%, ${teamStyle.color}03 100%)`,
+        boxShadow: `0 0 15px ${teamStyle.color}10`
+      }}
+    >
+      {/* Team Logo Watermark */}
+      <div className="absolute right-1 top-1/2 -translate-y-1/2 opacity-8">
+        <ImageWithFallback 
+          src={teamStyle.logo}
+          alt={teamStyle.name}
+          className="w-14 h-14 object-contain"
+          style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.3))' }}
+        />
+      </div>
+
+      <div className="relative z-10">
+        {/* Compact Header */}
+        <div className="flex items-start justify-between mb-2">
+          <div className="flex-1 min-w-0 pr-2">
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <ImageWithFallback
+                src={teamStyle.logo}
+                alt={teamStyle.name}
+                className="w-4 h-4 object-contain flex-shrink-0"
+                style={{ filter: `drop-shadow(0 0 3px ${teamStyle.color}60)` }}
+              />
+              <div 
+                className="text-xs font-bold truncate font-orbitron leading-tight"
+                style={{ 
+                  color: teamStyle.color,
+                  textShadow: `0 0 8px ${teamStyle.color}30`
+                }}
+              >
+                {prop.player_name}
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span 
+                className="text-[10px] px-1.5 py-0.5 rounded font-orbitron font-semibold"
+                style={{
+                  backgroundColor: `${teamStyle.color}15`,
+                  color: teamStyle.color,
+                  border: `1px solid ${teamStyle.color}30`
+                }}
+              >
+                {prop.position}
+              </span>
+              {getTrendIcon(prop.trend_analysis.trend_direction)}
+            </div>
+          </div>
+          <div className={`text-[10px] px-1.5 py-0.5 rounded font-semibold ${getConfidenceColor(prop.confidence)}`}>
+            {prop.confidence}%
+          </div>
+        </div>
+
+        {/* Compact Prop Line */}
+        <div className="mb-2">
+          <div className="text-[10px] text-gray-500 mb-0.5 font-orbitron">
+            {formatPropType(prop.prop_type)}
+          </div>
+          <div className="flex items-baseline gap-1.5">
+            <span 
+              className="text-xl font-bold font-orbitron leading-none"
+              style={{ 
+                color: teamStyle.color,
+                textShadow: `0 0 8px ${teamStyle.color}40`
+              }}
+            >
+              {prop.line}
+            </span>
+            <span className={`text-[11px] font-bold font-orbitron ${prop.recommendation === 'over' ? 'text-green-400' : 'text-red-400'}`}>
+              {prop.recommendation.toUpperCase()}
+            </span>
+          </div>
+        </div>
+
+        {/* Compact Stats */}
+        <div className="flex items-center gap-2 text-[10px]">
+          <div className="flex items-center gap-0.5">
+            <Activity className="w-2.5 h-2.5 text-gray-500" />
+            <span className="text-gray-500 font-orbitron">Avg:</span>
+            <span className="text-white font-medium font-orbitron">{prop.season_average.toFixed(1)}</span>
+          </div>
+          <div className="w-px h-3 bg-gray-700"></div>
+          <div className="flex items-center gap-0.5">
+            <Shield className="w-2.5 h-2.5 text-gray-500" />
+            <span className="text-white font-medium font-orbitron text-[9px]">{prop.defensive_matchup.category}</span>
+          </div>
+        </div>
+
+        {/* Hover Indicator */}
+        <div 
+          className="mt-2 pt-2 border-t opacity-0 group-hover:opacity-100 transition-opacity"
+          style={{ borderColor: `${teamStyle.color}20` }}
+        >
+          <span 
+            className="text-[9px] font-orbitron font-semibold"
+            style={{ color: teamStyle.color }}
+          >
+            Click for details →
+          </span>
+        </div>
+      </div>
+    </button>
+  );
+};
+
+export function PlayerPropsPanel({ predictionData }: PlayerPropsPanelProps) {
+  const [propsData, setPropsData] = useState<PlayerPropsData | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [selectedProp, setSelectedProp] = useState<PlayerProp | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTeamLogo, setSelectedTeamLogo] = useState<string>('');
+  const [selectedTeamColor, setSelectedTeamColor] = useState<string>('#3B82F6');
+  const [showAllProps, setShowAllProps] = useState(false);
+
+  useEffect(() => {
+    const fetchPlayerProps = async () => {
+      // Get team names from team_selector object
+      const homeTeamName = predictionData?.team_selector?.home_team?.name;
+      const awayTeamName = predictionData?.team_selector?.away_team?.name;
+      
+      if (!homeTeamName || !awayTeamName) {
+        console.log('PlayerProps: No team data found in predictionData');
+        return;
+      }
+
+      setIsLoading(true);
+      try {
+        console.log(`PlayerProps: Fetching props for ${homeTeamName} vs ${awayTeamName}`);
+        const response = await fetch(
+          `${CONFIG.API.BASE_URL}/api/player-props/${encodeURIComponent(homeTeamName)}/${encodeURIComponent(awayTeamName)}`
+        );
+
+        if (!response.ok) throw new Error('Failed to fetch player props');
+
+        const data = await response.json();
+        console.log('PlayerProps: Received data:', data);
+        setPropsData(data);
+      } catch (error) {
+        console.error('Error fetching player props:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPlayerProps();
+  }, [predictionData]);
+
+
+
+  // Helper function to check if color is blue or black
+  const isBlueOrBlack = (color: string) => {
+    const hex = color.toLowerCase();
+    const isBlue = hex.includes('004') || hex.includes('003') || hex.includes('002') || hex.includes('001') || 
+                   hex === '#000080' || hex === '#003366' || hex === '#002244' || hex === '#041e42';
+    const isBlack = hex === '#000000' || hex === '#222222' || hex === '#1a1a1a' || hex === '#333333';
+    return isBlue || isBlack;
+  };
+
+  // Get team styling info for a player
+  const getPlayerTeamStyle = (prop: PlayerProp) => {
+    const homeTeam = predictionData?.team_selector?.home_team;
+    const awayTeam = predictionData?.team_selector?.away_team;
+    
+    const isTeam1Player = propsData?.team1_props?.some(p => p.player_name === prop.player_name && p.position === prop.position);
+    
+    const team = isTeam1Player ? homeTeam : awayTeam;
+    
+    // Use alt_color if primary is blue/black
+    let teamColor = '#3B82F6';
+    if (team?.primary_color && isBlueOrBlack(team.primary_color)) {
+      teamColor = team.alt_color || team.secondary_color || '#f97316';
+    } else if (team?.primary_color) {
+      teamColor = team.primary_color;
+    } else if (team?.color) {
+      teamColor = team.color;
+    }
+    
+    return {
+      logo: team?.logo || '',
+      color: teamColor,
+      name: team?.name || ''
+    };
+  };
+
+  const openModal = (prop: PlayerProp) => {
+    setSelectedProp(prop);
+    
+    // Determine which team the player belongs to by checking team1_props vs team2_props
+    const homeTeam = predictionData?.team_selector?.home_team;
+    const awayTeam = predictionData?.team_selector?.away_team;
+    
+    // Check if this prop is in team1_props or team2_props
+    const isTeam1Player = propsData?.team1_props?.some(p => p.player_name === prop.player_name && p.position === prop.position);
+    
+    const team = isTeam1Player ? homeTeam : awayTeam;
+    
+    // Use alt_color if primary is blue/black (same logic as cards)
+    let teamColor = '#3B82F6';
+    if (team?.primary_color && isBlueOrBlack(team.primary_color)) {
+      teamColor = team.alt_color || team.secondary_color || '#f97316';
+    } else if (team?.primary_color) {
+      teamColor = team.primary_color;
+    } else if (team?.color) {
+      teamColor = team.color;
+    }
+    
+    setSelectedTeamLogo(team?.logo || '');
+    setSelectedTeamColor(teamColor);
+    setIsModalOpen(true);
+  };
+
+  const homeTeamName = predictionData?.team_selector?.home_team?.name;
+  const awayTeamName = predictionData?.team_selector?.away_team?.name;
+
+  if (!homeTeamName || !awayTeamName) {
+    return null;
+  }
+
+  if (isLoading) {
+    return (
+      <div className="glassmorphism rounded-2xl p-8">
+        <div className="flex items-center justify-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-400"></div>
+          <span className="ml-3 text-gray-300">Loading player props...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (!propsData) return null;
+
+  const allProps = [...propsData.team1_props, ...propsData.team2_props];
+  const topProps = allProps
+    .sort((a, b) => b.confidence - a.confidence)
+    .slice(0, 8); // Show top 8 props
+
+  return (
+    <>
+      <div className="glassmorphism rounded-2xl p-8 animate-fade-in">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+              <Target className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-white">Player Props</h2>
+              <p className="text-sm text-gray-400">Top betting opportunities</p>
+            </div>
+          </div>
+          <div className="text-right">
+            <div className="text-sm text-gray-400">Total Props</div>
+            <div className="text-2xl font-bold text-white">{propsData.total_props}</div>
+          </div>
+        </div>
+
+        {/* Compact Props Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
+          {(showAllProps ? allProps : topProps).map((prop, index) => {
+            const teamStyle = getPlayerTeamStyle(prop);
+            return (
+              <PlayerPropCard
+                key={index}
+                prop={prop}
+                teamStyle={teamStyle}
+                onClick={() => openModal(prop)}
+              />
+            );
+          })}
+        </div>
+
+        {/* Toggle All Props Button */}
+        {propsData.total_props > 8 && (
+          <div className="mt-4 text-center">
+            <button 
+              onClick={() => setShowAllProps(!showAllProps)}
+              className="px-6 py-2 rounded-lg text-sm font-semibold font-orbitron transition-all hover:scale-105 border"
+              style={{
+                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%)',
+                borderColor: 'rgba(59, 130, 246, 0.4)',
+                color: '#60A5FA'
+              }}
+            >
+              {showAllProps ? `Show Top 8 Props` : `View All ${propsData.total_props} Props`}
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Modal */}
+      {selectedProp && (
+        <PlayerPropsModal
+          prop={selectedProp}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          teamLogo={selectedTeamLogo}
+          teamColor={selectedTeamColor}
+        />
+      )}
+    </>
+  );
+}

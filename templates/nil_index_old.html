@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIL Player Valuations - Gameday+</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #050505 0%, #0a0a0a 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00ff87 0%, #60efff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(0, 255, 135, 0.1);
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+            color: #00ff87;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9em;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-bar input,
+        .filter-bar select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px 15px;
+            color: #fff;
+            font-size: 0.95em;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .filter-bar input:focus,
+        .filter-bar select:focus {
+            border-color: #00ff87;
+            background: rgba(0, 255, 135, 0.05);
+        }
+
+        .filter-bar input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Teams Grid */
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .team-card {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff87, #60efff);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 135, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 255, 135, 0.2);
+        }
+
+        .team-card:hover::before {
+            opacity: 1;
+        }
+
+        .team-rank {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #00ff87, #60efff);
+            color: #050505;
+            font-weight: 700;
+            font-size: 1.2em;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-name {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-right: 50px;
+        }
+
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .team-stat {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .team-stat-label {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+
+        .team-stat-value {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #00ff87;
+        }
+
+        .team-stat-value.total {
+            color: #60efff;
+        }
+
+        .position-breakdown {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .position-breakdown-title {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 10px;
+        }
+
+        .position-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .position-tag {
+            background: rgba(0, 255, 135, 0.15);
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 60px;
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #00ff87;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .teams-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 NIL Player Valuations</h1>
+            <p>2025 College Football Player Market Value Analysis</p>
+            
+            <div class="stats-grid" id="globalStats">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalPlayers">-</div>
+                    <div class="stat-label">Total Players</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalValuation">-</div>
+                    <div class="stat-label">Total Valuation</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="avgValuation">-</div>
+                    <div class="stat-label">Avg Per Player</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalTeams">-</div>
+                    <div class="stat-label">FBS Teams</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-bar">
+            <input type="text" id="searchTeam" placeholder="🔍 Search teams..." style="flex: 1; min-width: 250px;">
+            <select id="sortBy">
+                <option value="valuation">Sort by Total Valuation</option>
+                <option value="avg">Sort by Avg Valuation</option>
+                <option value="players">Sort by Player Count</option>
+                <option value="name">Sort by Name</option>
+            </select>
+        </div>
+
+        <div class="teams-grid" id="teamsGrid">
+            <div class="loading">
+                <div class="spinner"></div>
+                Loading NIL data...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let teamsData = [];
+
+        // Fetch teams data
+        async function loadTeams() {
+            try {
+                const response = await fetch('/api/nil/teams');
+                const data = await response.json();
+                teamsData = data.teams || [];
+                
+                // Update global stats
+                updateGlobalStats(data.stats);
+                
+                // Render teams
+                renderTeams(teamsData);
+            } catch (error) {
+                console.error('Error loading NIL data:', error);
+                document.getElementById('teamsGrid').innerHTML = `
+                    <div class="loading">Error loading data. Please try again.</div>
+                `;
+            }
+        }
+
+        function updateGlobalStats(stats) {
+            if (!stats) return;
+            
+            document.getElementById('totalPlayers').textContent = stats.total_players?.toLocaleString() || '-';
+            document.getElementById('totalValuation').textContent = stats.total_valuation 
+                ? `$${(stats.total_valuation / 1000).toFixed(1)}K`
+                : '-';
+            document.getElementById('avgValuation').textContent = stats.avg_valuation 
+                ? `$${Math.round(stats.avg_valuation)}`
+                : '-';
+            document.getElementById('totalTeams').textContent = stats.total_teams || '-';
+        }
+
+        function renderTeams(teams) {
+            const grid = document.getElementById('teamsGrid');
+            
+            if (!teams || teams.length === 0) {
+                grid.innerHTML = '<div class="loading">No teams found</div>';
+                return;
+            }
+
+            grid.innerHTML = teams.map((team, index) => `
+                <div class="team-card" onclick="viewTeamDetail(${team.team_id})">
+                    <div class="team-rank">#${index + 1}</div>
+                    <div class="team-name">${team.team_name}</div>
+                    
+                    <div class="team-stats">
+                        <div class="team-stat">
+                            <div class="team-stat-label">Total NIL</div>
+                            <div class="team-stat-value total">$${(team.total_valuation / 1000).toFixed(1)}K</div>
+                        </div>
+                        <div class="team-stat">
+                            <div class="team-stat-label">Avg Per Player</div>
+                            <div class="team-stat-value">$${Math.round(team.avg_valuation)}</div>
+                        </div>
+                        <div class="team-stat">
+                            <div class="team-stat-label">Total Players</div>
+                            <div class="team-stat-value">${team.total_players}</div>
+                        </div>
+                        <div class="team-stat">
+                            <div class="team-stat-label">Top Position</div>
+                            <div class="team-stat-value" style="font-size: 1.1em;">${getTopPosition(team)}</div>
+                        </div>
+                    </div>
+
+                    <div class="position-breakdown">
+                        <div class="position-breakdown-title">Top Positions by Value</div>
+                        <div class="position-tags">
+                            ${getTopPositionTags(team)}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getTopPosition(team) {
+            const positions = [
+                { name: 'QB', value: team.qb_valuation },
+                { name: 'RB', value: team.rb_valuation },
+                { name: 'WR', value: team.wr_valuation },
+                { name: 'DB', value: team.db_valuation },
+                { name: 'DL', value: team.dl_valuation }
+            ];
+            const top = positions.sort((a, b) => b.value - a.value)[0];
+            return top.name;
+        }
+
+        function getTopPositionTags(team) {
+            const positions = [
+                { name: 'QB', value: team.qb_valuation },
+                { name: 'RB', value: team.rb_valuation },
+                { name: 'WR', value: team.wr_valuation },
+                { name: 'TE', value: team.te_valuation },
+                { name: 'OL', value: team.ol_valuation },
+                { name: 'DL', value: team.dl_valuation },
+                { name: 'LB', value: team.lb_valuation },
+                { name: 'DB', value: team.db_valuation }
+            ].filter(p => p.value > 0)
+             .sort((a, b) => b.value - a.value)
+             .slice(0, 4);
+
+            return positions.map(p => 
+                `<span class="position-tag">${p.name}: $${(p.value / 1000).toFixed(1)}K</span>`
+            ).join('');
+        }
+
+        function viewTeamDetail(teamId) {
+            window.location.href = `/nil/team/${teamId}`;
+        }
+
+        // Search functionality
+        document.getElementById('searchTeam').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = teamsData.filter(team => 
+                team.team_name.toLowerCase().includes(query)
+            );
+            renderTeams(filtered);
+        });
+
+        // Sort functionality
+        document.getElementById('sortBy').addEventListener('change', (e) => {
+            const sortBy = e.target.value;
+            let sorted = [...teamsData];
+
+            switch(sortBy) {
+                case 'valuation':
+                    sorted.sort((a, b) => b.total_valuation - a.total_valuation);
+                    break;
+                case 'avg':
+                    sorted.sort((a, b) => b.avg_valuation - a.avg_valuation);
+                    break;
+                case 'players':
+                    sorted.sort((a, b) => b.total_players - a.total_players);
+                    break;
+                case 'name':
+                    sorted.sort((a, b) => a.team_name.localeCompare(b.team_name));
+                    break;
+            }
+
+            renderTeams(sorted);
+        });
+
+        // Load data on page load
+        loadTeams();
+    </script>
+</body>
+</html>

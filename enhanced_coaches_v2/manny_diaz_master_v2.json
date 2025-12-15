@@ -1,0 +1,1144 @@
+{
+  "metadata": {
+    "generated": "2025-12-01 04:15:38.204483",
+    "coach": "Manny Diaz",
+    "headshot": null,
+    "schools": [
+      "Duke"
+    ],
+    "description": "Comprehensive Manny Diaz coaching profile with all statistics, games, and analysis"
+  },
+  "career_summary": {
+    "record": "16-9",
+    "win_pct": 64.0,
+    "games": 25
+  },
+  "analytics": {
+    "home_record": {
+      "wins": 8,
+      "losses": 4,
+      "ties": 0
+    },
+    "away_record": {
+      "wins": 7,
+      "losses": 4,
+      "ties": 0
+    },
+    "neutral_record": {
+      "wins": 1,
+      "losses": 1,
+      "ties": 0
+    },
+    "signature_wins": [],
+    "bad_losses": [],
+    "ats_record": {},
+    "over_under_record": {},
+    "conference_record": {},
+    "bowl_record": {}
+  },
+  "stint_analytics": {},
+  "pre_arrival": {},
+  "stints": [
+    {
+      "school": "Duke",
+      "start_year": 2024,
+      "end_year": 2025,
+      "record": "16-9",
+      "win_pct": 64.0,
+      "games": 25
+    }
+  ],
+  "games": [
+    {
+      "id": 401628584,
+      "season": 2024,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Elon",
+      "homePoints": 26,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 4.3623822452,
+      "conferenceGame": false,
+      "school": "Duke"
+    },
+    {
+      "id": 401677105,
+      "season": 2024,
+      "week": 1,
+      "seasonType": "postseason",
+      "homeTeam": "Ole Miss",
+      "awayTeam": "Duke",
+      "homePoints": 52,
+      "awayPoints": 20,
+      "neutralSite": true,
+      "excitement": 3.4055817071,
+      "conferenceGame": false,
+      "school": "Duke"
+    },
+    {
+      "id": 401635533,
+      "season": 2024,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Northwestern",
+      "awayTeam": "Duke",
+      "homePoints": 20,
+      "awayPoints": 26,
+      "neutralSite": true,
+      "excitement": 9.2114436326,
+      "conferenceGame": false,
+      "school": "Duke"
+    },
+    {
+      "id": 401629030,
+      "season": 2024,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "UConn",
+      "homePoints": 26,
+      "awayPoints": 21,
+      "neutralSite": false,
+      "excitement": 8.9201363026,
+      "conferenceGame": false,
+      "school": "Duke"
+    },
+    {
+      "id": 401635553,
+      "season": 2024,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Middle Tennessee",
+      "awayTeam": "Duke",
+      "homePoints": 17,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 2.3648336031,
+      "conferenceGame": false,
+      "school": "Duke"
+    },
+    {
+      "id": 401635562,
+      "season": 2024,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "North Carolina",
+      "homePoints": 21,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 7.3809862953,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401635570,
+      "season": 2024,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Georgia Tech",
+      "awayTeam": "Duke",
+      "homePoints": 24,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 7.5892318041,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401634769,
+      "season": 2024,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Florida State",
+      "homePoints": 23,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 6.7798954406,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401635595,
+      "season": 2024,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "SMU",
+      "homePoints": 27,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 7.2331183406,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401635601,
+      "season": 2024,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Miami",
+      "awayTeam": "Duke",
+      "homePoints": 53,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 6.5023390558,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401635608,
+      "season": 2024,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Duke",
+      "homePoints": 19,
+      "awayPoints": 29,
+      "neutralSite": false,
+      "excitement": 4.7482868814,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401635615,
+      "season": 2024,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 31,
+      "awayPoints": 28,
+      "neutralSite": false,
+      "excitement": 8.334691174,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401635622,
+      "season": 2024,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Wake Forest",
+      "awayTeam": "Duke",
+      "homePoints": 17,
+      "awayPoints": 23,
+      "neutralSite": false,
+      "excitement": 8.1532737621,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401754517,
+      "season": 2025,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Elon",
+      "homePoints": 45,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 5.767314867159874,
+      "conferenceGame": false,
+      "school": "Duke"
+    },
+    {
+      "id": 401752825,
+      "season": 2025,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Illinois",
+      "homePoints": 19,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 5.058968869408419,
+      "conferenceGame": false,
+      "school": "Duke"
+    },
+    {
+      "id": 401754534,
+      "season": 2025,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Tulane",
+      "awayTeam": "Duke",
+      "homePoints": 34,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 3.9642182675078077,
+      "conferenceGame": false,
+      "school": "Duke"
+    },
+    {
+      "id": 401754538,
+      "season": 2025,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "NC State",
+      "homePoints": 45,
+      "awayPoints": 33,
+      "neutralSite": false,
+      "excitement": 6.954364216208502,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401754545,
+      "season": 2025,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "Duke",
+      "homePoints": 3,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 4.2228872621589435,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401754551,
+      "season": 2025,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "California",
+      "awayTeam": "Duke",
+      "homePoints": 21,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 4.772030131847419,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401754566,
+      "season": 2025,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Georgia Tech",
+      "homePoints": 18,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 5.815864619099065,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401754577,
+      "season": 2025,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Clemson",
+      "awayTeam": "Duke",
+      "homePoints": 45,
+      "awayPoints": 46,
+      "neutralSite": false,
+      "excitement": 7.8957948169637735,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401754590,
+      "season": 2025,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "UConn",
+      "awayTeam": "Duke",
+      "homePoints": 37,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 8.169094014073593,
+      "conferenceGame": false,
+      "school": "Duke"
+    },
+    {
+      "id": 401754593,
+      "season": 2025,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Virginia",
+      "homePoints": 17,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 3.6041656880268382,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401754600,
+      "season": 2025,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "North Carolina",
+      "awayTeam": "Duke",
+      "homePoints": 25,
+      "awayPoints": 32,
+      "neutralSite": false,
+      "excitement": 6.197711451448148,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401754610,
+      "season": 2025,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Wake Forest",
+      "homePoints": 49,
+      "awayPoints": 32,
+      "neutralSite": false,
+      "excitement": 5.445564503199554,
+      "conferenceGame": true,
+      "school": "Duke"
+    },
+    {
+      "id": 401777328,
+      "season": 2025,
+      "week": 15,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Duke",
+      "homePoints": null,
+      "awayPoints": null,
+      "neutralSite": true,
+      "excitement": null,
+      "conferenceGame": true,
+      "school": "Duke"
+    }
+  ],
+  "rankings": [
+    {
+      "rank": 21,
+      "points": 343,
+      "poll": {
+        "season": 2023,
+        "week": 2
+      },
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "rank": 21,
+      "points": 421,
+      "poll": {
+        "season": 2023,
+        "week": 3
+      },
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "rank": 18,
+      "points": 530,
+      "poll": {
+        "season": 2023,
+        "week": 4
+      },
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "rank": 22,
+      "points": 244,
+      "poll": {
+        "season": 2018,
+        "week": 5
+      },
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "rank": 17,
+      "points": 648,
+      "poll": {
+        "season": 2023,
+        "week": 5
+      },
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "rank": 19,
+      "points": 384,
+      "poll": {
+        "season": 2023,
+        "week": 6
+      },
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "rank": 25,
+      "points": 114,
+      "poll": {
+        "season": 2015,
+        "week": 7
+      },
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "rank": 17,
+      "points": 479,
+      "poll": {
+        "season": 2023,
+        "week": 7
+      },
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "rank": 23,
+      "points": 210,
+      "poll": {
+        "season": 2015,
+        "week": 8
+      },
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "rank": 16,
+      "points": 593,
+      "poll": {
+        "season": 2023,
+        "week": 8
+      },
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "rank": 22,
+      "points": 274,
+      "poll": {
+        "season": 2015,
+        "week": 9
+      },
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "rank": 20,
+      "points": 371,
+      "poll": {
+        "season": 2023,
+        "week": 9
+      },
+      "team": {
+        "school": "Duke"
+      }
+    }
+  ],
+  "draft_picks": [
+    {
+      "year": 2019,
+      "round": 1,
+      "overall": 6,
+      "name": "Daniel Jones",
+      "position": {
+        "abbreviation": "QB"
+      },
+      "draftTeam": {
+        "displayName": "New York Giants"
+      },
+      "height": 77,
+      "weight": 221
+    },
+    {
+      "year": 2021,
+      "round": 4,
+      "overall": 118,
+      "name": "Chris Rumph II",
+      "position": {
+        "abbreviation": "OLB"
+      },
+      "draftTeam": {
+        "displayName": "Los Angeles Chargers"
+      },
+      "height": 75,
+      "weight": 244
+    },
+    {
+      "year": 2021,
+      "round": 5,
+      "overall": 154,
+      "name": "Michael Carter II",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "New York Jets"
+      },
+      "height": 70,
+      "weight": 184
+    },
+    {
+      "year": 2021,
+      "round": 5,
+      "overall": 162,
+      "name": "Noah Gray",
+      "position": {
+        "abbreviation": "TE"
+      },
+      "draftTeam": {
+        "displayName": "Kansas City Chiefs"
+      },
+      "height": 75,
+      "weight": 240
+    },
+    {
+      "year": 2021,
+      "round": 6,
+      "overall": 210,
+      "name": "Victor Dimukeje",
+      "position": {
+        "abbreviation": "DE"
+      },
+      "draftTeam": {
+        "displayName": "Arizona Cardinals"
+      },
+      "height": 74,
+      "weight": 262
+    },
+    {
+      "year": 2024,
+      "round": 1,
+      "overall": 26,
+      "name": "Graham Barton",
+      "position": {
+        "abbreviation": "C"
+      },
+      "draftTeam": {
+        "displayName": "Tampa Bay Buccaneers"
+      },
+      "height": 77,
+      "weight": 313
+    },
+    {
+      "year": 2024,
+      "round": 3,
+      "overall": 95,
+      "name": "DeWayne Carter",
+      "position": {
+        "abbreviation": "DT"
+      },
+      "draftTeam": {
+        "displayName": "Buffalo Bills"
+      },
+      "height": 74,
+      "weight": 302
+    },
+    {
+      "year": 2024,
+      "round": 5,
+      "overall": 163,
+      "name": "Jacob Monk",
+      "position": {
+        "abbreviation": "C"
+      },
+      "draftTeam": {
+        "displayName": "Green Bay Packers"
+      },
+      "height": 75,
+      "weight": 308
+    }
+  ],
+  "talent_ratings": [
+    {
+      "year": 2015,
+      "talent": 563.19,
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "year": 2016,
+      "talent": 599.82,
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "year": 2017,
+      "talent": 627.62,
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "year": 2018,
+      "talent": 635.63,
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "year": 2019,
+      "talent": 633.24,
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "year": 2020,
+      "talent": 617.12,
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "year": 2021,
+      "talent": 605.57,
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "year": 2022,
+      "talent": 603.98,
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "year": 2023,
+      "talent": 620.9,
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "year": 2024,
+      "talent": 635.89,
+      "team": {
+        "school": "Duke"
+      }
+    },
+    {
+      "year": 2025,
+      "talent": 669.18,
+      "team": {
+        "school": "Duke"
+      }
+    }
+  ],
+  "ratings": [],
+  "opponent_ratings": [],
+  "teams": {},
+  "betting_lines": [
+    {
+      "id": 401754517,
+      "season": 2025,
+      "week": 1,
+      "homeTeam": "Duke",
+      "awayTeam": "Elon",
+      "homePoints": 45,
+      "awayPoints": 17,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -36.5,
+          "overUnder": 51.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": null,
+          "overUnder": 50.5
+        }
+      ]
+    },
+    {
+      "id": 401752825,
+      "season": 2025,
+      "week": 2,
+      "homeTeam": "Duke",
+      "awayTeam": "Illinois",
+      "homePoints": 19,
+      "awayPoints": 45,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 2.5,
+          "overUnder": 49
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 2.5,
+          "overUnder": 49.5
+        }
+      ]
+    },
+    {
+      "id": 401754534,
+      "season": 2025,
+      "week": 3,
+      "homeTeam": "Tulane",
+      "awayTeam": "Duke",
+      "homePoints": 34,
+      "awayPoints": 27,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -1.5,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -1.5,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 1.5,
+          "overUnder": 53.5
+        }
+      ]
+    },
+    {
+      "id": 401754538,
+      "season": 2025,
+      "week": 4,
+      "homeTeam": "Duke",
+      "awayTeam": "NC State",
+      "homePoints": 45,
+      "awayPoints": 33,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -3,
+          "overUnder": 57.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -3.0,
+          "overUnder": 57
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -3.5,
+          "overUnder": 57.5
+        }
+      ]
+    },
+    {
+      "id": 401754545,
+      "season": 2025,
+      "week": 5,
+      "homeTeam": "Syracuse",
+      "awayTeam": "Duke",
+      "homePoints": 3,
+      "awayPoints": 38,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 4,
+          "overUnder": 59.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 4.5,
+          "overUnder": 59.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 3.5,
+          "overUnder": 59.5
+        }
+      ]
+    },
+    {
+      "id": 401754551,
+      "season": 2025,
+      "week": 6,
+      "homeTeam": "California",
+      "awayTeam": "Duke",
+      "homePoints": 21,
+      "awayPoints": 45,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 3.5,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 3.5,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 3.5,
+          "overUnder": 55.5
+        }
+      ]
+    },
+    {
+      "id": 401754566,
+      "season": 2025,
+      "week": 8,
+      "homeTeam": "Duke",
+      "awayTeam": "Georgia Tech",
+      "homePoints": 18,
+      "awayPoints": 27,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -3.5,
+          "overUnder": 60.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -3.5,
+          "overUnder": 60.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -3.5,
+          "overUnder": 61.5
+        }
+      ]
+    },
+    {
+      "id": 401754577,
+      "season": 2025,
+      "week": 10,
+      "homeTeam": "Clemson",
+      "awayTeam": "Duke",
+      "homePoints": 45,
+      "awayPoints": 46,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -4.5,
+          "overUnder": 55.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -4.0,
+          "overUnder": 55
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -4,
+          "overUnder": 54.5
+        }
+      ]
+    },
+    {
+      "id": 401754590,
+      "season": 2025,
+      "week": 11,
+      "homeTeam": "UConn",
+      "awayTeam": "Duke",
+      "homePoints": 37,
+      "awayPoints": 34,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 7.5,
+          "overUnder": 63.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 8.0,
+          "overUnder": 63
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 7.5,
+          "overUnder": 62.5
+        }
+      ]
+    },
+    {
+      "id": 401754593,
+      "season": 2025,
+      "week": 12,
+      "homeTeam": "Duke",
+      "awayTeam": "Virginia",
+      "homePoints": 17,
+      "awayPoints": 34,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -5.5,
+          "overUnder": 59.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -5.5,
+          "overUnder": 60.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -5.0,
+          "overUnder": 60
+        }
+      ]
+    },
+    {
+      "id": 401754600,
+      "season": 2025,
+      "week": 13,
+      "homeTeam": "North Carolina",
+      "awayTeam": "Duke",
+      "homePoints": 25,
+      "awayPoints": 32,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 6.5,
+          "overUnder": 50.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 7,
+          "overUnder": 50.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 7.0,
+          "overUnder": 50
+        }
+      ]
+    },
+    {
+      "id": 401754610,
+      "season": 2025,
+      "week": 14,
+      "homeTeam": "Duke",
+      "awayTeam": "Wake Forest",
+      "homePoints": 49,
+      "awayPoints": 32,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -2.5,
+          "overUnder": 54
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -2.5,
+          "overUnder": 53.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -2.5,
+          "overUnder": 53.5
+        }
+      ]
+    },
+    {
+      "id": 401777328,
+      "season": 2025,
+      "week": 15,
+      "homeTeam": "Virginia",
+      "awayTeam": "Duke",
+      "homePoints": null,
+      "awayPoints": null,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -3,
+          "overUnder": null
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -3.0,
+          "overUnder": 57
+        }
+      ]
+    }
+  ]
+}

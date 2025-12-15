@@ -24,24 +24,17 @@ interface TeamRecord {
 }
 
 export function SeasonRecords({ predictionData }: SeasonRecordsProps) {
-  console.log('SeasonRecords - predictionData:', predictionData);
-  console.log('SeasonRecords - season_records:', predictionData?.season_records);
   
   if (!predictionData?.season_records) {
-    console.log('SeasonRecords - No season_records data found, returning null');
     return null;
   }
 
   const { away, home } = predictionData.season_records;
-  console.log('SeasonRecords - away:', away);
-  console.log('SeasonRecords - home:', home);
 
   if (!away && !home) {
-    console.log('SeasonRecords - No away or home data, returning null');
     return null;
   }
   
-  console.log('SeasonRecords - Rendering component!');
 
   // Get team colors for glowColor
   const team1Color = away?.primaryColor || '#6366f1';

@@ -1,0 +1,805 @@
+/* ============================================
+   OUTLIER.BET EXACT COLOR PALETTE & STYLING
+   ============================================ */
+
+:root {
+  /* Gameday Red Colors */
+  --brand-red: rgb(204, 0, 28);
+  --brand-red-dark: rgb(161, 0, 20);
+  --brand-red-darker: rgb(115, 0, 13);
+  --brand-red-gradient: linear-gradient(135deg, rgb(204,0,28), rgb(161,0,20), rgb(115,0,13), rgb(161,0,20), rgb(204,0,28));
+  --brand-red-alpha: rgba(204, 0, 28, 0.1);
+  
+  /* Brand Colors */
+  --brand-green: #1CDD90;
+  --brand-green-alpha: rgba(28, 221, 144, 0.1);
+  --brand-green-gradient: linear-gradient(180deg, rgba(28, 221, 144, 0.07) 0%, transparent 100%);
+  --accent-orange: rgb(232, 76, 0);
+  
+  /* Backgrounds */
+  --bg-primary: rgb(26, 26, 26);
+  --bg-card: rgb(28, 28, 28);
+  --bg-elevated: rgb(32, 32, 32);
+  --bg-hover: rgba(255, 255, 255, 0.08);
+  
+  /* Text Colors */
+  --text-primary: rgba(255, 255, 255, 0.88);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-tertiary: rgba(255, 255, 255, 0.4);
+  
+  /* Border & Dividers */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --divider: rgba(255, 255, 255, 0.08);
+  
+  /* Shadows */
+  --shadow-sm: rgba(0, 0, 0, 0.05) 0px 0px 25px;
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --shadow-lg: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+}
+
+/* ============================================
+   DASHBOARD CONTAINER
+   ============================================ */
+
+.ev-dashboard {
+  min-height: 100vh;
+  background: transparent;
+  color: var(--text-primary);
+  padding: 40px 20px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  position: relative;
+}
+
+/* ============================================
+   HEADER SECTION - MODERN RED THEME
+   ============================================ */
+
+.ev-header {
+  max-width: 1400px;
+  margin: 0 auto 32px;
+  padding: 24px 32px;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.ev-header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ev-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ev-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  background: rgba(15, 23, 42, 0.3);
+  padding: 4px;
+  transition: all 0.3s ease;
+}
+
+.ev-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.ev-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ev-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  font-family: var(--font-orbitron), 'Orbitron', monospace;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: -0.5px;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.ev-subtitle {
+  color: rgba(148, 163, 184, 0.8);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.3px;
+  line-height: 1;
+}
+
+.ev-filters {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  padding: 0 32px;
+}
+
+.filter-pill {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-orbitron), 'Orbitron', monospace;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-pill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--brand-red-gradient);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.filter-pill:hover {
+  background: rgba(204, 0, 28, 0.1);
+  border-color: rgba(204, 0, 28, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(204, 0, 28, 0.3);
+}
+
+.filter-pill.active {
+  background: var(--brand-red-gradient);
+  color: white;
+  border-color: var(--brand-red);
+  box-shadow: 0 4px 16px rgba(204, 0, 28, 0.4);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.filter-pill.active::before {
+  left: 0;
+}
+
+/* ============================================
+   GAME CARDS - MINIMAL STYLE
+   ============================================ */
+
+.ev-games-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.ev-game-card {
+  background: transparent;
+  border-radius: 8px;
+  padding: 0;
+  box-shadow: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.ev-game-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ev-game-card:hover::before {
+  opacity: 1;
+}
+
+.ev-game-card:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(204, 0, 28, 0.4);
+  box-shadow: 
+    0 8px 32px rgba(204, 0, 28, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.ev-game-card:hover .ev-game-header-optionC {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(204, 0, 28, 0.1);
+}
+
+.ev-game-card.sharp-play {
+  background: transparent;
+  border: 1px solid rgba(28, 221, 144, 0.25);
+  box-shadow: 0 0 20px rgba(28, 221, 144, 0.08);
+}
+
+.ev-game-card.sharp-play .ev-game-header-optionC {
+  background: linear-gradient(
+    135deg,
+    rgba(28, 221, 144, 0.08) 0%,
+    rgba(28, 221, 144, 0.04) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border-bottom-color: rgba(28, 221, 144, 0.2);
+}
+
+/* ============================================
+   OPTION C - ENHANCED GAME HEADER LAYOUT
+   ============================================ */
+
+.ev-game-header-optionC {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Watermark Logos - Enhanced with blur - Edge to Edge */
+.ev-header-watermark-left-enhanced {
+  position: absolute;
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: 180px;
+  opacity: 0.06;
+  filter: brightness(1.5) blur(2px) sepia(0.3) saturate(1.8);
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.ev-header-watermark-right-enhanced {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: 180px;
+  opacity: 0.06;
+  filter: brightness(1.5) blur(2px) sepia(0.3) saturate(1.8);
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.ev-game-card:hover .ev-header-watermark-left-enhanced {
+  transform: translateY(-50%) scale(1.1);
+  opacity: 0.10;
+}
+
+.ev-game-card:hover .ev-header-watermark-right-enhanced {
+  transform: translateY(-50%) scale(1.1);
+  opacity: 0.10;
+}
+
+/* Main Matchup Row */
+.ev-matchup-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Team Block - Away (Left) */
+.ev-team-block-away {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  position: relative;
+}
+
+/* Team Block - Home (Right) */
+.ev-team-block-home {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* Rank Badge - Enhanced with Glass Effect - No Container */
+.ev-rank-pro {
+  position: relative;
+  min-width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  font-family: var(--font-orbitron), 'Orbitron', monospace;
+  letter-spacing: 0.3px;
+  background: linear-gradient(135deg, 
+    #F5F5F5 0%, 
+    #E8E8E8 20%, 
+    #D3D3D3 40%, 
+    #C0C0C0 60%, 
+    #A8A8A8 80%, 
+    #909090 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.ev-rank-pro:hover {
+  transform: translateY(-1px) scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+/* Team Logo - Enhanced */
+.ev-team-logo-pro {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.ev-game-card:hover .ev-team-logo-pro {
+  transform: scale(1.05);
+}
+
+/* Team Info Column */
+.ev-team-info-pro {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: flex-start;
+}
+
+.ev-team-info-pro.home {
+  align-items: flex-end;
+}
+
+/* Team Name - Enhanced Orbitron with Glass Effect */
+.ev-team-name-pro {
+  font-family: var(--font-orbitron), 'Orbitron', monospace;
+  font-size: 16px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.98);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    0 0 10px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.1));
+}
+
+.ev-game-card:hover .ev-team-name-pro {
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 
+    0 2px 12px rgba(204, 0, 28, 0.4),
+    0 0 20px rgba(255, 255, 255, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.8);
+  filter: drop-shadow(0 0 4px rgba(204, 0, 28, 0.3));
+}
+
+/* Record - Enhanced */
+.ev-team-record-pro {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.8px;
+  line-height: 1;
+  font-family: var(--font-orbitron), 'Orbitron', monospace;
+}
+
+/* VS Divider - Enhanced with Pulse */
+.ev-vs-divider-pro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+
+.ev-vs-text-pro {
+  font-size: 13px;
+  font-weight: 900;
+  font-family: var(--font-orbitron), 'Orbitron', monospace;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 4px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.ev-game-card:hover .ev-vs-text-pro {
+  color: rgba(204, 0, 28, 0.6);
+  letter-spacing: 5px;
+  text-shadow: 0 0 10px rgba(204, 0, 28, 0.3);
+}
+
+.ev-vs-text-pro::before,
+.ev-vs-text-pro::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(
+    to right, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: all 0.3s ease;
+}
+
+.ev-vs-text-pro::before {
+  right: calc(100% + 6px);
+}
+
+.ev-vs-text-pro::after {
+  left: calc(100% + 6px);
+}
+
+.ev-game-card:hover .ev-vs-text-pro::before,
+.ev-game-card:hover .ev-vs-text-pro::after {
+  background: linear-gradient(
+    to right, 
+    transparent, 
+    rgba(204, 0, 28, 0.4), 
+    transparent
+  );
+  width: 35px;
+}
+
+/* Game Meta Bar - Split Layout */
+.ev-game-meta-bar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 2;
+}
+
+/* Time Display - Enhanced Glass */
+.ev-time-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  font-family: var(--font-orbitron), 'Orbitron', monospace;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.ev-game-card:hover .ev-time-meta {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.ev-time-icon-pro {
+  width: 13px;
+  height: 13px;
+  opacity: 0.6;
+}
+
+/* Sharp Badge - Enhanced with Glow */
+.ev-sharp-pro {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: linear-gradient(135deg, 
+    rgba(28, 221, 144, 0.08) 0%, 
+    rgba(28, 221, 144, 0.12) 100%
+  );
+  border: 1.5px solid rgba(28, 221, 144, 0.35);
+  border-radius: 8px;
+  font-size: 9px;
+  font-weight: 900;
+  font-family: var(--font-orbitron), 'Orbitron', monospace;
+  color: rgb(28, 221, 144);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  box-shadow: 
+    0 2px 8px rgba(28, 221, 144, 0.2),
+    inset 0 1px 2px rgba(28, 221, 144, 0.1);
+  transition: all 0.3s ease;
+  animation: sharpPulse 2s ease-in-out infinite;
+}
+
+@keyframes sharpPulse {
+  0%, 100% { 
+    box-shadow: 
+      0 2px 8px rgba(28, 221, 144, 0.2),
+      inset 0 1px 2px rgba(28, 221, 144, 0.1);
+  }
+  50% { 
+    box-shadow: 
+      0 4px 16px rgba(28, 221, 144, 0.4),
+      inset 0 1px 2px rgba(28, 221, 144, 0.15);
+  }
+}
+
+.ev-game-card:hover .ev-sharp-pro {
+  background: linear-gradient(135deg, 
+    rgba(28, 221, 144, 0.12) 0%, 
+    rgba(28, 221, 144, 0.16) 100%
+  );
+  border-color: rgba(28, 221, 144, 0.5);
+  transform: translateY(-1px);
+}
+
+.ev-sharp-icon-pro {
+  width: 11px;
+  height: 11px;
+  filter: drop-shadow(0 0 4px rgba(28, 221, 144, 0.6));
+}
+
+/* ============================================
+   INLINE MARKETS - MINIMAL LAYOUT
+   ============================================ */
+
+.ev-markets-inline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 0 16px 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ev-market-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ev-market-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ev-market-values {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ev-value {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+.ev-value:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ev-value.ev-highlight {
+  background: rgba(28, 221, 144, 0.08);
+  border-color: rgba(28, 221, 144, 0.3);
+  color: var(--brand-green);
+}
+
+.ev-odds-small {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-left: auto;
+}
+
+.ev-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--brand-green);
+  border-radius: 50%;
+  margin-left: auto;
+}
+
+/* ============================================
+   MINIMAL PUBLIC BETTING BARS
+   ============================================ */
+
+.ev-public-minimal {
+  display: flex;
+  gap: 16px;
+  padding: 0 16px 12px 16px;
+}
+
+.ev-mini-chart {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ev-mini-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  min-width: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.ev-mini-bar-wrapper {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ev-mini-bar {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(100, 116, 139, 0.5), rgba(100, 116, 139, 0.3));
+  transition: all 0.3s ease;
+}
+
+.ev-mini-bar.sharp {
+  background: linear-gradient(90deg, rgba(28, 221, 144, 0.6), rgba(28, 221, 144, 0.4));
+}
+
+.ev-mini-percent {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  min-width: 35px;
+  text-align: right;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .ev-markets-inline {
+    grid-template-columns: 1fr;
+  }
+  
+  .ev-header h1 {
+    font-size: 24px;
+  }
+  
+  .ev-filters {
+    flex-direction: column;
+  }
+  
+  .filter-pill {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ev-public-minimal {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* ============================================
+   LOADING & ANIMATIONS
+   ============================================ */
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.loading {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    to right,
+    var(--bg-elevated) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    var(--bg-elevated) 100%
+  );
+  background-size: 2000px 100%;
+}

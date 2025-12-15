@@ -11,9 +11,13 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
   
   if (!liveData) return null;
 
-  // Convert win probability to percentage if it's a decimal (0-1 range)
-  let awayWinProb = liveData.win_probability?.away || 50;
-  let homeWinProb = liveData.win_probability?.home || 50;
+  // Use ui_components for all probability and team data
+  const teamSelector = predictionData?.ui_components?.team_selector || {};
+  const predictionCards = predictionData?.ui_components?.prediction_cards || {};
+  
+  // Get win probabilities from prediction model (not live data)
+  let awayWinProb = predictionCards?.win_probability?.away_team_prob || liveData.win_probability?.away || 50;
+  let homeWinProb = predictionCards?.win_probability?.home_team_prob || liveData.win_probability?.home || 50;
   
   // If values are between 0 and 1, they're decimals - convert to percentage
   if (awayWinProb <= 1 && awayWinProb >= 0) {
@@ -23,14 +27,14 @@ const WinProbabilityLive: React.FC<WinProbabilityLiveProps> = ({ liveData, predi
     homeWinProb = homeWinProb * 100;
   }
   
-  const awayTeam = liveData.game_info?.away_team || 'Away';
-  const homeTeam = liveData.game_info?.home_team || 'Home';
+  const awayTeam = teamSelector?.away?.name || liveData.game_info?.away_team || 'Away';
+  const homeTeam = teamSelector?.home?.name || liveData.game_info?.home_team || 'Home';
   
-  // Get actual team colors and logos from predictionData (same as other components)
-  const awayColor = predictionData?.team_selector?.away_team?.primary_color || '#3b82f6';
-  const homeColor = predictionData?.team_selector?.home_team?.primary_color || '#dc2626';
-  const awayLogo = predictionData?.team_selector?.away_team?.logo;
-  const homeLogo = predictionData?.team_selector?.home_team?.logo;
+  // Get actual team colors and logos from ui_components
+  const awayColor = teamSelector?.away?.primary_color || '#3b82f6';
+  const homeColor = teamSelector?.home?.primary_color || '#dc2626';
+  const awayLogo = teamSelector?.away?.logo;
+  const homeLogo = teamSelector?.home?.logo;
 
   // Determine which team is favored
   const leadingColor = awayWinProb > homeWinProb ? awayColor : homeColor;

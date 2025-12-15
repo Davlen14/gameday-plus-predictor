@@ -1,0 +1,1542 @@
+{
+  "metadata": {
+    "generated": "2025-12-01 04:17:59.978591",
+    "coach": "Tony Elliott",
+    "headshot": null,
+    "schools": [
+      "Virginia"
+    ],
+    "description": "Comprehensive Tony Elliott coaching profile with all statistics, games, and analysis"
+  },
+  "career_summary": {
+    "record": "21-25",
+    "win_pct": 45.7,
+    "games": 46
+  },
+  "analytics": {
+    "home_record": {
+      "wins": 12,
+      "losses": 13,
+      "ties": 0
+    },
+    "away_record": {
+      "wins": 9,
+      "losses": 11,
+      "ties": 0
+    },
+    "neutral_record": {
+      "wins": 0,
+      "losses": 1,
+      "ties": 0
+    },
+    "signature_wins": [],
+    "bad_losses": [],
+    "ats_record": {},
+    "over_under_record": {},
+    "conference_record": {},
+    "bowl_record": {}
+  },
+  "stint_analytics": {},
+  "pre_arrival": {},
+  "stints": [
+    {
+      "school": "Virginia",
+      "start_year": 2022,
+      "end_year": 2025,
+      "record": "21-25",
+      "win_pct": 45.7,
+      "games": 46
+    }
+  ],
+  "games": [
+    {
+      "id": 401411100,
+      "season": 2022,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Richmond",
+      "homePoints": 34,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 2.2408137378,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401405070,
+      "season": 2022,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Illinois",
+      "awayTeam": "Virginia",
+      "homePoints": 24,
+      "awayPoints": 3,
+      "neutralSite": false,
+      "excitement": 3.5179019525,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401411113,
+      "season": 2022,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Old Dominion",
+      "homePoints": 16,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 7.0608366135,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401411117,
+      "season": 2022,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Syracuse",
+      "awayTeam": "Virginia",
+      "homePoints": 22,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 6.5029843112,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401411126,
+      "season": 2022,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Virginia",
+      "homePoints": 38,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 3.0606932376,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401411136,
+      "season": 2022,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Louisville",
+      "homePoints": 17,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 5.6701439359,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401411141,
+      "season": 2022,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Georgia Tech",
+      "awayTeam": "Virginia",
+      "homePoints": 9,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 7.7067324234,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401411150,
+      "season": 2022,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Miami",
+      "homePoints": 12,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 7.5503541232,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401411156,
+      "season": 2022,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "North Carolina",
+      "homePoints": 28,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 6.0595151939,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401411163,
+      "season": 2022,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Pittsburgh",
+      "homePoints": 7,
+      "awayPoints": 37,
+      "neutralSite": false,
+      "excitement": 1.1406270722,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401520179,
+      "season": 2023,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Tennessee",
+      "awayTeam": "Virginia",
+      "homePoints": 49,
+      "awayPoints": 13,
+      "neutralSite": true,
+      "excitement": 1.4530125893,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401525498,
+      "season": 2023,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "James Madison",
+      "homePoints": 35,
+      "awayPoints": 36,
+      "neutralSite": false,
+      "excitement": 6.3171327858,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401520231,
+      "season": 2023,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Maryland",
+      "awayTeam": "Virginia",
+      "homePoints": 42,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 5.6808019142,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401525505,
+      "season": 2023,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "NC State",
+      "homePoints": 21,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 6.312104538,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401525513,
+      "season": 2023,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Boston College",
+      "awayTeam": "Virginia",
+      "homePoints": 27,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 7.7712128168,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401525522,
+      "season": 2023,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "William & Mary",
+      "homePoints": 27,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 6.2429222463,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401525531,
+      "season": 2023,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "North Carolina",
+      "awayTeam": "Virginia",
+      "homePoints": 27,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 8.4715794918,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401525538,
+      "season": 2023,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Miami",
+      "awayTeam": "Virginia",
+      "homePoints": 29,
+      "awayPoints": 26,
+      "neutralSite": false,
+      "excitement": 9.302400857,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401525542,
+      "season": 2023,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Georgia Tech",
+      "homePoints": 17,
+      "awayPoints": 45,
+      "neutralSite": false,
+      "excitement": 4.0479433972,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401525546,
+      "season": 2023,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Louisville",
+      "awayTeam": "Virginia",
+      "homePoints": 31,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 7.0523784609,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401525555,
+      "season": 2023,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Duke",
+      "homePoints": 30,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 6.3440558835,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401525564,
+      "season": 2023,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 17,
+      "awayPoints": 55,
+      "neutralSite": false,
+      "excitement": 2.089066103,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401628589,
+      "season": 2024,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Richmond",
+      "homePoints": 34,
+      "awayPoints": 13,
+      "neutralSite": false,
+      "excitement": 2.7590078828,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401635639,
+      "season": 2024,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "Wake Forest",
+      "awayTeam": "Virginia",
+      "homePoints": 30,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 6.5433888584,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401628478,
+      "season": 2024,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Maryland",
+      "homePoints": 13,
+      "awayPoints": 27,
+      "neutralSite": false,
+      "excitement": 7.1114804406,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401635558,
+      "season": 2024,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Coastal Carolina",
+      "awayTeam": "Virginia",
+      "homePoints": 24,
+      "awayPoints": 43,
+      "neutralSite": false,
+      "excitement": 3.3143909632,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401635567,
+      "season": 2024,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Boston College",
+      "homePoints": 24,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 6.6243461073,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401635578,
+      "season": 2024,
+      "week": 7,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Louisville",
+      "homePoints": 20,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 6.6794409164,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401635588,
+      "season": 2024,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Clemson",
+      "awayTeam": "Virginia",
+      "homePoints": 48,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 4.5901434844,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401635598,
+      "season": 2024,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "North Carolina",
+      "homePoints": 14,
+      "awayPoints": 41,
+      "neutralSite": false,
+      "excitement": 2.755188739,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401635610,
+      "season": 2024,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Pittsburgh",
+      "awayTeam": "Virginia",
+      "homePoints": 19,
+      "awayPoints": 24,
+      "neutralSite": false,
+      "excitement": 7.3938992017,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401628985,
+      "season": 2024,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Notre Dame",
+      "awayTeam": "Virginia",
+      "homePoints": 35,
+      "awayPoints": 14,
+      "neutralSite": false,
+      "excitement": 5.9709010393,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401635619,
+      "season": 2024,
+      "week": 13,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "SMU",
+      "homePoints": 7,
+      "awayPoints": 33,
+      "neutralSite": false,
+      "excitement": 2.5273731561,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401635640,
+      "season": 2024,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Virginia Tech",
+      "awayTeam": "Virginia",
+      "homePoints": 37,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 3.7440119529,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401754616,
+      "season": 2025,
+      "week": 1,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Coastal Carolina",
+      "homePoints": 48,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 3.3129902798197115,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401754524,
+      "season": 2025,
+      "week": 2,
+      "seasonType": "regular",
+      "homeTeam": "NC State",
+      "awayTeam": "Virginia",
+      "homePoints": 35,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 8.126042888443141,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401754619,
+      "season": 2025,
+      "week": 3,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "William & Mary",
+      "homePoints": 55,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 2.9915828835043174,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401754539,
+      "season": 2025,
+      "week": 4,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Stanford",
+      "homePoints": 48,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 3.680080334067038,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401754543,
+      "season": 2025,
+      "week": 5,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Florida State",
+      "homePoints": 46,
+      "awayPoints": 38,
+      "neutralSite": false,
+      "excitement": 11.482102852327786,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401754554,
+      "season": 2025,
+      "week": 6,
+      "seasonType": "regular",
+      "homeTeam": "Louisville",
+      "awayTeam": "Virginia",
+      "homePoints": 27,
+      "awayPoints": 30,
+      "neutralSite": false,
+      "excitement": 9.702094358757874,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401752951,
+      "season": 2025,
+      "week": 8,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Washington State",
+      "homePoints": 22,
+      "awayPoints": 20,
+      "neutralSite": false,
+      "excitement": 6.0728203483249565,
+      "conferenceGame": false,
+      "school": "Virginia"
+    },
+    {
+      "id": 401754573,
+      "season": 2025,
+      "week": 9,
+      "seasonType": "regular",
+      "homeTeam": "North Carolina",
+      "awayTeam": "Virginia",
+      "homePoints": 16,
+      "awayPoints": 17,
+      "neutralSite": false,
+      "excitement": 7.587525597139318,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401754576,
+      "season": 2025,
+      "week": 10,
+      "seasonType": "regular",
+      "homeTeam": "California",
+      "awayTeam": "Virginia",
+      "homePoints": 21,
+      "awayPoints": 31,
+      "neutralSite": false,
+      "excitement": 5.718828438861106,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401754589,
+      "season": 2025,
+      "week": 11,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Wake Forest",
+      "homePoints": 9,
+      "awayPoints": 16,
+      "neutralSite": false,
+      "excitement": 6.244289362830801,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401754593,
+      "season": 2025,
+      "week": 12,
+      "seasonType": "regular",
+      "homeTeam": "Duke",
+      "awayTeam": "Virginia",
+      "homePoints": 17,
+      "awayPoints": 34,
+      "neutralSite": false,
+      "excitement": 3.6041656880268382,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401754613,
+      "season": 2025,
+      "week": 14,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 27,
+      "awayPoints": 7,
+      "neutralSite": false,
+      "excitement": 3.413907505600506,
+      "conferenceGame": true,
+      "school": "Virginia"
+    },
+    {
+      "id": 401777328,
+      "season": 2025,
+      "week": 15,
+      "seasonType": "regular",
+      "homeTeam": "Virginia",
+      "awayTeam": "Duke",
+      "homePoints": null,
+      "awayPoints": null,
+      "neutralSite": true,
+      "excitement": null,
+      "conferenceGame": true,
+      "school": "Virginia"
+    }
+  ],
+  "rankings": [
+    {
+      "rank": 25,
+      "points": 122,
+      "poll": {
+        "season": 2019,
+        "week": 3
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 21,
+      "points": 252,
+      "poll": {
+        "season": 2019,
+        "week": 4
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 18,
+      "points": 430,
+      "poll": {
+        "season": 2019,
+        "week": 5
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 23,
+      "points": 186,
+      "poll": {
+        "season": 2019,
+        "week": 6
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 24,
+      "points": 125,
+      "poll": {
+        "season": 2025,
+        "week": 6
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 20,
+      "points": 353,
+      "poll": {
+        "season": 2019,
+        "week": 7
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 19,
+      "points": 452,
+      "poll": {
+        "season": 2025,
+        "week": 7
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 18,
+      "points": 521,
+      "poll": {
+        "season": 2025,
+        "week": 8
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 16,
+      "points": 624,
+      "poll": {
+        "season": 2025,
+        "week": 9
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 23,
+      "points": 175,
+      "poll": {
+        "season": 2018,
+        "week": 10
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 15,
+      "points": 660,
+      "poll": {
+        "season": 2025,
+        "week": 10
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 12,
+      "points": 838,
+      "poll": {
+        "season": 2025,
+        "week": 11
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 20,
+      "points": 313,
+      "poll": {
+        "season": 2025,
+        "week": 12
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 19,
+      "points": 476,
+      "poll": {
+        "season": 2025,
+        "week": 13
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 17,
+      "points": 556,
+      "poll": {
+        "season": 2025,
+        "week": 14
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 22,
+      "points": 231,
+      "poll": {
+        "season": 2019,
+        "week": 15
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "rank": 16,
+      "points": 637,
+      "poll": {
+        "season": 2025,
+        "week": 15
+      },
+      "team": {
+        "school": "Virginia"
+      }
+    }
+  ],
+  "draft_picks": [
+    {
+      "year": 2016,
+      "round": 6,
+      "overall": 209,
+      "name": "Maurice Canady",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "Baltimore Ravens"
+      },
+      "height": 73,
+      "weight": 193
+    },
+    {
+      "year": 2018,
+      "round": 5,
+      "overall": 147,
+      "name": "Micah Kiser",
+      "position": {
+        "abbreviation": "ILB"
+      },
+      "draftTeam": {
+        "displayName": "Los Angeles Rams"
+      },
+      "height": 72,
+      "weight": 238
+    },
+    {
+      "year": 2018,
+      "round": 5,
+      "overall": 158,
+      "name": "Andrew Brown",
+      "position": {
+        "abbreviation": "DE"
+      },
+      "draftTeam": {
+        "displayName": "Cincinnati Bengals"
+      },
+      "height": 75,
+      "weight": 296
+    },
+    {
+      "year": 2019,
+      "round": 2,
+      "overall": 63,
+      "name": "Juan Thornhill",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "Kansas City Chiefs"
+      },
+      "height": 72,
+      "weight": 205
+    },
+    {
+      "year": 2019,
+      "round": 6,
+      "overall": 198,
+      "name": "Tim  Harris",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "San Francisco 49ers"
+      },
+      "height": 73,
+      "weight": 205
+    },
+    {
+      "year": 2020,
+      "round": 5,
+      "overall": 151,
+      "name": "Joe Reed",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Los Angeles Chargers"
+      },
+      "height": 73,
+      "weight": 224
+    },
+    {
+      "year": 2020,
+      "round": 5,
+      "overall": 158,
+      "name": "Bryce Hall",
+      "position": {
+        "abbreviation": "CB"
+      },
+      "draftTeam": {
+        "displayName": "New York Jets"
+      },
+      "height": 73,
+      "weight": 202
+    },
+    {
+      "year": 2022,
+      "round": 3,
+      "overall": 73,
+      "name": "Jelani Woods",
+      "position": {
+        "abbreviation": "TE"
+      },
+      "draftTeam": {
+        "displayName": "Indianapolis Colts"
+      },
+      "height": 79,
+      "weight": 253
+    },
+    {
+      "year": 2023,
+      "round": 5,
+      "overall": 159,
+      "name": "Dontayvion Wicks",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Green Bay Packers"
+      },
+      "height": 73,
+      "weight": 206
+    },
+    {
+      "year": 2024,
+      "round": 6,
+      "overall": 184,
+      "name": "Malik Washington",
+      "position": {
+        "abbreviation": "WR"
+      },
+      "draftTeam": {
+        "displayName": "Miami Dolphins"
+      },
+      "height": 69,
+      "weight": 191
+    },
+    {
+      "year": 2025,
+      "round": 3,
+      "overall": 93,
+      "name": "Jonas Sanker",
+      "position": {
+        "abbreviation": "S"
+      },
+      "draftTeam": {
+        "displayName": "New Orleans Saints"
+      },
+      "height": 72,
+      "weight": 206
+    }
+  ],
+  "talent_ratings": [
+    {
+      "year": 2015,
+      "talent": 667.05,
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "year": 2016,
+      "talent": 618.91,
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "year": 2017,
+      "talent": 603.88,
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "year": 2018,
+      "talent": 542.4,
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "year": 2019,
+      "talent": 580.28,
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "year": 2020,
+      "talent": 588.54,
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "year": 2021,
+      "talent": 619.61,
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "year": 2022,
+      "talent": 625.94,
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "year": 2023,
+      "talent": 622.7,
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "year": 2024,
+      "talent": 662.28,
+      "team": {
+        "school": "Virginia"
+      }
+    },
+    {
+      "year": 2025,
+      "talent": 666.74,
+      "team": {
+        "school": "Virginia"
+      }
+    }
+  ],
+  "ratings": [],
+  "opponent_ratings": [],
+  "teams": {},
+  "betting_lines": [
+    {
+      "id": 401754616,
+      "season": 2025,
+      "week": 1,
+      "homeTeam": "Virginia",
+      "awayTeam": "Coastal Carolina",
+      "homePoints": 48,
+      "awayPoints": 7,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -12.5,
+          "overUnder": 57.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -13.5,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -13.5,
+          "overUnder": 55
+        }
+      ]
+    },
+    {
+      "id": 401754524,
+      "season": 2025,
+      "week": 2,
+      "homeTeam": "NC State",
+      "awayTeam": "Virginia",
+      "homePoints": 35,
+      "awayPoints": 31,
+      "lines": [
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -3.0,
+          "overUnder": 53
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -2.5,
+          "overUnder": 52.5
+        }
+      ]
+    },
+    {
+      "id": 401754619,
+      "season": 2025,
+      "week": 3,
+      "homeTeam": "Virginia",
+      "awayTeam": "William & Mary",
+      "homePoints": 55,
+      "awayPoints": 16,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -30.5,
+          "overUnder": 54.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -29.5,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -31.0,
+          "overUnder": 53.5
+        }
+      ]
+    },
+    {
+      "id": 401754539,
+      "season": 2025,
+      "week": 4,
+      "homeTeam": "Virginia",
+      "awayTeam": "Stanford",
+      "homePoints": 48,
+      "awayPoints": 20,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -16.5,
+          "overUnder": 48.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -15.5,
+          "overUnder": 48.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -16.5,
+          "overUnder": 49.5
+        }
+      ]
+    },
+    {
+      "id": 401754543,
+      "season": 2025,
+      "week": 5,
+      "homeTeam": "Virginia",
+      "awayTeam": "Florida State",
+      "homePoints": 46,
+      "awayPoints": 38,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 7,
+          "overUnder": 59.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 6.5,
+          "overUnder": 60.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 7.0,
+          "overUnder": 60.5
+        }
+      ]
+    },
+    {
+      "id": 401754554,
+      "season": 2025,
+      "week": 6,
+      "homeTeam": "Louisville",
+      "awayTeam": "Virginia",
+      "homePoints": 27,
+      "awayPoints": 30,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -6.5,
+          "overUnder": 59.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -6.5,
+          "overUnder": 60
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -6.5,
+          "overUnder": 61.5
+        }
+      ]
+    },
+    {
+      "id": 401752951,
+      "season": 2025,
+      "week": 8,
+      "homeTeam": "Virginia",
+      "awayTeam": "Washington State",
+      "homePoints": 22,
+      "awayPoints": 20,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -16.5,
+          "overUnder": 56.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -16.5,
+          "overUnder": 56.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -16.5,
+          "overUnder": 56.5
+        }
+      ]
+    },
+    {
+      "id": 401754573,
+      "season": 2025,
+      "week": 9,
+      "homeTeam": "North Carolina",
+      "awayTeam": "Virginia",
+      "homePoints": 16,
+      "awayPoints": 17,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 12.5,
+          "overUnder": 51.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 11.5,
+          "overUnder": 50.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 11.0,
+          "overUnder": 50.5
+        }
+      ]
+    },
+    {
+      "id": 401754576,
+      "season": 2025,
+      "week": 10,
+      "homeTeam": "California",
+      "awayTeam": "Virginia",
+      "homePoints": 21,
+      "awayPoints": 31,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": 6.5,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": 5.5,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": 6.5,
+          "overUnder": 52
+        }
+      ]
+    },
+    {
+      "id": 401754589,
+      "season": 2025,
+      "week": 11,
+      "homeTeam": "Virginia",
+      "awayTeam": "Wake Forest",
+      "homePoints": 9,
+      "awayPoints": 16,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -7,
+          "overUnder": 48.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -7.0,
+          "overUnder": 48.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -7.5,
+          "overUnder": 48.5
+        }
+      ]
+    },
+    {
+      "id": 401754593,
+      "season": 2025,
+      "week": 12,
+      "homeTeam": "Duke",
+      "awayTeam": "Virginia",
+      "homePoints": 17,
+      "awayPoints": 34,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -5.5,
+          "overUnder": 59.5
+        },
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -5.5,
+          "overUnder": 60.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -5.0,
+          "overUnder": 60
+        }
+      ]
+    },
+    {
+      "id": 401754613,
+      "season": 2025,
+      "week": 14,
+      "homeTeam": "Virginia",
+      "awayTeam": "Virginia Tech",
+      "homePoints": 27,
+      "awayPoints": 7,
+      "lines": [
+        {
+          "provider": {
+            "name": "ESPN Bet"
+          },
+          "spread": -9.5,
+          "overUnder": 53.5
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -8.0,
+          "overUnder": 52.5
+        },
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -8.5,
+          "overUnder": 52.5
+        }
+      ]
+    },
+    {
+      "id": 401777328,
+      "season": 2025,
+      "week": 15,
+      "homeTeam": "Virginia",
+      "awayTeam": "Duke",
+      "homePoints": null,
+      "awayPoints": null,
+      "lines": [
+        {
+          "provider": {
+            "name": "DraftKings"
+          },
+          "spread": -3,
+          "overUnder": null
+        },
+        {
+          "provider": {
+            "name": "Bovada"
+          },
+          "spread": -3.0,
+          "overUnder": 57
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1201 @@
+import { GlassCard } from './GlassCard';
+import { BarChart3, TrendingUp, Shield, Target, Clock, Trophy, Check, Zap, Activity, ArrowUp } from 'lucide-react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
+import { generateTeamAbbr, extractSection, parseTeamValue } from '../../utils/teamUtils';
+import { Bar, Radar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler
+} from 'chart.js';
+
+// Register Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler
+);
+
+// Horizontal Bar Chart for Advanced Offensive Metrics
+const HorizontalBarChart = ({ data, awayTeam, homeTeam }: { 
+  data: Array<{ metric: string; away: number; home: number; advantage: string }>;
+  awayTeam: any;
+  homeTeam: any;
+}) => {
+  // Helper function to check if color is blue or black
+  const isBlueOrBlack = (color: string) => {
+    const hex = color.toLowerCase();
+    const isBlue = hex.includes('004') || hex.includes('003') || hex.includes('002') || hex.includes('001') || 
+                   hex === '#000080' || hex === '#003366' || hex === '#002244' || hex === '#041e42';
+    const isBlack = hex === '#000000' || hex === '#222222' || hex === '#1a1a1a' || hex === '#333333';
+    return isBlue || isBlack;
+  };
+
+  // Get display colors
+  const awayTeamColor = (awayTeam.primary_color && isBlueOrBlack(awayTeam.primary_color)) 
+    ? (awayTeam.alt_color || awayTeam.secondary_color || '#f97316') 
+    : (awayTeam.primary_color || '#3b82f6');
+    
+  const homeTeamColor = (homeTeam.primary_color && isBlueOrBlack(homeTeam.primary_color)) 
+    ? (homeTeam.alt_color || homeTeam.secondary_color || '#10b981') 
+    : (homeTeam.primary_color || '#f97316');
+
+  const awayAbbr = generateTeamAbbr(awayTeam.name);
+  const homeAbbr = generateTeamAbbr(homeTeam.name);
+  
+  return (
+    <div className="space-y-6">
+      {data.map((item, index) => {
+        const maxVal = Math.max(item.away, item.home);
+        const awayPercent = (item.away / maxVal) * 100;
+        const homePercent = (item.home / maxVal) * 100;
+        
+        return (
+          <div key={index} className="space-y-3">
+            <div className="flex justify-between items-center">
+              <span className="text-white font-medium text-sm">{item.metric}</span>
+              <div className="flex items-center gap-4 text-xs">
+                <span className="font-mono font-bold" style={{ color: awayTeamColor }}>{item.away}</span>
+                <span className="text-slate-400">vs</span>
+                <span className="font-mono font-bold" style={{ color: homeTeamColor }}>{item.home}</span>
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              {/* Away Team Bar */}
+              <div className="flex items-center gap-3">
+                <ImageWithFallback 
+                  src={awayTeam.logo} 
+                  alt={awayAbbr} 
+                  className="w-5 h-5 object-contain"
+                />
+                <div className="flex-1 backdrop-blur-sm rounded-full h-2 overflow-hidden">
+                  <div 
+                    className="h-full transition-all duration-1000 ease-out"
+                    style={{ 
+                      width: `${awayPercent}%`,
+                      background: `linear-gradient(to right, ${awayTeamColor}, ${awayTeamColor}80)`
+                    }}
+                  />
+                </div>
+              </div>
+              
+              {/* Home Team Bar */}
+              <div className="flex items-center gap-3">
+                <ImageWithFallback 
+                  src={homeTeam.logo} 
+                  alt={homeAbbr} 
+                  className="w-5 h-5 object-contain"
+                />
+                <div className="flex-1 backdrop-blur-sm rounded-full h-2 overflow-hidden">
+                  <div 
+                    className="h-full transition-all duration-1000 ease-out"
+                    style={{ 
+                      width: `${homePercent}%`,
+                      background: `linear-gradient(to right, ${homeTeamColor}, ${homeTeamColor}80)`
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+            
+            {item.advantage !== 'Even' && (
+              <div className="text-center">
+                <span 
+                  className="text-xs font-bold px-2 py-1 rounded-full border"
+                  style={{
+                    backgroundColor: `${item.advantage === awayTeam.name ? awayTeamColor : homeTeamColor}20`,
+                    color: item.advantage === awayTeam.name ? awayTeamColor : homeTeamColor,
+                    borderColor: `${item.advantage === awayTeam.name ? awayTeamColor : homeTeamColor}30`
+                  }}
+                >
+                  {item.advantage} leads
+                </span>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+// Circular Progress Chart for Defense
+const CircularProgressChart = ({ data, awayTeam, homeTeam }: { 
+  data: Array<{ metric: string; away: number; home: number; advantage: string }>;
+  awayTeam: any;
+  homeTeam: any;
+}) => {
+  // Helper function to check if color is blue or black
+  const isBlueOrBlack = (color: string) => {
+    const hex = color.toLowerCase();
+    const isBlue = hex.includes('004') || hex.includes('003') || hex.includes('002') || hex.includes('001') || 
+                   hex === '#000080' || hex === '#003366' || hex === '#002244' || hex === '#041e42';
+    const isBlack = hex === '#000000' || hex === '#222222' || hex === '#1a1a1a' || hex === '#333333';
+    return isBlue || isBlack;
+  };
+
+  // Get display colors
+  const awayTeamColor = (awayTeam.primary_color && isBlueOrBlack(awayTeam.primary_color)) 
+    ? (awayTeam.alt_color || awayTeam.secondary_color || '#f97316') 
+    : (awayTeam.primary_color || '#3b82f6');
+    
+  const homeTeamColor = (homeTeam.primary_color && isBlueOrBlack(homeTeam.primary_color)) 
+    ? (homeTeam.alt_color || homeTeam.secondary_color || '#10b981') 
+    : (homeTeam.primary_color || '#f97316');
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {data.map((item, index) => {
+        const maxVal = Math.max(Math.abs(item.away), Math.abs(item.home));
+        const awayPercent = Math.abs(item.away) / maxVal * 100;
+        const homePercent = Math.abs(item.home) / maxVal * 100;
+        
+        return (
+          <div key={index} className="text-center space-y-3">
+            <h4 className="text-white text-sm font-medium">{item.metric}</h4>
+            
+            {/* Dual Circle Progress */}
+            <div className="flex justify-center gap-4">
+              {/* Away Team Circle */}
+              <div className="relative w-16 h-16">
+                <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 64 64">
+                  <circle cx="32" cy="32" r="28" stroke="#374151" strokeWidth="4" fill="transparent" />
+                  <circle 
+                    cx="32" cy="32" r="28" 
+                    stroke={awayTeamColor} 
+                    strokeWidth="4" 
+                    fill="transparent"
+                    strokeDasharray={`${awayPercent * 1.76} 176`}
+                    className="transition-all duration-1000 ease-out"
+                  />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <ImageWithFallback 
+                    src={awayTeam.logo} 
+                    alt={generateTeamAbbr(awayTeam.name)} 
+                    className="w-6 h-6 object-contain"
+                  />
+                </div>
+              </div>
+              
+              {/* Home Team Circle */}
+              <div className="relative w-16 h-16">
+                <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 64 64">
+                  <circle cx="32" cy="32" r="28" stroke="#374151" strokeWidth="4" fill="transparent" />
+                  <circle 
+                    cx="32" cy="32" r="28" 
+                    stroke={homeTeamColor} 
+                    strokeWidth="4" 
+                    fill="transparent"
+                    strokeDasharray={`${homePercent * 1.76} 176`}
+                    className="transition-all duration-1000 ease-out"
+                  />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <ImageWithFallback 
+                    src={homeTeam.logo} 
+                    alt={generateTeamAbbr(homeTeam.name)} 
+                    className="w-6 h-6 object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+            
+            {/* Values */}
+            <div className="flex justify-center gap-4 text-xs">
+              <span className="font-mono font-bold" style={{ color: awayTeamColor }}>{item.away}</span>
+              <span className="font-mono font-bold" style={{ color: homeTeamColor }}>{item.home}</span>
+            </div>
+            
+            {item.advantage !== 'Even' && (
+              <div className="text-xs font-bold" style={{ 
+                color: item.advantage === awayTeam.name ? awayTeamColor : homeTeamColor 
+              }}>
+                {item.advantage === awayTeam.name ? generateTeamAbbr(awayTeam.name) : generateTeamAbbr(homeTeam.name)} +
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+// Radar Chart Style for Game Control
+const RadarStyleChart = ({ data, awayTeam, homeTeam }: { 
+  data: Array<{ metric: string; away: string; home: string; advantage: string }>;
+  awayTeam: any;
+  homeTeam: any;
+}) => {
+  const parseValue = (val: string): number => {
+    if (val.includes('%')) return parseFloat(val.replace('%', ''));
+    if (val.includes(':')) {
+      const [min, sec] = val.split(':').map(Number);
+      return min + sec / 60;
+    }
+    if (val.startsWith('+')) return parseFloat(val.substring(1));
+    return parseFloat(val.replace(/,/g, '')) || 0;
+  };
+
+  return (
+    <div className="space-y-8">
+      {data.map((item, index) => {
+        const awayVal = parseValue(item.away);
+        const homeVal = parseValue(item.home);
+        const total = awayVal + homeVal;
+        const awayPercent = total > 0 ? (awayVal / total) * 100 : 50;
+        const homePercent = total > 0 ? (homeVal / total) * 100 : 50;
+        
+        return (
+          <div key={index} className="relative">
+            <div className="text-center mb-4">
+              <h4 className="text-white text-lg font-bold mb-2">{item.metric}</h4>
+              <div className="flex justify-center items-center gap-8">
+                <div className="text-center">
+                  <ImageWithFallback 
+                    src={awayTeam.logo} 
+                    alt={generateTeamAbbr(awayTeam.name)} 
+                    className="w-8 h-8 object-contain mx-auto mb-2"
+                  />
+                  <span className="font-mono text-xl font-bold" style={{ color: awayTeam.primary_color }}>{item.away}</span>
+                </div>
+                
+                <div className="text-center">
+                  <ImageWithFallback 
+                    src={homeTeam.logo} 
+                    alt={generateTeamAbbr(homeTeam.name)} 
+                    className="w-8 h-8 object-contain mx-auto mb-2"
+                  />
+                  <span className="font-mono text-xl font-bold" style={{ color: homeTeam.primary_color }}>{item.home}</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Proportional comparison bar */}
+            <div className="relative h-12 backdrop-blur-sm rounded-full overflow-hidden border-2 border-slate-600/30 shadow-xl">
+              <div className="absolute inset-0 flex">
+                <div 
+                  className="h-full flex items-center justify-center transition-all duration-1500 ease-out"
+                  style={{ 
+                    width: `${awayPercent}%`,
+                    background: `linear-gradient(to right, ${awayTeam.primary_color}, ${awayTeam.primary_color}, ${awayTeam.primary_color}80)`
+                  }}
+                >
+                  <div className="flex items-center gap-2 text-white font-bold text-sm">
+                    <ImageWithFallback 
+                      src={awayTeam.logo} 
+                      alt={generateTeamAbbr(awayTeam.name)} 
+                      className="w-6 h-6 object-contain drop-shadow-lg"
+                    />
+                    <span className="drop-shadow-sm">{awayPercent.toFixed(1)}%</span>
+                  </div>
+                </div>
+                <div 
+                  className="h-full flex items-center justify-center transition-all duration-1500 ease-out"
+                  style={{ 
+                    width: `${homePercent}%`,
+                    background: `linear-gradient(to left, ${homeTeam.primary_color}, ${homeTeam.primary_color}, ${homeTeam.primary_color}80)`
+                  }}
+                >
+                  <div className="flex items-center gap-2 text-white font-bold text-sm">
+                    <span className="drop-shadow-sm">{homePercent.toFixed(1)}%</span>
+                    <ImageWithFallback 
+                      src={homeTeam.logo} 
+                      alt={generateTeamAbbr(homeTeam.name)} 
+                      className="w-6 h-6 object-contain drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Animated glow effect for the leading team */}
+              <div 
+                className="absolute inset-0 rounded-full transition-all duration-1000"
+                style={{
+                  boxShadow: awayPercent > homePercent 
+                    ? `0 0 20px ${awayTeam.primary_color}40` 
+                    : `0 0 20px ${homeTeam.primary_color}40`
+                }}
+              />
+            </div>
+            
+            {item.advantage !== 'Even' && (
+              <div className="text-center mt-3">
+                <span 
+                  className="inline-flex items-center gap-2 text-sm font-bold px-4 py-2 rounded-full border"
+                  style={{
+                    backgroundColor: `${item.advantage === awayTeam.name ? awayTeam.primary_color : homeTeam.primary_color}20`,
+                    color: item.advantage === awayTeam.name ? awayTeam.primary_color : homeTeam.primary_color,
+                    borderColor: `${item.advantage === awayTeam.name ? awayTeam.primary_color : homeTeam.primary_color}30`
+                  }}
+                >
+                  <ArrowUp className="w-4 h-4" />
+                  {item.advantage} advantage
+                </span>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+interface ComprehensiveTeamStatsProps {
+  predictionData?: any;
+}
+
+export function ComprehensiveTeamStats({ predictionData }: ComprehensiveTeamStatsProps) {
+  const homeTeam = predictionData?.team_selector?.home_team;
+  const awayTeam = predictionData?.team_selector?.away_team;
+
+  if (!homeTeam || !awayTeam) {
+    return null;
+  }
+
+  const awayAbbr = generateTeamAbbr(awayTeam.name);
+  const homeAbbr = generateTeamAbbr(homeTeam.name);
+
+  // Helper function to check if color is blue or black
+  const isBlueOrBlack = (color: string) => {
+    const hex = color.toLowerCase();
+    const isBlue = hex.includes('004') || hex.includes('003') || hex.includes('002') || hex.includes('001') || 
+                   hex === '#000080' || hex === '#003366' || hex === '#002244' || hex === '#041e42';
+    const isBlack = hex === '#000000' || hex === '#222222' || hex === '#1a1a1a' || hex === '#333333';
+    return isBlue || isBlack;
+  };
+
+  // Get display colors - use alt_color if primary is blue/black
+  const awayTeamColor = (awayTeam.primary_color && isBlueOrBlack(awayTeam.primary_color)) 
+    ? (awayTeam.alt_color || awayTeam.secondary_color || '#f97316') 
+    : (awayTeam.primary_color || '#3b82f6');
+    
+  const homeTeamColor = (homeTeam.primary_color && isBlueOrBlack(homeTeam.primary_color)) 
+    ? (homeTeam.alt_color || homeTeam.secondary_color || '#10b981') 
+    : (homeTeam.primary_color || '#f97316');
+
+  // Parse advanced offensive metrics from section [15] - ADVANCED OFFENSIVE METRICS
+  const parseAdvancedOffensive = () => {
+    const section = predictionData?.formatted_analysis ? extractSection(predictionData.formatted_analysis, 15) : null;
+    
+    if (!section) {
+      return [
+        { metric: 'Offense PPA', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Success Rate', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Explosiveness', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Power Success', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Stuff Rate', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Line Yards', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Second Level Yards', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Open Field Yards', away: 0, home: 0, advantage: 'Even' },
+      ];
+    }
+
+    // Helper to parse metric rows
+    const parseMetric = (metricName: string) => {
+      // Pattern: "Metric                         Away (TeamName)                   Home (TeamName)                        Advantage"
+      // Example: "Offense PPA                    0.178                               0.286                               Home"
+      const pattern = new RegExp(`${metricName}\\s+([\\d.]+)%?\\s+([\\d.]+)%?\\s+(\\w+)`, 'i');
+      const match = section.match(pattern);
+      
+      if (match) {
+        const advantageRaw = match[3].trim();
+        // Map "Home" or "Away" to actual team names
+        const advantage = advantageRaw === 'Home' ? homeTeam.name : 
+                         advantageRaw === 'Away' ? awayTeam.name : 
+                         'Even';
+        return {
+          metric: metricName,
+          away: parseFloat(match[1]),
+          home: parseFloat(match[2]),
+          advantage
+        };
+      }
+      return { metric: metricName, away: 0, home: 0, advantage: 'Even' };
+    };
+
+    return [
+      parseMetric('Offense PPA'),
+      parseMetric('Success Rate'),
+      parseMetric('Explosiveness'),
+      parseMetric('Power Success'),
+      parseMetric('Stuff Rate'),
+      parseMetric('Line Yards'),
+      parseMetric('Second Level Yards'),
+      parseMetric('Open Field Yards'),
+    ];
+  };
+
+  // Data for Advanced Offensive Metrics - Horizontal Bar Chart
+  const advancedOffensiveData = parseAdvancedOffensive();
+
+  // Parse defensive metrics from section [15] - DEFENSIVE STATISTICS & ADVANCED DEFENSIVE METRICS
+  const parseDefensiveData = () => {
+    const section = predictionData?.formatted_analysis ? extractSection(predictionData.formatted_analysis, 15) : null;
+    
+    if (!section) {
+      return [
+        { metric: 'Sacks', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Interceptions', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Tackles for Loss', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Fumbles Recovered', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Defense PPA', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Defense Success Rate', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Defense Explosiveness', away: 0, home: 0, advantage: 'Even' },
+        { metric: 'Defense Havoc Total', away: 0, home: 0, advantage: 'Even' },
+      ];
+    }
+
+    // Helper to parse defensive metric rows
+    const parseMetric = (metricName: string) => {
+      // Pattern: "Metric                         Away (TeamName)                   Home (TeamName)                        Advantage"
+      // Example: "Sacks                          14                                  12                                  Away"
+      const pattern = new RegExp(`${metricName}\\s+([\\d.\\-]+)%?\\s+([\\d.\\-]+)%?\\s+(\\w+)`, 'i');
+      const match = section.match(pattern);
+      
+      if (match) {
+        const advantageRaw = match[3].trim();
+        // Map "Home" or "Away" to actual team names
+        const advantage = advantageRaw === 'Home' ? homeTeam.name : 
+                         advantageRaw === 'Away' ? awayTeam.name : 
+                         'Even';
+        return {
+          metric: metricName,
+          away: parseFloat(match[1]),
+          home: parseFloat(match[2]),
+          advantage
+        };
+      }
+      return { metric: metricName, away: 0, home: 0, advantage: 'Even' };
+    };
+
+    return [
+      parseMetric('Sacks'),
+      parseMetric('Interceptions'),
+      parseMetric('Tackles for Loss'),
+      parseMetric('Fumbles Recovered'),
+      parseMetric('Defense PPA'),
+      parseMetric('Defense Success Rate'),
+      parseMetric('Defense Explosiveness'),
+      parseMetric('Defense Havoc Total'),
+    ];
+  };
+
+  // Data for Defensive Statistics - Circular Progress
+  const defensiveData = parseDefensiveData();
+
+  // Parse game control metrics from section [15]
+  const parseGameControl = () => {
+    const section = predictionData?.formatted_analysis ? extractSection(predictionData.formatted_analysis, 15) : null;
+    
+    if (!section) {
+      return [
+        { metric: 'Possession Time', away: '0:00', home: '0:00', advantage: 'Even' },
+        { metric: 'Turnover Margin', away: '0', home: '0', advantage: 'Even' },
+        { metric: 'Penalty Yards', away: '0', home: '0', advantage: 'Even' },
+        { metric: 'Games Played', away: '0', home: '0', advantage: 'Even' },
+        { metric: 'Drives Per Game', away: '0', home: '0', advantage: 'Even' },
+      ];
+    }
+
+    // Helper to parse game control rows
+    const parseRow = (metricName: string) => {
+      // Pattern: "Metric                         Away (TeamName)                   Home (TeamName)                        Advantage"
+      // Example: "Possession Time                158:46                              164:59                              Home"
+      // Example: "Drives Per Game                10.0                                9.3                                 Away"
+      const pattern = new RegExp(`${metricName}\\s+([\\d:+\\-.]+)\\s+([\\d:+\\-.]+)\\s+(\\w+)`, 'i');
+      const match = section.match(pattern);
+      
+      if (match) {
+        const advantageRaw = match[3].trim();
+        // Map "Home" or "Away" to actual team names
+        const advantage = advantageRaw === 'Home' ? homeTeam.name : 
+                         advantageRaw === 'Away' ? awayTeam.name : 
+                         'Even';
+        return {
+          metric: metricName,
+          away: match[1].trim(),
+          home: match[2].trim(),
+          advantage
+        };
+      }
+      return { metric: metricName, away: '0', home: '0', advantage: 'Even' };
+    };
+
+    return [
+      parseRow('Possession Time'),
+      parseRow('Turnover Margin'),
+      parseRow('Penalty Yards'),
+      parseRow('Games Played'),
+      parseRow('Drives Per Game'),
+    ];
+  };
+
+  // Data for Game Control Metrics - Radar Style
+  const gameControlData = parseGameControl();
+
+  return (
+    <div className="space-y-8">
+      {/* Combined Performance Dashboard */}
+      <GlassCard className="p-8">
+        <div className="flex items-center justify-center mb-8">
+          <div className="text-center">
+            <h3 className="text-gray-400 font-bold text-3xl tracking-wide mb-2" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+              Complete Performance Analysis
+            </h3>
+            <p className="text-slate-400 text-sm">Comprehensive offensive and defensive metrics comparison</p>
+          </div>
+        </div>
+
+        {/* Side-by-Side Radar Charts */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          {/* Offensive Radar Chart */}
+          <div className="backdrop-blur-xl rounded-2xl p-6 border border-white/5" style={{
+            background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(17, 24, 39, 0.2))',
+            boxShadow: '0 8px 32px rgba(59, 130, 246, 0.15)'
+          }}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 rounded-xl border shadow-xl backdrop-blur-sm" style={{ 
+                background: `linear-gradient(135deg, rgb(59 130 246 / 0.3), rgb(37 99 235 / 0.2))`,
+                borderColor: `rgb(59 130 246 / 0.5)`,
+                boxShadow: '0 8px 32px rgba(59, 130, 246, 0.2)'
+              }}>
+                <Activity className="w-6 h-6 text-blue-400" />
+              </div>
+              <div>
+                <h4 className="text-gray-400 text-lg font-bold" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                  Offensive Metrics
+                </h4>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-black/40 to-black/20 rounded-xl p-4 border border-blue-500/20 relative" style={{ minHeight: '450px' }}>
+              <div style={{ height: '400px', position: 'relative' }}>
+                <Bar
+                  data={{
+                    labels: advancedOffensiveData.map(d => d.metric),
+                    datasets: [
+                      {
+                        label: awayTeam.name,
+                        data: advancedOffensiveData.map(d => typeof d.away === 'number' ? d.away : parseFloat(d.away) || 0),
+                        backgroundColor: `${awayTeam.primary_color}B3`,
+                        borderColor: `${awayTeam.primary_color}`,
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        barThickness: 16,
+                      },
+                      {
+                        label: homeTeam.name,
+                        data: advancedOffensiveData.map(d => typeof d.home === 'number' ? d.home : parseFloat(d.home) || 0),
+                        backgroundColor: `${homeTeam.primary_color}B3`,
+                        borderColor: `${homeTeam.primary_color}`,
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        barThickness: 16,
+                      },
+                    ],
+                  }}
+                  options={{
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                      x: {
+                        grid: {
+                          color: 'rgba(59, 130, 246, 0.1)',
+                        },
+                        ticks: {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                          font: {
+                            size: 11,
+                          },
+                        },
+                        beginAtZero: true,
+                      },
+                      y: {
+                        grid: {
+                          display: false,
+                        },
+                        ticks: {
+                          color: '#ffffff',
+                          font: {
+                            size: 11,
+                            weight: 'bold',
+                            family: 'Orbitron, sans-serif',
+                          },
+                        },
+                      },
+                    },
+                    plugins: {
+                      legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                          color: 'rgba(156, 163, 175, 0.8)',
+                          font: {
+                            size: 11,
+                            weight: 'normal',
+                            family: 'Orbitron, sans-serif',
+                          },
+                          padding: 10,
+                          usePointStyle: true,
+                          pointStyle: 'circle',
+                        },
+                      },
+                      tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.95)',
+                        titleColor: '#60a5fa',
+                        bodyColor: '#ffffff',
+                        borderColor: 'rgba(59, 130, 246, 0.5)',
+                        borderWidth: 2,
+                        padding: 12,
+                        displayColors: true,
+                        boxPadding: 6,
+                        usePointStyle: true,
+                        titleFont: {
+                          size: 13,
+                          weight: 'bold',
+                        },
+                        bodyFont: {
+                          size: 12,
+                        },
+                      },
+                    },
+                  }}
+                />
+              </div>
+              
+              {/* Watermark for leading team */}
+              {(() => {
+                const awayTotal = advancedOffensiveData.reduce((sum, d) => sum + (typeof d.away === 'number' ? d.away : parseFloat(d.away) || 0), 0);
+                const homeTotal = advancedOffensiveData.reduce((sum, d) => sum + (typeof d.home === 'number' ? d.home : parseFloat(d.home) || 0), 0);
+                const leadingTeam = awayTotal > homeTotal ? awayTeam : homeTeam;
+                return (
+                  <div className="absolute bottom-4 right-4 opacity-10 pointer-events-none">
+                    <ImageWithFallback
+                      src={leadingTeam.logo}
+                      alt={leadingTeam.name}
+                      className="w-32 h-32 object-contain"
+                      style={{ filter: `drop-shadow(0 0 20px ${leadingTeam.primary_color})` }}
+                    />
+                  </div>
+                );
+              })()}
+            </div>
+          </div>
+
+          {/* Defensive Radar Chart */}
+          <div className="backdrop-blur-xl rounded-2xl p-6 border border-white/5" style={{
+            background: 'linear-gradient(135deg, rgba(153, 27, 27, 0.1), rgba(17, 24, 39, 0.2))',
+            boxShadow: '0 8px 32px rgba(239, 68, 68, 0.15)'
+          }}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 rounded-xl border shadow-xl backdrop-blur-sm" style={{
+                background: 'linear-gradient(135deg, rgb(239 68 68 / 0.3), rgb(220 38 38 / 0.2))',
+                borderColor: 'rgb(239 68 68 / 0.5)',
+                boxShadow: '0 8px 32px rgba(239, 68, 68, 0.2)'
+              }}>
+                <Shield className="w-6 h-6 text-red-400" />
+              </div>
+              <div>
+                <h4 className="text-gray-400 text-lg font-bold" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                  Defensive Metrics
+                </h4>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-black/40 to-black/20 rounded-xl p-4 border border-red-500/20 relative" style={{ minHeight: '450px' }}>
+              <div style={{ height: '400px', position: 'relative' }}>
+                <Bar
+                  data={{
+                    labels: defensiveData.map(d => d.metric),
+                    datasets: [
+                      {
+                        label: awayTeam.name,
+                        data: defensiveData.map(d => typeof d.away === 'number' ? d.away : parseFloat(d.away) || 0),
+                        backgroundColor: `${awayTeam.primary_color}B3`,
+                        borderColor: `${awayTeam.primary_color}`,
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        barThickness: 16,
+                      },
+                      {
+                        label: homeTeam.name,
+                        data: defensiveData.map(d => typeof d.home === 'number' ? d.home : parseFloat(d.home) || 0),
+                        backgroundColor: `${homeTeam.primary_color}B3`,
+                        borderColor: `${homeTeam.primary_color}`,
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        barThickness: 16,
+                      },
+                    ],
+                  }}
+                  options={{
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                      x: {
+                        grid: {
+                          color: 'rgba(239, 68, 68, 0.1)',
+                        },
+                        ticks: {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                          font: {
+                            size: 11,
+                          },
+                        },
+                        beginAtZero: true,
+                      },
+                      y: {
+                        grid: {
+                          display: false,
+                        },
+                        ticks: {
+                          color: '#ffffff',
+                          font: {
+                            size: 11,
+                            weight: 'bold',
+                            family: 'Orbitron, sans-serif',
+                          },
+                        },
+                      },
+                    },
+                    plugins: {
+                      legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                          color: 'rgba(156, 163, 175, 0.8)',
+                          font: {
+                            size: 11,
+                            weight: 'normal',
+                            family: 'Orbitron, sans-serif',
+                          },
+                          padding: 10,
+                          usePointStyle: true,
+                          pointStyle: 'circle',
+                        },
+                      },
+                      tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.95)',
+                        titleColor: '#f87171',
+                        bodyColor: '#ffffff',
+                        borderColor: 'rgba(239, 68, 68, 0.5)',
+                        borderWidth: 2,
+                        padding: 12,
+                        displayColors: true,
+                        boxPadding: 6,
+                        usePointStyle: true,
+                        titleFont: {
+                          size: 13,
+                          weight: 'bold',
+                        },
+                        bodyFont: {
+                          size: 12,
+                        },
+                      },
+                    },
+                  }}
+                />
+              </div>
+              
+              {/* Watermark for leading team */}
+              {(() => {
+                const awayTotal = defensiveData.reduce((sum, d) => sum + (typeof d.away === 'number' ? d.away : parseFloat(d.away) || 0), 0);
+                const homeTotal = defensiveData.reduce((sum, d) => sum + (typeof d.home === 'number' ? d.home : parseFloat(d.home) || 0), 0);
+                const leadingTeam = awayTotal > homeTotal ? awayTeam : homeTeam;
+                return (
+                  <div className="absolute bottom-4 right-4 opacity-10 pointer-events-none">
+                    <ImageWithFallback
+                      src={leadingTeam.logo}
+                      alt={leadingTeam.name}
+                      className="w-32 h-32 object-contain"
+                      style={{ filter: `drop-shadow(0 0 20px ${leadingTeam.primary_color})` }}
+                    />
+                  </div>
+                );
+              })()}
+            </div>
+          </div>
+        </div>
+
+        {/* Combined Metrics Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Offensive Metrics Grid */}
+          <div>
+            <h5 className="text-sm font-bold text-gray-400 mb-3 uppercase tracking-wider">Offensive Details</h5>
+            <div className="grid grid-cols-2 gap-3">
+            {advancedOffensiveData.map((data, index) => {
+              const homeWins = data.home > data.away;
+              const awayWins = data.away > data.home;
+              
+              return (
+                <div
+                  key={index}
+                  className="backdrop-blur-[10px] bg-white/5 rounded-xl p-3 border border-white/10 hover:border-white/20 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  <div className="text-xs text-gray-400 mb-2 font-semibold uppercase tracking-wider">
+                    {data.metric}
+                  </div>
+                  <div className="flex justify-between items-center gap-2">
+                    <div className="flex items-center gap-1.5 flex-1">
+                      <ImageWithFallback
+                        src={awayTeam.logo}
+                        alt={awayTeam.name}
+                        className="w-5 h-5 object-contain"
+                      />
+                      <div className={awayWins ? 'text-green-400 font-semibold' : 'text-gray-500'}>
+                        <div className="text-sm font-bold">
+                          {typeof data.away === 'number' ? data.away.toFixed(1) : data.away}
+                        </div>
+                        <div className="text-xs">{awayAbbr}</div>
+                      </div>
+                      {awayWins && <CheckCircle className="w-4 h-4 text-green-500 ml-0.5" />}
+                    </div>
+                    <div className="text-sm text-gray-500">vs</div>
+                    <div className="flex items-center gap-1.5 flex-1 justify-end">
+                      {homeWins && <CheckCircle className="w-4 h-4 text-green-500 mr-0.5" />}
+                      <div className={`text-right ${homeWins ? 'text-green-400 font-semibold' : 'text-gray-500'}`}>
+                        <div className="text-sm font-bold">
+                          {typeof data.home === 'number' ? data.home.toFixed(1) : data.home}
+                        </div>
+                        <div className="text-xs">{homeAbbr}</div>
+                      </div>
+                      <ImageWithFallback
+                        src={homeTeam.logo}
+                        alt={homeTeam.name}
+                        className="w-5 h-5 object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+            </div>
+          </div>
+
+          {/* Defensive Metrics Grid */}
+          <div>
+            <h5 className="text-sm font-bold text-gray-400 mb-3 uppercase tracking-wider">Defensive Details</h5>
+            <div className="grid grid-cols-2 gap-3">
+            {defensiveData.map((data, index) => {
+              const homeWins = data.home > data.away;
+              const awayWins = data.away > data.home;
+              
+              return (
+                <div
+                  key={index}
+                  className="backdrop-blur-[10px] bg-white/5 rounded-xl p-3 border border-white/10 hover:border-white/20 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  <div className="text-xs text-gray-400 mb-2 font-semibold uppercase tracking-wider">
+                    {data.metric}
+                  </div>
+                  <div className="flex justify-between items-center gap-2">
+                    <div className="flex items-center gap-1.5 flex-1">
+                      <ImageWithFallback
+                        src={awayTeam.logo}
+                        alt={awayTeam.name}
+                        className="w-5 h-5 object-contain"
+                      />
+                      <div className={awayWins ? 'text-green-400 font-semibold' : 'text-gray-500'}>
+                        <div className="text-sm font-bold">
+                          {typeof data.away === 'number' ? data.away.toFixed(1) : data.away}
+                        </div>
+                        <div className="text-xs">{awayAbbr}</div>
+                      </div>
+                      {awayWins && <CheckCircle className="w-4 h-4 text-green-500 ml-0.5" />}
+                    </div>
+                    <div className="text-sm text-gray-500">vs</div>
+                    <div className="flex items-center gap-1.5 flex-1 justify-end">
+                      {homeWins && <CheckCircle className="w-4 h-4 text-green-500 mr-0.5" />}
+                      <div className={`text-right ${homeWins ? 'text-green-400 font-semibold' : 'text-gray-500'}`}>
+                        <div className="text-sm font-bold">
+                          {typeof data.home === 'number' ? data.home.toFixed(1) : data.home}
+                        </div>
+                        <div className="text-xs">{homeAbbr}</div>
+                      </div>
+                      <ImageWithFallback
+                        src={homeTeam.logo}
+                        alt={homeTeam.name}
+                        className="w-5 h-5 object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+            </div>
+          </div>
+        </div>
+      </GlassCard>
+
+      {/* Field Position Chart */}
+      <GlassCard className="p-8">
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-4">
+            <div className="p-4 rounded-xl border shadow-xl backdrop-blur-sm" style={{
+              background: 'linear-gradient(135deg, rgb(239 68 68 / 0.3), rgb(220 38 38 / 0.2))',
+              borderColor: 'rgb(239 68 68 / 0.5)',
+              boxShadow: '0 8px 32px rgba(239, 68, 68, 0.2)'
+            }}>
+              <Shield className="w-8 h-8 text-red-400" />
+            </div>
+            <div>
+              <h3 className="text-white font-bold text-2xl tracking-wide" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                Defensive Statistics
+              </h3>
+              <p className="text-slate-300 text-sm">Defensive dominance with radar visualization</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-8">
+            <div className="text-center">
+              <ImageWithFallback 
+                src={awayTeam.logo} 
+                alt={awayAbbr} 
+                className="w-12 h-12 object-contain mx-auto mb-2"
+              />
+              <span className="font-bold text-sm" style={{ color: awayTeamColor }}>
+                {awayAbbr} leads {defensiveData.filter(d => d.advantage === awayTeam.name).length}
+              </span>
+            </div>
+            <div className="text-center">
+              <ImageWithFallback 
+                src={homeTeam.logo} 
+                alt={homeAbbr} 
+                className="w-12 h-12 object-contain mx-auto mb-2"
+              />
+              <span className="font-bold text-sm" style={{ color: homeTeamColor }}>
+                {homeAbbr} leads {defensiveData.filter(d => d.advantage === homeTeam.name).length}
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div className="backdrop-blur-xl rounded-2xl p-8 border border-white/5" style={{
+          background: 'linear-gradient(135deg, rgba(127, 29, 29, 0.1), rgba(17, 24, 39, 0.2))',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+        }}>
+          {/* Chart.js Radar Visualization */}
+          <div className="bg-gradient-to-br from-black/40 to-black/20 rounded-xl p-6 mb-6 border border-red-500/20" style={{ minHeight: '600px' }}>
+            <div className="text-white text-center mb-4">
+              <h4 className="text-lg font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Interactive Defensive Radar Chart</h4>
+              <p className="text-sm text-gray-400">Comparing 8 key defensive metrics</p>
+            </div>
+            <div style={{ height: '500px', position: 'relative' }}>
+              <Radar
+                data={{
+                  labels: defensiveData.map(d => d.metric),
+                  datasets: [
+                    {
+                      label: awayTeam.name,
+                      data: defensiveData.map(d => typeof d.away === 'number' ? d.away : parseFloat(d.away) || 0),
+                      backgroundColor: `${awayTeamColor}40`,
+                      borderColor: awayTeamColor,
+                      borderWidth: 3,
+                      pointBackgroundColor: awayTeamColor,
+                      pointBorderColor: '#fff',
+                      pointHoverBackgroundColor: '#fff',
+                      pointHoverBorderColor: awayTeamColor,
+                      pointRadius: 6,
+                      pointHoverRadius: 9,
+                      pointBorderWidth: 2,
+                    },
+                    {
+                      label: homeTeam.name,
+                      data: defensiveData.map(d => typeof d.home === 'number' ? d.home : parseFloat(d.home) || 0),
+                      backgroundColor: `${homeTeamColor}40`,
+                      borderColor: homeTeamColor,
+                      borderWidth: 3,
+                      pointBackgroundColor: homeTeamColor,
+                      pointBorderColor: '#fff',
+                      pointHoverBackgroundColor: '#fff',
+                      pointHoverBorderColor: homeTeamColor,
+                      pointRadius: 6,
+                      pointHoverRadius: 9,
+                      pointBorderWidth: 2,
+                    },
+                  ],
+                }}
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  scales: {
+                    r: {
+                      angleLines: {
+                        color: 'rgba(239, 68, 68, 0.2)',
+                        lineWidth: 2,
+                      },
+                      grid: {
+                        color: 'rgba(239, 68, 68, 0.15)',
+                        circular: true,
+                      },
+                      pointLabels: {
+                        color: '#ffffff',
+                        font: {
+                          size: 13,
+                          weight: 'bold',
+                          family: 'Orbitron, sans-serif',
+                        },
+                        padding: 15,
+                      },
+                      ticks: {
+                        color: 'rgba(255, 255, 255, 0.7)',
+                        backdropColor: 'transparent',
+                        font: {
+                          size: 11,
+                        },
+                      },
+                      suggestedMin: 0,
+                      beginAtZero: true,
+                    },
+                  },
+                  plugins: {
+                    legend: {
+                      display: true,
+                      position: 'top',
+                      labels: {
+                        color: '#ffffff',
+                        font: {
+                          size: 15,
+                          weight: 'bold',
+                          family: 'Orbitron, sans-serif',
+                        },
+                        padding: 20,
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                      },
+                    },
+                    tooltip: {
+                      backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                      titleColor: '#f87171',
+                      bodyColor: '#ffffff',
+                      borderColor: 'rgba(239, 68, 68, 0.5)',
+                      borderWidth: 2,
+                      padding: 16,
+                      displayColors: true,
+                      boxPadding: 6,
+                      usePointStyle: true,
+                      titleFont: {
+                        size: 14,
+                        weight: 'bold',
+                      },
+                      bodyFont: {
+                        size: 13,
+                      },
+                    },
+                  },
+                }}
+              />
+            </div>
+          </div>
+          
+          {/* Metric Details Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+            {defensiveData.map((data, index) => {
+              const homeWins = ['Defense PPA', 'Defense Success Rate', 'Defense Explosiveness'].includes(data.metric)
+                ? data.home < data.away
+                : data.home > data.away;
+              
+              return (
+                <div
+                  key={index}
+                  className="backdrop-blur-sm bg-gradient-to-br from-red-500/10 to-orange-500/5 rounded-xl p-4 border border-red-400/20 hover:border-red-400/40 transition-all hover:scale-105 hover:shadow-lg hover:shadow-red-500/20"
+                  style={{
+                    boxShadow: '0 4px 16px rgba(239, 68, 68, 0.1)',
+                  }}
+                >
+                  <div className="text-xs text-red-300 mb-2 font-semibold uppercase tracking-wider">
+                    {data.metric}
+                  </div>
+                  <div className="flex justify-between items-center gap-3">
+                    <div className={`flex-1 ${!homeWins ? 'text-green-400' : 'text-gray-300'}`}>
+                      <div className="text-lg font-bold">
+                        {typeof data.away === 'number' ? data.away.toFixed(data.metric.includes('Rate') || data.metric.includes('Havoc') ? 1 : 0) : data.away}
+                        {data.metric.includes('Rate') || data.metric.includes('Havoc') ? '%' : ''}
+                      </div>
+                      <div className="text-xs text-gray-500">{awayAbbr}</div>
+                    </div>
+                    <div className="text-2xl text-gray-600">vs</div>
+                    <div className={`flex-1 text-right ${homeWins ? 'text-green-400' : 'text-gray-300'}`}>
+                      <div className="text-lg font-bold">
+                        {typeof data.home === 'number' ? data.home.toFixed(data.metric.includes('Rate') || data.metric.includes('Havoc') ? 1 : 0) : data.home}
+                        {data.metric.includes('Rate') || data.metric.includes('Havoc') ? '%' : ''}
+                      </div>
+                      <div className="text-xs text-gray-500">{homeAbbr}</div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </GlassCard>
+
+      {/* Game Control Metrics - Radar Style */}
+      <GlassCard className="p-8">
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-4">
+            <div className="p-4 rounded-xl border shadow-xl backdrop-blur-sm" style={{
+              background: 'linear-gradient(to bottom right, rgb(16 185 129 / 0.2), rgb(20 184 166 / 0.2))',
+              borderColor: 'rgb(16 185 129 / 0.4)'
+            }}>
+              <Clock className="w-8 h-8 text-emerald-400" />
+            </div>
+            <div>
+              <h3 className="text-white font-bold text-2xl tracking-wide" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                Game Control Metrics
+              </h3>
+              <p className="text-slate-300 text-sm">Tempo and possession analytics with radar-style visualization</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-8">
+            <div className="text-center">
+              <ImageWithFallback 
+                src={awayTeam.logo} 
+                alt={awayAbbr} 
+                className="w-12 h-12 object-contain mx-auto mb-2"
+              />
+              <span className="font-bold text-sm" style={{ color: awayTeam.primary_color }}>
+                {awayAbbr} leads {gameControlData.filter(d => d.advantage === awayTeam.name).length}
+              </span>
+            </div>
+            <div className="text-center">
+              <ImageWithFallback 
+                src={homeTeam.logo} 
+                alt={homeAbbr} 
+                className="w-12 h-12 object-contain mx-auto mb-2"
+              />
+              <span className="font-bold text-sm" style={{ color: homeTeam.primary_color }}>
+                {homeAbbr} leads {gameControlData.filter(d => d.advantage === homeTeam.name).length}
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div className="backdrop-blur-xl rounded-2xl p-8 border border-white/5">
+          <RadarStyleChart data={gameControlData} awayTeam={awayTeam} homeTeam={homeTeam} />
+        </div>
+      </GlassCard>
+    </div>
+  );
+}
+
+

@@ -1,0 +1,258 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017526791,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 10, 'seconds': 13}","{'minutes': 4, 'seconds': 47}",8,75,TD,True,0,0,7,0
+4017526792,401752679,Charleston Southern,Big South-OVC,Vanderbilt,SEC,2,False,1,75,75,"{'minutes': 10, 'seconds': 13}",1,78,78,"{'minutes': 8, 'seconds': 31}","{'minutes': 1, 'seconds': 42}",3,-3,PUNT,False,0,7,0,7
+4017526793,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,3,True,1,47,53,"{'minutes': 8, 'seconds': 31}",1,100,0,"{'minutes': 6, 'seconds': 59}","{'minutes': 1, 'seconds': 32}",4,53,TD,True,7,0,14,0
+4017526794,401752679,Charleston Southern,Big South-OVC,Vanderbilt,SEC,4,False,1,75,75,"{'minutes': 6, 'seconds': 59}",1,37,37,"{'minutes': 3, 'seconds': 4}","{'minutes': 3, 'seconds': 55}",7,38,INT,False,0,14,0,14
+4017526795,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,5,True,1,11,89,"{'minutes': 3, 'seconds': 4}",2,100,0,"{'minutes': 10, 'seconds': 19}","{'minutes': 7, 'seconds': 45}",14,89,TD,True,14,0,21,0
+4017526796,401752679,Charleston Southern,Big South-OVC,Vanderbilt,SEC,6,False,2,85,85,"{'minutes': 10, 'seconds': 11}",2,81,81,"{'minutes': 9, 'seconds': 14}","{'minutes': 0, 'seconds': 57}",3,4,PUNT,False,0,21,0,21
+4017526797,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,7,False,2,33,67,"{'minutes': 9, 'seconds': 14}",2,54,46,"{'minutes': 6, 'seconds': 2}","{'minutes': 3, 'seconds': 12}",4,21,PUNT,True,21,0,21,0
+4017526798,401752679,Charleston Southern,Big South-OVC,Vanderbilt,SEC,8,False,2,80,80,"{'minutes': 6, 'seconds': 2}",2,86,86,"{'minutes': 5, 'seconds': 2}","{'minutes': 1, 'seconds': 0}",3,-6,PUNT,False,0,21,0,21
+4017526799,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,9,True,2,36,64,"{'minutes': 5, 'seconds': 2}",2,100,0,"{'minutes': 3, 'seconds': 11}","{'minutes': 1, 'seconds': 51}",5,64,TD,True,21,0,28,0
+40175267910,401752679,Charleston Southern,Big South-OVC,Vanderbilt,SEC,10,False,2,65,65,"{'minutes': 3, 'seconds': 11}",2,56,56,"{'minutes': 0, 'seconds': 59}","{'minutes': 2, 'seconds': 12}",3,9,PUNT,False,0,28,0,28
+40175267911,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,11,False,2,16,84,"{'minutes': 0, 'seconds': 59}",2,55,45,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 59}",4,39,END OF HALF,True,28,0,28,0
+40175267912,401752679,Charleston Southern,Big South-OVC,Vanderbilt,SEC,12,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,69,69,"{'minutes': 14, 'seconds': 0}","{'minutes': 1, 'seconds': 0}",3,6,PUNT,False,0,28,0,28
+40175267913,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,13,False,3,27,73,"{'minutes': 14, 'seconds': 0}",3,39,61,"{'minutes': 10, 'seconds': 26}","{'minutes': 3, 'seconds': 34}",5,12,PUNT,True,28,0,28,0
+40175267914,401752679,Charleston Southern,Big South-OVC,Vanderbilt,SEC,14,False,3,95,95,"{'minutes': 10, 'seconds': 26}",3,90,90,"{'minutes': 8, 'seconds': 14}","{'minutes': 2, 'seconds': 12}",3,5,PUNT,False,0,28,0,28
+40175267915,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,15,True,3,79,21,"{'minutes': 8, 'seconds': 14}",3,100,0,"{'minutes': 5, 'seconds': 47}","{'minutes': 2, 'seconds': 27}",4,21,TD,True,28,0,35,0
+40175267916,401752679,Charleston Southern,Big South-OVC,Vanderbilt,SEC,16,False,3,75,75,"{'minutes': 5, 'seconds': 47}",3,55,55,"{'minutes': 0, 'seconds': 31}","{'minutes': 5, 'seconds': 16}",8,20,FUMBLE,False,0,35,0,35
+40175267917,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,17,False,3,55,45,"{'minutes': 0, 'seconds': 31}",3,81,19,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 44}",4,26,Uncategorized,True,35,0,35,0
+40175267918,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,18,True,0,81,19,"{'minutes': 0, 'seconds': 0}",0,83,17,"{'minutes': 11, 'seconds': 48}","{'minutes': 0, 'seconds': 0}",4,2,FG,True,35,0,38,0
+40175267919,401752679,Charleston Southern,Big South-OVC,Vanderbilt,SEC,19,False,4,75,75,"{'minutes': 11, 'seconds': 48}",4,81,81,"{'minutes': 9, 'seconds': 26}","{'minutes': 2, 'seconds': 22}",3,-6,PUNT,False,0,38,0,38
+40175267920,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,20,True,4,41,59,"{'minutes': 9, 'seconds': 26}",4,100,0,"{'minutes': 7, 'seconds': 14}","{'minutes': 2, 'seconds': 12}",4,59,TD,True,38,0,45,0
+40175267921,401752679,Charleston Southern,Big South-OVC,Vanderbilt,SEC,21,True,4,75,75,"{'minutes': 7, 'seconds': 14}",4,21,21,"{'minutes': 0, 'seconds': 7}","{'minutes': 7, 'seconds': 7}",11,54,FG,False,0,45,3,45
+40175267922,401752679,Vanderbilt,SEC,Charleston Southern,Big South-OVC,22,False,4,29,71,"{'minutes': 0, 'seconds': 0}",4,29,71,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",0,0,Uncategorized,True,45,3,45,3
+4017526951,401752695,Virginia Tech,ACC,Vanderbilt,SEC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,89,11,"{'minutes': 7, 'seconds': 11}","{'minutes': 7, 'seconds': 49}",15,64,FG,True,0,0,3,0
+4017526952,401752695,Vanderbilt,SEC,Virginia Tech,ACC,2,False,1,75,75,"{'minutes': 7, 'seconds': 11}",1,56,56,"{'minutes': 4, 'seconds': 33}","{'minutes': 2, 'seconds': 38}",5,19,INT,False,0,3,0,3
+4017526953,401752695,Virginia Tech,ACC,Vanderbilt,SEC,3,True,1,15,85,"{'minutes': 4, 'seconds': 33}",1,100,0,"{'minutes': 0, 'seconds': 6}","{'minutes': 4, 'seconds': 27}",8,85,TD,True,3,0,10,0
+4017526954,401752695,Vanderbilt,SEC,Virginia Tech,ACC,4,True,1,75,75,"{'minutes': 0, 'seconds': 6}",2,0,0,"{'minutes': 14, 'seconds': 51}","{'minutes': 0, 'seconds': 15}",2,75,TD,False,0,10,7,10
+4017526955,401752695,Virginia Tech,ACC,Vanderbilt,SEC,5,False,2,25,75,"{'minutes': 14, 'seconds': 51}",2,24,76,"{'minutes': 14, 'seconds': 0}","{'minutes': 0, 'seconds': 51}",3,-1,PUNT,True,10,7,10,7
+4017526956,401752695,Vanderbilt,SEC,Virginia Tech,ACC,6,False,2,69,69,"{'minutes': 14, 'seconds': 0}",2,73,73,"{'minutes': 13, 'seconds': 25}","{'minutes': 0, 'seconds': 35}",1,-4,FUMBLE,False,7,10,7,10
+4017526957,401752695,Virginia Tech,ACC,Vanderbilt,SEC,7,True,2,73,27,"{'minutes': 13, 'seconds': 25}",2,100,0,"{'minutes': 11, 'seconds': 10}","{'minutes': 2, 'seconds': 15}",6,27,TD,True,10,7,17,7
+4017526958,401752695,Vanderbilt,SEC,Virginia Tech,ACC,8,True,2,75,75,"{'minutes': 11, 'seconds': 10}",2,11,11,"{'minutes': 4, 'seconds': 19}","{'minutes': 6, 'seconds': 51}",12,64,FG,False,7,17,10,17
+4017526959,401752695,Virginia Tech,ACC,Vanderbilt,SEC,9,True,2,25,75,"{'minutes': 4, 'seconds': 19}",2,90,10,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 19}",13,65,FG,True,17,10,20,10
+40175269510,401752695,Vanderbilt,SEC,Virginia Tech,ACC,10,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,0,0,"{'minutes': 8, 'seconds': 2}","{'minutes': 6, 'seconds': 58}",11,75,TD,False,10,20,17,20
+40175269511,401752695,Virginia Tech,ACC,Vanderbilt,SEC,11,False,3,25,75,"{'minutes': 8, 'seconds': 2}",3,34,66,"{'minutes': 5, 'seconds': 50}","{'minutes': 2, 'seconds': 12}",3,9,PUNT,True,20,17,20,17
+40175269512,401752695,Vanderbilt,SEC,Virginia Tech,ACC,12,True,3,75,75,"{'minutes': 5, 'seconds': 50}",3,0,0,"{'minutes': 0, 'seconds': 24}","{'minutes': 5, 'seconds': 26}",7,75,TD,False,17,20,23,20
+40175269513,401752695,Virginia Tech,ACC,Vanderbilt,SEC,13,False,3,25,75,"{'minutes': 0, 'seconds': 24}",4,12,88,"{'minutes': 14, 'seconds': 43}","{'minutes': 0, 'seconds': 41}",3,-13,PUNT,True,20,23,20,23
+40175269514,401752695,Vanderbilt,SEC,Virginia Tech,ACC,14,True,4,56,56,"{'minutes': 14, 'seconds': 43}",4,0,0,"{'minutes': 10, 'seconds': 13}","{'minutes': 4, 'seconds': 30}",8,56,TD,False,23,20,30,20
+40175269515,401752695,Virginia Tech,ACC,Vanderbilt,SEC,15,False,4,25,75,"{'minutes': 10, 'seconds': 13}",4,25,75,"{'minutes': 7, 'seconds': 44}","{'minutes': 2, 'seconds': 29}",3,0,PUNT,True,20,30,20,30
+40175269516,401752695,Vanderbilt,SEC,Virginia Tech,ACC,16,True,4,72,72,"{'minutes': 7, 'seconds': 44}",4,0,0,"{'minutes': 6, 'seconds': 5}","{'minutes': 1, 'seconds': 39}",3,72,TD,False,30,20,37,20
+40175269517,401752695,Virginia Tech,ACC,Vanderbilt,SEC,17,False,4,25,75,"{'minutes': 6, 'seconds': 5}",4,31,69,"{'minutes': 4, 'seconds': 33}","{'minutes': 1, 'seconds': 32}",4,6,DOWNS,True,20,37,20,37
+40175269518,401752695,Vanderbilt,SEC,Virginia Tech,ACC,18,True,4,31,31,"{'minutes': 4, 'seconds': 33}",4,0,0,"{'minutes': 2, 'seconds': 12}","{'minutes': 2, 'seconds': 21}",7,31,TD,False,37,20,44,20
+40175269519,401752695,Virginia Tech,ACC,Vanderbilt,SEC,19,False,4,25,75,"{'minutes': 2, 'seconds': 12}",4,44,56,"{'minutes': 0, 'seconds': 59}","{'minutes': 1, 'seconds': 13}",4,19,FUMBLE,True,20,44,20,44
+40175269520,401752695,Vanderbilt,SEC,Virginia Tech,ACC,20,False,4,44,44,"{'minutes': 0, 'seconds': 59}",4,46,46,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 59}",2,-2,END OF GAME,False,44,20,44,20
+4017527041,401752704,Vanderbilt,SEC,South Carolina,SEC,1,True,1,73,73,"{'minutes': 14, 'seconds': 55}",1,0,0,"{'minutes': 9, 'seconds': 33}","{'minutes': 5, 'seconds': 22}",9,73,TD,False,0,0,7,0
+4017527042,401752704,South Carolina,SEC,Vanderbilt,SEC,2,True,1,25,75,"{'minutes': 9, 'seconds': 33}",1,100,0,"{'minutes': 5, 'seconds': 58}","{'minutes': 3, 'seconds': 35}",7,75,TD,True,0,7,7,7
+4017527043,401752704,Vanderbilt,SEC,South Carolina,SEC,3,False,1,86,86,"{'minutes': 5, 'seconds': 53}",1,85,85,"{'minutes': 4, 'seconds': 6}","{'minutes': 1, 'seconds': 47}",3,1,PUNT,False,7,7,7,7
+4017527044,401752704,South Carolina,SEC,Vanderbilt,SEC,4,False,1,43,57,"{'minutes': 4, 'seconds': 6}",1,86,14,"{'minutes': 0, 'seconds': 50}","{'minutes': 3, 'seconds': 16}",6,43,INT,True,7,7,7,7
+4017527045,401752704,Vanderbilt,SEC,South Carolina,SEC,5,False,1,77,77,"{'minutes': 0, 'seconds': 50}",2,54,54,"{'minutes': 11, 'seconds': 37}","{'minutes': 4, 'seconds': 13}",6,23,PUNT,False,7,7,7,7
+4017527046,401752704,South Carolina,SEC,Vanderbilt,SEC,6,False,2,16,84,"{'minutes': 11, 'seconds': 37}",2,27,73,"{'minutes': 7, 'seconds': 55}","{'minutes': 3, 'seconds': 42}",6,11,PUNT,True,7,7,7,7
+4017527047,401752704,Vanderbilt,SEC,South Carolina,SEC,7,True,2,76,76,"{'minutes': 7, 'seconds': 55}",2,0,0,"{'minutes': 1, 'seconds': 56}","{'minutes': 5, 'seconds': 59}",12,76,TD,False,7,7,14,7
+4017527048,401752704,South Carolina,SEC,Vanderbilt,SEC,8,False,2,25,75,"{'minutes': 1, 'seconds': 56}",2,65,35,"{'minutes': 0, 'seconds': 20}","{'minutes': 1, 'seconds': 36}",10,40,MISSED FG,True,7,14,7,14
+4017527049,401752704,Vanderbilt,SEC,South Carolina,SEC,9,False,2,65,65,"{'minutes': 0, 'seconds': 20}",2,51,51,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 20}",4,14,END OF HALF,False,14,7,14,7
+40175270410,401752704,South Carolina,SEC,Vanderbilt,SEC,10,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,34,66,"{'minutes': 13, 'seconds': 8}","{'minutes': 1, 'seconds': 52}",3,9,PUNT,True,7,14,7,14
+40175270411,401752704,Vanderbilt,SEC,South Carolina,SEC,11,True,3,75,75,"{'minutes': 13, 'seconds': 8}",3,0,0,"{'minutes': 10, 'seconds': 48}","{'minutes': 2, 'seconds': 20}",4,75,TD,False,14,7,21,7
+40175270412,401752704,South Carolina,SEC,Vanderbilt,SEC,12,False,3,25,75,"{'minutes': 10, 'seconds': 48}",3,56,44,"{'minutes': 8, 'seconds': 3}","{'minutes': 2, 'seconds': 45}",7,31,DOWNS,True,7,21,7,21
+40175270413,401752704,Vanderbilt,SEC,South Carolina,SEC,13,False,3,56,56,"{'minutes': 8, 'seconds': 3}",3,11,11,"{'minutes': 1, 'seconds': 11}","{'minutes': 6, 'seconds': 52}",10,45,INT,False,21,7,21,7
+40175270414,401752704,South Carolina,SEC,Vanderbilt,SEC,14,False,3,21,79,"{'minutes': 1, 'seconds': 11}",4,51,49,"{'minutes': 13, 'seconds': 19}","{'minutes': 2, 'seconds': 52}",8,30,DOWNS,True,7,21,7,21
+40175270415,401752704,Vanderbilt,SEC,South Carolina,SEC,15,True,4,51,51,"{'minutes': 13, 'seconds': 19}",4,33,33,"{'minutes': 9, 'seconds': 31}","{'minutes': 3, 'seconds': 48}",6,18,FG,False,21,7,24,7
+40175270416,401752704,South Carolina,SEC,Vanderbilt,SEC,16,False,4,43,57,"{'minutes': 9, 'seconds': 25}",4,44,56,"{'minutes': 7, 'seconds': 58}","{'minutes': 1, 'seconds': 27}",5,1,FUMBLE,True,7,24,7,24
+40175270417,401752704,Vanderbilt,SEC,South Carolina,SEC,17,True,4,37,37,"{'minutes': 7, 'seconds': 58}",4,0,0,"{'minutes': 5, 'seconds': 29}","{'minutes': 2, 'seconds': 29}",5,37,TD,False,24,7,31,7
+40175270418,401752704,South Carolina,SEC,Vanderbilt,SEC,18,False,4,50,50,"{'minutes': 5, 'seconds': 29}",4,76,24,"{'minutes': 4, 'seconds': 50}","{'minutes': 0, 'seconds': 39}",2,26,FUMBLE,True,7,31,7,31
+40175270419,401752704,Vanderbilt,SEC,South Carolina,SEC,19,False,4,76,76,"{'minutes': 4, 'seconds': 50}",4,78,78,"{'minutes': 3, 'seconds': 49}","{'minutes': 1, 'seconds': 1}",3,-2,PUNT,False,31,7,31,7
+40175270420,401752704,South Carolina,SEC,Vanderbilt,SEC,20,False,4,26,74,"{'minutes': 3, 'seconds': 49}",4,88,12,"{'minutes': 1, 'seconds': 22}","{'minutes': 2, 'seconds': 27}",10,62,INT,True,7,31,7,31
+40175270421,401752704,Vanderbilt,SEC,South Carolina,SEC,21,False,4,85,85,"{'minutes': 1, 'seconds': 22}",4,87,87,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 22}",2,-2,END OF GAME,False,31,7,31,7
+4017527161,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,34,34,"{'minutes': 10, 'seconds': 24}","{'minutes': 4, 'seconds': 36}",8,41,FG,False,0,0,3,0
+4017527162,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,2,True,1,25,75,"{'minutes': 10, 'seconds': 24}",1,100,0,"{'minutes': 5, 'seconds': 52}","{'minutes': 4, 'seconds': 32}",8,75,TD,True,0,3,7,3
+4017527163,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,3,False,1,75,75,"{'minutes': 5, 'seconds': 52}",1,65,65,"{'minutes': 4, 'seconds': 39}","{'minutes': 1, 'seconds': 13}",4,10,PUNT,False,3,7,3,7
+4017527164,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,4,True,1,29,71,"{'minutes': 4, 'seconds': 39}",1,100,0,"{'minutes': 3, 'seconds': 8}","{'minutes': 1, 'seconds': 31}",4,71,TD,True,7,3,14,3
+4017527165,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,5,False,1,75,75,"{'minutes': 3, 'seconds': 4}",1,65,65,"{'minutes': 2, 'seconds': 56}","{'minutes': 0, 'seconds': 8}",1,10,FUMBLE,False,3,14,3,14
+4017527166,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,6,True,1,65,35,"{'minutes': 2, 'seconds': 56}",1,100,0,"{'minutes': 1, 'seconds': 33}","{'minutes': 1, 'seconds': 23}",3,35,TD,True,14,3,21,3
+4017527167,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,7,True,1,75,75,"{'minutes': 1, 'seconds': 33}",2,0,0,"{'minutes': 10, 'seconds': 21}","{'minutes': 6, 'seconds': 12}",13,75,TD,False,3,21,9,21
+4017527168,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,8,True,2,48,52,"{'minutes': 10, 'seconds': 11}",2,100,0,"{'minutes': 4, 'seconds': 15}","{'minutes': 5, 'seconds': 56}",10,52,TD,True,21,9,28,9
+4017527169,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,9,False,2,75,75,"{'minutes': 4, 'seconds': 15}",2,71,71,"{'minutes': 2, 'seconds': 57}","{'minutes': 1, 'seconds': 18}",3,4,PUNT,False,9,28,9,28
+40175271610,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,10,True,2,31,69,"{'minutes': 2, 'seconds': 57}",2,100,0,"{'minutes': 1, 'seconds': 41}","{'minutes': 1, 'seconds': 16}",6,69,TD,True,28,9,35,9
+40175271611,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,11,False,2,70,70,"{'minutes': 1, 'seconds': 41}",2,79,79,"{'minutes': 1, 'seconds': 17}","{'minutes': 0, 'seconds': 24}",3,-9,PUNT,False,9,35,9,35
+40175271612,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,12,True,2,17,83,"{'minutes': 1, 'seconds': 17}",2,100,0,"{'minutes': 0, 'seconds': 24}","{'minutes': 0, 'seconds': 53}",7,83,TD,True,35,9,42,9
+40175271613,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,13,False,2,75,75,"{'minutes': 0, 'seconds': 24}",2,68,68,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 24}",2,7,END OF HALF,False,9,42,9,42
+40175271614,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,14,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,34,66,"{'minutes': 13, 'seconds': 27}","{'minutes': 1, 'seconds': 33}",4,9,DOWNS,True,42,9,42,9
+40175271615,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,15,True,3,34,34,"{'minutes': 13, 'seconds': 27}",3,0,0,"{'minutes': 10, 'seconds': 11}","{'minutes': 3, 'seconds': 16}",5,34,TD,False,9,42,15,42
+40175271616,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,16,True,3,36,64,"{'minutes': 10, 'seconds': 10}",3,100,0,"{'minutes': 9, 'seconds': 23}","{'minutes': 0, 'seconds': 47}",2,64,TD,True,42,15,49,15
+40175271617,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,17,True,3,75,75,"{'minutes': 9, 'seconds': 23}",3,79,79,"{'minutes': 8, 'seconds': 38}","{'minutes': 0, 'seconds': 45}",3,-4,PUNT TD,False,15,49,15,56
+40175271618,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,18,False,3,75,75,"{'minutes': 8, 'seconds': 38}",3,31,31,"{'minutes': 5, 'seconds': 36}","{'minutes': 3, 'seconds': 2}",8,44,MISSED FG,False,15,56,15,56
+40175271619,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,19,False,3,31,69,"{'minutes': 5, 'seconds': 36}",3,75,25,"{'minutes': 1, 'seconds': 38}","{'minutes': 3, 'seconds': 58}",9,44,DOWNS,True,56,15,56,15
+40175271620,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,20,False,3,75,75,"{'minutes': 1, 'seconds': 38}",4,62,62,"{'minutes': 14, 'seconds': 9}","{'minutes': 2, 'seconds': 29}",6,13,PUNT,False,15,56,15,56
+40175271621,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,21,True,4,30,70,"{'minutes': 14, 'seconds': 9}",4,100,0,"{'minutes': 11, 'seconds': 2}","{'minutes': 3, 'seconds': 7}",6,70,TD,True,56,15,63,15
+40175271622,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,22,False,4,92,92,"{'minutes': 10, 'seconds': 55}",4,94,94,"{'minutes': 9, 'seconds': 39}","{'minutes': 1, 'seconds': 16}",3,-2,PUNT,False,15,63,15,63
+40175271623,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,23,True,4,59,41,"{'minutes': 9, 'seconds': 39}",4,100,0,"{'minutes': 7, 'seconds': 23}","{'minutes': 2, 'seconds': 16}",5,41,TD,True,63,15,70,15
+40175271624,401752716,Georgia State,Sun Belt,Vanderbilt,SEC,24,True,4,75,75,"{'minutes': 7, 'seconds': 23}",4,0,0,"{'minutes': 2, 'seconds': 26}","{'minutes': 4, 'seconds': 57}",11,75,TD,False,15,70,21,70
+40175271625,401752716,Vanderbilt,SEC,Georgia State,Sun Belt,25,False,4,25,75,"{'minutes': 2, 'seconds': 26}",4,57,43,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 26}",7,32,END OF GAME,True,70,21,70,21
+4017527251,401752725,Utah State,Mountain West,Vanderbilt,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,71,71,"{'minutes': 13, 'seconds': 36}","{'minutes': 1, 'seconds': 24}",3,4,PUNT,False,0,0,0,0
+4017527252,401752725,Vanderbilt,SEC,Utah State,Mountain West,2,False,1,15,85,"{'minutes': 13, 'seconds': 36}",1,19,81,"{'minutes': 11, 'seconds': 40}","{'minutes': 1, 'seconds': 56}",3,4,PUNT,True,0,0,0,0
+4017527253,401752725,Utah State,Mountain West,Vanderbilt,SEC,3,True,1,75,75,"{'minutes': 11, 'seconds': 40}",1,0,0,"{'minutes': 7, 'seconds': 45}","{'minutes': 3, 'seconds': 55}",8,75,TD,False,0,0,7,0
+4017527254,401752725,Vanderbilt,SEC,Utah State,Mountain West,4,True,1,41,59,"{'minutes': 7, 'seconds': 36}",1,100,0,"{'minutes': 1, 'seconds': 29}","{'minutes': 6, 'seconds': 7}",9,59,TD,True,0,7,7,7
+4017527255,401752725,Utah State,Mountain West,Vanderbilt,SEC,5,True,1,75,75,"{'minutes': 1, 'seconds': 29}",2,0,0,"{'minutes': 11, 'seconds': 22}","{'minutes': 5, 'seconds': 7}",10,75,TD,False,7,7,14,7
+4017527256,401752725,Vanderbilt,SEC,Utah State,Mountain West,6,True,2,35,65,"{'minutes': 11, 'seconds': 22}",2,100,0,"{'minutes': 6, 'seconds': 14}","{'minutes': 5, 'seconds': 8}",8,65,TD,True,7,14,14,14
+4017527257,401752725,Utah State,Mountain West,Vanderbilt,SEC,7,False,2,90,90,"{'minutes': 6, 'seconds': 7}",2,90,90,"{'minutes': 4, 'seconds': 32}","{'minutes': 1, 'seconds': 35}",3,0,PUNT,False,14,14,14,14
+4017527258,401752725,Vanderbilt,SEC,Utah State,Mountain West,8,True,2,42,58,"{'minutes': 4, 'seconds': 32}",2,100,0,"{'minutes': 2, 'seconds': 18}","{'minutes': 2, 'seconds': 14}",6,58,TD,True,14,14,21,14
+4017527259,401752725,Utah State,Mountain West,Vanderbilt,SEC,9,False,2,75,75,"{'minutes': 2, 'seconds': 18}",2,79,79,"{'minutes': 1, 'seconds': 43}","{'minutes': 0, 'seconds': 35}",3,-4,PUNT,False,14,21,14,21
+40175272510,401752725,Vanderbilt,SEC,Utah State,Mountain West,10,True,2,40,60,"{'minutes': 1, 'seconds': 43}",2,100,0,"{'minutes': 1, 'seconds': 20}","{'minutes': 0, 'seconds': 23}",3,60,TD,True,21,14,28,14
+40175272511,401752725,Utah State,Mountain West,Vanderbilt,SEC,11,True,2,75,75,"{'minutes': 1, 'seconds': 20}",2,0,0,"{'minutes': 0, 'seconds': 20}","{'minutes': 1, 'seconds': 0}",5,75,TD,False,14,28,21,28
+40175272512,401752725,Vanderbilt,SEC,Utah State,Mountain West,12,True,2,39,61,"{'minutes': 0, 'seconds': 15}",2,72,28,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 15}",2,33,FG,True,28,21,31,21
+40175272513,401752725,Vanderbilt,SEC,Utah State,Mountain West,13,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 9, 'seconds': 32}","{'minutes': 5, 'seconds': 28}",11,75,TD,True,31,21,38,21
+40175272514,401752725,Utah State,Mountain West,Vanderbilt,SEC,14,False,3,75,75,"{'minutes': 9, 'seconds': 32}",3,66,66,"{'minutes': 8, 'seconds': 0}","{'minutes': 1, 'seconds': 32}",4,9,DOWNS,False,21,38,21,38
+40175272515,401752725,Vanderbilt,SEC,Utah State,Mountain West,15,True,3,66,34,"{'minutes': 8, 'seconds': 0}",3,87,13,"{'minutes': 4, 'seconds': 13}","{'minutes': 3, 'seconds': 47}",8,21,FG,True,38,21,41,21
+40175272516,401752725,Utah State,Mountain West,Vanderbilt,SEC,16,False,3,75,75,"{'minutes': 4, 'seconds': 13}",3,69,69,"{'minutes': 3, 'seconds': 22}","{'minutes': 0, 'seconds': 51}",3,6,PUNT,False,21,41,21,41
+40175272517,401752725,Vanderbilt,SEC,Utah State,Mountain West,17,True,3,11,89,"{'minutes': 3, 'seconds': 22}",3,100,0,"{'minutes': 1, 'seconds': 19}","{'minutes': 2, 'seconds': 3}",5,89,TD,True,41,21,48,21
+40175272518,401752725,Utah State,Mountain West,Vanderbilt,SEC,18,False,3,75,75,"{'minutes': 1, 'seconds': 14}",4,57,57,"{'minutes': 14, 'seconds': 48}","{'minutes': 1, 'seconds': 26}",3,18,FUMBLE,False,21,48,21,48
+40175272519,401752725,Vanderbilt,SEC,Utah State,Mountain West,19,False,4,57,43,"{'minutes': 14, 'seconds': 48}",4,57,43,"{'minutes': 14, 'seconds': 39}","{'minutes': 0, 'seconds': 9}",1,0,INT,True,48,21,48,21
+40175272520,401752725,Utah State,Mountain West,Vanderbilt,SEC,20,False,4,80,80,"{'minutes': 14, 'seconds': 39}",4,47,47,"{'minutes': 10, 'seconds': 50}","{'minutes': 3, 'seconds': 49}",7,33,PUNT,False,21,48,21,48
+40175272521,401752725,Vanderbilt,SEC,Utah State,Mountain West,21,False,4,10,90,"{'minutes': 10, 'seconds': 50}",4,17,83,"{'minutes': 9, 'seconds': 14}","{'minutes': 1, 'seconds': 36}",3,7,PUNT,True,48,21,48,21
+40175272522,401752725,Utah State,Mountain West,Vanderbilt,SEC,22,True,4,72,72,"{'minutes': 9, 'seconds': 14}",4,0,0,"{'minutes': 8, 'seconds': 23}","{'minutes': 0, 'seconds': 51}",2,72,TD,False,21,48,28,48
+40175272523,401752725,Vanderbilt,SEC,Utah State,Mountain West,23,True,4,25,75,"{'minutes': 8, 'seconds': 23}",4,100,0,"{'minutes': 5, 'seconds': 21}","{'minutes': 3, 'seconds': 2}",6,75,TD,True,48,28,55,28
+40175272524,401752725,Utah State,Mountain West,Vanderbilt,SEC,24,True,4,75,75,"{'minutes': 5, 'seconds': 21}",4,0,0,"{'minutes': 0, 'seconds': 55}","{'minutes': 4, 'seconds': 26}",12,75,TD,False,28,55,35,55
+40175272525,401752725,Vanderbilt,SEC,Utah State,Mountain West,25,False,4,25,75,"{'minutes': 0, 'seconds': 55}",4,22,78,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 55}",2,-3,END OF GAME,True,55,35,55,35
+4017527261,401752726,Alabama,SEC,Vanderbilt,SEC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,71,29,"{'minutes': 9, 'seconds': 47}","{'minutes': 5, 'seconds': 13}",8,46,INT,True,0,0,0,0
+4017527262,401752726,Vanderbilt,SEC,Alabama,SEC,2,True,1,93,93,"{'minutes': 9, 'seconds': 47}",1,0,0,"{'minutes': 6, 'seconds': 34}","{'minutes': 3, 'seconds': 13}",6,93,TD,False,0,0,7,0
+4017527263,401752726,Alabama,SEC,Vanderbilt,SEC,3,False,1,24,76,"{'minutes': 6, 'seconds': 34}",1,72,28,"{'minutes': 3, 'seconds': 45}","{'minutes': 2, 'seconds': 49}",7,48,MISSED FG,True,0,7,0,7
+4017527264,401752726,Vanderbilt,SEC,Alabama,SEC,4,False,1,72,72,"{'minutes': 3, 'seconds': 45}",1,13,13,"{'minutes': 1, 'seconds': 46}","{'minutes': 1, 'seconds': 59}",6,59,FUMBLE,False,7,0,7,0
+4017527265,401752726,Alabama,SEC,Vanderbilt,SEC,5,True,1,8,92,"{'minutes': 1, 'seconds': 46}",2,100,0,"{'minutes': 9, 'seconds': 22}","{'minutes': 7, 'seconds': 24}",12,92,TD,True,0,7,7,7
+4017527266,401752726,Vanderbilt,SEC,Alabama,SEC,6,False,2,75,75,"{'minutes': 9, 'seconds': 22}",2,59,59,"{'minutes': 7, 'seconds': 37}","{'minutes': 1, 'seconds': 45}",4,16,PUNT,False,7,7,7,7
+4017527267,401752726,Alabama,SEC,Vanderbilt,SEC,7,False,2,17,83,"{'minutes': 7, 'seconds': 37}",2,8,92,"{'minutes': 5, 'seconds': 56}","{'minutes': 1, 'seconds': 41}",3,-9,PUNT,True,7,7,7,7
+4017527268,401752726,Vanderbilt,SEC,Alabama,SEC,8,True,2,38,38,"{'minutes': 5, 'seconds': 56}",2,0,0,"{'minutes': 1, 'seconds': 33}","{'minutes': 4, 'seconds': 23}",10,38,TD,False,7,7,14,7
+4017527269,401752726,Alabama,SEC,Vanderbilt,SEC,9,True,2,22,78,"{'minutes': 1, 'seconds': 33}",2,100,0,"{'minutes': 0, 'seconds': 17}","{'minutes': 1, 'seconds': 16}",6,78,TD,True,7,14,14,14
+40175272610,401752726,Vanderbilt,SEC,Alabama,SEC,10,False,2,75,75,"{'minutes': 0, 'seconds': 17}",2,76,76,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 17}",1,-1,END OF HALF,False,14,14,14,14
+40175272611,401752726,Vanderbilt,SEC,Alabama,SEC,11,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,54,54,"{'minutes': 12, 'seconds': 49}","{'minutes': 2, 'seconds': 11}",4,21,PUNT,False,14,14,14,14
+40175272612,401752726,Alabama,SEC,Vanderbilt,SEC,12,True,3,12,88,"{'minutes': 12, 'seconds': 49}",3,80,20,"{'minutes': 9, 'seconds': 15}","{'minutes': 3, 'seconds': 34}",6,68,FG,True,14,14,17,14
+40175272613,401752726,Vanderbilt,SEC,Alabama,SEC,13,False,3,75,75,"{'minutes': 9, 'seconds': 15}",3,69,69,"{'minutes': 7, 'seconds': 13}","{'minutes': 2, 'seconds': 2}",3,6,PUNT,False,14,17,14,17
+40175272614,401752726,Alabama,SEC,Vanderbilt,SEC,14,True,3,21,79,"{'minutes': 7, 'seconds': 13}",3,87,13,"{'minutes': 1, 'seconds': 17}","{'minutes': 5, 'seconds': 56}",11,66,FG,True,17,14,20,14
+40175272615,401752726,Vanderbilt,SEC,Alabama,SEC,15,False,3,75,75,"{'minutes': 1, 'seconds': 17}",4,17,17,"{'minutes': 12, 'seconds': 37}","{'minutes': 3, 'seconds': 40}",6,58,INT,False,14,20,14,20
+40175272616,401752726,Alabama,SEC,Vanderbilt,SEC,16,True,4,19,81,"{'minutes': 12, 'seconds': 37}",4,88,12,"{'minutes': 4, 'seconds': 8}","{'minutes': 8, 'seconds': 29}",16,69,FG,True,20,14,23,14
+40175272617,401752726,Vanderbilt,SEC,Alabama,SEC,17,False,4,87,87,"{'minutes': 4, 'seconds': 8}",4,70,70,"{'minutes': 2, 'seconds': 36}","{'minutes': 1, 'seconds': 32}",12,26,INT,False,14,23,14,23
+40175272618,401752726,Alabama,SEC,Vanderbilt,SEC,18,True,4,72,28,"{'minutes': 1, 'seconds': 18}",4,100,0,"{'minutes': 0, 'seconds': 17}","{'minutes': 1, 'seconds': 1}",4,28,TD,True,23,14,30,14
+40175272619,401752726,Vanderbilt,SEC,Alabama,SEC,19,False,4,75,75,"{'minutes': 0, 'seconds': 17}",4,60,60,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 17}",2,15,END OF GAME,False,14,30,14,30
+4017527451,401752745,LSU,SEC,Vanderbilt,SEC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,31,31,"{'minutes': 9, 'seconds': 32}","{'minutes': 5, 'seconds': 28}",12,44,FG,False,0,0,3,0
+4017527452,401752745,Vanderbilt,SEC,LSU,SEC,2,True,1,43,57,"{'minutes': 9, 'seconds': 32}",1,100,0,"{'minutes': 3, 'seconds': 38}","{'minutes': 5, 'seconds': 54}",9,57,TD,True,0,3,7,3
+4017527453,401752745,LSU,SEC,Vanderbilt,SEC,3,True,1,75,75,"{'minutes': 3, 'seconds': 38}",2,0,0,"{'minutes': 14, 'seconds': 50}","{'minutes': 3, 'seconds': 48}",8,75,TD,False,3,7,10,7
+4017527454,401752745,Vanderbilt,SEC,LSU,SEC,4,True,2,25,75,"{'minutes': 14, 'seconds': 50}",2,100,0,"{'minutes': 5, 'seconds': 52}","{'minutes': 8, 'seconds': 58}",14,75,TD,True,7,10,14,10
+4017527455,401752745,LSU,SEC,Vanderbilt,SEC,5,False,2,65,65,"{'minutes': 5, 'seconds': 52}",2,35,35,"{'minutes': 2, 'seconds': 33}","{'minutes': 3, 'seconds': 19}",7,30,MISSED FG,False,10,14,10,14
+4017527456,401752745,Vanderbilt,SEC,LSU,SEC,6,False,2,35,65,"{'minutes': 2, 'seconds': 33}",2,44,56,"{'minutes': 1, 'seconds': 43}","{'minutes': 0, 'seconds': 50}",4,1,DOWNS,True,14,10,14,10
+4017527457,401752745,LSU,SEC,Vanderbilt,SEC,7,True,2,36,36,"{'minutes': 1, 'seconds': 43}",2,25,25,"{'minutes': 0, 'seconds': 45}","{'minutes': 0, 'seconds': 58}",6,11,FG,False,10,14,13,14
+4017527458,401752745,Vanderbilt,SEC,LSU,SEC,8,True,2,22,78,"{'minutes': 0, 'seconds': 45}",2,62,38,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 43}",7,50,FG,True,14,13,17,13
+40175274510,401752745,Vanderbilt,SEC,LSU,SEC,9,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 9, 'seconds': 3}","{'minutes': 5, 'seconds': 57}",10,75,TD,True,17,13,24,13
+40175274511,401752745,LSU,SEC,Vanderbilt,SEC,10,True,3,92,92,"{'minutes': 9, 'seconds': 3}",3,0,0,"{'minutes': 6, 'seconds': 52}","{'minutes': 2, 'seconds': 11}",5,92,TD,False,13,24,21,24
+40175274512,401752745,Vanderbilt,SEC,LSU,SEC,11,True,3,25,75,"{'minutes': 6, 'seconds': 52}",3,100,0,"{'minutes': 0, 'seconds': 27}","{'minutes': 6, 'seconds': 25}",10,75,TD,True,24,21,31,21
+40175274513,401752745,LSU,SEC,Vanderbilt,SEC,12,True,3,75,75,"{'minutes': 0, 'seconds': 27}",4,6,6,"{'minutes': 11, 'seconds': 39}","{'minutes': 3, 'seconds': 48}",9,69,FG,False,21,31,24,31
+40175274514,401752745,Vanderbilt,SEC,LSU,SEC,13,False,4,25,75,"{'minutes': 11, 'seconds': 39}",4,28,72,"{'minutes': 8, 'seconds': 55}","{'minutes': 2, 'seconds': 44}",4,3,PUNT,True,31,24,31,24
+40175274515,401752745,LSU,SEC,Vanderbilt,SEC,14,False,4,70,70,"{'minutes': 8, 'seconds': 55}",4,82,82,"{'minutes': 6, 'seconds': 28}","{'minutes': 2, 'seconds': 27}",3,-12,PUNT,False,24,31,24,31
+40175274516,401752745,Vanderbilt,SEC,LSU,SEC,15,False,4,43,57,"{'minutes': 6, 'seconds': 28}",4,47,53,"{'minutes': 4, 'seconds': 40}","{'minutes': 1, 'seconds': 48}",3,4,PUNT,True,31,24,31,24
+40175274517,401752745,LSU,SEC,Vanderbilt,SEC,16,False,4,80,80,"{'minutes': 4, 'seconds': 40}",4,78,78,"{'minutes': 3, 'seconds': 12}","{'minutes': 1, 'seconds': 28}",3,2,PUNT,False,24,31,24,31
+40175274518,401752745,Vanderbilt,SEC,LSU,SEC,17,False,4,42,58,"{'minutes': 3, 'seconds': 12}",4,96,4,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 12}",7,54,END OF GAME,True,31,24,31,24
+4017527522,401752752,Missouri,SEC,Vanderbilt,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,72,72,"{'minutes': 14, 'seconds': 2}","{'minutes': 0, 'seconds': 58}",3,3,PUNT,False,0,0,0,0
+4017527523,401752752,Vanderbilt,SEC,Missouri,SEC,2,False,1,25,75,"{'minutes': 14, 'seconds': 2}",1,44,56,"{'minutes': 14, 'seconds': 2}","{'minutes': 3, 'seconds': 52}",6,19,PUNT,True,0,0,0,0
+4017527524,401752752,Missouri,SEC,Vanderbilt,SEC,3,False,1,75,75,"{'minutes': 10, 'seconds': 10}",1,65,65,"{'minutes': 9, 'seconds': 5}","{'minutes': 3, 'seconds': 34}",5,10,PUNT,False,0,0,0,0
+4017527525,401752752,Vanderbilt,SEC,Missouri,SEC,4,False,1,16,84,"{'minutes': 6, 'seconds': 36}",1,16,84,"{'minutes': 6, 'seconds': 10}","{'minutes': 1, 'seconds': 39}",3,0,PUNT,True,0,0,0,0
+4017527526,401752752,Missouri,SEC,Vanderbilt,SEC,5,False,1,63,63,"{'minutes': 4, 'seconds': 57}",1,44,44,"{'minutes': 4, 'seconds': 57}","{'minutes': 2, 'seconds': 32}",5,19,PUNT,False,0,0,0,0
+4017527527,401752752,Vanderbilt,SEC,Missouri,SEC,6,False,1,8,92,"{'minutes': 2, 'seconds': 25}",2,26,74,"{'minutes': 12, 'seconds': 59}","{'minutes': 4, 'seconds': 26}",9,18,PUNT,True,0,0,0,0
+4017527528,401752752,Missouri,SEC,Vanderbilt,SEC,7,True,2,90,90,"{'minutes': 12, 'seconds': 59}",2,21,21,"{'minutes': 5, 'seconds': 11}","{'minutes': 7, 'seconds': 48}",13,69,FG,False,0,0,3,0
+40175275210,401752752,Vanderbilt,SEC,Missouri,SEC,8,True,2,25,75,"{'minutes': 5, 'seconds': 6}",2,80,20,"{'minutes': 2, 'seconds': 0}","{'minutes': 3, 'seconds': 6}",8,55,FG,True,0,3,3,3
+40175275212,401752752,Missouri,SEC,Vanderbilt,SEC,9,False,2,75,75,"{'minutes': 2, 'seconds': 0}",2,45,45,"{'minutes': 0, 'seconds': 34}","{'minutes': 1, 'seconds': 38}",4,30,PUNT,False,3,3,3,3
+40175275213,401752752,Vanderbilt,SEC,Missouri,SEC,10,False,2,8,92,"{'minutes': 0, 'seconds': 22}",2,7,93,"{'minutes': 0, 'seconds': 22}","{'minutes': 0, 'seconds': 22}",1,-1,END OF HALF,True,3,3,3,3
+40175275215,401752752,Vanderbilt,SEC,Missouri,SEC,11,False,3,15,85,"{'minutes': 14, 'seconds': 54}",3,23,77,"{'minutes': 15, 'seconds': 0}","{'minutes': 1, 'seconds': 33}",3,8,INT,True,3,3,3,3
+40175275216,401752752,Missouri,SEC,Vanderbilt,SEC,12,False,3,20,20,"{'minutes': 13, 'seconds': 21}",3,2,2,"{'minutes': 11, 'seconds': 21}","{'minutes': 2, 'seconds': 6}",5,19,DOWNS,False,3,3,3,3
+40175275217,401752752,Vanderbilt,SEC,Missouri,SEC,13,False,3,1,99,"{'minutes': 11, 'seconds': 15}",3,7,93,"{'minutes': 10, 'seconds': 30}","{'minutes': 1, 'seconds': 38}",4,6,PUNT,True,3,3,3,3
+40175275218,401752752,Missouri,SEC,Vanderbilt,SEC,14,False,3,48,48,"{'minutes': 9, 'seconds': 37}",3,11,11,"{'minutes': 4, 'seconds': 4}","{'minutes': 5, 'seconds': 33}",12,37,MISSED FG,False,3,3,3,3
+40175275219,401752752,Vanderbilt,SEC,Missouri,SEC,15,True,3,20,80,"{'minutes': 3, 'seconds': 51}",3,97,3,"{'minutes': 3, 'seconds': 51}","{'minutes': 0, 'seconds': 13}",1,80,TD,True,10,3,10,3
+40175275221,401752752,Missouri,SEC,Vanderbilt,SEC,16,True,3,75,75,"{'minutes': 3, 'seconds': 51}",4,3,3,"{'minutes': 12, 'seconds': 49}","{'minutes': 6, 'seconds': 2}",12,75,TD,False,3,10,10,10
+40175275223,401752752,Vanderbilt,SEC,Missouri,SEC,17,False,4,25,75,"{'minutes': 12, 'seconds': 49}",4,31,69,"{'minutes': 12, 'seconds': 49}","{'minutes': 1, 'seconds': 38}",3,6,PUNT,True,10,10,10,10
+40175275224,401752752,Missouri,SEC,Vanderbilt,SEC,18,False,4,76,76,"{'minutes': 11, 'seconds': 11}",4,56,56,"{'minutes': 7, 'seconds': 2}","{'minutes': 4, 'seconds': 9}",8,20,FUMBLE,False,10,10,10,10
+40175275225,401752752,Vanderbilt,SEC,Missouri,SEC,19,True,4,56,44,"{'minutes': 7, 'seconds': 2}",4,97,3,"{'minutes': 1, 'seconds': 52}","{'minutes': 5, 'seconds': 10}",9,44,TD,True,10,10,17,10
+40175275227,401752752,Missouri,SEC,Vanderbilt,SEC,20,False,4,75,75,"{'minutes': 1, 'seconds': 52}",4,1,1,"{'minutes': 0, 'seconds': 6}","{'minutes': 1, 'seconds': 52}",13,74,END OF GAME,False,10,17,10,17
+4017527582,401752758,Texas,SEC,Vanderbilt,SEC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 14, 'seconds': 49}","{'minutes': 0, 'seconds': 11}",1,75,TD,True,0,0,7,0
+4017527584,401752758,Vanderbilt,SEC,Texas,SEC,2,False,1,75,75,"{'minutes': 14, 'seconds': 49}",1,71,71,"{'minutes': 12, 'seconds': 46}","{'minutes': 2, 'seconds': 3}",4,4,FUMBLE,False,0,7,0,7
+4017527585,401752758,Texas,SEC,Vanderbilt,SEC,3,True,1,71,29,"{'minutes': 12, 'seconds': 46}",1,79,21,"{'minutes': 11, 'seconds': 38}","{'minutes': 1, 'seconds': 8}",5,8,FG,True,7,0,10,0
+4017527587,401752758,Vanderbilt,SEC,Texas,SEC,4,False,1,75,75,"{'minutes': 11, 'seconds': 38}",1,50,50,"{'minutes': 7, 'seconds': 12}","{'minutes': 4, 'seconds': 26}",6,25,PUNT,False,0,10,0,10
+4017527588,401752758,Texas,SEC,Vanderbilt,SEC,5,True,1,17,83,"{'minutes': 7, 'seconds': 12}",1,97,3,"{'minutes': 2, 'seconds': 11}","{'minutes': 5, 'seconds': 1}",10,83,TD,True,10,0,17,0
+40175275810,401752758,Vanderbilt,SEC,Texas,SEC,6,True,1,79,79,"{'minutes': 2, 'seconds': 6}",2,26,26,"{'minutes': 11, 'seconds': 22}","{'minutes': 5, 'seconds': 44}",9,53,FG,False,0,17,3,17
+40175275812,401752758,Texas,SEC,Vanderbilt,SEC,7,True,2,32,68,"{'minutes': 11, 'seconds': 17}",2,97,3,"{'minutes': 7, 'seconds': 2}","{'minutes': 4, 'seconds': 15}",8,68,TD,True,17,3,24,3
+40175275814,401752758,Vanderbilt,SEC,Texas,SEC,8,True,2,75,75,"{'minutes': 7, 'seconds': 2}",2,0,0,"{'minutes': 0, 'seconds': 11}","{'minutes': 6, 'seconds': 51}",13,75,TD,False,3,24,10,24
+40175275816,401752758,Texas,SEC,Vanderbilt,SEC,9,False,2,39,61,"{'minutes': 0, 'seconds': 7}",2,59,41,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 7}",2,20,END OF HALF,True,24,10,24,10
+40175275818,401752758,Vanderbilt,SEC,Texas,SEC,10,False,3,67,67,"{'minutes': 14, 'seconds': 54}",3,64,64,"{'minutes': 14, 'seconds': 27}","{'minutes': 0, 'seconds': 27}",3,3,PUNT,False,10,24,10,24
+40175275819,401752758,Texas,SEC,Vanderbilt,SEC,11,True,3,7,93,"{'minutes': 14, 'seconds': 27}",3,97,3,"{'minutes': 9, 'seconds': 12}","{'minutes': 5, 'seconds': 15}",11,93,TD,True,24,10,31,10
+40175275821,401752758,Vanderbilt,SEC,Texas,SEC,12,False,3,75,75,"{'minutes': 9, 'seconds': 12}",3,30,30,"{'minutes': 5, 'seconds': 37}","{'minutes': 3, 'seconds': 35}",8,45,MISSED FG,False,10,31,10,31
+40175275822,401752758,Texas,SEC,Vanderbilt,SEC,13,True,3,30,70,"{'minutes': 5, 'seconds': 37}",3,81,19,"{'minutes': 0, 'seconds': 6}","{'minutes': 5, 'seconds': 31}",11,51,FG,True,31,10,34,10
+40175275824,401752758,Vanderbilt,SEC,Texas,SEC,14,True,3,77,77,"{'minutes': 15, 'seconds': 0}",4,0,0,"{'minutes': 10, 'seconds': 5}","{'minutes': 4, 'seconds': 55}",8,77,TD,False,10,34,16,34
+40175275826,401752758,Texas,SEC,Vanderbilt,SEC,15,False,4,35,65,"{'minutes': 10, 'seconds': 1}",4,67,33,"{'minutes': 4, 'seconds': 4}","{'minutes': 5, 'seconds': 57}",10,32,MISSED FG,True,34,16,34,16
+40175275827,401752758,Vanderbilt,SEC,Texas,SEC,16,True,4,67,67,"{'minutes': 4, 'seconds': 4}",4,0,0,"{'minutes': 3, 'seconds': 54}","{'minutes': 0, 'seconds': 10}",1,67,TD,False,24,34,24,34
+40175275829,401752758,Texas,SEC,Vanderbilt,SEC,17,False,4,50,50,"{'minutes': 3, 'seconds': 53}",4,64,36,"{'minutes': 3, 'seconds': 4}","{'minutes': 0, 'seconds': 49}",4,14,PUNT,True,34,24,34,24
+40175275830,401752758,Vanderbilt,SEC,Texas,SEC,18,True,4,89,89,"{'minutes': 3, 'seconds': 4}",4,0,0,"{'minutes': 0, 'seconds': 33}","{'minutes': 2, 'seconds': 31}",12,89,TD,False,24,34,31,34
+40175275832,401752758,Texas,SEC,Vanderbilt,SEC,19,False,4,47,53,"{'minutes': 0, 'seconds': 33}",4,46,54,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 33}",1,-1,END OF GAME,True,34,31,34,31
+4017527642,401752764,Vanderbilt,SEC,Auburn,SEC,1,False,1,25,75,"{'minutes': 12, 'seconds': 11}",1,47,53,"{'minutes': 11, 'seconds': 15}","{'minutes': 3, 'seconds': 45}",5,22,PUNT,True,0,0,0,0
+4017527643,401752764,Auburn,SEC,Vanderbilt,SEC,2,True,1,89,89,"{'minutes': 11, 'seconds': 15}",1,0,0,"{'minutes': 5, 'seconds': 45}","{'minutes': 5, 'seconds': 30}",13,89,TD,False,0,0,7,0
+4017527645,401752764,Vanderbilt,SEC,Auburn,SEC,3,True,1,25,75,"{'minutes': 5, 'seconds': 45}",2,90,10,"{'minutes': 13, 'seconds': 30}","{'minutes': 7, 'seconds': 15}",13,70,FG,True,0,7,3,7
+4017527647,401752764,Auburn,SEC,Vanderbilt,SEC,4,True,2,75,75,"{'minutes': 13, 'seconds': 30}",2,0,0,"{'minutes': 10, 'seconds': 44}","{'minutes': 2, 'seconds': 46}",7,75,TD,False,7,3,14,3
+4017527649,401752764,Vanderbilt,SEC,Auburn,SEC,5,False,2,21,79,"{'minutes': 10, 'seconds': 38}",2,64,36,"{'minutes': 6, 'seconds': 5}","{'minutes': 4, 'seconds': 33}",7,44,FUMBLE,True,3,14,3,14
+40175276410,401752764,Auburn,SEC,Vanderbilt,SEC,6,True,2,65,65,"{'minutes': 6, 'seconds': 5}",2,8,8,"{'minutes': 1, 'seconds': 52}","{'minutes': 4, 'seconds': 13}",10,57,FG,False,14,3,17,3
+40175276412,401752764,Vanderbilt,SEC,Auburn,SEC,7,True,2,25,75,"{'minutes': 1, 'seconds': 52}",2,97,3,"{'minutes': 1, 'seconds': 15}","{'minutes': 0, 'seconds': 37}",3,75,TD,True,3,17,10,17
+40175276414,401752764,Auburn,SEC,Vanderbilt,SEC,8,True,2,75,75,"{'minutes': 1, 'seconds': 15}",2,29,29,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 15}",10,46,FG,False,17,10,20,10
+40175276416,401752764,Auburn,SEC,Vanderbilt,SEC,9,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,70,70,"{'minutes': 13, 'seconds': 5}","{'minutes': 1, 'seconds': 55}",3,5,PUNT,False,20,10,20,10
+40175276417,401752764,Vanderbilt,SEC,Auburn,SEC,10,True,3,27,73,"{'minutes': 12, 'seconds': 58}",3,97,3,"{'minutes': 11, 'seconds': 24}","{'minutes': 1, 'seconds': 41}",6,73,TD,True,10,20,17,20
+40175276419,401752764,Auburn,SEC,Vanderbilt,SEC,11,True,3,75,75,"{'minutes': 11, 'seconds': 24}",3,20,20,"{'minutes': 9, 'seconds': 15}","{'minutes': 2, 'seconds': 9}",8,55,FG,False,20,17,23,17
+40175276421,401752764,Vanderbilt,SEC,Auburn,SEC,12,True,3,25,75,"{'minutes': 9, 'seconds': 15}",3,97,3,"{'minutes': 7, 'seconds': 37}","{'minutes': 1, 'seconds': 38}",4,75,TD,True,17,23,24,23
+40175276423,401752764,Auburn,SEC,Vanderbilt,SEC,13,False,3,75,75,"{'minutes': 7, 'seconds': 37}",3,51,51,"{'minutes': 5, 'seconds': 50}","{'minutes': 1, 'seconds': 47}",5,24,PUNT,False,23,24,23,24
+40175276424,401752764,Vanderbilt,SEC,Auburn,SEC,14,False,3,15,85,"{'minutes': 5, 'seconds': 41}",3,21,79,"{'minutes': 4, 'seconds': 54}","{'minutes': 0, 'seconds': 56}",3,6,PUNT,True,24,23,24,23
+40175276425,401752764,Auburn,SEC,Vanderbilt,SEC,15,True,3,65,65,"{'minutes': 4, 'seconds': 54}",3,0,0,"{'minutes': 1, 'seconds': 11}","{'minutes': 3, 'seconds': 43}",7,65,TD,False,23,24,30,24
+40175276427,401752764,Vanderbilt,SEC,Auburn,SEC,16,True,3,25,75,"{'minutes': 1, 'seconds': 11}",4,97,3,"{'minutes': 14, 'seconds': 7}","{'minutes': 2, 'seconds': 4}",5,75,TD,True,24,30,31,30
+40175276429,401752764,Auburn,SEC,Vanderbilt,SEC,17,False,4,75,75,"{'minutes': 14, 'seconds': 5}",4,79,79,"{'minutes': 12, 'seconds': 1}","{'minutes': 2, 'seconds': 4}",3,-4,PUNT,False,30,31,30,31
+40175276430,401752764,Vanderbilt,SEC,Auburn,SEC,18,True,4,32,68,"{'minutes': 11, 'seconds': 55}",4,97,3,"{'minutes': 7, 'seconds': 57}","{'minutes': 4, 'seconds': 4}",10,68,TD,True,31,30,38,30
+40175276432,401752764,Auburn,SEC,Vanderbilt,SEC,19,True,4,75,75,"{'minutes': 7, 'seconds': 57}",4,0,0,"{'minutes': 5, 'seconds': 27}","{'minutes': 2, 'seconds': 30}",6,75,TD,False,30,38,38,38
+40175276434,401752764,Vanderbilt,SEC,Auburn,SEC,20,False,4,25,75,"{'minutes': 5, 'seconds': 27}",4,72,28,"{'minutes': 1, 'seconds': 6}","{'minutes': 4, 'seconds': 21}",11,47,DOWNS,True,38,38,38,38
+40175276435,401752764,Auburn,SEC,Vanderbilt,SEC,21,False,4,72,72,"{'minutes': 1, 'seconds': 6}",4,43,43,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 6}",7,29,END OF HALF,False,38,38,38,38
+40175276437,401752764,Auburn,SEC,Vanderbilt,SEC,22,False,5,25,25,"{'minutes': 0, 'seconds': 0}",5,12,12,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",6,13,DOWNS,False,38,45,38,45
+40175276436,401752764,Vanderbilt,SEC,Auburn,SEC,23,True,5,75,25,"{'minutes': 0, 'seconds': 0}",5,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",3,25,TD,True,38,38,45,38
+4017527822,401752782,Kentucky,SEC,Vanderbilt,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,62,62,"{'minutes': 10, 'seconds': 53}","{'minutes': 4, 'seconds': 7}",6,13,PUNT,False,0,0,0,0
+4017527823,401752782,Vanderbilt,SEC,Kentucky,SEC,2,True,1,26,74,"{'minutes': 10, 'seconds': 47}",1,79,21,"{'minutes': 1, 'seconds': 5}","{'minutes': 9, 'seconds': 48}",15,53,FG,True,0,0,3,0
+4017527825,401752782,Kentucky,SEC,Vanderbilt,SEC,3,False,1,75,75,"{'minutes': 1, 'seconds': 5}",2,75,75,"{'minutes': 14, 'seconds': 4}","{'minutes': 2, 'seconds': 1}",3,0,PUNT,False,0,3,0,3
+4017527826,401752782,Vanderbilt,SEC,Kentucky,SEC,4,True,2,14,86,"{'minutes': 13, 'seconds': 53}",2,97,3,"{'minutes': 13, 'seconds': 3}","{'minutes': 1, 'seconds': 1}",4,86,TD,True,3,0,10,0
+4017527828,401752782,Kentucky,SEC,Vanderbilt,SEC,5,False,2,75,75,"{'minutes': 13, 'seconds': 3}",2,75,75,"{'minutes': 12, 'seconds': 0}","{'minutes': 1, 'seconds': 3}",3,0,PUNT,False,0,10,0,10
+4017527829,401752782,Vanderbilt,SEC,Kentucky,SEC,6,False,2,31,69,"{'minutes': 11, 'seconds': 50}",2,33,67,"{'minutes': 10, 'seconds': 1}","{'minutes': 1, 'seconds': 59}",3,2,PUNT,True,10,0,10,0
+40175278210,401752782,Kentucky,SEC,Vanderbilt,SEC,7,False,2,94,94,"{'minutes': 9, 'seconds': 58}",2,91,91,"{'minutes': 7, 'seconds': 21}","{'minutes': 2, 'seconds': 40}",6,3,PUNT,False,0,10,0,10
+40175278211,401752782,Vanderbilt,SEC,Kentucky,SEC,8,True,2,40,60,"{'minutes': 7, 'seconds': 13}",2,97,3,"{'minutes': 4, 'seconds': 37}","{'minutes': 2, 'seconds': 46}",7,60,TD,True,10,0,17,0
+40175278213,401752782,Kentucky,SEC,Vanderbilt,SEC,9,False,2,75,75,"{'minutes': 4, 'seconds': 35}",2,26,26,"{'minutes': 2, 'seconds': 39}","{'minutes': 1, 'seconds': 56}",5,29,INT,False,0,17,0,17
+40175278214,401752782,Vanderbilt,SEC,Kentucky,SEC,10,False,2,26,74,"{'minutes': 2, 'seconds': 29}",2,33,67,"{'minutes': 1, 'seconds': 53}","{'minutes': 0, 'seconds': 46}",4,7,DOWNS,True,17,0,17,0
+40175278215,401752782,Kentucky,SEC,Vanderbilt,SEC,11,True,2,33,33,"{'minutes': 1, 'seconds': 44}",2,29,29,"{'minutes': 0, 'seconds': 59}","{'minutes': 0, 'seconds': 54}",4,4,FG,False,0,17,3,17
+40175278217,401752782,Vanderbilt,SEC,Kentucky,SEC,12,True,2,25,75,"{'minutes': 0, 'seconds': 59}",2,97,3,"{'minutes': 0, 'seconds': 38}","{'minutes': 0, 'seconds': 21}",3,75,TD,True,17,3,24,3
+40175278219,401752782,Kentucky,SEC,Vanderbilt,SEC,13,False,2,75,75,"{'minutes': 0, 'seconds': 38}",2,6,6,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 38}",7,27,INT,False,3,24,3,24
+40175278221,401752782,Vanderbilt,SEC,Kentucky,SEC,14,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,97,3,"{'minutes': 8, 'seconds': 55}","{'minutes': 6, 'seconds': 5}",10,75,TD,True,30,3,31,3
+40175278223,401752782,Kentucky,SEC,Vanderbilt,SEC,15,False,3,75,75,"{'minutes': 8, 'seconds': 55}",3,69,69,"{'minutes': 7, 'seconds': 31}","{'minutes': 1, 'seconds': 24}",3,6,PUNT,False,3,31,3,31
+40175278224,401752782,Vanderbilt,SEC,Kentucky,SEC,16,True,3,25,75,"{'minutes': 7, 'seconds': 20}",3,97,3,"{'minutes': 3, 'seconds': 14}","{'minutes': 4, 'seconds': 17}",10,75,TD,True,31,3,38,3
+40175278226,401752782,Kentucky,SEC,Vanderbilt,SEC,17,False,3,75,75,"{'minutes': 3, 'seconds': 14}",3,71,71,"{'minutes': 1, 'seconds': 48}","{'minutes': 1, 'seconds': 26}",3,4,PUNT,False,3,38,3,38
+40175278227,401752782,Vanderbilt,SEC,Kentucky,SEC,18,True,3,31,69,"{'minutes': 1, 'seconds': 38}",3,97,3,"{'minutes': 1, 'seconds': 17}","{'minutes': 0, 'seconds': 31}",2,69,TD,True,38,3,45,3
+40175278229,401752782,Kentucky,SEC,Vanderbilt,SEC,19,True,3,75,75,"{'minutes': 1, 'seconds': 17}",4,3,3,"{'minutes': 13, 'seconds': 41}","{'minutes': 2, 'seconds': 36}",8,75,TD,False,3,45,10,45
+40175278231,401752782,Vanderbilt,SEC,Kentucky,SEC,20,False,4,25,75,"{'minutes': 13, 'seconds': 28}",4,87,13,"{'minutes': 12, 'seconds': 43}","{'minutes': 0, 'seconds': 45}",2,21,INT,True,45,10,45,10
+40175278232,401752782,Kentucky,SEC,Vanderbilt,SEC,21,False,4,59,59,"{'minutes': 12, 'seconds': 41}",4,1,1,"{'minutes': 9, 'seconds': 39}","{'minutes': 3, 'seconds': 4}",9,58,INT,False,10,45,10,45
+40175278233,401752782,Vanderbilt,SEC,Kentucky,SEC,22,False,4,21,79,"{'minutes': 9, 'seconds': 36}",4,91,9,"{'minutes': 2, 'seconds': 0}","{'minutes': 7, 'seconds': 39}",10,70,DOWNS,True,45,10,45,10
+40175278234,401752782,Kentucky,SEC,Vanderbilt,SEC,23,True,4,91,91,"{'minutes': 2, 'seconds': 0}",4,3,3,"{'minutes': 0, 'seconds': 2}","{'minutes': 1, 'seconds': 58}",12,91,TD,False,10,45,17,45
+40175278236,401752782,Kentucky,SEC,Vanderbilt,SEC,24,False,4,65,65,"{'minutes': 0, 'seconds': 2}",4,65,65,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 0}",0,0,END OF GAME,False,17,45,17,45
+4017527912,401752791,Tennessee,SEC,Vanderbilt,SEC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,30,70,"{'minutes': 13, 'seconds': 40}","{'minutes': 1, 'seconds': 20}",3,5,PUNT,True,0,0,0,0
+4017527913,401752791,Vanderbilt,SEC,Tennessee,SEC,2,False,1,72,72,"{'minutes': 13, 'seconds': 38}",1,21,21,"{'minutes': 8, 'seconds': 36}","{'minutes': 5, 'seconds': 16}",10,51,INT,False,0,0,7,7
+4017527914,401752791,Tennessee,SEC,Vanderbilt,SEC,3,True,1,20,80,"{'minutes': 8, 'seconds': 16}",1,97,3,"{'minutes': 3, 'seconds': 49}","{'minutes': 4, 'seconds': 35}",12,80,TD,True,0,0,7,7
+4017527916,401752791,Vanderbilt,SEC,Tennessee,SEC,4,True,1,75,75,"{'minutes': 3, 'seconds': 49}",1,3,3,"{'minutes': 0, 'seconds': 59}","{'minutes': 2, 'seconds': 50}",6,75,TD,False,0,7,7,7
+4017527918,401752791,Tennessee,SEC,Vanderbilt,SEC,5,False,1,25,75,"{'minutes': 0, 'seconds': 58}",2,33,67,"{'minutes': 13, 'seconds': 53}","{'minutes': 2, 'seconds': 5}",6,8,PUNT,True,7,7,7,7
+4017527919,401752791,Vanderbilt,SEC,Tennessee,SEC,6,True,2,78,78,"{'minutes': 13, 'seconds': 44}",2,3,3,"{'minutes': 11, 'seconds': 39}","{'minutes': 2, 'seconds': 14}",4,78,TD,False,7,7,14,7
+40175279111,401752791,Tennessee,SEC,Vanderbilt,SEC,7,True,2,25,75,"{'minutes': 11, 'seconds': 39}",2,97,3,"{'minutes': 10, 'seconds': 34}","{'minutes': 1, 'seconds': 5}",4,75,TD,True,7,14,14,14
+40175279113,401752791,Vanderbilt,SEC,Tennessee,SEC,8,False,2,75,75,"{'minutes': 10, 'seconds': 34}",2,37,37,"{'minutes': 10, 'seconds': 26}","{'minutes': 0, 'seconds': 8}",1,0,INT,False,14,14,14,14
+40175279114,401752791,Tennessee,SEC,Vanderbilt,SEC,9,True,2,37,63,"{'minutes': 10, 'seconds': 18}",2,97,3,"{'minutes': 7, 'seconds': 51}","{'minutes': 2, 'seconds': 35}",7,63,TD,True,14,14,21,14
+40175279116,401752791,Vanderbilt,SEC,Tennessee,SEC,10,False,2,75,75,"{'minutes': 7, 'seconds': 51}",2,46,46,"{'minutes': 5, 'seconds': 15}","{'minutes': 2, 'seconds': 36}",6,29,PUNT,False,14,21,14,21
+40175279117,401752791,Tennessee,SEC,Vanderbilt,SEC,11,False,2,11,89,"{'minutes': 5, 'seconds': 10}",2,11,89,"{'minutes': 3, 'seconds': 24}","{'minutes': 1, 'seconds': 51}",5,0,PUNT,True,21,14,21,14
+40175279118,401752791,Vanderbilt,SEC,Tennessee,SEC,12,True,2,52,52,"{'minutes': 3, 'seconds': 18}",2,3,3,"{'minutes': 0, 'seconds': 12}","{'minutes': 3, 'seconds': 12}",7,52,TD,False,14,21,21,21
+40175279120,401752791,Tennessee,SEC,Vanderbilt,SEC,13,False,2,25,75,"{'minutes': 0, 'seconds': 12}",2,22,78,"{'minutes': 0, 'seconds': 10}","{'minutes': 0, 'seconds': 12}",1,-3,END OF HALF,True,21,21,21,21
+40175279122,401752791,Vanderbilt,SEC,Tennessee,SEC,14,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,3,3,"{'minutes': 8, 'seconds': 25}","{'minutes': 6, 'seconds': 35}",11,75,TD,False,21,21,28,21
+40175279124,401752791,Tennessee,SEC,Vanderbilt,SEC,15,False,3,25,75,"{'minutes': 8, 'seconds': 18}",3,29,71,"{'minutes': 7, 'seconds': 23}","{'minutes': 0, 'seconds': 55}",3,4,PUNT,True,21,28,21,28
+40175279125,401752791,Vanderbilt,SEC,Tennessee,SEC,16,True,3,75,75,"{'minutes': 7, 'seconds': 9}",3,17,17,"{'minutes': 2, 'seconds': 12}","{'minutes': 5, 'seconds': 11}",8,58,FG,False,28,21,31,21
+40175279127,401752791,Tennessee,SEC,Vanderbilt,SEC,17,True,3,25,75,"{'minutes': 2, 'seconds': 12}",4,93,7,"{'minutes': 12, 'seconds': 31}","{'minutes': 4, 'seconds': 41}",15,68,FG,True,21,31,24,31
+40175279129,401752791,Vanderbilt,SEC,Tennessee,SEC,18,True,4,70,70,"{'minutes': 12, 'seconds': 25}",4,3,3,"{'minutes': 8, 'seconds': 55}","{'minutes': 3, 'seconds': 30}",7,70,TD,False,31,24,45,24
+40175279131,401752791,Tennessee,SEC,Vanderbilt,SEC,19,False,4,25,75,"{'minutes': 8, 'seconds': 55}",4,42,58,"{'minutes': 6, 'seconds': 45}","{'minutes': 2, 'seconds': 11}",9,25,DOWNS,True,24,38,24,38
+40175279132,401752791,Vanderbilt,SEC,Tennessee,SEC,20,True,4,50,50,"{'minutes': 6, 'seconds': 39}",4,3,3,"{'minutes': 5, 'seconds': 10}","{'minutes': 1, 'seconds': 34}",3,50,TD,False,38,24,45,24
+40175279134,401752791,Tennessee,SEC,Vanderbilt,SEC,21,False,4,65,35,"{'minutes': 5, 'seconds': 10}",4,70,30,"{'minutes': 1, 'seconds': 47}","{'minutes': 3, 'seconds': 23}",11,45,DOWNS,True,24,45,24,45
+40175279135,401752791,Vanderbilt,SEC,Tennessee,SEC,22,False,4,70,70,"{'minutes': 1, 'seconds': 41}",4,44,44,"{'minutes': 0, 'seconds': 9}","{'minutes': 1, 'seconds': 47}",4,26,END OF GAME,False,45,24,45,24

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Analytics | GAMEDAY+ SYS.V.2.0</title>
+    
+    <!-- Tailwind & Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#030712',
+                        surface: '#111827',
+                        primary: '#F43F5E', // Rose 500
+                        'primary-dim': 'rgba(244, 63, 94, 0.1)',
+                        success: '#10B981',
+                        warning: '#F59E0B',
+                        danger: '#EF4444',
+                        'tech-border': 'rgba(255, 255, 255, 0.08)',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'Menlo', 'monospace'],
+                        'display': ['Orbitron', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-scan': "linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #030712;
+            color: #E5E7EB;
+            overflow-x: hidden;
+        }
+
+        /* HUD Panels */
+        .hud-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--tech-border);
+            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .hud-panel:hover {
+            border-color: rgba(244, 63, 94, 0.3);
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.15);
+        }
+
+        /* Coach Card Specifics */
+        .coach-card {
+            position: relative;
+            overflow: hidden;
+            border-left: 2px solid transparent; /* Placeholder for team color */
+        }
+        
+        .coach-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* Scanline Animation */
+        @keyframes scanline {
+            0% { transform: translateY(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(100%); opacity: 0; }
+        }
+
+        .scan-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(244, 63, 94, 0.5);
+            box-shadow: 0 0 10px rgba(244, 63, 94, 0.8);
+            animation: scanline 4s linear infinite;
+            opacity: 0;
+        }
+        
+        .coach-card:hover .scan-overlay::after {
+            opacity: 1;
+        }
+
+        /* Metric Bars */
+        .tech-bar-bg {
+            background: rgba(255, 255, 255, 0.1);
+            height: 4px;
+            width: 100%;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .tech-bar-fill {
+            height: 100%;
+            background: #F43F5E;
+            box-shadow: 0 0 8px #F43F5E;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Filter Buttons */
+        .filter-btn {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9CA3AF;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .filter-btn.active {
+            background: rgba(244, 63, 94, 0.1);
+            border-color: #F43F5E;
+            color: #F43F5E;
+            box-shadow: 0 0 10px rgba(244, 63, 94, 0.1);
+        }
+
+        /* Team Watermark */
+        .watermark-logo {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 140px;
+            height: 140px;
+            opacity: 0.04;
+            filter: grayscale(100%);
+            transform: rotate(-10deg);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F43F5E; }
+    </style>
+</head>
+<body class="antialiased min-h-screen relative selection:bg-primary selection:text-white">
+    
+    <!-- Background Grid -->
+    <div class="fixed inset-0 bg-grid-scan pointer-events-none z-0 opacity-40"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 border-b border-white/10 bg-[#030712]/80 backdrop-blur-md">
+        <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-2 h-8 bg-primary shadow-[0_0_15px_rgba(244,63,94,0.5)]"></div>
+                <a href="/" class="font-display font-bold text-2xl tracking-wider text-white">
+                    GAMEDAY<span class="text-primary">+</span> <span class="text-xs text-gray-500 font-mono align-top mt-1 ml-1 opacity-70">SYS.V.2.0</span>
+                </a>
+            </div>
+            
+            <nav class="flex items-center gap-1 bg-surface/50 p-1 rounded-lg border border-white/5">
+                <a href="/" class="px-4 py-1.5 text-xs font-mono text-gray-400 hover:text-white transition rounded hover:bg-white/5">DB_HOME</a>
+                <a href="/coaches" class="px-4 py-1.5 text-xs font-mono text-primary bg-primary/10 rounded font-bold border border-primary/20">COACHES_Index</a>
+                <a href="/teams" class="px-4 py-1.5 text-xs font-mono text-gray-400 hover:text-white transition rounded hover:bg-white/5">TEAMS</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-24 pb-12 px-4 md:px-8 max-w-[1600px] mx-auto">
+        
+        <!-- Dashboard Header / Metrics -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+            <!-- Title Card -->
+            <div class="lg:col-span-8 hud-panel rounded-lg p-6 flex flex-col justify-center relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-700"></div>
+                
+                <div class="relative z-10 flex items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <i data-lucide="database" class="text-primary w-6 h-6"></i>
+                            <h1 class="text-3xl md:text-4xl font-display font-bold text-white tracking-tight">COACH ANALYTICS</h1>
+                        </div>
+                        <div class="flex items-center gap-4 text-xs font-mono text-gray-400">
+                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-success animate-pulse"></span>DATABASE_ONLINE</span>
+                            <span class="text-gray-700">|</span>
+                            <span>coaches_master.db</span>
+                            <span class="text-gray-700">|</span>
+                            <span class="text-primary" id="last-updated">LIVE_FEED</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-right border-l border-white/10 pl-6 hidden sm:block">
+                        <div class="text-xs text-gray-500 font-mono uppercase tracking-widest mb-1">Total Records</div>
+                        <div class="text-4xl font-mono font-bold text-white" id="coach-count">--</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mini Stats Gauge -->
+            <div class="lg:col-span-4 grid grid-cols-2 gap-4">
+                <div class="hud-panel rounded-lg p-4 flex flex-col justify-between">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-[10px] font-mono text-gray-500 uppercase">SEC Breakdown</span>
+                        <span class="text-xs font-bold text-primary" id="sec-count">--</span>
+                    </div>
+                    <div class="tech-bar-bg"><div class="tech-bar-fill" style="width: 30%"></div></div>
+                </div>
+                <div class="hud-panel rounded-lg p-4 flex flex-col justify-between">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-[10px] font-mono text-gray-500 uppercase">B1G Breakdown</span>
+                        <span class="text-xs font-bold text-blue-400" id="bigten-count">--</span>
+                    </div>
+                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-blue-500 shadow-blue-500/50" style="width: 30%"></div></div>
+                </div>
+                <div class="hud-panel rounded-lg p-4 flex flex-col justify-between">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-[10px] font-mono text-gray-500 uppercase">ACC Breakdown</span>
+                        <span class="text-xs font-bold text-purple-400" id="acc-count">--</span>
+                    </div>
+                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-purple-500 shadow-purple-500/50" style="width: 30%"></div></div>
+                </div>
+                <div class="hud-panel rounded-lg p-4 flex flex-col justify-between">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-[10px] font-mono text-gray-500 uppercase">B12 Breakdown</span>
+                        <span class="text-xs font-bold text-gray-300" id="big12-count">--</span>
+                    </div>
+                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-gray-400 shadow-white/20" style="width: 30%"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Bar -->
+        <div class="hud-panel rounded-lg p-4 mb-8 sticky top-20 z-40 bg-[#111827]/90 backdrop-blur-xl">
+            <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
+                
+                <!-- Filters -->
+                <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
+                    <i data-lucide="filter" class="w-4 h-4 text-gray-500 mr-2 flex-shrink-0"></i>
+                    <button onclick="filterCoaches('all')" id="filter-all" class="filter-btn active px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">Global</button>
+                    <button onclick="filterCoaches('Big Ten')" id="filter-bigten" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">B1G</button>
+                    <button onclick="filterCoaches('SEC')" id="filter-sec" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">SEC</button>
+                    <button onclick="filterCoaches('Big 12')" id="filter-big12" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">Big 12</button>
+                    <button onclick="filterCoaches('ACC')" id="filter-acc" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">ACC</button>
+                </div>
+
+                <!-- Search -->
+                <div class="relative w-full md:w-64">
+                    <input 
+                        type="text" 
+                        id="search-input"
+                        placeholder="SEARCH_DATABASE..."
+                        class="w-full bg-black/40 border border-white/10 rounded px-4 py-2 pl-10 text-xs font-mono text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all uppercase"
+                        oninput="searchCoaches()"
+                    >
+                    <i data-lucide="search" class="absolute left-3 top-2 w-4 h-4 text-gray-600"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Charts -->
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
+            <!-- Experience vs Success Matrix -->
+            <div class="hud-panel rounded-lg p-6 relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-700"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="scatter-chart" class="text-purple-400 w-5 h-5"></i>
+                        <h3 class="text-lg font-display font-bold text-white tracking-tight">GAMES COACHED vs. SUCCESS MATRIX</h3>
+                    </div>
+                    <div class="relative" style="height: 400px;">
+                        <canvas id="scatterChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weeks Ranked vs Career Win % -->
+            <div class="hud-panel rounded-lg p-6 relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-700"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="trending-up" class="text-blue-400 w-5 h-5"></i>
+                        <h3 class="text-lg font-display font-bold text-white tracking-tight">WEEKS RANKED vs. CAREER WIN %</h3>
+                    </div>
+                    <div class="relative" style="height: 400px;">
+                        <canvas id="winsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coaches Grid -->
+        <div id="coaches-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Loading Skeleton -->
+            <div class="col-span-full py-20 text-center">
+                <div class="inline-flex items-center gap-3 text-primary font-mono animate-pulse">
+                    <i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>
+                    <span class="tracking-widest">ACCESSING COACH PROFILES...</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Store
+        let allCoaches = [];
+        let currentFilter = 'all';
+        let teamLogos = {};
+
+        // Helper: Fetch Logos
+        async function loadTeamLogos() {
+            try {
+                // Try fetching from static first, fallback to root if deployed differently
+                const paths = ['/static/fbs.json', '/fbs.json'];
+                let data = null;
+
+                for (const path of paths) {
+                    try {
+                        const res = await fetch(path);
+                        if (res.ok) {
+                            data = await res.json();
+                            break;
+                        }
+                    } catch (e) { continue; }
+                }
+
+                if (data) {
+                    data.forEach(team => {
+                        teamLogos[team.school] = {
+                            logo: team.logos?.[0] || '',
+                            color: team.primary_color || '#F43F5E'
+                        };
+                    });
+                }
+            } catch (error) {
+                console.warn('Logo fetch warning:', error);
+            }
+        }
+
+        const conferenceMap = {
+            'Illinois': 'Big Ten', 'Indiana': 'Big Ten', 'Iowa': 'Big Ten', 'Maryland': 'Big Ten',
+            'Michigan': 'Big Ten', 'Michigan State': 'Big Ten', 'Minnesota': 'Big Ten', 'Nebraska': 'Big Ten',
+            'Northwestern': 'Big Ten', 'Ohio State': 'Big Ten', 'Oregon': 'Big Ten', 'Penn State': 'Big Ten',
+            'Purdue': 'Big Ten', 'Rutgers': 'Big Ten', 'UCLA': 'Big Ten', 'USC': 'Big Ten',
+            'Washington': 'Big Ten', 'Wisconsin': 'Big Ten',
+            'Iowa State': 'Big 12', 'Kansas': 'Big 12', 'Kansas State': 'Big 12', 'Oklahoma State': 'Big 12',
+            'TCU': 'Big 12', 'Texas Tech': 'Big 12', 'Baylor': 'Big 12', 'West Virginia': 'Big 12',
+            'BYU': 'Big 12', 'Cincinnati': 'Big 12', 'UCF': 'Big 12', 'Houston': 'Big 12',
+            'Arizona': 'Big 12', 'Arizona State': 'Big 12', 'Colorado': 'Big 12', 'Utah': 'Big 12',
+            'Alabama': 'SEC', 'Arkansas': 'SEC', 'Auburn': 'SEC', 'Florida': 'SEC',
+            'Georgia': 'SEC', 'Kentucky': 'SEC', 'LSU': 'SEC', 'Ole Miss': 'SEC',
+            'Mississippi State': 'SEC', 'Missouri': 'SEC', 'South Carolina': 'SEC', 'Tennessee': 'SEC',
+            'Texas A&M': 'SEC', 'Vanderbilt': 'SEC', 'Oklahoma': 'SEC', 'Texas': 'SEC',
+            'Boston College': 'ACC', 'Clemson': 'ACC', 'Duke': 'ACC', 'Florida State': 'ACC',
+            'Georgia Tech': 'ACC', 'Louisville': 'ACC', 'Miami': 'ACC', 'NC State': 'ACC',
+            'North Carolina': 'ACC', 'Pittsburgh': 'ACC', 'Syracuse': 'ACC', 'Virginia': 'ACC',
+            'Virginia Tech': 'ACC', 'Wake Forest': 'ACC', 'California': 'ACC', 'Stanford': 'ACC',
+            'SMU': 'ACC'
+        };
+
+        async function loadCoaches() {
+            try {
+                const response = await fetch('/api/coaches');
+                const data = await response.json();
+                allCoaches = data.coaches || [];
+                
+                updateStats();
+                displayCoaches(allCoaches);
+                lucide.createIcons();
+            } catch (error) {
+                console.error('Error loading coaches:', error);
+                document.getElementById('coaches-grid').innerHTML = `
+                    <div class="col-span-full hud-panel rounded-lg p-10 text-center border border-danger/30">
+                        <i data-lucide="alert-triangle" class="w-12 h-12 text-danger mx-auto mb-4"></i>
+                        <p class="text-danger font-display font-bold text-lg mb-2">SYSTEM ERROR: CONNECTION LOST</p>
+                        <p class="text-gray-400 font-mono text-xs">Ensure backend services are active.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+            }
+        }
+
+        function updateStats() {
+            // Count animation could go here, staying simple for now
+            document.getElementById('coach-count').textContent = allCoaches.length;
+            
+            const bigTen = allCoaches.filter(c => conferenceMap[c.current_school] === 'Big Ten').length;
+            const sec = allCoaches.filter(c => conferenceMap[c.current_school] === 'SEC').length;
+            const big12 = allCoaches.filter(c => conferenceMap[c.current_school] === 'Big 12').length;
+            const acc = allCoaches.filter(c => conferenceMap[c.current_school] === 'ACC').length;
+            
+            document.getElementById('bigten-count').textContent = bigTen;
+            document.getElementById('sec-count').textContent = sec;
+            document.getElementById('big12-count').textContent = big12;
+            document.getElementById('acc-count').textContent = acc;
+        }
+
+        function displayCoaches(coaches) {
+            const grid = document.getElementById('coaches-grid');
+            
+            if (coaches.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <p class="text-gray-500 font-mono">NO RECORDS FOUND MATCHING QUERY</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = coaches.map(coach => {
+                const teamInfo = teamLogos[coach.current_school] || { logo: '', color: '#374151' };
+                const winPct = (coach.career_win_pct * 100).toFixed(1);
+                
+                // Initials fallback
+                const initials = coach.name.split(' ').map(n => n[0]).join('').substring(0,2);
+
+                return `
+                <div class="coach-card hud-panel rounded-lg p-5 cursor-pointer group scan-overlay" 
+                     onclick="viewCoach(${coach.id})" 
+                     style="border-left-color: ${teamInfo.color}">
+                    
+                    ${teamInfo.logo ? `<img src="${teamInfo.logo}" class="watermark-logo" alt="">` : ''}
+
+                    <!-- Header -->
+                    <div class="relative z-10 flex gap-4 mb-4">
+                        <div class="relative">
+                            ${coach.headshot_url ? 
+                                `<img src="${coach.headshot_url}" alt="${coach.name}" class="w-16 h-16 rounded object-cover border border-white/10 bg-black/50">` :
+                                `<div class="w-16 h-16 rounded bg-gradient-to-br from-surface to-black border border-white/10 flex items-center justify-center font-display font-bold text-gray-500 text-xl">${initials}</div>`
+                            }
+                            <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div class="w-1.5 h-1.5 rounded-full ${winPct > 60 ? 'bg-success' : 'bg-warning'}"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1 min-w-0 flex flex-col justify-center">
+                            <h3 class="text-base font-bold text-white leading-tight truncate group-hover:text-primary transition-colors">${coach.name}</h3>
+                            <p class="text-xs font-mono text-gray-400 uppercase truncate mt-1">${coach.current_school}</p>
+                            <span class="inline-block mt-1 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-white/5 border border-white/10 w-fit">
+                                ${conferenceMap[coach.current_school] || 'N/A'}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="relative z-10 space-y-3 border-t border-white/5 pt-3">
+                        <div class="flex justify-between items-end">
+                            <span class="text-[10px] text-gray-500 font-mono uppercase">Career Rec</span>
+                            <span class="text-sm font-mono font-bold text-white">${coach.career_record}</span>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-end mb-1">
+                                <span class="text-[10px] text-gray-500 font-mono uppercase">Efficiency</span>
+                                <span class="text-xs font-mono font-bold ${winPct > 65 ? 'text-success' : 'text-primary'}">${winPct}%</span>
+                            </div>
+                            <div class="tech-bar-bg">
+                                <div class="tech-bar-fill" style="width: ${winPct}%; background-color: ${teamInfo.color}; box-shadow: 0 0 5px ${teamInfo.color}"></div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-end pt-1">
+                            <span class="text-[10px] text-gray-500 font-mono uppercase">Tenure (G)</span>
+                            <span class="text-xs font-mono text-gray-300">${coach.total_games}</span>
+                        </div>
+                    </div>
+
+                    <!-- Hover Action -->
+                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                         <i data-lucide="arrow-up-right" class="w-4 h-4 text-primary"></i>
+                    </div>
+                </div>
+                `;
+            }).join('');
+            
+            lucide.createIcons();
+        }
+
+        function filterCoaches(filter) {
+            currentFilter = filter;
+            
+            // Buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeBtn = document.getElementById(`filter-${filter.toLowerCase().replace(' ', '')}`);
+            if (activeBtn) activeBtn.classList.add('active');
+            
+            // Logic
+            let filtered = allCoaches;
+            if (filter !== 'all') {
+                filtered = allCoaches.filter(coach => conferenceMap[coach.current_school] === filter);
+            }
+            
+            // Search
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            if (searchTerm) {
+                filtered = filtered.filter(coach => 
+                    coach.name.toLowerCase().includes(searchTerm) ||
+                    coach.current_school.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            displayCoaches(filtered);
+        }
+
+        function searchCoaches() {
+            filterCoaches(currentFilter);
+        }
+
+        function viewCoach(coachId) {
+            window.location.href = `/coach/${coachId}`;
+        }
+
+        // Initialize Charts
+        function initCharts() {
+            if (!allCoaches || allCoaches.length === 0) {
+                console.log('No coaches data available for charts');
+                return;
+            }
+
+            // Prepare high-quality logo images with transparency
+            const logoImages = {};
+            const logoPromises = allCoaches.map(coach => {
+                return new Promise((resolve) => {
+                    const teamData = teamLogos[coach.current_school];
+                    if (teamData && teamData.logo) {
+                        const img = new Image();
+                        img.onload = () => {
+                            // Create a canvas to add transparency
+                            const canvas = document.createElement('canvas');
+                            const size = 50; // Higher resolution
+                            canvas.width = size;
+                            canvas.height = size;
+                            const ctx = canvas.getContext('2d');
+                            
+                            // Apply transparency
+                            ctx.globalAlpha = 0.8;
+                            ctx.drawImage(img, 0, 0, size, size);
+                            
+                            logoImages[coach.current_school] = canvas;
+                            resolve();
+                        };
+                        img.onerror = () => {
+                            console.warn(`Failed to load logo for ${coach.current_school}`);
+                            resolve();
+                        };
+                        img.crossOrigin = 'anonymous';
+                        img.src = teamData.logo;
+                    } else {
+                        console.warn(`No logo found for ${coach.current_school}`);
+                        resolve();
+                    }
+                });
+            });
+
+            Promise.all(logoPromises).then(() => {
+                renderScatterChart(logoImages);
+                renderWinsChart(logoImages);
+            });
+        }
+
+        function renderScatterChart(logoImages) {
+            // Experience vs Success Scatter Chart
+            const scatterCtx = document.getElementById('scatterChart');
+            if (scatterCtx) {
+                new Chart(scatterCtx.getContext('2d'), {
+                    type: 'scatter',
+                    data: {
+                        datasets: [{
+                            label: 'Coaches',
+                            data: allCoaches.map(c => ({
+                                x: c.total_games || 0,
+                                y: parseFloat(c.career_win_pct) || 0,
+                                coach: c.name,
+                                school: c.current_school,
+                                logo: logoImages[c.current_school]
+                            })),
+                            pointStyle: allCoaches.map(c => logoImages[c.current_school] || 'circle'),
+                            pointRadius: allCoaches.map(c => {
+                                // Scale logo size based on win percentage (10-25 range)
+                                const winPct = parseFloat(c.career_win_pct) || 0;
+                                return Math.max(10, Math.min(25, 10 + (winPct * 20)));
+                            }),
+                            pointHoverRadius: allCoaches.map(c => {
+                                const winPct = parseFloat(c.career_win_pct) || 0;
+                                return Math.max(12, Math.min(28, 12 + (winPct * 20)));
+                            }),
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        layout: {
+                            padding: 10
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(17, 24, 39, 0.95)',
+                                titleColor: '#fff',
+                                bodyColor: '#9CA3AF',
+                                borderColor: 'rgba(147, 51, 234, 0.5)',
+                                borderWidth: 1,
+                                padding: 12,
+                                displayColors: false,
+                                callbacks: {
+                                    title: function(context) {
+                                        return context[0].raw.coach;
+                                    },
+                                    label: function(context) {
+                                        const point = context.raw;
+                                        return [
+                                            `${point.school}`,
+                                            `Games Coached: ${point.x}`,
+                                            `Win %: ${(point.y * 100).toFixed(1)}%`
+                                        ];
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Total Games Coached',
+                                    color: '#9CA3AF',
+                                    font: {
+                                        size: 13,
+                                        weight: '600',
+                                        family: "'SF Mono', 'Monaco', 'Consolas', monospace"
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.05)',
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    color: '#6B7280',
+                                    font: {
+                                        size: 11,
+                                        family: "'SF Mono', 'Monaco', 'Consolas', monospace"
+                                    }
+                                }
+                            },
+                            y: {
+                                min: 0,
+                                max: 1.0,
+                                title: {
+                                    display: true,
+                                    text: 'Career Win %',
+                                    color: '#9CA3AF',
+                                    font: {
+                                        size: 13,
+                                        weight: '600',
+                                        family: "'SF Mono', 'Monaco', 'Consolas', monospace"
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.05)',
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    color: '#6B7280',
+                                    font: {
+                                        size: 11,
+                                        family: "'SF Mono', 'Monaco', 'Consolas', monospace"
+                                    },
+                                    callback: function(value) {
+                                        return (value * 100).toFixed(0) + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function renderWinsChart(logoImages) {
+            // Wins vs Win Percentage Chart
+            const winsCtx = document.getElementById('winsChart');
+            if (winsCtx) {
+                new Chart(winsCtx.getContext('2d'), {
+                    type: 'scatter',
+                    data: {
+                        datasets: [{
+                            label: 'Coaches',
+                            data: allCoaches.map(c => ({
+                                x: c.weeks_ranked || 0,
+                                y: parseFloat(c.career_win_pct) || 0,
+                                coach: c.name,
+                                school: c.current_school,
+                                logo: logoImages[c.current_school]
+                            })),
+                            pointStyle: allCoaches.map(c => logoImages[c.current_school] || 'circle'),
+                            pointRadius: allCoaches.map(c => {
+                                // Scale logo size based on win percentage (10-25 range)
+                                const winPct = parseFloat(c.career_win_pct) || 0;
+                                return Math.max(10, Math.min(25, 10 + (winPct * 20)));
+                            }),
+                            pointHoverRadius: allCoaches.map(c => {
+                                const winPct = parseFloat(c.career_win_pct) || 0;
+                                return Math.max(12, Math.min(28, 12 + (winPct * 20)));
+                            }),
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        elements: {
+                            point: {
+                                backgroundColor: function(context) {
+                                    return 'rgba(255, 255, 255, 0.7)';
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(17, 24, 39, 0.95)',
+                                titleColor: '#fff',
+                                bodyColor: '#9CA3AF',
+                                borderColor: 'rgba(59, 130, 246, 0.5)',
+                                borderWidth: 1,
+                                padding: 12,
+                                displayColors: false,
+                                callbacks: {
+                                    title: function(context) {
+                                        return context[0].raw.coach;
+                                    },
+                                    label: function(context) {
+                                        const point = context.raw;
+                                        return [
+                                            `${point.school}`,
+                                            `Weeks Ranked: ${point.x}`,
+                                            `Win %: ${(point.y * 100).toFixed(1)}%`
+                                        ];
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Weeks Ranked in AP Poll',
+                                    color: '#9CA3AF',
+                                    font: {
+                                        size: 13,
+                                        weight: '600',
+                                        family: "'SF Mono', 'Monaco', 'Consolas', monospace"
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.05)',
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    color: '#6B7280',
+                                    font: {
+                                        size: 11,
+                                        family: "'SF Mono', 'Monaco', 'Consolas', monospace"
+                                    }
+                                }
+                            },
+                            y: {
+                                min: 0,
+                                max: 1.0,
+                                title: {
+                                    display: true,
+                                    text: 'Career Win %',
+                                    color: '#9CA3AF',
+                                    font: {
+                                        size: 13,
+                                        weight: '600',
+                                        family: "'SF Mono', 'Monaco', 'Consolas', monospace"
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.05)',
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    color: '#6B7280',
+                                    font: {
+                                        size: 11,
+                                        family: "'SF Mono', 'Monaco', 'Consolas', monospace"
+                                    },
+                                    callback: function(value) {
+                                        return (value * 100).toFixed(0) + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Init
+        async function init() {
+            await loadTeamLogos();
+            await loadCoaches();
+            // Initialize charts after coaches are loaded
+            setTimeout(() => initCharts(), 100);
+        }
+        
+        init();
+    </script>
+</body>
+</html>

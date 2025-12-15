@@ -1,0 +1,264 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017526891,401752689,Kansas,Big 12,Missouri,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,67,67,"{'minutes': 13, 'seconds': 2}","{'minutes': 1, 'seconds': 58}",3,8,PUNT,False,0,0,0,0
+4017526892,401752689,Missouri,SEC,Kansas,Big 12,2,True,1,29,71,"{'minutes': 13, 'seconds': 2}",1,100,0,"{'minutes': 10, 'seconds': 53}","{'minutes': 2, 'seconds': 9}",5,71,TD,True,0,0,6,0
+4017526893,401752689,Kansas,Big 12,Missouri,SEC,3,True,1,62,62,"{'minutes': 10, 'seconds': 50}",1,0,0,"{'minutes': 8, 'seconds': 9}","{'minutes': 2, 'seconds': 41}",7,62,TD,False,0,6,7,6
+4017526894,401752689,Missouri,SEC,Kansas,Big 12,4,True,1,18,82,"{'minutes': 8, 'seconds': 4}",1,28,72,"{'minutes': 6, 'seconds': 53}","{'minutes': 1, 'seconds': 11}",3,10,FUMBLE RETURN TD,True,6,7,6,14
+4017526895,401752689,Missouri,SEC,Kansas,Big 12,5,False,1,25,75,"{'minutes': 6, 'seconds': 53}",1,26,74,"{'minutes': 4, 'seconds': 46}","{'minutes': 2, 'seconds': 7}",3,1,PUNT,True,6,14,6,14
+4017526896,401752689,Kansas,Big 12,Missouri,SEC,6,True,1,53,53,"{'minutes': 4, 'seconds': 46}",1,0,0,"{'minutes': 2, 'seconds': 13}","{'minutes': 2, 'seconds': 33}",6,53,TD,False,14,6,21,6
+4017526897,401752689,Missouri,SEC,Kansas,Big 12,7,True,1,25,75,"{'minutes': 2, 'seconds': 13}",2,100,0,"{'minutes': 10, 'seconds': 10}","{'minutes': 7, 'seconds': 3}",15,75,TD,True,6,21,13,21
+4017526898,401752689,Kansas,Big 12,Missouri,SEC,8,True,2,75,75,"{'minutes': 10, 'seconds': 3}",2,100,100,"{'minutes': 9, 'seconds': 49}","{'minutes': 0, 'seconds': 14}",1,-50,SF,False,21,13,21,15
+4017526899,401752689,Missouri,SEC,Kansas,Big 12,9,True,2,30,70,"{'minutes': 9, 'seconds': 43}",2,93,7,"{'minutes': 1, 'seconds': 3}","{'minutes': 8, 'seconds': 40}",17,63,FG,True,15,21,18,21
+40175268910,401752689,Kansas,Big 12,Missouri,SEC,10,False,2,77,77,"{'minutes': 0, 'seconds': 56}",2,70,70,"{'minutes': 0, 'seconds': 28}","{'minutes': 0, 'seconds': 28}",3,7,PUNT,False,21,18,21,18
+40175268911,401752689,Missouri,SEC,Kansas,Big 12,11,True,2,14,86,"{'minutes': 0, 'seconds': 28}",2,98,2,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 28}",4,84,FG,True,18,21,21,21
+40175268912,401752689,Missouri,SEC,Kansas,Big 12,12,False,3,20,80,"{'minutes': 14, 'seconds': 54}",3,65,35,"{'minutes': 10, 'seconds': 17}","{'minutes': 4, 'seconds': 37}",10,45,DOWNS,True,21,21,21,21
+40175268913,401752689,Kansas,Big 12,Missouri,SEC,13,True,3,65,65,"{'minutes': 10, 'seconds': 17}",3,9,9,"{'minutes': 5, 'seconds': 48}","{'minutes': 4, 'seconds': 29}",11,53,FG,False,21,21,24,21
+40175268914,401752689,Missouri,SEC,Kansas,Big 12,14,True,3,25,75,"{'minutes': 5, 'seconds': 48}",3,100,0,"{'minutes': 0, 'seconds': 24}","{'minutes': 5, 'seconds': 24}",12,75,TD,True,21,24,28,24
+40175268915,401752689,Kansas,Big 12,Missouri,SEC,15,False,3,75,75,"{'minutes': 0, 'seconds': 24}",4,73,73,"{'minutes': 14, 'seconds': 34}","{'minutes': 0, 'seconds': 50}",3,2,PUNT,False,24,28,24,28
+40175268916,401752689,Missouri,SEC,Kansas,Big 12,16,False,4,36,64,"{'minutes': 14, 'seconds': 34}",4,40,60,"{'minutes': 12, 'seconds': 36}","{'minutes': 1, 'seconds': 58}",3,4,PUNT,True,28,24,28,24
+40175268917,401752689,Kansas,Big 12,Missouri,SEC,17,True,4,92,92,"{'minutes': 12, 'seconds': 36}",4,0,0,"{'minutes': 8, 'seconds': 45}","{'minutes': 3, 'seconds': 51}",8,92,TD,False,24,28,31,28
+40175268918,401752689,Missouri,SEC,Kansas,Big 12,18,True,4,25,75,"{'minutes': 8, 'seconds': 45}",4,100,0,"{'minutes': 4, 'seconds': 14}","{'minutes': 4, 'seconds': 31}",10,75,TD,True,28,31,35,31
+40175268919,401752689,Kansas,Big 12,Missouri,SEC,19,False,4,75,75,"{'minutes': 4, 'seconds': 14}",4,72,72,"{'minutes': 2, 'seconds': 45}","{'minutes': 1, 'seconds': 29}",3,3,PUNT,False,31,35,31,35
+40175268920,401752689,Missouri,SEC,Kansas,Big 12,20,True,4,25,75,"{'minutes': 2, 'seconds': 45}",4,100,0,"{'minutes': 1, 'seconds': 49}","{'minutes': 0, 'seconds': 56}",3,75,TD,True,35,31,42,31
+40175268921,401752689,Kansas,Big 12,Missouri,SEC,21,False,4,71,71,"{'minutes': 1, 'seconds': 42}",4,60,60,"{'minutes': 1, 'seconds': 6}","{'minutes': 0, 'seconds': 36}",5,11,INT,False,31,42,31,42
+40175268922,401752689,Missouri,SEC,Kansas,Big 12,22,False,4,37,63,"{'minutes': 1, 'seconds': 6}",4,49,51,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 6}",3,12,END OF GAME,True,42,31,42,31
+4017568472,401756847,Kansas,Big 12,Fresno State,Mountain West,1,True,1,14,86,"{'minutes': 14, 'seconds': 54}",1,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 49}",9,86,TD,True,0,0,7,0
+4017568474,401756847,Fresno State,Mountain West,Kansas,Big 12,2,True,1,75,75,"{'minutes': 11, 'seconds': 6}",1,1,1,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 46}",7,75,TD,False,0,7,7,7
+4017568476,401756847,Kansas,Big 12,Fresno State,Mountain West,3,True,1,25,75,"{'minutes': 7, 'seconds': 20}",1,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 5, 'seconds': 10}",11,75,TD,True,7,7,14,7
+4017568478,401756847,Fresno State,Mountain West,Kansas,Big 12,4,False,1,75,75,"{'minutes': 2, 'seconds': 11}",2,57,57,"{'minutes': 14, 'seconds': 5}","{'minutes': 3, 'seconds': 12}",6,18,PUNT,False,7,14,7,14
+4017568479,401756847,Kansas,Big 12,Fresno State,Mountain West,5,False,2,19,81,"{'minutes': 13, 'seconds': 56}",2,29,71,"{'minutes': 11, 'seconds': 9}","{'minutes': 3, 'seconds': 1}",5,10,PUNT,True,14,7,14,7
+40175684710,401756847,Fresno State,Mountain West,Kansas,Big 12,6,False,2,78,78,"{'minutes': 10, 'seconds': 56}",2,77,77,"{'minutes': 9, 'seconds': 30}","{'minutes': 1, 'seconds': 35}",3,1,PUNT,False,7,14,7,14
+40175684711,401756847,Kansas,Big 12,Fresno State,Mountain West,7,True,2,41,59,"{'minutes': 9, 'seconds': 23}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 53}",5,59,TD,True,14,7,21,7
+40175684713,401756847,Fresno State,Mountain West,Kansas,Big 12,8,False,2,75,75,"{'minutes': 7, 'seconds': 29}",2,52,52,"{'minutes': 4, 'seconds': 44}","{'minutes': 2, 'seconds': 54}",5,23,INT,False,7,21,7,24
+40175684714,401756847,Kansas,Big 12,Fresno State,Mountain West,9,True,2,35,65,"{'minutes': 3, 'seconds': 52}",2,33,67,"{'minutes': 4, 'seconds': 31}","{'minutes': 3, 'seconds': 40}",8,-2,FG,True,21,7,24,7
+40175684716,401756847,Fresno State,Mountain West,Kansas,Big 12,10,False,2,75,75,"{'minutes': 0, 'seconds': 55}",3,37,37,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 56}",9,38,MISSED FG,False,7,24,7,27
+40175684718,401756847,Fresno State,Mountain West,Kansas,Big 12,11,False,3,75,75,"{'minutes': 14, 'seconds': 59}",3,117,117,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 42}",10,42,Uncategorized,False,7,24,7,24
+40175684719,401756847,Kansas,Big 12,Fresno State,Mountain West,12,True,3,51,49,"{'minutes': 9, 'seconds': 47}",3,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 31}",5,49,TD,True,24,7,31,7
+40175684721,401756847,Fresno State,Mountain West,Kansas,Big 12,13,False,3,75,75,"{'minutes': 7, 'seconds': 45}",3,63,63,"{'minutes': 6, 'seconds': 23}","{'minutes': 1, 'seconds': 28}",4,12,INT,False,7,31,7,31
+40175684722,401756847,Kansas,Big 12,Fresno State,Mountain West,14,False,3,51,49,"{'minutes': 6, 'seconds': 3}",4,85,15,"{'minutes': 14, 'seconds': 56}","{'minutes': 6, 'seconds': 25}",11,33,DOWNS,True,31,7,31,7
+40175684723,401756847,Fresno State,Mountain West,Kansas,Big 12,15,False,4,84,84,"{'minutes': 14, 'seconds': 51}",4,75,75,"{'minutes': 13, 'seconds': 0}","{'minutes': 2, 'seconds': 0}",3,9,PUNT,False,7,31,7,31
+40175684724,401756847,Kansas,Big 12,Fresno State,Mountain West,16,False,4,31,69,"{'minutes': 12, 'seconds': 54}",4,35,65,"{'minutes': 10, 'seconds': 38}","{'minutes': 2, 'seconds': 25}",4,4,PUNT,True,31,7,31,7
+40175684725,401756847,Fresno State,Mountain West,Kansas,Big 12,17,False,4,96,96,"{'minutes': 10, 'seconds': 28}",4,83,83,"{'minutes': 5, 'seconds': 52}","{'minutes': 4, 'seconds': 51}",8,13,PUNT,False,7,31,7,31
+40175684726,401756847,Kansas,Big 12,Fresno State,Mountain West,18,False,4,30,70,"{'minutes': 5, 'seconds': 37}",4,39,61,"{'minutes': 3, 'seconds': 29}","{'minutes': 2, 'seconds': 17}",3,9,PUNT,True,31,7,31,7
+40175684727,401756847,Fresno State,Mountain West,Kansas,Big 12,19,False,4,89,89,"{'minutes': 3, 'seconds': 17}",4,85,85,"{'minutes': 1, 'seconds': 55}","{'minutes': 1, 'seconds': 29}",4,3,DOWNS,False,7,31,7,31
+40175684728,401756847,Kansas,Big 12,Fresno State,Mountain West,20,False,4,86,14,"{'minutes': 1, 'seconds': 52}",4,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 52}",4,11,Uncategorized,True,31,7,31,7
+4017568541,401756854,Wagner,NEC,Kansas,Big 12,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,70,70,"{'minutes': 12, 'seconds': 59}","{'minutes': 2, 'seconds': 1}",3,5,PUNT,False,0,0,0,0
+4017568542,401756854,Kansas,Big 12,Wagner,NEC,2,True,1,50,50,"{'minutes': 12, 'seconds': 59}",1,100,0,"{'minutes': 11, 'seconds': 14}","{'minutes': 1, 'seconds': 45}",6,50,TD,True,0,0,7,0
+4017568543,401756854,Wagner,NEC,Kansas,Big 12,3,False,1,75,75,"{'minutes': 11, 'seconds': 14}",1,76,76,"{'minutes': 8, 'seconds': 26}","{'minutes': 2, 'seconds': 48}",3,-1,PUNT,False,0,7,0,7
+4017568544,401756854,Kansas,Big 12,Wagner,NEC,4,False,1,22,78,"{'minutes': 8, 'seconds': 26}",1,27,73,"{'minutes': 7, 'seconds': 34}","{'minutes': 0, 'seconds': 52}",3,5,PUNT,True,7,0,7,0
+4017568545,401756854,Wagner,NEC,Kansas,Big 12,5,False,1,76,76,"{'minutes': 7, 'seconds': 34}",1,76,76,"{'minutes': 6, 'seconds': 44}","{'minutes': 0, 'seconds': 50}",3,0,PUNT,False,0,7,0,7
+4017568546,401756854,Kansas,Big 12,Wagner,NEC,6,True,1,37,63,"{'minutes': 6, 'seconds': 44}",1,100,0,"{'minutes': 3, 'seconds': 12}","{'minutes': 3, 'seconds': 32}",8,63,TD,True,7,0,14,0
+4017568547,401756854,Wagner,NEC,Kansas,Big 12,7,False,1,75,75,"{'minutes': 3, 'seconds': 12}",1,56,56,"{'minutes': 0, 'seconds': 49}","{'minutes': 2, 'seconds': 23}",4,19,PUNT,False,0,14,0,14
+4017568548,401756854,Kansas,Big 12,Wagner,NEC,8,True,1,22,78,"{'minutes': 0, 'seconds': 49}",2,100,0,"{'minutes': 13, 'seconds': 6}","{'minutes': 2, 'seconds': 43}",8,78,TD,True,14,0,22,0
+4017568549,401756854,Wagner,NEC,Kansas,Big 12,9,False,2,75,75,"{'minutes': 13, 'seconds': 6}",2,61,61,"{'minutes': 9, 'seconds': 52}","{'minutes': 3, 'seconds': 14}",6,14,PUNT,False,0,22,0,22
+40175685410,401756854,Kansas,Big 12,Wagner,NEC,10,False,2,30,70,"{'minutes': 9, 'seconds': 52}",2,31,69,"{'minutes': 8, 'seconds': 51}","{'minutes': 1, 'seconds': 1}",3,1,PUNT,True,22,0,22,0
+40175685411,401756854,Wagner,NEC,Kansas,Big 12,11,False,2,79,79,"{'minutes': 8, 'seconds': 51}",2,84,84,"{'minutes': 7, 'seconds': 26}","{'minutes': 1, 'seconds': 25}",3,-5,PUNT,False,0,22,0,22
+40175685412,401756854,Kansas,Big 12,Wagner,NEC,12,True,2,32,68,"{'minutes': 7, 'seconds': 26}",2,100,0,"{'minutes': 5, 'seconds': 19}","{'minutes': 2, 'seconds': 7}",5,68,TD,True,22,0,29,0
+40175685413,401756854,Wagner,NEC,Kansas,Big 12,13,True,2,75,75,"{'minutes': 5, 'seconds': 19}",2,0,0,"{'minutes': 1, 'seconds': 52}","{'minutes': 3, 'seconds': 27}",8,75,TD,False,0,29,7,29
+40175685414,401756854,Kansas,Big 12,Wagner,NEC,14,False,2,34,66,"{'minutes': 1, 'seconds': 42}",2,91,9,"{'minutes': 0, 'seconds': 36}","{'minutes': 1, 'seconds': 6}",7,57,INT,True,29,7,29,7
+40175685415,401756854,Wagner,NEC,Kansas,Big 12,15,False,2,80,80,"{'minutes': 0, 'seconds': 36}",2,81,81,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 36}",1,-1,END OF HALF,False,7,29,7,29
+40175685416,401756854,Kansas,Big 12,Wagner,NEC,16,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 14, 'seconds': 11}","{'minutes': 0, 'seconds': 49}",2,75,TD,True,29,7,36,7
+40175685417,401756854,Wagner,NEC,Kansas,Big 12,17,False,3,75,75,"{'minutes': 14, 'seconds': 11}",3,65,65,"{'minutes': 11, 'seconds': 43}","{'minutes': 2, 'seconds': 28}",5,10,PUNT,False,7,36,7,36
+40175685418,401756854,Kansas,Big 12,Wagner,NEC,18,True,3,30,70,"{'minutes': 11, 'seconds': 43}",3,90,10,"{'minutes': 6, 'seconds': 50}","{'minutes': 4, 'seconds': 53}",10,60,FG,True,36,7,39,7
+40175685419,401756854,Wagner,NEC,Kansas,Big 12,19,False,3,65,65,"{'minutes': 6, 'seconds': 50}",3,63,63,"{'minutes': 5, 'seconds': 5}","{'minutes': 1, 'seconds': 45}",3,2,PUNT,False,7,39,7,39
+40175685420,401756854,Kansas,Big 12,Wagner,NEC,20,False,3,15,85,"{'minutes': 5, 'seconds': 5}",3,35,65,"{'minutes': 2, 'seconds': 50}","{'minutes': 2, 'seconds': 15}",6,20,PUNT,True,39,7,39,7
+40175685421,401756854,Wagner,NEC,Kansas,Big 12,21,False,3,77,77,"{'minutes': 2, 'seconds': 50}",3,76,76,"{'minutes': 0, 'seconds': 50}","{'minutes': 2, 'seconds': 0}",3,1,PUNT,False,7,39,7,39
+40175685422,401756854,Kansas,Big 12,Wagner,NEC,22,False,3,32,68,"{'minutes': 0, 'seconds': 50}",4,100,0,"{'minutes': 11, 'seconds': 38}","{'minutes': 4, 'seconds': 12}",8,68,FUMBLE,True,39,7,39,7
+40175685423,401756854,Wagner,NEC,Kansas,Big 12,23,False,4,80,80,"{'minutes': 11, 'seconds': 38}",4,79,79,"{'minutes': 9, 'seconds': 36}","{'minutes': 2, 'seconds': 2}",3,1,PUNT,False,7,39,7,39
+40175685424,401756854,Kansas,Big 12,Wagner,NEC,24,True,4,50,50,"{'minutes': 9, 'seconds': 36}",4,100,0,"{'minutes': 3, 'seconds': 40}","{'minutes': 5, 'seconds': 56}",9,50,TD,True,39,7,46,7
+40175685425,401756854,Wagner,NEC,Kansas,Big 12,25,False,4,75,75,"{'minutes': 3, 'seconds': 40}",4,67,67,"{'minutes': 1, 'seconds': 54}","{'minutes': 1, 'seconds': 46}",3,8,PUNT,False,7,46,7,46
+40175685426,401756854,Kansas,Big 12,Wagner,NEC,26,False,4,25,75,"{'minutes': 1, 'seconds': 54}",4,56,44,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 54}",4,31,END OF GAME,True,46,7,46,7
+4017568991,401756899,West Virginia,Big 12,Kansas,Big 12,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,70,70,"{'minutes': 13, 'seconds': 24}","{'minutes': 1, 'seconds': 36}",3,5,PUNT,False,0,0,0,0
+4017568992,401756899,Kansas,Big 12,West Virginia,Big 12,2,True,1,50,50,"{'minutes': 13, 'seconds': 24}",1,100,0,"{'minutes': 11, 'seconds': 57}","{'minutes': 1, 'seconds': 27}",4,50,TD,True,0,0,7,0
+4017568993,401756899,West Virginia,Big 12,Kansas,Big 12,3,False,1,75,75,"{'minutes': 11, 'seconds': 57}",1,60,60,"{'minutes': 10, 'seconds': 6}","{'minutes': 1, 'seconds': 51}",5,15,PUNT,False,0,7,0,7
+4017568994,401756899,Kansas,Big 12,West Virginia,Big 12,4,False,1,25,75,"{'minutes': 10, 'seconds': 6}",1,45,55,"{'minutes': 6, 'seconds': 43}","{'minutes': 3, 'seconds': 23}",6,20,PUNT,True,7,0,7,0
+4017568995,401756899,West Virginia,Big 12,Kansas,Big 12,5,False,1,92,92,"{'minutes': 6, 'seconds': 43}",1,94,94,"{'minutes': 5, 'seconds': 19}","{'minutes': 1, 'seconds': 24}",3,-2,PUNT,False,0,7,0,7
+4017568996,401756899,Kansas,Big 12,West Virginia,Big 12,6,False,1,47,53,"{'minutes': 5, 'seconds': 19}",1,44,56,"{'minutes': 4, 'seconds': 21}","{'minutes': 0, 'seconds': 58}",3,-3,PUNT,True,7,0,7,0
+4017568997,401756899,West Virginia,Big 12,Kansas,Big 12,7,False,1,83,83,"{'minutes': 4, 'seconds': 21}",1,77,77,"{'minutes': 3, 'seconds': 19}","{'minutes': 1, 'seconds': 2}",3,6,PUNT,False,0,7,0,7
+4017568998,401756899,Kansas,Big 12,West Virginia,Big 12,8,False,1,34,66,"{'minutes': 3, 'seconds': 19}",1,29,71,"{'minutes': 1, 'seconds': 17}","{'minutes': 2, 'seconds': 2}",3,-5,PUNT,True,7,0,7,0
+4017568999,401756899,West Virginia,Big 12,Kansas,Big 12,9,False,1,80,80,"{'minutes': 1, 'seconds': 17}",1,78,78,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 17}",3,2,PUNT,False,0,7,0,7
+40175689910,401756899,Kansas,Big 12,West Virginia,Big 12,10,True,2,39,61,"{'minutes': 15, 'seconds': 0}",2,77,23,"{'minutes': 10, 'seconds': 25}","{'minutes': 4, 'seconds': 35}",10,38,FG,True,7,0,10,0
+40175689911,401756899,West Virginia,Big 12,Kansas,Big 12,11,False,2,75,75,"{'minutes': 10, 'seconds': 25}",2,47,47,"{'minutes': 8, 'seconds': 38}","{'minutes': 1, 'seconds': 47}",6,28,PUNT,False,0,10,0,10
+40175689912,401756899,Kansas,Big 12,West Virginia,Big 12,12,False,2,8,92,"{'minutes': 8, 'seconds': 38}",2,10,90,"{'minutes': 7, 'seconds': 3}","{'minutes': 1, 'seconds': 35}",3,2,PUNT,True,10,0,10,0
+40175689913,401756899,West Virginia,Big 12,Kansas,Big 12,13,True,2,57,57,"{'minutes': 7, 'seconds': 3}",2,8,8,"{'minutes': 3, 'seconds': 43}","{'minutes': 3, 'seconds': 20}",9,49,FG,False,0,10,3,10
+40175689914,401756899,Kansas,Big 12,West Virginia,Big 12,14,True,2,44,56,"{'minutes': 3, 'seconds': 35}",2,100,0,"{'minutes': 2, 'seconds': 11}","{'minutes': 1, 'seconds': 24}",3,56,TD,True,10,3,17,3
+40175689915,401756899,West Virginia,Big 12,Kansas,Big 12,15,False,2,75,75,"{'minutes': 2, 'seconds': 11}",2,37,37,"{'minutes': 0, 'seconds': 40}","{'minutes': 1, 'seconds': 31}",9,38,DOWNS,False,3,17,3,17
+40175689916,401756899,Kansas,Big 12,West Virginia,Big 12,16,True,2,37,63,"{'minutes': 0, 'seconds': 40}",2,75,25,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 40}",7,38,FG,True,17,3,27,3
+40175689917,401756899,West Virginia,Big 12,Kansas,Big 12,17,False,3,75,75,"{'minutes': 14, 'seconds': 48}",3,83,83,"{'minutes': 13, 'seconds': 43}","{'minutes': 1, 'seconds': 5}",3,-8,PUNT,False,3,27,3,27
+40175689918,401756899,Kansas,Big 12,West Virginia,Big 12,18,True,3,31,69,"{'minutes': 13, 'seconds': 43}",3,100,0,"{'minutes': 6, 'seconds': 43}","{'minutes': 7, 'seconds': 0}",12,69,TD,True,27,3,34,3
+40175689919,401756899,West Virginia,Big 12,Kansas,Big 12,19,False,3,75,75,"{'minutes': 6, 'seconds': 43}",3,63,63,"{'minutes': 5, 'seconds': 43}","{'minutes': 1, 'seconds': 0}",4,12,INT,False,3,34,3,34
+40175689920,401756899,Kansas,Big 12,West Virginia,Big 12,20,False,3,86,14,"{'minutes': 5, 'seconds': 43}",3,95,5,"{'minutes': 3, 'seconds': 39}","{'minutes': 2, 'seconds': 4}",4,9,DOWNS,True,34,3,34,3
+40175689921,401756899,West Virginia,Big 12,Kansas,Big 12,21,True,3,95,95,"{'minutes': 3, 'seconds': 39}",4,0,0,"{'minutes': 14, 'seconds': 31}","{'minutes': 4, 'seconds': 8}",11,95,TD,False,3,34,10,34
+40175689922,401756899,Kansas,Big 12,West Virginia,Big 12,22,True,4,25,75,"{'minutes': 14, 'seconds': 31}",4,100,0,"{'minutes': 12, 'seconds': 52}","{'minutes': 1, 'seconds': 39}",4,75,TD,True,34,10,41,10
+40175689923,401756899,West Virginia,Big 12,Kansas,Big 12,23,False,4,75,75,"{'minutes': 12, 'seconds': 52}",4,62,62,"{'minutes': 11, 'seconds': 10}","{'minutes': 1, 'seconds': 42}",5,13,PUNT,False,10,41,10,41
+40175689924,401756899,Kansas,Big 12,West Virginia,Big 12,24,False,4,17,83,"{'minutes': 11, 'seconds': 10}",4,38,62,"{'minutes': 8, 'seconds': 5}","{'minutes': 3, 'seconds': 5}",5,21,PUNT,True,41,10,41,10
+40175689925,401756899,West Virginia,Big 12,Kansas,Big 12,25,False,4,74,74,"{'minutes': 8, 'seconds': 5}",4,22,22,"{'minutes': 5, 'seconds': 32}","{'minutes': 2, 'seconds': 33}",5,52,FUMBLE,False,10,41,10,41
+40175689926,401756899,Kansas,Big 12,West Virginia,Big 12,26,False,4,22,78,"{'minutes': 5, 'seconds': 32}",4,40,60,"{'minutes': 1, 'seconds': 54}","{'minutes': 3, 'seconds': 38}",5,18,PUNT,True,41,10,41,10
+40175689927,401756899,West Virginia,Big 12,Kansas,Big 12,27,False,4,87,87,"{'minutes': 1, 'seconds': 54}",4,68,68,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 54}",4,19,END OF GAME,False,10,41,10,41
+4017569051,401756905,Cincinnati,Big 12,Kansas,Big 12,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,60,60,"{'minutes': 11, 'seconds': 53}","{'minutes': 3, 'seconds': 7}",6,15,PUNT,False,0,0,0,0
+4017569052,401756905,Kansas,Big 12,Cincinnati,Big 12,2,True,1,7,93,"{'minutes': 11, 'seconds': 53}",1,100,0,"{'minutes': 11, 'seconds': 42}","{'minutes': 0, 'seconds': 11}",1,93,TD,True,7,0,7,0
+4017569053,401756905,Cincinnati,Big 12,Kansas,Big 12,3,True,1,75,75,"{'minutes': 11, 'seconds': 42}",1,0,0,"{'minutes': 6, 'seconds': 10}","{'minutes': 5, 'seconds': 32}",13,75,TD,False,0,7,7,7
+4017569054,401756905,Kansas,Big 12,Cincinnati,Big 12,4,False,1,25,75,"{'minutes': 6, 'seconds': 10}",1,31,69,"{'minutes': 4, 'seconds': 48}","{'minutes': 1, 'seconds': 22}",3,6,PUNT,True,7,7,7,7
+4017569055,401756905,Cincinnati,Big 12,Kansas,Big 12,5,True,1,72,72,"{'minutes': 4, 'seconds': 48}",2,11,11,"{'minutes': 14, 'seconds': 23}","{'minutes': 5, 'seconds': 25}",11,61,FG,False,7,7,10,7
+4017569056,401756905,Kansas,Big 12,Cincinnati,Big 12,6,True,2,25,75,"{'minutes': 14, 'seconds': 23}",2,92,8,"{'minutes': 10, 'seconds': 0}","{'minutes': 4, 'seconds': 23}",9,67,FG,True,7,10,10,10
+4017569057,401756905,Cincinnati,Big 12,Kansas,Big 12,7,True,2,75,75,"{'minutes': 10, 'seconds': 0}",2,0,0,"{'minutes': 7, 'seconds': 9}","{'minutes': 2, 'seconds': 51}",7,75,TD,False,10,10,17,10
+4017569058,401756905,Kansas,Big 12,Cincinnati,Big 12,8,True,2,25,75,"{'minutes': 7, 'seconds': 9}",2,83,17,"{'minutes': 3, 'seconds': 15}","{'minutes': 3, 'seconds': 54}",8,58,FG,True,10,17,13,17
+4017569059,401756905,Cincinnati,Big 12,Kansas,Big 12,9,False,2,75,75,"{'minutes': 3, 'seconds': 15}",2,67,67,"{'minutes': 1, 'seconds': 47}","{'minutes': 1, 'seconds': 28}",3,8,PUNT,False,17,13,17,13
+40175690510,401756905,Kansas,Big 12,Cincinnati,Big 12,10,False,2,16,84,"{'minutes': 1, 'seconds': 47}",2,43,57,"{'minutes': 0, 'seconds': 47}","{'minutes': 1, 'seconds': 0}",3,27,PUNT,True,13,17,13,17
+40175690511,401756905,Cincinnati,Big 12,Kansas,Big 12,11,True,2,94,94,"{'minutes': 0, 'seconds': 47}",2,25,25,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 47}",7,69,FG,False,17,13,20,13
+40175690512,401756905,Kansas,Big 12,Cincinnati,Big 12,12,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 11, 'seconds': 38}","{'minutes': 3, 'seconds': 22}",8,75,TD,True,13,20,20,20
+40175690513,401756905,Cincinnati,Big 12,Kansas,Big 12,13,True,3,82,82,"{'minutes': 11, 'seconds': 32}",3,0,0,"{'minutes': 8, 'seconds': 54}","{'minutes': 2, 'seconds': 38}",5,82,TD,False,20,20,27,20
+40175690514,401756905,Kansas,Big 12,Cincinnati,Big 12,14,True,3,25,75,"{'minutes': 8, 'seconds': 54}",3,100,0,"{'minutes': 8, 'seconds': 44}","{'minutes': 0, 'seconds': 10}",1,75,TD,True,20,27,27,27
+40175690515,401756905,Cincinnati,Big 12,Kansas,Big 12,15,True,3,75,75,"{'minutes': 8, 'seconds': 44}",3,6,6,"{'minutes': 1, 'seconds': 24}","{'minutes': 7, 'seconds': 20}",14,69,FG,False,27,27,30,27
+40175690516,401756905,Kansas,Big 12,Cincinnati,Big 12,16,False,3,25,75,"{'minutes': 1, 'seconds': 24}",4,99,1,"{'minutes': 12, 'seconds': 8}","{'minutes': 4, 'seconds': 16}",8,74,FUMBLE,True,27,30,27,30
+40175690517,401756905,Cincinnati,Big 12,Kansas,Big 12,17,False,4,99,99,"{'minutes': 12, 'seconds': 8}",4,68,68,"{'minutes': 8, 'seconds': 2}","{'minutes': 4, 'seconds': 6}",8,31,PUNT,False,30,27,30,27
+40175690518,401756905,Kansas,Big 12,Cincinnati,Big 12,18,True,4,15,85,"{'minutes': 8, 'seconds': 2}",4,100,0,"{'minutes': 1, 'seconds': 45}","{'minutes': 6, 'seconds': 17}",12,85,TD,True,27,30,34,30
+40175690519,401756905,Cincinnati,Big 12,Kansas,Big 12,19,True,4,75,75,"{'minutes': 1, 'seconds': 45}",4,0,0,"{'minutes': 0, 'seconds': 29}","{'minutes': 1, 'seconds': 16}",10,75,TD,False,30,34,37,34
+40175690520,401756905,Kansas,Big 12,Cincinnati,Big 12,20,False,4,25,75,"{'minutes': 0, 'seconds': 27}",4,55,45,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 27}",4,30,END OF GAME,True,34,37,34,37
+4017569151,401756915,Kansas,Big 12,UCF,Big 12,1,False,1,80,80,"{'minutes': 14, 'seconds': 55}",1,61,61,"{'minutes': 12, 'seconds': 48}","{'minutes': 2, 'seconds': 7}",4,19,PUNT,False,0,0,0,0
+4017569152,401756915,UCF,Big 12,Kansas,Big 12,2,True,1,21,79,"{'minutes': 12, 'seconds': 48}",1,100,0,"{'minutes': 8, 'seconds': 15}","{'minutes': 4, 'seconds': 33}",10,79,TD,True,0,0,7,0
+4017569153,401756915,Kansas,Big 12,UCF,Big 12,3,False,1,75,75,"{'minutes': 8, 'seconds': 15}",1,40,40,"{'minutes': 3, 'seconds': 55}","{'minutes': 4, 'seconds': 20}",7,35,DOWNS,False,0,7,0,7
+4017569154,401756915,UCF,Big 12,Kansas,Big 12,4,True,1,40,60,"{'minutes': 3, 'seconds': 55}",2,100,0,"{'minutes': 14, 'seconds': 55}","{'minutes': 4, 'seconds': 0}",8,60,TD,True,7,0,14,0
+4017569155,401756915,Kansas,Big 12,UCF,Big 12,5,True,2,75,75,"{'minutes': 14, 'seconds': 55}",2,0,0,"{'minutes': 10, 'seconds': 38}","{'minutes': 4, 'seconds': 17}",9,75,TD,False,0,14,7,14
+4017569156,401756915,UCF,Big 12,Kansas,Big 12,6,True,2,25,75,"{'minutes': 10, 'seconds': 38}",2,80,20,"{'minutes': 7, 'seconds': 49}","{'minutes': 2, 'seconds': 49}",7,55,FG,True,14,7,17,7
+4017569157,401756915,Kansas,Big 12,UCF,Big 12,7,True,2,75,75,"{'minutes': 7, 'seconds': 44}",2,0,0,"{'minutes': 1, 'seconds': 55}","{'minutes': 5, 'seconds': 49}",11,75,TD,False,7,17,14,17
+4017569158,401756915,UCF,Big 12,Kansas,Big 12,8,True,2,27,73,"{'minutes': 1, 'seconds': 49}",2,81,19,"{'minutes': 0, 'seconds': 5}","{'minutes': 1, 'seconds': 44}",12,54,FG,True,17,14,20,14
+4017569159,401756915,Kansas,Big 12,UCF,Big 12,9,False,2,75,75,"{'minutes': 0, 'seconds': 5}",2,76,76,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 5}",1,-1,END OF HALF,False,14,20,14,20
+40175691510,401756915,UCF,Big 12,Kansas,Big 12,10,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,30,70,"{'minutes': 12, 'seconds': 53}","{'minutes': 2, 'seconds': 7}",3,5,PUNT,True,20,14,20,14
+40175691511,401756915,Kansas,Big 12,UCF,Big 12,11,True,3,74,74,"{'minutes': 12, 'seconds': 53}",3,15,15,"{'minutes': 7, 'seconds': 7}","{'minutes': 5, 'seconds': 46}",10,59,FG,False,14,20,17,20
+40175691512,401756915,UCF,Big 12,Kansas,Big 12,12,False,3,25,75,"{'minutes': 7, 'seconds': 7}",3,26,74,"{'minutes': 6, 'seconds': 25}","{'minutes': 0, 'seconds': 42}",3,1,PUNT,True,20,17,20,17
+40175691513,401756915,Kansas,Big 12,UCF,Big 12,13,True,3,69,69,"{'minutes': 6, 'seconds': 25}",3,23,23,"{'minutes': 4, 'seconds': 1}","{'minutes': 2, 'seconds': 24}",6,46,FG,False,17,20,20,20
+40175691514,401756915,UCF,Big 12,Kansas,Big 12,14,False,3,15,85,"{'minutes': 3, 'seconds': 55}",3,7,93,"{'minutes': 3, 'seconds': 5}","{'minutes': 0, 'seconds': 50}",3,-8,FUMBLE,True,20,20,20,20
+40175691515,401756915,Kansas,Big 12,UCF,Big 12,15,True,3,2,2,"{'minutes': 3, 'seconds': 5}",3,0,0,"{'minutes': 3, 'seconds': 0}","{'minutes': 0, 'seconds': 5}",1,2,TD,False,27,20,27,20
+40175691516,401756915,UCF,Big 12,Kansas,Big 12,16,False,3,35,65,"{'minutes': 3, 'seconds': 0}",3,41,59,"{'minutes': 0, 'seconds': 59}","{'minutes': 2, 'seconds': 1}",3,6,PUNT,True,20,27,20,27
+40175691517,401756915,Kansas,Big 12,UCF,Big 12,17,False,3,89,89,"{'minutes': 0, 'seconds': 59}",4,75,75,"{'minutes': 13, 'seconds': 20}","{'minutes': 2, 'seconds': 39}",4,14,PUNT,False,27,20,27,20
+40175691518,401756915,UCF,Big 12,Kansas,Big 12,18,False,4,30,70,"{'minutes': 13, 'seconds': 20}",4,60,40,"{'minutes': 9, 'seconds': 14}","{'minutes': 4, 'seconds': 6}",7,30,PUNT,True,20,27,20,27
+40175691519,401756915,Kansas,Big 12,UCF,Big 12,19,False,4,99,99,"{'minutes': 9, 'seconds': 14}",4,94,94,"{'minutes': 7, 'seconds': 36}","{'minutes': 1, 'seconds': 38}",3,5,PUNT,False,27,20,27,20
+40175691520,401756915,UCF,Big 12,Kansas,Big 12,20,False,4,46,54,"{'minutes': 7, 'seconds': 36}",4,99,1,"{'minutes': 1, 'seconds': 47}","{'minutes': 5, 'seconds': 49}",14,53,DOWNS,True,20,27,20,27
+40175691521,401756915,Kansas,Big 12,UCF,Big 12,21,False,4,99,99,"{'minutes': 1, 'seconds': 47}",4,91,91,"{'minutes': 1, 'seconds': 28}","{'minutes': 0, 'seconds': 19}",3,8,PUNT,False,27,20,27,20
+40175691522,401756915,UCF,Big 12,Kansas,Big 12,22,False,4,47,53,"{'minutes': 1, 'seconds': 28}",4,78,22,"{'minutes': 0, 'seconds': 22}","{'minutes': 1, 'seconds': 6}",8,31,DOWNS,True,20,27,20,27
+40175691523,401756915,Kansas,Big 12,UCF,Big 12,23,False,4,78,78,"{'minutes': 0, 'seconds': 22}",4,79,79,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 22}",1,-1,END OF GAME,False,27,20,27,20
+4017569211,401756921,Kansas,Big 12,Texas Tech,Big 12,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,70,70,"{'minutes': 10, 'seconds': 49}","{'minutes': 4, 'seconds': 11}",7,5,PUNT,False,0,0,0,0
+4017569213,401756921,Kansas,Big 12,Texas Tech,Big 12,2,False,1,75,75,"{'minutes': 10, 'seconds': 39}",1,64,64,"{'minutes': 10, 'seconds': 30}","{'minutes': 0, 'seconds': 9}",1,11,FUMBLE,False,0,7,0,7
+4017569212,401756921,Texas Tech,Big 12,Kansas,Big 12,3,True,1,29,71,"{'minutes': 10, 'seconds': 49}",1,100,0,"{'minutes': 10, 'seconds': 38}","{'minutes': 0, 'seconds': 11}",1,71,TD,True,7,0,7,0
+4017569214,401756921,Texas Tech,Big 12,Kansas,Big 12,4,True,1,64,36,"{'minutes': 10, 'seconds': 30}",1,100,0,"{'minutes': 8, 'seconds': 39}","{'minutes': 1, 'seconds': 51}",5,36,TD,True,7,0,15,0
+4017569215,401756921,Kansas,Big 12,Texas Tech,Big 12,5,False,1,75,75,"{'minutes': 8, 'seconds': 39}",1,69,69,"{'minutes': 7, 'seconds': 9}","{'minutes': 1, 'seconds': 30}",3,6,PUNT,False,0,15,0,15
+4017569216,401756921,Texas Tech,Big 12,Kansas,Big 12,6,True,1,24,76,"{'minutes': 7, 'seconds': 9}",1,93,7,"{'minutes': 3, 'seconds': 38}","{'minutes': 3, 'seconds': 31}",11,69,FG,True,15,0,18,0
+4017569217,401756921,Kansas,Big 12,Texas Tech,Big 12,7,False,1,86,86,"{'minutes': 3, 'seconds': 33}",2,66,66,"{'minutes': 14, 'seconds': 30}","{'minutes': 4, 'seconds': 3}",7,20,PUNT,False,0,18,0,18
+4017569218,401756921,Texas Tech,Big 12,Kansas,Big 12,8,True,2,20,80,"{'minutes': 14, 'seconds': 30}",2,78,22,"{'minutes': 11, 'seconds': 3}","{'minutes': 3, 'seconds': 27}",11,58,FG,True,18,0,21,0
+4017569219,401756921,Kansas,Big 12,Texas Tech,Big 12,9,True,2,75,75,"{'minutes': 11, 'seconds': 3}",2,0,0,"{'minutes': 6, 'seconds': 40}","{'minutes': 4, 'seconds': 23}",8,75,TD,False,0,21,7,21
+40175692110,401756921,Texas Tech,Big 12,Kansas,Big 12,10,False,2,25,75,"{'minutes': 6, 'seconds': 40}",2,11,89,"{'minutes': 6, 'seconds': 7}","{'minutes': 0, 'seconds': 33}",3,-14,PUNT,True,21,7,21,7
+40175692111,401756921,Kansas,Big 12,Texas Tech,Big 12,11,False,2,56,56,"{'minutes': 6, 'seconds': 7}",2,52,52,"{'minutes': 4, 'seconds': 35}","{'minutes': 1, 'seconds': 32}",3,4,PUNT,False,7,21,7,21
+40175692112,401756921,Texas Tech,Big 12,Kansas,Big 12,12,False,2,12,88,"{'minutes': 4, 'seconds': 35}",2,20,80,"{'minutes': 2, 'seconds': 21}","{'minutes': 2, 'seconds': 14}",6,8,INT,True,21,7,21,7
+40175692113,401756921,Kansas,Big 12,Texas Tech,Big 12,13,True,2,49,49,"{'minutes': 2, 'seconds': 21}",2,0,0,"{'minutes': 1, 'seconds': 17}","{'minutes': 1, 'seconds': 4}",6,49,TD,False,7,21,14,21
+40175692114,401756921,Texas Tech,Big 12,Kansas,Big 12,14,False,2,25,75,"{'minutes': 1, 'seconds': 17}",2,42,58,"{'minutes': 0, 'seconds': 28}","{'minutes': 0, 'seconds': 49}",6,17,PUNT,True,21,14,21,14
+40175692115,401756921,Kansas,Big 12,Texas Tech,Big 12,15,True,2,66,66,"{'minutes': 0, 'seconds': 28}",2,37,37,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 28}",5,29,FG,False,14,21,17,21
+40175692116,401756921,Texas Tech,Big 12,Kansas,Big 12,16,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,46,54,"{'minutes': 12, 'seconds': 11}","{'minutes': 2, 'seconds': 49}",6,21,PUNT,True,21,17,21,17
+40175692117,401756921,Kansas,Big 12,Texas Tech,Big 12,17,False,3,91,91,"{'minutes': 12, 'seconds': 11}",3,72,72,"{'minutes': 9, 'seconds': 31}","{'minutes': 2, 'seconds': 40}",4,19,PUNT,False,17,21,17,21
+40175692118,401756921,Texas Tech,Big 12,Kansas,Big 12,18,True,3,37,63,"{'minutes': 9, 'seconds': 31}",3,100,0,"{'minutes': 7, 'seconds': 28}","{'minutes': 2, 'seconds': 3}",5,63,TD,True,21,17,28,17
+40175692119,401756921,Kansas,Big 12,Texas Tech,Big 12,19,False,3,75,75,"{'minutes': 7, 'seconds': 28}",3,83,83,"{'minutes': 5, 'seconds': 5}","{'minutes': 2, 'seconds': 23}",3,-8,PUNT,False,17,28,17,28
+40175692120,401756921,Texas Tech,Big 12,Kansas,Big 12,20,False,3,37,63,"{'minutes': 5, 'seconds': 5}",3,41,59,"{'minutes': 4, 'seconds': 30}","{'minutes': 0, 'seconds': 35}",3,4,PUNT,True,28,17,28,17
+40175692121,401756921,Kansas,Big 12,Texas Tech,Big 12,21,False,3,81,81,"{'minutes': 4, 'seconds': 30}",3,40,40,"{'minutes': 1, 'seconds': 12}","{'minutes': 3, 'seconds': 18}",6,41,PUNT,False,17,28,17,28
+40175692122,401756921,Texas Tech,Big 12,Kansas,Big 12,22,True,3,20,80,"{'minutes': 1, 'seconds': 12}",4,100,0,"{'minutes': 14, 'seconds': 12}","{'minutes': 2, 'seconds': 0}",6,80,TD,True,28,17,35,17
+40175692123,401756921,Kansas,Big 12,Texas Tech,Big 12,23,False,4,75,75,"{'minutes': 14, 'seconds': 12}",4,44,44,"{'minutes': 10, 'seconds': 8}","{'minutes': 4, 'seconds': 4}",7,31,PUNT,False,17,35,17,35
+40175692124,401756921,Texas Tech,Big 12,Kansas,Big 12,24,False,4,10,90,"{'minutes': 10, 'seconds': 8}",4,40,60,"{'minutes': 7, 'seconds': 18}","{'minutes': 2, 'seconds': 50}",5,30,PUNT,True,35,17,35,17
+40175692125,401756921,Kansas,Big 12,Texas Tech,Big 12,25,False,4,72,72,"{'minutes': 7, 'seconds': 18}",4,80,80,"{'minutes': 4, 'seconds': 26}","{'minutes': 2, 'seconds': 52}",5,-8,PUNT,False,17,35,17,35
+40175692126,401756921,Texas Tech,Big 12,Kansas,Big 12,26,True,4,70,30,"{'minutes': 4, 'seconds': 26}",4,100,0,"{'minutes': 3, 'seconds': 31}","{'minutes': 0, 'seconds': 55}",2,30,TD,True,35,17,42,17
+40175692127,401756921,Kansas,Big 12,Texas Tech,Big 12,27,False,4,75,75,"{'minutes': 3, 'seconds': 31}",4,30,30,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 31}",13,45,DOWNS,False,17,42,17,42
+4017569322,401756932,Kansas,Big 12,Kansas State,Big 12,1,True,1,75,25,"{'minutes': 14, 'seconds': 56}",1,97,3,"{'minutes': 12, 'seconds': 50}","{'minutes': 2, 'seconds': 6}",5,25,TD,True,0,0,7,0
+4017569324,401756932,Kansas State,Big 12,Kansas,Big 12,2,True,1,82,82,"{'minutes': 12, 'seconds': 46}",1,3,3,"{'minutes': 9, 'seconds': 50}","{'minutes': 2, 'seconds': 56}",7,82,TD,False,0,7,7,7
+4017569326,401756932,Kansas,Big 12,Kansas State,Big 12,3,True,1,25,75,"{'minutes': 9, 'seconds': 50}",1,22,78,"{'minutes': 9, 'seconds': 16}","{'minutes': 0, 'seconds': 34}",4,-25,FUMBLE RETURN TD,True,7,7,7,14
+4017569328,401756932,Kansas,Big 12,Kansas State,Big 12,4,False,1,21,79,"{'minutes': 9, 'seconds': 11}",1,66,34,"{'minutes': 4, 'seconds': 30}","{'minutes': 4, 'seconds': 47}",10,37,FUMBLE,True,7,14,7,14
+4017569329,401756932,Kansas State,Big 12,Kansas,Big 12,5,False,1,58,58,"{'minutes': 4, 'seconds': 17}",1,54,54,"{'minutes': 3, 'seconds': 25}","{'minutes': 0, 'seconds': 59}",3,4,PUNT,False,14,7,14,7
+40175693210,401756932,Kansas,Big 12,Kansas State,Big 12,6,False,1,20,80,"{'minutes': 3, 'seconds': 15}",1,19,81,"{'minutes': 2, 'seconds': 27}","{'minutes': 0, 'seconds': 58}",3,-1,PUNT,True,7,14,7,14
+40175693211,401756932,Kansas State,Big 12,Kansas,Big 12,7,True,1,72,72,"{'minutes': 2, 'seconds': 20}",1,3,3,"{'minutes': 0, 'seconds': 12}","{'minutes': 2, 'seconds': 15}",5,72,TD,False,14,7,21,7
+40175693213,401756932,Kansas,Big 12,Kansas State,Big 12,8,False,1,16,84,"{'minutes': 0, 'seconds': 6}",2,15,85,"{'minutes': 12, 'seconds': 19}","{'minutes': 2, 'seconds': 47}",5,-1,PUNT,True,7,21,7,21
+40175693214,401756932,Kansas State,Big 12,Kansas,Big 12,9,False,2,64,64,"{'minutes': 12, 'seconds': 14}",2,44,44,"{'minutes': 9, 'seconds': 4}","{'minutes': 3, 'seconds': 15}",8,20,PUNT,False,21,7,21,7
+40175693215,401756932,Kansas,Big 12,Kansas State,Big 12,10,True,2,15,85,"{'minutes': 8, 'seconds': 59}",2,97,3,"{'minutes': 0, 'seconds': 30}","{'minutes': 8, 'seconds': 34}",18,85,TD,True,7,21,14,21
+40175693217,401756932,Kansas State,Big 12,Kansas,Big 12,11,False,2,77,77,"{'minutes': 0, 'seconds': 24}",2,74,74,"{'minutes': 0, 'seconds': 23}","{'minutes': 0, 'seconds': 24}",1,3,END OF HALF,False,21,14,21,14
+40175693219,401756932,Kansas,Big 12,Kansas State,Big 12,12,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,31,69,"{'minutes': 13, 'seconds': 29}","{'minutes': 1, 'seconds': 31}",3,6,PUNT,True,14,21,14,21
+40175693220,401756932,Kansas State,Big 12,Kansas,Big 12,13,False,3,60,60,"{'minutes': 13, 'seconds': 22}",3,61,61,"{'minutes': 12, 'seconds': 3}","{'minutes': 1, 'seconds': 26}",3,-1,PUNT,False,21,14,21,14
+40175693221,401756932,Kansas,Big 12,Kansas State,Big 12,14,False,3,36,64,"{'minutes': 11, 'seconds': 57}",3,42,58,"{'minutes': 11, 'seconds': 10}","{'minutes': 0, 'seconds': 53}",3,4,INT,True,14,21,14,21
+40175693222,401756932,Kansas State,Big 12,Kansas,Big 12,15,True,3,42,42,"{'minutes': 11, 'seconds': 5}",3,3,3,"{'minutes': 7, 'seconds': 23}","{'minutes': 3, 'seconds': 47}",7,42,TD,False,21,14,28,14
+40175693224,401756932,Kansas,Big 12,Kansas State,Big 12,16,True,3,25,75,"{'minutes': 7, 'seconds': 23}",3,70,30,"{'minutes': 1, 'seconds': 21}","{'minutes': 6, 'seconds': 2}",12,45,FG,True,14,28,17,28
+40175693226,401756932,Kansas State,Big 12,Kansas,Big 12,17,True,3,78,78,"{'minutes': 1, 'seconds': 16}",3,43,43,"{'minutes': 1, 'seconds': 3}","{'minutes': 0, 'seconds': 13}",1,78,TD,False,28,17,35,17
+40175693228,401756932,Kansas,Big 12,Kansas State,Big 12,18,False,3,25,75,"{'minutes': 1, 'seconds': 2}",4,50,50,"{'minutes': 14, 'seconds': 15}","{'minutes': 1, 'seconds': 51}",8,25,DOWNS,True,17,35,17,35
+40175693229,401756932,Kansas State,Big 12,Kansas,Big 12,19,False,4,50,50,"{'minutes': 14, 'seconds': 4}",4,54,54,"{'minutes': 12, 'seconds': 0}","{'minutes': 2, 'seconds': 11}",3,-4,PUNT,False,35,17,35,17
+40175693230,401756932,Kansas,Big 12,Kansas State,Big 12,20,False,4,26,74,"{'minutes': 11, 'seconds': 49}",4,30,70,"{'minutes': 10, 'seconds': 33}","{'minutes': 1, 'seconds': 27}",4,4,DOWNS,True,17,35,17,35
+40175693231,401756932,Kansas State,Big 12,Kansas,Big 12,21,True,4,30,30,"{'minutes': 10, 'seconds': 28}",4,3,3,"{'minutes': 4, 'seconds': 17}","{'minutes': 6, 'seconds': 16}",10,30,TD,False,35,17,42,17
+40175693233,401756932,Kansas,Big 12,Kansas State,Big 12,22,False,4,35,65,"{'minutes': 4, 'seconds': 11}",4,60,40,"{'minutes': 3, 'seconds': 19}","{'minutes': 0, 'seconds': 52}",3,8,INT,True,17,42,17,42
+40175693234,401756932,Kansas State,Big 12,Kansas,Big 12,23,False,4,55,55,"{'minutes': 3, 'seconds': 12}",4,9,9,"{'minutes': 0, 'seconds': 34}","{'minutes': 3, 'seconds': 19}",5,46,END OF GAME,False,42,17,42,17
+4017569402,401756940,Oklahoma State,Big 12,Kansas,Big 12,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,3,3,"{'minutes': 10, 'seconds': 40}","{'minutes': 4, 'seconds': 20}",10,75,TD,False,0,0,7,0
+4017569404,401756940,Kansas,Big 12,Oklahoma State,Big 12,2,True,1,20,80,"{'minutes': 10, 'seconds': 40}",1,79,21,"{'minutes': 3, 'seconds': 56}","{'minutes': 6, 'seconds': 40}",13,59,FG,True,0,7,3,7
+4017569406,401756940,Oklahoma State,Big 12,Kansas,Big 12,3,False,1,75,75,"{'minutes': 3, 'seconds': 56}",2,27,27,"{'minutes': 10, 'seconds': 18}","{'minutes': 8, 'seconds': 38}",14,48,MISSED FG,False,7,3,7,3
+4017569407,401756940,Kansas,Big 12,Oklahoma State,Big 12,4,True,2,27,73,"{'minutes': 10, 'seconds': 9}",2,97,3,"{'minutes': 3, 'seconds': 23}","{'minutes': 6, 'seconds': 55}",15,73,TD,True,3,7,10,7
+4017569409,401756940,Oklahoma State,Big 12,Kansas,Big 12,5,False,2,70,70,"{'minutes': 3, 'seconds': 16}",2,2,2,"{'minutes': 0, 'seconds': 2}","{'minutes': 3, 'seconds': 16}",12,68,MISSED FG,False,7,10,7,10
+40175694011,401756940,Kansas,Big 12,Oklahoma State,Big 12,6,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,97,3,"{'minutes': 10, 'seconds': 19}","{'minutes': 4, 'seconds': 41}",10,75,TD,True,10,7,17,7
+40175694013,401756940,Oklahoma State,Big 12,Kansas,Big 12,7,False,3,87,87,"{'minutes': 10, 'seconds': 13}",3,91,91,"{'minutes': 8, 'seconds': 17}","{'minutes': 1, 'seconds': 56}",3,-4,PUNT,False,7,17,7,17
+40175694014,401756940,Kansas,Big 12,Oklahoma State,Big 12,8,True,3,46,54,"{'minutes': 8, 'seconds': 6}",3,97,3,"{'minutes': 6, 'seconds': 55}","{'minutes': 1, 'seconds': 22}",3,54,TD,True,17,7,24,7
+40175694016,401756940,Oklahoma State,Big 12,Kansas,Big 12,9,True,3,75,75,"{'minutes': 6, 'seconds': 55}",3,3,3,"{'minutes': 1, 'seconds': 55}","{'minutes': 5, 'seconds': 0}",10,75,TD,False,7,24,14,24
+40175694018,401756940,Kansas,Big 12,Oklahoma State,Big 12,10,True,3,56,44,"{'minutes': 1, 'seconds': 46}",4,97,3,"{'minutes': 13, 'seconds': 49}","{'minutes': 2, 'seconds': 57}",6,44,TD,True,24,14,31,14
+40175694020,401756940,Oklahoma State,Big 12,Kansas,Big 12,11,False,4,65,65,"{'minutes': 13, 'seconds': 49}",4,61,61,"{'minutes': 12, 'seconds': 35}","{'minutes': 1, 'seconds': 14}",4,4,DOWNS,False,14,31,14,31
+40175694021,401756940,Kansas,Big 12,Oklahoma State,Big 12,12,True,4,61,39,"{'minutes': 12, 'seconds': 23}",4,97,3,"{'minutes': 6, 'seconds': 4}","{'minutes': 6, 'seconds': 31}",10,39,TD,True,31,14,38,14
+40175694023,401756940,Oklahoma State,Big 12,Kansas,Big 12,13,True,4,75,75,"{'minutes': 6, 'seconds': 4}",4,3,3,"{'minutes': 1, 'seconds': 19}","{'minutes': 4, 'seconds': 45}",11,75,TD,False,14,38,21,38
+40175694025,401756940,Kansas,Big 12,Oklahoma State,Big 12,14,False,4,27,73,"{'minutes': 1, 'seconds': 16}",4,25,75,"{'minutes': 0, 'seconds': 36}","{'minutes': 1, 'seconds': 16}",2,-2,END OF GAME,True,38,21,38,21
+4017569432,401756943,Arizona,Big 12,Kansas,Big 12,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,34,66,"{'minutes': 13, 'seconds': 48}","{'minutes': 1, 'seconds': 12}",3,9,PUNT,True,0,0,0,0
+4017569433,401756943,Kansas,Big 12,Arizona,Big 12,2,False,1,79,79,"{'minutes': 13, 'seconds': 48}",1,63,63,"{'minutes': 10, 'seconds': 31}","{'minutes': 3, 'seconds': 17}",6,16,PUNT,False,0,0,0,0
+4017569434,401756943,Arizona,Big 12,Kansas,Big 12,3,True,1,22,78,"{'minutes': 10, 'seconds': 31}",1,97,3,"{'minutes': 7, 'seconds': 16}","{'minutes': 3, 'seconds': 15}",8,78,TD,True,0,0,7,0
+4017569436,401756943,Kansas,Big 12,Arizona,Big 12,4,False,1,75,75,"{'minutes': 7, 'seconds': 16}",1,54,54,"{'minutes': 4, 'seconds': 14}","{'minutes': 3, 'seconds': 2}",4,21,PUNT,False,0,7,0,7
+4017569437,401756943,Arizona,Big 12,Kansas,Big 12,5,False,1,15,85,"{'minutes': 4, 'seconds': 14}",1,10,90,"{'minutes': 2, 'seconds': 37}","{'minutes': 1, 'seconds': 37}",3,-8,PUNT,True,7,0,7,0
+4017569438,401756943,Kansas,Big 12,Arizona,Big 12,6,True,1,46,46,"{'minutes': 2, 'seconds': 37}",1,0,0,"{'minutes': 0, 'seconds': 32}","{'minutes': 2, 'seconds': 5}",5,46,TD,False,0,7,7,7
+40175694310,401756943,Arizona,Big 12,Kansas,Big 12,7,False,1,25,75,"{'minutes': 0, 'seconds': 32}",2,30,70,"{'minutes': 14, 'seconds': 18}","{'minutes': 0, 'seconds': 54}",3,5,PUNT,True,7,7,7,7
+40175694311,401756943,Kansas,Big 12,Arizona,Big 12,8,True,2,78,78,"{'minutes': 14, 'seconds': 18}",2,0,0,"{'minutes': 11, 'seconds': 17}","{'minutes': 3, 'seconds': 1}",6,78,TD,False,7,7,14,7
+40175694313,401756943,Arizona,Big 12,Kansas,Big 12,9,False,2,25,75,"{'minutes': 11, 'seconds': 17}",2,27,73,"{'minutes': 8, 'seconds': 18}","{'minutes': 2, 'seconds': 59}",5,2,PUNT,True,7,14,7,14
+40175694314,401756943,Kansas,Big 12,Arizona,Big 12,10,True,2,57,57,"{'minutes': 8, 'seconds': 18}",2,28,28,"{'minutes': 4, 'seconds': 15}","{'minutes': 4, 'seconds': 3}",8,29,FG,False,14,7,17,7
+40175694316,401756943,Arizona,Big 12,Kansas,Big 12,11,True,2,25,75,"{'minutes': 4, 'seconds': 15}",2,97,3,"{'minutes': 0, 'seconds': 23}","{'minutes': 3, 'seconds': 52}",11,75,TD,True,7,17,14,17
+40175694318,401756943,Kansas,Big 12,Arizona,Big 12,12,False,2,75,75,"{'minutes': 0, 'seconds': 23}",2,69,69,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 23}",1,6,END OF HALF,False,17,14,17,14
+40175694320,401756943,Kansas,Big 12,Arizona,Big 12,13,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,68,68,"{'minutes': 13, 'seconds': 27}","{'minutes': 1, 'seconds': 33}",3,7,PUNT,False,17,14,17,14
+40175694321,401756943,Arizona,Big 12,Kansas,Big 12,14,True,3,15,85,"{'minutes': 13, 'seconds': 27}",3,77,23,"{'minutes': 11, 'seconds': 23}","{'minutes': 2, 'seconds': 4}",6,62,FG,True,14,17,17,17
+40175694323,401756943,Kansas,Big 12,Arizona,Big 12,15,True,3,75,75,"{'minutes': 11, 'seconds': 23}",3,32,32,"{'minutes': 5, 'seconds': 51}","{'minutes': 5, 'seconds': 32}",10,43,FG,False,17,17,20,17
+40175694325,401756943,Arizona,Big 12,Kansas,Big 12,16,False,3,25,75,"{'minutes': 5, 'seconds': 51}",3,14,86,"{'minutes': 4, 'seconds': 1}","{'minutes': 1, 'seconds': 50}",3,-3,PUNT,True,17,20,17,20
+40175694326,401756943,Kansas,Big 12,Arizona,Big 12,17,False,3,66,66,"{'minutes': 4, 'seconds': 1}",4,45,45,"{'minutes': 14, 'seconds': 51}","{'minutes': 4, 'seconds': 10}",7,21,PUNT,False,20,17,20,17
+40175694327,401756943,Arizona,Big 12,Kansas,Big 12,18,False,4,20,80,"{'minutes': 14, 'seconds': 51}",4,37,63,"{'minutes': 12, 'seconds': 9}","{'minutes': 2, 'seconds': 42}",6,17,PUNT,True,17,20,17,20
+40175694328,401756943,Kansas,Big 12,Arizona,Big 12,19,False,4,77,77,"{'minutes': 12, 'seconds': 9}",4,74,74,"{'minutes': 11, 'seconds': 9}","{'minutes': 1, 'seconds': 0}",3,3,PUNT,False,20,17,20,17
+40175694329,401756943,Arizona,Big 12,Kansas,Big 12,20,False,4,24,76,"{'minutes': 11, 'seconds': 9}",4,43,57,"{'minutes': 9, 'seconds': 24}","{'minutes': 1, 'seconds': 45}",5,19,PUNT,True,17,20,17,20
+40175694330,401756943,Kansas,Big 12,Arizona,Big 12,21,False,4,78,78,"{'minutes': 9, 'seconds': 24}",4,18,18,"{'minutes': 2, 'seconds': 39}","{'minutes': 6, 'seconds': 45}",12,67,MISSED FG,False,20,17,20,17
+40175694331,401756943,Arizona,Big 12,Kansas,Big 12,22,True,4,20,80,"{'minutes': 2, 'seconds': 39}",4,100,0,"{'minutes': 0, 'seconds': 39}","{'minutes': 2, 'seconds': 0}",8,80,TD,True,17,20,24,20
+40175694333,401756943,Kansas,Big 12,Arizona,Big 12,23,False,4,75,75,"{'minutes': 0, 'seconds': 39}",4,53,53,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 39}",8,22,END OF GAME,False,20,24,20,24
+4017569582,401756958,Iowa State,Big 12,Kansas,Big 12,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 8, 'seconds': 23}","{'minutes': 6, 'seconds': 37}",12,75,TD,True,0,0,7,0
+4017569584,401756958,Kansas,Big 12,Iowa State,Big 12,2,False,1,75,75,"{'minutes': 8, 'seconds': 16}",1,55,55,"{'minutes': 5, 'seconds': 20}","{'minutes': 2, 'seconds': 56}",6,20,PUNT,False,0,7,0,7
+4017569585,401756958,Iowa State,Big 12,Kansas,Big 12,3,True,1,28,72,"{'minutes': 5, 'seconds': 13}",2,97,3,"{'minutes': 14, 'seconds': 56}","{'minutes': 5, 'seconds': 24}",10,72,TD,True,7,0,14,0
+4017569587,401756958,Kansas,Big 12,Iowa State,Big 12,4,False,2,75,75,"{'minutes': 14, 'seconds': 56}",2,23,23,"{'minutes': 10, 'seconds': 32}","{'minutes': 4, 'seconds': 24}",10,52,MISSED FG,False,0,14,0,14
+4017569588,401756958,Iowa State,Big 12,Kansas,Big 12,5,True,2,23,77,"{'minutes': 10, 'seconds': 25}",2,63,37,"{'minutes': 6, 'seconds': 43}","{'minutes': 3, 'seconds': 49}",7,40,FG,True,14,0,17,0
+40175695810,401756958,Kansas,Big 12,Iowa State,Big 12,6,False,2,79,79,"{'minutes': 6, 'seconds': 37}",2,64,64,"{'minutes': 3, 'seconds': 30}","{'minutes': 3, 'seconds': 7}",6,15,PUNT,False,0,17,0,17
+40175695811,401756958,Iowa State,Big 12,Kansas,Big 12,7,False,2,21,79,"{'minutes': 3, 'seconds': 21}",2,56,44,"{'minutes': 0, 'seconds': 23}","{'minutes': 3, 'seconds': 7}",9,35,PUNT,True,17,0,17,0
+40175695814,401756958,Kansas,Big 12,Iowa State,Big 12,8,True,3,65,65,"{'minutes': 15, 'seconds': 0}",3,3,3,"{'minutes': 13, 'seconds': 6}","{'minutes': 1, 'seconds': 54}",4,65,TD,False,0,17,7,17
+40175695816,401756958,Iowa State,Big 12,Kansas,Big 12,9,True,3,25,75,"{'minutes': 13, 'seconds': 6}",3,97,3,"{'minutes': 8, 'seconds': 52}","{'minutes': 4, 'seconds': 14}",8,75,TD,True,17,7,24,7
+40175695818,401756958,Kansas,Big 12,Iowa State,Big 12,10,True,3,62,62,"{'minutes': 8, 'seconds': 43}",3,3,3,"{'minutes': 7, 'seconds': 35}","{'minutes': 1, 'seconds': 8}",4,62,TD,False,7,24,14,24
+40175695820,401756958,Iowa State,Big 12,Kansas,Big 12,11,True,3,41,59,"{'minutes': 7, 'seconds': 26}",3,97,3,"{'minutes': 2, 'seconds': 18}","{'minutes': 5, 'seconds': 8}",10,59,TD,True,24,14,31,14
+40175695822,401756958,Kansas,Big 12,Iowa State,Big 12,12,False,3,75,75,"{'minutes': 2, 'seconds': 18}",4,42,42,"{'minutes': 14, 'seconds': 51}","{'minutes': 2, 'seconds': 27}",5,33,DOWNS,False,14,31,14,31
+40175695823,401756958,Iowa State,Big 12,Kansas,Big 12,13,False,4,42,58,"{'minutes': 14, 'seconds': 42}",4,71,29,"{'minutes': 10, 'seconds': 5}","{'minutes': 4, 'seconds': 46}",9,29,DOWNS,True,31,14,31,14
+40175695824,401756958,Kansas,Big 12,Iowa State,Big 12,14,False,4,69,69,"{'minutes': 9, 'seconds': 55}",4,10,10,"{'minutes': 7, 'seconds': 1}","{'minutes': 3, 'seconds': 4}",9,59,INT,False,14,31,14,31
+40175695825,401756958,Iowa State,Big 12,Kansas,Big 12,15,True,4,16,84,"{'minutes': 6, 'seconds': 51}",4,97,3,"{'minutes': 1, 'seconds': 7}","{'minutes': 5, 'seconds': 54}",9,84,TD,True,31,14,38,14
+40175695827,401756958,Kansas,Big 12,Iowa State,Big 12,16,False,4,60,60,"{'minutes': 1, 'seconds': 3}",4,35,35,"{'minutes': 0, 'seconds': 5}","{'minutes': 1, 'seconds': 3}",6,25,END OF GAME,False,14,38,14,38
+4017569642,401756964,Kansas,Big 12,Utah,Big 12,1,False,1,21,79,"{'minutes': 14, 'seconds': 52}",1,82,18,"{'minutes': 11, 'seconds': 20}","{'minutes': 3, 'seconds': 32}",8,54,INT,True,0,0,0,0
+4017569643,401756964,Utah,Big 12,Kansas,Big 12,2,True,1,65,65,"{'minutes': 11, 'seconds': 20}",1,16,16,"{'minutes': 8, 'seconds': 39}","{'minutes': 2, 'seconds': 41}",6,49,FG,False,0,0,3,0
+4017569645,401756964,Kansas,Big 12,Utah,Big 12,3,False,1,25,75,"{'minutes': 8, 'seconds': 39}",1,82,18,"{'minutes': 2, 'seconds': 16}","{'minutes': 6, 'seconds': 23}",12,57,MISSED FG,True,0,3,0,3
+4017569646,401756964,Utah,Big 12,Kansas,Big 12,4,False,1,80,80,"{'minutes': 2, 'seconds': 16}",1,75,75,"{'minutes': 1, 'seconds': 0}","{'minutes': 1, 'seconds': 16}",3,5,PUNT,False,3,0,3,0
+4017569647,401756964,Kansas,Big 12,Utah,Big 12,5,True,1,27,73,"{'minutes': 1, 'seconds': 0}",2,97,3,"{'minutes': 12, 'seconds': 3}","{'minutes': 3, 'seconds': 57}",8,73,TD,True,0,3,7,3
+4017569649,401756964,Utah,Big 12,Kansas,Big 12,6,True,2,75,75,"{'minutes': 12, 'seconds': 3}",2,3,3,"{'minutes': 9, 'seconds': 24}","{'minutes': 2, 'seconds': 39}",6,75,TD,False,3,7,10,7
+40175696411,401756964,Kansas,Big 12,Utah,Big 12,7,False,2,30,70,"{'minutes': 9, 'seconds': 19}",2,45,55,"{'minutes': 6, 'seconds': 0}","{'minutes': 3, 'seconds': 19}",5,15,PUNT,True,7,10,7,10
+40175696412,401756964,Utah,Big 12,Kansas,Big 12,8,False,2,90,90,"{'minutes': 6, 'seconds': 0}",2,29,29,"{'minutes': 0, 'seconds': 45}","{'minutes': 5, 'seconds': 15}",13,61,DOWNS,False,10,7,10,7
+40175696413,401756964,Kansas,Big 12,Utah,Big 12,9,False,2,29,71,"{'minutes': 0, 'seconds': 45}",2,34,66,"{'minutes': 0, 'seconds': 19}","{'minutes': 0, 'seconds': 26}",3,5,PUNT,True,7,10,7,10
+40175696414,401756964,Utah,Big 12,Kansas,Big 12,10,False,2,79,79,"{'minutes': 0, 'seconds': 19}",2,77,77,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 19}",1,2,END OF HALF,False,10,7,10,7
+40175696416,401756964,Utah,Big 12,Kansas,Big 12,11,False,3,65,65,"{'minutes': 15, 'seconds': 0}",3,33,33,"{'minutes': 12, 'seconds': 9}","{'minutes': 2, 'seconds': 51}",8,32,DOWNS,False,10,7,10,7
+40175696417,401756964,Kansas,Big 12,Utah,Big 12,12,True,3,33,67,"{'minutes': 12, 'seconds': 9}",3,97,3,"{'minutes': 8, 'seconds': 15}","{'minutes': 3, 'seconds': 54}",8,67,TD,True,7,10,14,10
+40175696419,401756964,Utah,Big 12,Kansas,Big 12,13,False,3,63,63,"{'minutes': 8, 'seconds': 12}",3,58,58,"{'minutes': 8, 'seconds': 2}","{'minutes': 0, 'seconds': 10}",1,6,FUMBLE,False,10,14,10,14
+40175696420,401756964,Kansas,Big 12,Utah,Big 12,14,False,3,57,43,"{'minutes': 8, 'seconds': 2}",3,60,40,"{'minutes': 6, 'seconds': 34}","{'minutes': 1, 'seconds': 28}",4,3,DOWNS,True,14,10,14,10
+40175696421,401756964,Utah,Big 12,Kansas,Big 12,15,False,3,60,60,"{'minutes': 6, 'seconds': 34}",3,47,47,"{'minutes': 5, 'seconds': 8}","{'minutes': 1, 'seconds': 26}",4,13,PUNT,False,10,14,10,14
+40175696422,401756964,Kansas,Big 12,Utah,Big 12,16,False,3,10,90,"{'minutes': 5, 'seconds': 8}",4,100,0,"{'minutes': 13, 'seconds': 39}","{'minutes': 6, 'seconds': 29}",11,78,INT,True,14,10,14,10
+40175696423,401756964,Utah,Big 12,Kansas,Big 12,17,True,4,80,80,"{'minutes': 13, 'seconds': 39}",4,2,2,"{'minutes': 12, 'seconds': 26}","{'minutes': 1, 'seconds': 13}",4,80,TD,False,10,14,17,14
+40175696425,401756964,Kansas,Big 12,Utah,Big 12,18,True,4,24,76,"{'minutes': 12, 'seconds': 19}",4,3,97,"{'minutes': 7, 'seconds': 52}","{'minutes': 4, 'seconds': 27}",8,71,INT TD,True,14,17,14,24
+40175696427,401756964,Kansas,Big 12,Utah,Big 12,19,True,4,7,93,"{'minutes': 7, 'seconds': 46}",4,99,1,"{'minutes': 5, 'seconds': 32}","{'minutes': 2, 'seconds': 14}",8,93,TD,True,14,24,21,24
+40175696429,401756964,Utah,Big 12,Kansas,Big 12,20,True,4,85,85,"{'minutes': 5, 'seconds': 28}",4,3,3,"{'minutes': 2, 'seconds': 14}","{'minutes': 3, 'seconds': 14}",8,85,TD,False,24,21,31,21
+40175696431,401756964,Kansas,Big 12,Utah,Big 12,21,False,4,25,75,"{'minutes': 2, 'seconds': 14}",4,16,84,"{'minutes': 1, 'seconds': 52}","{'minutes': 0, 'seconds': 22}",4,-9,DOWNS,True,21,31,21,31
+40175696432,401756964,Utah,Big 12,Kansas,Big 12,22,False,4,16,16,"{'minutes': 1, 'seconds': 52}",4,19,19,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 52}",3,-3,END OF GAME,False,31,21,31,21

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Day Career Timeline</title>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+        }
+        #container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: #1a1f2e;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #bb0000;
+            margin-bottom: 10px;
+            font-size: 32px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .subtitle {
+            text-align: center;
+            color: #cccccc;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    
+    <script>
+        // Store watermark elements
+        let watermarkElements = [];
+        
+        // Function to clear previous watermarks
+        function clearWatermarks() {
+            watermarkElements.forEach(el => {
+                if (el && el.destroy) {
+                    el.destroy();
+                }
+            });
+            watermarkElements = [];
+        }
+        
+        // Chart load and redraw event - draw watermarks and school logos
+        function drawWatermarks() {
+            const chart = this;
+            const chartWidth = chart.chartWidth;
+            const chartHeight = chart.chartHeight;
+            const plotLeft = chart.plotLeft;
+            const plotTop = chart.plotTop;
+            const plotWidth = chart.plotWidth;
+            const plotHeight = chart.plotHeight;
+            
+            // Only draw if chart is wide enough
+            if (chartWidth < 600) return;
+            
+            // Clear previous watermarks
+            clearWatermarks();
+            
+            // Ohio State logo watermark in center of plot area
+            const logoSize = 180;
+            watermarkElements.push(
+                chart.renderer.image(
+                    'https://a.espncdn.com/i/teamlogos/ncaa/500/194.png',
+                    plotLeft + (plotWidth - logoSize) / 2,
+                    plotTop + (plotHeight - logoSize) / 2,
+                    logoSize,
+                    logoSize
+                )
+                .attr({
+                    opacity: 0.08,
+                    zIndex: 0
+                })
+                .add()
+            );
+            
+            // Add Ohio State text watermark
+            watermarkElements.push(
+                chart.renderer.text(
+                    '<b>OHIO STATE BUCKEYES</b><br/>2019-2025<br/>86-11 (.887)',
+                    plotLeft + (plotWidth - logoSize) / 2 + 10,
+                    plotTop + (plotHeight - logoSize) / 2 + logoSize + 20
+                )
+                .css({
+                    color: '#bb0000',
+                    fontSize: '12px',
+                    opacity: 0.5,
+                    textAlign: 'center'
+                })
+                .attr({
+                    zIndex: 0
+                })
+                .add()
+            );
+            
+            // Position for headshot in header (top center)
+            const headshotSize = 100;
+            const headshotX = (chartWidth - headshotSize) / 2;
+            const headshotY = 20;
+            
+            // Draw Ryan Day headshot - clear and prominent
+            watermarkElements.push(
+                chart.renderer.image(
+                    'https://www.elevenwarriors.com/sites/default/files/c/2024/09/164023_h.jpg',
+                    headshotX,
+                    headshotY,
+                    headshotSize,
+                    headshotSize
+                )
+                .attr({
+                    opacity: 0.95,
+                    zIndex: 5
+                })
+                .add()
+            );
+            
+            // Add circular border around headshot
+            watermarkElements.push(
+                chart.renderer.circle(
+                    headshotX + headshotSize/2,
+                    headshotY + headshotSize/2,
+                    headshotSize/2 + 2
+                )
+                .attr({
+                    fill: 'transparent',
+                    stroke: '#bb0000',
+                    'stroke-width': 3,
+                    zIndex: 5
+                })
+                .add()
+            );
+            
+            // Add "Ryan Day" text label below headshot
+            watermarkElements.push(
+                chart.renderer.text('Ryan Day', headshotX + 18, headshotY + headshotSize + 20)
+                    .css({
+                        color: '#bb0000',
+                        fontSize: '16px',
+                        fontWeight: 'bold',
+                        opacity: 0.9
+                    })
+                    .attr({
+                        zIndex: 5
+                    })
+                    .add()
+            );
+            
+            // Add career record below name
+            watermarkElements.push(
+                chart.renderer.text('Ohio State • 86-11 (.887)', headshotX - 10, headshotY + headshotSize + 38)
+                    .css({
+                        color: '#ffffff',
+                        fontSize: '12px',
+                        fontWeight: 'bold',
+                        opacity: 0.8
+                    })
+                    .attr({
+                        zIndex: 5
+                    })
+                    .add()
+            );
+        }
+        
+        // Main load handler
+        function onChartLoad() {
+            drawWatermarks.call(this);
+        }
+        
+        // Load Ryan Day timeline data
+        fetch('../src/data/ryan_day_timeline.json')
+            .then(response => response.json())
+            .then(timelineData => {
+                
+                // Prepare series data
+                const weeklyWinPct = timelineData.weekly.map(w => [w.x, w.win_pct]);
+                const weeklyHomeWinPct = timelineData.weekly.map(w => [w.x, w.home_win_pct]);
+                const weeklyConfWinPct = timelineData.weekly.map(w => [w.x, w.conf_win_pct]);
+                const weeklyAPRank = timelineData.weekly.map(w => [w.x, w.ap_rank_score]);
+                const weeklyMargin = timelineData.weekly.map(w => [w.x, w.avg_margin]);
+                const yearlyEliteScore = timelineData.yearly.map(y => [y.x, y.elite_score]);
+                const yearlyPPG = timelineData.yearly.filter(y => y.ppg).map(y => [y.x, y.ppg]);
+                const yearlyPPGAllowed = timelineData.yearly.filter(y => y.ppg_allowed).map(y => [y.x, y.ppg_allowed]);
+                
+                const options = {
+                    chart: {
+                        backgroundColor: '#1a1f2e',
+                        style: {
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+                        },
+                        scrollablePlotArea: {
+                            minWidth: 1200,
+                            scrollPositionX: 1
+                        },
+                        zoomType: 'x',
+                        panning: true,
+                        panKey: 'shift',
+                        events: {
+                            load: onChartLoad,
+                            redraw: drawWatermarks
+                        }
+                    },
+                    
+                    title: {
+                        text: 'Ryan Day Career Analytics: Elite Score, Win %, Rankings, & Performance Metrics',
+                        style: {
+                            color: '#ffffff',
+                            fontSize: '22px',
+                            fontWeight: '600'
+                        }
+                    },
+                    
+                    subtitle: {
+                        text: 'Ohio State (2019-2025) • 86-11 (.887) • 18-3 Ranked Wins • 20-Game Win Streak',
+                        style: {
+                            color: '#888',
+                            fontSize: '14px'
+                        }
+                    },
+                    
+                    credits: {
+                        enabled: false
+                    },
+                    
+                    xAxis: {
+                        type: 'datetime',
+                        labels: {
+                            style: {
+                                color: '#888'
+                            }
+                        },
+                        gridLineColor: '#2a2f3e',
+                        lineColor: '#2a2f3e',
+                        plotBands: timelineData.plot_bands.map(band => ({
+                            ...band,
+                            color: '#bb000022', // Ohio State red with transparency
+                            label: {
+                                ...band.label,
+                                style: {
+                                    ...band.label.style,
+                                    color: '#bb0000',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        }))
+                    },
+                    
+                    yAxis: [
+                        {
+                            // Primary axis - Win % and Elite Score
+                            title: {
+                                text: 'Percentage / Elite Score',
+                                style: {
+                                    color: '#ffffff'
+                                }
+                            },
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#888'
+                                }
+                            },
+                            gridLineColor: '#2a2f3e',
+                            min: 0,
+                            max: 100
+                        },
+                        {
+                            // Secondary axis - AP Ranking Score
+                            title: {
+                                text: 'AP Ranking Quality',
+                                style: {
+                                    color: '#f59e0b'
+                                }
+                            },
+                            labels: {
+                                style: {
+                                    color: '#f59e0b'
+                                }
+                            },
+                            gridLineColor: '#2a2f3e',
+                            opposite: true,
+                            min: 0,
+                            max: 100
+                        },
+                        {
+                            // Tertiary axis - PPG and Margin
+                            title: {
+                                text: 'Points & Margin',
+                                style: {
+                                    color: '#10b981'
+                                }
+                            },
+                            labels: {
+                                style: {
+                                    color: '#10b981'
+                                }
+                            },
+                            gridLineColor: '#2a2f3e',
+                            opposite: true,
+                            min: 0
+                        }
+                    ],
+                    
+                    tooltip: {
+                        backgroundColor: 'rgba(26, 31, 46, 0.95)',
+                        borderColor: '#bb0000',
+                        style: {
+                            color: '#ffffff'
+                        },
+                        shared: true,
+                        split: false,
+                        xDateFormat: '%b %Y'
+                    },
+                    
+                    legend: {
+                        enabled: true,
+                        itemStyle: {
+                            color: '#ffffff'
+                        },
+                        itemHoverStyle: {
+                            color: '#bb0000'
+                        }
+                    },
+                    
+                    rangeSelector: {
+                        selected: 5, // All
+                        buttonTheme: {
+                            fill: '#2a2f3e',
+                            stroke: '#bb0000',
+                            style: {
+                                color: '#ffffff'
+                            },
+                            states: {
+                                hover: {
+                                    fill: '#bb0000',
+                                    style: {
+                                        color: '#ffffff'
+                                    }
+                                },
+                                select: {
+                                    fill: '#bb0000',
+                                    style: {
+                                        color: '#ffffff'
+                                    }
+                                }
+                            }
+                        },
+                        inputStyle: {
+                            color: '#ffffff',
+                            backgroundColor: '#2a2f3e'
+                        },
+                        labelStyle: {
+                            color: '#888'
+                        }
+                    },
+                    
+                    navigator: {
+                        enabled: true,
+                        series: {
+                            color: '#bb0000',
+                            lineColor: '#bb0000'
+                        },
+                        outlineColor: '#2a2f3e',
+                        maskFill: 'rgba(187, 0, 0, 0.1)'
+                    },
+                    
+                    scrollbar: {
+                        enabled: true,
+                        barBackgroundColor: '#2a2f3e',
+                        barBorderColor: '#2a2f3e',
+                        buttonBackgroundColor: '#2a2f3e',
+                        buttonBorderColor: '#2a2f3e',
+                        rifleColor: '#888',
+                        trackBackgroundColor: '#1a1f2e',
+                        trackBorderColor: '#2a2f3e'
+                    },
+                    
+                    series: [
+                        {
+                            name: 'Elite Score',
+                            data: yearlyEliteScore,
+                            type: 'area',
+                            color: '#bb0000',
+                            fillColor: {
+                                linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+                                stops: [
+                                    [0, 'rgba(187, 0, 0, 0.6)'],
+                                    [1, 'rgba(187, 0, 0, 0.1)']
+                                ]
+                            },
+                            yAxis: 0,
+                            tooltip: {
+                                valueSuffix: ' pts'
+                            },
+                            marker: {
+                                enabled: true,
+                                radius: 4
+                            },
+                            lineWidth: 3
+                        },
+                        {
+                            name: 'Win %',
+                            data: weeklyWinPct,
+                            type: 'line',
+                            color: '#3b82f6',
+                            yAxis: 0,
+                            tooltip: {
+                                valueSuffix: '%',
+                                valueDecimals: 1
+                            },
+                            marker: {
+                                enabled: false
+                            },
+                            lineWidth: 2
+                        },
+                        {
+                            name: 'AP Ranking',
+                            data: weeklyAPRank,
+                            type: 'line',
+                            color: '#f59e0b',
+                            dashStyle: 'Dash',
+                            yAxis: 1,
+                            tooltip: {
+                                valueSuffix: ' pts',
+                                valueDecimals: 1
+                            },
+                            marker: {
+                                enabled: false
+                            },
+                            lineWidth: 2
+                        },
+                        {
+                            name: 'Home Win %',
+                            data: weeklyHomeWinPct,
+                            type: 'line',
+                            color: '#8b5cf6',
+                            yAxis: 0,
+                            tooltip: {
+                                valueSuffix: '%',
+                                valueDecimals: 1
+                            },
+                            marker: {
+                                enabled: false
+                            },
+                            lineWidth: 1.5,
+                            visible: false
+                        },
+                        {
+                            name: 'Conference Win %',
+                            data: weeklyConfWinPct,
+                            type: 'line',
+                            color: '#ec4899',
+                            yAxis: 0,
+                            tooltip: {
+                                valueSuffix: '%',
+                                valueDecimals: 1
+                            },
+                            marker: {
+                                enabled: false
+                            },
+                            lineWidth: 1.5,
+                            visible: false
+                        },
+                        {
+                            name: 'PPG',
+                            data: yearlyPPG,
+                            type: 'line',
+                            color: '#10b981',
+                            yAxis: 2,
+                            tooltip: {
+                                valueSuffix: ' pts',
+                                valueDecimals: 1
+                            },
+                            marker: {
+                                enabled: true,
+                                radius: 3
+                            },
+                            lineWidth: 2,
+                            visible: false
+                        },
+                        {
+                            name: 'Points Allowed',
+                            data: yearlyPPGAllowed,
+                            type: 'line',
+                            color: '#ef4444',
+                            yAxis: 2,
+                            tooltip: {
+                                valueSuffix: ' pts',
+                                valueDecimals: 1
+                            },
+                            marker: {
+                                enabled: true,
+                                radius: 3
+                            },
+                            lineWidth: 2,
+                            visible: false
+                        },
+                        {
+                            name: 'Avg Margin',
+                            data: weeklyMargin,
+                            type: 'line',
+                            color: '#06b6d4',
+                            yAxis: 2,
+                            tooltip: {
+                                valueSuffix: ' pts',
+                                valueDecimals: 1
+                            },
+                            marker: {
+                                enabled: false
+                            },
+                            lineWidth: 1.5,
+                            visible: false
+                        },
+                        {
+                            type: 'flags',
+                            name: 'Milestones',
+                            data: timelineData.flags,
+                            onSeries: 'Elite Score',
+                            shape: 'circlepin',
+                            width: 20,
+                            color: '#fbbf24',
+                            fillColor: '#fbbf24',
+                            style: {
+                                color: '#1a1f2e',
+                                fontWeight: 'bold'
+                            },
+                            states: {
+                                hover: {
+                                    fillColor: '#f59e0b'
+                                }
+                            }
+                        }
+                    ]
+                };
+                
+                Highcharts.stockChart('container', options);
+            })
+            .catch(error => {
+                console.error('Error loading timeline data:', error);
+                document.getElementById('container').innerHTML = '<p style="color: red; text-align: center;">Error loading data: ' + error.message + '</p>';
+            });
+    </script>
+</body>
+</html>

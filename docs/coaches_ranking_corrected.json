@@ -1,0 +1,1195 @@
+{
+  "total_coaches": 119,
+  "ranking": [
+    {
+      "coach_id": 82,
+      "name": "Ryan Day",
+      "school": "Ohio State",
+      "record": "86-11",
+      "win_pct": 88.2,
+      "total_games": 93,
+      "composite_score": 1.28,
+      "rank": 1
+    },
+    {
+      "coach_id": 122,
+      "name": "Kirby Smart",
+      "school": "Georgia",
+      "record": "117-20",
+      "win_pct": 85.4,
+      "total_games": 137,
+      "composite_score": 1.27,
+      "rank": 2
+    },
+    {
+      "coach_id": 172,
+      "name": "Dabo Swinney",
+      "school": "Clemson",
+      "record": "186-53",
+      "win_pct": 79.3,
+      "total_games": 227,
+      "composite_score": 1.22,
+      "rank": 3
+    },
+    {
+      "coach_id": 165,
+      "name": "Dan Lanning",
+      "school": "Oregon",
+      "record": "46-7",
+      "win_pct": 85.4,
+      "total_games": 41,
+      "composite_score": 1.17,
+      "rank": 4
+    },
+    {
+      "coach_id": 97,
+      "name": "Lincoln Riley",
+      "school": "USC",
+      "record": "100-29",
+      "win_pct": 77.5,
+      "total_games": 129,
+      "composite_score": 1.15,
+      "rank": 5
+    },
+    {
+      "coach_id": 179,
+      "name": "Brent Venables",
+      "school": "Oklahoma",
+      "record": "110-33",
+      "win_pct": 76.9,
+      "total_games": 143,
+      "composite_score": 1.15,
+      "rank": 6
+    },
+    {
+      "coach_id": 178,
+      "name": "Curt Cignetti",
+      "school": "Indiana",
+      "record": "42-7",
+      "win_pct": 83.3,
+      "total_games": 36,
+      "composite_score": 1.13,
+      "rank": 7
+    },
+    {
+      "coach_id": 121,
+      "name": "Kalen DeBoer",
+      "school": "Alabama",
+      "record": "66-19",
+      "win_pct": 77.6,
+      "total_games": 85,
+      "composite_score": 1.12,
+      "rank": 8
+    },
+    {
+      "coach_id": 127,
+      "name": "Brian Kelly",
+      "school": "LSU",
+      "record": "207-85",
+      "win_pct": 70.9,
+      "total_games": 292,
+      "composite_score": 1.11,
+      "rank": 9
+    },
+    {
+      "coach_id": 123,
+      "name": "Lane Kiffin",
+      "school": "Ole Miss",
+      "record": "129-53",
+      "win_pct": 70.9,
+      "total_games": 182,
+      "composite_score": 1.08,
+      "rank": 10
+    },
+    {
+      "coach_id": 325,
+      "name": "Spencer Danielson",
+      "school": "Boise State",
+      "record": "22-10",
+      "win_pct": 83.3,
+      "total_games": 18,
+      "composite_score": 1.07,
+      "rank": 11
+    },
+    {
+      "coach_id": 112,
+      "name": "Josh Heupel",
+      "school": "Tennessee",
+      "record": "81-31",
+      "win_pct": 72.3,
+      "total_games": 112,
+      "composite_score": 1.06,
+      "rank": 12
+    },
+    {
+      "coach_id": 176,
+      "name": "Marcus Freeman",
+      "school": "Notre Dame",
+      "record": "44-11",
+      "win_pct": 76.7,
+      "total_games": 43,
+      "composite_score": 1.06,
+      "rank": 13
+    },
+    {
+      "coach_id": 125,
+      "name": "Mike Elko",
+      "school": "Texas A&M",
+      "record": "46-16",
+      "win_pct": 74.2,
+      "total_games": 62,
+      "composite_score": 1.05,
+      "rank": 14
+    },
+    {
+      "coach_id": 174,
+      "name": "Mack Brown",
+      "school": "North Carolina",
+      "record": "286-158",
+      "win_pct": 65.3,
+      "total_games": 432,
+      "composite_score": 1.05,
+      "rank": 15
+    },
+    {
+      "coach_id": 117,
+      "name": "Kyle Whittingham",
+      "school": "Utah",
+      "record": "177-88",
+      "win_pct": 66.8,
+      "total_games": 265,
+      "composite_score": 1.04,
+      "rank": 16
+    },
+    {
+      "coach_id": 86,
+      "name": "James Franklin",
+      "school": "Penn State",
+      "record": "131-63",
+      "win_pct": 67.5,
+      "total_games": 194,
+      "composite_score": 1.03,
+      "rank": 17
+    },
+    {
+      "coach_id": 113,
+      "name": "Rhett Lashlee",
+      "school": "SMU",
+      "record": "37-13",
+      "win_pct": 74.0,
+      "total_games": 50,
+      "composite_score": 1.03,
+      "rank": 18
+    },
+    {
+      "coach_id": 302,
+      "name": "Jamey Chadwell",
+      "school": "Liberty",
+      "record": "69-41",
+      "win_pct": 69.0,
+      "total_games": 87,
+      "composite_score": 1.0,
+      "rank": 19
+    },
+    {
+      "coach_id": 92,
+      "name": "Kirk Ferentz",
+      "school": "Iowa",
+      "record": "212-128",
+      "win_pct": 62.4,
+      "total_games": 340,
+      "composite_score": 0.99,
+      "rank": 20
+    },
+    {
+      "coach_id": 111,
+      "name": "Mike Gundy",
+      "school": "Oklahoma State",
+      "record": "170-99",
+      "win_pct": 63.2,
+      "total_games": 269,
+      "composite_score": 0.99,
+      "rank": 21
+    },
+    {
+      "coach_id": 297,
+      "name": "Jeff Traylor",
+      "school": "UTSA",
+      "record": "52-26",
+      "win_pct": 69.7,
+      "total_games": 66,
+      "composite_score": 0.99,
+      "rank": 22
+    },
+    {
+      "coach_id": 114,
+      "name": "Sonny Dykes",
+      "school": "TCU",
+      "record": "95-53",
+      "win_pct": 64.2,
+      "total_games": 148,
+      "composite_score": 0.96,
+      "rank": 23
+    },
+    {
+      "coach_id": 118,
+      "name": "Kalani Sitake",
+      "school": "BYU",
+      "record": "83-45",
+      "win_pct": 64.8,
+      "total_games": 128,
+      "composite_score": 0.96,
+      "rank": 24
+    },
+    {
+      "coach_id": 132,
+      "name": "Steve Sarkisian",
+      "school": "Texas",
+      "record": "99-56",
+      "win_pct": 63.9,
+      "total_games": 155,
+      "composite_score": 0.96,
+      "rank": 25
+    },
+    {
+      "coach_id": 290,
+      "name": "Ryan Silverfield",
+      "school": "Memphis",
+      "record": "50-24",
+      "win_pct": 67.7,
+      "total_games": 62,
+      "composite_score": 0.96,
+      "rank": 26
+    },
+    {
+      "coach_id": 177,
+      "name": "Eli Drinkwitz",
+      "school": "Missouri",
+      "record": "58-29",
+      "win_pct": 66.7,
+      "total_games": 75,
+      "composite_score": 0.95,
+      "rank": 27
+    },
+    {
+      "coach_id": 283,
+      "name": "Jason Candle",
+      "school": "Toledo",
+      "record": "81-44",
+      "win_pct": 64.6,
+      "total_games": 113,
+      "composite_score": 0.95,
+      "rank": 28
+    },
+    {
+      "coach_id": 333,
+      "name": "Dan Mullen",
+      "school": "UNLV",
+      "record": "114-63",
+      "win_pct": 62.8,
+      "total_games": 164,
+      "composite_score": 0.95,
+      "rank": 29
+    },
+    {
+      "coach_id": 334,
+      "name": "Bronco Mendenhall",
+      "school": "Utah State",
+      "record": "146-94",
+      "win_pct": 61.4,
+      "total_games": 228,
+      "composite_score": 0.95,
+      "rank": 30
+    },
+    {
+      "coach_id": 88,
+      "name": "Bret Bielema",
+      "school": "Illinois",
+      "record": "104-63",
+      "win_pct": 62.3,
+      "total_games": 167,
+      "composite_score": 0.94,
+      "rank": 31
+    },
+    {
+      "coach_id": 180,
+      "name": "Mario Cristobal",
+      "school": "Miami",
+      "record": "87-51",
+      "win_pct": 63.0,
+      "total_games": 138,
+      "composite_score": 0.94,
+      "rank": 32
+    },
+    {
+      "coach_id": 119,
+      "name": "Matt Campbell",
+      "school": "Iowa State",
+      "record": "108-69",
+      "win_pct": 61.0,
+      "total_games": 177,
+      "composite_score": 0.93,
+      "rank": 33
+    },
+    {
+      "coach_id": 324,
+      "name": "Troy Calhoun",
+      "school": "Air Force",
+      "record": "139-97",
+      "win_pct": 60.3,
+      "total_games": 224,
+      "composite_score": 0.93,
+      "rank": 34
+    },
+    {
+      "coach_id": 120,
+      "name": "Gus Malzahn",
+      "school": "UCF",
+      "record": "109-70",
+      "win_pct": 60.9,
+      "total_games": 179,
+      "composite_score": 0.92,
+      "rank": 35
+    },
+    {
+      "coach_id": 173,
+      "name": "Mike Norvell",
+      "school": "Florida State",
+      "record": "76-50",
+      "win_pct": 62.3,
+      "total_games": 114,
+      "composite_score": 0.92,
+      "rank": 36
+    },
+    {
+      "coach_id": 84,
+      "name": "Luke Fickell",
+      "school": "Wisconsin",
+      "record": "84-54",
+      "win_pct": 60.9,
+      "total_games": 138,
+      "composite_score": 0.91,
+      "rank": 37
+    },
+    {
+      "coach_id": 170,
+      "name": "Chris Klieman",
+      "school": "Kansas State",
+      "record": "54-34",
+      "win_pct": 63.2,
+      "total_games": 76,
+      "composite_score": 0.91,
+      "rank": 38
+    },
+    {
+      "coach_id": 187,
+      "name": "Scott Satterfield",
+      "school": "Cincinnati",
+      "record": "83-54",
+      "win_pct": 60.6,
+      "total_games": 136,
+      "composite_score": 0.9,
+      "rank": 39
+    },
+    {
+      "coach_id": 287,
+      "name": "Tim Albin",
+      "school": "Charlotte",
+      "record": "35-30",
+      "win_pct": 64.2,
+      "total_games": 53,
+      "composite_score": 0.9,
+      "rank": 40
+    },
+    {
+      "coach_id": 85,
+      "name": "P.J. Fleck",
+      "school": "Minnesota",
+      "record": "95-66",
+      "win_pct": 59.0,
+      "total_games": 161,
+      "composite_score": 0.89,
+      "rank": 41
+    },
+    {
+      "coach_id": 183,
+      "name": "Dave Doeren",
+      "school": "NC State",
+      "record": "83-56",
+      "win_pct": 59.7,
+      "total_games": 139,
+      "composite_score": 0.89,
+      "rank": 42
+    },
+    {
+      "coach_id": 313,
+      "name": "Clay Helton",
+      "school": "Georgia Southern",
+      "record": "81-53",
+      "win_pct": 60.6,
+      "total_games": 109,
+      "composite_score": 0.89,
+      "rank": 43
+    },
+    {
+      "coach_id": 91,
+      "name": "Sherrone Moore",
+      "school": "Michigan",
+      "record": "16-8",
+      "win_pct": 66.7,
+      "total_games": 24,
+      "composite_score": 0.88,
+      "rank": 44
+    },
+    {
+      "coach_id": 115,
+      "name": "Willie Fritz",
+      "school": "Houston",
+      "record": "94-68",
+      "win_pct": 58.0,
+      "total_games": 162,
+      "composite_score": 0.88,
+      "rank": 45
+    },
+    {
+      "coach_id": 286,
+      "name": "Jeff Monken",
+      "school": "Army",
+      "record": "88-63",
+      "win_pct": 59.0,
+      "total_games": 139,
+      "composite_score": 0.88,
+      "rank": 46
+    },
+    {
+      "coach_id": 126,
+      "name": "Billy Napier",
+      "school": "Florida",
+      "record": "67-47",
+      "win_pct": 58.8,
+      "total_games": 114,
+      "composite_score": 0.87,
+      "rank": 47
+    },
+    {
+      "coach_id": 188,
+      "name": "Jimmy Rogers",
+      "school": "Washington State",
+      "record": "77-55",
+      "win_pct": 58.3,
+      "total_games": 132,
+      "composite_score": 0.87,
+      "rank": 48
+    },
+    {
+      "coach_id": 189,
+      "name": "Scott Frost",
+      "school": "Ucf",
+      "record": "80-58",
+      "win_pct": 58.0,
+      "total_games": 137,
+      "composite_score": 0.87,
+      "rank": 49
+    },
+    {
+      "coach_id": 315,
+      "name": "Bob Chesney",
+      "school": "James Madison",
+      "record": "21-5",
+      "win_pct": 69.2,
+      "total_games": 13,
+      "composite_score": 0.87,
+      "rank": 50
+    },
+    {
+      "coach_id": 332,
+      "name": "Ken Niumatalolo",
+      "school": "San Jos\u00e9 State",
+      "record": "119-98",
+      "win_pct": 56.6,
+      "total_games": 205,
+      "composite_score": 0.87,
+      "rank": 51
+    },
+    {
+      "coach_id": 116,
+      "name": "Dana Holgorsen",
+      "school": "Houston",
+      "record": "105-80",
+      "win_pct": 56.8,
+      "total_games": 185,
+      "composite_score": 0.86,
+      "rank": 52
+    },
+    {
+      "coach_id": 131,
+      "name": "Hugh Freeze",
+      "school": "Auburn",
+      "record": "65-46",
+      "win_pct": 58.6,
+      "total_games": 111,
+      "composite_score": 0.86,
+      "rank": 53
+    },
+    {
+      "coach_id": 309,
+      "name": "Tyson Helton",
+      "school": "Western Kentucky",
+      "record": "56-36",
+      "win_pct": 60.0,
+      "total_games": 80,
+      "composite_score": 0.86,
+      "rank": 54
+    },
+    {
+      "coach_id": 321,
+      "name": "Charles Huff",
+      "school": "Southern Miss",
+      "record": "39-25",
+      "win_pct": 61.5,
+      "total_games": 52,
+      "composite_score": 0.86,
+      "rank": 55
+    },
+    {
+      "coach_id": 184,
+      "name": "Jeff Brohm",
+      "school": "Louisville",
+      "record": "80-60",
+      "win_pct": 57.1,
+      "total_games": 140,
+      "composite_score": 0.85,
+      "rank": 56
+    },
+    {
+      "coach_id": 175,
+      "name": "Pat Narduzzi",
+      "school": "Pittsburgh",
+      "record": "80-60",
+      "win_pct": 56.2,
+      "total_games": 128,
+      "composite_score": 0.83,
+      "rank": 57
+    },
+    {
+      "coach_id": 311,
+      "name": "Butch Jones",
+      "school": "Arkansas State",
+      "record": "109-91",
+      "win_pct": 54.8,
+      "total_games": 188,
+      "composite_score": 0.83,
+      "rank": 58
+    },
+    {
+      "coach_id": 322,
+      "name": "G.J. Kinne",
+      "school": "Texas State",
+      "record": "22-16",
+      "win_pct": 61.5,
+      "total_games": 26,
+      "composite_score": 0.82,
+      "rank": 59
+    },
+    {
+      "coach_id": 12,
+      "name": "Barry Odom",
+      "school": "Purdue",
+      "record": "57-46",
+      "win_pct": 55.3,
+      "total_games": 103,
+      "composite_score": 0.81,
+      "rank": 60
+    },
+    {
+      "coach_id": 168,
+      "name": "Joey McGuire",
+      "school": "Texas Tech",
+      "record": "35-17",
+      "win_pct": 59.0,
+      "total_games": 39,
+      "composite_score": 0.81,
+      "rank": 61
+    },
+    {
+      "coach_id": 181,
+      "name": "Jon Sumrall",
+      "school": "Tulane",
+      "record": "76-64",
+      "win_pct": 53.9,
+      "total_games": 141,
+      "composite_score": 0.81,
+      "rank": 62
+    },
+    {
+      "coach_id": 192,
+      "name": "Rich Rodriguez",
+      "school": "West Virginia",
+      "record": "74-62",
+      "win_pct": 54.4,
+      "total_games": 136,
+      "composite_score": 0.81,
+      "rank": 63
+    },
+    {
+      "coach_id": 276,
+      "name": "Pete Lembo",
+      "school": "Buffalo",
+      "record": "46-40",
+      "win_pct": 56.0,
+      "total_games": 75,
+      "composite_score": 0.8,
+      "rank": 64
+    },
+    {
+      "coach_id": 186,
+      "name": "Jake Dickert",
+      "school": "Wake Forest",
+      "record": "72-64",
+      "win_pct": 52.9,
+      "total_games": 136,
+      "composite_score": 0.79,
+      "rank": 65
+    },
+    {
+      "coach_id": 291,
+      "name": "Brian Newberry",
+      "school": "Navy",
+      "record": "25-12",
+      "win_pct": 60.0,
+      "total_games": 25,
+      "composite_score": 0.79,
+      "rank": 66
+    },
+    {
+      "coach_id": 93,
+      "name": "Matt Rhule",
+      "school": "Nebraska",
+      "record": "72-67",
+      "win_pct": 51.8,
+      "total_games": 139,
+      "composite_score": 0.77,
+      "rank": 67
+    },
+    {
+      "coach_id": 197,
+      "name": "Bill Belichick",
+      "school": "North Carolina",
+      "record": "72-68",
+      "win_pct": 51.4,
+      "total_games": 140,
+      "composite_score": 0.77,
+      "rank": 68
+    },
+    {
+      "coach_id": 316,
+      "name": "Michael Desormeaux",
+      "school": "Louisiana",
+      "record": "29-24",
+      "win_pct": 56.1,
+      "total_games": 41,
+      "composite_score": 0.77,
+      "rank": 69
+    },
+    {
+      "coach_id": 320,
+      "name": "Major Applewhite",
+      "school": "South Alabama",
+      "record": "26-25",
+      "win_pct": 56.4,
+      "total_games": 39,
+      "composite_score": 0.77,
+      "rank": 70
+    },
+    {
+      "coach_id": 128,
+      "name": "Mark Stoops",
+      "school": "Kentucky",
+      "record": "82-80",
+      "win_pct": 50.6,
+      "total_games": 162,
+      "composite_score": 0.76,
+      "rank": 71
+    },
+    {
+      "coach_id": 190,
+      "name": "Manny Diaz",
+      "school": "Duke",
+      "record": "70-67",
+      "win_pct": 50.7,
+      "total_games": 138,
+      "composite_score": 0.76,
+      "rank": 72
+    },
+    {
+      "coach_id": 193,
+      "name": "Jeff Lebby",
+      "school": "Mississippi State",
+      "record": "70-68",
+      "win_pct": 50.7,
+      "total_games": 138,
+      "composite_score": 0.76,
+      "rank": 73
+    },
+    {
+      "coach_id": 130,
+      "name": "Shane Beamer",
+      "school": "South Carolina",
+      "record": "32-28",
+      "win_pct": 53.3,
+      "total_games": 60,
+      "composite_score": 0.75,
+      "rank": 74
+    },
+    {
+      "coach_id": 194,
+      "name": "David Braun",
+      "school": "Northwestern",
+      "record": "68-67",
+      "win_pct": 50.4,
+      "total_games": 134,
+      "composite_score": 0.75,
+      "rank": 75
+    },
+    {
+      "coach_id": 200,
+      "name": "Brent Pry",
+      "school": "Virginia Tech",
+      "record": "70-69",
+      "win_pct": 50.4,
+      "total_games": 138,
+      "composite_score": 0.75,
+      "rank": 76
+    },
+    {
+      "coach_id": 89,
+      "name": "Jedd Fisch",
+      "school": "Washington",
+      "record": "39-37",
+      "win_pct": 51.3,
+      "total_games": 76,
+      "composite_score": 0.74,
+      "rank": 77
+    },
+    {
+      "coach_id": 326,
+      "name": "Jay Norvell",
+      "school": "Colorado State",
+      "record": "50-58",
+      "win_pct": 51.0,
+      "total_games": 96,
+      "composite_score": 0.74,
+      "rank": 78
+    },
+    {
+      "coach_id": 280,
+      "name": "Chuck Martin",
+      "school": "Miami (OH)",
+      "record": "72-73",
+      "win_pct": 49.2,
+      "total_games": 132,
+      "composite_score": 0.73,
+      "rank": 79
+    },
+    {
+      "coach_id": 110,
+      "name": "Lance Leipold",
+      "school": "Kansas",
+      "record": "69-75",
+      "win_pct": 47.9,
+      "total_games": 144,
+      "composite_score": 0.72,
+      "rank": 80
+    },
+    {
+      "coach_id": 169,
+      "name": "Dave Aranda",
+      "school": "Baylor",
+      "record": "36-37",
+      "win_pct": 50.8,
+      "total_games": 61,
+      "composite_score": 0.72,
+      "rank": 81
+    },
+    {
+      "coach_id": 182,
+      "name": "Eric Morris",
+      "school": "North Texas",
+      "record": "67-71",
+      "win_pct": 48.2,
+      "total_games": 139,
+      "composite_score": 0.72,
+      "rank": 82
+    },
+    {
+      "coach_id": 198,
+      "name": "Frank Reich",
+      "school": "Stanford",
+      "record": "64-68",
+      "win_pct": 48.5,
+      "total_games": 131,
+      "composite_score": 0.72,
+      "rank": 83
+    },
+    {
+      "coach_id": 167,
+      "name": "Kenny Dillingham",
+      "school": "Arizona State",
+      "record": "22-16",
+      "win_pct": 53.8,
+      "total_games": 26,
+      "composite_score": 0.71,
+      "rank": 84
+    },
+    {
+      "coach_id": 191,
+      "name": "Justin Wilcox",
+      "school": "California",
+      "record": "62-67",
+      "win_pct": 48.1,
+      "total_games": 128,
+      "composite_score": 0.71,
+      "rank": 85
+    },
+    {
+      "coach_id": 293,
+      "name": "Alex Golesh",
+      "school": "South Florida",
+      "record": "23-15",
+      "win_pct": 53.8,
+      "total_games": 26,
+      "composite_score": 0.71,
+      "rank": 86
+    },
+    {
+      "coach_id": 312,
+      "name": "Tim Beck",
+      "school": "Coastal Carolina",
+      "record": "20-18",
+      "win_pct": 53.8,
+      "total_games": 26,
+      "composite_score": 0.71,
+      "rank": 87
+    },
+    {
+      "coach_id": 90,
+      "name": "Jonathan Smith",
+      "school": "Michigan State",
+      "record": "45-48",
+      "win_pct": 48.4,
+      "total_games": 93,
+      "composite_score": 0.7,
+      "rank": 88
+    },
+    {
+      "coach_id": 87,
+      "name": "Greg Schiano",
+      "school": "Rutgers",
+      "record": "135-171",
+      "win_pct": 44.1,
+      "total_games": 306,
+      "composite_score": 0.69,
+      "rank": 89
+    },
+    {
+      "coach_id": 166,
+      "name": "Deion Sanders",
+      "school": "Colorado",
+      "record": "16-21",
+      "win_pct": 52.0,
+      "total_games": 25,
+      "composite_score": 0.69,
+      "rank": 90
+    },
+    {
+      "coach_id": 196,
+      "name": "Deshaun Foster",
+      "school": "Ucla",
+      "record": "61-70",
+      "win_pct": 46.6,
+      "total_games": 130,
+      "composite_score": 0.69,
+      "rank": 91
+    },
+    {
+      "coach_id": 185,
+      "name": "Brent Key",
+      "school": "Georgia Tech",
+      "record": "61-72",
+      "win_pct": 45.9,
+      "total_games": 132,
+      "composite_score": 0.68,
+      "rank": 92
+    },
+    {
+      "coach_id": 195,
+      "name": "Tony Elliott",
+      "school": "Virginia",
+      "record": "61-71",
+      "win_pct": 45.9,
+      "total_games": 132,
+      "composite_score": 0.68,
+      "rank": 93
+    },
+    {
+      "coach_id": 202,
+      "name": "Bill O'Brien",
+      "school": "Boston College",
+      "record": "61-75",
+      "win_pct": 44.9,
+      "total_games": 135,
+      "composite_score": 0.67,
+      "rank": 94
+    },
+    {
+      "coach_id": 294,
+      "name": "K.C. Keeler",
+      "school": "Temple",
+      "record": "17-19",
+      "win_pct": 50.0,
+      "total_games": 24,
+      "composite_score": 0.66,
+      "rank": 95
+    },
+    {
+      "coach_id": 201,
+      "name": "Fran Brown",
+      "school": "Syracuse",
+      "record": "59-76",
+      "win_pct": 43.7,
+      "total_games": 135,
+      "composite_score": 0.65,
+      "rank": 96
+    },
+    {
+      "coach_id": 281,
+      "name": "Thomas Hammock",
+      "school": "Northern Illinois",
+      "record": "35-47",
+      "win_pct": 45.7,
+      "total_games": 70,
+      "composite_score": 0.65,
+      "rank": 97
+    },
+    {
+      "coach_id": 199,
+      "name": "Brent Brennan",
+      "school": "Arizona",
+      "record": "55-73",
+      "win_pct": 43.0,
+      "total_games": 127,
+      "composite_score": 0.64,
+      "rank": 98
+    },
+    {
+      "coach_id": 278,
+      "name": "Chris Creighton",
+      "school": "Eastern Michigan",
+      "record": "61-83",
+      "win_pct": 43.2,
+      "total_games": 132,
+      "composite_score": 0.64,
+      "rank": 99
+    },
+    {
+      "coach_id": 317,
+      "name": "Bryant Vincent",
+      "school": "UL Monroe",
+      "record": "15-22",
+      "win_pct": 48.0,
+      "total_games": 25,
+      "composite_score": 0.63,
+      "rank": 100
+    },
+    {
+      "coach_id": 124,
+      "name": "Sam Pittman",
+      "school": "Arkansas",
+      "record": "29-41",
+      "win_pct": 41.4,
+      "total_games": 70,
+      "composite_score": 0.59,
+      "rank": 101
+    },
+    {
+      "coach_id": 331,
+      "name": "Sean Lewis",
+      "school": "San Diego State",
+      "record": "36-43",
+      "win_pct": 40.3,
+      "total_games": 67,
+      "composite_score": 0.57,
+      "rank": 102
+    },
+    {
+      "coach_id": 319,
+      "name": "Ricky Rahne",
+      "school": "Old Dominion",
+      "record": "29-33",
+      "win_pct": 40.0,
+      "total_games": 50,
+      "composite_score": 0.56,
+      "rank": 103
+    },
+    {
+      "coach_id": 204,
+      "name": "Trent Bray",
+      "school": "Oregon State",
+      "record": "48-82",
+      "win_pct": 36.9,
+      "total_games": 130,
+      "composite_score": 0.55,
+      "rank": 104
+    },
+    {
+      "coach_id": 3,
+      "name": "Mike Locksley",
+      "school": "Maryland",
+      "record": "33-58",
+      "win_pct": 36.3,
+      "total_games": 91,
+      "composite_score": 0.53,
+      "rank": 105
+    },
+    {
+      "coach_id": 285,
+      "name": "Lance Taylor",
+      "school": "Western Michigan",
+      "record": "19-19",
+      "win_pct": 40.0,
+      "total_games": 25,
+      "composite_score": 0.53,
+      "rank": 106
+    },
+    {
+      "coach_id": 203,
+      "name": "Jim Mora",
+      "school": "Uconn",
+      "record": "43-80",
+      "win_pct": 35.0,
+      "total_games": 122,
+      "composite_score": 0.52,
+      "rank": 107
+    },
+    {
+      "coach_id": 273,
+      "name": "Joe Moorhead",
+      "school": "Akron",
+      "record": "27-47",
+      "win_pct": 35.5,
+      "total_games": 62,
+      "composite_score": 0.5,
+      "rank": 108
+    },
+    {
+      "coach_id": 328,
+      "name": "Timmy Chang",
+      "school": "Hawai'i",
+      "record": "21-29",
+      "win_pct": 34.2,
+      "total_games": 38,
+      "composite_score": 0.47,
+      "rank": 109
+    },
+    {
+      "coach_id": 304,
+      "name": "Derek Mason",
+      "school": "Middle Tennessee",
+      "record": "33-73",
+      "win_pct": 31.9,
+      "total_games": 94,
+      "composite_score": 0.46,
+      "rank": 110
+    },
+    {
+      "coach_id": 306,
+      "name": "Tony Sanchez",
+      "school": "New Mexico State",
+      "record": "27-57",
+      "win_pct": 31.9,
+      "total_games": 72,
+      "composite_score": 0.46,
+      "rank": 111
+    },
+    {
+      "coach_id": 171,
+      "name": "Clark Lea",
+      "school": "Vanderbilt",
+      "record": "26-35",
+      "win_pct": 32.7,
+      "total_games": 49,
+      "composite_score": 0.45,
+      "rank": 112
+    },
+    {
+      "coach_id": 303,
+      "name": "Sonny Cumbie",
+      "school": "Louisiana Tech",
+      "record": "22-32",
+      "win_pct": 31.0,
+      "total_games": 42,
+      "composite_score": 0.43,
+      "rank": 113
+    },
+    {
+      "coach_id": 296,
+      "name": "Trent Dilfer",
+      "school": "UAB",
+      "record": "11-25",
+      "win_pct": 29.2,
+      "total_games": 24,
+      "composite_score": 0.38,
+      "rank": 114
+    },
+    {
+      "coach_id": 308,
+      "name": "Scotty Walden",
+      "school": "UTEP",
+      "record": "6-22",
+      "win_pct": 25.0,
+      "total_games": 16,
+      "composite_score": 0.32,
+      "rank": 115
+    },
+    {
+      "coach_id": 314,
+      "name": "Dell McGee",
+      "school": "Georgia State",
+      "record": "4-20",
+      "win_pct": 25.0,
+      "total_games": 12,
+      "composite_score": 0.31,
+      "rank": 116
+    },
+    {
+      "coach_id": 335,
+      "name": "Jay Sawvel",
+      "school": "Wyoming",
+      "record": "7-17",
+      "win_pct": 25.0,
+      "total_games": 12,
+      "composite_score": 0.31,
+      "rank": 117
+    },
+    {
+      "coach_id": 323,
+      "name": "Gerad Parker",
+      "school": "Troy",
+      "record": "15-16",
+      "win_pct": 22.2,
+      "total_games": 18,
+      "composite_score": 0.29,
+      "rank": 118
+    },
+    {
+      "coach_id": 329,
+      "name": "Jeff Choate",
+      "school": "Nevada",
+      "record": "6-19",
+      "win_pct": 23.1,
+      "total_games": 13,
+      "composite_score": 0.29,
+      "rank": 119
+    }
+  ]
+}

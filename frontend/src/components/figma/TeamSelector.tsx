@@ -5,6 +5,7 @@ import { Search, ChevronDown, ArrowLeftRight, X, Zap, Brain } from 'lucide-react
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { useAppStore } from "../../store";
+import { usePostseasonGames } from '../../hooks/usePostseasonGames';
 import fbsData from "../../fbs.json";
 
 interface Team {
@@ -21,13 +22,7 @@ interface Team {
 // Transform FBS data to our team format
 const teams: Team[] = fbsData;
 
-// Debug: Log teams data on load
-console.log('DEBUG: Teams loaded from fbs.json:', {
-  count: teams.length,
-  first3: teams.slice(0, 3).map(t => ({ id: t.id, school: t.school, logos: t.logos }))
-});
-
-// Modern Portal Modal Component
+// Modern Portal Modal Component - Matches Glossary styling
 const PortalModal = ({ 
   children, 
   isOpen, 
@@ -41,7 +36,7 @@ const PortalModal = ({
   
   return createPortal(
     <div 
-      className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-[9999]"
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
       onClick={(e) => {
         // Only close if clicking the backdrop, not the modal content
         if (e.target === e.currentTarget) {
@@ -49,13 +44,14 @@ const PortalModal = ({
         }
       }}
       style={{
-        zIndex: 9999,
+        zIndex: 999999,
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        backdropFilter: 'none'
+        width: '100vw',
+        height: '100vh'
       }}
     >
       {children}
@@ -73,9 +69,12 @@ interface TeamSelectorProps {
 }
 
 export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchupChange, onQuickInsight }: TeamSelectorProps) {
-  // Default to Week 15 Top Game: Georgia @ Alabama
-  const defaultAwayTeam = teams.find(t => t.school === 'Georgia') || teams[0];
-  const defaultHomeTeam = teams.find(t => t.school === 'Alabama') || teams[1];
+  // Fetch postseason games from database
+  const { games: postseasonGames, isLoading: gamesLoading, error: gamesError } = usePostseasonGames();
+  
+  // Default to Week 16 Game: Army @ Navy
+  const defaultAwayTeam = teams.find(t => t.school === 'Army') || teams[0];
+  const defaultHomeTeam = teams.find(t => t.school === 'Navy') || teams[1];
   
   const [awayTeam, setAwayTeam] = useState<Team>(defaultAwayTeam);
   const [homeTeam, setHomeTeam] = useState<Team>(defaultHomeTeam);
@@ -142,35 +141,23 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
   }, [showHomeDropdown]);
 
   const filteredAwayTeams = useMemo(() => {
-    const filtered = teams.filter(team => 
+    return teams.filter(team => 
       team.school.toLowerCase().includes(awaySearch.toLowerCase()) ||
       team.conference.toLowerCase().includes(awaySearch.toLowerCase()) ||
       team.mascot.toLowerCase().includes(awaySearch.toLowerCase())
     );
-    console.log('DEBUG: Filtered away teams:', { 
-      search: awaySearch, 
-      count: filtered.length,
-      first5: filtered.slice(0, 5).map(t => t.school)
-    });
-    return filtered;
   }, [awaySearch]);
 
   const filteredHomeTeams = useMemo(() => {
-    const filtered = teams.filter(team => 
+    return teams.filter(team => 
       team.school.toLowerCase().includes(homeSearch.toLowerCase()) ||
       team.conference.toLowerCase().includes(homeSearch.toLowerCase()) ||
       team.mascot.toLowerCase().includes(homeSearch.toLowerCase())
     );
-    console.log('DEBUG: Filtered home teams:', { 
-      search: homeSearch, 
-      count: filtered.length,
-      first5: filtered.slice(0, 5).map(t => t.school)
-    });
-    return filtered;
   }, [homeSearch]);
 
   const handleAwayTeamSelect = (team: Team) => {
-    console.log('Away team selected:', team.school);
+
     setAwayTeam(team);
     setShowAwayDropdown(false);
     setAwaySearch('');
@@ -181,7 +168,7 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
   };
 
   const handleHomeTeamSelect = (team: Team) => {
-    console.log('Home team selected:', team.school);
+
     setHomeTeam(team);
     setShowHomeDropdown(false);
     setHomeSearch('');
@@ -192,7 +179,6 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
   };
 
   const handleSwapTeams = () => {
-    console.log('Swapping teams');
     const temp = awayTeam;
     setAwayTeam(homeTeam);
     setHomeTeam(temp);
@@ -202,22 +188,28 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
     onMatchupChange?.(homeTeam, temp);
   };
 
-  // Week 14 ALL GAMES (67 total from Currentweekgames.json)
-  const week15Games = [
-    // Top Week 15 Matchups
-    { away: "Georgia", home: "Alabama", label: "Georgia @ Alabama" },
-    { away: "Indiana", home: "Ohio State", label: "Indiana @ Ohio State" },
-    { away: "Duke", home: "Virginia", label: "Duke @ Virginia" },
-    { away: "BYU", home: "Texas Tech", label: "BYU @ Texas Tech" },
-    { away: "UNLV", home: "Boise State", label: "UNLV @ Boise State" },
-    { away: "North Texas", home: "Tulane", label: "North Texas @ Tulane" },
-    { away: "Troy", home: "James Madison", label: "Troy @ James Madison" },
-    { away: "Kennesaw State", home: "Jacksonville State", label: "Kennesaw State @ Jacksonville State" },
-    { away: "Miami (OH)", home: "Western Michigan", label: "Miami (OH) @ Western Michigan" },
-    { away: "Prairie View A&M", home: "Jackson State", label: "Prairie View A&M @ Jackson State" }
-  ];
+  // Map postseason games from database to quick select format
+  const week16Games = useMemo(() => {
+    return postseasonGames.map(game => ({
+      away: game.away.team,
+      home: game.home.team,
+      label: `${game.away.team} @ ${game.home.team}${game.venue ? ` - ${game.venue}` : ''}`,
+      spread: game.betting.spread,
+      overUnder: game.betting.overUnder,
+      homeMoneyline: game.betting.homeMoneyline,
+      awayMoneyline: game.betting.awayMoneyline
+    }));
+  }, [postseasonGames]);
 
-  const handleQuickGameSelect = (game: { away: string; home: string; label: string }) => {
+  const handleQuickGameSelect = (game: { 
+    away: string; 
+    home: string; 
+    label: string;
+    spread?: number | null;
+    overUnder?: number | null;
+    homeMoneyline?: number | null;
+    awayMoneyline?: number | null;
+  }) => {
     // More precise matching - exact school name matching with priority for exact matches
     const awayTeamMatch = teams.find(t => {
       const schoolName = t.school.toLowerCase();
@@ -253,17 +245,6 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
              (searchName === 'byu' && schoolName === 'byu');
     });
     
-    console.log('Quick game select DEBUG:', {
-      away: game.away,
-      awayMatch: awayTeamMatch?.school,
-      awayMatchId: awayTeamMatch?.id,
-      home: game.home,
-      homeMatch: homeTeamMatch?.school,
-      homeMatchId: homeTeamMatch?.id,
-      expectedTennesseeId: 2633,
-      expectedAlabamaId: 333
-    });
-    
     if (awayTeamMatch && homeTeamMatch) {
       setAwayTeam(awayTeamMatch);
       setHomeTeam(homeTeamMatch);
@@ -286,10 +267,10 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
           <div className="text-gray-400 text-sm">Choose teams to analyze</div>
         </div>
 
-        {/* Week 15 Quick Games - Moved inside dropdown */}
+        {/* Week 16 Quick Games - Moved inside dropdown */}
         <div className="hidden">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-            {week15Games.map((game, idx) => {
+            {week16Games.map((game, idx) => {
               const awayTeamData = teams.find(t => {
                 const schoolName = t.school.toLowerCase();
                 const searchName = game.away.toLowerCase();
@@ -408,6 +389,24 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
                     {game.label}
                   </div>
                   
+                  {/* Betting Lines */}
+                  {(game.spread !== undefined || game.overUnder) && (
+                    <div className="mt-1 text-[9px] text-gray-300/80 text-center relative z-10 space-y-0.5">
+                      {game.spread !== null && game.spread !== undefined && (
+                        <div className="flex items-center justify-center gap-1">
+                          <span className="text-yellow-400/70">📊</span>
+                          <span>{game.spread > 0 ? `${game.away} -${Math.abs(game.spread)}` : `${game.home} -${Math.abs(game.spread)}`}</span>
+                        </div>
+                      )}
+                      {game.overUnder && (
+                        <div className="flex items-center justify-center gap-1">
+                          <span className="text-blue-400/70">⚡</span>
+                          <span>O/U {game.overUnder}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
                   {/* Shimmer effect on hover */}
                   <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
                 </button>
@@ -446,32 +445,37 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
             <PortalModal isOpen={showAwayDropdown} onClose={() => setShowAwayDropdown(false)}>
               <div 
                 data-portal-modal="true"
-                className="bg-gray-900 border border-gray-400/20 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300"
+                className="backdrop-blur-2xl border-2 border-white/20 rounded-lg shadow-2xl w-full max-w-[95vw] sm:max-w-4xl h-[90vh] sm:h-[85vh] flex flex-col animate-in fade-in zoom-in-95 duration-200"
                 onClick={(e) => e.stopPropagation()}
-                style={{ backdropFilter: 'none' }}
+                style={{ 
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)', 
+                  zIndex: 1000000,
+                  position: 'relative',
+                  maxWidth: '1400px',
+                  maxHeight: '900px'
+                }}
               >
-                <div className="p-6 border-b border-gray-400/15">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-white font-semibold text-xl">Select Away Team</h3>
+                <div className="p-4 sm:p-6 border-b border-white/10 flex-shrink-0">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <h3 className="text-white font-semibold text-xl sm:text-2xl">Select Away Team</h3>
                     <button 
                       onClick={() => setShowAwayDropdown(false)}
-                      className="p-2 hover:backdrop-blur-sm rounded-lg transition-colors"
+                      className="text-slate-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10"
                     >
-                      <X className="w-5 h-5 text-gray-400 hover:text-white" />
+                      <X className="w-6 h-6" />
                     </button>
                   </div>
                   
-                  {/* Week 15 Quick Select Inside Dropdown */}
-                  <div className="mb-4 p-4 rounded-lg" style={{
-                    background: 'rgba(255, 255, 255, 0.02)',
-                    border: '1px solid rgba(148, 163, 184, 0.08)'
+                  {/* Postseason Games Quick Select Inside Dropdown */}
+                  <div className="mb-4 p-4 rounded-lg backdrop-blur-sm border border-white/10" style={{
+                    background: 'rgba(255, 255, 255, 0.02)'
                   }}>
-                    <h4 className="text-gray-300 font-medium flex items-center gap-2 mb-3">
-                      <Zap className="w-4 h-4 text-yellow-400" />
-                      <span className="text-sm">Week 15 Key Games</span>
+                    <h4 className="text-white font-medium flex items-center gap-2 mb-3">
+                      <Zap className="w-5 h-5 text-yellow-400" />
+                      <span className="text-sm sm:text-base">2025 Postseason Bowl Games & CFP</span>
                     </h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
-                      {week15Games.map((game, idx) => {
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 max-h-48 sm:max-h-64 overflow-y-auto">
+                      {week16Games.map((game, idx) => {
                         const awayTeamData = teams.find(t => t.school.toLowerCase() === game.away.toLowerCase()) || 
                           teams.find(t => t.school.toLowerCase().includes(game.away.toLowerCase()));
                         const homeTeamData = teams.find(t => t.school.toLowerCase() === game.home.toLowerCase()) || 
@@ -485,10 +489,9 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
                               setShowAwayDropdown(false);
                               setShowHomeDropdown(false);
                             }}
-                            className="group relative p-2 rounded-lg transition-all duration-300 overflow-hidden hover:scale-105"
+                            className="group relative p-2 rounded-lg backdrop-blur-sm transition-all duration-300 overflow-hidden hover:scale-105 hover:shadow-lg border border-white/10 hover:border-white/20"
                             style={{
-                              background: `linear-gradient(135deg, ${awayTeamData?.primary_color || '#1e293b'}20, ${homeTeamData?.primary_color || '#1e293b'}20)`,
-                              border: `1px solid rgba(148, 163, 184, 0.1)`
+                              background: `linear-gradient(135deg, ${awayTeamData?.primary_color || '#1e293b'}15, ${homeTeamData?.primary_color || '#1e293b'}15)`
                             }}
                           >
                             <div className="flex items-center justify-center gap-1.5 mb-1.5">
@@ -518,38 +521,43 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
                   </div>
                   
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                     <input
                       type="text"
                       placeholder="Search teams..."
                       value={awaySearch}
                       onChange={(e) => setAwaySearch(e.target.value)}
-                      className="w-full backdrop-blur-sm border border-gray-400/15 rounded-lg pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300/25 focus:border-gray-300/35"
+                      className="w-full backdrop-blur-sm border border-white/10 rounded-lg pl-12 pr-4 py-4 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/40 focus:border-cyan-500/40 text-lg"
                       autoFocus
                     />
                   </div>
                 </div>
-                <div className="p-6 max-h-[55vh] overflow-y-auto">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="flex-1 p-6 overflow-y-auto" style={{ 
+                  zIndex: 1000001,
+                  position: 'relative'
+                }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 pb-4" style={{ 
+                    zIndex: 1000002,
+                    position: 'relative'
+                  }}>
                     {filteredAwayTeams.map((team) => (
                       <button
                         key={team.id}
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          console.log('DEBUG: Away team button clicked:', team.school);
                           handleAwayTeamSelect(team);
                         }}
-                        className="flex flex-col items-center gap-2 p-4 backdrop-blur-sm hover:bg-white/10 transition-colors rounded-lg border border-gray-400/15 hover:border-gray-400/25"
+                        className="flex flex-col items-center gap-2 p-4 sm:p-5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 rounded-lg border border-white/10 hover:border-white/25 shadow-lg hover:shadow-xl hover:scale-105 group"
                       >
                         <ImageWithFallback
                           src={team.logos[1] || team.logos[0]}
                           alt={team.school}
-                          className="w-12 h-12 object-contain"
+                          className="w-12 h-12 sm:w-14 sm:h-14 object-contain group-hover:scale-110 transition-transform"
                         />
                         <div className="text-center">
-                          <div className="text-white text-sm font-medium">{team.school}</div>
-                          <div className="text-gray-400 text-xs">{team.conference}</div>
+                          <div className="text-white text-sm sm:text-base font-semibold">{team.school}</div>
+                          <div className="text-slate-400 text-xs sm:text-sm">{team.conference}</div>
                         </div>
                       </button>
                     ))}
@@ -600,53 +608,64 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
             <PortalModal isOpen={showHomeDropdown} onClose={() => setShowHomeDropdown(false)}>
               <div 
                 data-portal-modal="true"
-                className="bg-gray-900 border border-gray-400/20 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden animate-in fade-in-from-bottom-4 duration-300"
+                className="backdrop-blur-2xl border-2 border-white/20 rounded-lg shadow-2xl w-full max-w-[95vw] sm:max-w-4xl h-[90vh] sm:h-[85vh] flex flex-col animate-in fade-in zoom-in-95 duration-200"
                 onClick={(e) => e.stopPropagation()}
-                style={{ backdropFilter: 'none' }}
+                style={{ 
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)', 
+                  zIndex: 1000000,
+                  position: 'relative',
+                  maxWidth: '1400px',
+                  maxHeight: '900px'
+                }}
               >
-                <div className="p-6 border-b border-gray-400/15">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-white font-semibold text-xl">Select Home Team</h3>
+                <div className="p-4 sm:p-6 border-b border-white/10 flex-shrink-0">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <h3 className="text-white font-semibold text-xl sm:text-2xl">Select Home Team</h3>
                     <button 
                       onClick={() => setShowHomeDropdown(false)}
-                      className="p-2 hover:backdrop-blur-sm rounded-lg transition-colors"
+                      className="text-slate-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10"
                     >
-                      <X className="w-5 h-5 text-gray-400 hover:text-white" />
+                      <X className="w-6 h-6" />
                     </button>
                   </div>
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                     <input
                       type="text"
                       placeholder="Search teams..."
                       value={homeSearch}
                       onChange={(e) => setHomeSearch(e.target.value)}
-                      className="w-full backdrop-blur-sm border border-gray-400/15 rounded-lg pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300/25 focus:border-gray-300/35"
+                      className="w-full backdrop-blur-sm border border-white/10 rounded-lg pl-12 pr-4 py-4 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/40 focus:border-cyan-500/40 text-lg"
                       autoFocus
                     />
                   </div>
                 </div>
-                <div className="p-6 max-h-[65vh] overflow-y-auto">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="flex-1 p-6 overflow-y-auto" style={{ 
+                  zIndex: 1000001,
+                  position: 'relative'
+                }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 pb-4" style={{ 
+                    zIndex: 1000002,
+                    position: 'relative'
+                  }}>
                     {filteredHomeTeams.map((team) => (
                       <button
                         key={team.id}
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          console.log('DEBUG: Home team button clicked:', team.school);
                           handleHomeTeamSelect(team);
                         }}
-                        className="flex flex-col items-center gap-2 p-4 backdrop-blur-sm hover:bg-white/10 transition-colors rounded-lg border border-gray-400/15 hover:border-gray-400/25"
+                        className="flex flex-col items-center gap-2 p-4 sm:p-5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 rounded-lg border border-white/10 hover:border-white/25 shadow-lg hover:shadow-xl hover:scale-105 group"
                       >
                         <ImageWithFallback
                           src={team.logos[1] || team.logos[0]}
                           alt={team.school}
-                          className="w-12 h-12 object-contain"
+                          className="w-12 h-12 sm:w-14 sm:h-14 object-contain group-hover:scale-110 transition-transform"
                         />
                         <div className="text-center">
-                          <div className="text-white text-sm font-medium">{team.school}</div>
-                          <div className="text-gray-400 text-xs">{team.conference}</div>
+                          <div className="text-white text-sm sm:text-base font-semibold">{team.school}</div>
+                          <div className="text-slate-400 text-xs sm:text-sm">{team.conference}</div>
                         </div>
                       </button>
                     ))}

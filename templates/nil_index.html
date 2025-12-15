@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIL Command Center | GAMEDAY+ SYS</title>
+    
+    <!-- Tailwind & Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#020617', // Deepest Slate
+                        surface: '#0f172a',
+                        primary: '#F43F5E', // Rose Neon
+                        secondary: '#06B6D4', // Cyan Neon
+                        success: '#10B981', // Emerald
+                        warning: '#F59E0B', // Amber
+                        danger: '#EF4444', // Red
+                        'glass-border': 'rgba(255, 255, 255, 0.08)',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'Menlo', 'monospace'],
+                        'display': ['Orbitron', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <style>
+        body {
+            background-color: #020617;
+            color: #cbd5e1;
+            overflow-x: hidden;
+        }
+
+        /* --- HUD Panel Styling --- */
+        .hud-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hud-panel:hover {
+            border-color: rgba(244, 63, 94, 0.4);
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* --- Cyber Grid Background --- */
+        .bg-cyber-grid {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* --- Animations --- */
+        @keyframes scanner {
+            0% { transform: translateY(-100%); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(100%); opacity: 0; }
+        }
+
+        .scan-line {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            border-radius: inherit;
+        }
+
+        .scan-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(244, 63, 94, 0.5), transparent);
+            box-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
+            animation: scanner 4s linear infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* --- UI Elements --- */
+        .filter-chip {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .filter-chip:hover, .filter-chip.active {
+            border-color: #F43F5E;
+            color: white;
+            background: rgba(244, 63, 94, 0.1);
+            box-shadow: 0 0 10px rgba(244, 63, 94, 0.1);
+        }
+
+        .value-glow { text-shadow: 0 0 10px rgba(244, 63, 94, 0.3); }
+        .success-glow { text-shadow: 0 0 10px rgba(16, 185, 129, 0.3); }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F43F5E; }
+    </style>
+</head>
+<body class="antialiased min-h-screen relative selection:bg-primary selection:text-white">
+    
+    <!-- Background Layer -->
+    <div class="fixed inset-0 bg-cyber-grid pointer-events-none z-0"></div>
+
+    <!-- Header HUD -->
+    <header class="fixed top-0 w-full z-50 border-b border-white/5 bg-[#020617]/90 backdrop-blur-xl">
+        <div class="max-w-[1800px] mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-1.5 h-6 bg-gradient-to-b from-primary to-purple-600 shadow-[0_0_15px_rgba(244,63,94,0.6)]"></div>
+                <div class="leading-tight">
+                    <h1 class="text-xl font-display font-bold tracking-wider text-white">
+                        NIL <span class="text-primary">MARKET</span>
+                    </h1>
+                    <div class="text-[10px] font-mono text-gray-500 tracking-[0.2em]">VALUATION SYSTEM V.2.0</div>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-white/10">
+                    <div class="w-2 h-2 rounded-full bg-success animate-pulse"></div>
+                    <span class="text-[10px] font-mono text-gray-400">MARKET LIVE</span>
+                </div>
+                <a href="/" class="p-2 text-gray-400 hover:text-white transition-colors border border-transparent hover:border-white/10 rounded">
+                    <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-24 pb-12 px-6 max-w-[1800px] mx-auto">
+        
+        <!-- Top Metrics Deck -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <!-- Metric 1 -->
+            <div class="hud-panel rounded-lg p-5 relative overflow-hidden group">
+                <div class="scan-line"></div>
+                <div class="flex justify-between items-start mb-4">
+                    <div class="text-xs font-mono text-primary font-bold tracking-widest">TOTAL VALUATION</div>
+                    <i data-lucide="dollar-sign" class="w-4 h-4 text-primary opacity-70"></i>
+                </div>
+                <div class="text-3xl font-display font-bold text-white value-glow" id="totalValuation">--</div>
+                <div class="mt-2 text-[10px] font-mono text-gray-500">AGGREGATED MARKET CAP</div>
+            </div>
+
+            <!-- Metric 2 -->
+            <div class="hud-panel rounded-lg p-5 relative overflow-hidden group">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="text-xs font-mono text-secondary font-bold tracking-widest">ACTIVE ATHLETES</div>
+                    <i data-lucide="users" class="w-4 h-4 text-secondary opacity-70"></i>
+                </div>
+                <div class="text-3xl font-display font-bold text-white" id="totalPlayers">--</div>
+                <div class="mt-2 text-[10px] font-mono text-gray-500">TRACKED ENTITIES</div>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="hud-panel rounded-lg p-5 relative overflow-hidden group">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="text-xs font-mono text-warning font-bold tracking-widest">AVG DEAL VALUE</div>
+                    <i data-lucide="trending-up" class="w-4 h-4 text-warning opacity-70"></i>
+                </div>
+                <div class="text-3xl font-display font-bold text-white" id="avgValuation">--</div>
+                <div class="mt-2 text-[10px] font-mono text-gray-500">PER CAPITA AVERAGE</div>
+            </div>
+
+            <!-- Metric 4 -->
+            <div class="hud-panel rounded-lg p-5 relative overflow-hidden group">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="text-xs font-mono text-success font-bold tracking-widest">PROGRAMS</div>
+                    <i data-lucide="shield-check" class="w-4 h-4 text-success opacity-70"></i>
+                </div>
+                <div class="text-3xl font-display font-bold text-white success-glow" id="totalTeams">--</div>
+                <div class="mt-2 text-[10px] font-mono text-gray-500">FBS INSTITUTIONS</div>
+            </div>
+        </div>
+
+        <!-- Analytical Charts Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+            
+            <!-- Positional Radar (Shape of Spending) -->
+            <div class="lg:col-span-4 hud-panel rounded-lg p-6 flex flex-col">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h3 class="font-display font-bold text-white text-sm tracking-wide">CAPITAL DISTRIBUTION</h3>
+                        <p class="text-[10px] font-mono text-gray-500">SPENDING SHAPE BY POSITION</p>
+                    </div>
+                    <i data-lucide="radar" class="w-5 h-5 text-secondary"></i>
+                </div>
+                <div class="flex-1 relative min-h-[300px]">
+                    <canvas id="positionRadarChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Efficiency Scatter (The Matrix) -->
+            <div class="lg:col-span-8 hud-panel rounded-lg p-6 flex flex-col">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+                    <div>
+                        <h3 class="font-display font-bold text-white text-sm tracking-wide">PERFORMANCE MATRIX</h3>
+                        <p class="text-[10px] font-mono text-gray-500">EFFICIENCY (Y) vs VOLATILITY (X)</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <select id="positionFilterChart" class="filter-chip px-3 py-1.5 rounded outline-none cursor-pointer">
+                            <option value="all">ALL POSITIONS</option>
+                            <option value="QB">QB</option>
+                            <option value="RB">RB</option>
+                            <option value="WR">WR</option>
+                            <option value="OL">OL</option>
+                            <option value="DL">DL</option>
+                            <option value="LB">LB</option>
+                            <option value="DB">DB</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex-1 relative min-h-[350px]">
+                    <canvas id="efficiencyScatter"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Teams & Filters -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+            <!-- Filter Bar -->
+            <div class="lg:col-span-12 hud-panel rounded-lg p-4 flex flex-col md:flex-row gap-4 items-center">
+                <div class="relative w-full md:w-96 group">
+                    <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary transition-colors"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput"
+                        placeholder="SEARCH DATABASE..."
+                        class="w-full pl-10 pr-4 py-2 bg-[#020617] border border-white/10 rounded font-mono text-sm text-white placeholder-gray-600 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                    >
+                </div>
+                <div class="flex gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
+                    <button class="filter-chip px-4 py-2 rounded active" data-sort="valuation">VALUATION</button>
+                    <button class="filter-chip px-4 py-2 rounded" data-sort="avg">AVG DEAL</button>
+                    <button class="filter-chip px-4 py-2 rounded" data-sort="players">ROSTER SIZE</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Grid -->
+        <div id="teamsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Loading Skeleton -->
+            <div class="col-span-full flex flex-col items-center justify-center py-20 text-primary">
+                <i data-lucide="cpu" class="w-10 h-10 animate-spin mb-4"></i>
+                <div class="font-mono text-xs tracking-[0.2em] animate-pulse">PROCESSING NEURAL NETWORK...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Global State
+        let allTeams = [];
+        let charts = {};
+
+        // --- CHART CONFIGURATION ---
+        Chart.defaults.font.family = "'JetBrains Mono', monospace";
+        Chart.defaults.font.size = 10;
+        Chart.defaults.color = '#64748b';
+        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.05)';
+        
+        // Custom Tooltip Design
+        const customTooltip = {
+            backgroundColor: 'rgba(2, 6, 23, 0.95)',
+            titleColor: '#F43F5E',
+            titleFont: { family: "'Orbitron', sans-serif", size: 12 },
+            bodyColor: '#e2e8f0',
+            bodyFont: { family: "'JetBrains Mono', monospace" },
+            borderColor: 'rgba(244, 63, 94, 0.3)',
+            borderWidth: 1,
+            padding: 12,
+            displayColors: true,
+            cornerRadius: 4,
+            callbacks: {
+                label: (ctx) => {
+                    let label = ctx.dataset.label || '';
+                    if (label) label += ': ';
+                    if (ctx.parsed.y !== null && typeof ctx.parsed.y === 'number' && ctx.parsed.y > 100) {
+                         return label + '$' + ctx.parsed.y.toLocaleString();
+                    }
+                    return label + ctx.formattedValue;
+                }
+            }
+        };
+
+        // --- DATA LOADING ---
+        async function initDashboard() {
+            try {
+                const response = await fetch('/api/nil/teams');
+                const data = await response.json();
+                
+                allTeams = data.teams || [];
+                
+                // Animate Metrics
+                animateValue('totalValuation', data.stats.total_valuation, '$');
+                animateValue('totalPlayers', data.stats.total_players);
+                animateValue('avgValuation', data.stats.avg_valuation, '$');
+                animateValue('totalTeams', data.stats.total_teams);
+                
+                // Render
+                renderTeams(allTeams);
+                initCharts(data.teams);
+                
+                // Setup Interactions
+                setupFilters();
+
+            } catch (error) {
+                console.error("System Failure:", error);
+                document.getElementById('teamsGrid').innerHTML = `
+                    <div class="col-span-full text-center text-red-500 font-mono border border-red-500/20 bg-red-500/5 p-8 rounded">
+                        CONNECTION INTERRUPTED // RETRYING
+                    </div>`;
+            }
+        }
+
+        // --- ANIMATION UTILS ---
+        function animateValue(id, value, prefix = '') {
+            const el = document.getElementById(id);
+            if(!el) return;
+            const isMoney = prefix === '$';
+            el.innerHTML = prefix + (isMoney ? (value/1000000).toFixed(1) + 'M' : value.toLocaleString());
+            // In a real app, I'd add a counting animation here using requestAnimationFrame
+        }
+
+        // --- RENDERING TEAMS ---
+        function renderTeams(teams) {
+            const grid = document.getElementById('teamsGrid');
+            if (teams.length === 0) {
+                grid.innerHTML = '<div class="col-span-full text-center font-mono text-gray-500">NO MATCHES FOUND</div>';
+                return;
+            }
+
+            grid.innerHTML = teams.map((team, index) => {
+                const rank = index + 1;
+                const isElite = rank <= 10;
+                
+                return `
+                <a href="/nil/team/${team.team_id}" class="hud-panel rounded-lg p-5 relative group overflow-hidden block">
+                    <!-- Rank Indicator -->
+                    <div class="absolute top-0 right-0 p-3">
+                        <div class="font-display font-bold text-lg ${isElite ? 'text-primary value-glow' : 'text-gray-600'}">
+                            #${rank < 10 ? '0'+rank : rank}
+                        </div>
+                    </div>
+
+                    <!-- Team Identity -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 relative">
+                            <div class="absolute inset-0 bg-white/5 rounded-full blur-md group-hover:bg-primary/20 transition-all"></div>
+                            <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/${team.team_id}.png" 
+                                 class="w-full h-full object-contain relative z-10 drop-shadow-lg"
+                                 alt="${team.team_name}"
+                                 loading="lazy">
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-white text-lg group-hover:text-primary transition-colors leading-none mb-1">
+                                ${team.team_name}
+                            </h3>
+                            <div class="text-[10px] font-mono text-gray-500 tracking-wider">ID: ${team.team_id}</div>
+                        </div>
+                    </div>
+
+                    <!-- Micro Dashboard -->
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                            <span class="text-[10px] font-mono text-gray-400">MARKET CAP</span>
+                            <span class="font-mono font-bold text-white group-hover:text-primary transition-colors">
+                                $${team.total_valuation.toLocaleString()}
+                            </span>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                            <span class="text-[10px] font-mono text-gray-400">ROSTER SIZE</span>
+                            <span class="font-mono text-success">${team.total_players}</span>
+                        </div>
+                        <div class="flex justify-between items-end pb-1">
+                            <span class="text-[10px] font-mono text-gray-400">AVG YIELD</span>
+                            <span class="font-mono text-warning">$${Math.round(team.avg_valuation).toLocaleString()}</span>
+                        </div>
+                    </div>
+
+                    <!-- Position Badges -->
+                    <div class="mt-4 flex flex-wrap gap-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
+                        ${team.qb_valuation > 1000000 ? '<span class="px-1.5 py-0.5 rounded bg-primary/20 text-primary text-[9px] font-mono font-bold border border-primary/30">QB+</span>' : ''}
+                        ${team.wr_valuation > 800000 ? '<span class="px-1.5 py-0.5 rounded bg-secondary/20 text-secondary text-[9px] font-mono font-bold border border-secondary/30">WR+</span>' : ''}
+                        ${team.dl_valuation > 800000 ? '<span class="px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-400 text-[9px] font-mono font-bold border border-orange-500/30">DL+</span>' : ''}
+                    </div>
+                </a>
+                `;
+            }).join('');
+            
+            lucide.createIcons();
+        }
+
+        // --- CHARTS ENGINE ---
+        async function initCharts(teams) {
+            
+            // 1. Position Radar Chart (Aggregated)
+            const posTotals = { QB:0, RB:0, WR:0, TE:0, OL:0, DL:0, LB:0, DB:0 };
+            teams.forEach(t => {
+                posTotals.QB += t.qb_valuation; posTotals.RB += t.rb_valuation;
+                posTotals.WR += t.wr_valuation; posTotals.TE += t.te_valuation;
+                posTotals.OL += t.ol_valuation; posTotals.DL += t.dl_valuation;
+                posTotals.LB += t.lb_valuation; posTotals.DB += t.db_valuation;
+            });
+
+            const radarCtx = document.getElementById('positionRadarChart');
+            charts.radar = new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: Object.keys(posTotals),
+                    datasets: [{
+                        label: 'Market Volume',
+                        data: Object.values(posTotals),
+                        backgroundColor: 'rgba(6, 182, 212, 0.2)', // Secondary color alpha
+                        borderColor: '#06B6D4',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#020617',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(255,255,255,0.05)' },
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            pointLabels: {
+                                color: '#94a3b8',
+                                font: { family: "'Orbitron', sans-serif", size: 10 }
+                            },
+                            ticks: { display: false, backdropColor: 'transparent' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { ...customTooltip, callbacks: {
+                            label: (ctx) => '$' + (ctx.raw/1000000).toFixed(1) + 'M Total Cap'
+                        }}
+                    }
+                }
+            });
+
+            // 2. Load & Render Scatter
+            await updateScatterChart('all');
+        }
+
+        async function updateScatterChart(posFilter) {
+            try {
+                // In a real scenario, I'd cache this data. Fetching specific players for scatter.
+                // Assuming we fetch a subset or using data available. 
+                // For demo, I will fetch the first 20 teams' players to populate the chart.
+                const promises = allTeams.slice(0, 15).map(t => fetch(`/api/nil/team/${t.team_id}/players`).then(r=>r.json()));
+                const results = await Promise.all(promises);
+                let players = results.flatMap(r => r.players || []);
+
+                if(posFilter !== 'all') {
+                    players = players.filter(p => p.position === posFilter);
+                }
+
+                // Color mapping
+                const getPosColor = (p) => {
+                    const map = { QB: '#F43F5E', WR: '#F59E0B', RB: '#10B981', DB: '#06B6D4' };
+                    return map[p] || '#64748b';
+                };
+
+                const dataPoints = players.map(p => ({
+                    x: p.sigma1 * 100, // Volatility
+                    y: p.eff1 * 100,   // Efficiency
+                    name: p.player_name,
+                    val: p.valuation,
+                    pos: p.position
+                }));
+
+                const ctx = document.getElementById('efficiencyScatter');
+                
+                if(charts.scatter) charts.scatter.destroy();
+
+                charts.scatter = new Chart(ctx, {
+                    type: 'bubble', // Using bubble to size by valuation
+                    data: {
+                        datasets: [{
+                            label: 'Players',
+                            data: dataPoints.map(d => ({
+                                x: d.x,
+                                y: d.y,
+                                r: Math.max(3, Math.min(15, d.val / 100000)) // Size bubble by value
+                            })),
+                            backgroundColor: (ctx) => {
+                                const raw = ctx.raw;
+                                if(!raw) return '#64748b';
+                                const idx = ctx.dataIndex;
+                                return getPosColor(dataPoints[idx].pos) + '80'; // Add opacity
+                            },
+                            borderColor: (ctx) => {
+                                const idx = ctx.dataIndex;
+                                return dataPoints[idx] ? getPosColor(dataPoints[idx].pos) : '#fff';
+                            },
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                title: { display: true, text: 'Volatility (Sigma %)', color: '#475569' },
+                                grid: { color: 'rgba(255,255,255,0.05)' }
+                            },
+                            y: {
+                                title: { display: true, text: 'Efficiency Rating', color: '#475569' },
+                                grid: { color: 'rgba(255,255,255,0.05)' }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                ...customTooltip,
+                                callbacks: {
+                                    label: (ctx) => {
+                                        const p = dataPoints[ctx.dataIndex];
+                                        return `${p.name} (${p.pos}): $${p.val.toLocaleString()}`;
+                                    },
+                                    afterLabel: (ctx) => {
+                                         const p = dataPoints[ctx.dataIndex];
+                                         return `Eff: ${p.y.toFixed(1)} | Vol: ${p.x.toFixed(1)}`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+            } catch(e) { console.error("Chart Error", e); }
+        }
+
+        // --- FILTERS & INTERACTIONS ---
+        function setupFilters() {
+            // Search
+            const searchInput = document.getElementById('searchInput');
+            let debounceTimer;
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    const term = e.target.value.toLowerCase();
+                    const filtered = allTeams.filter(t => t.team_name.toLowerCase().includes(term));
+                    renderTeams(filtered);
+                }, 300);
+            });
+
+            // Sorting Buttons
+            document.querySelectorAll('[data-sort]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Update Active State
+                    document.querySelectorAll('[data-sort]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+
+                    const sortKey = e.target.dataset.sort;
+                    const sorted = [...allTeams].sort((a,b) => {
+                        if(sortKey === 'valuation') return b.total_valuation - a.total_valuation;
+                        if(sortKey === 'avg') return b.avg_valuation - a.avg_valuation;
+                        if(sortKey === 'players') return b.total_players - a.total_players;
+                        return 0;
+                    });
+                    renderTeams(sorted);
+                });
+            });
+
+            // Position Filter (Chart)
+            document.getElementById('positionFilterChart').addEventListener('change', (e) => {
+                updateScatterChart(e.target.value);
+            });
+        }
+
+        // Start System
+        window.addEventListener('load', initDashboard);
+
+    </script>
+</body>
+</html>

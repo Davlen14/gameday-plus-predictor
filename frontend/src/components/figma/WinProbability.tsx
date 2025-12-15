@@ -12,12 +12,15 @@ export function WinProbability({ predictionData }: WinProbabilityProps) {
   const [animatedAwayProb, setAnimatedAwayProb] = useState(0);
   const [animatedHomeProb, setAnimatedHomeProb] = useState(0);
 
-  // Use the correct data structure from the original component
-  const awayTeam = predictionData?.team_selector?.away_team || { name: "Away Team", logo: "", primary_color: "#6366f1", alt_color: "#4f46e5" };
-  const homeTeam = predictionData?.team_selector?.home_team || { name: "Home Team", logo: "", primary_color: "#10b981", alt_color: "#059669" };
-  const awayProb = predictionData?.prediction_cards?.win_probability?.away_team_prob || 50.0;
-  const homeProb = predictionData?.prediction_cards?.win_probability?.home_team_prob || 50.0;
-  const favoredTeam = predictionData?.prediction_cards?.win_probability?.favored_team || awayTeam.name;
+  // Get data directly from predictionData (not ui_components)
+  const teamSelector = predictionData?.team_selector || {};
+  const predictionCards = predictionData?.prediction_cards || {};
+  
+  const awayTeam = teamSelector?.away_team || predictionData?.header?.teams?.away || { name: "Away Team", logo: "", primary_color: "#6366f1", alt_color: "#4f46e5" };
+  const homeTeam = teamSelector?.home_team || predictionData?.header?.teams?.home || { name: "Home Team", logo: "", primary_color: "#10b981", alt_color: "#059669" };
+  const awayProb = predictionCards?.win_probability?.away_team_prob || 50.0;
+  const homeProb = predictionCards?.win_probability?.home_team_prob || 50.0;
+  const favoredTeam = awayProb > homeProb ? awayTeam.name : homeTeam.name;
   
   // Get confidence from prediction data
   const confidence = predictionData?.confidence?.overall_confidence || 85.2;

@@ -114,92 +114,79 @@ export function AdvancedMetrics({ predictionData }: AdvancedMetricsProps) {
     ? (homeTeam.alt_color || homeTeam.secondary_color || '#10b981') 
     : (homeTeam.primary_color || '#f97316');
 
-  // Parse advanced metrics from formatted_analysis section [15] - ADVANCED OFFENSIVE METRICS
+  // Parse advanced metrics from team_statistics - USE STRUCTURED DATA
   const parseAdvancedMetrics = () => {
-    const advancedSection = predictionData?.formatted_analysis ? 
-      extractSection(predictionData.formatted_analysis, 15) : null;
+    const awayStats = predictionData?.team_statistics?.away;
+    const homeStats = predictionData?.team_statistics?.home;
     
-    // Parse values from the "ADVANCED OFFENSIVE METRICS:" table
-    const parseMetric = (metricName: string) => {
-      if (!advancedSection) return { away: 0, home: 0 };
-      
-      // Pattern: "Metric                         Away (TeamName)                   Home (TeamName)                        Advantage"
-      // Example: "Offense PPA                    0.178                               0.286                               Home"
-      const pattern = new RegExp(`${metricName}\\s+([\\d.]+)%?\\s+([\\d.]+)%?`, 'i');
-      const match = advancedSection.match(pattern);
-      
-      if (match) {
-        return {
-          away: parseFloat(match[1]),
-          home: parseFloat(match[2])
-        };
-      }
-      return { away: 0, home: 0 };
-    };
-    
-    const offensePPA = parseMetric('Offense PPA');
-    const successRate = parseMetric('Success Rate');
-    const explosiveness = parseMetric('Explosiveness');
-    const powerSuccess = parseMetric('Power Success');
-    const stuffRate = parseMetric('Stuff Rate');
-    const lineYards = parseMetric('Line Yards');
-    const secondLevel = parseMetric('Second Level Yards');
-    const openField = parseMetric('Open Field Yards');
+    // Fallback to empty data if stats not available
+    if (!awayStats || !homeStats) {
+      return [
+        { metric: 'PPA', AWAY: 0, HOME: 0, higherBetter: true, unit: '' },
+        { metric: 'Success Rate', AWAY: 0, HOME: 0, higherBetter: true, unit: '%' },
+        { metric: 'Explosiveness', AWAY: 0, HOME: 0, higherBetter: true, unit: '' },
+        { metric: 'Power Success', AWAY: 0, HOME: 0, higherBetter: true, unit: '%' },
+        { metric: 'Stuff Rate', AWAY: 0, HOME: 0, higherBetter: false, unit: '%' },
+        { metric: 'Line Yards', AWAY: 0, HOME: 0, higherBetter: true, unit: '' },
+        { metric: 'Second Level', AWAY: 0, HOME: 0, higherBetter: true, unit: '' },
+        { metric: 'Open Field', AWAY: 0, HOME: 0, higherBetter: true, unit: '' }
+      ];
+    }
     
     return [
       { 
         metric: 'PPA', 
-        AWAY: offensePPA.away, 
-        HOME: offensePPA.home, 
+        AWAY: awayStats.off_ppa || 0, 
+        HOME: homeStats.off_ppa || 0, 
         higherBetter: true, 
         unit: '' 
       },
       { 
         metric: 'Success Rate', 
-        AWAY: successRate.away, 
-        HOME: successRate.home, 
+        AWAY: (awayStats.off_success_rate || 0) * 100, // Convert to percentage
+        HOME: (homeStats.off_success_rate || 0) * 100, 
         higherBetter: true, 
         unit: '%' 
       },
       { 
         metric: 'Explosiveness', 
-        AWAY: explosiveness.away, 
-        HOME: explosiveness.home, 
+        AWAY: awayStats.off_explosiveness || 0, 
+        HOME: homeStats.off_explosiveness || 0, 
         higherBetter: true, 
         unit: '' 
       },
       { 
         metric: 'Power Success', 
-        AWAY: powerSuccess.away, 
-        HOME: powerSuccess.home, 
+        AWAY: (awayStats.off_power_success || 0) * 100, // Convert to percentage
+        HOME: (homeStats.off_power_success || 0) * 100, 
         higherBetter: true, 
         unit: '%' 
       },
       { 
         metric: 'Stuff Rate', 
-        AWAY: stuffRate.away, 
-        HOME: stuffRate.home, 
+        AWAY: (awayStats.off_stuff_rate || 0) * 100, // Convert to percentage
+        HOME: (homeStats.off_stuff_rate || 0) * 100, 
         higherBetter: false, 
         unit: '%' 
       },
       { 
         metric: 'Line Yards', 
-        AWAY: lineYards.away, 
-        HOME: lineYards.home, 
+        AWAY: awayStats.off_line_yards || 0, 
+        HOME: homeStats.off_line_yards || 0, 
         higherBetter: true, 
         unit: '' 
       },
       { 
         metric: 'Second Level', 
-        AWAY: secondLevel.away, 
-        HOME: secondLevel.home, 
+        AWAY: awayStats.off_second_level_yards || 0, 
+        HOME: homeStats.off_second_level_yards || 0, 
         higherBetter: true, 
         unit: '' 
       },
       { 
         metric: 'Open Field', 
-        AWAY: openField.away, 
-        HOME: openField.home, 
+        AWAY: awayStats.off_open_field_yards || 0, 
+        HOME: homeStats.off_open_field_yards || 0, 
         higherBetter: true, 
         unit: '' 
       }

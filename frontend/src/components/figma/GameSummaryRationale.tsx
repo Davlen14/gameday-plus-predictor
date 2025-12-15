@@ -1,10 +1,28 @@
 import { GlassCard } from './GlassCard';
-import { Target, TrendingUp, TrendingDown, Award, BarChart3, Activity } from 'lucide-react';
+import { Target, TrendingUp, TrendingDown, Award, BarChart3, Activity, Calendar, CheckCircle } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 interface GameSummaryRationaleProps {
   predictionData?: any;
 }
+
+// Helper to replace emojis with icon components
+const renderTextWithIcons = (text: string) => {
+  if (!text) return text;
+  
+  // Replace emojis with icon names that we can render
+  const parts = text.split(/(\📅|\✅|📊|🏈|⚡|🎯)/g);
+  
+  return parts.map((part, idx) => {
+    if (part === '📅') return <Calendar key={idx} className="w-4 h-4 inline-block mx-1 text-blue-400" />;
+    if (part === '✅') return <CheckCircle key={idx} className="w-4 h-4 inline-block mx-1 text-emerald-400" />;
+    if (part === '📊') return <BarChart3 key={idx} className="w-4 h-4 inline-block mx-1 text-purple-400" />;
+    if (part === '🏈') return <Activity key={idx} className="w-4 h-4 inline-block mx-1 text-orange-400" />;
+    if (part === '⚡') return <TrendingUp key={idx} className="w-4 h-4 inline-block mx-1 text-yellow-400" />;
+    if (part === '🎯') return <Target key={idx} className="w-4 h-4 inline-block mx-1 text-red-400" />;
+    return part;
+  });
+};
 
 export function GameSummaryRationale({ predictionData }: GameSummaryRationaleProps) {
   // Support both direct and ui_components paths
@@ -51,10 +69,113 @@ export function GameSummaryRationale({ predictionData }: GameSummaryRationalePro
   const spreadAnalysis = summary.spread_analysis;
   const totalAnalysis = summary.total_analysis;
   const edgeAnalysis = summary.edge_analysis;
-  const criticalStats = summary.critical_stats;
   const keyAdvantages = summary.key_advantages;
   const bottomLine = summary.bottom_line;
   const marketAnalysis = summary.market_analysis;
+  
+  // Get team stats for accurate data
+  const awayStats = predictionData?.team_statistics?.away;
+  const homeStats = predictionData?.team_statistics?.home;
+  
+  // Build critical stats from team_statistics if summary has zeros
+  const criticalStats = summary.critical_stats || {};
+  
+  // Check if EPA data is missing/zero and populate from team_statistics
+  const epaData = (!criticalStats.epa || criticalStats.epa.away_offense === 0) && awayStats && homeStats ? {
+    away_offense: awayStats.off_ppa || 0,
+    away_defense: awayStats.def_ppa || 0,
+    home_offense: homeStats.off_ppa || 0,
+    home_defense: homeStats.def_ppa || 0,
+    advantage: (awayStats.off_ppa || 0) > (homeStats.off_ppa || 0) ? awayTeam?.name : homeTeam?.name
+  } : criticalStats.epa;
+  
+  // Check if power ratings are missing/zero and populate from team_statistics
+  const powerRatings = (!criticalStats.power_ratings || criticalStats.power_ratings.away_fpi === 0) && awayStats && homeStats ? {
+    away_fpi: awayStats.fpi || 0,
+    home_fpi: homeStats.fpi || 0,
+    advantage: (awayStats.fpi || 0) > (homeStats.fpi || 0) ? awayTeam?.name : homeTeam?.name
+  } : criticalStats.power_ratings;
+  
+  // Check if success rates are missing/zero and populate from team_statistics
+  const successRates = (!criticalStats.success_rates || criticalStats.success_rates.away_offense === 0) && awayStats && homeStats ? {
+    away_offense: ((awayStats.off_success_rate || 0) * 100).toFixed(1),
+    away_defense: ((awayStats.def_success_rate || 0) * 100).toFixed(1),
+    home_offense: ((homeStats.off_success_rate || 0) * 100).toFixed(1),
+    home_defense: ((homeStats.def_success_rate || 0) * 100).toFixed(1),
+    offensive_edge: (awayStats.off_success_rate || 0) > (homeStats.off_success_rate || 0) ? awayTeam?.name : homeTeam?.name
+  } : criticalStats.success_rates;
+  
+  const enhancedCriticalStats = {
+    epa: epaData,
+    power_ratings: powerRatings,
+    success_rates: successRates
+  };
+  
+  // Build key advantages from team_statistics if summary has zeros/empty
+  const buildKeyAdvantages = () => {
+    if (!awayStats || !homeStats) return keyAdvantages;
+    
+    // Check if keyAdvantages has content or is showing zeros
+    const hasValidData = keyAdvantages?.away?.length > 0 && 
+                        !keyAdvantages.away[0].includes('0.000') && 
+                        !keyAdvantages.away[0].includes('0.0%');
+    
+    if (hasValidData) return keyAdvantages;
+    
+    // Build advantages from actual stats
+    const awayAdvantages = [];
+    const homeAdvantages = [];
+    
+    // EPA advantages
+    if ((awayStats.off_ppa || 0) > (homeStats.off_ppa || 0)) {
+      awayAdvantages.push(`Superior offensive EPA: ${awayStats.off_ppa >= 0 ? '+' : ''}${awayStats.off_ppa.toFixed(3)} vs ${homeStats.off_ppa >= 0 ? '+' : ''}${homeStats.off_ppa.toFixed(3)}`);
+    } else {
+      homeAdvantages.push(`Superior offensive EPA: ${homeStats.off_ppa >= 0 ? '+' : ''}${homeStats.off_ppa.toFixed(3)} vs ${awayStats.off_ppa >= 0 ? '+' : ''}${awayStats.off_ppa.toFixed(3)}`);
+    }
+    
+    if ((awayStats.def_ppa || 0) < (homeStats.def_ppa || 0)) {
+      awayAdvantages.push(`Stronger defensive EPA: ${awayStats.def_ppa >= 0 ? '+' : ''}${awayStats.def_ppa.toFixed(3)} vs ${homeStats.def_ppa >= 0 ? '+' : ''}${homeStats.def_ppa.toFixed(3)}`);
+    } else {
+      homeAdvantages.push(`Stronger defensive EPA: ${homeStats.def_ppa >= 0 ? '+' : ''}${homeStats.def_ppa.toFixed(3)} vs ${awayStats.def_ppa >= 0 ? '+' : ''}${awayStats.def_ppa.toFixed(3)}`);
+    }
+    
+    // Success rate advantages
+    if ((awayStats.off_success_rate || 0) > (homeStats.off_success_rate || 0)) {
+      awayAdvantages.push(`Better offensive success rate: ${((awayStats.off_success_rate || 0) * 100).toFixed(1)}% vs ${((homeStats.off_success_rate || 0) * 100).toFixed(1)}%`);
+    } else {
+      homeAdvantages.push(`Better offensive success rate: ${((homeStats.off_success_rate || 0) * 100).toFixed(1)}% vs ${((awayStats.off_success_rate || 0) * 100).toFixed(1)}%`);
+    }
+    
+    if ((awayStats.def_success_rate || 0) < (homeStats.def_success_rate || 0)) {
+      awayAdvantages.push(`Better defensive success rate: ${((awayStats.def_success_rate || 0) * 100).toFixed(1)}% vs ${((homeStats.def_success_rate || 0) * 100).toFixed(1)}%`);
+    } else {
+      homeAdvantages.push(`Better defensive success rate: ${((homeStats.def_success_rate || 0) * 100).toFixed(1)}% vs ${((awayStats.def_success_rate || 0) * 100).toFixed(1)}%`);
+    }
+    
+    // FPI advantage
+    if ((awayStats.fpi || 0) > (homeStats.fpi || 0)) {
+      awayAdvantages.push(`Higher FPI rating: ${awayStats.fpi.toFixed(1)} vs ${homeStats.fpi.toFixed(1)}`);
+    } else {
+      homeAdvantages.push(`Higher FPI rating: ${homeStats.fpi.toFixed(1)} vs ${awayStats.fpi.toFixed(1)}`);
+    }
+    
+    // Explosiveness
+    if ((awayStats.off_explosiveness || 0) > (homeStats.off_explosiveness || 0)) {
+      awayAdvantages.push(`Higher explosiveness: ${awayStats.off_explosiveness.toFixed(2)} vs ${homeStats.off_explosiveness.toFixed(2)}`);
+    } else {
+      homeAdvantages.push(`Higher explosiveness: ${homeStats.off_explosiveness.toFixed(2)} vs ${awayStats.off_explosiveness.toFixed(2)}`);
+    }
+    
+    // Home field advantage
+    homeAdvantages.push('Home field advantage');
+    
+    return {
+      away: awayAdvantages,
+      home: homeAdvantages
+    };
+  };
+  
+  const enhancedKeyAdvantages = buildKeyAdvantages();
 
   return (
     <GlassCard glowColor={glowColor} className="p-6 border-white/20">
@@ -174,78 +295,6 @@ export function GameSummaryRationale({ predictionData }: GameSummaryRationalePro
         </div>
       </div>
 
-      {/* Market Analysis & Sportsbooks */}
-      {marketAnalysis && marketAnalysis.sportsbook_lines && marketAnalysis.sportsbook_lines.length > 0 && (
-        <div className="mb-6">
-          <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 border border-blue-500/40 rounded-lg p-6">
-            <h4 className="text-blue-300 font-semibold text-lg mb-4 flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-blue-400" />
-              Live Sportsbook Lines
-            </h4>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {marketAnalysis.sportsbook_lines.map((book: any, idx: number) => (
-                <div key={idx} className="backdrop-blur-sm border border-slate-700/50 rounded-lg p-4">
-                  <div className="text-center mb-3">
-                    <div className="text-white font-semibold">{book.sportsbook}</div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-gray-400">Spread:</span>
-                      <span className="text-white font-mono">{book.spread > 0 ? '+' : ''}{book.spread?.toFixed(1) || 'N/A'}</span>
-                    </div>
-                    {book.total && (
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-400">Total:</span>
-                        <span className="text-white font-mono">{book.total?.toFixed(1)}</span>
-                      </div>
-                    )}
-                    {book.odds && (
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-400">Odds:</span>
-                        <span className="text-white font-mono">{book.odds > 0 ? '+' : ''}{book.odds}</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Best Bets */}
-            {marketAnalysis.best_bets && marketAnalysis.best_bets.length > 0 && (
-              <div className="mt-4 pt-4 border-t border-blue-500/20">
-                <div className="text-sm text-blue-300 font-semibold mb-3">Recommended Bets:</div>
-                <div className="space-y-2">
-                  {marketAnalysis.best_bets.map((bet: any, idx: number) => (
-                    <div key={idx} className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 rounded-lg p-3">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className={`px-2 py-1 rounded text-xs font-bold ${
-                            bet.grade === 'STRONG' ? 'bg-red-500/20 text-red-400' :
-                            bet.grade === 'GOOD' ? 'bg-yellow-500/20 text-yellow-400' :
-                            'bg-blue-500/20 text-blue-400'
-                          }`}>
-                            {bet.grade}
-                          </div>
-                          <div>
-                            <div className="text-white font-semibold">{bet.bet}</div>
-                            <div className="text-xs text-gray-400">{bet.sportsbook}</div>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-green-400 font-bold">{bet.edge > 0 ? '+' : ''}{bet.edge?.toFixed(1)} edge</div>
-                          <div className="text-xs text-gray-400">{bet.odds > 0 ? '+' : ''}{bet.odds}</div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
       {/* Edge Analysis */}
       <div className="mb-6">
         <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-lg p-5">
@@ -289,9 +338,9 @@ export function GameSummaryRationale({ predictionData }: GameSummaryRationalePro
             title="EPA Performance"
             awayTeam={awayTeam?.name}
             homeTeam={homeTeam?.name}
-            awayValue={`Off: ${criticalStats.epa.away_offense >= 0 ? '+' : ''}${criticalStats.epa.away_offense.toFixed(3)} | Def: ${criticalStats.epa.away_defense >= 0 ? '+' : ''}${criticalStats.epa.away_defense.toFixed(3)}`}
-            homeValue={`Off: ${criticalStats.epa.home_offense >= 0 ? '+' : ''}${criticalStats.epa.home_offense.toFixed(3)} | Def: ${criticalStats.epa.home_defense >= 0 ? '+' : ''}${criticalStats.epa.home_defense.toFixed(3)}`}
-            advantage={criticalStats.epa.advantage}
+            awayValue={`Off: ${enhancedCriticalStats.epa.away_offense >= 0 ? '+' : ''}${enhancedCriticalStats.epa.away_offense.toFixed(3)} | Def: ${enhancedCriticalStats.epa.away_defense >= 0 ? '+' : ''}${enhancedCriticalStats.epa.away_defense.toFixed(3)}`}
+            homeValue={`Off: ${enhancedCriticalStats.epa.home_offense >= 0 ? '+' : ''}${enhancedCriticalStats.epa.home_offense.toFixed(3)} | Def: ${enhancedCriticalStats.epa.home_defense >= 0 ? '+' : ''}${enhancedCriticalStats.epa.home_defense.toFixed(3)}`}
+            advantage={enhancedCriticalStats.epa.advantage}
             awayLogo={awayTeam?.logo}
             homeLogo={homeTeam?.logo}
           />
@@ -301,9 +350,9 @@ export function GameSummaryRationale({ predictionData }: GameSummaryRationalePro
             title="FPI Rating"
             awayTeam={awayTeam?.name}
             homeTeam={homeTeam?.name}
-            awayValue={criticalStats.power_ratings.away_fpi.toFixed(1)}
-            homeValue={criticalStats.power_ratings.home_fpi.toFixed(1)}
-            advantage={criticalStats.power_ratings.advantage}
+            awayValue={enhancedCriticalStats.power_ratings.away_fpi.toFixed(1)}
+            homeValue={enhancedCriticalStats.power_ratings.home_fpi.toFixed(1)}
+            advantage={enhancedCriticalStats.power_ratings.advantage}
             awayLogo={awayTeam?.logo}
             homeLogo={homeTeam?.logo}
           />
@@ -313,9 +362,9 @@ export function GameSummaryRationale({ predictionData }: GameSummaryRationalePro
             title="Success Rates"
             awayTeam={awayTeam?.name}
             homeTeam={homeTeam?.name}
-            awayValue={`Off: ${criticalStats.success_rates.away_offense}% | Def: ${criticalStats.success_rates.away_defense}%`}
-            homeValue={`Off: ${criticalStats.success_rates.home_offense}% | Def: ${criticalStats.success_rates.home_defense}%`}
-            advantage={criticalStats.success_rates.offensive_edge}
+            awayValue={`Off: ${enhancedCriticalStats.success_rates.away_offense}% | Def: ${enhancedCriticalStats.success_rates.away_defense}%`}
+            homeValue={`Off: ${enhancedCriticalStats.success_rates.home_offense}% | Def: ${enhancedCriticalStats.success_rates.home_defense}%`}
+            advantage={enhancedCriticalStats.success_rates.offensive_edge}
             awayLogo={awayTeam?.logo}
             homeLogo={homeTeam?.logo}
           />
@@ -340,9 +389,9 @@ export function GameSummaryRationale({ predictionData }: GameSummaryRationalePro
               <ImageWithFallback src={awayTeam?.logo} alt={awayTeam?.name} className="w-6 h-6 object-contain" />
               <h5 className="font-semibold" style={{ color: awayTeamColor }}>{awayTeam?.name} Advantages</h5>
             </div>
-            {keyAdvantages.away && keyAdvantages.away.length > 0 ? (
+            {enhancedKeyAdvantages.away && enhancedKeyAdvantages.away.length > 0 ? (
               <ul className="space-y-2">
-                {keyAdvantages.away.map((adv: string, idx: number) => (
+                {enhancedKeyAdvantages.away.map((adv: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2 text-sm text-gray-300">
                     <TrendingUp className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: awayTeamColor }} />
                     <span>{adv}</span>
@@ -365,9 +414,9 @@ export function GameSummaryRationale({ predictionData }: GameSummaryRationalePro
               <ImageWithFallback src={homeTeam?.logo} alt={homeTeam?.name} className="w-6 h-6 object-contain" />
               <h5 className="font-semibold" style={{ color: homeTeamColor }}>{homeTeam?.name} Advantages</h5>
             </div>
-            {keyAdvantages.home && keyAdvantages.home.length > 0 ? (
+            {enhancedKeyAdvantages.home && enhancedKeyAdvantages.home.length > 0 ? (
               <ul className="space-y-2">
-                {keyAdvantages.home.map((adv: string, idx: number) => (
+                {enhancedKeyAdvantages.home.map((adv: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2 text-sm text-gray-300">
                     <TrendingUp className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: homeTeamColor }} />
                     <span>{adv}</span>
@@ -402,16 +451,16 @@ export function GameSummaryRationale({ predictionData }: GameSummaryRationalePro
           </div>
         </div>
         
-        <p className="text-gray-200 leading-relaxed mb-4">{bottomLine.summary}</p>
+        <p className="text-gray-200 leading-relaxed mb-4">{renderTextWithIcons(bottomLine.summary)}</p>
         
         {bottomLine.key_factors && bottomLine.key_factors.length > 0 && (
           <div className="pt-4 border-t border-emerald-500/20">
             <div className="text-sm text-emerald-300 font-semibold mb-2">Supporting Factors:</div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               {bottomLine.key_factors.map((factor: string, idx: number) => (
-                <div key={idx} className="flex items-center gap-2 text-sm text-gray-300">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>
-                  <span>{factor}</span>
+                <div key={idx} className="flex items-start gap-2 text-sm text-gray-300">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0"></div>
+                  <span>{renderTextWithIcons(factor)}</span>
                 </div>
               ))}
             </div>

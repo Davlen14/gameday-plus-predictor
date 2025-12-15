@@ -1,0 +1,286 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017526711,401752671,LSU,SEC,Clemson,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,39,39,"{'minutes': 11, 'seconds': 48}","{'minutes': 3, 'seconds': 12}",6,36,PUNT,False,0,0,0,0
+4017526712,401752671,Clemson,ACC,LSU,SEC,2,False,1,20,80,"{'minutes': 11, 'seconds': 48}",1,10,90,"{'minutes': 10, 'seconds': 30}","{'minutes': 1, 'seconds': 18}",3,-10,PUNT,True,0,0,0,0
+4017526713,401752671,LSU,SEC,Clemson,ACC,3,False,1,63,63,"{'minutes': 10, 'seconds': 30}",1,60,60,"{'minutes': 9, 'seconds': 51}","{'minutes': 0, 'seconds': 39}",2,11,FUMBLE,False,0,0,0,0
+4017526714,401752671,Clemson,ACC,LSU,SEC,4,True,1,76,24,"{'minutes': 9, 'seconds': 51}",1,76,24,"{'minutes': 8, 'seconds': 57}","{'minutes': 0, 'seconds': 54}",4,0,FG,True,0,0,3,0
+4017526715,401752671,LSU,SEC,Clemson,ACC,5,False,1,75,75,"{'minutes': 8, 'seconds': 57}",1,51,51,"{'minutes': 5, 'seconds': 25}","{'minutes': 3, 'seconds': 32}",5,24,PUNT,False,0,3,0,3
+4017526716,401752671,Clemson,ACC,LSU,SEC,6,False,1,15,85,"{'minutes': 5, 'seconds': 25}",1,56,44,"{'minutes': 0, 'seconds': 40}","{'minutes': 4, 'seconds': 45}",8,41,PUNT,True,3,0,3,0
+4017526717,401752671,LSU,SEC,Clemson,ACC,7,True,1,84,84,"{'minutes': 0, 'seconds': 40}",2,35,35,"{'minutes': 10, 'seconds': 53}","{'minutes': 4, 'seconds': 47}",8,49,FG,False,0,3,3,3
+4017526718,401752671,Clemson,ACC,LSU,SEC,8,True,2,25,75,"{'minutes': 10, 'seconds': 53}",2,100,0,"{'minutes': 4, 'seconds': 36}","{'minutes': 6, 'seconds': 17}",13,75,TD,True,3,3,10,3
+4017526719,401752671,LSU,SEC,Clemson,ACC,9,False,2,75,75,"{'minutes': 4, 'seconds': 36}",2,12,12,"{'minutes': 0, 'seconds': 9}","{'minutes': 4, 'seconds': 27}",12,62,FUMBLE,False,3,10,3,10
+40175267110,401752671,Clemson,ACC,LSU,SEC,10,False,2,13,87,"{'minutes': 0, 'seconds': 9}",2,12,88,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 9}",1,-1,END OF HALF,True,10,3,10,3
+40175267111,401752671,Clemson,ACC,LSU,SEC,11,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,70,30,"{'minutes': 12, 'seconds': 47}","{'minutes': 2, 'seconds': 13}",8,45,MISSED FG,True,10,3,10,3
+40175267112,401752671,LSU,SEC,Clemson,ACC,12,True,3,70,70,"{'minutes': 12, 'seconds': 47}",3,0,0,"{'minutes': 8, 'seconds': 59}","{'minutes': 3, 'seconds': 48}",8,69,TD,False,3,10,10,10
+40175267113,401752671,Clemson,ACC,LSU,SEC,13,False,3,25,75,"{'minutes': 8, 'seconds': 59}",3,35,65,"{'minutes': 8, 'seconds': 15}","{'minutes': 0, 'seconds': 44}",2,10,INT,True,10,10,10,10
+40175267114,401752671,LSU,SEC,Clemson,ACC,14,False,3,54,54,"{'minutes': 8, 'seconds': 15}",3,29,29,"{'minutes': 4, 'seconds': 32}","{'minutes': 3, 'seconds': 43}",8,25,MISSED FG,False,10,10,10,10
+40175267115,401752671,Clemson,ACC,LSU,SEC,15,False,3,29,71,"{'minutes': 4, 'seconds': 32}",3,34,66,"{'minutes': 3, 'seconds': 9}","{'minutes': 1, 'seconds': 23}",3,5,PUNT,True,10,10,10,10
+40175267116,401752671,LSU,SEC,Clemson,ACC,16,True,3,73,73,"{'minutes': 3, 'seconds': 9}",4,0,0,"{'minutes': 12, 'seconds': 18}","{'minutes': 5, 'seconds': 51}",11,73,TD,False,10,10,17,10
+40175267117,401752671,Clemson,ACC,LSU,SEC,17,False,4,25,75,"{'minutes': 12, 'seconds': 18}",4,67,33,"{'minutes': 9, 'seconds': 2}","{'minutes': 3, 'seconds': 16}",8,42,DOWNS,True,10,17,10,17
+40175267118,401752671,LSU,SEC,Clemson,ACC,18,False,4,67,67,"{'minutes': 9, 'seconds': 2}",4,40,40,"{'minutes': 4, 'seconds': 26}","{'minutes': 4, 'seconds': 36}",7,26,PUNT,False,17,10,17,10
+40175267119,401752671,Clemson,ACC,LSU,SEC,19,False,4,20,80,"{'minutes': 4, 'seconds': 26}",4,22,78,"{'minutes': 3, 'seconds': 22}","{'minutes': 1, 'seconds': 4}",3,2,PUNT,True,10,17,10,17
+40175267120,401752671,LSU,SEC,Clemson,ACC,20,False,4,82,82,"{'minutes': 3, 'seconds': 22}",4,79,79,"{'minutes': 1, 'seconds': 50}","{'minutes': 1, 'seconds': 32}",3,3,PUNT,False,17,10,17,10
+40175267121,401752671,Clemson,ACC,LSU,SEC,21,False,4,43,57,"{'minutes': 1, 'seconds': 50}",4,85,15,"{'minutes': 0, 'seconds': 59}","{'minutes': 0, 'seconds': 51}",7,42,DOWNS,True,10,17,10,17
+40175267122,401752671,LSU,SEC,Clemson,ACC,22,False,4,85,85,"{'minutes': 0, 'seconds': 59}",4,87,87,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 59}",2,-2,END OF GAME,False,17,10,17,10
+4017527902,401752790,Clemson,ACC,South Carolina,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,48,48,"{'minutes': 12, 'seconds': 23}","{'minutes': 2, 'seconds': 37}",4,27,PUNT,False,0,0,0,0
+4017527903,401752790,South Carolina,SEC,Clemson,ACC,2,False,1,15,85,"{'minutes': 12, 'seconds': 15}",1,20,80,"{'minutes': 10, 'seconds': 33}","{'minutes': 1, 'seconds': 50}",3,5,PUNT,True,0,0,0,0
+4017527904,401752790,Clemson,ACC,South Carolina,SEC,3,False,1,55,55,"{'minutes': 10, 'seconds': 28}",1,51,51,"{'minutes': 8, 'seconds': 22}","{'minutes': 2, 'seconds': 11}",3,4,PUNT,False,0,0,0,0
+4017527905,401752790,South Carolina,SEC,Clemson,ACC,4,False,1,3,97,"{'minutes': 8, 'seconds': 13}",1,41,59,"{'minutes': 6, 'seconds': 44}","{'minutes': 1, 'seconds': 38}",4,42,FUMBLE,True,0,0,0,0
+4017527906,401752790,Clemson,ACC,South Carolina,SEC,5,False,1,45,45,"{'minutes': 6, 'seconds': 38}",1,19,19,"{'minutes': 3, 'seconds': 43}","{'minutes': 3, 'seconds': 1}",7,26,INT,False,0,0,0,0
+4017527907,401752790,South Carolina,SEC,Clemson,ACC,6,False,1,20,80,"{'minutes': 3, 'seconds': 38}",1,31,69,"{'minutes': 1, 'seconds': 14}","{'minutes': 2, 'seconds': 29}",5,11,PUNT,True,0,0,0,0
+4017527908,401752790,Clemson,ACC,South Carolina,SEC,7,True,1,78,78,"{'minutes': 1, 'seconds': 4}",2,3,3,"{'minutes': 12, 'seconds': 37}","{'minutes': 3, 'seconds': 37}",7,78,TD,False,0,0,7,0
+40175279010,401752790,South Carolina,SEC,Clemson,ACC,8,True,2,25,75,"{'minutes': 12, 'seconds': 37}",2,97,3,"{'minutes': 11, 'seconds': 14}","{'minutes': 1, 'seconds': 23}",3,75,TD,True,0,7,7,7
+40175279012,401752790,Clemson,ACC,South Carolina,SEC,9,True,2,85,85,"{'minutes': 11, 'seconds': 8}",2,3,3,"{'minutes': 5, 'seconds': 48}","{'minutes': 5, 'seconds': 20}",11,85,FUMBLE,False,7,7,14,7
+40175279014,401752790,South Carolina,SEC,Clemson,ACC,10,True,2,26,74,"{'minutes': 5, 'seconds': 48}",2,97,3,"{'minutes': 5, 'seconds': 29}","{'minutes': 0, 'seconds': 13}",1,74,TD,True,7,14,14,14
+40175279016,401752790,Clemson,ACC,South Carolina,SEC,11,True,2,75,75,"{'minutes': 5, 'seconds': 29}",2,21,21,"{'minutes': 0, 'seconds': 56}","{'minutes': 4, 'seconds': 33}",12,54,FG,False,14,14,20,14
+40175279018,401752790,South Carolina,SEC,Clemson,ACC,12,False,2,27,73,"{'minutes': 0, 'seconds': 50}",2,20,80,"{'minutes': 0, 'seconds': 19}","{'minutes': 0, 'seconds': 31}",3,-7,PUNT,True,14,17,14,17
+40175279019,401752790,Clemson,ACC,South Carolina,SEC,13,False,2,67,67,"{'minutes': 0, 'seconds': 14}",2,50,50,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 19}",4,17,END OF HALF,False,17,14,17,14
+40175279021,401752790,South Carolina,SEC,Clemson,ACC,14,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,34,66,"{'minutes': 14, 'seconds': 5}","{'minutes': 0, 'seconds': 55}",3,9,PUNT,True,14,17,14,17
+40175279022,401752790,Clemson,ACC,South Carolina,SEC,15,True,3,80,80,"{'minutes': 13, 'seconds': 59}",3,24,24,"{'minutes': 8, 'seconds': 32}","{'minutes': 5, 'seconds': 33}",12,56,FG,False,17,14,20,14
+40175279024,401752790,South Carolina,SEC,Clemson,ACC,16,False,3,17,83,"{'minutes': 8, 'seconds': 27}",3,54,46,"{'minutes': 4, 'seconds': 53}","{'minutes': 3, 'seconds': 34}",6,37,PUNT,True,14,20,14,20
+40175279025,401752790,Clemson,ACC,South Carolina,SEC,17,False,3,96,96,"{'minutes': 4, 'seconds': 48}",3,87,87,"{'minutes': 3, 'seconds': 13}","{'minutes': 1, 'seconds': 40}",3,9,PUNT,False,20,14,20,14
+40175279026,401752790,South Carolina,SEC,Clemson,ACC,18,False,3,36,64,"{'minutes': 3, 'seconds': 6}",3,100,0,"{'minutes': 0, 'seconds': 13}","{'minutes': 3, 'seconds': 0}",8,41,INT,True,14,20,14,20
+40175279027,401752790,Clemson,ACC,South Carolina,SEC,19,False,3,80,80,"{'minutes': 0, 'seconds': 12}",4,47,47,"{'minutes': 11, 'seconds': 18}","{'minutes': 3, 'seconds': 55}",7,33,PUNT,False,20,14,20,14
+40175279028,401752790,South Carolina,SEC,Clemson,ACC,20,False,4,20,80,"{'minutes': 11, 'seconds': 12}",4,66,34,"{'minutes': 8, 'seconds': 48}","{'minutes': 2, 'seconds': 30}",7,46,DOWNS,True,14,20,14,20
+40175279029,401752790,Clemson,ACC,South Carolina,SEC,21,False,4,66,66,"{'minutes': 8, 'seconds': 31}",4,43,43,"{'minutes': 3, 'seconds': 29}","{'minutes': 5, 'seconds': 19}",8,23,PUNT,False,20,14,20,14
+40175279030,401752790,South Carolina,SEC,Clemson,ACC,22,True,4,5,95,"{'minutes': 3, 'seconds': 20}",4,5,95,"{'minutes': 3, 'seconds': 20}","{'minutes': 0, 'seconds': 9}",1,0,INT TD,True,14,26,14,28
+40175279032,401752790,South Carolina,SEC,Clemson,ACC,23,False,4,25,75,"{'minutes': 3, 'seconds': 20}",4,40,60,"{'minutes': 2, 'seconds': 37}","{'minutes': 0, 'seconds': 43}",3,15,FUMBLE,True,14,28,14,28
+40175279033,401752790,Clemson,ACC,South Carolina,SEC,24,False,4,40,40,"{'minutes': 2, 'seconds': 31}",4,45,45,"{'minutes': 2, 'seconds': 4}","{'minutes': 0, 'seconds': 33}",3,-5,PUNT,False,28,14,28,14
+40175279034,401752790,South Carolina,SEC,Clemson,ACC,25,False,4,5,95,"{'minutes': 1, 'seconds': 56}",4,79,21,"{'minutes': 0, 'seconds': 1}","{'minutes': 2, 'seconds': 4}",14,74,Uncategorized,True,14,28,14,28
+4017545371,401754537,Syracuse,ACC,Clemson,ACC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,0,0,"{'minutes': 11, 'seconds': 1}","{'minutes': 3, 'seconds': 59}",7,75,TD,False,0,0,7,0
+4017545372,401754537,Syracuse,ACC,Clemson,ACC,2,True,1,54,54,"{'minutes': 11, 'seconds': 0}",1,5,5,"{'minutes': 7, 'seconds': 40}","{'minutes': 3, 'seconds': 20}",11,49,FG,False,7,0,10,0
+4017545373,401754537,Clemson,ACC,Syracuse,ACC,3,True,1,25,75,"{'minutes': 7, 'seconds': 40}",1,100,0,"{'minutes': 3, 'seconds': 21}","{'minutes': 4, 'seconds': 19}",9,75,TD,True,0,10,7,10
+4017545374,401754537,Syracuse,ACC,Clemson,ACC,4,True,1,75,75,"{'minutes': 3, 'seconds': 21}",2,0,0,"{'minutes': 14, 'seconds': 56}","{'minutes': 3, 'seconds': 25}",9,75,TD,False,10,7,17,7
+4017545375,401754537,Clemson,ACC,Syracuse,ACC,5,False,2,35,65,"{'minutes': 14, 'seconds': 56}",2,60,40,"{'minutes': 12, 'seconds': 52}","{'minutes': 2, 'seconds': 4}",4,25,PUNT,True,7,17,7,17
+4017545376,401754537,Syracuse,ACC,Clemson,ACC,6,True,2,80,80,"{'minutes': 12, 'seconds': 52}",2,0,0,"{'minutes': 9, 'seconds': 13}","{'minutes': 3, 'seconds': 39}",8,80,TD,False,17,7,24,7
+4017545377,401754537,Clemson,ACC,Syracuse,ACC,7,False,2,25,75,"{'minutes': 9, 'seconds': 13}",2,31,69,"{'minutes': 7, 'seconds': 10}","{'minutes': 2, 'seconds': 3}",3,6,PUNT,True,7,24,7,24
+4017545378,401754537,Syracuse,ACC,Clemson,ACC,8,False,2,76,76,"{'minutes': 7, 'seconds': 10}",2,45,45,"{'minutes': 5, 'seconds': 12}","{'minutes': 1, 'seconds': 58}",5,31,PUNT,False,24,7,24,7
+4017545379,401754537,Clemson,ACC,Syracuse,ACC,9,True,2,8,92,"{'minutes': 5, 'seconds': 12}",2,100,0,"{'minutes': 1, 'seconds': 6}","{'minutes': 4, 'seconds': 6}",13,92,TD,True,7,24,14,24
+40175453710,401754537,Syracuse,ACC,Clemson,ACC,10,False,2,74,74,"{'minutes': 1, 'seconds': 1}",2,56,56,"{'minutes': 0, 'seconds': 16}","{'minutes': 0, 'seconds': 45}",5,18,PUNT,False,24,14,24,14
+40175453711,401754537,Clemson,ACC,Syracuse,ACC,11,False,2,20,80,"{'minutes': 0, 'seconds': 16}",2,59,41,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 16}",4,39,END OF HALF,True,14,24,14,24
+40175453712,401754537,Clemson,ACC,Syracuse,ACC,12,False,3,24,76,"{'minutes': 14, 'seconds': 55}",3,55,45,"{'minutes': 13, 'seconds': 4}","{'minutes': 1, 'seconds': 51}",6,31,PUNT,True,14,24,14,24
+40175453713,401754537,Syracuse,ACC,Clemson,ACC,13,True,3,89,89,"{'minutes': 13, 'seconds': 4}",3,31,31,"{'minutes': 11, 'seconds': 44}","{'minutes': 1, 'seconds': 20}",6,58,FG,False,24,14,27,14
+40175453714,401754537,Clemson,ACC,Syracuse,ACC,14,False,3,25,75,"{'minutes': 11, 'seconds': 44}",3,56,44,"{'minutes': 7, 'seconds': 57}","{'minutes': 3, 'seconds': 47}",7,31,DOWNS,True,14,27,14,27
+40175453715,401754537,Syracuse,ACC,Clemson,ACC,15,False,3,56,56,"{'minutes': 7, 'seconds': 57}",3,50,50,"{'minutes': 6, 'seconds': 30}","{'minutes': 1, 'seconds': 27}",3,6,PUNT,False,27,14,27,14
+40175453716,401754537,Clemson,ACC,Syracuse,ACC,16,False,3,14,86,"{'minutes': 6, 'seconds': 30}",3,37,63,"{'minutes': 4, 'seconds': 29}","{'minutes': 2, 'seconds': 1}",5,23,PUNT,True,14,27,14,27
+40175453717,401754537,Syracuse,ACC,Clemson,ACC,17,False,3,81,81,"{'minutes': 4, 'seconds': 29}",3,61,61,"{'minutes': 2, 'seconds': 25}","{'minutes': 2, 'seconds': 4}",4,20,PUNT,False,27,14,27,14
+40175453718,401754537,Clemson,ACC,Syracuse,ACC,18,False,3,16,84,"{'minutes': 2, 'seconds': 25}",3,18,82,"{'minutes': 2, 'seconds': 18}","{'minutes': 0, 'seconds': 7}",1,2,FUMBLE,True,14,27,14,27
+40175453719,401754537,Syracuse,ACC,Clemson,ACC,19,True,3,18,18,"{'minutes': 2, 'seconds': 18}",3,0,0,"{'minutes': 2, 'seconds': 12}","{'minutes': 0, 'seconds': 6}",1,18,TD,False,34,14,34,14
+40175453720,401754537,Clemson,ACC,Syracuse,ACC,20,False,3,30,70,"{'minutes': 2, 'seconds': 6}",3,72,28,"{'minutes': 0, 'seconds': 4}","{'minutes': 2, 'seconds': 2}",6,42,DOWNS,True,14,34,14,34
+40175453721,401754537,Syracuse,ACC,Clemson,ACC,21,False,3,72,72,"{'minutes': 0, 'seconds': 4}",4,64,64,"{'minutes': 12, 'seconds': 9}","{'minutes': 2, 'seconds': 55}",6,8,PUNT,False,34,14,34,14
+40175453722,401754537,Clemson,ACC,Syracuse,ACC,22,True,4,19,81,"{'minutes': 12, 'seconds': 9}",4,100,0,"{'minutes': 9, 'seconds': 0}","{'minutes': 3, 'seconds': 9}",9,81,TD,True,14,34,21,34
+40175453723,401754537,Syracuse,ACC,Clemson,ACC,23,False,4,75,75,"{'minutes': 9, 'seconds': 0}",4,67,67,"{'minutes': 6, 'seconds': 46}","{'minutes': 2, 'seconds': 14}",6,8,PUNT,False,34,21,34,21
+40175453724,401754537,Clemson,ACC,Syracuse,ACC,24,False,4,21,79,"{'minutes': 6, 'seconds': 46}",4,44,56,"{'minutes': 5, 'seconds': 7}","{'minutes': 1, 'seconds': 39}",7,23,INT,True,21,34,21,34
+40175453725,401754537,Syracuse,ACC,Clemson,ACC,25,False,4,52,52,"{'minutes': 5, 'seconds': 7}",4,49,49,"{'minutes': 3, 'seconds': 24}","{'minutes': 1, 'seconds': 43}",3,3,PUNT,False,34,21,34,21
+40175453726,401754537,Clemson,ACC,Syracuse,ACC,26,False,4,9,91,"{'minutes': 3, 'seconds': 24}",4,44,56,"{'minutes': 1, 'seconds': 40}","{'minutes': 1, 'seconds': 44}",9,35,DOWNS,True,21,34,21,34
+40175453727,401754537,Syracuse,ACC,Clemson,ACC,27,False,4,44,44,"{'minutes': 1, 'seconds': 40}",4,35,35,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 40}",5,9,END OF GAME,False,34,21,34,21
+4017545521,401754552,Clemson,ACC,North Carolina,ACC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,0,0,"{'minutes': 14, 'seconds': 49}","{'minutes': 0, 'seconds': 11}",1,75,TD,False,0,0,7,0
+4017545522,401754552,North Carolina,ACC,Clemson,ACC,2,True,1,26,74,"{'minutes': 14, 'seconds': 41}",1,84,16,"{'minutes': 10, 'seconds': 2}","{'minutes': 4, 'seconds': 39}",10,58,FG,True,0,7,3,7
+4017545523,401754552,Clemson,ACC,North Carolina,ACC,3,True,1,75,75,"{'minutes': 10, 'seconds': 2}",1,0,0,"{'minutes': 8, 'seconds': 54}","{'minutes': 1, 'seconds': 8}",3,75,TD,False,7,3,14,3
+4017545524,401754552,North Carolina,ACC,Clemson,ACC,4,False,1,25,75,"{'minutes': 8, 'seconds': 54}",1,30,70,"{'minutes': 7, 'seconds': 3}","{'minutes': 1, 'seconds': 51}",3,5,PUNT,True,3,14,3,14
+4017545525,401754552,Clemson,ACC,North Carolina,ACC,5,True,1,57,57,"{'minutes': 7, 'seconds': 3}",1,0,0,"{'minutes': 4, 'seconds': 15}","{'minutes': 2, 'seconds': 48}",5,57,TD,False,14,3,21,3
+4017545526,401754552,North Carolina,ACC,Clemson,ACC,6,False,1,7,93,"{'minutes': 4, 'seconds': 9}",1,3,97,"{'minutes': 2, 'seconds': 55}","{'minutes': 1, 'seconds': 14}",3,-4,PUNT,True,3,21,3,21
+4017545527,401754552,Clemson,ACC,North Carolina,ACC,7,True,1,46,46,"{'minutes': 2, 'seconds': 55}",1,0,0,"{'minutes': 0, 'seconds': 1}","{'minutes': 2, 'seconds': 54}",7,46,TD,False,21,3,28,3
+4017545528,401754552,North Carolina,ACC,Clemson,ACC,8,False,2,24,76,"{'minutes': 15, 'seconds': 0}",2,21,79,"{'minutes': 12, 'seconds': 50}","{'minutes': 2, 'seconds': 10}",3,-3,PUNT,True,3,28,3,28
+4017545529,401754552,Clemson,ACC,North Carolina,ACC,9,False,2,59,59,"{'minutes': 12, 'seconds': 50}",2,36,36,"{'minutes': 6, 'seconds': 59}","{'minutes': 5, 'seconds': 51}",9,23,PUNT,False,28,3,28,3
+40175455210,401754552,North Carolina,ACC,Clemson,ACC,10,False,2,9,91,"{'minutes': 6, 'seconds': 59}",2,6,94,"{'minutes': 5, 'seconds': 18}","{'minutes': 1, 'seconds': 41}",3,-3,PUNT,True,3,28,3,28
+40175455211,401754552,Clemson,ACC,North Carolina,ACC,11,True,2,37,37,"{'minutes': 5, 'seconds': 18}",2,0,0,"{'minutes': 2, 'seconds': 2}","{'minutes': 3, 'seconds': 16}",6,37,TD,False,28,3,35,3
+40175455212,401754552,North Carolina,ACC,Clemson,ACC,12,False,2,25,75,"{'minutes': 2, 'seconds': 2}",2,38,62,"{'minutes': 1, 'seconds': 28}","{'minutes': 0, 'seconds': 34}",5,13,PUNT,True,3,35,3,35
+40175455213,401754552,Clemson,ACC,North Carolina,ACC,13,False,2,80,80,"{'minutes': 1, 'seconds': 28}",2,61,61,"{'minutes': 0, 'seconds': 31}","{'minutes': 0, 'seconds': 57}",5,19,PUNT,False,35,3,35,3
+40175455214,401754552,North Carolina,ACC,Clemson,ACC,14,False,2,18,82,"{'minutes': 0, 'seconds': 31}",2,32,68,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 31}",2,14,END OF HALF,True,3,35,3,35
+40175455215,401754552,North Carolina,ACC,Clemson,ACC,15,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,68,32,"{'minutes': 7, 'seconds': 57}","{'minutes': 7, 'seconds': 3}",13,43,MISSED FG,True,3,35,3,35
+40175455216,401754552,Clemson,ACC,North Carolina,ACC,16,False,3,68,68,"{'minutes': 7, 'seconds': 57}",3,71,71,"{'minutes': 6, 'seconds': 1}","{'minutes': 1, 'seconds': 56}",3,-3,PUNT,False,35,3,35,3
+40175455217,401754552,North Carolina,ACC,Clemson,ACC,17,False,3,24,76,"{'minutes': 6, 'seconds': 1}",3,64,36,"{'minutes': 3, 'seconds': 40}","{'minutes': 2, 'seconds': 21}",6,40,DOWNS,True,3,35,3,35
+40175455218,401754552,Clemson,ACC,North Carolina,ACC,18,True,3,64,64,"{'minutes': 3, 'seconds': 40}",4,9,9,"{'minutes': 13, 'seconds': 20}","{'minutes': 5, 'seconds': 20}",14,55,FG,False,35,3,38,3
+40175455219,401754552,North Carolina,ACC,Clemson,ACC,19,True,4,25,75,"{'minutes': 13, 'seconds': 20}",4,100,0,"{'minutes': 10, 'seconds': 25}","{'minutes': 2, 'seconds': 55}",5,75,TD,True,3,38,10,38
+40175455220,401754552,Clemson,ACC,North Carolina,ACC,20,False,4,68,68,"{'minutes': 10, 'seconds': 19}",4,30,30,"{'minutes': 5, 'seconds': 35}","{'minutes': 4, 'seconds': 44}",9,38,DOWNS,False,38,10,38,10
+40175455221,401754552,North Carolina,ACC,Clemson,ACC,21,False,4,30,70,"{'minutes': 5, 'seconds': 35}",4,33,67,"{'minutes': 4, 'seconds': 37}","{'minutes': 0, 'seconds': 58}",3,3,PUNT,True,10,38,10,38
+40175455222,401754552,Clemson,ACC,North Carolina,ACC,22,False,4,67,67,"{'minutes': 4, 'seconds': 37}",4,6,6,"{'minutes': 1, 'seconds': 23}","{'minutes': 3, 'seconds': 14}",9,61,FUMBLE,False,38,10,38,10
+40175455223,401754552,North Carolina,ACC,Clemson,ACC,23,False,4,6,94,"{'minutes': 1, 'seconds': 23}",4,47,53,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 23}",6,41,END OF GAME,True,10,38,10,38
+4017545582,401754558,Clemson,ACC,Boston College,ACC,1,True,1,70,70,"{'minutes': 14, 'seconds': 10}",1,28,28,"{'minutes': 8, 'seconds': 24}","{'minutes': 6, 'seconds': 31}",13,42,FG,False,0,0,3,0
+4017545584,401754558,Boston College,ACC,Clemson,ACC,2,False,1,25,75,"{'minutes': 8, 'seconds': 19}",1,27,73,"{'minutes': 7, 'seconds': 15}","{'minutes': 1, 'seconds': 15}",3,2,PUNT,True,0,3,0,3
+4017545585,401754558,Clemson,ACC,Boston College,ACC,3,True,1,67,67,"{'minutes': 7, 'seconds': 9}",1,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 4}",6,67,TD,False,3,0,10,0
+4017545587,401754558,Boston College,ACC,Clemson,ACC,4,True,1,25,75,"{'minutes': 4, 'seconds': 5}",1,73,27,"{'minutes': 1, 'seconds': 42}","{'minutes': 2, 'seconds': 28}",7,48,FG,True,0,10,3,10
+4017545589,401754558,Clemson,ACC,Boston College,ACC,5,True,1,75,75,"{'minutes': 1, 'seconds': 36}",2,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 32}",8,75,TD,False,10,3,17,6
+40175455811,401754558,Boston College,ACC,Clemson,ACC,6,True,2,25,75,"{'minutes': 13, 'seconds': 3}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 55}",10,75,TD,True,3,17,10,17
+40175455813,401754558,Clemson,ACC,Boston College,ACC,7,True,2,68,68,"{'minutes': 9, 'seconds': 3}",2,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 33}",9,68,TD,False,17,10,24,10
+40175455815,401754558,Boston College,ACC,Clemson,ACC,8,False,2,25,75,"{'minutes': 5, 'seconds': 31}",2,78,22,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 37}",9,53,Uncategorized,True,10,24,10,24
+40175455816,401754558,Clemson,ACC,Boston College,ACC,9,True,2,70,70,"{'minutes': 1, 'seconds': 54}",2,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 31}",3,70,TD,False,24,10,31,10
+40175455818,401754558,Boston College,ACC,Clemson,ACC,10,False,2,25,75,"{'minutes': 1, 'seconds': 23}",2,39,61,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 11}",6,14,Uncategorized,True,10,31,10,34
+40175455821,401754558,Boston College,ACC,Clemson,ACC,11,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,15,85,"{'minutes': 13, 'seconds': 18}","{'minutes': 1, 'seconds': 55}",4,-10,PUNT,True,10,37,10,37
+40175455822,401754558,Clemson,ACC,Boston College,ACC,12,False,3,60,60,"{'minutes': 13, 'seconds': 3}",3,22,22,"{'minutes': 7, 'seconds': 51}","{'minutes': 5, 'seconds': 26}",10,38,INT,False,34,10,34,10
+40175455823,401754558,Boston College,ACC,Clemson,ACC,13,False,3,21,79,"{'minutes': 7, 'seconds': 17}",3,13,87,"{'minutes': 5, 'seconds': 59}","{'minutes': 1, 'seconds': 44}",3,-8,PUNT,True,10,34,10,34
+40175455824,401754558,Clemson,ACC,Boston College,ACC,14,False,3,57,57,"{'minutes': 5, 'seconds': 55}",3,5,5,"{'minutes': 0, 'seconds': 36}","{'minutes': 5, 'seconds': 25}",10,52,INT,False,34,10,34,10
+40175455825,401754558,Boston College,ACC,Clemson,ACC,15,False,3,20,80,"{'minutes': 0, 'seconds': 29}",4,28,72,"{'minutes': 14, 'seconds': 56}","{'minutes': 0, 'seconds': 40}",3,8,PUNT,True,10,34,10,34
+40175455826,401754558,Boston College,ACC,Clemson,ACC,16,False,4,83,17,"{'minutes': 14, 'seconds': 41}",4,91,9,"{'minutes': 13, 'seconds': 34}","{'minutes': 1, 'seconds': 21}",4,8,INT,True,10,34,10,34
+40175455827,401754558,Clemson,ACC,Boston College,ACC,17,False,4,80,80,"{'minutes': 13, 'seconds': 26}",4,59,59,"{'minutes': 9, 'seconds': 38}","{'minutes': 3, 'seconds': 54}",6,21,PUNT,False,34,10,34,10
+40175455828,401754558,Boston College,ACC,Clemson,ACC,18,False,4,24,76,"{'minutes': 9, 'seconds': 35}",4,65,35,"{'minutes': 5, 'seconds': 32}","{'minutes': 4, 'seconds': 9}",12,36,DOWNS,True,10,34,10,34
+40175455829,401754558,Clemson,ACC,Boston College,ACC,19,True,4,60,60,"{'minutes': 5, 'seconds': 24}",4,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 5, 'seconds': 2}",10,60,TD,False,34,10,41,10
+40175455831,401754558,Boston College,ACC,Clemson,ACC,20,False,4,25,75,"{'minutes': 0, 'seconds': 24}",4,25,75,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 24}",1,0,Uncategorized,True,10,41,10,41
+4017545651,401754565,Clemson,ACC,SMU,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,43,57,"{'minutes': 11, 'seconds': 57}","{'minutes': 3, 'seconds': 3}",5,18,PUNT,True,0,0,0,0
+4017545652,401754565,SMU,ACC,Clemson,ACC,2,False,1,91,91,"{'minutes': 11, 'seconds': 57}",1,78,78,"{'minutes': 8, 'seconds': 38}","{'minutes': 3, 'seconds': 19}",5,13,PUNT,False,0,0,0,0
+4017545653,401754565,Clemson,ACC,SMU,ACC,3,False,1,33,67,"{'minutes': 8, 'seconds': 38}",1,50,50,"{'minutes': 6, 'seconds': 46}","{'minutes': 1, 'seconds': 52}",4,17,FUMBLE,True,0,0,0,0
+4017545654,401754565,SMU,ACC,Clemson,ACC,4,False,1,50,50,"{'minutes': 6, 'seconds': 46}",1,47,47,"{'minutes': 5, 'seconds': 49}","{'minutes': 0, 'seconds': 57}",3,3,PUNT,False,0,0,0,0
+4017545655,401754565,Clemson,ACC,SMU,ACC,5,False,1,20,80,"{'minutes': 5, 'seconds': 49}",1,29,71,"{'minutes': 4, 'seconds': 1}","{'minutes': 1, 'seconds': 48}",3,9,PUNT,True,0,0,0,0
+4017545656,401754565,SMU,ACC,Clemson,ACC,6,True,1,70,70,"{'minutes': 4, 'seconds': 1}",1,0,0,"{'minutes': 3, 'seconds': 52}","{'minutes': 0, 'seconds': 9}",1,70,TD,False,7,0,7,0
+4017545657,401754565,Clemson,ACC,SMU,ACC,7,False,1,25,75,"{'minutes': 3, 'seconds': 52}",1,34,66,"{'minutes': 2, 'seconds': 22}","{'minutes': 1, 'seconds': 30}",3,9,PUNT,True,0,7,0,7
+4017545658,401754565,SMU,ACC,Clemson,ACC,8,False,1,81,81,"{'minutes': 2, 'seconds': 22}",1,78,78,"{'minutes': 1, 'seconds': 31}","{'minutes': 0, 'seconds': 51}",3,3,PUNT,False,7,0,7,0
+4017545659,401754565,Clemson,ACC,SMU,ACC,9,False,1,40,60,"{'minutes': 1, 'seconds': 31}",1,37,63,"{'minutes': 0, 'seconds': 4}","{'minutes': 1, 'seconds': 27}",3,-3,PUNT,True,0,7,0,7
+40175456510,401754565,SMU,ACC,Clemson,ACC,10,True,1,67,67,"{'minutes': 0, 'seconds': 4}",2,34,34,"{'minutes': 11, 'seconds': 26}","{'minutes': 3, 'seconds': 38}",10,33,FG,False,7,0,10,0
+40175456511,401754565,Clemson,ACC,SMU,ACC,11,True,2,25,75,"{'minutes': 11, 'seconds': 26}",2,100,0,"{'minutes': 8, 'seconds': 51}","{'minutes': 2, 'seconds': 35}",6,75,TD,True,0,10,7,10
+40175456512,401754565,SMU,ACC,Clemson,ACC,12,True,2,75,75,"{'minutes': 8, 'seconds': 51}",2,31,31,"{'minutes': 4, 'seconds': 29}","{'minutes': 4, 'seconds': 22}",10,44,FG,False,10,7,13,7
+40175456513,401754565,Clemson,ACC,SMU,ACC,13,False,2,30,70,"{'minutes': 4, 'seconds': 24}",2,39,61,"{'minutes': 2, 'seconds': 53}","{'minutes': 1, 'seconds': 31}",4,9,DOWNS,True,7,13,7,13
+40175456514,401754565,SMU,ACC,Clemson,ACC,14,True,2,39,39,"{'minutes': 2, 'seconds': 53}",2,31,31,"{'minutes': 1, 'seconds': 9}","{'minutes': 1, 'seconds': 44}",8,8,FG,False,13,7,16,7
+40175456515,401754565,Clemson,ACC,SMU,ACC,15,False,2,25,75,"{'minutes': 1, 'seconds': 9}",2,33,67,"{'minutes': 0, 'seconds': 16}","{'minutes': 0, 'seconds': 53}",3,8,PUNT,True,7,16,7,16
+40175456516,401754565,SMU,ACC,Clemson,ACC,16,False,2,77,77,"{'minutes': 0, 'seconds': 16}",2,75,75,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 16}",1,2,END OF HALF,False,16,7,16,7
+40175456517,401754565,SMU,ACC,Clemson,ACC,17,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,59,59,"{'minutes': 13, 'seconds': 4}","{'minutes': 1, 'seconds': 56}",4,16,PUNT,False,16,7,16,7
+40175456518,401754565,Clemson,ACC,SMU,ACC,18,False,3,30,70,"{'minutes': 13, 'seconds': 4}",3,26,74,"{'minutes': 11, 'seconds': 12}","{'minutes': 1, 'seconds': 52}",3,-4,PUNT,True,7,16,7,16
+40175456519,401754565,SMU,ACC,Clemson,ACC,19,False,3,63,63,"{'minutes': 11, 'seconds': 12}",3,62,62,"{'minutes': 10, 'seconds': 11}","{'minutes': 1, 'seconds': 1}",3,1,PUNT,False,16,7,16,7
+40175456520,401754565,Clemson,ACC,SMU,ACC,20,True,3,26,74,"{'minutes': 10, 'seconds': 11}",3,100,0,"{'minutes': 8, 'seconds': 48}","{'minutes': 1, 'seconds': 23}",4,74,TD,True,7,16,14,16
+40175456521,401754565,SMU,ACC,Clemson,ACC,21,True,3,75,75,"{'minutes': 8, 'seconds': 48}",3,0,0,"{'minutes': 7, 'seconds': 29}","{'minutes': 1, 'seconds': 19}",4,75,TD,False,16,14,23,14
+40175456522,401754565,Clemson,ACC,SMU,ACC,22,True,3,25,75,"{'minutes': 7, 'seconds': 28}",3,90,10,"{'minutes': 0, 'seconds': 7}","{'minutes': 7, 'seconds': 21}",17,65,FG,True,14,23,17,23
+40175456523,401754565,SMU,ACC,Clemson,ACC,23,True,3,75,75,"{'minutes': 0, 'seconds': 7}",4,0,0,"{'minutes': 12, 'seconds': 30}","{'minutes': 2, 'seconds': 37}",6,75,TD,False,23,17,29,17
+40175456524,401754565,Clemson,ACC,SMU,ACC,24,False,4,25,75,"{'minutes': 12, 'seconds': 30}",4,28,72,"{'minutes': 11, 'seconds': 6}","{'minutes': 1, 'seconds': 24}",3,3,PUNT,True,17,29,17,29
+40175456525,401754565,SMU,ACC,Clemson,ACC,25,False,4,69,69,"{'minutes': 11, 'seconds': 6}",4,69,69,"{'minutes': 10, 'seconds': 11}","{'minutes': 0, 'seconds': 55}",3,0,INT,False,29,17,29,17
+40175456526,401754565,Clemson,ACC,SMU,ACC,26,True,4,51,49,"{'minutes': 10, 'seconds': 11}",4,100,0,"{'minutes': 6, 'seconds': 44}","{'minutes': 3, 'seconds': 27}",8,49,TD,True,17,29,24,29
+40175456527,401754565,SMU,ACC,Clemson,ACC,27,True,4,75,75,"{'minutes': 6, 'seconds': 44}",4,0,0,"{'minutes': 1, 'seconds': 3}","{'minutes': 5, 'seconds': 41}",13,75,TD,False,29,24,35,24
+40175456528,401754565,Clemson,ACC,SMU,ACC,28,False,4,14,86,"{'minutes': 0, 'seconds': 58}",4,47,53,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 58}",7,33,END OF GAME,True,24,35,24,35
+4017545772,401754577,Clemson,ACC,Duke,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,21,79,"{'minutes': 12, 'seconds': 13}","{'minutes': 2, 'seconds': 47}",3,-4,PUNT,True,0,0,0,0
+4017545773,401754577,Duke,ACC,Clemson,ACC,2,True,1,53,53,"{'minutes': 12, 'seconds': 13}",1,3,3,"{'minutes': 10, 'seconds': 8}","{'minutes': 2, 'seconds': 5}",9,53,TD,False,0,0,7,0
+4017545775,401754577,Clemson,ACC,Duke,ACC,3,True,1,25,75,"{'minutes': 10, 'seconds': 8}",1,97,3,"{'minutes': 6, 'seconds': 25}","{'minutes': 3, 'seconds': 43}",6,75,TD,True,0,7,7,7
+4017545777,401754577,Duke,ACC,Clemson,ACC,4,True,1,79,79,"{'minutes': 6, 'seconds': 25}",1,55,55,"{'minutes': 5, 'seconds': 33}","{'minutes': 0, 'seconds': 34}",2,79,TD,False,7,7,14,7
+4017545779,401754577,Clemson,ACC,Duke,ACC,5,False,1,25,75,"{'minutes': 5, 'seconds': 33}",1,26,74,"{'minutes': 4, 'seconds': 29}","{'minutes': 1, 'seconds': 4}",3,1,PUNT,True,7,14,7,14
+40175457710,401754577,Duke,ACC,Clemson,ACC,6,True,1,72,72,"{'minutes': 4, 'seconds': 19}",1,3,3,"{'minutes': 0, 'seconds': 5}","{'minutes': 4, 'seconds': 24}",10,72,TD,False,14,7,21,7
+40175457712,401754577,Clemson,ACC,Duke,ACC,7,True,1,25,75,"{'minutes': 0, 'seconds': 5}",2,97,3,"{'minutes': 10, 'seconds': 26}","{'minutes': 4, 'seconds': 39}",10,75,TD,True,7,21,14,21
+40175457714,401754577,Duke,ACC,Clemson,ACC,8,False,2,75,75,"{'minutes': 10, 'seconds': 26}",2,82,82,"{'minutes': 8, 'seconds': 28}","{'minutes': 1, 'seconds': 58}",3,-7,PUNT,False,21,14,21,14
+40175457715,401754577,Clemson,ACC,Duke,ACC,9,True,2,32,68,"{'minutes': 8, 'seconds': 17}",2,97,3,"{'minutes': 5, 'seconds': 49}","{'minutes': 2, 'seconds': 39}",7,68,TD,True,14,21,21,21
+40175457717,401754577,Duke,ACC,Clemson,ACC,10,False,2,75,75,"{'minutes': 5, 'seconds': 49}",2,80,80,"{'minutes': 4, 'seconds': 31}","{'minutes': 1, 'seconds': 18}",3,-5,PUNT,False,21,21,21,21
+40175457718,401754577,Clemson,ACC,Duke,ACC,11,True,2,23,77,"{'minutes': 4, 'seconds': 21}",2,97,3,"{'minutes': 1, 'seconds': 1}","{'minutes': 3, 'seconds': 30}",10,77,TD,True,21,21,28,21
+40175457720,401754577,Duke,ACC,Clemson,ACC,12,True,2,75,75,"{'minutes': 1, 'seconds': 1}",2,3,3,"{'minutes': 0, 'seconds': 11}","{'minutes': 0, 'seconds': 50}",7,75,TD,False,21,28,28,28
+40175457722,401754577,Clemson,ACC,Duke,ACC,13,False,2,25,75,"{'minutes': 0, 'seconds': 11}",2,28,72,"{'minutes': 0, 'seconds': 9}","{'minutes': 0, 'seconds': 11}",1,3,END OF HALF,True,28,28,28,28
+40175457724,401754577,Duke,ACC,Clemson,ACC,14,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,62,62,"{'minutes': 12, 'seconds': 28}","{'minutes': 2, 'seconds': 32}",4,13,PUNT,False,28,28,28,28
+40175457725,401754577,Clemson,ACC,Duke,ACC,15,True,3,50,50,"{'minutes': 11, 'seconds': 48}",3,97,3,"{'minutes': 8, 'seconds': 25}","{'minutes': 4, 'seconds': 3}",7,50,TD,True,28,28,35,28
+40175457727,401754577,Clemson,ACC,Duke,ACC,16,True,3,35,65,"{'minutes': 8, 'seconds': 13}",3,135,-35,"{'minutes': 8, 'seconds': 13}","{'minutes': 0, 'seconds': 0}",1,100,TD,True,35,35,35,35
+40175457728,401754577,Clemson,ACC,Duke,ACC,17,True,3,25,75,"{'minutes': 8, 'seconds': 13}",3,96,4,"{'minutes': 0, 'seconds': 14}","{'minutes': 7, 'seconds': 59}",15,71,FG,True,35,35,38,35
+40175457730,401754577,Duke,ACC,Clemson,ACC,18,True,3,75,75,"{'minutes': 0, 'seconds': 14}",4,20,20,"{'minutes': 10, 'seconds': 40}","{'minutes': 4, 'seconds': 34}",12,55,FG,False,35,38,38,38
+40175457732,401754577,Clemson,ACC,Duke,ACC,19,True,4,25,75,"{'minutes': 10, 'seconds': 40}",4,97,3,"{'minutes': 10, 'seconds': 28}","{'minutes': 0, 'seconds': 12}",1,75,TD,True,38,38,45,38
+40175457734,401754577,Duke,ACC,Clemson,ACC,20,False,4,75,75,"{'minutes': 10, 'seconds': 28}",4,60,60,"{'minutes': 8, 'seconds': 18}","{'minutes': 2, 'seconds': 10}",4,15,PUNT,False,38,45,38,45
+40175457735,401754577,Clemson,ACC,Duke,ACC,21,False,4,15,85,"{'minutes': 8, 'seconds': 5}",4,52,48,"{'minutes': 5, 'seconds': 19}","{'minutes': 2, 'seconds': 59}",5,37,PUNT,True,45,38,45,38
+40175457736,401754577,Duke,ACC,Clemson,ACC,22,True,4,94,94,"{'minutes': 5, 'seconds': 14}",4,3,3,"{'minutes': 0, 'seconds': 40}","{'minutes': 4, 'seconds': 39}",11,94,TD,False,38,45,46,45
+40175457738,401754577,Clemson,ACC,Duke,ACC,23,False,4,25,75,"{'minutes': 0, 'seconds': 40}",4,48,52,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 40}",5,27,END OF GAME,True,45,46,45,46
+4017545862,401754586,Clemson,ACC,Florida State,ACC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 8, 'seconds': 25}","{'minutes': 6, 'seconds': 35}",13,75,TD,True,0,0,8,0
+4017545864,401754586,Florida State,ACC,Clemson,ACC,2,False,1,75,75,"{'minutes': 8, 'seconds': 25}",1,58,58,"{'minutes': 6, 'seconds': 48}","{'minutes': 1, 'seconds': 37}",4,17,PUNT,False,0,8,0,8
+4017545865,401754586,Clemson,ACC,Florida State,ACC,3,False,1,14,86,"{'minutes': 6, 'seconds': 41}",1,20,80,"{'minutes': 5, 'seconds': 25}","{'minutes': 1, 'seconds': 23}",3,6,PUNT,True,8,0,8,0
+4017545866,401754586,Florida State,ACC,Clemson,ACC,4,False,1,35,35,"{'minutes': 5, 'seconds': 19}",1,11,11,"{'minutes': 3, 'seconds': 27}","{'minutes': 1, 'seconds': 58}",5,24,FUMBLE,False,0,8,0,8
+4017545867,401754586,Clemson,ACC,Florida State,ACC,5,False,1,11,89,"{'minutes': 3, 'seconds': 18}",1,16,84,"{'minutes': 1, 'seconds': 30}","{'minutes': 1, 'seconds': 57}",3,5,PUNT,True,8,0,8,0
+4017545868,401754586,Florida State,ACC,Clemson,ACC,6,False,1,57,57,"{'minutes': 1, 'seconds': 19}",1,49,49,"{'minutes': 0, 'seconds': 16}","{'minutes': 1, 'seconds': 14}",3,8,PUNT,False,0,8,0,8
+4017545869,401754586,Clemson,ACC,Florida State,ACC,7,False,1,12,88,"{'minutes': 0, 'seconds': 11}",2,18,82,"{'minutes': 14, 'seconds': 0}","{'minutes': 1, 'seconds': 16}",3,6,PUNT,True,8,0,8,0
+40175458610,401754586,Florida State,ACC,Clemson,ACC,8,False,2,69,69,"{'minutes': 13, 'seconds': 50}",2,61,61,"{'minutes': 12, 'seconds': 42}","{'minutes': 1, 'seconds': 18}",4,8,DOWNS,False,0,8,0,8
+40175458611,401754586,Clemson,ACC,Florida State,ACC,9,True,2,61,39,"{'minutes': 12, 'seconds': 35}",2,97,3,"{'minutes': 12, 'seconds': 1}","{'minutes': 0, 'seconds': 41}",2,39,TD,True,8,0,15,0
+40175458613,401754586,Florida State,ACC,Clemson,ACC,10,False,2,75,75,"{'minutes': 12, 'seconds': 1}",2,58,58,"{'minutes': 10, 'seconds': 2}","{'minutes': 1, 'seconds': 59}",5,17,PUNT,False,0,15,0,15
+40175458614,401754586,Clemson,ACC,Florida State,ACC,11,True,2,4,96,"{'minutes': 9, 'seconds': 51}",2,77,23,"{'minutes': 2, 'seconds': 31}","{'minutes': 7, 'seconds': 31}",13,73,FG,True,15,0,18,0
+40175458616,401754586,Florida State,ACC,Clemson,ACC,12,True,2,75,75,"{'minutes': 2, 'seconds': 31}",2,3,3,"{'minutes': 0, 'seconds': 33}","{'minutes': 1, 'seconds': 58}",10,68,TD,False,0,18,7,18
+40175458618,401754586,Clemson,ACC,Florida State,ACC,13,False,2,25,75,"{'minutes': 0, 'seconds': 33}",2,28,72,"{'minutes': 0, 'seconds': 33}","{'minutes': 0, 'seconds': 33}",1,3,END OF HALF,True,18,7,18,7
+40175458620,401754586,Florida State,ACC,Clemson,ACC,14,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,22,22,"{'minutes': 11, 'seconds': 6}","{'minutes': 3, 'seconds': 54}",10,53,MISSED FG,False,7,18,7,18
+40175458621,401754586,Clemson,ACC,Florida State,ACC,15,True,3,22,78,"{'minutes': 10, 'seconds': 55}",3,95,5,"{'minutes': 6, 'seconds': 1}","{'minutes': 5, 'seconds': 5}",10,73,FG,True,18,7,21,7
+40175458623,401754586,Florida State,ACC,Clemson,ACC,16,False,3,75,75,"{'minutes': 6, 'seconds': 1}",3,81,81,"{'minutes': 4, 'seconds': 14}","{'minutes': 1, 'seconds': 47}",3,-6,PUNT,False,7,21,7,21
+40175458624,401754586,Clemson,ACC,Florida State,ACC,17,True,3,47,53,"{'minutes': 4, 'seconds': 8}",4,75,25,"{'minutes': 14, 'seconds': 18}","{'minutes': 4, 'seconds': 56}",9,28,FG,True,21,7,24,7
+40175458626,401754586,Florida State,ACC,Clemson,ACC,18,True,4,75,75,"{'minutes': 14, 'seconds': 18}",4,28,28,"{'minutes': 7, 'seconds': 37}","{'minutes': 6, 'seconds': 41}",13,47,FG,False,7,24,10,24
+40175458628,401754586,Clemson,ACC,Florida State,ACC,19,False,4,34,66,"{'minutes': 7, 'seconds': 37}",4,41,59,"{'minutes': 5, 'seconds': 24}","{'minutes': 2, 'seconds': 13}",3,7,PUNT,True,24,10,24,10
+40175458629,401754586,Florida State,ACC,Clemson,ACC,20,False,4,81,81,"{'minutes': 5, 'seconds': 8}",4,43,43,"{'minutes': 2, 'seconds': 51}","{'minutes': 2, 'seconds': 33}",8,38,DOWNS,False,10,24,10,24
+40175458630,401754586,Clemson,ACC,Florida State,ACC,21,False,4,43,57,"{'minutes': 2, 'seconds': 46}",4,43,57,"{'minutes': 2, 'seconds': 27}","{'minutes': 0, 'seconds': 24}",3,0,PUNT,True,24,10,24,10
+40175458631,401754586,Florida State,ACC,Clemson,ACC,22,False,4,88,88,"{'minutes': 2, 'seconds': 10}",4,55,55,"{'minutes': 2, 'seconds': 10}","{'minutes': 0, 'seconds': 17}",1,0,INT,False,10,24,10,24
+40175458632,401754586,Clemson,ACC,Florida State,ACC,23,False,4,55,45,"{'minutes': 2, 'seconds': 0}",4,56,44,"{'minutes': 0, 'seconds': 22}","{'minutes': 1, 'seconds': 48}",3,1,PUNT,True,24,10,24,10
+40175458633,401754586,Florida State,ACC,Clemson,ACC,24,False,4,99,99,"{'minutes': 0, 'seconds': 18}",4,52,52,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 22}",5,47,END OF GAME,False,10,24,10,24
+4017545912,401754591,Clemson,ACC,Louisville,ACC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,10,10,"{'minutes': 8, 'seconds': 38}","{'minutes': 6, 'seconds': 22}",12,65,FG,False,0,0,3,0
+4017545914,401754591,Louisville,ACC,Clemson,ACC,2,False,1,25,75,"{'minutes': 8, 'seconds': 38}",1,27,73,"{'minutes': 6, 'seconds': 46}","{'minutes': 1, 'seconds': 52}",3,2,PUNT,True,0,3,0,3
+4017545915,401754591,Clemson,ACC,Louisville,ACC,3,False,1,75,75,"{'minutes': 6, 'seconds': 41}",1,57,57,"{'minutes': 3, 'seconds': 57}","{'minutes': 2, 'seconds': 49}",5,18,PUNT,False,3,0,3,0
+4017545916,401754591,Louisville,ACC,Clemson,ACC,4,True,1,12,88,"{'minutes': 3, 'seconds': 50}",1,67,33,"{'minutes': 0, 'seconds': 45}","{'minutes': 3, 'seconds': 12}",8,55,FG,True,0,3,3,3
+4017545918,401754591,Clemson,ACC,Louisville,ACC,5,False,1,75,75,"{'minutes': 0, 'seconds': 45}",2,64,64,"{'minutes': 13, 'seconds': 34}","{'minutes': 2, 'seconds': 11}",3,11,PUNT,False,3,3,3,3
+4017545919,401754591,Louisville,ACC,Clemson,ACC,6,False,2,15,85,"{'minutes': 13, 'seconds': 25}",2,50,50,"{'minutes': 11, 'seconds': 4}","{'minutes': 2, 'seconds': 30}",5,35,PUNT,True,3,3,3,3
+40175459110,401754591,Clemson,ACC,Louisville,ACC,7,False,2,94,94,"{'minutes': 11, 'seconds': 1}",2,93,93,"{'minutes': 10, 'seconds': 1}","{'minutes': 1, 'seconds': 3}",3,1,PUNT,False,3,3,3,3
+40175459111,401754591,Louisville,ACC,Clemson,ACC,8,True,2,62,38,"{'minutes': 9, 'seconds': 52}",2,97,3,"{'minutes': 8, 'seconds': 47}","{'minutes': 1, 'seconds': 14}",3,38,TD,True,3,3,9,3
+40175459113,401754591,Clemson,ACC,Louisville,ACC,9,False,2,75,75,"{'minutes': 8, 'seconds': 47}",2,45,45,"{'minutes': 5, 'seconds': 26}","{'minutes': 3, 'seconds': 21}",6,30,PUNT,False,3,9,3,9
+40175459114,401754591,Louisville,ACC,Clemson,ACC,10,False,2,7,93,"{'minutes': 5, 'seconds': 18}",2,25,75,"{'minutes': 3, 'seconds': 20}","{'minutes': 2, 'seconds': 6}",4,18,FUMBLE,True,9,3,9,3
+40175459115,401754591,Clemson,ACC,Louisville,ACC,11,True,2,25,25,"{'minutes': 3, 'seconds': 13}",2,3,3,"{'minutes': 3, 'seconds': 13}","{'minutes': 0, 'seconds': 7}",1,25,TD,False,10,9,10,9
+40175459117,401754591,Louisville,ACC,Clemson,ACC,12,False,2,25,75,"{'minutes': 3, 'seconds': 13}",2,46,54,"{'minutes': 1, 'seconds': 1}","{'minutes': 2, 'seconds': 12}",6,21,PUNT,True,9,10,9,10
+40175459118,401754591,Clemson,ACC,Louisville,ACC,13,False,2,91,91,"{'minutes': 0, 'seconds': 54}",2,85,85,"{'minutes': 0, 'seconds': 6}","{'minutes': 1, 'seconds': 1}",4,6,DOWNS,False,10,9,10,9
+40175459120,401754591,Louisville,ACC,Clemson,ACC,14,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,97,3,"{'minutes': 11, 'seconds': 16}","{'minutes': 3, 'seconds': 44}",7,75,TD,True,9,10,16,10
+40175459122,401754591,Clemson,ACC,Louisville,ACC,15,True,3,75,75,"{'minutes': 11, 'seconds': 16}",3,30,30,"{'minutes': 7, 'seconds': 7}","{'minutes': 4, 'seconds': 9}",8,45,FG,False,10,16,13,16
+40175459124,401754591,Louisville,ACC,Clemson,ACC,16,True,3,25,75,"{'minutes': 7, 'seconds': 7}",3,79,21,"{'minutes': 1, 'seconds': 32}","{'minutes': 5, 'seconds': 35}",10,54,FG,True,16,13,19,13
+40175459126,401754591,Clemson,ACC,Louisville,ACC,17,False,3,75,75,"{'minutes': 1, 'seconds': 32}",4,2,2,"{'minutes': 11, 'seconds': 29}","{'minutes': 5, 'seconds': 6}",10,73,FUMBLE,False,13,19,13,19
+40175459127,401754591,Louisville,ACC,Clemson,ACC,18,False,4,4,96,"{'minutes': 11, 'seconds': 24}",4,7,93,"{'minutes': 9, 'seconds': 24}","{'minutes': 2, 'seconds': 2}",3,4,PUNT,True,19,13,19,20
+40175459128,401754591,Clemson,ACC,Louisville,ACC,19,True,4,56,56,"{'minutes': 9, 'seconds': 17}",4,3,3,"{'minutes': 7, 'seconds': 16}","{'minutes': 2, 'seconds': 8}",6,56,TD,False,13,19,20,19
+40175459130,401754591,Louisville,ACC,Clemson,ACC,20,False,4,25,75,"{'minutes': 7, 'seconds': 16}",4,68,32,"{'minutes': 4, 'seconds': 6}","{'minutes': 3, 'seconds': 10}",5,43,MISSED FG,True,19,20,19,20
+40175459131,401754591,Clemson,ACC,Louisville,ACC,21,False,4,68,68,"{'minutes': 3, 'seconds': 56}",4,77,77,"{'minutes': 2, 'seconds': 31}","{'minutes': 1, 'seconds': 35}",4,-9,DOWNS,False,20,19,20,19
+40175459132,401754591,Louisville,ACC,Clemson,ACC,22,False,4,77,23,"{'minutes': 2, 'seconds': 31}",4,57,43,"{'minutes': 1, 'seconds': 30}","{'minutes': 1, 'seconds': 1}",4,-20,MISSED FG,True,19,20,19,20
+40175459133,401754591,Clemson,ACC,Louisville,ACC,23,False,4,72,72,"{'minutes': 1, 'seconds': 30}",4,60,60,"{'minutes': 0, 'seconds': 30}","{'minutes': 1, 'seconds': 0}",3,12,PUNT,False,20,19,20,19
+40175459134,401754591,Louisville,ACC,Clemson,ACC,24,False,4,9,91,"{'minutes': 0, 'seconds': 25}",4,29,71,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 27}",5,20,DOWNS,True,19,20,19,20
+40175459135,401754591,Clemson,ACC,Louisville,ACC,25,False,4,29,29,"{'minutes': 0, 'seconds': 2}",4,31,31,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 3}",1,-2,END OF GAME,False,20,19,20,19
+4017546052,401754605,Clemson,ACC,Furman,Southern,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,74,26,"{'minutes': 12, 'seconds': 17}","{'minutes': 2, 'seconds': 43}",7,49,FG,True,0,0,3,0
+4017546054,401754605,Furman,Southern,Clemson,ACC,2,False,1,75,75,"{'minutes': 12, 'seconds': 17}",1,72,72,"{'minutes': 11, 'seconds': 3}","{'minutes': 1, 'seconds': 14}",3,3,PUNT,False,0,3,0,3
+4017546055,401754605,Clemson,ACC,Furman,Southern,3,True,1,59,41,"{'minutes': 10, 'seconds': 54}",1,97,3,"{'minutes': 8, 'seconds': 34}","{'minutes': 2, 'seconds': 29}",6,41,TD,True,3,0,10,0
+4017546057,401754605,Furman,Southern,Clemson,ACC,4,False,1,75,75,"{'minutes': 8, 'seconds': 34}",1,71,71,"{'minutes': 7, 'seconds': 8}","{'minutes': 1, 'seconds': 26}",3,4,PUNT,False,0,10,0,10
+4017546058,401754605,Clemson,ACC,Furman,Southern,5,True,1,20,80,"{'minutes': 6, 'seconds': 56}",1,97,3,"{'minutes': 4, 'seconds': 43}","{'minutes': 2, 'seconds': 25}",5,80,TD,True,10,0,17,0
+40175460510,401754605,Furman,Southern,Clemson,ACC,6,False,1,75,75,"{'minutes': 4, 'seconds': 43}",1,35,35,"{'minutes': 2, 'seconds': 0}","{'minutes': 2, 'seconds': 43}",6,40,MISSED FG,False,0,17,0,17
+40175460511,401754605,Clemson,ACC,Furman,Southern,7,False,1,36,64,"{'minutes': 1, 'seconds': 50}",1,16,84,"{'minutes': 0, 'seconds': 55}","{'minutes': 1, 'seconds': 5}",3,-20,PUNT,True,17,0,17,0
+40175460512,401754605,Furman,Southern,Clemson,ACC,8,False,1,61,61,"{'minutes': 0, 'seconds': 41}",2,54,54,"{'minutes': 14, 'seconds': 54}","{'minutes': 1, 'seconds': 1}",4,7,DOWNS,False,0,17,0,17
+40175460513,401754605,Clemson,ACC,Furman,Southern,9,True,2,54,46,"{'minutes': 14, 'seconds': 44}",2,97,3,"{'minutes': 14, 'seconds': 15}","{'minutes': 0, 'seconds': 39}",2,46,TD,True,17,0,24,0
+40175460515,401754605,Furman,Southern,Clemson,ACC,10,False,2,75,75,"{'minutes': 14, 'seconds': 15}",2,61,61,"{'minutes': 12, 'seconds': 22}","{'minutes': 1, 'seconds': 53}",5,14,FUMBLE,False,0,24,0,24
+40175460516,401754605,Clemson,ACC,Furman,Southern,11,False,2,61,39,"{'minutes': 12, 'seconds': 15}",2,86,14,"{'minutes': 10, 'seconds': 10}","{'minutes': 2, 'seconds': 12}",6,25,DOWNS,True,24,0,24,0
+40175460517,401754605,Furman,Southern,Clemson,ACC,12,False,2,86,86,"{'minutes': 10, 'seconds': 3}",2,78,78,"{'minutes': 8, 'seconds': 59}","{'minutes': 1, 'seconds': 11}",5,18,INT,False,0,24,0,24
+40175460518,401754605,Clemson,ACC,Furman,Southern,13,True,2,78,22,"{'minutes': 8, 'seconds': 53}",2,97,3,"{'minutes': 6, 'seconds': 48}","{'minutes': 2, 'seconds': 11}",6,22,TD,True,24,0,31,0
+40175460520,401754605,Furman,Southern,Clemson,ACC,14,False,2,75,75,"{'minutes': 6, 'seconds': 48}",2,82,82,"{'minutes': 4, 'seconds': 38}","{'minutes': 2, 'seconds': 10}",3,-7,PUNT,False,0,31,0,31
+40175460521,401754605,Clemson,ACC,Furman,Southern,15,False,2,50,50,"{'minutes': 4, 'seconds': 32}",2,82,18,"{'minutes': 2, 'seconds': 46}","{'minutes': 1, 'seconds': 52}",6,32,MISSED FG,True,31,0,31,0
+40175460522,401754605,Furman,Southern,Clemson,ACC,16,True,2,80,80,"{'minutes': 2, 'seconds': 29}",2,32,32,"{'minutes': 0, 'seconds': 30}","{'minutes': 2, 'seconds': 16}",8,48,FG,False,0,31,3,31
+40175460524,401754605,Clemson,ACC,Furman,Southern,17,False,2,19,81,"{'minutes': 0, 'seconds': 24}",2,21,79,"{'minutes': 0, 'seconds': 4}","{'minutes': 0, 'seconds': 24}",1,2,END OF HALF,True,31,3,31,3
+40175460526,401754605,Furman,Southern,Clemson,ACC,18,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,71,71,"{'minutes': 14, 'seconds': 9}","{'minutes': 0, 'seconds': 51}",3,4,PUNT,False,3,31,3,31
+40175460527,401754605,Clemson,ACC,Furman,Southern,19,False,3,30,70,"{'minutes': 14, 'seconds': 2}",3,44,56,"{'minutes': 11, 'seconds': 58}","{'minutes': 2, 'seconds': 11}",4,14,PUNT,True,31,3,31,3
+40175460528,401754605,Furman,Southern,Clemson,ACC,20,False,3,80,80,"{'minutes': 11, 'seconds': 50}",3,74,74,"{'minutes': 10, 'seconds': 31}","{'minutes': 1, 'seconds': 27}",3,6,PUNT,False,3,31,3,31
+40175460529,401754605,Clemson,ACC,Furman,Southern,21,False,3,20,80,"{'minutes': 10, 'seconds': 27}",3,50,50,"{'minutes': 6, 'seconds': 14}","{'minutes': 4, 'seconds': 17}",8,30,PUNT,True,31,3,31,3
+40175460530,401754605,Furman,Southern,Clemson,ACC,22,True,3,55,55,"{'minutes': 6, 'seconds': 5}",3,3,3,"{'minutes': 1, 'seconds': 53}","{'minutes': 4, 'seconds': 21}",6,55,TD,False,3,31,10,31
+40175460532,401754605,Clemson,ACC,Furman,Southern,23,False,3,37,63,"{'minutes': 1, 'seconds': 15}",3,33,67,"{'minutes': 1, 'seconds': 53}","{'minutes': 0, 'seconds': 9}",4,-4,PUNT,True,31,10,31,10
+40175460533,401754605,Furman,Southern,Clemson,ACC,24,False,3,85,85,"{'minutes': 1, 'seconds': 53}",4,25,25,"{'minutes': 10, 'seconds': 18}","{'minutes': 6, 'seconds': 35}",15,60,MISSED FG,False,10,31,10,31
+40175460534,401754605,Clemson,ACC,Furman,Southern,25,True,4,25,75,"{'minutes': 10, 'seconds': 11}",4,97,3,"{'minutes': 7, 'seconds': 45}","{'minutes': 2, 'seconds': 33}",5,75,TD,True,31,10,38,10
+40175460536,401754605,Furman,Southern,Clemson,ACC,26,False,4,75,75,"{'minutes': 7, 'seconds': 45}",4,45,45,"{'minutes': 2, 'seconds': 55}","{'minutes': 4, 'seconds': 50}",8,30,DOWNS,False,10,38,10,38
+40175460537,401754605,Clemson,ACC,Furman,Southern,27,True,4,45,55,"{'minutes': 2, 'seconds': 37}",4,97,3,"{'minutes': 0, 'seconds': 9}","{'minutes': 2, 'seconds': 46}",6,55,TD,True,38,10,45,10
+40175460539,401754605,Furman,Southern,Clemson,ACC,28,False,4,65,65,"{'minutes': 0, 'seconds': 3}",4,66,66,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 3}",1,-1,END OF GAME,False,10,45,10,45
+4017546231,401754623,Georgia Tech,ACC,Clemson,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,96,4,"{'minutes': 9, 'seconds': 47}","{'minutes': 5, 'seconds': 13}",12,67,DOWNS,True,0,0,0,0
+4017546232,401754623,Clemson,ACC,Georgia Tech,ACC,2,False,1,92,92,"{'minutes': 9, 'seconds': 47}",1,80,80,"{'minutes': 7, 'seconds': 24}","{'minutes': 2, 'seconds': 23}",5,12,FUMBLE,False,0,0,0,0
+4017546233,401754623,Georgia Tech,ACC,Clemson,ACC,3,True,1,70,30,"{'minutes': 7, 'seconds': 24}",1,77,23,"{'minutes': 5, 'seconds': 50}","{'minutes': 1, 'seconds': 34}",4,7,FG,True,0,0,3,0
+4017546234,401754623,Clemson,ACC,Georgia Tech,ACC,4,False,1,79,79,"{'minutes': 5, 'seconds': 50}",1,35,35,"{'minutes': 1, 'seconds': 40}","{'minutes': 4, 'seconds': 10}",10,44,MISSED FG,False,0,3,0,3
+4017546235,401754623,Georgia Tech,ACC,Clemson,ACC,5,True,1,35,65,"{'minutes': 1, 'seconds': 40}",2,100,0,"{'minutes': 14, 'seconds': 55}","{'minutes': 1, 'seconds': 45}",5,65,TD,True,3,0,10,0
+4017546236,401754623,Clemson,ACC,Georgia Tech,ACC,6,False,2,75,75,"{'minutes': 14, 'seconds': 55}",2,68,68,"{'minutes': 13, 'seconds': 22}","{'minutes': 1, 'seconds': 33}",3,7,PUNT,False,0,10,0,10
+4017546237,401754623,Georgia Tech,ACC,Clemson,ACC,7,True,2,29,71,"{'minutes': 13, 'seconds': 22}",2,75,25,"{'minutes': 7, 'seconds': 46}","{'minutes': 5, 'seconds': 36}",10,46,FG,True,10,0,13,0
+4017546238,401754623,Clemson,ACC,Georgia Tech,ACC,8,True,2,75,75,"{'minutes': 7, 'seconds': 46}",2,0,0,"{'minutes': 0, 'seconds': 49}","{'minutes': 6, 'seconds': 57}",16,75,TD,False,0,13,7,13
+4017546239,401754623,Georgia Tech,ACC,Clemson,ACC,9,False,2,25,75,"{'minutes': 0, 'seconds': 49}",2,29,71,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 49}",2,4,END OF HALF,True,13,7,13,7
+40175462310,401754623,Clemson,ACC,Georgia Tech,ACC,10,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,9,9,"{'minutes': 11, 'seconds': 37}","{'minutes': 3, 'seconds': 23}",7,66,INT,False,7,13,7,13
+40175462311,401754623,Georgia Tech,ACC,Clemson,ACC,11,False,3,52,48,"{'minutes': 11, 'seconds': 37}",3,37,63,"{'minutes': 10, 'seconds': 27}","{'minutes': 1, 'seconds': 10}",3,-15,PUNT,True,13,7,13,7
+40175462312,401754623,Clemson,ACC,Georgia Tech,ACC,12,True,3,76,76,"{'minutes': 10, 'seconds': 27}",3,0,0,"{'minutes': 9, 'seconds': 36}","{'minutes': 0, 'seconds': 51}",2,76,TD,False,7,13,14,13
+40175462313,401754623,Georgia Tech,ACC,Clemson,ACC,13,False,3,25,75,"{'minutes': 9, 'seconds': 36}",3,26,74,"{'minutes': 8, 'seconds': 51}","{'minutes': 0, 'seconds': 45}",3,1,PUNT,True,13,14,13,14
+40175462314,401754623,Clemson,ACC,Georgia Tech,ACC,14,False,3,70,70,"{'minutes': 8, 'seconds': 51}",3,68,68,"{'minutes': 7, 'seconds': 52}","{'minutes': 0, 'seconds': 59}",3,2,PUNT,False,14,13,14,13
+40175462315,401754623,Georgia Tech,ACC,Clemson,ACC,15,False,3,9,91,"{'minutes': 7, 'seconds': 52}",3,60,40,"{'minutes': 2, 'seconds': 20}","{'minutes': 5, 'seconds': 32}",11,50,FUMBLE,True,13,14,13,14
+40175462316,401754623,Clemson,ACC,Georgia Tech,ACC,16,False,3,59,59,"{'minutes': 2, 'seconds': 20}",3,53,53,"{'minutes': 1, 'seconds': 17}","{'minutes': 1, 'seconds': 3}",3,6,PUNT,False,14,13,14,13
+40175462317,401754623,Georgia Tech,ACC,Clemson,ACC,17,True,3,10,90,"{'minutes': 1, 'seconds': 17}",4,100,0,"{'minutes': 10, 'seconds': 2}","{'minutes': 6, 'seconds': 15}",13,90,TD,True,13,14,21,14
+40175462318,401754623,Clemson,ACC,Georgia Tech,ACC,18,True,4,75,75,"{'minutes': 10, 'seconds': 2}",4,0,0,"{'minutes': 3, 'seconds': 26}","{'minutes': 6, 'seconds': 36}",13,75,TD,False,14,21,21,21
+40175462319,401754623,Georgia Tech,ACC,Clemson,ACC,19,True,4,25,75,"{'minutes': 3, 'seconds': 26}",4,35,65,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 26}",10,38,END OF GAME,True,21,21,24,21
+4017546371,401754637,Troy,Sun Belt,Clemson,ACC,1,True,1,75,75,"{'minutes': 15, 'seconds': 0}",1,0,0,"{'minutes': 12, 'seconds': 6}","{'minutes': 2, 'seconds': 54}",5,75,TD,False,0,0,7,0
+4017546372,401754637,Clemson,ACC,Troy,Sun Belt,2,False,1,13,87,"{'minutes': 11, 'seconds': 39}",1,18,82,"{'minutes': 10, 'seconds': 43}","{'minutes': 0, 'seconds': 56}",3,5,PUNT,True,0,7,0,7
+4017546373,401754637,Troy,Sun Belt,Clemson,ACC,3,False,1,68,68,"{'minutes': 10, 'seconds': 43}",1,54,54,"{'minutes': 6, 'seconds': 46}","{'minutes': 3, 'seconds': 57}",6,14,PUNT,False,7,0,7,0
+4017546374,401754637,Clemson,ACC,Troy,Sun Belt,4,False,1,10,90,"{'minutes': 6, 'seconds': 46}",1,51,49,"{'minutes': 2, 'seconds': 57}","{'minutes': 3, 'seconds': 49}",9,41,PUNT,True,0,7,0,7
+4017546375,401754637,Troy,Sun Belt,Clemson,ACC,5,False,1,92,92,"{'minutes': 2, 'seconds': 57}",1,88,88,"{'minutes': 2, 'seconds': 6}","{'minutes': 0, 'seconds': 51}",3,4,INT,False,7,0,7,0
+4017546376,401754637,Clemson,ACC,Troy,Sun Belt,6,False,1,70,30,"{'minutes': 2, 'seconds': 6}",1,85,15,"{'minutes': 0, 'seconds': 2}","{'minutes': 2, 'seconds': 4}",4,15,FUMBLE,True,0,7,0,7
+4017546377,401754637,Troy,Sun Belt,Clemson,ACC,7,True,1,32,32,"{'minutes': 0, 'seconds': 2}",2,19,19,"{'minutes': 12, 'seconds': 38}","{'minutes': 2, 'seconds': 24}",7,13,FG,False,7,0,10,0
+4017546378,401754637,Clemson,ACC,Troy,Sun Belt,8,False,2,25,75,"{'minutes': 12, 'seconds': 38}",2,34,66,"{'minutes': 10, 'seconds': 0}","{'minutes': 2, 'seconds': 38}",4,9,PUNT,True,0,10,0,10
+4017546379,401754637,Troy,Sun Belt,Clemson,ACC,9,False,2,77,77,"{'minutes': 10, 'seconds': 0}",2,49,49,"{'minutes': 7, 'seconds': 5}","{'minutes': 2, 'seconds': 55}",6,28,PUNT,False,10,0,10,0
+40175463710,401754637,Clemson,ACC,Troy,Sun Belt,10,True,2,8,92,"{'minutes': 7, 'seconds': 5}",2,8,92,"{'minutes': 6, 'seconds': 58}","{'minutes': 0, 'seconds': 7}",1,0,INT TD,True,0,10,0,16
+40175463711,401754637,Clemson,ACC,Troy,Sun Belt,11,True,2,35,65,"{'minutes': 6, 'seconds': 52}",2,92,8,"{'minutes': 4, 'seconds': 11}","{'minutes': 2, 'seconds': 41}",7,57,FG,True,0,16,3,16
+40175463712,401754637,Troy,Sun Belt,Clemson,ACC,12,False,2,75,75,"{'minutes': 4, 'seconds': 11}",2,33,33,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 11}",9,42,MISSED FG,False,16,3,16,3
+40175463713,401754637,Clemson,ACC,Troy,Sun Belt,13,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 11, 'seconds': 5}","{'minutes': 3, 'seconds': 55}",8,75,TD,True,3,16,10,16
+40175463714,401754637,Troy,Sun Belt,Clemson,ACC,14,False,3,94,94,"{'minutes': 11, 'seconds': 3}",3,94,94,"{'minutes': 10, 'seconds': 13}","{'minutes': 0, 'seconds': 50}",2,0,INT,False,16,10,16,10
+40175463715,401754637,Clemson,ACC,Troy,Sun Belt,15,True,3,74,26,"{'minutes': 10, 'seconds': 13}",3,100,0,"{'minutes': 10, 'seconds': 7}","{'minutes': 0, 'seconds': 6}",1,26,TD,True,17,16,17,16
+40175463716,401754637,Troy,Sun Belt,Clemson,ACC,16,False,3,75,75,"{'minutes': 10, 'seconds': 7}",3,70,70,"{'minutes': 9, 'seconds': 8}","{'minutes': 0, 'seconds': 59}",3,5,INT,False,16,17,16,17
+40175463717,401754637,Clemson,ACC,Troy,Sun Belt,17,True,3,72,28,"{'minutes': 9, 'seconds': 8}",3,88,12,"{'minutes': 5, 'seconds': 54}","{'minutes': 3, 'seconds': 14}",6,16,FG,True,17,16,20,16
+40175463718,401754637,Troy,Sun Belt,Clemson,ACC,18,False,3,75,75,"{'minutes': 5, 'seconds': 54}",4,34,34,"{'minutes': 12, 'seconds': 13}","{'minutes': 8, 'seconds': 41}",16,41,DOWNS,False,16,20,16,20
+40175463719,401754637,Clemson,ACC,Troy,Sun Belt,19,True,4,34,66,"{'minutes': 12, 'seconds': 13}",4,100,0,"{'minutes': 9, 'seconds': 41}","{'minutes': 2, 'seconds': 32}",7,66,TD,True,20,16,27,16
+40175463720,401754637,Troy,Sun Belt,Clemson,ACC,20,False,4,75,75,"{'minutes': 9, 'seconds': 41}",4,41,41,"{'minutes': 4, 'seconds': 24}","{'minutes': 5, 'seconds': 17}",8,34,PUNT,False,16,27,16,27
+40175463721,401754637,Clemson,ACC,Troy,Sun Belt,21,False,4,20,80,"{'minutes': 4, 'seconds': 24}",4,43,57,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 24}",7,23,END OF GAME,True,27,16,27,16

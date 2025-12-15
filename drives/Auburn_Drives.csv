@@ -1,0 +1,274 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017526671,401752667,Baylor,Big 12,Auburn,SEC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,81,19,"{'minutes': 10, 'seconds': 36}","{'minutes': 4, 'seconds': 24}",13,56,FG,True,0,0,3,0
+4017526672,401752667,Auburn,SEC,Baylor,Big 12,2,False,1,75,75,"{'minutes': 10, 'seconds': 36}",1,75,75,"{'minutes': 9, 'seconds': 14}","{'minutes': 1, 'seconds': 22}",3,0,PUNT,False,0,3,0,3
+4017526673,401752667,Baylor,Big 12,Auburn,SEC,3,False,1,35,65,"{'minutes': 9, 'seconds': 14}",1,97,3,"{'minutes': 6, 'seconds': 27}","{'minutes': 2, 'seconds': 47}",6,62,DOWNS,True,3,0,3,0
+4017526674,401752667,Auburn,SEC,Baylor,Big 12,4,True,1,96,96,"{'minutes': 6, 'seconds': 27}",1,0,0,"{'minutes': 0, 'seconds': 34}","{'minutes': 5, 'seconds': 53}",12,96,TD,False,0,3,7,3
+4017526675,401752667,Baylor,Big 12,Auburn,SEC,5,False,1,35,65,"{'minutes': 0, 'seconds': 28}",2,33,67,"{'minutes': 14, 'seconds': 14}","{'minutes': 1, 'seconds': 14}",3,-2,PUNT,True,3,7,3,7
+4017526676,401752667,Auburn,SEC,Baylor,Big 12,6,True,2,65,65,"{'minutes': 14, 'seconds': 14}",2,0,0,"{'minutes': 10, 'seconds': 29}","{'minutes': 3, 'seconds': 45}",7,65,TD,False,7,3,14,3
+4017526677,401752667,Baylor,Big 12,Auburn,SEC,7,False,2,25,75,"{'minutes': 10, 'seconds': 29}",2,44,56,"{'minutes': 8, 'seconds': 43}","{'minutes': 1, 'seconds': 46}",5,19,DOWNS,True,3,14,3,14
+4017526678,401752667,Auburn,SEC,Baylor,Big 12,8,True,2,44,44,"{'minutes': 8, 'seconds': 43}",2,3,3,"{'minutes': 5, 'seconds': 45}","{'minutes': 2, 'seconds': 58}",7,41,FG,False,14,3,17,3
+4017526679,401752667,Baylor,Big 12,Auburn,SEC,9,True,2,25,75,"{'minutes': 5, 'seconds': 45}",2,100,0,"{'minutes': 3, 'seconds': 21}","{'minutes': 2, 'seconds': 24}",8,75,TD,True,3,17,10,17
+40175266710,401752667,Auburn,SEC,Baylor,Big 12,10,False,2,75,75,"{'minutes': 3, 'seconds': 21}",2,59,59,"{'minutes': 0, 'seconds': 38}","{'minutes': 2, 'seconds': 43}",9,16,PUNT,False,17,10,17,10
+40175266711,401752667,Baylor,Big 12,Auburn,SEC,11,False,2,35,65,"{'minutes': 0, 'seconds': 38}",2,70,30,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 38}",6,35,END OF HALF,True,10,17,10,17
+40175266712,401752667,Auburn,SEC,Baylor,Big 12,12,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,49,49,"{'minutes': 11, 'seconds': 23}","{'minutes': 3, 'seconds': 37}",7,26,PUNT,False,17,10,17,10
+40175266713,401752667,Baylor,Big 12,Auburn,SEC,13,False,3,10,90,"{'minutes': 11, 'seconds': 23}",3,28,72,"{'minutes': 9, 'seconds': 52}","{'minutes': 1, 'seconds': 31}",4,18,PUNT,True,10,17,10,17
+40175266714,401752667,Auburn,SEC,Baylor,Big 12,14,True,3,71,71,"{'minutes': 9, 'seconds': 52}",3,0,0,"{'minutes': 5, 'seconds': 40}","{'minutes': 4, 'seconds': 12}",9,71,TD,False,17,10,24,10
+40175266715,401752667,Baylor,Big 12,Auburn,SEC,15,True,3,25,75,"{'minutes': 5, 'seconds': 40}",3,100,0,"{'minutes': 0, 'seconds': 58}","{'minutes': 4, 'seconds': 42}",10,75,TD,True,10,24,17,31
+40175266716,401752667,Baylor,Big 12,Auburn,SEC,16,True,3,21,79,"{'minutes': 0, 'seconds': 37}",4,100,0,"{'minutes': 11, 'seconds': 48}","{'minutes': 3, 'seconds': 49}",9,79,TD,True,17,31,24,38
+40175266717,401752667,Auburn,SEC,Baylor,Big 12,17,True,4,75,75,"{'minutes': 11, 'seconds': 48}",4,0,0,"{'minutes': 4, 'seconds': 32}","{'minutes': 7, 'seconds': 16}",12,75,TD,False,31,24,38,24
+40175266718,401752667,Baylor,Big 12,Auburn,SEC,18,False,4,25,75,"{'minutes': 4, 'seconds': 32}",4,89,11,"{'minutes': 1, 'seconds': 17}","{'minutes': 3, 'seconds': 15}",9,64,DOWNS,True,24,38,24,38
+40175266719,401752667,Auburn,SEC,Baylor,Big 12,19,False,4,89,89,"{'minutes': 1, 'seconds': 17}",4,79,79,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 17}",4,10,END OF GAME,False,38,24,38,24
+4017526831,401752683,Ball State,Mid-American,Auburn,SEC,1,False,1,75,75,"{'minutes': 14, 'seconds': 53}",1,70,70,"{'minutes': 13, 'seconds': 17}","{'minutes': 1, 'seconds': 36}",3,5,PUNT,False,0,0,0,0
+4017526832,401752683,Auburn,SEC,Ball State,Mid-American,2,False,1,23,77,"{'minutes': 13, 'seconds': 17}",1,35,65,"{'minutes': 8, 'seconds': 59}","{'minutes': 4, 'seconds': 18}",8,12,PUNT,True,0,0,0,0
+4017526833,401752683,Ball State,Mid-American,Auburn,SEC,3,False,1,80,80,"{'minutes': 8, 'seconds': 59}",1,75,75,"{'minutes': 4, 'seconds': 57}","{'minutes': 4, 'seconds': 2}",6,5,PUNT,False,0,0,0,0
+4017526834,401752683,Auburn,SEC,Ball State,Mid-American,4,True,1,45,55,"{'minutes': 4, 'seconds': 57}",1,100,0,"{'minutes': 4, 'seconds': 15}","{'minutes': 0, 'seconds': 42}",2,55,TD,True,0,0,7,0
+4017526835,401752683,Ball State,Mid-American,Auburn,SEC,5,False,1,78,78,"{'minutes': 4, 'seconds': 10}",1,80,80,"{'minutes': 1, 'seconds': 55}","{'minutes': 2, 'seconds': 15}",3,-2,PUNT,False,0,7,0,7
+4017526836,401752683,Auburn,SEC,Ball State,Mid-American,6,True,1,50,50,"{'minutes': 1, 'seconds': 55}",1,100,0,"{'minutes': 0, 'seconds': 44}","{'minutes': 1, 'seconds': 11}",3,50,TD,True,7,0,14,0
+4017526837,401752683,Ball State,Mid-American,Auburn,SEC,7,False,1,88,88,"{'minutes': 0, 'seconds': 37}",2,35,35,"{'minutes': 10, 'seconds': 4}","{'minutes': 5, 'seconds': 33}",10,53,FUMBLE,False,0,14,0,14
+4017526838,401752683,Auburn,SEC,Ball State,Mid-American,8,False,2,35,65,"{'minutes': 10, 'seconds': 4}",2,67,33,"{'minutes': 5, 'seconds': 22}","{'minutes': 4, 'seconds': 42}",10,32,MISSED FG,True,14,0,14,0
+4017526839,401752683,Ball State,Mid-American,Auburn,SEC,9,False,2,67,67,"{'minutes': 5, 'seconds': 22}",2,73,73,"{'minutes': 3, 'seconds': 51}","{'minutes': 1, 'seconds': 31}",3,-6,PUNT,False,0,14,0,14
+40175268310,401752683,Auburn,SEC,Ball State,Mid-American,10,True,2,33,67,"{'minutes': 3, 'seconds': 51}",2,100,0,"{'minutes': 0, 'seconds': 37}","{'minutes': 3, 'seconds': 14}",9,67,TD,True,14,0,21,0
+40175268311,401752683,Ball State,Mid-American,Auburn,SEC,11,False,2,75,75,"{'minutes': 0, 'seconds': 37}",2,81,81,"{'minutes': 0, 'seconds': 15}","{'minutes': 0, 'seconds': 22}",3,-6,PUNT,False,0,21,0,21
+40175268312,401752683,Auburn,SEC,Ball State,Mid-American,12,False,2,14,86,"{'minutes': 0, 'seconds': 15}",2,13,87,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 15}",1,-1,END OF HALF,True,21,0,21,0
+40175268313,401752683,Auburn,SEC,Ball State,Mid-American,13,False,3,26,74,"{'minutes': 14, 'seconds': 54}",3,50,50,"{'minutes': 11, 'seconds': 42}","{'minutes': 3, 'seconds': 12}",6,24,PUNT,True,21,0,21,0
+40175268314,401752683,Ball State,Mid-American,Auburn,SEC,14,False,3,70,70,"{'minutes': 11, 'seconds': 42}",3,70,70,"{'minutes': 9, 'seconds': 12}","{'minutes': 2, 'seconds': 30}",3,0,PUNT,False,0,21,0,21
+40175268315,401752683,Auburn,SEC,Ball State,Mid-American,15,True,3,21,79,"{'minutes': 9, 'seconds': 12}",3,100,0,"{'minutes': 7, 'seconds': 32}","{'minutes': 1, 'seconds': 40}",4,79,TD,True,21,0,28,0
+40175268316,401752683,Ball State,Mid-American,Auburn,SEC,16,False,3,75,75,"{'minutes': 7, 'seconds': 32}",3,79,79,"{'minutes': 5, 'seconds': 43}","{'minutes': 1, 'seconds': 49}",3,-4,PUNT,False,0,28,0,28
+40175268317,401752683,Auburn,SEC,Ball State,Mid-American,17,False,3,20,80,"{'minutes': 5, 'seconds': 43}",3,23,77,"{'minutes': 4, 'seconds': 54}","{'minutes': 0, 'seconds': 49}",2,3,FUMBLE,True,28,0,28,0
+40175268318,401752683,Ball State,Mid-American,Auburn,SEC,18,True,3,23,23,"{'minutes': 4, 'seconds': 54}",3,4,4,"{'minutes': 1, 'seconds': 4}","{'minutes': 3, 'seconds': 50}",7,19,FG,False,0,28,3,28
+40175268319,401752683,Auburn,SEC,Ball State,Mid-American,19,True,3,28,72,"{'minutes': 0, 'seconds': 58}",4,100,0,"{'minutes': 12, 'seconds': 22}","{'minutes': 3, 'seconds': 36}",9,72,TD,True,28,3,35,3
+40175268320,401752683,Ball State,Mid-American,Auburn,SEC,20,False,4,75,75,"{'minutes': 12, 'seconds': 22}",4,74,74,"{'minutes': 9, 'seconds': 38}","{'minutes': 2, 'seconds': 44}",3,1,PUNT,False,3,35,3,35
+40175268321,401752683,Auburn,SEC,Ball State,Mid-American,21,False,4,15,85,"{'minutes': 9, 'seconds': 38}",4,23,77,"{'minutes': 6, 'seconds': 57}","{'minutes': 2, 'seconds': 41}",6,8,PUNT,True,35,3,35,3
+40175268322,401752683,Ball State,Mid-American,Auburn,SEC,22,False,4,72,72,"{'minutes': 6, 'seconds': 57}",4,78,78,"{'minutes': 5, 'seconds': 23}","{'minutes': 1, 'seconds': 34}",3,-6,PUNT,False,3,35,3,35
+40175268323,401752683,Auburn,SEC,Ball State,Mid-American,23,True,4,46,54,"{'minutes': 5, 'seconds': 23}",4,100,0,"{'minutes': 5, 'seconds': 13}","{'minutes': 0, 'seconds': 10}",1,54,TD,True,42,3,42,3
+40175268324,401752683,Ball State,Mid-American,Auburn,SEC,24,False,4,75,75,"{'minutes': 5, 'seconds': 12}",4,73,73,"{'minutes': 3, 'seconds': 3}","{'minutes': 2, 'seconds': 9}",3,2,PUNT,False,3,42,3,42
+40175268325,401752683,Auburn,SEC,Ball State,Mid-American,25,False,4,25,75,"{'minutes': 3, 'seconds': 3}",4,55,45,"{'minutes': 0, 'seconds': 0}","{'minutes': 3, 'seconds': 3}",7,30,END OF GAME,True,42,3,42,3
+4017526971,401752697,Auburn,SEC,South Alabama,Sun Belt,1,True,1,8,92,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 9, 'seconds': 9}","{'minutes': 5, 'seconds': 51}",12,92,TD,True,0,0,7,0
+4017526972,401752697,South Alabama,Sun Belt,Auburn,SEC,2,True,1,75,75,"{'minutes': 9, 'seconds': 9}",1,11,11,"{'minutes': 3, 'seconds': 43}","{'minutes': 5, 'seconds': 26}",12,64,FG,False,0,7,3,7
+4017526973,401752697,Auburn,SEC,South Alabama,Sun Belt,3,False,1,31,69,"{'minutes': 3, 'seconds': 35}",1,35,65,"{'minutes': 2, 'seconds': 45}","{'minutes': 0, 'seconds': 50}",3,4,PUNT,True,7,3,7,3
+4017526974,401752697,South Alabama,Sun Belt,Auburn,SEC,4,False,1,88,88,"{'minutes': 2, 'seconds': 45}",1,70,70,"{'minutes': 0, 'seconds': 44}","{'minutes': 2, 'seconds': 1}",5,18,INT,False,3,7,3,7
+4017526975,401752697,Auburn,SEC,South Alabama,Sun Belt,5,True,1,67,33,"{'minutes': 0, 'seconds': 44}",2,100,0,"{'minutes': 14, 'seconds': 14}","{'minutes': 1, 'seconds': 30}",5,33,TD,True,7,3,14,3
+4017526976,401752697,South Alabama,Sun Belt,Auburn,SEC,6,False,2,91,91,"{'minutes': 14, 'seconds': 8}",2,85,85,"{'minutes': 12, 'seconds': 24}","{'minutes': 1, 'seconds': 44}",3,6,PUNT,False,3,14,3,14
+4017526977,401752697,Auburn,SEC,South Alabama,Sun Belt,7,True,2,46,54,"{'minutes': 12, 'seconds': 24}",2,100,0,"{'minutes': 9, 'seconds': 48}","{'minutes': 2, 'seconds': 36}",7,54,TD,True,14,3,21,3
+4017526978,401752697,South Alabama,Sun Belt,Auburn,SEC,8,True,2,75,75,"{'minutes': 9, 'seconds': 48}",2,0,0,"{'minutes': 5, 'seconds': 24}","{'minutes': 4, 'seconds': 24}",10,75,TD,False,3,21,9,21
+4017526979,401752697,Auburn,SEC,South Alabama,Sun Belt,9,True,2,25,75,"{'minutes': 5, 'seconds': 24}",2,100,0,"{'minutes': 0, 'seconds': 40}","{'minutes': 4, 'seconds': 44}",14,75,TD,True,21,9,28,9
+40175269710,401752697,South Alabama,Sun Belt,Auburn,SEC,10,False,2,75,75,"{'minutes': 0, 'seconds': 40}",2,76,76,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 40}",1,-1,END OF HALF,False,9,28,9,28
+40175269711,401752697,South Alabama,Sun Belt,Auburn,SEC,11,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,0,0,"{'minutes': 9, 'seconds': 55}","{'minutes': 5, 'seconds': 5}",11,75,TD,False,9,28,15,28
+40175269712,401752697,Auburn,SEC,South Alabama,Sun Belt,12,True,3,22,78,"{'minutes': 9, 'seconds': 49}",3,84,16,"{'minutes': 1, 'seconds': 15}","{'minutes': 8, 'seconds': 34}",16,62,FG,True,28,15,31,15
+40175269713,401752697,South Alabama,Sun Belt,Auburn,SEC,13,False,3,75,75,"{'minutes': 1, 'seconds': 15}",4,21,21,"{'minutes': 10, 'seconds': 43}","{'minutes': 5, 'seconds': 32}",12,54,FUMBLE,False,15,31,15,31
+40175269714,401752697,Auburn,SEC,South Alabama,Sun Belt,14,False,4,21,79,"{'minutes': 10, 'seconds': 43}",4,23,77,"{'minutes': 9, 'seconds': 1}","{'minutes': 1, 'seconds': 42}",3,2,PUNT,True,31,15,31,15
+40175269715,401752697,South Alabama,Sun Belt,Auburn,SEC,15,False,4,69,69,"{'minutes': 9, 'seconds': 1}",4,22,22,"{'minutes': 2, 'seconds': 32}","{'minutes': 6, 'seconds': 29}",15,47,DOWNS,False,15,31,15,31
+40175269716,401752697,Auburn,SEC,South Alabama,Sun Belt,16,False,4,22,78,"{'minutes': 2, 'seconds': 32}",4,37,63,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 32}",4,15,END OF GAME,True,31,15,31,15
+4017527141,401752714,Auburn,SEC,Oklahoma,SEC,1,False,1,76,76,"{'minutes': 15, 'seconds': 0}",1,84,84,"{'minutes': 13, 'seconds': 1}","{'minutes': 1, 'seconds': 59}",3,-8,PUNT,False,0,0,0,0
+4017527142,401752714,Oklahoma,SEC,Auburn,SEC,2,True,1,30,70,"{'minutes': 13, 'seconds': 1}",1,69,31,"{'minutes': 8, 'seconds': 32}","{'minutes': 4, 'seconds': 29}",12,39,FG,True,0,0,3,0
+4017527143,401752714,Auburn,SEC,Oklahoma,SEC,3,True,1,93,93,"{'minutes': 8, 'seconds': 32}",1,6,6,"{'minutes': 3, 'seconds': 56}","{'minutes': 4, 'seconds': 36}",10,87,FG,False,0,3,3,3
+4017527144,401752714,Oklahoma,SEC,Auburn,SEC,4,False,1,25,75,"{'minutes': 3, 'seconds': 56}",1,29,71,"{'minutes': 1, 'seconds': 58}","{'minutes': 1, 'seconds': 58}",3,4,PUNT,True,3,3,3,3
+4017527145,401752714,Auburn,SEC,Oklahoma,SEC,5,False,1,75,75,"{'minutes': 1, 'seconds': 58}",1,76,76,"{'minutes': 0, 'seconds': 31}","{'minutes': 1, 'seconds': 27}",3,-1,PUNT,False,3,3,3,3
+4017527146,401752714,Oklahoma,SEC,Auburn,SEC,6,False,1,27,73,"{'minutes': 0, 'seconds': 31}",2,30,70,"{'minutes': 14, 'seconds': 45}","{'minutes': 0, 'seconds': 46}",3,3,PUNT,True,3,3,3,3
+4017527147,401752714,Auburn,SEC,Oklahoma,SEC,7,False,2,97,97,"{'minutes': 14, 'seconds': 45}",2,76,76,"{'minutes': 11, 'seconds': 35}","{'minutes': 3, 'seconds': 10}",6,9,DOWNS,False,3,3,3,3
+4017527148,401752714,Oklahoma,SEC,Auburn,SEC,8,True,2,88,12,"{'minutes': 11, 'seconds': 35}",2,100,0,"{'minutes': 10, 'seconds': 45}","{'minutes': 0, 'seconds': 50}",2,12,TD,True,3,3,10,3
+4017527149,401752714,Auburn,SEC,Oklahoma,SEC,9,False,2,75,75,"{'minutes': 10, 'seconds': 45}",2,67,67,"{'minutes': 8, 'seconds': 53}","{'minutes': 1, 'seconds': 52}",3,8,PUNT,False,3,10,3,10
+40175271410,401752714,Oklahoma,SEC,Auburn,SEC,10,False,2,19,81,"{'minutes': 8, 'seconds': 53}",2,70,30,"{'minutes': 7, 'seconds': 40}","{'minutes': 1, 'seconds': 13}",5,47,FUMBLE,True,10,3,10,3
+40175271411,401752714,Auburn,SEC,Oklahoma,SEC,11,False,2,66,66,"{'minutes': 7, 'seconds': 40}",2,52,52,"{'minutes': 5, 'seconds': 25}","{'minutes': 2, 'seconds': 15}",5,14,PUNT,False,3,10,3,10
+40175271412,401752714,Oklahoma,SEC,Auburn,SEC,12,False,2,14,86,"{'minutes': 5, 'seconds': 25}",2,14,86,"{'minutes': 4, 'seconds': 25}","{'minutes': 1, 'seconds': 0}",3,0,PUNT,True,10,3,10,3
+40175271413,401752714,Auburn,SEC,Oklahoma,SEC,13,True,2,60,60,"{'minutes': 4, 'seconds': 25}",2,0,0,"{'minutes': 1, 'seconds': 8}","{'minutes': 3, 'seconds': 17}",8,60,TD,False,3,10,10,10
+40175271414,401752714,Oklahoma,SEC,Auburn,SEC,14,False,2,25,75,"{'minutes': 1, 'seconds': 8}",2,18,82,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 8}",4,-7,END OF HALF,True,10,10,10,10
+40175271415,401752714,Oklahoma,SEC,Auburn,SEC,15,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,25,75,"{'minutes': 14, 'seconds': 19}","{'minutes': 0, 'seconds': 41}",3,0,PUNT,True,10,10,10,10
+40175271416,401752714,Auburn,SEC,Oklahoma,SEC,16,False,3,80,80,"{'minutes': 14, 'seconds': 19}",3,83,83,"{'minutes': 12, 'seconds': 57}","{'minutes': 1, 'seconds': 22}",3,-3,PUNT,False,10,10,10,10
+40175271417,401752714,Oklahoma,SEC,Auburn,SEC,17,True,3,40,60,"{'minutes': 12, 'seconds': 57}",3,86,14,"{'minutes': 8, 'seconds': 36}","{'minutes': 4, 'seconds': 21}",11,46,FG,True,10,10,13,10
+40175271418,401752714,Auburn,SEC,Oklahoma,SEC,18,False,3,75,75,"{'minutes': 8, 'seconds': 36}",3,72,72,"{'minutes': 6, 'seconds': 22}","{'minutes': 2, 'seconds': 14}",3,3,PUNT,False,10,13,10,13
+40175271419,401752714,Oklahoma,SEC,Auburn,SEC,19,False,3,24,76,"{'minutes': 6, 'seconds': 22}",3,28,72,"{'minutes': 4, 'seconds': 51}","{'minutes': 1, 'seconds': 31}",3,4,PUNT,True,13,10,13,10
+40175271420,401752714,Auburn,SEC,Oklahoma,SEC,20,False,3,77,77,"{'minutes': 4, 'seconds': 51}",3,32,32,"{'minutes': 3, 'seconds': 5}","{'minutes': 1, 'seconds': 46}",5,45,MISSED FG,False,10,13,10,13
+40175271421,401752714,Oklahoma,SEC,Auburn,SEC,21,True,3,32,68,"{'minutes': 3, 'seconds': 5}",4,90,10,"{'minutes': 14, 'seconds': 56}","{'minutes': 3, 'seconds': 9}",8,58,FG,True,13,10,16,10
+40175271422,401752714,Auburn,SEC,Oklahoma,SEC,22,True,4,75,75,"{'minutes': 14, 'seconds': 56}",4,0,0,"{'minutes': 7, 'seconds': 8}","{'minutes': 7, 'seconds': 48}",14,75,TD,False,10,16,17,16
+40175271423,401752714,Oklahoma,SEC,Auburn,SEC,23,True,4,25,75,"{'minutes': 7, 'seconds': 8}",4,100,0,"{'minutes': 4, 'seconds': 54}","{'minutes': 2, 'seconds': 14}",6,75,TD,True,16,17,22,17
+40175271424,401752714,Auburn,SEC,Oklahoma,SEC,24,True,4,92,92,"{'minutes': 4, 'seconds': 54}",4,96,96,"{'minutes': 1, 'seconds': 6}","{'minutes': 3, 'seconds': 48}",7,-8,SF,False,17,22,17,24
+40175271425,401752714,Oklahoma,SEC,Auburn,SEC,25,False,4,71,29,"{'minutes': 1, 'seconds': 6}",4,68,32,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 6}",2,-3,END OF GAME,True,24,17,24,17
+4017527242,401752724,Auburn,SEC,Texas A&M,SEC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,81,81,"{'minutes': 14, 'seconds': 3}","{'minutes': 1, 'seconds': 5}",3,-6,PUNT,False,0,0,0,0
+4017527243,401752724,Texas A&M,SEC,Auburn,SEC,2,True,1,34,66,"{'minutes': 13, 'seconds': 55}",1,100,0,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 41}",4,66,TD,True,0,0,7,0
+4017527245,401752724,Auburn,SEC,Texas A&M,SEC,3,False,1,75,75,"{'minutes': 12, 'seconds': 13}",1,67,67,"{'minutes': 10, 'seconds': 5}","{'minutes': 2, 'seconds': 15}",3,8,PUNT,False,0,7,0,7
+4017527246,401752724,Texas A&M,SEC,Auburn,SEC,4,False,1,21,79,"{'minutes': 9, 'seconds': 58}",1,32,68,"{'minutes': 7, 'seconds': 27}","{'minutes': 2, 'seconds': 39}",4,11,PUNT,True,7,0,7,0
+4017527247,401752724,Auburn,SEC,Texas A&M,SEC,5,False,1,72,72,"{'minutes': 7, 'seconds': 19}",1,56,56,"{'minutes': 4, 'seconds': 22}","{'minutes': 3, 'seconds': 2}",5,16,PUNT,False,0,7,0,7
+4017527248,401752724,Texas A&M,SEC,Auburn,SEC,6,False,1,14,86,"{'minutes': 4, 'seconds': 17}",1,7,93,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 29}",4,-7,DOWNS,True,7,0,7,0
+4017527249,401752724,Auburn,SEC,Texas A&M,SEC,7,False,1,43,43,"{'minutes': 1, 'seconds': 48}",1,44,44,"{'minutes': 0, 'seconds': 29}","{'minutes': 1, 'seconds': 29}",3,-1,PUNT,False,0,7,0,7
+40175272410,401752724,Texas A&M,SEC,Auburn,SEC,8,False,1,4,96,"{'minutes': 0, 'seconds': 19}",2,28,72,"{'minutes': 13, 'seconds': 33}","{'minutes': 1, 'seconds': 52}",6,24,PUNT,True,7,0,7,0
+40175272411,401752724,Auburn,SEC,Texas A&M,SEC,9,True,2,71,71,"{'minutes': 13, 'seconds': 28}",2,14,14,"{'minutes': 10, 'seconds': 55}","{'minutes': 2, 'seconds': 38}",9,57,FG,False,0,7,3,7
+40175272413,401752724,Texas A&M,SEC,Auburn,SEC,10,True,2,25,75,"{'minutes': 10, 'seconds': 50}",2,85,15,"{'minutes': 6, 'seconds': 53}","{'minutes': 4, 'seconds': 1}",11,60,FG,True,7,3,10,3
+40175272415,401752724,Auburn,SEC,Texas A&M,SEC,11,False,2,75,75,"{'minutes': 6, 'seconds': 49}",2,81,81,"{'minutes': 4, 'seconds': 50}","{'minutes': 2, 'seconds': 11}",4,-6,PUNT,False,3,10,3,10
+40175272416,401752724,Texas A&M,SEC,Auburn,SEC,12,True,2,44,56,"{'minutes': 4, 'seconds': 38}",2,69,31,"{'minutes': 1, 'seconds': 50}","{'minutes': 2, 'seconds': 53}",8,25,FG,True,10,3,13,3
+40175272418,401752724,Auburn,SEC,Texas A&M,SEC,13,False,2,75,75,"{'minutes': 1, 'seconds': 44}",2,68,68,"{'minutes': 1, 'seconds': 28}","{'minutes': 1, 'seconds': 7}",4,7,PUNT,False,3,13,3,16
+40175272419,401752724,Texas A&M,SEC,Auburn,SEC,14,False,2,21,79,"{'minutes': 0, 'seconds': 37}",3,67,33,"{'minutes': 0, 'seconds': 4}","{'minutes': 0, 'seconds': 38}",5,46,MISSED FG,True,13,3,13,3
+40175272421,401752724,Texas A&M,SEC,Auburn,SEC,15,False,3,26,74,"{'minutes': 14, 'seconds': 54}",3,68,32,"{'minutes': 10, 'seconds': 53}","{'minutes': 4, 'seconds': 6}",9,42,MISSED FG,True,13,3,13,3
+40175272422,401752724,Auburn,SEC,Texas A&M,SEC,16,False,3,68,68,"{'minutes': 10, 'seconds': 40}",3,35,35,"{'minutes': 7, 'seconds': 58}","{'minutes': 3, 'seconds': 0}",8,33,DOWNS,False,3,13,3,13
+40175272423,401752724,Texas A&M,SEC,Auburn,SEC,17,False,3,35,65,"{'minutes': 7, 'seconds': 48}",3,37,63,"{'minutes': 5, 'seconds': 49}","{'minutes': 2, 'seconds': 2}",3,2,PUNT,True,13,3,13,3
+40175272424,401752724,Auburn,SEC,Texas A&M,SEC,18,False,3,80,80,"{'minutes': 5, 'seconds': 46}",3,47,47,"{'minutes': 0, 'seconds': 13}","{'minutes': 5, 'seconds': 42}",11,33,PUNT,False,3,13,3,13
+40175272425,401752724,Texas A&M,SEC,Auburn,SEC,19,False,3,20,80,"{'minutes': 0, 'seconds': 3}",4,79,21,"{'minutes': 10, 'seconds': 41}","{'minutes': 4, 'seconds': 28}",9,59,INT,True,13,3,13,3
+40175272426,401752724,Auburn,SEC,Texas A&M,SEC,20,True,4,2,2,"{'minutes': 10, 'seconds': 25}",4,0,0,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 17}",1,2,TD,False,10,13,10,13
+40175272428,401752724,Texas A&M,SEC,Auburn,SEC,21,False,4,25,75,"{'minutes': 10, 'seconds': 20}",4,45,55,"{'minutes': 7, 'seconds': 12}","{'minutes': 3, 'seconds': 17}",5,20,PUNT,True,13,10,13,10
+40175272429,401752724,Auburn,SEC,Texas A&M,SEC,22,False,4,87,87,"{'minutes': 7, 'seconds': 0}",4,91,91,"{'minutes': 5, 'seconds': 15}","{'minutes': 1, 'seconds': 53}",3,-4,PUNT,False,10,13,10,13
+40175272430,401752724,Texas A&M,SEC,Auburn,SEC,23,True,4,52,48,"{'minutes': 5, 'seconds': 8}",4,73,27,"{'minutes': 2, 'seconds': 46}","{'minutes': 2, 'seconds': 28}",6,48,TD,True,13,10,16,10
+40175272432,401752724,Auburn,SEC,Texas A&M,SEC,24,False,4,75,75,"{'minutes': 2, 'seconds': 41}",4,75,75,"{'minutes': 2, 'seconds': 25}","{'minutes': 0, 'seconds': 25}",3,0,PUNT,False,10,16,10,19
+40175272433,401752724,Texas A&M,SEC,Auburn,SEC,25,False,4,28,72,"{'minutes': 2, 'seconds': 14}",4,27,73,"{'minutes': 1, 'seconds': 59}","{'minutes': 0, 'seconds': 28}",3,-1,PUNT,True,16,10,16,10
+40175272434,401752724,Auburn,SEC,Texas A&M,SEC,26,False,4,78,78,"{'minutes': 1, 'seconds': 47}",4,69,69,"{'minutes': 1, 'seconds': 2}","{'minutes': 0, 'seconds': 49}",4,3,DOWNS,False,10,16,10,16
+40175272435,401752724,Texas A&M,SEC,Auburn,SEC,27,False,4,75,25,"{'minutes': 0, 'seconds': 59}",4,57,43,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 59}",2,-18,Uncategorized,True,16,10,16,10
+4017527311,401752731,Auburn,SEC,Georgia,SEC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 7, 'seconds': 39}","{'minutes': 7, 'seconds': 21}",14,75,TD,True,0,0,7,0
+4017527312,401752731,Georgia,SEC,Auburn,SEC,2,False,1,75,75,"{'minutes': 7, 'seconds': 39}",1,61,61,"{'minutes': 4, 'seconds': 13}","{'minutes': 3, 'seconds': 26}",6,14,PUNT,False,0,7,0,7
+4017527313,401752731,Auburn,SEC,Georgia,SEC,3,True,1,23,77,"{'minutes': 4, 'seconds': 13}",2,93,7,"{'minutes': 13, 'seconds': 41}","{'minutes': 5, 'seconds': 32}",12,70,FG,True,7,0,10,0
+4017527314,401752731,Georgia,SEC,Auburn,SEC,4,False,2,75,75,"{'minutes': 13, 'seconds': 41}",2,93,93,"{'minutes': 13, 'seconds': 41}","{'minutes': 0, 'seconds': 0}",0,0,MISSED FG,False,0,10,0,10
+4017527315,401752731,Georgia,SEC,Auburn,SEC,5,False,2,75,75,"{'minutes': 13, 'seconds': 41}",2,74,74,"{'minutes': 12, 'seconds': 18}","{'minutes': 1, 'seconds': 23}",3,1,PUNT,False,0,10,0,10
+4017527316,401752731,Auburn,SEC,Georgia,SEC,6,False,2,26,74,"{'minutes': 12, 'seconds': 18}",2,30,70,"{'minutes': 11, 'seconds': 24}","{'minutes': 0, 'seconds': 54}",3,4,PUNT,True,10,0,10,0
+4017527317,401752731,Georgia,SEC,Auburn,SEC,7,False,2,65,65,"{'minutes': 11, 'seconds': 24}",2,60,60,"{'minutes': 9, 'seconds': 27}","{'minutes': 1, 'seconds': 57}",3,5,PUNT,False,0,10,0,10
+4017527318,401752731,Auburn,SEC,Georgia,SEC,8,False,2,20,80,"{'minutes': 9, 'seconds': 27}",2,99,1,"{'minutes': 1, 'seconds': 32}","{'minutes': 7, 'seconds': 55}",15,79,FUMBLE,True,10,0,10,0
+4017527319,401752731,Georgia,SEC,Auburn,SEC,9,True,2,99,99,"{'minutes': 1, 'seconds': 32}",2,11,11,"{'minutes': 0, 'seconds': 13}","{'minutes': 1, 'seconds': 19}",12,88,FG,False,0,10,3,10
+40175273110,401752731,Auburn,SEC,Georgia,SEC,10,False,2,12,88,"{'minutes': 0, 'seconds': 13}",2,11,89,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 13}",1,-1,END OF HALF,True,10,3,10,3
+40175273111,401752731,Georgia,SEC,Auburn,SEC,11,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,46,46,"{'minutes': 11, 'seconds': 58}","{'minutes': 3, 'seconds': 2}",8,29,DOWNS,False,3,10,3,10
+40175273112,401752731,Auburn,SEC,Georgia,SEC,12,False,3,46,54,"{'minutes': 11, 'seconds': 58}",3,63,37,"{'minutes': 9, 'seconds': 10}","{'minutes': 2, 'seconds': 48}",5,17,DOWNS,True,10,3,10,3
+40175273113,401752731,Georgia,SEC,Auburn,SEC,13,True,3,63,63,"{'minutes': 9, 'seconds': 10}",3,0,0,"{'minutes': 7, 'seconds': 23}","{'minutes': 1, 'seconds': 47}",5,63,TD,False,3,10,10,10
+40175273114,401752731,Auburn,SEC,Georgia,SEC,14,False,3,25,75,"{'minutes': 7, 'seconds': 23}",3,23,77,"{'minutes': 5, 'seconds': 43}","{'minutes': 1, 'seconds': 40}",3,-2,PUNT,True,10,10,10,10
+40175273115,401752731,Georgia,SEC,Auburn,SEC,15,True,3,60,60,"{'minutes': 5, 'seconds': 43}",3,35,35,"{'minutes': 1, 'seconds': 22}","{'minutes': 4, 'seconds': 20}",9,25,FG,False,10,10,13,10
+40175273116,401752731,Auburn,SEC,Georgia,SEC,16,False,3,25,75,"{'minutes': 1, 'seconds': 22}",3,31,69,"{'minutes': 0, 'seconds': 4}","{'minutes': 1, 'seconds': 18}",3,6,PUNT,True,10,13,10,13
+40175273117,401752731,Georgia,SEC,Auburn,SEC,17,False,3,45,45,"{'minutes': 0, 'seconds': 4}",4,27,27,"{'minutes': 11, 'seconds': 44}","{'minutes': 3, 'seconds': 20}",8,18,MISSED FG,False,13,10,13,10
+40175273118,401752731,Auburn,SEC,Georgia,SEC,18,False,4,27,73,"{'minutes': 11, 'seconds': 44}",4,31,69,"{'minutes': 10, 'seconds': 38}","{'minutes': 1, 'seconds': 6}",3,4,PUNT,True,10,13,10,13
+40175273119,401752731,Georgia,SEC,Auburn,SEC,19,True,4,78,78,"{'minutes': 10, 'seconds': 38}",4,0,0,"{'minutes': 1, 'seconds': 53}","{'minutes': 8, 'seconds': 45}",16,78,TD,False,13,10,20,10
+40175273120,401752731,Auburn,SEC,Georgia,SEC,20,False,4,25,75,"{'minutes': 1, 'seconds': 53}",4,51,49,"{'minutes': 0, 'seconds': 53}","{'minutes': 1, 'seconds': 0}",9,25,DOWNS,True,10,20,10,20
+40175273121,401752731,Georgia,SEC,Auburn,SEC,21,False,4,50,50,"{'minutes': 0, 'seconds': 53}",4,50,50,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 53}",2,0,END OF GAME,False,20,10,20,10
+4017527401,401752740,Auburn,SEC,Missouri,SEC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,100,0,"{'minutes': 9, 'seconds': 54}","{'minutes': 5, 'seconds': 6}",12,75,TD,True,0,0,7,0
+4017527402,401752740,Missouri,SEC,Auburn,SEC,2,False,1,75,75,"{'minutes': 9, 'seconds': 54}",1,64,64,"{'minutes': 7, 'seconds': 1}","{'minutes': 2, 'seconds': 53}",6,11,PUNT,False,0,7,0,7
+4017527403,401752740,Auburn,SEC,Missouri,SEC,3,False,1,22,78,"{'minutes': 7, 'seconds': 1}",1,22,78,"{'minutes': 6, 'seconds': 49}","{'minutes': 0, 'seconds': 12}",2,0,INT,True,7,0,7,0
+4017527404,401752740,Missouri,SEC,Auburn,SEC,4,True,1,29,29,"{'minutes': 6, 'seconds': 49}",1,5,5,"{'minutes': 1, 'seconds': 44}","{'minutes': 5, 'seconds': 5}",10,24,FG,False,0,7,3,7
+4017527405,401752740,Auburn,SEC,Missouri,SEC,5,False,1,25,75,"{'minutes': 1, 'seconds': 44}",1,18,82,"{'minutes': 0, 'seconds': 9}","{'minutes': 1, 'seconds': 35}",3,-7,PUNT,True,7,3,7,3
+4017527406,401752740,Missouri,SEC,Auburn,SEC,6,True,1,65,65,"{'minutes': 0, 'seconds': 9}",2,0,0,"{'minutes': 10, 'seconds': 21}","{'minutes': 4, 'seconds': 48}",9,65,TD,False,3,7,10,7
+4017527407,401752740,Auburn,SEC,Missouri,SEC,7,False,2,25,75,"{'minutes': 10, 'seconds': 21}",2,33,67,"{'minutes': 8, 'seconds': 35}","{'minutes': 1, 'seconds': 46}",3,8,PUNT,True,7,10,7,10
+4017527408,401752740,Missouri,SEC,Auburn,SEC,8,False,2,78,78,"{'minutes': 8, 'seconds': 35}",2,17,17,"{'minutes': 2, 'seconds': 18}","{'minutes': 6, 'seconds': 17}",12,61,INT,False,10,7,10,7
+4017527409,401752740,Auburn,SEC,Missouri,SEC,9,False,2,7,93,"{'minutes': 2, 'seconds': 18}",2,78,22,"{'minutes': 0, 'seconds': 6}","{'minutes': 2, 'seconds': 12}",9,71,MISSED FG,True,7,10,7,10
+40175274010,401752740,Missouri,SEC,Auburn,SEC,10,False,2,78,78,"{'minutes': 0, 'seconds': 6}",2,79,79,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 6}",1,-1,END OF HALF,False,10,7,10,7
+40175274011,401752740,Missouri,SEC,Auburn,SEC,11,False,3,75,75,"{'minutes': 14, 'seconds': 59}",3,52,52,"{'minutes': 11, 'seconds': 19}","{'minutes': 3, 'seconds': 40}",7,23,PUNT,False,10,7,10,7
+40175274012,401752740,Auburn,SEC,Missouri,SEC,12,False,3,20,80,"{'minutes': 11, 'seconds': 19}",3,80,20,"{'minutes': 8, 'seconds': 14}","{'minutes': 3, 'seconds': 5}",8,60,MISSED FG,True,7,10,7,10
+40175274013,401752740,Missouri,SEC,Auburn,SEC,13,False,3,80,80,"{'minutes': 8, 'seconds': 14}",3,51,51,"{'minutes': 5, 'seconds': 33}","{'minutes': 2, 'seconds': 41}",5,29,PUNT,False,10,7,10,7
+40175274014,401752740,Auburn,SEC,Missouri,SEC,14,True,3,14,86,"{'minutes': 5, 'seconds': 33}",3,100,0,"{'minutes': 0, 'seconds': 35}","{'minutes': 4, 'seconds': 58}",12,86,TD,True,7,10,14,10
+40175274015,401752740,Missouri,SEC,Auburn,SEC,15,False,3,75,75,"{'minutes': 0, 'seconds': 35}",4,75,75,"{'minutes': 14, 'seconds': 23}","{'minutes': 1, 'seconds': 12}",3,0,PUNT,False,10,14,10,14
+40175274016,401752740,Auburn,SEC,Missouri,SEC,16,True,4,23,77,"{'minutes': 14, 'seconds': 23}",4,96,4,"{'minutes': 10, 'seconds': 31}","{'minutes': 3, 'seconds': 52}",8,73,FG,True,14,10,17,10
+40175274017,401752740,Missouri,SEC,Auburn,SEC,17,False,4,75,75,"{'minutes': 10, 'seconds': 31}",4,48,48,"{'minutes': 8, 'seconds': 16}","{'minutes': 2, 'seconds': 15}",6,27,PUNT,False,10,17,10,17
+40175274018,401752740,Auburn,SEC,Missouri,SEC,18,False,4,20,80,"{'minutes': 8, 'seconds': 16}",4,22,78,"{'minutes': 6, 'seconds': 16}","{'minutes': 2, 'seconds': 0}",3,2,PUNT,True,17,10,17,10
+40175274019,401752740,Missouri,SEC,Auburn,SEC,19,True,4,60,60,"{'minutes': 6, 'seconds': 16}",4,0,0,"{'minutes': 5, 'seconds': 7}","{'minutes': 1, 'seconds': 9}",5,60,TD,False,10,17,17,17
+40175274020,401752740,Auburn,SEC,Missouri,SEC,20,False,4,21,79,"{'minutes': 5, 'seconds': 0}",4,56,44,"{'minutes': 2, 'seconds': 58}","{'minutes': 2, 'seconds': 2}",6,35,PUNT,True,17,17,17,17
+40175274021,401752740,Missouri,SEC,Auburn,SEC,21,False,4,92,92,"{'minutes': 2, 'seconds': 58}",4,48,48,"{'minutes': 0, 'seconds': 18}","{'minutes': 2, 'seconds': 40}",11,44,INT,False,17,17,17,17
+40175274022,401752740,Auburn,SEC,Missouri,SEC,22,False,4,17,83,"{'minutes': 0, 'seconds': 18}",4,16,84,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 18}",1,-1,END OF GAME,True,17,17,17,17
+-2892,401752740,Auburn,SEC,Missouri,SEC,24,False,5,75,25,"{'minutes': 0, 'seconds': 0}",5,68,32,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,-7,MISSED FG,True,0,0,0,0
+-2893,401752740,Missouri,SEC,Auburn,SEC,25,False,5,25,25,"{'minutes': 0, 'seconds': 0}",5,80,80,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,5,MISSED FG,False,0,0,0,0
+-2894,401752740,Missouri,SEC,Auburn,SEC,26,True,7,25,25,"{'minutes': 0, 'seconds': 0}",7,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",7,25,TD,False,0,0,23,17
+-2895,401752740,Auburn,SEC,Missouri,SEC,27,False,7,75,25,"{'minutes': 0, 'seconds': 0}",7,77,23,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",4,2,DOWNS,True,17,23,17,23
+4017527462,401752746,Arkansas,SEC,Auburn,SEC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,70,30,"{'minutes': 12, 'seconds': 34}","{'minutes': 2, 'seconds': 26}",6,45,DOWNS,True,0,0,0,0
+4017527463,401752746,Auburn,SEC,Arkansas,SEC,2,True,1,67,67,"{'minutes': 12, 'seconds': 27}",1,3,3,"{'minutes': 7, 'seconds': 52}","{'minutes': 4, 'seconds': 42}",9,67,TD,False,0,0,7,0
+4017527465,401752746,Arkansas,SEC,Auburn,SEC,3,False,1,25,75,"{'minutes': 7, 'seconds': 52}",1,65,35,"{'minutes': 4, 'seconds': 51}","{'minutes': 3, 'seconds': 1}",5,40,PUNT,True,0,7,0,7
+4017527466,401752746,Auburn,SEC,Arkansas,SEC,4,True,1,94,94,"{'minutes': 4, 'seconds': 43}",2,18,18,"{'minutes': 12, 'seconds': 5}","{'minutes': 7, 'seconds': 46}",15,76,FG,False,7,0,10,0
+4017527468,401752746,Arkansas,SEC,Auburn,SEC,5,True,2,17,83,"{'minutes': 11, 'seconds': 58}",2,97,3,"{'minutes': 8, 'seconds': 36}","{'minutes': 3, 'seconds': 22}",6,83,TD,True,0,10,7,10
+40175274610,401752746,Auburn,SEC,Arkansas,SEC,6,False,2,75,75,"{'minutes': 8, 'seconds': 36}",2,84,84,"{'minutes': 7, 'seconds': 33}","{'minutes': 1, 'seconds': 3}",3,-9,PUNT,False,10,7,10,7
+40175274611,401752746,Arkansas,SEC,Auburn,SEC,7,True,2,52,48,"{'minutes': 7, 'seconds': 17}",2,97,3,"{'minutes': 5, 'seconds': 24}","{'minutes': 2, 'seconds': 9}",4,48,TD,True,7,10,14,10
+40175274613,401752746,Auburn,SEC,Arkansas,SEC,8,True,2,75,75,"{'minutes': 5, 'seconds': 24}",2,97,97,"{'minutes': 0, 'seconds': 48}","{'minutes': 4, 'seconds': 36}",9,60,INT TD,False,10,14,10,21
+40175274615,401752746,Auburn,SEC,Arkansas,SEC,9,False,2,79,79,"{'minutes': 0, 'seconds': 40}",2,66,66,"{'minutes': 0, 'seconds': 7}","{'minutes': 0, 'seconds': 40}",3,13,END OF HALF,False,10,21,10,21
+40175274617,401752746,Auburn,SEC,Arkansas,SEC,10,True,3,51,51,"{'minutes': 14, 'seconds': 51}",3,5,5,"{'minutes': 10, 'seconds': 21}","{'minutes': 4, 'seconds': 30}",9,46,FG,False,10,21,13,21
+40175274619,401752746,Arkansas,SEC,Auburn,SEC,11,False,3,25,75,"{'minutes': 10, 'seconds': 21}",3,26,74,"{'minutes': 8, 'seconds': 55}","{'minutes': 1, 'seconds': 26}",3,1,PUNT,True,21,13,21,13
+40175274620,401752746,Auburn,SEC,Arkansas,SEC,12,True,3,43,43,"{'minutes': 8, 'seconds': 47}",3,25,25,"{'minutes': 5, 'seconds': 5}","{'minutes': 3, 'seconds': 50}",6,18,FG,False,13,21,16,21
+40175274622,401752746,Arkansas,SEC,Auburn,SEC,13,True,3,25,75,"{'minutes': 5, 'seconds': 5}",3,91,9,"{'minutes': 0, 'seconds': 57}","{'minutes': 4, 'seconds': 8}",9,66,FG,True,21,16,24,16
+40175274624,401752746,Auburn,SEC,Arkansas,SEC,14,True,3,82,82,"{'minutes': 0, 'seconds': 52}",4,9,9,"{'minutes': 12, 'seconds': 3}","{'minutes': 3, 'seconds': 49}",9,73,FG,False,16,24,19,24
+40175274626,401752746,Arkansas,SEC,Auburn,SEC,15,True,4,25,75,"{'minutes': 12, 'seconds': 3}",4,1,99,"{'minutes': 9, 'seconds': 15}","{'minutes': 2, 'seconds': 48}",6,18,INT TD,True,24,19,24,27
+40175274628,401752746,Arkansas,SEC,Auburn,SEC,16,False,4,25,75,"{'minutes': 9, 'seconds': 15}",4,41,59,"{'minutes': 8, 'seconds': 33}","{'minutes': 0, 'seconds': 42}",2,9,FUMBLE,True,24,27,24,27
+40175274629,401752746,Auburn,SEC,Arkansas,SEC,17,True,4,34,34,"{'minutes': 8, 'seconds': 18}",4,29,29,"{'minutes': 6, 'seconds': 23}","{'minutes': 2, 'seconds': 10}",4,5,FG,False,27,24,30,24
+40175274631,401752746,Arkansas,SEC,Auburn,SEC,18,False,4,25,75,"{'minutes': 6, 'seconds': 23}",4,38,62,"{'minutes': 4, 'seconds': 27}","{'minutes': 1, 'seconds': 56}",4,11,INT,True,24,30,24,30
+40175274632,401752746,Auburn,SEC,Arkansas,SEC,19,True,4,38,38,"{'minutes': 4, 'seconds': 20}",4,23,23,"{'minutes': 1, 'seconds': 6}","{'minutes': 3, 'seconds': 21}",8,15,FG,False,30,24,33,24
+40175274634,401752746,Arkansas,SEC,Auburn,SEC,20,False,4,29,71,"{'minutes': 1, 'seconds': 1}",4,46,54,"{'minutes': 0, 'seconds': 51}","{'minutes': 0, 'seconds': 10}",1,0,INT,True,24,33,24,33
+40175274635,401752746,Auburn,SEC,Arkansas,SEC,21,False,4,46,46,"{'minutes': 0, 'seconds': 46}",4,49,49,"{'minutes': 0, 'seconds': 25}","{'minutes': 0, 'seconds': 51}",2,-3,END OF GAME,False,33,24,33,24
+4017527542,401752754,Auburn,SEC,Kentucky,SEC,1,False,1,15,85,"{'minutes': 14, 'seconds': 56}",1,26,74,"{'minutes': 12, 'seconds': 11}","{'minutes': 2, 'seconds': 45}",5,11,PUNT,True,0,0,0,0
+4017527543,401752754,Kentucky,SEC,Auburn,SEC,2,False,1,62,62,"{'minutes': 12, 'seconds': 1}",1,54,54,"{'minutes': 9, 'seconds': 55}","{'minutes': 2, 'seconds': 16}",3,8,PUNT,False,0,0,0,0
+4017527544,401752754,Auburn,SEC,Kentucky,SEC,3,False,1,2,98,"{'minutes': 9, 'seconds': 49}",1,34,66,"{'minutes': 4, 'seconds': 52}","{'minutes': 5, 'seconds': 3}",9,32,PUNT,True,0,0,0,0
+4017527545,401752754,Kentucky,SEC,Auburn,SEC,4,False,1,83,83,"{'minutes': 4, 'seconds': 45}",1,61,61,"{'minutes': 2, 'seconds': 47}","{'minutes': 2, 'seconds': 5}",6,22,PUNT,False,0,0,0,0
+4017527546,401752754,Auburn,SEC,Kentucky,SEC,5,False,1,12,88,"{'minutes': 2, 'seconds': 40}",1,32,68,"{'minutes': 0, 'seconds': 50}","{'minutes': 1, 'seconds': 57}",5,20,PUNT,True,0,0,0,0
+4017527547,401752754,Kentucky,SEC,Auburn,SEC,6,True,1,74,74,"{'minutes': 0, 'seconds': 42}",2,30,30,"{'minutes': 11, 'seconds': 40}","{'minutes': 4, 'seconds': 10}",9,44,FG,False,0,0,3,0
+4017527549,401752754,Auburn,SEC,Kentucky,SEC,7,False,2,25,75,"{'minutes': 11, 'seconds': 40}",2,16,84,"{'minutes': 10, 'seconds': 12}","{'minutes': 1, 'seconds': 28}",3,-9,PUNT,True,0,3,0,3
+40175275410,401752754,Kentucky,SEC,Auburn,SEC,8,False,2,71,71,"{'minutes': 10, 'seconds': 4}",2,50,50,"{'minutes': 4, 'seconds': 51}","{'minutes': 5, 'seconds': 21}",8,21,PUNT,False,3,0,3,0
+40175275411,401752754,Auburn,SEC,Kentucky,SEC,9,False,2,12,88,"{'minutes': 4, 'seconds': 43}",2,49,51,"{'minutes': 1, 'seconds': 42}","{'minutes': 3, 'seconds': 9}",8,37,DOWNS,True,0,3,0,3
+40175275412,401752754,Kentucky,SEC,Auburn,SEC,10,False,2,49,49,"{'minutes': 1, 'seconds': 38}",2,65,65,"{'minutes': 1, 'seconds': 0}","{'minutes': 0, 'seconds': 42}",2,0,INT,False,3,0,3,0
+40175275413,401752754,Auburn,SEC,Kentucky,SEC,11,True,2,65,35,"{'minutes': 0, 'seconds': 52}",2,91,9,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 58}",7,26,FG,True,0,3,3,3
+40175275415,401752754,Kentucky,SEC,Auburn,SEC,12,False,2,65,65,"{'minutes': 0, 'seconds': 2}",2,67,67,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 2}",1,-2,END OF HALF,False,3,3,3,3
+40175275417,401752754,Kentucky,SEC,Auburn,SEC,13,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,3,3,"{'minutes': 9, 'seconds': 27}","{'minutes': 5, 'seconds': 33}",10,75,TD,False,3,3,10,3
+40175275419,401752754,Auburn,SEC,Kentucky,SEC,14,False,3,9,91,"{'minutes': 9, 'seconds': 23}",3,52,48,"{'minutes': 3, 'seconds': 12}","{'minutes': 6, 'seconds': 11}",11,43,PUNT,True,3,10,3,10
+40175275420,401752754,Kentucky,SEC,Auburn,SEC,15,False,3,91,91,"{'minutes': 3, 'seconds': 6}",4,45,45,"{'minutes': 11, 'seconds': 56}","{'minutes': 6, 'seconds': 16}",10,46,PUNT,False,10,3,10,3
+40175275421,401752754,Auburn,SEC,Kentucky,SEC,16,False,4,8,92,"{'minutes': 11, 'seconds': 45}",4,39,61,"{'minutes': 8, 'seconds': 59}","{'minutes': 2, 'seconds': 57}",6,31,PUNT,True,3,10,3,10
+40175275422,401752754,Kentucky,SEC,Auburn,SEC,17,False,4,84,84,"{'minutes': 8, 'seconds': 47}",4,63,63,"{'minutes': 5, 'seconds': 27}","{'minutes': 3, 'seconds': 41}",8,21,PUNT,False,10,3,10,3
+40175275423,401752754,Auburn,SEC,Kentucky,SEC,18,False,4,17,83,"{'minutes': 5, 'seconds': 16}",4,10,90,"{'minutes': 3, 'seconds': 52}","{'minutes': 1, 'seconds': 26}",3,3,PUNT,True,3,10,3,10
+40175275424,401752754,Kentucky,SEC,Auburn,SEC,19,False,4,62,62,"{'minutes': 3, 'seconds': 45}",4,51,51,"{'minutes': 2, 'seconds': 56}","{'minutes': 0, 'seconds': 56}",2,4,INT,False,10,3,10,3
+40175275425,401752754,Kentucky,SEC,Auburn,SEC,20,False,4,51,51,"{'minutes': 2, 'seconds': 27}",4,45,45,"{'minutes': 2, 'seconds': 12}","{'minutes': 0, 'seconds': 44}",3,6,PUNT,False,10,3,10,3
+40175275426,401752754,Auburn,SEC,Kentucky,SEC,21,False,4,9,91,"{'minutes': 2, 'seconds': 1}",4,100,0,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 12}",15,46,INT,True,3,10,3,10
+4017527642,401752764,Vanderbilt,SEC,Auburn,SEC,1,False,1,25,75,"{'minutes': 12, 'seconds': 11}",1,47,53,"{'minutes': 11, 'seconds': 15}","{'minutes': 3, 'seconds': 45}",5,22,PUNT,True,0,0,0,0
+4017527643,401752764,Auburn,SEC,Vanderbilt,SEC,2,True,1,89,89,"{'minutes': 11, 'seconds': 15}",1,0,0,"{'minutes': 5, 'seconds': 45}","{'minutes': 5, 'seconds': 30}",13,89,TD,False,0,0,7,0
+4017527645,401752764,Vanderbilt,SEC,Auburn,SEC,3,True,1,25,75,"{'minutes': 5, 'seconds': 45}",2,90,10,"{'minutes': 13, 'seconds': 30}","{'minutes': 7, 'seconds': 15}",13,70,FG,True,0,7,3,7
+4017527647,401752764,Auburn,SEC,Vanderbilt,SEC,4,True,2,75,75,"{'minutes': 13, 'seconds': 30}",2,0,0,"{'minutes': 10, 'seconds': 44}","{'minutes': 2, 'seconds': 46}",7,75,TD,False,7,3,14,3
+4017527649,401752764,Vanderbilt,SEC,Auburn,SEC,5,False,2,21,79,"{'minutes': 10, 'seconds': 38}",2,64,36,"{'minutes': 6, 'seconds': 5}","{'minutes': 4, 'seconds': 33}",7,44,FUMBLE,True,3,14,3,14
+40175276410,401752764,Auburn,SEC,Vanderbilt,SEC,6,True,2,65,65,"{'minutes': 6, 'seconds': 5}",2,8,8,"{'minutes': 1, 'seconds': 52}","{'minutes': 4, 'seconds': 13}",10,57,FG,False,14,3,17,3
+40175276412,401752764,Vanderbilt,SEC,Auburn,SEC,7,True,2,25,75,"{'minutes': 1, 'seconds': 52}",2,97,3,"{'minutes': 1, 'seconds': 15}","{'minutes': 0, 'seconds': 37}",3,75,TD,True,3,17,10,17
+40175276414,401752764,Auburn,SEC,Vanderbilt,SEC,8,True,2,75,75,"{'minutes': 1, 'seconds': 15}",2,29,29,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 15}",10,46,FG,False,17,10,20,10
+40175276416,401752764,Auburn,SEC,Vanderbilt,SEC,9,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,70,70,"{'minutes': 13, 'seconds': 5}","{'minutes': 1, 'seconds': 55}",3,5,PUNT,False,20,10,20,10
+40175276417,401752764,Vanderbilt,SEC,Auburn,SEC,10,True,3,27,73,"{'minutes': 12, 'seconds': 58}",3,97,3,"{'minutes': 11, 'seconds': 24}","{'minutes': 1, 'seconds': 41}",6,73,TD,True,10,20,17,20
+40175276419,401752764,Auburn,SEC,Vanderbilt,SEC,11,True,3,75,75,"{'minutes': 11, 'seconds': 24}",3,20,20,"{'minutes': 9, 'seconds': 15}","{'minutes': 2, 'seconds': 9}",8,55,FG,False,20,17,23,17
+40175276421,401752764,Vanderbilt,SEC,Auburn,SEC,12,True,3,25,75,"{'minutes': 9, 'seconds': 15}",3,97,3,"{'minutes': 7, 'seconds': 37}","{'minutes': 1, 'seconds': 38}",4,75,TD,True,17,23,24,23
+40175276423,401752764,Auburn,SEC,Vanderbilt,SEC,13,False,3,75,75,"{'minutes': 7, 'seconds': 37}",3,51,51,"{'minutes': 5, 'seconds': 50}","{'minutes': 1, 'seconds': 47}",5,24,PUNT,False,23,24,23,24
+40175276424,401752764,Vanderbilt,SEC,Auburn,SEC,14,False,3,15,85,"{'minutes': 5, 'seconds': 41}",3,21,79,"{'minutes': 4, 'seconds': 54}","{'minutes': 0, 'seconds': 56}",3,6,PUNT,True,24,23,24,23
+40175276425,401752764,Auburn,SEC,Vanderbilt,SEC,15,True,3,65,65,"{'minutes': 4, 'seconds': 54}",3,0,0,"{'minutes': 1, 'seconds': 11}","{'minutes': 3, 'seconds': 43}",7,65,TD,False,23,24,30,24
+40175276427,401752764,Vanderbilt,SEC,Auburn,SEC,16,True,3,25,75,"{'minutes': 1, 'seconds': 11}",4,97,3,"{'minutes': 14, 'seconds': 7}","{'minutes': 2, 'seconds': 4}",5,75,TD,True,24,30,31,30
+40175276429,401752764,Auburn,SEC,Vanderbilt,SEC,17,False,4,75,75,"{'minutes': 14, 'seconds': 5}",4,79,79,"{'minutes': 12, 'seconds': 1}","{'minutes': 2, 'seconds': 4}",3,-4,PUNT,False,30,31,30,31
+40175276430,401752764,Vanderbilt,SEC,Auburn,SEC,18,True,4,32,68,"{'minutes': 11, 'seconds': 55}",4,97,3,"{'minutes': 7, 'seconds': 57}","{'minutes': 4, 'seconds': 4}",10,68,TD,True,31,30,38,30
+40175276432,401752764,Auburn,SEC,Vanderbilt,SEC,19,True,4,75,75,"{'minutes': 7, 'seconds': 57}",4,0,0,"{'minutes': 5, 'seconds': 27}","{'minutes': 2, 'seconds': 30}",6,75,TD,False,30,38,38,38
+40175276434,401752764,Vanderbilt,SEC,Auburn,SEC,20,False,4,25,75,"{'minutes': 5, 'seconds': 27}",4,72,28,"{'minutes': 1, 'seconds': 6}","{'minutes': 4, 'seconds': 21}",11,47,DOWNS,True,38,38,38,38
+40175276435,401752764,Auburn,SEC,Vanderbilt,SEC,21,False,4,72,72,"{'minutes': 1, 'seconds': 6}",4,43,43,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 6}",7,29,END OF HALF,False,38,38,38,38
+40175276437,401752764,Auburn,SEC,Vanderbilt,SEC,22,False,5,25,25,"{'minutes': 0, 'seconds': 0}",5,12,12,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",6,13,DOWNS,False,38,45,38,45
+40175276436,401752764,Vanderbilt,SEC,Auburn,SEC,23,True,5,75,25,"{'minutes': 0, 'seconds': 0}",5,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 0}",3,25,TD,True,38,38,45,38
+4017527742,401752774,Auburn,SEC,Mercer,Southern,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,97,3,"{'minutes': 14, 'seconds': 45}","{'minutes': 0, 'seconds': 15}",1,75,TD,True,0,0,7,0
+4017527744,401752774,Mercer,Southern,Auburn,SEC,2,True,1,75,75,"{'minutes': 14, 'seconds': 45}",1,3,3,"{'minutes': 10, 'seconds': 52}","{'minutes': 3, 'seconds': 53}",8,75,TD,False,0,7,7,7
+4017527746,401752774,Auburn,SEC,Mercer,Southern,3,False,1,27,73,"{'minutes': 10, 'seconds': 52}",1,32,68,"{'minutes': 9, 'seconds': 7}","{'minutes': 1, 'seconds': 38}",3,5,PUNT,True,7,7,7,7
+4017527747,401752774,Mercer,Southern,Auburn,SEC,4,True,1,70,70,"{'minutes': 9, 'seconds': 5}",1,3,3,"{'minutes': 2, 'seconds': 59}","{'minutes': 6, 'seconds': 8}",13,70,TD,False,7,7,14,7
+4017527749,401752774,Auburn,SEC,Mercer,Southern,5,True,1,25,75,"{'minutes': 2, 'seconds': 59}",1,97,3,"{'minutes': 0, 'seconds': 28}","{'minutes': 2, 'seconds': 31}",8,75,TD,True,7,14,14,14
+40175277411,401752774,Mercer,Southern,Auburn,SEC,6,False,1,75,75,"{'minutes': 0, 'seconds': 28}",2,49,49,"{'minutes': 11, 'seconds': 53}","{'minutes': 3, 'seconds': 35}",6,26,PUNT,False,14,14,14,14
+40175277412,401752774,Auburn,SEC,Mercer,Southern,7,True,2,20,80,"{'minutes': 11, 'seconds': 51}",2,97,3,"{'minutes': 8, 'seconds': 0}","{'minutes': 3, 'seconds': 53}",10,80,TD,True,14,14,21,14
+40175277414,401752774,Mercer,Southern,Auburn,SEC,8,True,2,75,75,"{'minutes': 8, 'seconds': 0}",2,24,24,"{'minutes': 4, 'seconds': 9}","{'minutes': 3, 'seconds': 51}",10,51,FG,False,14,21,17,21
+40175277416,401752774,Auburn,SEC,Mercer,Southern,9,True,2,35,65,"{'minutes': 4, 'seconds': 9}",2,97,3,"{'minutes': 1, 'seconds': 15}","{'minutes': 2, 'seconds': 54}",9,65,TD,True,21,17,28,17
+40175277418,401752774,Mercer,Southern,Auburn,SEC,10,False,2,75,75,"{'minutes': 1, 'seconds': 15}",2,67,67,"{'minutes': 0, 'seconds': 32}","{'minutes': 0, 'seconds': 47}",3,4,INT,False,17,28,17,28
+40175277419,401752774,Auburn,SEC,Mercer,Southern,11,True,2,67,33,"{'minutes': 0, 'seconds': 18}",2,97,3,"{'minutes': 0, 'seconds': 3}","{'minutes': 0, 'seconds': 25}",4,33,TD,True,28,17,35,17
+40175277421,401752774,Mercer,Southern,Auburn,SEC,12,False,2,75,75,"{'minutes': 0, 'seconds': 3}",2,76,76,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 3}",1,-1,END OF HALF,False,17,35,17,35
+40175277423,401752774,Mercer,Southern,Auburn,SEC,13,True,3,75,75,"{'minutes': 15, 'seconds': 0}",3,97,97,"{'minutes': 11, 'seconds': 52}","{'minutes': 3, 'seconds': 14}",6,19,INT TD,False,17,35,17,42
+40175277425,401752774,Mercer,Southern,Auburn,SEC,14,False,3,75,75,"{'minutes': 11, 'seconds': 42}",3,41,41,"{'minutes': 8, 'seconds': 23}","{'minutes': 3, 'seconds': 19}",6,34,PUNT,False,17,42,17,42
+40175277426,401752774,Auburn,SEC,Mercer,Southern,15,True,3,9,91,"{'minutes': 8, 'seconds': 8}",3,97,3,"{'minutes': 8, 'seconds': 8}","{'minutes': 0, 'seconds': 15}",1,91,TD,True,49,17,49,17
+40175277428,401752774,Mercer,Southern,Auburn,SEC,16,False,3,75,75,"{'minutes': 8, 'seconds': 8}",3,58,58,"{'minutes': 6, 'seconds': 8}","{'minutes': 2, 'seconds': 0}",6,17,PUNT,False,17,49,17,49
+40175277429,401752774,Auburn,SEC,Mercer,Southern,17,False,3,10,90,"{'minutes': 6, 'seconds': 0}",3,49,51,"{'minutes': 2, 'seconds': 45}","{'minutes': 3, 'seconds': 23}",8,39,PUNT,True,49,17,49,17
+40175277430,401752774,Mercer,Southern,Auburn,SEC,18,False,3,90,90,"{'minutes': 2, 'seconds': 37}",3,82,82,"{'minutes': 0, 'seconds': 31}","{'minutes': 2, 'seconds': 14}",3,8,PUNT,False,17,49,17,49
+40175277431,401752774,Auburn,SEC,Mercer,Southern,19,True,3,52,48,"{'minutes': 0, 'seconds': 29}",4,71,29,"{'minutes': 12, 'seconds': 3}","{'minutes': 3, 'seconds': 28}",7,19,FG,True,49,17,52,17
+40175277433,401752774,Mercer,Southern,Auburn,SEC,20,False,4,75,75,"{'minutes': 12, 'seconds': 3}",4,81,81,"{'minutes': 10, 'seconds': 40}","{'minutes': 1, 'seconds': 23}",3,-6,FUMBLE,False,17,52,17,52
+40175277434,401752774,Auburn,SEC,Mercer,Southern,21,True,4,81,19,"{'minutes': 10, 'seconds': 30}",4,69,31,"{'minutes': 8, 'seconds': 24}","{'minutes': 2, 'seconds': 16}",4,-12,FG,True,52,17,55,17
+40175277436,401752774,Mercer,Southern,Auburn,SEC,22,False,4,75,75,"{'minutes': 8, 'seconds': 23}",4,70,70,"{'minutes': 6, 'seconds': 46}","{'minutes': 1, 'seconds': 37}",3,5,PUNT,False,17,55,17,55
+40175277437,401752774,Auburn,SEC,Mercer,Southern,23,True,4,33,67,"{'minutes': 6, 'seconds': 27}",4,97,3,"{'minutes': 5, 'seconds': 11}","{'minutes': 1, 'seconds': 35}",3,67,TD,True,55,17,62,17
+40175277439,401752774,Mercer,Southern,Auburn,SEC,24,False,4,75,75,"{'minutes': 5, 'seconds': 9}",4,24,24,"{'minutes': 0, 'seconds': 21}","{'minutes': 5, 'seconds': 9}",10,51,END OF GAME,False,17,62,17,62
+4017527842,401752784,Alabama,SEC,Auburn,SEC,1,False,1,70,70,"{'minutes': 14, 'seconds': 53}",1,53,53,"{'minutes': 13, 'seconds': 3}","{'minutes': 1, 'seconds': 50}",6,17,PUNT,False,17,6,17,6
+4017527843,401752784,Auburn,SEC,Alabama,SEC,2,False,1,15,85,"{'minutes': 13, 'seconds': 3}",1,14,86,"{'minutes': 11, 'seconds': 48}","{'minutes': 1, 'seconds': 15}",3,-1,PUNT,True,6,17,6,17
+4017527844,401752784,Alabama,SEC,Auburn,SEC,3,True,1,54,54,"{'minutes': 11, 'seconds': 48}",1,27,27,"{'minutes': 7, 'seconds': 29}","{'minutes': 4, 'seconds': 19}",10,27,FG,False,3,0,17,6
+4017527846,401752784,Auburn,SEC,Alabama,SEC,4,False,1,27,73,"{'minutes': 7, 'seconds': 29}",1,27,73,"{'minutes': 7, 'seconds': 7}","{'minutes': 0, 'seconds': 22}",3,0,PUNT,True,0,3,0,3
+4017527847,401752784,Alabama,SEC,Auburn,SEC,5,False,1,65,65,"{'minutes': 7, 'seconds': 7}",1,64,64,"{'minutes': 6, 'seconds': 4}","{'minutes': 1, 'seconds': 3}",3,1,PUNT,False,3,0,3,0
+4017527848,401752784,Auburn,SEC,Alabama,SEC,6,False,1,18,82,"{'minutes': 6, 'seconds': 4}",1,20,80,"{'minutes': 4, 'seconds': 56}","{'minutes': 1, 'seconds': 8}",3,2,PUNT,True,0,3,0,3
+4017527849,401752784,Alabama,SEC,Auburn,SEC,7,True,1,65,65,"{'minutes': 4, 'seconds': 56}",1,0,0,"{'minutes': 1, 'seconds': 14}","{'minutes': 3, 'seconds': 42}",7,65,TD,False,3,0,10,0
+40175278411,401752784,Auburn,SEC,Alabama,SEC,8,False,1,47,53,"{'minutes': 1, 'seconds': 8}",2,64,36,"{'minutes': 14, 'seconds': 31}","{'minutes': 1, 'seconds': 37}",7,17,DOWNS,True,0,10,0,10
+40175278412,401752784,Alabama,SEC,Auburn,SEC,9,True,2,64,64,"{'minutes': 14, 'seconds': 31}",2,0,0,"{'minutes': 11, 'seconds': 28}","{'minutes': 3, 'seconds': 3}",6,64,TD,False,10,0,17,0
+40175278414,401752784,Auburn,SEC,Alabama,SEC,10,False,2,20,80,"{'minutes': 11, 'seconds': 19}",2,28,72,"{'minutes': 9, 'seconds': 49}","{'minutes': 1, 'seconds': 30}",3,8,PUNT,True,0,17,0,17
+40175278415,401752784,Alabama,SEC,Auburn,SEC,11,False,2,67,67,"{'minutes': 9, 'seconds': 49}",2,73,73,"{'minutes': 8, 'seconds': 25}","{'minutes': 1, 'seconds': 24}",3,-6,PUNT,False,17,0,17,0
+40175278416,401752784,Auburn,SEC,Alabama,SEC,12,True,2,49,51,"{'minutes': 8, 'seconds': 25}",2,92,8,"{'minutes': 4, 'seconds': 6}","{'minutes': 4, 'seconds': 19}",10,43,FG,True,0,17,3,17
+40175278418,401752784,Alabama,SEC,Auburn,SEC,13,False,2,75,75,"{'minutes': 4, 'seconds': 6}",2,71,71,"{'minutes': 2, 'seconds': 40}","{'minutes': 1, 'seconds': 26}",3,4,PUNT,False,17,3,17,3
+40175278419,401752784,Auburn,SEC,Alabama,SEC,14,True,2,27,73,"{'minutes': 2, 'seconds': 40}",2,75,25,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 40}",10,48,FG,True,3,17,6,17
+40175278421,401752784,Auburn,SEC,Alabama,SEC,15,True,3,24,76,"{'minutes': 14, 'seconds': 52}",3,100,0,"{'minutes': 14, 'seconds': 0}","{'minutes': 0, 'seconds': 52}",4,76,TD,True,6,17,13,17
+40175278423,401752784,Alabama,SEC,Auburn,SEC,16,True,3,75,75,"{'minutes': 14, 'seconds': 0}",3,11,11,"{'minutes': 7, 'seconds': 31}","{'minutes': 6, 'seconds': 29}",13,64,FG,False,17,13,20,13
+40175278425,401752784,Auburn,SEC,Alabama,SEC,17,False,3,25,75,"{'minutes': 7, 'seconds': 31}",3,27,73,"{'minutes': 6, 'seconds': 46}","{'minutes': 0, 'seconds': 45}",3,2,PUNT,True,13,20,13,20
+40175278426,401752784,Alabama,SEC,Auburn,SEC,18,False,3,65,65,"{'minutes': 6, 'seconds': 46}",3,57,57,"{'minutes': 5, 'seconds': 31}","{'minutes': 1, 'seconds': 15}",3,8,PUNT,False,20,13,20,13
+40175278427,401752784,Auburn,SEC,Alabama,SEC,19,False,3,21,79,"{'minutes': 5, 'seconds': 31}",3,72,28,"{'minutes': 0, 'seconds': 51}","{'minutes': 4, 'seconds': 40}",11,51,INT,True,13,20,13,20
+40175278428,401752784,Alabama,SEC,Auburn,SEC,20,False,3,51,51,"{'minutes': 0, 'seconds': 51}",4,46,46,"{'minutes': 14, 'seconds': 14}","{'minutes': 1, 'seconds': 37}",3,5,PUNT,False,20,13,20,13
+40175278435,401752784,Auburn,SEC,Alabama,SEC,21,False,4,31,69,"{'minutes': 0, 'seconds': 12}",4,57,43,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 12}",2,26,END OF GAME,True,13,20,20,27
+40175278429,401752784,Auburn,SEC,Alabama,SEC,22,True,4,12,88,"{'minutes': 14, 'seconds': 14}",4,100,0,"{'minutes': 11, 'seconds': 43}","{'minutes': 2, 'seconds': 31}",6,88,TD,True,13,20,20,20
+40175278431,401752784,Alabama,SEC,Auburn,SEC,23,True,4,75,75,"{'minutes': 11, 'seconds': 43}",4,0,0,"{'minutes': 3, 'seconds': 50}","{'minutes': 7, 'seconds': 53}",15,75,TD,False,20,20,27,20
+40175278433,401752784,Auburn,SEC,Alabama,SEC,24,False,4,22,78,"{'minutes': 3, 'seconds': 45}",4,80,20,"{'minutes': 0, 'seconds': 33}","{'minutes': 3, 'seconds': 12}",12,58,FUMBLE,True,20,27,20,27
+40175278434,401752784,Alabama,SEC,Auburn,SEC,25,False,4,80,80,"{'minutes': 0, 'seconds': 33}",4,75,75,"{'minutes': 0, 'seconds': 12}","{'minutes': 0, 'seconds': 21}",3,5,PUNT,False,27,20,27,20

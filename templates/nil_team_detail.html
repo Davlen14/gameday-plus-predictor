@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Roster Intelligence | GAMEDAY+ SYS</title>
+    
+    <!-- Tailwind & Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#020617',
+                        surface: '#0f172a',
+                        primary: '#F43F5E', // Rose
+                        secondary: '#06B6D4', // Cyan
+                        success: '#10B981', // Emerald
+                        warning: '#F59E0B', // Amber
+                        danger: '#EF4444', // Red
+                        'glass-border': 'rgba(255, 255, 255, 0.08)',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'Menlo', 'monospace'],
+                        'display': ['Orbitron', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <style>
+        body {
+            background-color: #020617;
+            color: #cbd5e1;
+            overflow-x: hidden;
+        }
+
+        /* --- HUD Panels --- */
+        .hud-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hud-panel:hover {
+            border-color: rgba(244, 63, 94, 0.4);
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* --- Animations --- */
+        @keyframes scanner {
+            0% { transform: translateY(-100%); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(100%); opacity: 0; }
+        }
+
+        .scan-line {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            border-radius: inherit;
+        }
+
+        .scan-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.5), transparent);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+            animation: scanner 4s linear infinite;
+        }
+
+        /* --- Table Styling --- */
+        .analytics-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .analytics-table th {
+            text-align: left;
+            padding: 12px 16px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #94a3b8;
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #334155;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .analytics-table td {
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            transition: background 0.2s;
+        }
+
+        .analytics-table tr:hover td {
+            background: rgba(244, 63, 94, 0.05);
+            color: white;
+        }
+
+        /* --- Efficiency Bars --- */
+        .eff-bar-bg {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .eff-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            box-shadow: 0 0 8px currentColor;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- Scrollbar --- */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F43F5E; }
+
+        /* --- Utilities --- */
+        .bg-cyber-grid {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        .value-glow { text-shadow: 0 0 15px rgba(244, 63, 94, 0.4); }
+        .text-glow-cyan { text-shadow: 0 0 10px rgba(6, 182, 212, 0.4); }
+    </style>
+</head>
+<body class="antialiased min-h-screen relative selection:bg-primary selection:text-white">
+
+    <!-- Background Layer -->
+    <div class="fixed inset-0 bg-cyber-grid pointer-events-none z-0"></div>
+
+    <!-- Header HUD -->
+    <header class="fixed top-0 w-full z-50 border-b border-white/5 bg-[#020617]/90 backdrop-blur-xl">
+        <div class="max-w-[1800px] mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-1.5 h-6 bg-gradient-to-b from-primary to-purple-600 shadow-[0_0_15px_rgba(244,63,94,0.6)]"></div>
+                <div>
+                    <h1 class="text-xl font-display font-bold tracking-wider text-white">
+                        TEAM <span class="text-primary">INTELLIGENCE</span>
+                    </h1>
+                    <div class="text-[10px] font-mono text-gray-500 tracking-[0.2em]">ROSTER VALUATION SYS</div>
+                </div>
+            </div>
+            
+            <a href="/nil" class="group flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-white/5 transition-all">
+                <i data-lucide="corner-up-left" class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors"></i>
+                <span class="text-xs font-mono text-gray-400 group-hover:text-white">RETURN TO INDEX</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-24 pb-12 px-6 max-w-[1800px] mx-auto">
+        
+        <!-- Team Identity Block -->
+        <div class="hud-panel rounded-lg p-0 mb-8 overflow-hidden relative group">
+            <div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent z-10"></div>
+            <!-- Dynamic Logo Watermark -->
+            <img id="teamLogoWatermark" src="" class="absolute -right-10 -top-10 w-96 h-96 opacity-[0.03] grayscale pointer-events-none z-0">
+            
+            <div class="relative z-20 p-8 flex flex-col md:flex-row items-center gap-8">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-primary/20 blur-xl rounded-full"></div>
+                    <img id="teamLogo" src="" alt="Team Logo" class="relative w-32 h-32 object-contain drop-shadow-2xl">
+                </div>
+                
+                <div class="flex-1 text-center md:text-left">
+                    <h2 id="teamName" class="text-4xl md:text-5xl font-display font-bold text-white mb-2 tracking-tight">LOADING...</h2>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                        <div class="flex items-center gap-2 px-3 py-1 bg-white/5 rounded border border-white/10">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-xs font-mono text-gray-300">DATA STREAM ACTIVE</span>
+                        </div>
+                        <div class="text-xs font-mono text-gray-500 py-1 px-2 border border-dashed border-gray-700 rounded">
+                            ID: <span id="teamIdDisplay">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Primary Metrics -->
+                <div class="grid grid-cols-2 gap-x-12 gap-y-6 text-right">
+                    <div>
+                        <div class="text-[10px] font-mono text-gray-500 tracking-widest uppercase mb-1">Total Cap Allocation</div>
+                        <div id="totalNIL" class="text-3xl font-display font-bold text-white value-glow">--</div>
+                    </div>
+                    <div>
+                        <div class="text-[10px] font-mono text-gray-500 tracking-widest uppercase mb-1">Active Roster</div>
+                        <div id="totalPlayers" class="text-3xl font-display font-bold text-secondary text-glow-cyan">--</div>
+                    </div>
+                    <div>
+                        <div class="text-[10px] font-mono text-gray-500 tracking-widest uppercase mb-1">Avg Yield</div>
+                        <div id="avgNIL" class="text-xl font-mono text-warning">--</div>
+                    </div>
+                    <div>
+                        <div class="text-[10px] font-mono text-gray-500 tracking-widest uppercase mb-1">Highest Asset</div>
+                        <div id="topAssetValue" class="text-xl font-mono text-primary">--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytical Charts Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+            
+            <!-- Positional Doughnut -->
+            <div class="lg:col-span-4 hud-panel rounded-lg p-6 flex flex-col relative overflow-hidden">
+                <div class="scan-line"></div>
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h3 class="font-display font-bold text-white text-sm">SPENDING DISTRIBUTION</h3>
+                        <p class="text-[10px] font-mono text-gray-500">ALLOCATION BY POSITION GROUP</p>
+                    </div>
+                    <i data-lucide="pie-chart" class="w-4 h-4 text-secondary"></i>
+                </div>
+                <div class="flex-1 relative min-h-[250px] flex items-center justify-center">
+                    <canvas id="spendingChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Value Matrix Scatter -->
+            <div class="lg:col-span-8 hud-panel rounded-lg p-6 flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h3 class="font-display font-bold text-white text-sm">ROSTER VALUE MATRIX</h3>
+                        <p class="text-[10px] font-mono text-gray-500">VALUATION (Y) vs EFFICIENCY (X)</p>
+                    </div>
+                    <i data-lucide="scatter-chart" class="w-4 h-4 text-primary"></i>
+                </div>
+                <div class="flex-1 relative min-h-[300px]">
+                    <canvas id="valueMatrixChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Roster Database -->
+        <div class="hud-panel rounded-lg p-0 overflow-hidden flex flex-col">
+            <!-- Toolbar -->
+            <div class="p-4 border-b border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 bg-surface/50">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="list" class="w-4 h-4 text-primary"></i>
+                    <h3 class="font-display font-bold text-white text-sm">ACTIVE ROSTER MANIFEST</h3>
+                </div>
+                
+                <div class="flex gap-2 w-full md:w-auto">
+                    <div class="relative flex-1 md:w-64">
+                        <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                        <input 
+                            type="text" 
+                            id="playerSearch"
+                            placeholder="SEARCH UNIT..."
+                            class="w-full pl-9 pr-4 py-1.5 bg-[#020617] border border-white/10 rounded font-mono text-xs text-white placeholder-gray-600 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50"
+                        >
+                    </div>
+                    <select id="positionFilter" class="bg-[#020617] border border-white/10 rounded font-mono text-xs text-gray-400 px-3 py-1.5 focus:border-primary/50 outline-none cursor-pointer hover:text-white">
+                        <option value="">ALL POS</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="overflow-x-auto">
+                <table class="analytics-table">
+                    <thead>
+                        <tr>
+                            <th class="pl-6">Player Identity</th>
+                            <th>Pos</th>
+                            <th>Market Value</th>
+                            <th>Consistency (Eff1)</th>
+                            <th>Peak Perf (Eff2)</th>
+                            <th>Weight</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody id="playersTable">
+                        <!-- JS Injection -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Loading Indicator -->
+            <div id="loadingPlayers" class="py-12 flex flex-col items-center justify-center text-primary">
+                <i data-lucide="loader-2" class="w-8 h-8 animate-spin mb-2"></i>
+                <span class="font-mono text-xs tracking-widest">DECRYPTING ROSTER DATA...</span>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+        const teamId = parseInt(window.location.pathname.split('/').pop());
+        document.getElementById('teamIdDisplay').textContent = teamId;
+
+        // --- GLOBAL STATE ---
+        let allPlayers = [];
+        let chartInstances = {};
+
+        // --- CONFIG ---
+        Chart.defaults.font.family = "'JetBrains Mono', monospace";
+        Chart.defaults.font.size = 10;
+        Chart.defaults.color = '#64748b';
+        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.05)';
+
+        const customTooltip = {
+            backgroundColor: 'rgba(2, 6, 23, 0.95)',
+            titleColor: '#F43F5E',
+            titleFont: { family: "'Orbitron', sans-serif", size: 12 },
+            bodyColor: '#e2e8f0',
+            bodyFont: { family: "'JetBrains Mono', monospace" },
+            borderColor: 'rgba(244, 63, 94, 0.3)',
+            borderWidth: 1,
+            padding: 12,
+            cornerRadius: 4,
+            displayColors: true
+        };
+
+        const posColors = {
+            'QB': '#F43F5E', // Rose
+            'RB': '#10B981', // Emerald
+            'WR': '#F59E0B', // Amber
+            'TE': '#8B5CF6', // Violet
+            'OL': '#64748B', // Slate
+            'DL': '#EF4444', // Red
+            'LB': '#F97316', // Orange
+            'DB': '#06B6D4', // Cyan
+            'K': '#EAB308',  // Yellow
+            'P': '#EAB308'
+        };
+
+        // --- INIT ---
+        async function initSystem() {
+            try {
+                // 1. Fetch Team Summary
+                const tRes = await fetch(`/api/nil/team/${teamId}`);
+                const tData = await tRes.json();
+                
+                renderHeader(tData);
+
+                // 2. Fetch Players
+                const pRes = await fetch(`/api/nil/team/${teamId}/players`);
+                const pData = await pRes.json();
+                allPlayers = pData.players || [];
+
+                // 3. Render
+                renderTable(allPlayers);
+                populateFilters(allPlayers);
+                initCharts(tData, allPlayers);
+
+                document.getElementById('loadingPlayers').classList.add('hidden');
+
+            } catch (err) {
+                console.error("System Error:", err);
+            }
+        }
+
+        // --- RENDERERS ---
+        function renderHeader(data) {
+            document.getElementById('teamName').textContent = data.team_name;
+            const logoUrl = `https://a.espncdn.com/i/teamlogos/ncaa/500/${teamId}.png`;
+            document.getElementById('teamLogo').src = logoUrl;
+            document.getElementById('teamLogoWatermark').src = logoUrl;
+
+            // Animate Numbers
+            document.getElementById('totalNIL').textContent = '$' + (data.total_valuation).toLocaleString();
+            document.getElementById('totalPlayers').textContent = data.total_players;
+            document.getElementById('avgNIL').textContent = '$' + Math.round(data.avg_valuation).toLocaleString();
+            
+            // Calc Top Asset (simplified)
+            // Real logic happens after players load, but we can set placeholder
+        }
+
+        function renderTable(players) {
+            const tbody = document.getElementById('playersTable');
+            
+            // Find Top Asset for Header Update
+            if(players.length > 0) {
+                const top = players.reduce((max, p) => p.valuation > max.valuation ? p : max, players[0]);
+                document.getElementById('topAssetValue').textContent = '$' + (top.valuation/1000).toFixed(1) + 'K';
+            }
+
+            tbody.innerHTML = players.map(p => {
+                const posColor = posColors[p.position] || '#64748b';
+                
+                return `
+                <tr class="group">
+                    <td class="pl-6 py-4">
+                        <div class="font-bold text-white group-hover:text-primary transition-colors">${p.player_name}</div>
+                    </td>
+                    <td>
+                        <span class="text-[10px] font-mono px-1.5 py-0.5 rounded border" 
+                              style="color: ${posColor}; border-color: ${posColor}40; background: ${posColor}10;">
+                            ${p.position}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="font-mono font-bold text-white group-hover:text-shadow-glow transition-all">
+                            $${p.valuation.toLocaleString()}
+                        </div>
+                    </td>
+                    <td class="w-32">
+                        <div class="flex items-center gap-2">
+                            <div class="eff-bar-bg flex-1">
+                                <div class="eff-bar-fill" style="width: ${p.eff1 * 100}%; background-color: ${posColor};"></div>
+                            </div>
+                            <span class="text-[10px] font-mono w-8 text-right">${(p.eff1 * 100).toFixed(0)}%</span>
+                        </div>
+                    </td>
+                    <td class="w-32">
+                        <div class="flex items-center gap-2">
+                            <div class="eff-bar-bg flex-1">
+                                <div class="eff-bar-fill bg-white/50" style="width: ${p.eff2 * 100}%"></div>
+                            </div>
+                            <span class="text-[10px] font-mono w-8 text-right">${(p.eff2 * 100).toFixed(0)}%</span>
+                        </div>
+                    </td>
+                    <td class="font-mono text-xs text-gray-400">${(p.weight_2025 * 100).toFixed(0)}%</td>
+                    <td>
+                        ${!p.is_backup 
+                            ? `<span class="text-[10px] font-bold text-emerald-400 flex items-center gap-1"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>STARTER</span>` 
+                            : `<span class="text-[10px] text-gray-600">DEPTH</span>`
+                        }
+                    </td>
+                </tr>
+                `;
+            }).join('');
+            
+            lucide.createIcons();
+        }
+
+        // --- CHARTS ---
+        function initCharts(teamData, players) {
+            
+            // 1. Spending Doughnut
+            const spendingData = [
+                teamData.qb_valuation, teamData.rb_valuation, teamData.wr_valuation,
+                teamData.te_valuation || 0, teamData.ol_valuation, teamData.dl_valuation,
+                teamData.lb_valuation, teamData.db_valuation
+            ];
+            const spendingLabels = ['QB', 'RB', 'WR', 'TE', 'OL', 'DL', 'LB', 'DB'];
+            const spendingColors = [
+                posColors.QB, posColors.RB, posColors.WR, posColors.TE,
+                posColors.OL, posColors.DL, posColors.LB, posColors.DB
+            ];
+
+            const ctxDoughnut = document.getElementById('spendingChart');
+            chartInstances.doughnut = new Chart(ctxDoughnut, {
+                type: 'doughnut',
+                data: {
+                    labels: spendingLabels,
+                    datasets: [{
+                        data: spendingData,
+                        backgroundColor: spendingColors,
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { position: 'right', labels: { usePointStyle: true, boxWidth: 6, font: {size: 9} } },
+                        tooltip: {
+                            ...customTooltip,
+                            callbacks: {
+                                label: (ctx) => ` ${ctx.label}: $${(ctx.raw/1000).toFixed(1)}K`
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 2. Value Matrix (Scatter)
+            // Filter top players to avoid clutter
+            const topPlayers = players.sort((a,b) => b.valuation - a.valuation).slice(0, 40);
+            
+            const scatterData = topPlayers.map(p => ({
+                x: p.eff1 * 100, // Efficiency
+                y: p.valuation,  // Valuation
+                r: 6,
+                player: p.player_name,
+                pos: p.position
+            }));
+
+            const ctxScatter = document.getElementById('valueMatrixChart');
+            chartInstances.scatter = new Chart(ctxScatter, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        label: 'Player Assets',
+                        data: scatterData,
+                        backgroundColor: (ctx) => {
+                            const raw = ctx.raw;
+                            return raw ? (posColors[raw.pos] || '#fff') : '#fff';
+                        },
+                        borderColor: 'transparent',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Efficiency Rating (%)', color: '#475569', font: {size: 9} },
+                            grid: { color: 'rgba(255,255,255,0.05)' }
+                        },
+                        y: {
+                            title: { display: true, text: 'Market Value ($)', color: '#475569', font: {size: 9} },
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { callback: (val) => '$' + val/1000 + 'K' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            ...customTooltip,
+                            callbacks: {
+                                label: (ctx) => `${ctx.raw.player} (${ctx.raw.pos})`,
+                                afterLabel: (ctx) => `$${ctx.raw.y.toLocaleString()} | Eff: ${ctx.raw.x.toFixed(0)}%`
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // --- FILTERS ---
+        function populateFilters(players) {
+            const positions = [...new Set(players.map(p => p.position))].sort();
+            const select = document.getElementById('positionFilter');
+            positions.forEach(pos => {
+                const opt = document.createElement('option');
+                opt.value = pos;
+                opt.textContent = pos;
+                select.appendChild(opt);
+            });
+
+            // Events
+            document.getElementById('playerSearch').addEventListener('input', runFilter);
+            select.addEventListener('change', runFilter);
+        }
+
+        function runFilter() {
+            const term = document.getElementById('playerSearch').value.toLowerCase();
+            const pos = document.getElementById('positionFilter').value;
+            
+            const filtered = allPlayers.filter(p => {
+                const matchName = p.player_name.toLowerCase().includes(term);
+                const matchPos = pos === '' || p.position === pos;
+                return matchName && matchPos;
+            });
+            
+            renderTable(filtered);
+        }
+
+        // --- START ---
+        window.addEventListener('load', initSystem);
+
+    </script>
+</body>
+</html>

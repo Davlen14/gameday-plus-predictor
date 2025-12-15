@@ -1,0 +1,279 @@
+id,gameId,offense,offenseConference,defense,defenseConference,driveNumber,scoring,startPeriod,startYardline,startYardsToGoal,startTime,endPeriod,endYardline,endYardsToGoal,endTime,elapsed,plays,yards,driveResult,isHomeOffense,startOffenseScore,startDefenseScore,endOffenseScore,endDefenseScore
+4017545162,401754516,Stanford,ACC,Hawai'i,Mountain West,1,True,1,75,75,"{'minutes': 14, 'seconds': 59}",1,5,5,"{'minutes': 7, 'seconds': 13}","{'minutes': 7, 'seconds': 46}",16,70,FG,False,0,0,3,0
+4017545164,401754516,Hawai'i,Mountain West,Stanford,ACC,2,True,1,1,99,"{'minutes': 7, 'seconds': 14}",1,3,97,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 6}",1,99,FUMBLE RETURN TD,True,0,6,0,10
+4017545166,401754516,Hawai'i,Mountain West,Stanford,ACC,3,False,1,25,75,"{'minutes': 7, 'seconds': 8}",1,33,67,"{'minutes': 5, 'seconds': 38}","{'minutes': 1, 'seconds': 39}",3,8,PUNT,True,0,17,0,17
+4017545167,401754516,Stanford,ACC,Hawai'i,Mountain West,4,False,1,80,80,"{'minutes': 5, 'seconds': 29}",1,83,83,"{'minutes': 4, 'seconds': 45}","{'minutes': 0, 'seconds': 48}",3,-3,PUNT,False,17,0,17,0
+4017545168,401754516,Hawai'i,Mountain West,Stanford,ACC,5,True,1,42,58,"{'minutes': 4, 'seconds': 41}",1,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 22}",6,58,TD,True,0,10,7,17
+40175451610,401754516,Stanford,ACC,Hawai'i,Mountain West,6,False,1,80,80,"{'minutes': 2, 'seconds': 8}",2,16,16,"{'minutes': 10, 'seconds': 59}","{'minutes': 6, 'seconds': 16}",13,64,MISSED FG,False,10,7,10,7
+40175451611,401754516,Hawai'i,Mountain West,Stanford,ACC,7,False,2,20,80,"{'minutes': 10, 'seconds': 55}",2,64,36,"{'minutes': 8, 'seconds': 41}","{'minutes': 2, 'seconds': 18}",7,45,DOWNS,True,7,10,7,10
+40175451612,401754516,Stanford,ACC,Hawai'i,Mountain West,8,True,2,65,65,"{'minutes': 8, 'seconds': 36}",2,28,28,"{'minutes': 3, 'seconds': 39}","{'minutes': 4, 'seconds': 58}",11,37,FG,False,10,7,13,7
+40175451614,401754516,Hawai'i,Mountain West,Stanford,ACC,9,True,2,25,75,"{'minutes': 3, 'seconds': 38}",2,97,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 57}",9,75,TD,True,7,13,14,16
+40175451616,401754516,Stanford,ACC,Hawai'i,Mountain West,10,False,2,79,79,"{'minutes': 0, 'seconds': 39}",2,79,79,"{'minutes': 0, 'seconds': 30}","{'minutes': 0, 'seconds': 39}",2,0,END OF HALF,False,13,14,13,14
+40175451624,401754516,Stanford,ACC,Hawai'i,Mountain West,11,True,3,85,85,"{'minutes': 4, 'seconds': 14}",4,3,3,"{'minutes': 0, 'seconds': 0}","{'minutes': 9, 'seconds': 37}",20,85,TD,False,13,17,20,20
+40175451618,401754516,Hawai'i,Mountain West,Stanford,ACC,12,False,3,26,74,"{'minutes': 14, 'seconds': 52}",3,37,63,"{'minutes': 12, 'seconds': 25}","{'minutes': 2, 'seconds': 36}",6,11,PUNT,True,14,13,14,13
+40175451619,401754516,Stanford,ACC,Hawai'i,Mountain West,13,False,3,85,85,"{'minutes': 12, 'seconds': 18}",3,82,82,"{'minutes': 10, 'seconds': 49}","{'minutes': 1, 'seconds': 35}",3,3,PUNT,False,13,14,13,14
+40175451620,401754516,Hawai'i,Mountain West,Stanford,ACC,14,True,3,42,58,"{'minutes': 10, 'seconds': 41}",3,78,22,"{'minutes': 6, 'seconds': 25}","{'minutes': 4, 'seconds': 18}",11,36,FG,True,14,13,17,13
+40175451622,401754516,Stanford,ACC,Hawai'i,Mountain West,15,False,3,73,73,"{'minutes': 6, 'seconds': 15}",3,70,70,"{'minutes': 5, 'seconds': 19}","{'minutes': 1, 'seconds': 6}",3,3,PUNT,False,13,20,13,20
+40175451623,401754516,Hawai'i,Mountain West,Stanford,ACC,16,False,3,36,64,"{'minutes': 5, 'seconds': 9}",3,41,59,"{'minutes': 4, 'seconds': 18}","{'minutes': 0, 'seconds': 54}",3,5,PUNT,True,20,13,20,13
+40175451626,401754516,Hawai'i,Mountain West,Stanford,ACC,17,False,4,25,75,"{'minutes': 9, 'seconds': 41}",4,27,73,"{'minutes': 8, 'seconds': 42}","{'minutes': 1, 'seconds': 7}",3,2,PUNT,True,17,20,17,20
+40175451627,401754516,Stanford,ACC,Hawai'i,Mountain West,18,False,4,85,85,"{'minutes': 8, 'seconds': 34}",4,24,24,"{'minutes': 6, 'seconds': 1}","{'minutes': 2, 'seconds': 36}",5,61,INT,False,20,17,20,17
+40175451628,401754516,Hawai'i,Mountain West,Stanford,ACC,19,True,4,31,69,"{'minutes': 5, 'seconds': 52}",4,81,19,"{'minutes': 2, 'seconds': 1}","{'minutes': 3, 'seconds': 57}",10,50,FG,True,17,20,20,20
+40175451630,401754516,Stanford,ACC,Hawai'i,Mountain West,20,False,4,75,75,"{'minutes': 2, 'seconds': 0}",4,72,72,"{'minutes': 1, 'seconds': 43}","{'minutes': 0, 'seconds': 28}",3,3,PUNT,False,20,23,20,23
+40175451631,401754516,Hawai'i,Mountain West,Stanford,ACC,21,True,4,28,72,"{'minutes': 1, 'seconds': 31}",5,80,20,"{'minutes': 0, 'seconds': 3}","{'minutes': 1, 'seconds': 33}",9,52,FG,True,20,20,23,20
+4017545261,401754526,Stanford,ACC,BYU,Big 12,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,71,71,"{'minutes': 13, 'seconds': 26}","{'minutes': 1, 'seconds': 34}",3,4,PUNT,False,0,0,0,0
+4017545262,401754526,BYU,Big 12,Stanford,ACC,2,False,1,30,70,"{'minutes': 13, 'seconds': 26}",1,60,40,"{'minutes': 8, 'seconds': 13}","{'minutes': 5, 'seconds': 13}",11,30,DOWNS,True,0,0,0,0
+4017545263,401754526,Stanford,ACC,BYU,Big 12,3,False,1,60,60,"{'minutes': 8, 'seconds': 13}",1,40,40,"{'minutes': 6, 'seconds': 41}","{'minutes': 1, 'seconds': 32}",4,20,PUNT,False,0,0,0,0
+4017545264,401754526,BYU,Big 12,Stanford,ACC,4,True,1,15,85,"{'minutes': 6, 'seconds': 41}",1,100,0,"{'minutes': 3, 'seconds': 25}","{'minutes': 3, 'seconds': 16}",6,85,TD,True,0,0,6,0
+4017545265,401754526,Stanford,ACC,BYU,Big 12,5,False,1,75,75,"{'minutes': 3, 'seconds': 25}",1,68,68,"{'minutes': 1, 'seconds': 59}","{'minutes': 1, 'seconds': 26}",3,7,INT,False,0,6,0,6
+4017545266,401754526,BYU,Big 12,Stanford,ACC,6,True,1,82,18,"{'minutes': 1, 'seconds': 59}",2,83,17,"{'minutes': 14, 'seconds': 56}","{'minutes': 2, 'seconds': 3}",4,1,FG,True,6,0,9,0
+4017545267,401754526,Stanford,ACC,BYU,Big 12,7,False,2,82,82,"{'minutes': 14, 'seconds': 56}",2,84,84,"{'minutes': 12, 'seconds': 51}","{'minutes': 2, 'seconds': 5}",3,-13,FUMBLE,False,0,9,0,9
+4017545268,401754526,BYU,Big 12,Stanford,ACC,8,True,2,95,5,"{'minutes': 12, 'seconds': 51}",2,88,12,"{'minutes': 10, 'seconds': 52}","{'minutes': 1, 'seconds': 59}",5,-7,FG,True,9,0,12,0
+4017545269,401754526,Stanford,ACC,BYU,Big 12,9,False,2,75,75,"{'minutes': 10, 'seconds': 52}",2,84,84,"{'minutes': 9, 'seconds': 17}","{'minutes': 1, 'seconds': 35}",3,-9,PUNT,False,0,12,0,12
+40175452610,401754526,BYU,Big 12,Stanford,ACC,10,False,2,50,50,"{'minutes': 9, 'seconds': 17}",2,55,45,"{'minutes': 5, 'seconds': 59}","{'minutes': 3, 'seconds': 18}",6,5,PUNT,True,12,0,12,0
+40175452611,401754526,Stanford,ACC,BYU,Big 12,11,True,2,97,97,"{'minutes': 5, 'seconds': 59}",2,99,99,"{'minutes': 5, 'seconds': 14}","{'minutes': 0, 'seconds': 45}",2,-3,SF,False,0,12,0,14
+40175452612,401754526,BYU,Big 12,Stanford,ACC,12,False,2,50,50,"{'minutes': 5, 'seconds': 14}",2,39,61,"{'minutes': 2, 'seconds': 3}","{'minutes': 3, 'seconds': 11}",4,-11,PUNT,True,14,0,14,0
+40175452613,401754526,Stanford,ACC,BYU,Big 12,13,False,2,87,87,"{'minutes': 2, 'seconds': 3}",2,73,73,"{'minutes': 1, 'seconds': 10}","{'minutes': 0, 'seconds': 53}",6,14,FUMBLE,False,0,14,0,14
+40175452614,401754526,BYU,Big 12,Stanford,ACC,14,False,2,27,73,"{'minutes': 1, 'seconds': 10}",2,54,46,"{'minutes': 0, 'seconds': 15}","{'minutes': 0, 'seconds': 55}",6,27,PUNT,True,14,0,14,0
+40175452615,401754526,Stanford,ACC,BYU,Big 12,15,False,2,95,95,"{'minutes': 0, 'seconds': 15}",2,96,96,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 15}",1,-1,END OF HALF,False,0,14,0,14
+40175452616,401754526,BYU,Big 12,Stanford,ACC,16,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,97,3,"{'minutes': 8, 'seconds': 56}","{'minutes': 6, 'seconds': 4}",13,72,FG,True,14,0,17,0
+40175452617,401754526,Stanford,ACC,BYU,Big 12,17,False,3,75,75,"{'minutes': 8, 'seconds': 56}",3,66,66,"{'minutes': 5, 'seconds': 57}","{'minutes': 2, 'seconds': 59}",5,9,PUNT,False,0,17,0,17
+40175452618,401754526,BYU,Big 12,Stanford,ACC,18,True,3,57,43,"{'minutes': 5, 'seconds': 57}",3,100,0,"{'minutes': 3, 'seconds': 36}","{'minutes': 2, 'seconds': 21}",5,43,TD,True,17,0,24,0
+40175452619,401754526,Stanford,ACC,BYU,Big 12,19,True,3,75,75,"{'minutes': 3, 'seconds': 36}",4,8,8,"{'minutes': 10, 'seconds': 31}","{'minutes': 8, 'seconds': 5}",15,67,FG,False,0,24,3,24
+40175452620,401754526,BYU,Big 12,Stanford,ACC,20,True,4,25,75,"{'minutes': 10, 'seconds': 31}",4,94,6,"{'minutes': 6, 'seconds': 33}","{'minutes': 3, 'seconds': 58}",8,69,FG,True,24,3,27,3
+40175452621,401754526,Stanford,ACC,BYU,Big 12,21,False,4,78,78,"{'minutes': 6, 'seconds': 33}",4,27,27,"{'minutes': 2, 'seconds': 38}","{'minutes': 3, 'seconds': 55}",12,51,INT,False,3,27,3,27
+40175452622,401754526,BYU,Big 12,Stanford,ACC,22,False,4,38,62,"{'minutes': 2, 'seconds': 38}",4,51,49,"{'minutes': 0, 'seconds': 0}","{'minutes': 2, 'seconds': 38}",4,13,END OF GAME,True,27,3,27,3
+4017545331,401754533,Stanford,ACC,Boston College,ACC,1,True,1,25,75,"{'minutes': 15, 'seconds': 0}",1,95,5,"{'minutes': 7, 'seconds': 10}","{'minutes': 7, 'seconds': 50}",13,70,FG,True,0,0,3,0
+4017545332,401754533,Boston College,ACC,Stanford,ACC,2,False,1,89,89,"{'minutes': 7, 'seconds': 6}",1,71,71,"{'minutes': 3, 'seconds': 17}","{'minutes': 3, 'seconds': 49}",6,18,PUNT,False,0,3,0,3
+4017545333,401754533,Stanford,ACC,Boston College,ACC,3,True,1,41,59,"{'minutes': 3, 'seconds': 17}",1,83,17,"{'minutes': 1, 'seconds': 4}","{'minutes': 2, 'seconds': 13}",5,42,FG,True,3,0,6,0
+4017545334,401754533,Boston College,ACC,Stanford,ACC,4,True,1,75,75,"{'minutes': 1, 'seconds': 4}",2,32,32,"{'minutes': 13, 'seconds': 38}","{'minutes': 2, 'seconds': 26}",8,43,FG,False,0,6,3,6
+4017545335,401754533,Stanford,ACC,Boston College,ACC,5,False,2,20,80,"{'minutes': 13, 'seconds': 33}",2,21,79,"{'minutes': 12, 'seconds': 45}","{'minutes': 0, 'seconds': 48}",3,1,PUNT,True,6,3,6,3
+4017545336,401754533,Boston College,ACC,Stanford,ACC,6,True,2,73,73,"{'minutes': 12, 'seconds': 45}",2,0,0,"{'minutes': 10, 'seconds': 43}","{'minutes': 2, 'seconds': 2}",5,73,TD,False,3,6,10,6
+4017545337,401754533,Stanford,ACC,Boston College,ACC,7,False,2,22,78,"{'minutes': 10, 'seconds': 37}",2,21,79,"{'minutes': 9, 'seconds': 39}","{'minutes': 0, 'seconds': 58}",3,-1,PUNT,True,6,10,6,10
+4017545338,401754533,Boston College,ACC,Stanford,ACC,8,True,2,74,74,"{'minutes': 9, 'seconds': 39}",2,0,0,"{'minutes': 8, 'seconds': 4}","{'minutes': 1, 'seconds': 35}",4,74,TD,False,10,6,17,6
+4017545339,401754533,Stanford,ACC,Boston College,ACC,9,False,2,25,75,"{'minutes': 8, 'seconds': 5}",2,64,36,"{'minutes': 4, 'seconds': 49}","{'minutes': 3, 'seconds': 16}",7,39,DOWNS,True,6,17,6,17
+40175453310,401754533,Boston College,ACC,Stanford,ACC,10,False,2,64,64,"{'minutes': 4, 'seconds': 49}",2,24,24,"{'minutes': 2, 'seconds': 41}","{'minutes': 2, 'seconds': 8}",5,40,FUMBLE,False,17,6,17,6
+40175453311,401754533,Stanford,ACC,Boston College,ACC,11,True,2,24,76,"{'minutes': 2, 'seconds': 41}",2,100,0,"{'minutes': 1, 'seconds': 47}","{'minutes': 0, 'seconds': 54}",3,76,TD,True,6,17,13,17
+40175453312,401754533,Boston College,ACC,Stanford,ACC,12,True,2,83,83,"{'minutes': 1, 'seconds': 42}",2,83,83,"{'minutes': 1, 'seconds': 29}","{'minutes': 0, 'seconds': 13}",2,0,INT TD,False,17,13,17,20
+40175453313,401754533,Boston College,ACC,Stanford,ACC,13,True,2,75,75,"{'minutes': 1, 'seconds': 29}",2,13,13,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 29}",12,62,FG,False,17,20,20,20
+40175453314,401754533,Boston College,ACC,Stanford,ACC,14,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,69,69,"{'minutes': 12, 'seconds': 42}","{'minutes': 2, 'seconds': 18}",5,6,PUNT,False,20,20,20,20
+40175453315,401754533,Stanford,ACC,Boston College,ACC,15,False,3,30,70,"{'minutes': 12, 'seconds': 42}",3,37,63,"{'minutes': 11, 'seconds': 12}","{'minutes': 1, 'seconds': 30}",3,7,PUNT,True,20,20,20,20
+40175453316,401754533,Boston College,ACC,Stanford,ACC,16,False,3,85,85,"{'minutes': 11, 'seconds': 12}",3,88,88,"{'minutes': 9, 'seconds': 54}","{'minutes': 1, 'seconds': 18}",3,-8,PUNT,False,20,20,20,20
+40175453317,401754533,Stanford,ACC,Boston College,ACC,17,False,3,58,42,"{'minutes': 9, 'seconds': 54}",3,42,58,"{'minutes': 7, 'seconds': 56}","{'minutes': 1, 'seconds': 58}",3,-16,PUNT,True,20,20,20,20
+40175453318,401754533,Boston College,ACC,Stanford,ACC,18,False,3,65,65,"{'minutes': 7, 'seconds': 56}",3,1,1,"{'minutes': 2, 'seconds': 32}","{'minutes': 5, 'seconds': 24}",10,65,FUMBLE,False,20,20,20,20
+40175453319,401754533,Stanford,ACC,Boston College,ACC,19,True,3,20,80,"{'minutes': 2, 'seconds': 32}",3,100,0,"{'minutes': 1, 'seconds': 35}","{'minutes': 0, 'seconds': 57}",2,80,TD,True,20,20,27,20
+40175453320,401754533,Boston College,ACC,Stanford,ACC,20,False,3,75,75,"{'minutes': 1, 'seconds': 35}",3,84,84,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 35}",3,-9,PUNT,False,20,27,20,27
+40175453321,401754533,Stanford,ACC,Boston College,ACC,21,True,4,44,56,"{'minutes': 15, 'seconds': 0}",4,92,8,"{'minutes': 11, 'seconds': 26}","{'minutes': 3, 'seconds': 34}",8,48,FG,True,27,20,30,20
+40175453322,401754533,Boston College,ACC,Stanford,ACC,22,False,4,75,75,"{'minutes': 11, 'seconds': 23}",4,60,60,"{'minutes': 7, 'seconds': 36}","{'minutes': 3, 'seconds': 47}",6,15,PUNT,False,20,30,20,30
+40175453323,401754533,Stanford,ACC,Boston College,ACC,23,False,4,20,80,"{'minutes': 7, 'seconds': 36}",4,58,42,"{'minutes': 0, 'seconds': 0}","{'minutes': 7, 'seconds': 36}",12,38,END OF GAME,True,30,20,30,20
+4017545391,401754539,Stanford,ACC,Virginia,ACC,1,False,1,84,84,"{'minutes': 14, 'seconds': 56}",1,79,79,"{'minutes': 13, 'seconds': 34}","{'minutes': 1, 'seconds': 22}",3,5,PUNT,False,0,0,0,0
+4017545392,401754539,Virginia,ACC,Stanford,ACC,2,True,1,35,65,"{'minutes': 13, 'seconds': 34}",1,100,0,"{'minutes': 11, 'seconds': 8}","{'minutes': 2, 'seconds': 26}",7,65,TD,True,0,0,7,0
+4017545393,401754539,Stanford,ACC,Virginia,ACC,3,True,1,76,76,"{'minutes': 11, 'seconds': 3}",1,0,0,"{'minutes': 8, 'seconds': 27}","{'minutes': 2, 'seconds': 36}",5,76,TD,False,0,7,7,7
+4017545394,401754539,Virginia,ACC,Stanford,ACC,4,True,1,25,75,"{'minutes': 8, 'seconds': 27}",1,100,0,"{'minutes': 8, 'seconds': 17}","{'minutes': 0, 'seconds': 10}",1,75,TD,True,7,7,14,7
+4017545395,401754539,Stanford,ACC,Virginia,ACC,5,False,1,75,75,"{'minutes': 8, 'seconds': 17}",1,71,71,"{'minutes': 6, 'seconds': 56}","{'minutes': 1, 'seconds': 21}",3,4,PUNT,False,7,14,7,14
+4017545396,401754539,Virginia,ACC,Stanford,ACC,6,True,1,28,72,"{'minutes': 6, 'seconds': 56}",1,100,0,"{'minutes': 3, 'seconds': 36}","{'minutes': 3, 'seconds': 20}",7,72,TD,True,14,7,21,7
+4017545397,401754539,Stanford,ACC,Virginia,ACC,7,False,1,75,75,"{'minutes': 3, 'seconds': 36}",1,50,50,"{'minutes': 0, 'seconds': 5}","{'minutes': 3, 'seconds': 31}",7,25,PUNT,False,7,21,7,21
+4017545398,401754539,Virginia,ACC,Stanford,ACC,8,True,1,12,88,"{'minutes': 0, 'seconds': 5}",2,100,0,"{'minutes': 9, 'seconds': 5}","{'minutes': 6, 'seconds': 0}",12,88,TD,True,21,7,28,7
+4017545399,401754539,Stanford,ACC,Virginia,ACC,9,False,2,75,75,"{'minutes': 9, 'seconds': 5}",2,70,70,"{'minutes': 5, 'seconds': 56}","{'minutes': 3, 'seconds': 9}",6,15,PUNT,False,7,28,7,28
+40175453910,401754539,Virginia,ACC,Stanford,ACC,10,False,2,14,86,"{'minutes': 5, 'seconds': 56}",2,93,7,"{'minutes': 2, 'seconds': 24}","{'minutes': 3, 'seconds': 32}",9,79,MISSED FG,True,28,7,28,7
+40175453911,401754539,Stanford,ACC,Virginia,ACC,11,True,2,80,80,"{'minutes': 2, 'seconds': 24}",2,0,0,"{'minutes': 0, 'seconds': 55}","{'minutes': 1, 'seconds': 29}",8,80,TD,False,7,28,14,28
+40175453912,401754539,Virginia,ACC,Stanford,ACC,12,False,2,25,75,"{'minutes': 0, 'seconds': 55}",2,42,58,"{'minutes': 0, 'seconds': 11}","{'minutes': 0, 'seconds': 44}",5,17,PUNT,True,28,14,28,14
+40175453913,401754539,Stanford,ACC,Virginia,ACC,13,False,2,80,80,"{'minutes': 0, 'seconds': 11}",2,82,82,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 11}",1,-2,END OF HALF,False,14,28,14,28
+40175453914,401754539,Virginia,ACC,Stanford,ACC,14,True,3,32,68,"{'minutes': 14, 'seconds': 53}",3,100,0,"{'minutes': 11, 'seconds': 21}","{'minutes': 3, 'seconds': 32}",7,68,TD,True,28,14,35,14
+40175453915,401754539,Stanford,ACC,Virginia,ACC,15,False,3,75,75,"{'minutes': 11, 'seconds': 21}",3,82,82,"{'minutes': 9, 'seconds': 26}","{'minutes': 1, 'seconds': 55}",3,-7,PUNT,False,14,35,14,35
+40175453916,401754539,Virginia,ACC,Stanford,ACC,16,True,3,61,39,"{'minutes': 9, 'seconds': 26}",3,90,10,"{'minutes': 5, 'seconds': 35}","{'minutes': 3, 'seconds': 51}",7,29,FG,True,35,14,38,14
+40175453917,401754539,Stanford,ACC,Virginia,ACC,17,True,3,75,75,"{'minutes': 5, 'seconds': 35}",3,0,0,"{'minutes': 4, 'seconds': 18}","{'minutes': 1, 'seconds': 17}",3,75,TD,False,14,38,20,38
+40175453918,401754539,Virginia,ACC,Stanford,ACC,18,False,3,25,75,"{'minutes': 4, 'seconds': 18}",3,28,72,"{'minutes': 3, 'seconds': 14}","{'minutes': 1, 'seconds': 4}",3,3,PUNT,True,38,20,38,20
+40175453919,401754539,Stanford,ACC,Virginia,ACC,19,False,3,76,76,"{'minutes': 3, 'seconds': 14}",3,83,83,"{'minutes': 1, 'seconds': 16}","{'minutes': 1, 'seconds': 58}",3,-7,PUNT,False,20,38,20,38
+40175453920,401754539,Virginia,ACC,Stanford,ACC,20,True,3,39,61,"{'minutes': 1, 'seconds': 16}",4,91,9,"{'minutes': 12, 'seconds': 26}","{'minutes': 3, 'seconds': 50}",9,52,FG,True,38,20,41,20
+40175453921,401754539,Stanford,ACC,Virginia,ACC,21,False,4,75,75,"{'minutes': 12, 'seconds': 26}",4,64,64,"{'minutes': 9, 'seconds': 35}","{'minutes': 2, 'seconds': 51}",6,11,FUMBLE,False,20,41,20,41
+40175453922,401754539,Virginia,ACC,Stanford,ACC,22,True,4,64,36,"{'minutes': 9, 'seconds': 35}",4,100,0,"{'minutes': 4, 'seconds': 26}","{'minutes': 5, 'seconds': 9}",8,36,TD,True,41,20,48,20
+40175453923,401754539,Stanford,ACC,Virginia,ACC,23,False,4,75,75,"{'minutes': 4, 'seconds': 26}",4,24,24,"{'minutes': 1, 'seconds': 3}","{'minutes': 3, 'seconds': 23}",13,51,MISSED FG,False,20,48,20,48
+40175453924,401754539,Virginia,ACC,Stanford,ACC,24,False,4,24,76,"{'minutes': 1, 'seconds': 3}",4,20,80,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 3}",2,-4,END OF GAME,True,48,20,48,20
+4017545491,401754549,Stanford,ACC,San José State,Mountain West,1,True,1,19,81,"{'minutes': 14, 'seconds': 54}",1,100,0,"{'minutes': 7, 'seconds': 42}","{'minutes': 7, 'seconds': 12}",11,81,TD,True,0,0,7,0
+4017545492,401754549,San José State,Mountain West,Stanford,ACC,2,True,1,84,84,"{'minutes': 7, 'seconds': 38}",1,23,23,"{'minutes': 4, 'seconds': 46}","{'minutes': 2, 'seconds': 52}",7,61,FG,False,0,7,3,7
+4017545493,401754549,Stanford,ACC,San José State,Mountain West,3,False,1,25,75,"{'minutes': 4, 'seconds': 46}",1,24,76,"{'minutes': 3, 'seconds': 32}","{'minutes': 1, 'seconds': 14}",3,-1,FUMBLE,True,7,3,7,3
+4017545494,401754549,San José State,Mountain West,Stanford,ACC,4,True,1,24,24,"{'minutes': 3, 'seconds': 32}",1,0,0,"{'minutes': 0, 'seconds': 55}","{'minutes': 2, 'seconds': 37}",5,24,TD,False,3,7,10,7
+4017545495,401754549,Stanford,ACC,San José State,Mountain West,5,False,1,25,75,"{'minutes': 0, 'seconds': 55}",2,23,77,"{'minutes': 14, 'seconds': 49}","{'minutes': 1, 'seconds': 6}",3,-2,PUNT,True,7,10,7,10
+4017545496,401754549,San José State,Mountain West,Stanford,ACC,6,False,2,66,66,"{'minutes': 14, 'seconds': 49}",2,66,66,"{'minutes': 13, 'seconds': 12}","{'minutes': 1, 'seconds': 37}",3,0,PUNT,False,10,7,10,7
+4017545497,401754549,Stanford,ACC,San José State,Mountain West,7,False,2,20,80,"{'minutes': 13, 'seconds': 12}",2,39,61,"{'minutes': 10, 'seconds': 26}","{'minutes': 2, 'seconds': 46}",4,19,PUNT,True,7,10,7,10
+4017545498,401754549,San José State,Mountain West,Stanford,ACC,8,True,2,70,70,"{'minutes': 10, 'seconds': 26}",2,18,18,"{'minutes': 7, 'seconds': 59}","{'minutes': 2, 'seconds': 27}",5,52,FG,False,10,7,13,7
+4017545499,401754549,Stanford,ACC,San José State,Mountain West,9,True,2,23,77,"{'minutes': 7, 'seconds': 55}",2,100,0,"{'minutes': 4, 'seconds': 6}","{'minutes': 3, 'seconds': 49}",7,77,TD,True,7,13,14,13
+40175454910,401754549,San José State,Mountain West,Stanford,ACC,10,True,2,75,75,"{'minutes': 4, 'seconds': 6}",2,0,0,"{'minutes': 1, 'seconds': 59}","{'minutes': 2, 'seconds': 7}",4,75,TD,False,13,14,20,14
+40175454911,401754549,Stanford,ACC,San José State,Mountain West,11,False,2,34,66,"{'minutes': 1, 'seconds': 53}",2,20,80,"{'minutes': 1, 'seconds': 27}","{'minutes': 0, 'seconds': 26}",3,-14,PUNT,True,14,20,14,20
+40175454912,401754549,San José State,Mountain West,Stanford,ACC,12,False,2,58,58,"{'minutes': 1, 'seconds': 27}",2,10,10,"{'minutes': 0, 'seconds': 59}","{'minutes': 0, 'seconds': 28}",5,48,MISSED FG,False,20,14,20,14
+40175454913,401754549,Stanford,ACC,San José State,Mountain West,13,False,2,20,80,"{'minutes': 0, 'seconds': 59}",2,59,41,"{'minutes': 0, 'seconds': 16}","{'minutes': 0, 'seconds': 43}",5,39,PUNT,True,14,20,14,20
+40175454914,401754549,San José State,Mountain West,Stanford,ACC,14,False,2,80,80,"{'minutes': 0, 'seconds': 16}",2,81,81,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 16}",1,-1,END OF HALF,False,20,14,20,14
+40175454915,401754549,San José State,Mountain West,Stanford,ACC,15,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,29,29,"{'minutes': 12, 'seconds': 6}","{'minutes': 2, 'seconds': 54}",7,46,DOWNS,False,20,14,20,14
+40175454916,401754549,Stanford,ACC,San José State,Mountain West,16,False,3,29,71,"{'minutes': 12, 'seconds': 6}",3,89,11,"{'minutes': 7, 'seconds': 42}","{'minutes': 4, 'seconds': 24}",9,60,DOWNS,True,14,20,14,20
+40175454917,401754549,San José State,Mountain West,Stanford,ACC,17,False,3,89,89,"{'minutes': 7, 'seconds': 42}",3,12,12,"{'minutes': 3, 'seconds': 50}","{'minutes': 3, 'seconds': 52}",12,77,MISSED FG,False,20,14,20,14
+40175454918,401754549,Stanford,ACC,San José State,Mountain West,18,False,3,20,80,"{'minutes': 3, 'seconds': 50}",3,21,79,"{'minutes': 2, 'seconds': 58}","{'minutes': 0, 'seconds': 52}",3,1,PUNT,True,14,20,14,20
+40175454919,401754549,San José State,Mountain West,Stanford,ACC,19,True,3,61,61,"{'minutes': 2, 'seconds': 58}",4,0,0,"{'minutes': 14, 'seconds': 15}","{'minutes': 3, 'seconds': 43}",8,61,TD,False,20,14,26,14
+40175454920,401754549,Stanford,ACC,San José State,Mountain West,20,True,4,25,75,"{'minutes': 14, 'seconds': 15}",4,100,0,"{'minutes': 12, 'seconds': 19}","{'minutes': 1, 'seconds': 56}",5,75,TD,True,14,26,21,26
+40175454921,401754549,San José State,Mountain West,Stanford,ACC,21,True,4,75,75,"{'minutes': 12, 'seconds': 19}",4,13,13,"{'minutes': 7, 'seconds': 51}","{'minutes': 4, 'seconds': 28}",10,62,FG,False,26,21,29,21
+40175454922,401754549,Stanford,ACC,San José State,Mountain West,22,True,4,28,72,"{'minutes': 7, 'seconds': 51}",4,82,18,"{'minutes': 5, 'seconds': 54}","{'minutes': 1, 'seconds': 57}",5,54,FG,True,21,29,24,29
+40175454923,401754549,San José State,Mountain West,Stanford,ACC,23,False,4,75,75,"{'minutes': 5, 'seconds': 54}",4,53,53,"{'minutes': 2, 'seconds': 45}","{'minutes': 3, 'seconds': 9}",7,22,PUNT,False,29,24,29,24
+40175454924,401754549,Stanford,ACC,San José State,Mountain West,24,True,4,20,80,"{'minutes': 2, 'seconds': 45}",4,100,0,"{'minutes': 0, 'seconds': 19}","{'minutes': 2, 'seconds': 26}",12,80,TD,True,24,29,30,29
+40175454925,401754549,San José State,Mountain West,Stanford,ACC,25,False,4,75,75,"{'minutes': 0, 'seconds': 19}",4,54,54,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 19}",3,21,FUMBLE,False,29,30,29,30
+4017545611,401754561,SMU,ACC,Stanford,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,14,86,"{'minutes': 13, 'seconds': 38}","{'minutes': 1, 'seconds': 22}",3,-11,PUNT,True,0,0,0,0
+4017545612,401754561,SMU,ACC,Stanford,ACC,2,False,1,50,50,"{'minutes': 13, 'seconds': 38}",1,50,50,"{'minutes': 12, 'seconds': 30}","{'minutes': 1, 'seconds': 8}",3,0,PUNT,True,0,0,0,0
+4017545613,401754561,Stanford,ACC,SMU,ACC,3,False,1,92,92,"{'minutes': 12, 'seconds': 30}",1,80,80,"{'minutes': 7, 'seconds': 55}","{'minutes': 4, 'seconds': 35}",7,12,PUNT,False,0,0,0,0
+4017545614,401754561,SMU,ACC,Stanford,ACC,4,True,1,25,75,"{'minutes': 7, 'seconds': 55}",1,100,0,"{'minutes': 2, 'seconds': 39}","{'minutes': 5, 'seconds': 16}",13,75,TD,True,0,0,7,0
+4017545615,401754561,Stanford,ACC,SMU,ACC,5,False,1,71,71,"{'minutes': 2, 'seconds': 31}",1,73,73,"{'minutes': 0, 'seconds': 36}","{'minutes': 1, 'seconds': 55}",4,-2,PUNT,False,0,7,0,7
+4017545616,401754561,SMU,ACC,Stanford,ACC,6,True,1,20,80,"{'minutes': 0, 'seconds': 36}",2,85,15,"{'minutes': 12, 'seconds': 30}","{'minutes': 3, 'seconds': 6}",8,65,FG,True,7,0,10,0
+4017545617,401754561,Stanford,ACC,SMU,ACC,7,False,2,75,75,"{'minutes': 12, 'seconds': 30}",2,2,2,"{'minutes': 2, 'seconds': 44}","{'minutes': 9, 'seconds': 46}",18,73,DOWNS,False,0,10,0,10
+4017545618,401754561,SMU,ACC,Stanford,ACC,8,True,2,2,98,"{'minutes': 2, 'seconds': 44}",2,100,0,"{'minutes': 0, 'seconds': 35}","{'minutes': 2, 'seconds': 9}",6,98,TD,True,10,0,17,0
+4017545619,401754561,Stanford,ACC,SMU,ACC,9,True,2,75,75,"{'minutes': 0, 'seconds': 35}",2,0,0,"{'minutes': 0, 'seconds': 2}","{'minutes': 0, 'seconds': 33}",4,75,TD,False,0,17,7,17
+40175456110,401754561,SMU,ACC,Stanford,ACC,10,False,2,25,75,"{'minutes': 0, 'seconds': 1}",2,24,76,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 1}",1,-1,END OF HALF,True,17,7,17,7
+40175456111,401754561,Stanford,ACC,SMU,ACC,11,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,72,72,"{'minutes': 10, 'seconds': 29}","{'minutes': 4, 'seconds': 31}",6,3,PUNT,False,7,17,7,17
+40175456112,401754561,SMU,ACC,Stanford,ACC,12,True,3,18,82,"{'minutes': 10, 'seconds': 29}",3,100,0,"{'minutes': 8, 'seconds': 22}","{'minutes': 2, 'seconds': 7}",5,82,TD,True,17,7,24,7
+40175456113,401754561,Stanford,ACC,SMU,ACC,13,False,3,75,75,"{'minutes': 8, 'seconds': 22}",3,90,90,"{'minutes': 6, 'seconds': 40}","{'minutes': 1, 'seconds': 42}",3,-15,PUNT,False,7,24,7,24
+40175456114,401754561,SMU,ACC,Stanford,ACC,14,False,3,32,68,"{'minutes': 6, 'seconds': 40}",3,25,75,"{'minutes': 5, 'seconds': 5}","{'minutes': 1, 'seconds': 35}",3,-7,PUNT,True,24,7,24,7
+40175456115,401754561,Stanford,ACC,SMU,ACC,15,True,3,66,66,"{'minutes': 5, 'seconds': 5}",3,16,16,"{'minutes': 0, 'seconds': 34}","{'minutes': 4, 'seconds': 31}",11,50,FG,False,7,24,10,24
+40175456116,401754561,SMU,ACC,Stanford,ACC,16,False,3,25,75,"{'minutes': 0, 'seconds': 34}",4,43,57,"{'minutes': 12, 'seconds': 52}","{'minutes': 2, 'seconds': 42}",5,18,PUNT,True,24,10,24,10
+40175456117,401754561,Stanford,ACC,SMU,ACC,17,True,4,95,95,"{'minutes': 12, 'seconds': 52}",4,5,5,"{'minutes': 6, 'seconds': 5}","{'minutes': 6, 'seconds': 47}",11,90,INT TD,False,10,24,10,31
+40175456118,401754561,Stanford,ACC,SMU,ACC,18,False,4,75,75,"{'minutes': 6, 'seconds': 5}",4,75,75,"{'minutes': 5, 'seconds': 35}","{'minutes': 0, 'seconds': 30}",3,0,PUNT,False,10,31,10,31
+40175456119,401754561,SMU,ACC,Stanford,ACC,19,True,4,24,76,"{'minutes': 5, 'seconds': 35}",4,69,31,"{'minutes': 1, 'seconds': 32}","{'minutes': 4, 'seconds': 3}",9,45,FG,True,31,10,34,10
+40175456120,401754561,Stanford,ACC,SMU,ACC,20,False,4,79,79,"{'minutes': 1, 'seconds': 27}",4,54,54,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 27}",8,25,END OF GAME,False,10,34,10,34
+4017545671,401754567,Florida State,ACC,Stanford,ACC,1,False,1,75,75,"{'minutes': 15, 'seconds': 0}",1,72,72,"{'minutes': 13, 'seconds': 45}","{'minutes': 1, 'seconds': 15}",3,3,PUNT,False,0,0,0,0
+4017545672,401754567,Stanford,ACC,Florida State,ACC,2,True,1,18,82,"{'minutes': 13, 'seconds': 45}",1,86,14,"{'minutes': 7, 'seconds': 41}","{'minutes': 6, 'seconds': 4}",13,68,FG,True,0,0,3,0
+4017545673,401754567,Florida State,ACC,Stanford,ACC,3,False,1,75,75,"{'minutes': 7, 'seconds': 41}",1,38,38,"{'minutes': 4, 'seconds': 25}","{'minutes': 3, 'seconds': 16}",9,37,MISSED FG,False,0,3,0,3
+4017545674,401754567,Stanford,ACC,Florida State,ACC,4,False,1,39,61,"{'minutes': 4, 'seconds': 25}",1,36,64,"{'minutes': 3, 'seconds': 34}","{'minutes': 0, 'seconds': 51}",3,-3,INT,True,3,0,3,0
+4017545675,401754567,Florida State,ACC,Stanford,ACC,5,True,1,75,75,"{'minutes': 3, 'seconds': 34}",2,21,21,"{'minutes': 14, 'seconds': 34}","{'minutes': 4, 'seconds': 0}",12,54,FG,False,0,3,3,3
+4017545676,401754567,Stanford,ACC,Florida State,ACC,6,True,2,25,75,"{'minutes': 14, 'seconds': 34}",2,100,0,"{'minutes': 9, 'seconds': 13}","{'minutes': 5, 'seconds': 21}",11,75,TD,True,3,3,10,3
+4017545677,401754567,Florida State,ACC,Stanford,ACC,7,False,2,75,75,"{'minutes': 9, 'seconds': 13}",2,69,69,"{'minutes': 8, 'seconds': 0}","{'minutes': 1, 'seconds': 13}",3,6,PUNT,False,3,10,3,10
+4017545678,401754567,Stanford,ACC,Florida State,ACC,8,False,2,30,70,"{'minutes': 8, 'seconds': 0}",2,38,62,"{'minutes': 6, 'seconds': 45}","{'minutes': 1, 'seconds': 15}",3,8,PUNT,True,10,3,10,3
+4017545679,401754567,Florida State,ACC,Stanford,ACC,9,False,2,87,87,"{'minutes': 6, 'seconds': 45}",2,87,87,"{'minutes': 5, 'seconds': 30}","{'minutes': 1, 'seconds': 15}",3,0,PUNT,False,3,10,3,10
+40175456710,401754567,Stanford,ACC,Florida State,ACC,10,True,2,68,32,"{'minutes': 5, 'seconds': 30}",2,92,8,"{'minutes': 2, 'seconds': 53}","{'minutes': 2, 'seconds': 37}",6,24,FG,True,10,3,13,3
+40175456711,401754567,Florida State,ACC,Stanford,ACC,11,True,2,75,75,"{'minutes': 2, 'seconds': 52}",2,0,0,"{'minutes': 0, 'seconds': 40}","{'minutes': 2, 'seconds': 12}",10,75,TD,False,3,13,10,13
+40175456712,401754567,Stanford,ACC,Florida State,ACC,12,False,2,20,80,"{'minutes': 0, 'seconds': 35}",2,18,82,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 35}",1,-2,END OF HALF,True,13,10,13,10
+40175456713,401754567,Stanford,ACC,Florida State,ACC,13,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,38,62,"{'minutes': 12, 'seconds': 48}","{'minutes': 2, 'seconds': 12}",4,13,PUNT,True,13,10,13,10
+40175456714,401754567,Florida State,ACC,Stanford,ACC,14,False,3,97,97,"{'minutes': 12, 'seconds': 48}",3,41,41,"{'minutes': 10, 'seconds': 5}","{'minutes': 2, 'seconds': 43}",9,53,PUNT,False,10,13,10,13
+40175456715,401754567,Stanford,ACC,Florida State,ACC,15,True,3,6,94,"{'minutes': 10, 'seconds': 5}",3,100,0,"{'minutes': 3, 'seconds': 2}","{'minutes': 7, 'seconds': 3}",13,94,TD,True,13,10,20,10
+40175456716,401754567,Florida State,ACC,Stanford,ACC,16,False,3,72,72,"{'minutes': 2, 'seconds': 52}",3,76,76,"{'minutes': 1, 'seconds': 21}","{'minutes': 1, 'seconds': 31}",3,-4,PUNT,False,10,20,10,20
+40175456717,401754567,Stanford,ACC,Florida State,ACC,17,False,3,28,72,"{'minutes': 1, 'seconds': 21}",4,45,55,"{'minutes': 13, 'seconds': 4}","{'minutes': 3, 'seconds': 17}",6,17,PUNT,True,20,10,20,10
+40175456718,401754567,Florida State,ACC,Stanford,ACC,18,True,4,58,58,"{'minutes': 13, 'seconds': 4}",4,14,14,"{'minutes': 9, 'seconds': 21}","{'minutes': 3, 'seconds': 43}",9,44,FG,False,10,20,13,20
+40175456719,401754567,Stanford,ACC,Florida State,ACC,19,False,4,25,75,"{'minutes': 9, 'seconds': 22}",4,24,76,"{'minutes': 7, 'seconds': 43}","{'minutes': 1, 'seconds': 39}",3,-1,PUNT,True,20,13,20,13
+40175456720,401754567,Florida State,ACC,Stanford,ACC,20,False,4,75,75,"{'minutes': 7, 'seconds': 43}",4,13,13,"{'minutes': 5, 'seconds': 21}","{'minutes': 2, 'seconds': 22}",6,62,DOWNS,False,13,20,13,20
+40175456721,401754567,Stanford,ACC,Florida State,ACC,21,False,4,13,87,"{'minutes': 5, 'seconds': 21}",4,18,82,"{'minutes': 3, 'seconds': 46}","{'minutes': 1, 'seconds': 35}",3,5,PUNT,True,20,13,20,13
+40175456722,401754567,Florida State,ACC,Stanford,ACC,22,False,4,61,61,"{'minutes': 3, 'seconds': 46}",4,39,39,"{'minutes': 1, 'seconds': 26}","{'minutes': 2, 'seconds': 20}",7,22,DOWNS,False,13,20,13,20
+40175456723,401754567,Stanford,ACC,Florida State,ACC,23,False,4,39,61,"{'minutes': 1, 'seconds': 26}",4,51,49,"{'minutes': 1, 'seconds': 3}","{'minutes': 0, 'seconds': 23}",3,12,PUNT,True,20,13,20,13
+40175456724,401754567,Florida State,ACC,Stanford,ACC,24,False,4,80,80,"{'minutes': 1, 'seconds': 3}",4,9,9,"{'minutes': 0, 'seconds': 0}","{'minutes': 1, 'seconds': 3}",7,79,END OF GAME,False,13,20,13,20
+4017545722,401754572,Miami,ACC,Stanford,ACC,1,False,1,25,75,"{'minutes': 15, 'seconds': 0}",1,75,25,"{'minutes': 9, 'seconds': 58}","{'minutes': 5, 'seconds': 2}",9,50,MISSED FG,True,0,0,0,0
+4017545723,401754572,Stanford,ACC,Miami,ACC,2,True,1,74,74,"{'minutes': 9, 'seconds': 58}",1,3,3,"{'minutes': 4, 'seconds': 35}","{'minutes': 5, 'seconds': 23}",12,74,TD,False,0,0,7,0
+4017545725,401754572,Miami,ACC,Stanford,ACC,3,False,1,27,73,"{'minutes': 4, 'seconds': 29}",1,38,62,"{'minutes': 2, 'seconds': 17}","{'minutes': 2, 'seconds': 14}",5,11,PUNT,True,0,7,0,7
+4017545726,401754572,Stanford,ACC,Miami,ACC,4,False,1,85,85,"{'minutes': 2, 'seconds': 5}",1,69,69,"{'minutes': 0, 'seconds': 6}","{'minutes': 2, 'seconds': 15}",6,16,PUNT,False,7,0,7,0
+4017545727,401754572,Miami,ACC,Stanford,ACC,5,False,2,36,64,"{'minutes': 14, 'seconds': 54}",2,70,30,"{'minutes': 10, 'seconds': 42}","{'minutes': 4, 'seconds': 52}",11,34,DOWNS,True,0,7,0,7
+4017545728,401754572,Stanford,ACC,Miami,ACC,6,False,2,70,70,"{'minutes': 10, 'seconds': 2}",2,66,66,"{'minutes': 8, 'seconds': 41}","{'minutes': 1, 'seconds': 27}",3,4,PUNT,False,7,0,7,0
+4017545729,401754572,Miami,ACC,Stanford,ACC,7,True,2,29,71,"{'minutes': 8, 'seconds': 35}",2,97,3,"{'minutes': 1, 'seconds': 15}","{'minutes': 7, 'seconds': 26}",15,71,TD,True,0,7,7,7
+40175457211,401754572,Stanford,ACC,Miami,ACC,8,False,2,75,75,"{'minutes': 1, 'seconds': 15}",2,67,67,"{'minutes': 0, 'seconds': 5}","{'minutes': 1, 'seconds': 15}",3,8,END OF HALF,False,7,7,7,7
+40175457213,401754572,Stanford,ACC,Miami,ACC,9,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,82,82,"{'minutes': 11, 'seconds': 56}","{'minutes': 3, 'seconds': 4}",6,1,PUNT,False,7,7,7,7
+40175457214,401754572,Miami,ACC,Stanford,ACC,10,True,3,60,40,"{'minutes': 11, 'seconds': 45}",3,97,3,"{'minutes': 9, 'seconds': 34}","{'minutes': 2, 'seconds': 22}",6,40,TD,True,7,7,14,7
+40175457216,401754572,Stanford,ACC,Miami,ACC,11,False,3,75,75,"{'minutes': 9, 'seconds': 34}",3,78,78,"{'minutes': 8, 'seconds': 26}","{'minutes': 1, 'seconds': 8}",3,-3,PUNT,False,7,14,7,14
+40175457217,401754572,Miami,ACC,Stanford,ACC,12,False,3,70,30,"{'minutes': 8, 'seconds': 22}",3,78,22,"{'minutes': 6, 'seconds': 15}","{'minutes': 2, 'seconds': 11}",4,9,DOWNS,True,14,7,14,7
+40175457218,401754572,Stanford,ACC,Miami,ACC,13,False,3,79,79,"{'minutes': 6, 'seconds': 9}",3,97,97,"{'minutes': 3, 'seconds': 53}","{'minutes': 2, 'seconds': 22}",5,9,INT,False,7,14,7,14
+40175457219,401754572,Miami,ACC,Stanford,ACC,14,True,3,97,3,"{'minutes': 3, 'seconds': 48}",3,97,3,"{'minutes': 3, 'seconds': 48}","{'minutes': 0, 'seconds': 5}",1,3,TD,True,21,7,21,7
+40175457221,401754572,Stanford,ACC,Miami,ACC,15,False,3,75,75,"{'minutes': 3, 'seconds': 48}",3,55,55,"{'minutes': 2, 'seconds': 31}","{'minutes': 1, 'seconds': 17}",3,6,INT,False,7,21,7,21
+40175457222,401754572,Miami,ACC,Stanford,ACC,16,True,3,55,45,"{'minutes': 2, 'seconds': 25}",3,97,3,"{'minutes': 0, 'seconds': 32}","{'minutes': 1, 'seconds': 59}",4,45,TD,True,21,7,28,7
+40175457224,401754572,Stanford,ACC,Miami,ACC,17,False,3,75,75,"{'minutes': 0, 'seconds': 32}",4,71,71,"{'minutes': 14, 'seconds': 6}","{'minutes': 1, 'seconds': 26}",3,4,PUNT,False,7,28,7,28
+40175457225,401754572,Miami,ACC,Stanford,ACC,18,True,4,24,76,"{'minutes': 14, 'seconds': 0}",4,97,3,"{'minutes': 9, 'seconds': 34}","{'minutes': 4, 'seconds': 32}",8,76,TD,True,28,7,35,7
+40175457227,401754572,Stanford,ACC,Miami,ACC,19,False,4,75,75,"{'minutes': 9, 'seconds': 34}",4,45,45,"{'minutes': 6, 'seconds': 19}","{'minutes': 3, 'seconds': 15}",7,30,DOWNS,False,7,35,7,35
+40175457228,401754572,Miami,ACC,Stanford,ACC,20,True,4,45,55,"{'minutes': 6, 'seconds': 8}",4,97,3,"{'minutes': 0, 'seconds': 26}","{'minutes': 5, 'seconds': 53}",12,55,TD,True,35,7,42,7
+40175457230,401754572,Stanford,ACC,Miami,ACC,21,False,4,75,75,"{'minutes': 0, 'seconds': 26}",4,70,70,"{'minutes': 0, 'seconds': 14}","{'minutes': 0, 'seconds': 26}",2,5,END OF GAME,False,7,42,7,42
+4017545822,401754582,Stanford,ACC,Pittsburgh,ACC,1,False,1,28,72,"{'minutes': 14, 'seconds': 55}",1,35,65,"{'minutes': 12, 'seconds': 49}","{'minutes': 2, 'seconds': 6}",4,7,DOWNS,True,0,0,0,0
+4017545823,401754582,Pittsburgh,ACC,Stanford,ACC,2,True,1,35,35,"{'minutes': 12, 'seconds': 49}",1,3,3,"{'minutes': 11, 'seconds': 16}","{'minutes': 1, 'seconds': 33}",4,35,TD,False,0,0,7,0
+4017545825,401754582,Stanford,ACC,Pittsburgh,ACC,3,True,1,22,78,"{'minutes': 11, 'seconds': 10}",1,84,16,"{'minutes': 9, 'seconds': 35}","{'minutes': 1, 'seconds': 35}",7,62,FG,True,0,7,3,7
+4017545827,401754582,Pittsburgh,ACC,Stanford,ACC,4,False,1,91,91,"{'minutes': 9, 'seconds': 31}",1,64,64,"{'minutes': 7, 'seconds': 1}","{'minutes': 2, 'seconds': 30}",6,27,FUMBLE,False,7,3,7,3
+4017545828,401754582,Stanford,ACC,Pittsburgh,ACC,5,True,1,64,36,"{'minutes': 7, 'seconds': 1}",1,97,3,"{'minutes': 6, 'seconds': 20}","{'minutes': 0, 'seconds': 41}",3,36,TD,True,3,7,10,7
+40175458210,401754582,Pittsburgh,ACC,Stanford,ACC,6,False,1,59,59,"{'minutes': 6, 'seconds': 11}",1,52,52,"{'minutes': 4, 'seconds': 48}","{'minutes': 1, 'seconds': 23}",3,7,PUNT,False,7,10,7,10
+40175458211,401754582,Stanford,ACC,Pittsburgh,ACC,7,False,1,5,95,"{'minutes': 4, 'seconds': 48}",1,9,91,"{'minutes': 3, 'seconds': 19}","{'minutes': 1, 'seconds': 29}",3,4,PUNT,True,10,7,10,7
+40175458212,401754582,Pittsburgh,ACC,Stanford,ACC,8,True,1,60,60,"{'minutes': 3, 'seconds': 19}",2,3,3,"{'minutes': 14, 'seconds': 56}","{'minutes': 3, 'seconds': 23}",9,60,TD,False,7,3,14,10
+40175458214,401754582,Stanford,ACC,Pittsburgh,ACC,9,False,2,25,75,"{'minutes': 14, 'seconds': 56}",2,67,33,"{'minutes': 14, 'seconds': 12}","{'minutes': 0, 'seconds': 44}",2,2,INT,True,10,14,10,14
+40175458215,401754582,Pittsburgh,ACC,Stanford,ACC,10,False,2,67,67,"{'minutes': 14, 'seconds': 12}",2,63,63,"{'minutes': 12, 'seconds': 48}","{'minutes': 1, 'seconds': 24}",4,4,PUNT,False,14,10,14,10
+40175458216,401754582,Stanford,ACC,Pittsburgh,ACC,11,False,2,25,75,"{'minutes': 12, 'seconds': 48}",2,88,12,"{'minutes': 9, 'seconds': 39}","{'minutes': 3, 'seconds': 9}",6,36,INT,True,10,14,10,14
+40175458217,401754582,Pittsburgh,ACC,Stanford,ACC,12,False,2,88,88,"{'minutes': 9, 'seconds': 39}",2,46,46,"{'minutes': 5, 'seconds': 42}","{'minutes': 3, 'seconds': 57}",8,42,PUNT,False,14,10,28,16
+40175458218,401754582,Stanford,ACC,Pittsburgh,ACC,13,False,2,20,80,"{'minutes': 5, 'seconds': 42}",2,7,93,"{'minutes': 4, 'seconds': 10}","{'minutes': 1, 'seconds': 32}",3,-13,PUNT,True,13,21,13,21
+40175458219,401754582,Pittsburgh,ACC,Stanford,ACC,14,True,2,50,50,"{'minutes': 4, 'seconds': 10}",2,3,3,"{'minutes': 1, 'seconds': 47}","{'minutes': 2, 'seconds': 23}",7,50,TD,False,21,10,28,16
+40175458221,401754582,Stanford,ACC,Pittsburgh,ACC,15,True,2,25,75,"{'minutes': 1, 'seconds': 47}",2,79,21,"{'minutes': 0, 'seconds': 5}","{'minutes': 1, 'seconds': 47}",10,48,FG,True,7,21,13,21
+40175458223,401754582,Pittsburgh,ACC,Stanford,ACC,16,False,3,75,75,"{'minutes': 15, 'seconds': 0}",3,63,63,"{'minutes': 13, 'seconds': 41}","{'minutes': 1, 'seconds': 19}",5,12,PUNT,False,21,7,21,7
+40175458224,401754582,Stanford,ACC,Pittsburgh,ACC,17,False,3,29,71,"{'minutes': 13, 'seconds': 41}",3,69,31,"{'minutes': 8, 'seconds': 49}","{'minutes': 4, 'seconds': 52}",8,30,PUNT,True,7,21,7,21
+40175458225,401754582,Pittsburgh,ACC,Stanford,ACC,18,True,3,89,89,"{'minutes': 8, 'seconds': 49}",3,3,3,"{'minutes': 5, 'seconds': 54}","{'minutes': 2, 'seconds': 55}",7,89,TD,False,21,7,28,13
+40175458227,401754582,Stanford,ACC,Pittsburgh,ACC,19,True,3,25,75,"{'minutes': 5, 'seconds': 54}",3,3,97,"{'minutes': 5, 'seconds': 46}","{'minutes': 0, 'seconds': 8}",1,0,INT TD,True,13,28,13,35
+40175458229,401754582,Stanford,ACC,Pittsburgh,ACC,20,False,3,65,35,"{'minutes': 5, 'seconds': 40}",3,43,57,"{'minutes': 3, 'seconds': 24}","{'minutes': 2, 'seconds': 16}",4,1,DOWNS,True,13,35,13,35
+40175458230,401754582,Pittsburgh,ACC,Stanford,ACC,21,False,3,43,43,"{'minutes': 3, 'seconds': 24}",3,1,1,"{'minutes': 1, 'seconds': 9}","{'minutes': 2, 'seconds': 15}",5,42,INT,False,35,13,35,13
+40175458231,401754582,Stanford,ACC,Pittsburgh,ACC,22,False,3,20,80,"{'minutes': 1, 'seconds': 9}",4,31,69,"{'minutes': 14, 'seconds': 13}","{'minutes': 1, 'seconds': 56}",4,11,PUNT,True,13,35,13,35
+40175458232,401754582,Pittsburgh,ACC,Stanford,ACC,23,False,4,77,77,"{'minutes': 14, 'seconds': 13}",4,81,81,"{'minutes': 12, 'seconds': 32}","{'minutes': 1, 'seconds': 41}",3,-4,PUNT,False,35,13,35,13
+40175458233,401754582,Stanford,ACC,Pittsburgh,ACC,24,False,4,40,60,"{'minutes': 12, 'seconds': 32}",4,49,51,"{'minutes': 10, 'seconds': 35}","{'minutes': 1, 'seconds': 57}",4,9,DOWNS,True,13,35,13,35
+40175458234,401754582,Pittsburgh,ACC,Stanford,ACC,25,False,4,49,49,"{'minutes': 10, 'seconds': 35}",4,18,18,"{'minutes': 9, 'seconds': 18}","{'minutes': 1, 'seconds': 17}",4,31,INT,False,35,13,35,13
+40175458235,401754582,Stanford,ACC,Pittsburgh,ACC,26,False,4,20,80,"{'minutes': 9, 'seconds': 18}",4,21,79,"{'minutes': 7, 'seconds': 46}","{'minutes': 1, 'seconds': 32}",3,1,PUNT,True,13,35,13,35
+40175458236,401754582,Pittsburgh,ACC,Stanford,ACC,27,False,4,70,70,"{'minutes': 7, 'seconds': 46}",4,4,4,"{'minutes': 3, 'seconds': 47}","{'minutes': 3, 'seconds': 59}",7,67,FUMBLE,False,35,13,35,13
+40175458237,401754582,Stanford,ACC,Pittsburgh,ACC,28,True,4,3,97,"{'minutes': 3, 'seconds': 47}",4,97,3,"{'minutes': 0, 'seconds': 18}","{'minutes': 3, 'seconds': 29}",11,97,TD,True,13,35,20,35
+40175458239,401754582,Pittsburgh,ACC,Stanford,ACC,29,False,4,35,35,"{'minutes': 0, 'seconds': 11}",4,57,57,"{'minutes': 0, 'seconds': 0}","{'minutes': 0, 'seconds': 11}",1,-2,END OF GAME,False,35,19,35,20
+4017545882,401754588,Stanford,ACC,North Carolina,ACC,1,False,1,76,76,"{'minutes': 14, 'seconds': 52}",1,73,73,"{'minutes': 10, 'seconds': 38}","{'minutes': 4, 'seconds': 14}",6,3,PUNT,False,0,0,0,0
+4017545883,401754588,North Carolina,ACC,Stanford,ACC,2,False,1,31,69,"{'minutes': 10, 'seconds': 38}",1,54,46,"{'minutes': 8, 'seconds': 42}","{'minutes': 1, 'seconds': 56}",3,23,PUNT,True,0,0,0,0
+4017545884,401754588,Stanford,ACC,North Carolina,ACC,3,False,1,91,91,"{'minutes': 8, 'seconds': 42}",1,90,90,"{'minutes': 6, 'seconds': 51}","{'minutes': 1, 'seconds': 57}",3,1,FUMBLE,False,0,0,0,3
+4017545885,401754588,North Carolina,ACC,Stanford,ACC,4,True,1,94,6,"{'minutes': 6, 'seconds': 45}",1,91,9,"{'minutes': 5, 'seconds': 49}","{'minutes': 0, 'seconds': 56}",4,-2,FG,True,0,0,3,0
+4017545887,401754588,Stanford,ACC,North Carolina,ACC,5,False,1,84,84,"{'minutes': 5, 'seconds': 44}",1,41,41,"{'minutes': 0, 'seconds': 3}","{'minutes': 5, 'seconds': 44}",10,43,PUNT,False,0,3,0,3
+4017545888,401754588,North Carolina,ACC,Stanford,ACC,6,False,2,9,91,"{'minutes': 15, 'seconds': 0}",2,4,96,"{'minutes': 12, 'seconds': 25}","{'minutes': 2, 'seconds': 35}",3,-57,PUNT,True,3,0,3,0
+4017545889,401754588,Stanford,ACC,North Carolina,ACC,7,False,2,70,70,"{'minutes': 12, 'seconds': 25}",2,68,68,"{'minutes': 10, 'seconds': 47}","{'minutes': 1, 'seconds': 38}",3,2,PUNT,False,0,3,0,3
+40175458810,401754588,North Carolina,ACC,Stanford,ACC,8,False,2,19,81,"{'minutes': 10, 'seconds': 47}",2,45,55,"{'minutes': 8, 'seconds': 25}","{'minutes': 2, 'seconds': 22}",6,11,FUMBLE,True,3,0,3,0
+40175458811,401754588,Stanford,ACC,North Carolina,ACC,9,False,2,30,30,"{'minutes': 8, 'seconds': 25}",2,23,23,"{'minutes': 6, 'seconds': 11}","{'minutes': 2, 'seconds': 14}",4,7,MISSED FG,False,0,3,0,3
+40175458812,401754588,North Carolina,ACC,Stanford,ACC,10,False,2,23,77,"{'minutes': 6, 'seconds': 11}",2,32,68,"{'minutes': 4, 'seconds': 27}","{'minutes': 1, 'seconds': 44}",3,9,PUNT,True,3,0,3,0
+40175458813,401754588,Stanford,ACC,North Carolina,ACC,11,True,2,76,76,"{'minutes': 4, 'seconds': 27}",2,15,15,"{'minutes': 0, 'seconds': 0}","{'minutes': 4, 'seconds': 27}",16,56,FG,False,0,3,6,3
+40175458815,401754588,North Carolina,ACC,Stanford,ACC,12,True,3,25,75,"{'minutes': 15, 'seconds': 0}",3,100,0,"{'minutes': 7, 'seconds': 43}","{'minutes': 7, 'seconds': 17}",12,75,TD,True,3,3,10,6
+40175458817,401754588,Stanford,ACC,North Carolina,ACC,13,False,3,75,75,"{'minutes': 7, 'seconds': 43}",3,50,50,"{'minutes': 5, 'seconds': 25}","{'minutes': 2, 'seconds': 18}",4,25,PUNT,False,3,10,3,10
+40175458818,401754588,North Carolina,ACC,Stanford,ACC,14,False,3,5,95,"{'minutes': 5, 'seconds': 25}",3,34,66,"{'minutes': 2, 'seconds': 20}","{'minutes': 3, 'seconds': 5}",7,29,PUNT,True,10,3,10,3
+40175458819,401754588,Stanford,ACC,North Carolina,ACC,15,False,3,85,85,"{'minutes': 2, 'seconds': 20}",3,79,79,"{'minutes': 1, 'seconds': 8}","{'minutes': 1, 'seconds': 12}",3,5,INT,False,3,10,3,10
+40175458820,401754588,North Carolina,ACC,Stanford,ACC,16,True,3,64,36,"{'minutes': 1, 'seconds': 8}",4,70,30,"{'minutes': 14, 'seconds': 16}","{'minutes': 1, 'seconds': 52}",4,6,FG,True,10,3,13,3
+40175458822,401754588,Stanford,ACC,North Carolina,ACC,17,False,4,75,75,"{'minutes': 14, 'seconds': 16}",4,82,82,"{'minutes': 13, 'seconds': 5}","{'minutes': 1, 'seconds': 11}",3,-2,PUNT,False,3,13,3,13
+40175458823,401754588,North Carolina,ACC,Stanford,ACC,18,True,4,40,60,"{'minutes': 13, 'seconds': 5}",4,100,0,"{'minutes': 12, 'seconds': 4}","{'minutes': 1, 'seconds': 1}",3,60,TD,True,13,3,20,3
+40175458825,401754588,Stanford,ACC,North Carolina,ACC,19,True,4,75,75,"{'minutes': 12, 'seconds': 4}",4,0,0,"{'minutes': 8, 'seconds': 28}","{'minutes': 3, 'seconds': 36}",9,75,TD,False,3,20,9,20
+40175458827,401754588,North Carolina,ACC,Stanford,ACC,20,False,4,10,90,"{'minutes': 8, 'seconds': 23}",4,49,51,"{'minutes': 4, 'seconds': 55}","{'minutes': 3, 'seconds': 28}",6,35,PUNT,True,20,9,20,9
+40175458828,401754588,Stanford,ACC,North Carolina,ACC,21,True,4,80,80,"{'minutes': 4, 'seconds': 55}",4,0,0,"{'minutes': 1, 'seconds': 48}","{'minutes': 3, 'seconds': 7}",9,80,TD,False,9,20,15,20
+40175458830,401754588,North Carolina,ACC,Stanford,ACC,22,False,4,53,47,"{'minutes': 1, 'seconds': 47}",4,54,46,"{'minutes': 0, 'seconds': 46}","{'minutes': 1, 'seconds': 1}",3,4,PUNT,True,20,15,20,15
+40175458831,401754588,Stanford,ACC,North Carolina,ACC,23,False,4,80,80,"{'minutes': 0, 'seconds': 46}",4,58,58,"{'minutes': 0, 'seconds': 1}","{'minutes': 0, 'seconds': 46}",6,22,END OF GAME,False,15,20,15,20
+4017545992,401754599,California,ACC,Stanford,ACC,1,False,1,92,92,"{'minutes': 14, 'seconds': 54}",1,88,88,"{'minutes': 13, 'seconds': 7}","{'minutes': 1, 'seconds': 47}",3,4,PUNT,False,0,0,0,0
+4017545993,401754599,Stanford,ACC,California,ACC,2,False,1,48,52,"{'minutes': 13, 'seconds': 7}",1,39,61,"{'minutes': 11, 'seconds': 56}","{'minutes': 1, 'seconds': 11}",3,-9,PUNT,True,0,0,0,0
+4017545994,401754599,California,ACC,Stanford,ACC,3,True,1,78,78,"{'minutes': 11, 'seconds': 41}",1,22,22,"{'minutes': 6, 'seconds': 10}","{'minutes': 5, 'seconds': 46}",11,56,FG,False,0,0,3,0
+4017545996,401754599,Stanford,ACC,California,ACC,4,False,1,25,75,"{'minutes': 6, 'seconds': 10}",1,21,79,"{'minutes': 5, 'seconds': 4}","{'minutes': 1, 'seconds': 6}",3,-4,PUNT,True,0,3,0,3
+4017545997,401754599,California,ACC,Stanford,ACC,5,False,1,90,90,"{'minutes': 4, 'seconds': 59}",1,63,63,"{'minutes': 1, 'seconds': 4}","{'minutes': 4, 'seconds': 0}",8,27,PUNT,False,3,0,3,0
+4017545998,401754599,Stanford,ACC,California,ACC,6,False,1,13,87,"{'minutes': 1, 'seconds': 4}",2,32,68,"{'minutes': 13, 'seconds': 13}","{'minutes': 2, 'seconds': 51}",6,19,PUNT,True,0,3,0,3
+4017545999,401754599,California,ACC,Stanford,ACC,7,True,2,45,45,"{'minutes': 12, 'seconds': 57}",2,49,49,"{'minutes': 12, 'seconds': 57}","{'minutes': 0, 'seconds': 16}",1,-6,FUMBLE RETURN TD,False,3,7,3,7
+40175459911,401754599,California,ACC,Stanford,ACC,8,True,2,75,75,"{'minutes': 12, 'seconds': 57}",2,0,0,"{'minutes': 4, 'seconds': 38}","{'minutes': 8, 'seconds': 19}",15,75,TD,False,3,7,10,7
+40175459913,401754599,Stanford,ACC,California,ACC,9,False,2,25,75,"{'minutes': 4, 'seconds': 38}",2,95,5,"{'minutes': 1, 'seconds': 17}","{'minutes': 3, 'seconds': 21}",11,70,MISSED FG,True,7,10,7,10
+40175459914,401754599,California,ACC,Stanford,ACC,10,True,2,89,89,"{'minutes': 1, 'seconds': 6}",2,86,86,"{'minutes': 1, 'seconds': 5}","{'minutes': 0, 'seconds': 19}",2,-11,FUMBLE RETURN TD,False,10,7,10,14
+40175459916,401754599,California,ACC,Stanford,ACC,11,False,2,75,75,"{'minutes': 0, 'seconds': 18}",2,71,71,"{'minutes': 0, 'seconds': 18}","{'minutes': 0, 'seconds': 0}",2,-36,END OF HALF,False,10,14,10,14
+40175459918,401754599,Stanford,ACC,California,ACC,12,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,83,17,"{'minutes': 10, 'seconds': 56}","{'minutes': 4, 'seconds': 4}",9,58,MISSED FG,True,14,10,14,10
+40175459919,401754599,California,ACC,Stanford,ACC,13,False,3,80,80,"{'minutes': 10, 'seconds': 56}",3,72,72,"{'minutes': 9, 'seconds': 48}","{'minutes': 1, 'seconds': 8}",3,8,PUNT,False,10,14,10,14
+40175459920,401754599,Stanford,ACC,California,ACC,14,False,3,32,68,"{'minutes': 9, 'seconds': 48}",3,40,60,"{'minutes': 8, 'seconds': 4}","{'minutes': 1, 'seconds': 44}",3,8,PUNT,True,14,10,14,10
+40175459921,401754599,California,ACC,Stanford,ACC,15,False,3,86,86,"{'minutes': 8, 'seconds': 4}",3,81,81,"{'minutes': 5, 'seconds': 53}","{'minutes': 2, 'seconds': 11}",3,5,PUNT,False,10,14,10,14
+40175459922,401754599,Stanford,ACC,California,ACC,16,True,3,51,49,"{'minutes': 5, 'seconds': 52}",3,82,18,"{'minutes': 2, 'seconds': 19}","{'minutes': 3, 'seconds': 34}",7,31,FG,True,14,10,17,10
+40175459924,401754599,California,ACC,Stanford,ACC,17,False,3,75,75,"{'minutes': 2, 'seconds': 18}",3,80,80,"{'minutes': 1, 'seconds': 31}","{'minutes': 0, 'seconds': 47}",3,-5,FUMBLE,False,10,17,10,17
+40175459925,401754599,Stanford,ACC,California,ACC,18,True,3,80,20,"{'minutes': 1, 'seconds': 24}",4,97,3,"{'minutes': 14, 'seconds': 56}","{'minutes': 1, 'seconds': 35}",4,20,TD,True,17,10,24,10
+40175459927,401754599,California,ACC,Stanford,ACC,19,False,4,75,75,"{'minutes': 14, 'seconds': 56}",4,79,79,"{'minutes': 13, 'seconds': 27}","{'minutes': 1, 'seconds': 29}",3,-4,PUNT,False,10,24,10,24
+40175459928,401754599,Stanford,ACC,California,ACC,20,True,4,42,58,"{'minutes': 13, 'seconds': 17}",4,97,3,"{'minutes': 10, 'seconds': 1}","{'minutes': 3, 'seconds': 26}",5,58,TD,True,24,10,31,10
+40175459930,401754599,California,ACC,Stanford,ACC,21,False,4,65,65,"{'minutes': 10, 'seconds': 1}",4,6,6,"{'minutes': 4, 'seconds': 42}","{'minutes': 5, 'seconds': 19}",14,59,DOWNS,False,10,31,10,31
+40175459931,401754599,Stanford,ACC,California,ACC,22,False,4,6,94,"{'minutes': 4, 'seconds': 42}",4,59,41,"{'minutes': 1, 'seconds': 54}","{'minutes': 2, 'seconds': 48}",8,53,DOWNS,True,31,10,31,10
+40175459932,401754599,California,ACC,Stanford,ACC,23,False,4,59,59,"{'minutes': 1, 'seconds': 54}",4,31,31,"{'minutes': 0, 'seconds': 40}","{'minutes': 1, 'seconds': 14}",9,28,DOWNS,False,10,31,10,31
+40175459933,401754599,Stanford,ACC,California,ACC,24,False,4,31,69,"{'minutes': 0, 'seconds': 40}",4,29,71,"{'minutes': 0, 'seconds': 39}","{'minutes': 0, 'seconds': 40}",1,-2,END OF GAME,True,31,10,31,10
+4017546142,401754614,Notre Dame,FBS Independents,Stanford,ACC,1,True,1,66,66,"{'minutes': 14, 'seconds': 57}",1,3,3,"{'minutes': 8, 'seconds': 43}","{'minutes': 6, 'seconds': 14}",11,66,TD,False,0,0,7,0
+4017546144,401754614,Stanford,ACC,Notre Dame,FBS Independents,2,False,1,21,79,"{'minutes': 8, 'seconds': 38}",1,25,75,"{'minutes': 7, 'seconds': 19}","{'minutes': 1, 'seconds': 19}",3,4,PUNT,True,0,7,0,7
+4017546145,401754614,Notre Dame,FBS Independents,Stanford,ACC,3,True,1,61,61,"{'minutes': 7, 'seconds': 15}",1,3,3,"{'minutes': 1, 'seconds': 52}","{'minutes': 5, 'seconds': 27}",11,61,TD,False,7,0,14,0
+4017546147,401754614,Stanford,ACC,Notre Dame,FBS Independents,4,False,1,25,75,"{'minutes': 1, 'seconds': 53}",1,44,56,"{'minutes': 0, 'seconds': 28}","{'minutes': 1, 'seconds': 25}",4,19,PUNT,True,0,14,0,14
+4017546148,401754614,Notre Dame,FBS Independents,Stanford,ACC,5,True,1,85,85,"{'minutes': 0, 'seconds': 27}",2,3,3,"{'minutes': 14, 'seconds': 33}","{'minutes': 0, 'seconds': 55}",4,85,TD,False,14,0,21,0
+40175461410,401754614,Stanford,ACC,Notre Dame,FBS Independents,6,False,2,25,75,"{'minutes': 14, 'seconds': 33}",2,54,46,"{'minutes': 10, 'seconds': 47}","{'minutes': 3, 'seconds': 46}",9,29,DOWNS,True,0,21,0,21
+40175461411,401754614,Notre Dame,FBS Independents,Stanford,ACC,7,True,2,54,54,"{'minutes': 10, 'seconds': 39}",2,3,3,"{'minutes': 7, 'seconds': 26}","{'minutes': 3, 'seconds': 21}",8,54,TD,False,21,0,28,0
+40175461413,401754614,Stanford,ACC,Notre Dame,FBS Independents,8,True,2,25,75,"{'minutes': 7, 'seconds': 26}",2,79,21,"{'minutes': 2, 'seconds': 38}","{'minutes': 4, 'seconds': 48}",12,54,FG,True,0,28,3,28
+40175461415,401754614,Notre Dame,FBS Independents,Stanford,ACC,9,False,2,77,77,"{'minutes': 2, 'seconds': 31}",2,70,70,"{'minutes': 1, 'seconds': 41}","{'minutes': 0, 'seconds': 50}",3,8,PUNT,False,28,3,28,3
+40175461416,401754614,Stanford,ACC,Notre Dame,FBS Independents,10,False,2,29,71,"{'minutes': 1, 'seconds': 36}",2,45,55,"{'minutes': 1, 'seconds': 21}","{'minutes': 0, 'seconds': 20}",3,0,INT,True,3,28,3,28
+40175461417,401754614,Notre Dame,FBS Independents,Stanford,ACC,11,True,2,45,45,"{'minutes': 1, 'seconds': 11}",2,8,8,"{'minutes': 0, 'seconds': 17}","{'minutes': 1, 'seconds': 4}",9,45,TD,False,28,3,35,3
+40175461419,401754614,Stanford,ACC,Notre Dame,FBS Independents,12,False,2,25,75,"{'minutes': 0, 'seconds': 17}",2,29,71,"{'minutes': 0, 'seconds': 16}","{'minutes': 0, 'seconds': 17}",1,4,END OF HALF,True,3,35,3,35
+40175461421,401754614,Stanford,ACC,Notre Dame,FBS Independents,13,False,3,25,75,"{'minutes': 15, 'seconds': 0}",3,25,75,"{'minutes': 14, 'seconds': 34}","{'minutes': 0, 'seconds': 26}",3,0,PUNT,True,3,35,3,35
+40175461422,401754614,Notre Dame,FBS Independents,Stanford,ACC,14,True,3,77,77,"{'minutes': 14, 'seconds': 15}",3,3,3,"{'minutes': 12, 'seconds': 43}","{'minutes': 1, 'seconds': 51}",4,77,TD,False,35,3,42,3
+40175461424,401754614,Stanford,ACC,Notre Dame,FBS Independents,15,False,3,25,75,"{'minutes': 12, 'seconds': 43}",3,25,75,"{'minutes': 11, 'seconds': 12}","{'minutes': 1, 'seconds': 31}",3,0,PUNT,True,3,42,3,42
+40175461425,401754614,Notre Dame,FBS Independents,Stanford,ACC,16,False,3,64,64,"{'minutes': 11, 'seconds': 5}",3,60,60,"{'minutes': 9, 'seconds': 45}","{'minutes': 1, 'seconds': 27}",3,4,PUNT,False,42,3,42,3
+40175461426,401754614,Stanford,ACC,Notre Dame,FBS Independents,17,True,3,13,87,"{'minutes': 9, 'seconds': 36}",3,74,26,"{'minutes': 2, 'seconds': 9}","{'minutes': 7, 'seconds': 36}",15,61,FG,True,3,42,6,42
+40175461428,401754614,Notre Dame,FBS Independents,Stanford,ACC,18,False,3,70,70,"{'minutes': 2, 'seconds': 4}",3,55,55,"{'minutes': 0, 'seconds': 10}","{'minutes': 2, 'seconds': 4}",4,15,Uncategorized,False,42,6,42,6
+40175461429,401754614,Stanford,ACC,Notre Dame,FBS Independents,19,True,4,9,91,"{'minutes': 14, 'seconds': 54}",4,97,3,"{'minutes': 12, 'seconds': 15}","{'minutes': 2, 'seconds': 45}",7,91,TD,True,6,42,13,42
+40175461431,401754614,Notre Dame,FBS Independents,Stanford,ACC,20,True,4,75,75,"{'minutes': 12, 'seconds': 15}",4,3,3,"{'minutes': 9, 'seconds': 8}","{'minutes': 3, 'seconds': 7}",6,75,TD,False,42,13,49,13
+40175461435,401754614,Notre Dame,FBS Independents,Stanford,ACC,21,False,4,67,67,"{'minutes': 3, 'seconds': 54}",4,15,15,"{'minutes': 10, 'seconds': 0}","{'minutes': 3, 'seconds': 54}",11,52,Uncategorized,False,49,20,49,20
+40175461433,401754614,Stanford,ACC,Notre Dame,FBS Independents,22,True,4,20,80,"{'minutes': 9, 'seconds': 4}",4,97,3,"{'minutes': 4, 'seconds': 0}","{'minutes': 5, 'seconds': 4}",12,80,TD,True,13,49,20,49

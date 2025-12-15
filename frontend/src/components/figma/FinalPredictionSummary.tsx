@@ -8,21 +8,42 @@ interface FinalPredictionSummaryProps {
 }
 
 export function FinalPredictionSummary({ predictionData }: FinalPredictionSummaryProps) {
-  // Get data from predictionData (already spread from ui_components)
+  // DEBUG: Log the entire predictionData structure
+  console.log('🔍 FinalPredictionSummary - Full predictionData:', predictionData);
+  console.log('🔍 FinalPredictionSummary - prediction_cards:', predictionData?.prediction_cards);
+  console.log('🔍 FinalPredictionSummary - win_probability:', predictionData?.prediction_cards?.win_probability);
+  
+  // Get data directly from predictionData (not ui_components)
+  const predictionCards = predictionData?.prediction_cards || {};
   const finalPrediction = predictionData?.final_prediction;
   const confidence = predictionData?.confidence;
-  const teams = predictionData?.team_selector || predictionData?.header?.teams;
+  const teamSelector = predictionData?.team_selector || {};
   
-  if (!finalPrediction || !confidence || !teams) {
+  if (!finalPrediction || !confidence) {
+    console.log('❌ FinalPredictionSummary - Missing data, finalPrediction:', finalPrediction, 'confidence:', confidence);
     return null;
   }
 
-  const awayTeam = teams.away_team || teams.away;
-  const homeTeam = teams.home_team || teams.home;
-  const awayScore = finalPrediction.predicted_score?.away_score || 0;
-  const homeScore = finalPrediction.predicted_score?.home_score || 0;
+  const awayTeam = teamSelector?.away_team || predictionData?.header?.teams?.away;
+  const homeTeam = teamSelector?.home_team || predictionData?.header?.teams?.home;
+  const awayScore = finalPrediction.predicted_score?.away_score || finalPrediction.predicted_score?.away || 0;
+  const homeScore = finalPrediction.predicted_score?.home_score || finalPrediction.predicted_score?.home || 0;
   const total = finalPrediction.predicted_score?.total || 0;
   const overallConfidence = confidence.overall_confidence || 0;
+  
+  // Get win probabilities from prediction_cards
+  const awayWinProb = predictionCards?.win_probability?.away_team_prob || 50;
+  const homeWinProb = predictionCards?.win_probability?.home_team_prob || 50;
+  const probDiff = Math.abs(awayWinProb - homeWinProb);
+  
+  // Calculate certainty from confidence breakdown
+  const certainty = confidence?.breakdown?.base_data_quality || overallConfidence;
+  
+  console.log('✅ FinalPredictionSummary - Extracted values:');
+  console.log('   awayWinProb:', awayWinProb);
+  console.log('   homeWinProb:', homeWinProb);
+  console.log('   awayTeam:', awayTeam?.name);
+  console.log('   homeTeam:', homeTeam?.name);
   
   // Remove emojis from key factors
   const removeEmojis = (text: string) => {
@@ -150,13 +171,18 @@ export function FinalPredictionSummary({ predictionData }: FinalPredictionSummar
               </div>
               
               <div className="text-4xl sm:text-5xl font-black mb-2" style={{ color: awayTeam?.primary_color || '#6366f1' }}>
-                51.7%
+                {awayWinProb.toFixed(1)}%
               </div>
               
               <div className="space-y-1.5 text-xs">
                 <div className="flex items-center gap-1.5 text-gray-200">
-                  <TrendingUp className="w-3.5 h-3.5" style={{ color: awayTeam?.primary_color || '#6366f1' }} />
-                  <span>Slight favorite by 3.4%</span>
+                  {awayWinProb > homeWinProb ? (
+                    <><TrendingUp className="w-3.5 h-3.5" style={{ color: awayTeam?.primary_color || '#6366f1' }} />
+                    <span>Favorite by {probDiff.toFixed(1)}%</span></>
+                  ) : (
+                    <><TrendingDown className="w-3.5 h-3.5" style={{ color: awayTeam?.primary_color || '#6366f1' }} />
+                    <span>Underdog trailing by {probDiff.toFixed(1)}%</span></>
+                  )}
                 </div>
                 <div className="flex items-center gap-1.5 text-gray-200">
                   <Target className="w-3.5 h-3.5" style={{ color: awayTeam?.primary_color || '#6366f1' }} />
@@ -172,7 +198,7 @@ export function FinalPredictionSummary({ predictionData }: FinalPredictionSummar
             <div className="flex items-center justify-between w-full px-8 mb-2">
               <div className="flex items-center gap-2">
                 <span className="text-2xl sm:text-3xl font-black" style={{ color: awayTeam?.primary_color || '#6366f1' }}>
-                  51.7%
+                  {awayWinProb.toFixed(1)}%
                 </span>
                 <div 
                   className="w-4 h-4 rounded-sm"
@@ -190,7 +216,7 @@ export function FinalPredictionSummary({ predictionData }: FinalPredictionSummar
                   style={{ backgroundColor: homeTeam?.primary_color || '#10b981' }}
                 ></div>
                 <span className="text-2xl sm:text-3xl font-black" style={{ color: homeTeam?.primary_color || '#10b981' }}>
-                  48.3%
+                  {homeWinProb.toFixed(1)}%
                 </span>
               </div>
             </div>
@@ -200,8 +226,8 @@ export function FinalPredictionSummary({ predictionData }: FinalPredictionSummar
                 <PieChart>
                   <Pie
                     data={[
-                      { name: awayTeam?.name || 'Away', value: 51.7 },
-                      { name: homeTeam?.name || 'Home', value: 48.3 }
+                      { name: awayTeam?.name || 'Away', value: awayWinProb },
+                      { name: homeTeam?.name || 'Home', value: homeWinProb }
                     ]}
                     cx="50%"
                     cy="50%"
@@ -294,13 +320,18 @@ export function FinalPredictionSummary({ predictionData }: FinalPredictionSummar
               </div>
               
               <div className="text-4xl sm:text-5xl font-black mb-2" style={{ color: homeTeam?.primary_color || '#10b981' }}>
-                48.3%
+                {homeWinProb.toFixed(1)}%
               </div>
               
               <div className="space-y-1.5 text-xs">
                 <div className="flex items-center gap-1.5 text-gray-200">
-                  <TrendingDown className="w-3.5 h-3.5" style={{ color: homeTeam?.primary_color || '#10b981' }} />
-                  <span>Underdog trailing by 3.4%</span>
+                  {homeWinProb > awayWinProb ? (
+                    <><TrendingUp className="w-3.5 h-3.5" style={{ color: homeTeam?.primary_color || '#10b981' }} />
+                    <span>Favorite by {probDiff.toFixed(1)}%</span></>
+                  ) : (
+                    <><TrendingDown className="w-3.5 h-3.5" style={{ color: homeTeam?.primary_color || '#10b981' }} />
+                    <span>Underdog trailing by {probDiff.toFixed(1)}%</span></>
+                  )}
                 </div>
                 <div className="flex items-center gap-1.5 text-gray-200">
                   <Target className="w-3.5 h-3.5" style={{ color: homeTeam?.primary_color || '#10b981' }} />
@@ -321,7 +352,7 @@ export function FinalPredictionSummary({ predictionData }: FinalPredictionSummar
             </div>
             <span className="text-emerald-400 font-bold text-sm tracking-wide uppercase drop-shadow-[0_0_8px_rgba(5,150,105,0.8)]">High Confidence</span>
             <div className="w-px h-5 bg-gradient-to-b from-emerald-600/40 via-emerald-500/60 to-emerald-600/40 shadow-[0_0_4px_rgba(5,150,105,0.6)]"></div>
-            <span className="text-emerald-300 font-mono font-semibold text-sm drop-shadow-[0_0_6px_rgba(5,150,105,0.7)]">80.8%</span>
+            <span className="text-emerald-300 font-mono font-semibold text-sm drop-shadow-[0_0_6px_rgba(5,150,105,0.7)]">{certainty.toFixed(1)}%</span>
             <span className="text-gray-400 text-xs">Certainty</span>
           </div>
         </div>

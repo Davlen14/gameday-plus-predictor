@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEDAY+ | Master Database 2030</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Grotesk', 'monospace'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        void: '#030712', // Deepest black
+                        surface: '#0B1121', // Secondary dark
+                        nd: '#D6001C', // Crimson Neon
+                        cyan: '#00D9FF',
+                        glass: 'rgba(255, 255, 255, 0.03)',
+                    },
+                    animation: {
+                        'scan': 'scan 8s linear infinite',
+                        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.4s ease-out forwards',
+                        'glitch': 'glitch 1s linear infinite',
+                    },
+                    keyframes: {
+                        scan: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 1, boxShadow: '0 0 10px #D6001C' },
+                            '50%': { opacity: .7, boxShadow: '0 0 20px #D6001C' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: 0, transform: 'translateY(10px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030712;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* 2030 Grid Background */
+        .cyber-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* Moving Scanline */
+        .scanline {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(to right, transparent, #D6001C, transparent);
+            opacity: 0.5;
+            animation: scan 6s linear infinite;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        /* Glassmorphism Panel - Premium Edition */
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(11, 17, 33, 0.75) 0%, rgba(11, 17, 33, 0.55) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1),
+                0 0 0 1px rgba(214, 0, 28, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            pointer-events: none;
+        }
+        
+        .glass-panel:hover {
+            border-color: rgba(214, 0, 28, 0.25);
+            box-shadow: 
+                0 16px 48px rgba(214, 0, 28, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.15),
+                0 0 0 1px rgba(214, 0, 28, 0.15);
+            transform: translateY(-4px);
+            background: linear-gradient(135deg, rgba(11, 17, 33, 0.85) 0%, rgba(11, 17, 33, 0.65) 100%);
+        }
+
+        /* Tech Corners */
+        .corner-accent::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 8px;
+            border-top: 2px solid #D6001C; border-left: 2px solid #D6001C;
+        }
+        .corner-accent::after {
+            content: ''; position: absolute; bottom: 0; right: 0; width: 8px; height: 8px;
+            border-bottom: 2px solid #D6001C; border-right: 2px solid #D6001C;
+        }
+
+        /* Modern Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D6001C; }
+
+        /* Data Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 4px; /* Row spacing */
+        }
+        .data-table th {
+            text-align: left;
+            padding: 1rem;
+            color: #94a3b8;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .data-table td {
+            padding: 1rem;
+            background: rgba(255,255,255,0.015);
+            border-top: 1px solid rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+            transition: background 0.2s;
+        }
+        .data-table tr:hover td {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(214, 0, 28, 0.2);
+        }
+        .data-table tr td:first-child { border-left: 2px solid transparent; border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+        .data-table tr:hover td:first-child { border-left: 2px solid #D6001C; }
+        .data-table tr td:last-child { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
+
+        /* Skeleton Loading */
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 4px;
+            height: 12px;
+            width: 100%;
+            display: inline-block;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Animations */
+        .animate-enter { opacity: 0; animation: slideUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+
+        /* Ensure keyframes exist for slideUp animation (was only in tailwind config; define here so vanilla CSS animations run)
+           This fixes elements stuck at opacity:0 when the animation couldn't be resolved. */
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tab Content Visibility - CRITICAL FIX */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative font-sans text-sm">
+
+    <!-- FX Layer -->
+    <div class="cyber-grid"></div>
+    <div class="scanline"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="w-[96%] max-w-[1600px] mx-auto py-6 z-10 relative">
+        
+        <!-- HEADER -->
+        <header class="mb-10 pt-4 flex flex-col lg:flex-row justify-between items-end gap-6 border-b border-white/5 pb-8">
+            <div>
+                <div class="flex items-center gap-3 mb-2">
+                    <div class="flex h-3 w-3 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-nd opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-nd"></span>
+                    </div>
+                    <span class="text-[10px] font-orbitron text-nd uppercase tracking-[0.2em]">System Online // v3.0.4</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black font-orbitron tracking-tighter text-white">
+                    GAMEDAY<span class="text-nd drop-shadow-[0_0_15px_rgba(214,0,28,0.8)]">+</span> <span class="text-white/20">DB</span>
+                </h1>
+                <p class="text-slate-400 font-mono text-xs mt-2 uppercase tracking-wider">
+                    Advanced College Football Analytics Interface
+                </p>
+            </div>
+
+            <!-- SEARCH MODULE -->
+            <div class="w-full lg:w-auto">
+                <div class="relative group">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-nd to-cyan rounded-lg blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                    <div class="relative flex bg-void rounded-lg items-center p-1">
+                        <div class="pl-3 text-slate-500">
+                            <i data-lucide="search" class="h-4 w-4"></i>
+                        </div>
+                        <input type="text" id="searchInput" 
+                               class="bg-transparent border-none text-white text-sm focus:ring-0 w-full md:w-80 font-mono placeholder-slate-600 h-10 px-3"
+                               placeholder="INITIATE QUERY..." autocomplete="off">
+                        <button onclick="performSearch()" 
+                                class="bg-white/5 hover:bg-nd hover:text-white text-nd border border-nd/30 px-6 py-2 rounded font-orbitron text-xs font-bold transition-all duration-300 shadow-[0_0_10px_rgba(0,0,0,0.5)]">
+                            EXECUTE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- STATS HUD (HEADS UP DISPLAY) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-4 mb-10" id="statsGrid">
+            <!-- HUD Cards created via HTML for layout, populated by JS -->
+            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="users" class="text-nd h-8 w-8"></i></div>
+                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Coaches</div>
+                <div class="text-3xl font-bold font-mono text-white group-hover:text-nd transition-colors" id="totalCoaches"><div class="skeleton w-12 h-8"></div></div>
+                <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-nd h-0.5 w-[75%]"></div></div>
+            </div>
+            
+            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="shield" class="text-cyan h-8 w-8"></i></div>
+                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Programs</div>
+                <div class="text-3xl font-bold font-mono text-white group-hover:text-cyan transition-colors" id="totalTeams"><div class="skeleton w-12 h-8"></div></div>
+                <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-cyan h-0.5 w-[60%]"></div></div>
+            </div>
+
+            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="banknote" class="text-emerald-500 h-8 w-8"></i></div>
+                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Capital</div>
+                <div class="text-3xl font-bold font-mono text-white group-hover:text-emerald-500 transition-colors" id="totalNIL"><div class="skeleton w-12 h-8"></div></div>
+                <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-emerald-500 h-0.5 w-[45%]"></div></div>
+            </div>
+
+            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="calendar" class="text-purple-500 h-8 w-8"></i></div>
+                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Events</div>
+                <div class="text-3xl font-bold font-mono text-white group-hover:text-purple-500 transition-colors" id="totalGames"><div class="skeleton w-12 h-8"></div></div>
+                <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-purple-500 h-0.5 w-[30%]"></div></div>
+            </div>
+
+            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="activity" class="text-orange-500 h-8 w-8"></i></div>
+                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Telemetry</div>
+                <div class="text-3xl font-bold font-mono text-white group-hover:text-orange-500 transition-colors" id="totalDriveTeams"><div class="skeleton w-12 h-8"></div></div>
+                <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-orange-500 h-0.5 w-[80%]"></div></div>
+            </div>
+
+            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="user" class="text-pink-500 h-8 w-8"></i></div>
+                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Athletes</div>
+                <div class="text-3xl font-bold font-mono text-white group-hover:text-pink-500 transition-colors" id="totalPlayers"><div class="skeleton w-12 h-8"></div></div>
+                <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-pink-500 h-0.5 w-[90%]"></div></div>
+            </div>
+            
+             <div class="glass-panel p-5 rounded-lg relative overflow-hidden group flex flex-col justify-center items-center text-center">
+                 <div class="text-[10px] font-orbitron text-slate-500 uppercase tracking-widest">Network Status</div>
+                 <div class="text-green-500 font-mono text-xs mt-1 animate-pulse">● SECURE LINK</div>
+            </div>
+        </div>
+
+        <!-- SEARCH OVERLAY (Hidden by default) -->
+        <div id="searchResultsSection" class="fixed inset-0 bg-black/80 backdrop-blur-xl z-50 p-6 overflow-y-auto hidden">
+            <div class="max-w-7xl mx-auto mt-10">
+                <div class="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="p-3 bg-nd/10 rounded-full border border-nd/20">
+                            <i data-lucide="search" class="w-6 h-6 text-nd"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-orbitron text-white">QUERY RESULTS</h2>
+                            <p class="text-slate-400 font-mono text-xs">Hits Found: <span id="resultCount" class="text-nd font-bold">0</span></p>
+                        </div>
+                    </div>
+                    <button onclick="closeSearchResults()" class="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                        <span class="text-xs font-mono group-hover:tracking-widest transition-all">ESC_CLOSE</span>
+                        <div class="p-2 border border-white/10 rounded group-hover:border-nd group-hover:bg-nd/10">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </div>
+                    </button>
+                </div>
+                <div id="searchResultsContainer" class="space-y-4"></div>
+            </div>
+        </div>
+
+        <!-- DASHBOARD CONTENT AREA -->
+        <div class="glass-panel rounded-2xl overflow-hidden min-h-[700px] corner-accent shadow-2xl border-2 border-white/10">
+            
+            <!-- Tab Navigation -->
+            <div class="border-b border-white/10 bg-gradient-to-r from-black/40 via-black/20 to-black/40 backdrop-blur-lg sticky top-0 z-40">
+                <div class="flex flex-wrap gap-1 p-2 tabs" role="tablist">
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('coaches')">
+                        <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="users" class="w-3 h-3"></i> COACHES</span>
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-nd transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                    </button>
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('teams')">
+                        <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="shield" class="w-3 h-3"></i> TEAMS</span>
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                    </button>
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('nil')">
+                        <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="banknote" class="w-3 h-3"></i> NIL VALUATION</span>
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                    </button>
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('games')">
+                        <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="swords" class="w-3 h-3"></i> GAMES</span>
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                    </button>
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('drives')">
+                        <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="activity" class="w-3 h-3"></i> DRIVES</span>
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                    </button>
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('players')">
+                        <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="user" class="w-3 h-3"></i> PLAYERS</span>
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                    </button>
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('stats')">
+                        <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="bar-chart-2" class="w-3 h-3"></i> GLOBAL</span>
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Container -->
+            <div class="p-8 md:p-10 bg-gradient-to-b from-white/2 via-transparent to-black/20 min-h-[600px] flex flex-col space-y-8">
+                
+                <!-- Coaches Tab -->
+                <div id="coaches" class="tab-content active">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-nd inline-block"></span> PERSONNEL ROSTER</h3>
+                        <div class="font-mono text-xs text-slate-500 flex items-center gap-2">
+                             <span id="coachesUpdated">SYNCING...</span>
+                             <div class="w-2 h-2 bg-nd rounded-full animate-pulse"></div>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto rounded-lg border border-white/5">
+                        <table class="data-table" id="coachesTable">
+                            <thead>
+                                <tr>
+                                    <th>Personnel</th>
+                                    <th>Affiliation</th>
+                                    <th>Conference</th>
+                                    <th>Career Wins</th>
+                                    <th>Career Losses (PCT)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="coachesBody" class="font-mono text-xs">
+                                <!-- JS Populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Teams Tab -->
+                <div id="teams" class="tab-content">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-cyan inline-block"></span> PROGRAM INDEX</h3>
+                        <div class="font-mono text-xs text-slate-500" id="teamsUpdated">SYNCING...</div>
+                    </div>
+                    <div class="overflow-x-auto rounded-lg border border-white/5">
+                        <table class="data-table" id="teamsTable">
+                            <thead>
+                                <tr>
+                                    <th>Program</th>
+                                    <th>Conf</th>
+                                    <th>ID_Ref</th>
+                                    <th>Rank_Data</th>
+                                    <th>Geo_Loc</th>
+                                </tr>
+                            </thead>
+                            <tbody id="teamsBody" class="font-mono text-xs"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- NIL Tab -->
+                <div id="nil" class="tab-content">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-emerald-500 inline-block"></span> FINANCIAL LEDGER</h3>
+                        <div class="font-mono text-xs text-slate-500" id="nilUpdated">SYNCING...</div>
+                    </div>
+                    <div class="overflow-x-auto rounded-lg border border-white/5">
+                        <table class="data-table" id="nilTable">
+                            <thead>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th>Total_Cap</th>
+                                    <th>Asset_Count</th>
+                                    <th>Avg_Valuation</th>
+                                </tr>
+                            </thead>
+                            <tbody id="nilBody" class="font-mono text-xs"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Games Tab -->
+                <div id="games" class="tab-content">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-purple-500 inline-block"></span> SCHEDULE MATRIX</h3>
+                        <div class="font-mono text-xs text-slate-500" id="gamesUpdated">SYNCING...</div>
+                    </div>
+                    <div class="overflow-x-auto rounded-lg border border-white/5">
+                        <table class="data-table" id="gamesTable">
+                            <thead>
+                                <tr>
+                                    <th>Visitor</th>
+                                    <th>Host</th>
+                                    <th>Wk_Index</th>
+                                    <th>Time_Window</th>
+                                </tr>
+                            </thead>
+                            <tbody id="gamesBody" class="font-mono text-xs"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Drives Tab -->
+                <div id="drives" class="tab-content">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-orange-500 inline-block"></span> DRIVE CHART TELEMETRY</h3>
+                        <div class="font-mono text-xs text-slate-500" id="drivesUpdated">SYNCING...</div>
+                    </div>
+                    <div id="drivesContainer" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Players Tab -->
+                <div id="players" class="tab-content">
+                    <div class="flex flex-col gap-4 mb-6">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-pink-500 inline-block"></span> PLAYER SEASON STATS</h3>
+                            <div class="font-mono text-xs text-slate-500 flex items-center gap-2">
+                                 <span id="playersUpdated">SYNCING...</span>
+                                 <div class="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Position Filters -->
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="filterPlayersByPosition('ALL')" class="position-filter-btn active px-4 py-2 text-xs font-orbitron font-bold bg-pink-500/20 border border-pink-500/30 text-pink-400 rounded hover:bg-pink-500/30 transition-all" data-position="ALL">
+                                ALL <span class="ml-1 opacity-60" id="count-ALL">0</span>
+                            </button>
+                            <button onclick="filterPlayersByPosition('QB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-blue-500/20 hover:border-blue-500/30 hover:text-blue-400 transition-all" data-position="QB">
+                                QB <span class="ml-1 opacity-60" id="count-QB">0</span>
+                            </button>
+                            <button onclick="filterPlayersByPosition('RB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-green-500/20 hover:border-green-500/30 hover:text-green-400 transition-all" data-position="RB">
+                                RB <span class="ml-1 opacity-60" id="count-RB">0</span>
+                            </button>
+                            <button onclick="filterPlayersByPosition('WR')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-orange-500/20 hover:border-orange-500/30 hover:text-orange-400 transition-all" data-position="WR">
+                                WR <span class="ml-1 opacity-60" id="count-WR">0</span>
+                            </button>
+                            <button onclick="filterPlayersByPosition('TE')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-cyan-500/20 hover:border-cyan-500/30 hover:text-cyan-400 transition-all" data-position="TE">
+                                TE <span class="ml-1 opacity-60" id="count-TE">0</span>
+                            </button>
+                            <button onclick="filterPlayersByPosition('K')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-yellow-500/20 hover:border-yellow-500/30 hover:text-yellow-400 transition-all" data-position="K">
+                                K <span class="ml-1 opacity-60" id="count-K">0</span>
+                            </button>
+                            <button onclick="filterPlayersByPosition('P')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-purple-500/20 hover:border-purple-500/30 hover:text-purple-400 transition-all" data-position="P">
+                                P <span class="ml-1 opacity-60" id="count-P">0</span>
+                            </button>
+                            <button onclick="filterPlayersByPosition('OL')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-gray-500/20 hover:border-gray-500/30 hover:text-gray-400 transition-all" data-position="OL">
+                                OL <span class="ml-1 opacity-60" id="count-OL">0</span>
+                            </button>
+                            <button onclick="filterPlayersByPosition('DL')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-red-500/20 hover:border-red-500/30 hover:text-red-400 transition-all" data-position="DL">
+                                DL <span class="ml-1 opacity-60" id="count-DL">0</span>
+                            </button>
+                            <button onclick="filterPlayersByPosition('LB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-red-500/20 hover:border-red-500/30 hover:text-red-400 transition-all" data-position="LB">
+                                LB <span class="ml-1 opacity-60" id="count-LB">0</span>
+                            </button>
+                            <button onclick="filterPlayersByPosition('DB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-red-500/20 hover:border-red-500/30 hover:text-red-400 transition-all" data-position="DB">
+                                DB <span class="ml-1 opacity-60" id="count-DB">0</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto rounded-lg border border-white/5">
+                        <table class="data-table" id="playersTable">
+                            <thead id="playersTableHead">
+                                <!-- Dynamic header populated by JS -->
+                            </thead>
+                            <tbody id="playersBody" class="font-mono text-xs">
+                                <!-- JS Populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Stats Tab -->
+                <div id="stats" class="tab-content">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-white inline-block"></span> GLOBAL METRICS</h3>
+                        <div class="font-mono text-xs text-slate-500" id="statsUpdated">SYNCING...</div>
+                    </div>
+                    <div id="statsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="mt-12 pt-8 border-t border-white/5 text-slate-500 text-xs font-mono flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <p>GAMEDAY+ ANALYTICS SUITE // 2030 EDITION</p>
+                <p class="mt-1 text-slate-600">SECURE CONNECTION :: LOCALHOST:5555</p>
+            </div>
+            <div class="flex gap-6">
+                <span class="flex items-center gap-2"><div class="w-2 h-2 bg-emerald-500 rounded-full"></div> DB_ONLINE</span>
+                <span class="flex items-center gap-2"><div class="w-2 h-2 bg-emerald-500 rounded-full"></div> API_ONLINE</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Hidden Sections required by JS logic -->
+    <section id="detailedCoachesSection" style="display: none;"><div id="detailedCoachesContainer"></div></section>
+    <section id="detailedTeamsSection" style="display: none;"><div id="detailedTeamsContainer"></div></section>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Init Lucide Icons
+        const updateIcons = () => { if (window.lucide) lucide.createIcons(); };
+
+        // Helper: Skeleton Row
+        const skeletonRow = (cols) => {
+            let tds = '';
+            for(let i=0; i<cols; i++) tds += `<td><div class="skeleton"></div></td>`;
+            return `<tr class="opacity-50">${tds}</tr>`.repeat(5);
+        };
+
+        // Helper: Rank Colors
+        const getRankColor = (rank) => {
+            if (!rank) return 'text-slate-400';
+            if (rank <= 10) return 'text-emerald-500';
+            if (rank <= 25) return 'text-blue-500';
+            if (rank <= 50) return 'text-yellow-500';
+            return 'text-orange-500';
+        };
+
+        // Helper: Rank Badge
+        const rankBadge = (rank) => {
+            if (!rank) return '';
+            let color = 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400';
+            if (rank > 10 && rank <= 25) color = 'bg-blue-500/20 border-blue-500/50 text-blue-400';
+            if (rank > 25 && rank <= 50) color = 'bg-yellow-500/20 border-yellow-500/50 text-yellow-400';
+            if (rank > 50) color = 'bg-orange-500/20 border-orange-500/50 text-orange-400';
+            return `<span class="ml-2 px-2 py-0.5 rounded text-[9px] font-bold border ${color} inline-block">#${rank}</span>`;
+        };
+
+        // Typewriter Effect for Search
+        const placeholders = ["SEARCH COACHES...", "SEARCH PROGRAMS...", "SEARCH RECORDS...", "INITIATE QUERY..."];
+        let pIndex = 0;
+        let cIndex = 0;
+        let isDeleting = false;
+        const searchInput = document.getElementById('searchInput');
+
+        function typeWriter() {
+            const current = placeholders[pIndex];
+            if (isDeleting) {
+                searchInput.setAttribute('placeholder', current.substring(0, cIndex - 1));
+                cIndex--;
+                if (cIndex == 0) { isDeleting = false; pIndex = (pIndex + 1) % placeholders.length; }
+            } else {
+                searchInput.setAttribute('placeholder', current.substring(0, cIndex + 1));
+                cIndex++;
+                if (cIndex == current.length) { isDeleting = true; setTimeout(typeWriter, 2000); return; }
+            }
+            setTimeout(typeWriter, isDeleting ? 50 : 150);
+        }
+        
+        // Tab Switching Logic
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active state from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('text-white', 'bg-white/5');
+                btn.classList.add('text-slate-500');
+                const line = btn.querySelector('.absolute.bottom-0');
+                if(line) {
+                    line.classList.add('scale-x-0');
+                    line.classList.remove('scale-x-100');
+                }
+            });
+
+            // Show selected tab
+            const target = document.getElementById(tabName);
+            if(target) {
+                target.classList.add('active');
+                console.log('Switched to tab:', tabName);
+            }
+            
+            // Highlight active button
+            const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => btn.getAttribute('onclick').includes(tabName));
+            if(activeBtn) {
+                activeBtn.classList.remove('text-slate-500');
+                activeBtn.classList.add('text-white', 'bg-white/5');
+                const line = activeBtn.querySelector('.absolute.bottom-0');
+                if(line) {
+                    line.classList.remove('scale-x-0');
+                    line.classList.add('scale-x-100');
+                }
+            }
+        }
+
+        const API_BASE = 'http://localhost:5555';
+        let allData = { coaches: [], teams: [], nil: [], games: [], drives: [], players: [], stats: null };
+
+        async function fetchData(endpoint) {
+            try {
+                console.log(`FETCH: ${API_BASE}${endpoint}`);
+                const response = await fetch(`${API_BASE}${endpoint}`);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+                console.log(`DATA: ${endpoint}`, data);
+                return data;
+            } catch (error) {
+                console.error(`ERROR fetching ${endpoint}:`, error);
+                return null;
+            }
+        }
+
+        async function loadCoaches() {
+            document.getElementById('coachesBody').innerHTML = skeletonRow(5);
+            const data = await fetchData('/api/coaches');
+            if (!data || !data.coaches) {
+                console.error('No coaches data returned:', data);
+                document.getElementById('coachesBody').innerHTML = '<tr><td colspan="5" class="text-center text-red-500 py-4">ERROR: NO DATA</td></tr>';
+                return;
+            }
+
+            allData.coaches = data.coaches || [];
+            document.getElementById('totalCoaches').innerHTML = allData.coaches.length;
+
+            // Build team logo map
+            const teamLogoMap = {};
+            if (allData.teams && allData.teams.length > 0) {
+                allData.teams.forEach(team => {
+                    if (team.school) teamLogoMap[team.school] = team.logo_url;
+                    if (team.name) teamLogoMap[team.name] = team.logo_url;
+                });
+            }
+
+            const html = allData.coaches.map((coach, idx) => {
+                const recordParts = (coach.career_record || '0-0').split('-');
+                const wins = recordParts[0] || 0;
+                const losses = recordParts[1] || 0;
+                const winPct = (coach.career_win_pct * 100).toFixed(1) || '0.0';
+                const schoolName = coach.current_school || coach.school || '';
+                const teamLogoUrl = teamLogoMap[schoolName];
+                
+                const teamLogoHtml = teamLogoUrl ? `
+                    <img src="${teamLogoUrl}" class="w-8 h-8 mr-2 object-contain drop-shadow-md" alt="${schoolName} logo">
+                ` : '';
+                
+                const headshotHtml = coach.headshot_url ? `
+                    <div class="relative group mr-3 inline-block">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-nd to-cyan rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <img src="${coach.headshot_url}" class="relative w-12 h-12 rounded-full border-2 border-nd/50 object-cover bg-white/10 ring-2 ring-white/20 group-hover:ring-nd/80 group-hover:border-nd transition-all duration-300 drop-shadow-lg group-hover:drop-shadow-[0_0_12px_rgba(214,0,28,0.6)]">
+                    </div>
+                ` : '';
+                return `
+                    <tr class="animate-enter" style="animation-delay: ${idx * 30}ms">
+                        <td class="flex items-center text-white font-medium">${teamLogoHtml}${headshotHtml}${coach.name || `Coach ${idx + 1}`}</td>
+                        <td class="text-slate-400">${schoolName || '-'}</td>
+                        <td><span class="px-2 py-1 rounded text-[10px] bg-white/5 border border-white/10 text-slate-300 font-mono">${coach.conference || coach.conf || 'N/A'}</span></td>
+                        <td class="text-nd font-bold font-mono">${wins}</td>
+                        <td class="font-mono text-slate-500">${losses} <span class="text-xs opacity-70">(${winPct}%)</span></td>
+                    </tr>
+                `;
+            }).join('');
+            document.getElementById('coachesBody').innerHTML = html;
+            requestAnimationFrame(() => {
+                document.querySelectorAll('#coachesBody tr').forEach(row => row.classList.remove('opacity-0'));
+            });
+            document.getElementById('coachesUpdated').textContent = `SYNCED: ${new Date().toLocaleTimeString()}`;
+        }
+
+        async function loadTeams() {
+            document.getElementById('teamsBody').innerHTML = skeletonRow(5);
+            const data = await fetchData('/api/teams');
+            if (!data || !data.teams) {
+                console.error('No teams data returned:', data);
+                document.getElementById('teamsBody').innerHTML = '<tr><td colspan="5" class="text-center text-red-500 py-4">ERROR: NO DATA</td></tr>';
+                return;
+            }
+
+            allData.teams = data.teams || [];
+            document.getElementById('totalTeams').textContent = allData.teams.length;
+
+            const html = allData.teams.map((team, idx) => {
+                const logoHtml = team.logo_url ? `<img src="${team.logo_url}" class="h-6 w-auto mr-3 filter drop-shadow">` : '';
+                return `
+                    <tr class="animate-enter" style="animation-delay: ${idx * 30}ms">
+                        <td class="flex items-center text-white font-medium">${logoHtml}${team.school || team.name || `Team ${idx + 1}`}</td>
+                        <td><span class="px-2 py-1 rounded text-[10px] bg-cyan/10 border border-cyan/20 text-cyan font-mono">${team.conference || team.conf || '-'}</span></td>
+                        <td class="font-mono text-slate-500 text-[10px] tracking-widest">ID_${team.id || '-'}</td>
+                        <td class="text-cyan font-bold font-mono">${team.total_rankings || team.total_seasons || '-'}</td>
+                        <td class="text-slate-500 text-xs uppercase">${team.location_name || team.city || '-'}</td>
+                    </tr>
+                `;
+            }).join('');
+            document.getElementById('teamsBody').innerHTML = html;
+            document.getElementById('teamsUpdated').textContent = `SYNCED: ${new Date().toLocaleTimeString()}`;
+            requestAnimationFrame(() => {
+                document.querySelectorAll('#teamsBody tr').forEach(row => row.classList.remove('opacity-0'));
+            });
+        }
+
+        async function loadNIL() {
+            document.getElementById('nilBody').innerHTML = skeletonRow(4);
+            const data = await fetchData('/api/nil/teams');
+            if (!data || !data.teams) {
+                console.error('No NIL data returned:', data);
+                document.getElementById('nilBody').innerHTML = '<tr><td colspan="4" class="text-center text-red-500 py-4">ERROR: NO DATA</td></tr>';
+                return;
+            }
+
+            allData.nil = data.teams || [];
+            const value = allData.nil.length; 
+            // Simple animation for number
+            let start = 0;
+            const counter = setInterval(() => {
+                start++;
+                document.getElementById('totalNIL').textContent = start;
+                if(start >= value) clearInterval(counter);
+            }, 20);
+
+            const html = allData.nil.map((team, idx) => {
+                const totalValue = team.total_valuation || team.totalValue || 0;
+                const playerCount = team.total_players || team.playerCount || team.player_count || 0;
+                const avgPerPlayer = team.avg_valuation || (playerCount > 0 ? (totalValue / playerCount).toFixed(0) : 0);
+                
+                return `
+                    <tr class="animate-enter" style="animation-delay: ${idx * 30}ms">
+                        <td class="text-white font-medium">${team.team_name || team.school}</td>
+                        <td class="text-emerald-500 font-mono font-bold glow-text">$${(totalValue / 1000000).toFixed(1)}M</td>
+                        <td class="font-mono text-slate-400">${playerCount}</td>
+                        <td class="font-mono text-slate-500">$${Number(avgPerPlayer).toLocaleString()}</td>
+                    </tr>
+                `;
+            }).join('');
+            document.getElementById('nilBody').innerHTML = html;
+            document.getElementById('nilUpdated').textContent = `SYNCED: ${new Date().toLocaleTimeString()}`;
+            requestAnimationFrame(() => {
+                document.querySelectorAll('#nilBody tr').forEach(row => row.classList.remove('opacity-0'));
+            });
+        }
+
+        async function loadGames() {
+            document.getElementById('gamesBody').innerHTML = skeletonRow(4);
+            const data = await fetchData('/api/upcoming-games');
+            if (!data) {
+                console.error('No games data returned:', data);
+                document.getElementById('gamesBody').innerHTML = '<tr><td colspan="4" class="text-center text-red-500 py-4">ERROR: NO DATA</td></tr>';
+                return;
+            }
+
+            allData.games = data.games || [];
+            document.getElementById('totalGames').textContent = allData.games.length;
+
+            const html = allData.games.map((game, idx) => {
+                const dateObj = new Date(game.date || game.startDate);
+                const away = game.awayTeam || (game.away ? game.away.team : 'TBA');
+                const home = game.homeTeam || (game.home ? game.home.team : 'TBA');
+                
+                return `
+                    <tr class="animate-enter" style="animation-delay: ${idx * 30}ms">
+                        <td class="text-slate-300 font-semibold">${away}</td>
+                        <td class="text-white font-bold"><span class="text-purple-500">@</span> ${home}</td>
+                        <td class="text-purple-400 font-mono font-bold border border-purple-500/20 bg-purple-500/5 inline-block px-2 py-1 rounded text-center my-2">WK ${game.week || '-'}</td>
+                        <td class="font-mono text-xs text-slate-500">${dateObj.toLocaleDateString()}</td>
+                    </tr>
+                `;
+            }).join('');
+            document.getElementById('gamesBody').innerHTML = html;
+            requestAnimationFrame(() => {
+                document.querySelectorAll('#gamesBody tr').forEach(row => row.classList.remove('opacity-0'));
+            });
+        }
+
+        async function loadDrives() {
+            const data = await fetchData('/api/drives/teams');
+            if (!data) {
+                console.error('No drives data returned:', data);
+                document.getElementById('drivesContainer').innerHTML = '<div class="text-center text-red-500 py-4">ERROR: NO DRIVES DATA</div>';
+                return;
+            }
+            const teams = Array.isArray(data) ? data : (data.teams || []);
+            document.getElementById('totalDriveTeams').textContent = teams.length;
+
+            let teamsData = allData.teams || [];
+            if (!teamsData || teamsData.length === 0) {
+                const teamsResponse = await fetchData('/api/teams');
+                teamsData = teamsResponse.teams || [];
+            }
+            
+            const logoMap = {};
+            teamsData.forEach(team => {
+                logoMap[team.school] = team.logo_url;
+                if (team.abbreviation) logoMap[team.abbreviation] = team.logo_url;
+            });
+
+            // Generate Grid
+            let html = '<p style="margin-bottom: 20px; font-family: \'Orbitron\'; font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">DATASETS LOADED: <span class="text-nd font-bold">' + teams.length + '</span></p>';
+            html += '<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">';
+            teams.forEach((team, idx) => {
+                const name = typeof team === 'object' ? team.team_name : team;
+                const conf = typeof team === 'object' ? team.conference : '';
+                const logoUrl = logoMap[name];
+                const logoHtml = logoUrl ? `<img src="${logoUrl}" alt="${name}" class="h-10 w-auto mx-auto mb-3 drop-shadow-md group-hover:scale-110 transition-transform">` : `<div class="h-10 flex items-center justify-center text-gray-600"><i data-lucide="shield" class="w-6 h-6"></i></div>`;
+
+                html += `
+                <div class="glass-panel p-4 text-center hover:bg-white/5 transition-all cursor-pointer animate-enter group border-l-2 border-l-transparent hover:border-l-orange-500" style="animation-delay: ${idx * 10}ms">
+                    ${logoHtml}
+                    <strong class="text-xs text-slate-300 block truncate mt-2 font-mono">${name}</strong>
+                    <span class="text-[9px] text-slate-500 font-mono uppercase tracking-widest mt-1 block">${conf}</span>
+                </div>`;
+            });
+            html += '</div>';
+            document.getElementById('drivesContainer').innerHTML = html;
+            requestAnimationFrame(() => {
+                updateIcons();
+                document.querySelectorAll('#drivesContainer .animate-enter').forEach(el => el.classList.remove('opacity-0'));
+            });
+        }
+
+        async function loadStats() {
+            const data = await fetchData('/api/stats');
+            if (!data) return;
+            allData.stats = data;
+            
+            let html = '';
+            if (typeof data === 'object') {
+                const entries = Object.entries(data).slice(0, 10);
+                entries.forEach(([key, value], idx) => {
+                    const displayValue = typeof value === 'object' ? JSON.stringify(value).substring(0, 50) + "..." : value;
+                    html += `
+                        <div class="glass-panel p-4 border-t-2 border-t-white/10 hover:border-t-nd transition-all animate-enter" style="animation-delay: ${idx * 50}ms">
+                            <strong class="text-slate-500 font-orbitron text-[10px] block mb-2 uppercase tracking-widest">${key}</strong>
+                            <code class="text-sm text-white font-mono block bg-black/40 p-2 rounded border border-white/5 truncate">${displayValue}</code>
+                        </div>
+                    `;
+                });
+            } else {
+                html += `<div class="glass-panel p-6"><code class="text-slate-600 dark:text-gray-300 font-mono">${JSON.stringify(data, null, 2).substring(0, 300)}</code></div>`;
+            }
+            document.getElementById('statsContainer').innerHTML = html;
+        }
+
+        let currentPlayerPosition = 'ALL';
+        
+        // Position type mapping
+        const positionTypes = {
+            'QB': ['QB'],
+            'RB': ['RB', 'FB'],
+            'WR': ['WR'],
+            'TE': ['TE'],
+            'K': ['K', 'PK'],
+            'P': ['P'],
+            'OL': ['OL', 'OT', 'OG', 'C'],
+            'DL': ['DL', 'DE', 'DT', 'NT'],
+            'LB': ['LB', 'ILB', 'OLB', 'MLB'],
+            'DB': ['DB', 'CB', 'S', 'FS', 'SS']
+        };
+
+        async function loadPlayers() {
+            document.getElementById('playersBody').innerHTML = skeletonRow(10);
+            const data = await fetchData('/api/players');
+            if (!data || !data.players) {
+                console.error('No players data returned:', data);
+                document.getElementById('playersBody').innerHTML = '<tr><td colspan="10" class="text-center text-red-500 py-4">ERROR: NO DATA</td></tr>';
+                return;
+            }
+
+            allData.players = data.players || [];
+            document.getElementById('totalPlayers').textContent = allData.players.length;
+            
+            // Update position counts
+            const positionCounts = { 'ALL': allData.players.length };
+            allData.players.forEach(p => {
+                const pos = p.position || 'Unknown';
+                // Find position group
+                for (const [group, positions] of Object.entries(positionTypes)) {
+                    if (positions.includes(pos)) {
+                        positionCounts[group] = (positionCounts[group] || 0) + 1;
+                        break;
+                    }
+                }
+            });
+            
+            // Update count badges
+            Object.keys(positionCounts).forEach(pos => {
+                const countEl = document.getElementById(`count-${pos}`);
+                if (countEl) countEl.textContent = positionCounts[pos] || 0;
+            });
+            
+            // Render with current filter
+            filterPlayersByPosition(currentPlayerPosition);
+        }
+        
+        function filterPlayersByPosition(position) {
+            currentPlayerPosition = position;
+            
+            // Update active button
+            document.querySelectorAll('.position-filter-btn').forEach(btn => {
+                if (btn.dataset.position === position) {
+                    btn.classList.remove('bg-white/5', 'border-white/10', 'text-slate-400');
+                    btn.classList.add('bg-pink-500/20', 'border-pink-500/30', 'text-pink-400', 'active');
+                } else {
+                    btn.classList.add('bg-white/5', 'border-white/10', 'text-slate-400');
+                    btn.classList.remove('bg-pink-500/20', 'border-pink-500/30', 'text-pink-400', 'active');
+                }
+            });
+            
+            // Filter players
+            let filteredPlayers = allData.players;
+            if (position !== 'ALL') {
+                const validPositions = positionTypes[position] || [position];
+                filteredPlayers = allData.players.filter(p => validPositions.includes(p.position));
+            }
+            
+            // Determine columns based on position
+            let columns = [];
+            let statColumns = [];
+            
+            if (position === 'QB') {
+                columns = ['Player', 'Pos', 'Team', 'Conf', 'Comp', 'Att', 'Comp%', 'Pass YDS', 'Pass TD', 'INT', 'YPA', 'Rush YDS', 'Rush TD'];
+                statColumns = ['completions', 'pass_attempts', 'completion_pct', 'passing_yards', 'passing_tds', 'interceptions', 'yards_per_attempt', 'rushing_yards', 'rushing_tds'];
+            } else if (position === 'RB') {
+                columns = ['Player', 'Pos', 'Team', 'Conf', 'Carries', 'Rush YDS', 'Rush TD', 'YPC', 'Rec', 'Rec YDS', 'Rec TD'];
+                statColumns = ['carries', 'rushing_yards', 'rushing_tds', 'yards_per_carry', 'receptions', 'receiving_yards', 'receiving_tds'];
+            } else if (position === 'WR' || position === 'TE') {
+                columns = ['Player', 'Pos', 'Team', 'Conf', 'Rec', 'Rec YDS', 'Rec TD', 'YPR', 'Long', 'Rush YDS', 'Rush TD'];
+                statColumns = ['receptions', 'receiving_yards', 'receiving_tds', 'yards_per_reception', 'longest_reception', 'rushing_yards', 'rushing_tds'];
+            } else {
+                // Default/ALL - show all stats
+                columns = ['Player', 'Pos', 'Team', 'Conf', 'Pass YDS', 'Pass TD', 'Rush YDS', 'Rush TD', 'Rec YDS', 'Rec TD'];
+                statColumns = ['passing_yards', 'passing_tds', 'rushing_yards', 'rushing_tds', 'receiving_yards', 'receiving_tds'];
+            }
+            
+            // Update table header
+            const headerHtml = `<tr>${columns.map(col => `<th>${col}</th>`).join('')}</tr>`;
+            document.getElementById('playersTableHead').innerHTML = headerHtml;
+            
+            // Render player rows
+            const html = filteredPlayers.slice(0, 150).map((player, idx) => {
+                const headshotHtml = player.headshot_url ? `<img src="${player.headshot_url}" class="h-10 w-10 rounded-full border-2 border-pink-500/30 mr-2 object-cover" onerror="this.style.display='none'">` : '';
+                const logoHtml = player.team_logo_url ? `<img src="${player.team_logo_url}" class="h-6 w-6 ml-2 filter drop-shadow" onerror="this.style.display='none'">` : '';
+                
+                let statCells = statColumns.map(stat => {
+                    const value = player[stat];
+                    if (value === null || value === undefined || value === 0) return '<td class="font-mono text-slate-600">-</td>';
+                    
+                    let colorClass = 'text-white';
+                    if (stat.includes('passing')) colorClass = 'text-blue-400';
+                    else if (stat.includes('rushing')) colorClass = 'text-green-400';
+                    else if (stat.includes('receiving') || stat.includes('reception')) colorClass = 'text-orange-400';
+                    else if (stat.includes('td') || stat.includes('tds')) colorClass += ' font-bold';
+                    
+                    return `<td class="font-mono ${colorClass}">${typeof value === 'number' ? value.toFixed(stat.includes('pct') || stat.includes('per') ? 1 : 0) : value}</td>`;
+                }).join('');
+                
+                return `
+                    <tr class="animate-enter" style="animation-delay: ${idx * 15}ms">
+                        <td class="flex items-center text-white font-medium">${headshotHtml}<span class="truncate max-w-[150px]">${player.player_name || '-'}</span></td>
+                        <td><span class="px-2 py-1 rounded text-[10px] bg-pink-500/10 border border-pink-500/20 text-pink-400 font-mono">${player.position || '-'}</span></td>
+                        <td class="text-slate-300 flex items-center">${player.team || '-'}${logoHtml}</td>
+                        <td class="text-slate-500 text-[10px] uppercase tracking-wider">${player.conference || '-'}</td>
+                        ${statCells}
+                    </tr>
+                `;
+            }).join('');
+            
+            document.getElementById('playersBody').innerHTML = html || '<tr><td colspan="15" class="text-center text-slate-500 py-8">No players found for this position</td></tr>';
+            document.getElementById('playersUpdated').textContent = `SYNCED: ${new Date().toLocaleTimeString()} | ${filteredPlayers.length} players`;
+            updateIcons();
+        }
+
+        // --- ADVANCED SEARCH LOGIC ---
+        function closeSearchResults() {
+            const overlay = document.getElementById('searchResultsSection');
+            if(overlay) {
+                overlay.classList.add('hidden');
+                console.log('Search overlay closed');
+            }
+            document.getElementById('searchInput').value = '';
+        }
+
+        async function performSearch() {
+            const query = document.getElementById('searchInput').value;
+            if (!query) return;
+
+            // UI Feedback
+            const container = document.getElementById('searchResultsContainer');
+            document.getElementById('searchResultsSection').classList.remove('hidden');
+            container.innerHTML = `<div class="col-span-1 text-center py-20"><div class="inline-block w-12 h-12 border-4 border-nd border-t-transparent rounded-full animate-spin"></div><p class="mt-4 text-nd font-mono text-xs animate-pulse">ACCESSING DEEP DATABANKS...</p></div>`;
+
+            // Data Logic
+            const coachResponse = await fetchData(`/api/search?q=${encodeURIComponent(query)}`);
+            let coachResults = (coachResponse && coachResponse.results) ? coachResponse.results : [];
+
+            let teamResults = [];
+            if (allData.teams) {
+                teamResults = allData.teams.filter(team => {
+                    const s = (team.school || team.name || '').toLowerCase();
+                    const c = (team.conference || team.conf || '').toLowerCase();
+                    return s.includes(query.toLowerCase()) || c.includes(query.toLowerCase());
+                });
+            }
+
+            const allResults = [...coachResults, ...teamResults];
+            document.getElementById('resultCount').textContent = allResults.length;
+
+            if (allResults.length === 0) {
+                container.innerHTML = `<div class="text-center py-20 text-slate-500 font-mono">NO DATA FOUND FOR QUERY "${query}"</div>`;
+                return;
+            }
+
+            // Render Detailed Results
+            let html = '';
+            for (const item of allResults) {
+                const isCoach = item.career_record !== undefined || item.career_win_pct !== undefined;
+                const isTeam = item.school !== undefined || item.conference !== undefined;
+                
+                let itemHtml = '<div class="glass-panel p-6 rounded-lg border border-white/5 hover:border-nd transition-colors group space-y-4 animate-enter">';
+                
+                if (isCoach) {
+                    const record = item.career_record || '0-0';
+                    const parts = record.split('-');
+                    const winPct = (item.career_win_pct * 100 || 0).toFixed(1);
+                    
+                    itemHtml += `
+                        <div class="flex justify-between items-start pb-3 border-b border-white/5">
+                            <div class="flex items-start gap-4 flex-1">
+                                ${item.headshot_url ? `<img src="${item.headshot_url}" class="w-14 h-20 rounded bg-white/5 border border-white/10 object-cover">` : ''}
+                                <div class="flex-1">
+                                    <h3 class="text-white font-bold font-orbitron text-lg group-hover:text-nd transition-colors">${item.name}</h3>
+                                    <p class="text-xs text-slate-500 font-mono mt-1">${item.current_school || 'N/A'}</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-mono text-xl text-nd font-bold">${parts[0]}-${parts[1]}</div>
+                                <p class="text-xs text-slate-500 mt-1">${winPct}% W.L.</p>
+                            </div>
+                        </div>
+                    `;
+
+                    if (item.id) {
+                        const coachData = await Promise.all([
+                            fetchData(`/api/coach/${item.id}/rankings`),
+                            fetchData(`/api/coach/${item.id}/recruiting`),
+                            fetchData(`/api/coach/${item.id}/draft_picks`),
+                        ]).catch(() => [null, null, null]);
+
+                        const [rankings, recruiting, draftPicks] = coachData;
+                        
+                        itemHtml += '<div class="grid grid-cols-3 gap-3 text-xs">';
+                        if (rankings && rankings.total) {
+                            itemHtml += `<div class="bg-white/5 p-2 rounded"><div class="text-nd font-bold">${rankings.total}</div><div class="text-slate-500">Top 25 Weeks</div></div>`;
+                        }
+                        if (recruiting && recruiting.length > 0) {
+                            itemHtml += `<div class="bg-white/5 p-2 rounded"><div class="text-nd font-bold">${recruiting.length}</div><div class="text-slate-500">Recruit Classes</div></div>`;
+                        }
+                        if (draftPicks && draftPicks.length > 0) {
+                            itemHtml += `<div class="bg-white/5 p-2 rounded"><div class="text-nd font-bold">${draftPicks.length}</div><div class="text-slate-500">Draft Picks</div></div>`;
+                        }
+                        itemHtml += '</div>';
+                    }
+                } else if (isTeam) {
+                    const logoHtml = item.logo_url ? `<img src="${item.logo_url}" class="h-10 w-auto mr-3">` : '';
+                    itemHtml += `
+                        <div class="flex items-start gap-4 pb-3 border-b border-white/5">
+                            ${logoHtml}
+                            <div class="flex-1">
+                                <h3 class="text-white font-bold font-orbitron text-lg group-hover:text-cyan transition-colors">${item.school || item.name}</h3>
+                                <div class="flex gap-4 mt-2">
+                                    <span class="text-xs text-slate-500 font-mono border border-white/10 px-2 py-0.5 rounded">${item.conference || 'N/A'}</span>
+                                    <span class="text-xs text-cyan font-mono font-bold">ID: ${item.id}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    if (item.id) {
+                        const teamData = await Promise.all([
+                            fetchData(`/api/team/${item.id}`),
+                            fetchData(`/api/team/${item.id}/roster`),
+                            fetchData(`/api/drives/team/${encodeURIComponent(item.school)}/stats`),
+                            fetchData(`/api/nil/team/${item.id}`),
+                        ]).catch(() => [null, null, null, null]);
+
+                        const [fullTeamData, roster, driveStats, nilData] = teamData;
+                        
+                        itemHtml += '<div class="grid grid-cols-4 gap-3 text-xs mb-4">';
+                        
+                        if (fullTeamData && fullTeamData.rankings && fullTeamData.rankings.length > 0) {
+                            const currentRank = fullTeamData.rankings[0];
+                            let rankStr = currentRank.playoff_rank ? `#${currentRank.playoff_rank} CFP` : (currentRank.ap_rank ? `#${currentRank.ap_rank} AP` : 'UR');
+                            itemHtml += `<div class="bg-white/5 p-2 rounded border border-white/5"><div class="text-cyan font-bold">${rankStr}</div><div class="text-slate-500">Rank</div></div>`;
+                        }
+                        
+                        if (roster) {
+                            const rosterCount = Array.isArray(roster) ? roster.length : (roster.players ? roster.players.length : 0);
+                            itemHtml += `<div class="bg-white/5 p-2 rounded border border-white/5"><div class="text-cyan font-bold">${rosterCount}</div><div class="text-slate-500">Roster</div></div>`;
+                        }
+
+                        if (nilData) {
+                            const nilValue = (nilData.total_valuation || 0) / 1000000;
+                            itemHtml += `<div class="bg-white/5 p-2 rounded border border-white/5"><div class="text-emerald-500 font-bold">$${nilValue.toFixed(1)}M</div><div class="text-slate-500">NIL</div></div>`;
+                        }
+                        itemHtml += '</div>';
+
+                        // ADVANCED ANALYTICS BLOCK
+                        if (fullTeamData && fullTeamData.seasons && fullTeamData.seasons.length > 0) {
+                            const season = fullTeamData.seasons[0];
+                            itemHtml += `<div class="border-t border-white/5 pt-3 mt-3">
+                                <div class="text-[10px] font-bold text-cyan mb-2 uppercase tracking-widest flex items-center gap-2"><i data-lucide="cpu" class="w-3 h-3"></i> Advanced Analytics (${season.season})</div>
+                                
+                                <!-- 1. Efficiency Ratings -->
+                                <div class="mb-4 bg-white/5 p-3 rounded-lg border border-white/5">
+                                    <div class="text-[9px] text-slate-400 mb-2 uppercase tracking-widest font-bold">Efficiency Ratings</div>
+                                    <div class="grid grid-cols-4 gap-2">`;
+                            
+                            if (season.fpi) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">FPI</div><div class="text-white font-bold">${season.fpi.toFixed(1)}</div>${rankBadge(season.fpi_ranking)}</div>`;
+                            if (season.sp_rating) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">SP+</div><div class="text-white font-bold">${season.sp_rating.toFixed(1)}</div>${rankBadge(season.sp_ranking)}</div>`;
+                            if (season.elo_rating) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">ELO</div><div class="text-white font-bold">${season.elo_rating}</div></div>`;
+                            if (season.srs) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">SRS</div><div class="text-white font-bold">${season.srs.toFixed(1)}</div></div>`;
+                            itemHtml += `</div></div>`;
+
+                            // 2. Offensive Efficiency
+                            itemHtml += `<div class="mb-4 bg-emerald-500/5 p-3 rounded-lg border border-emerald-500/10">
+                                <div class="text-[9px] text-emerald-500 mb-2 uppercase tracking-widest font-bold">Offensive Efficiency</div>
+                                <div class="grid grid-cols-4 gap-2">`;
+                            
+                            if (season.fpi_offense_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-emerald-500"><div class="text-[9px] text-slate-500">FPI Off</div><div class="text-white font-bold">${season.fpi_offense_efficiency.toFixed(1)}</div></div>`;
+                            if (season.sp_offense) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-emerald-500"><div class="text-[9px] text-slate-500">SP+ Off</div><div class="text-white font-bold">${season.sp_offense.toFixed(1)}</div></div>`;
+                            if (season.off_ppa) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">PPA</div><div class="text-white font-bold">${season.off_ppa.toFixed(3)}</div></div>`;
+                            if (season.off_success_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Success %</div><div class="text-white font-bold">${(season.off_success_rate*100).toFixed(1)}%</div></div>`;
+                            if (season.off_explosiveness) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Explosiveness</div><div class="text-white font-bold">${season.off_explosiveness.toFixed(2)}</div></div>`;
+                            if (season.off_power_success) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Power Succ</div><div class="text-white font-bold">${(season.off_power_success*100).toFixed(1)}%</div></div>`;
+                            if (season.off_line_yards) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Line Yards</div><div class="text-white font-bold">${season.off_line_yards.toFixed(2)}</div></div>`;
+                            if (season.off_points_per_opportunity) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Pts/Opp</div><div class="text-white font-bold">${season.off_points_per_opportunity.toFixed(2)}</div></div>`;
+                            itemHtml += `</div></div>`;
+
+                            // 3. Defensive Efficiency
+                            itemHtml += `<div class="mb-4 bg-red-500/5 p-3 rounded-lg border border-red-500/10">
+                                <div class="text-[9px] text-red-500 mb-2 uppercase tracking-widest font-bold">Defensive Efficiency</div>
+                                <div class="grid grid-cols-4 gap-2">`;
+                            
+                            if (season.fpi_defense_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-red-500"><div class="text-[9px] text-slate-500">FPI Def</div><div class="text-white font-bold">${season.fpi_defense_efficiency.toFixed(1)}</div></div>`;
+                            if (season.sp_defense) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-red-500"><div class="text-[9px] text-slate-500">SP+ Def</div><div class="text-white font-bold">${season.sp_defense.toFixed(1)}</div></div>`;
+                            if (season.def_ppa) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">PPA</div><div class="text-white font-bold">${season.def_ppa.toFixed(3)}</div></div>`;
+                            if (season.def_success_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Success %</div><div class="text-white font-bold">${(season.def_success_rate*100).toFixed(1)}%</div></div>`;
+                            if (season.def_explosiveness) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Explosiveness</div><div class="text-white font-bold">${season.def_explosiveness.toFixed(2)}</div></div>`;
+                            if (season.def_power_success) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Power Succ</div><div class="text-white font-bold">${(season.def_power_success*100).toFixed(1)}%</div></div>`;
+                            if (season.def_line_yards) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Line Yards</div><div class="text-white font-bold">${season.def_line_yards.toFixed(2)}</div></div>`;
+                            if (season.def_points_per_opportunity) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Pts/Opp</div><div class="text-white font-bold">${season.def_points_per_opportunity.toFixed(2)}</div></div>`;
+                            itemHtml += `</div></div>`;
+
+                            // 4. Field Position & Havoc
+                            itemHtml += `<div class="mb-4 bg-purple-500/5 p-3 rounded-lg border border-purple-500/10">
+                                <div class="text-[9px] text-purple-500 mb-2 uppercase tracking-widest font-bold">Field Position & Havoc</div>
+                                <div class="grid grid-cols-4 gap-2">`;
+                            if (season.off_field_pos_avg_start) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Off FP</div><div class="text-white font-bold">${season.off_field_pos_avg_start.toFixed(1)}</div></div>`;
+                            if (season.def_field_pos_avg_start) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Def FP</div><div class="text-white font-bold">${season.def_field_pos_avg_start.toFixed(1)}</div></div>`;
+                            if (season.off_havoc_total) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Off Havoc</div><div class="text-white font-bold">${(season.off_havoc_total*100).toFixed(1)}%</div></div>`;
+                            if (season.def_havoc_total) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Def Havoc</div><div class="text-white font-bold">${(season.def_havoc_total*100).toFixed(1)}%</div></div>`;
+                            if (season.off_stuff_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Off Stuff</div><div class="text-white font-bold">${(season.off_stuff_rate*100).toFixed(1)}%</div></div>`;
+                            if (season.def_stuff_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Def Stuff</div><div class="text-white font-bold">${(season.def_stuff_rate*100).toFixed(1)}%</div></div>`;
+                            itemHtml += `</div></div>`;
+
+                            // 5. Recruiting & Talent
+                            itemHtml += `<div class="bg-yellow-500/5 p-3 rounded-lg border border-yellow-500/10">
+                                <div class="text-[9px] text-yellow-500 mb-2 uppercase tracking-widest font-bold">Recruiting & Talent</div>
+                                <div class="grid grid-cols-4 gap-2">`;
+                            if (season.recruiting_rank) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Recruit Rank</div><div class="text-white font-bold">#${season.recruiting_rank}</div></div>`;
+                            if (season.recruiting_points) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Points</div><div class="text-white font-bold">${season.recruiting_points.toFixed(1)}</div></div>`;
+                            if (season.talent_composite) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Talent</div><div class="text-white font-bold">${season.talent_composite.toFixed(1)}</div></div>`;
+                            if (season.fpi_overall_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Overall Eff</div><div class="text-white font-bold">${season.fpi_overall_efficiency.toFixed(1)}</div></div>`;
+                            if (season.fpi_special_teams_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">ST Eff</div><div class="text-white font-bold">${season.fpi_special_teams_efficiency.toFixed(1)}</div></div>`;
+                            itemHtml += `</div></div>`;
+
+                            itemHtml += `</div>`;
+                        }
+                    }
+                }
+                itemHtml += '</div>';
+                html += itemHtml;
+            }
+
+            container.innerHTML = html;
+            updateIcons();
+        }
+
+        async function initDashboard() {
+            await Promise.all([
+                loadCoaches(),
+                loadTeams(),
+                loadNIL(),
+                loadGames(),
+                loadDrives(),
+                loadPlayers(),
+                loadStats()
+            ]);
+            updateIcons();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            updateIcons(); // Initialize icons FIRST
+            switchTab('coaches'); // Then switch to active tab
+            typeWriter(); // Start Typewriter effect
+            initDashboard(); // Finally load data
+        });
+
+        // Auto Refresh
+        setInterval(initDashboard, 300000);
+
+    </script>
+</body>
+</html>

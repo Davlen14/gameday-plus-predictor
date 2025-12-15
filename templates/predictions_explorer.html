@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictions Database // Nexus</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151b2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        brand: {
+                            red: '#FF0F45',
+                            dark: '#030303',
+                            surface: '#0A0A0A',
+                            accent: '#CCFF00'
+                        },
+                        accent: {
+                            cyan: '#06b6d4',
+                            purple: '#8b5cf6',
+                            emerald: '#10b981'
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 3s linear infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-header {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Graph Canvas */
+        #schema-canvas {
+            background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+        }
+
+        /* Table Styles */
+        .cyber-table th {
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.7rem;
+            color: #94a3b8;
+            background: rgba(255, 15, 69, 0.1);
+            border-bottom: 2px solid rgba(255, 15, 69, 0.3);
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+        .cyber-table th:hover {
+            background: rgba(255, 15, 69, 0.2);
+        }
+        .cyber-table th.sortable::after {
+            content: '\u21c5';
+            margin-left: 4px;
+            opacity: 0.3;
+            font-size: 0.6rem;
+        }
+        .cyber-table th.sort-asc::after {
+            content: '\u2191';
+            opacity: 1;
+            color: #FF0F45;
+        }
+        .cyber-table th.sort-desc::after {
+            content: '\u2193';
+            opacity: 1;
+            color: #FF0F45;
+        }
+        .cyber-table td {
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            color: #cbd5e1;
+            font-size: 0.8rem;
+        }
+        .cyber-table tr:hover td {
+            background: rgba(255, 15, 69, 0.05);
+            color: #fff;
+        }
+        .cyber-table th.sticky-team-col,
+        .cyber-table td.sticky-team-col {
+            position: sticky;
+            left: 0;
+            z-index: 20;
+            background: rgb(15, 23, 42);
+            backdrop-filter: blur(80px) saturate(180%);
+            -webkit-backdrop-filter: blur(80px) saturate(180%);
+            border-right: 1px solid rgba(255, 15, 69, 0.2);
+            box-shadow: 2px 0 12px rgba(0, 0, 0, 0.5);
+        }
+        .cyber-table th.sticky-team-col {
+            background: rgb(15, 23, 42);
+            backdrop-filter: blur(80px) saturate(180%);
+            -webkit-backdrop-filter: blur(80px) saturate(180%);
+            z-index: 21;
+        }
+        .cyber-table tr:hover td.sticky-team-col {
+            background: rgba(255, 15, 69, 0.2);
+            backdrop-filter: blur(80px) saturate(180%);
+            -webkit-backdrop-filter: blur(80px) saturate(180%);
+        }
+
+        /* Utilities */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 15, 69, 0.5);
+        }
+        .border-glow:hover {
+            box-shadow: 0 0 15px rgba(255, 15, 69, 0.15);
+            border-color: rgba(255, 15, 69, 0.4);
+        }
+        
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Top Navigation -->
+    <header class="glass-header sticky top-0 z-50 h-16 flex items-center justify-between px-6">
+        <div class="flex items-center gap-4">
+            <div class="p-2 bg-brand-red/10 rounded-lg border border-brand-red/20">
+                <i data-lucide="database" class="w-5 h-5 text-brand-red"></i>
+            </div>
+            <div>
+                <h1 class="font-sans font-semibold text-sm tracking-wide text-white">PREDICTIONS<span class="text-brand-red">DB</span></h1>
+                <div class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-[10px] text-slate-400 font-mono">v2.4.0 • instance/active</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <div class="hidden md:flex items-center gap-6 text-xs font-mono text-slate-400 border-r border-slate-800 pr-6">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="hard-drive" class="w-3 h-3"></i>
+                    <span>3.6 MB</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="activity" class="w-3 h-3"></i>
+                    <span>24ms Latency</span>
+                </div>
+            </div>
+            <button onclick="window.location.reload()" class="flex items-center gap-2 px-3 py-1.5 rounded-md hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-700">
+                <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span class="text-xs font-medium text-slate-300">Refresh</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="flex-1 p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 relative z-10">
+        
+        <!-- Left Column: Visualization & Controls (4 cols) -->
+        <div class="lg:col-span-4 flex flex-col gap-6">
+            
+            <!-- Schema Visualizer Card -->
+            <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-[400px] lg:h-[500px] relative">
+                <div class="absolute top-4 left-4 z-10 pointer-events-none">
+                    <h2 class="text-xs font-mono text-brand-red uppercase tracking-widest mb-1">Schema Topology</h2>
+                    <p class="text-[10px] text-slate-500">Live relationship mapping</p>
+                </div>
+                <canvas id="schema-canvas" class="w-full h-full cursor-move"></canvas>
+                
+                <!-- Overlay Stats -->
+                <div class="absolute bottom-0 w-full p-4 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div class="text-2xl font-mono font-bold text-white tracking-tighter" id="total-records-display">Loading...</div>
+                            <div class="text-[10px] text-slate-400 uppercase tracking-wide">Total Records</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xl font-mono font-bold text-brand-red">14</div>
+                            <div class="text-[10px] text-slate-400 uppercase tracking-wide">Active Tables</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats Grid -->
+            <div class="grid grid-cols-2 gap-3">
+                <div class="glass-panel p-4 rounded-xl border-l-2 border-l-purple-500">
+                    <div class="flex items-center justify-between mb-2">
+                        <i data-lucide="trophy" class="w-4 h-4 text-purple-400"></i>
+                        <span class="text-[10px] text-slate-500 font-mono">GAMES</span>
+                    </div>
+                    <div class="text-xl font-bold font-mono">805</div>
+                </div>
+                <div class="glass-panel p-4 rounded-xl border-l-2 border-l-emerald-500">
+                    <div class="flex items-center justify-between mb-2">
+                        <i data-lucide="users" class="w-4 h-4 text-emerald-400"></i>
+                        <span class="text-[10px] text-slate-500 font-mono">TEAMS</span>
+                    </div>
+                    <div class="text-xl font-bold font-mono">134</div>
+                </div>
+                <div class="glass-panel p-4 rounded-xl border-l-2 border-l-amber-500">
+                    <div class="flex items-center justify-between mb-2">
+                        <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
+                        <span class="text-[10px] text-slate-500 font-mono">DRIVES</span>
+                    </div>
+                    <div class="text-xl font-bold font-mono">11.5K</div>
+                </div>
+                <div class="glass-panel p-4 rounded-xl border-l-2 border-l-rose-500">
+                    <div class="flex items-center justify-between mb-2">
+                        <i data-lucide="bar-chart-2" class="w-4 h-4 text-rose-400"></i>
+                        <span class="text-[10px] text-slate-500 font-mono">POLLS</span>
+                    </div>
+                    <div class="text-xl font-bold font-mono">373</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Data Explorer (8 cols) -->
+        <div class="lg:col-span-8 flex flex-col h-[800px] lg:h-auto">
+            
+            <!-- Table Selection List -->
+            <div class="glass-panel rounded-xl flex-1 flex flex-col overflow-hidden">
+                <div class="p-4 border-b border-white/5 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="table" class="w-4 h-4 text-slate-400"></i>
+                        <span class="text-sm font-medium text-slate-200">Table Explorer</span>
+                    </div>
+                    <div class="relative">
+                        <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500"></i>
+                        <input type="text" placeholder="Filter tables..." class="bg-slate-900/50 border border-slate-700 rounded-lg py-1.5 pl-9 pr-3 text-xs text-white focus:outline-none focus:border-brand-red/50 w-48 transition-all">
+                    </div>
+                </div>
+
+                <!-- Split View: Table List & Data View -->
+                <div class="flex-1 flex overflow-hidden relative">
+                    
+                    <!-- Sidebar List -->
+                    <div class="w-64 border-r border-white/5 overflow-y-auto bg-slate-900/30" id="table-list-container">
+                        <!-- Generated via JS -->
+                    </div>
+
+                    <!-- Data View Area -->
+                    <div class="flex-1 flex flex-col bg-slate-950/30 overflow-hidden relative" id="data-view-area">
+                        
+                        <!-- Empty State -->
+                        <div id="empty-state" class="absolute inset-0 flex flex-col items-center justify-center text-slate-600">
+                            <div class="p-4 bg-slate-900 rounded-full border border-slate-800 mb-4 shadow-xl">
+                                <i data-lucide="mouse-pointer-2" class="w-8 h-8 opacity-50"></i>
+                            </div>
+                            <p class="text-sm font-medium">Select a table to inspect data</p>
+                            <p class="text-xs opacity-50 mt-1 font-mono">Waiting for input signal...</p>
+                        </div>
+
+                        <!-- Loading State -->
+                        <div id="loading-state" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-slate-950/80 backdrop-blur-sm z-20">
+                            <div class="w-8 h-8 border-2 border-brand-red border-t-transparent rounded-full animate-spin"></div>
+                            <p class="text-xs text-brand-red mt-3 font-mono">FETCHING RECORDS</p>
+                        </div>
+
+                        <!-- Actual Data Table -->
+                        <div id="table-content-wrapper" class="hidden flex-col h-full w-full">
+                            <div class="px-4 py-3 border-b border-white/5 flex items-center justify-between bg-slate-900/50">
+                                <h3 class="font-mono text-sm text-brand-red font-bold" id="active-table-name">TABLE_NAME</h3>
+                                <div class="flex gap-2">
+                                    <button class="p-1.5 hover:bg-white/5 rounded transition-colors" title="Download CSV">
+                                        <i data-lucide="download" class="w-3.5 h-3.5 text-slate-400"></i>
+                                    </button>
+                                    <button onclick="closeTable()" class="p-1.5 hover:bg-red-500/10 hover:text-red-400 rounded transition-colors">
+                                        <i data-lucide="x" class="w-3.5 h-3.5 text-slate-400"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex-1 overflow-auto">
+                                <table class="w-full text-left cyber-table" id="main-data-table">
+                                    <!-- JS Generated -->
+                                </table>
+                            </div>
+                            <div class="px-4 py-2 border-t border-white/5 bg-slate-900/50 text-[10px] text-slate-500 font-mono flex justify-between">
+                                <span>Showing top 100 records</span>
+                                <span id="query-time">Query: 12ms</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // --- Data Configuration ---
+        const tables = [
+            { name: 'drives_complete', rows: 11507, type: 'fact', complexity: 'high' },
+            { name: 'historical_game_results', rows: 805, type: 'fact', complexity: 'med' },
+            { name: 'ap_poll_rankings', rows: 373, type: 'rank', complexity: 'low' },
+            { name: 'player_efficiency', rows: 191, type: 'derived', complexity: 'high' },
+            { name: 'team_drive_efficiency', rows: 183, type: 'derived', complexity: 'high' },
+            { name: 'team_season_summaries', rows: 134, type: 'dim', complexity: 'med' },
+            { name: 'comprehensive_power_rankings', rows: 123, type: 'rank', complexity: 'max' },
+            { name: 'team_defensive_stats', rows: 121, type: 'derived', complexity: 'med' },
+            { name: 'team_epa_metrics', rows: 121, type: 'derived', complexity: 'high' },
+            { name: 'team_offensive_stats', rows: 121, type: 'derived', complexity: 'med' },
+            { name: 'team_power_rankings', rows: 121, type: 'rank', complexity: 'high' },
+            { name: 'coaches_poll_rankings', rows: 75, type: 'rank', complexity: 'low' },
+            { name: 'coach_rankings', rows: 72, type: 'rank', complexity: 'low' },
+            { name: 'win_probability_curves', rows: 50, type: 'derived', complexity: 'max' },
+            { name: 'upcoming_games', rows: 40, type: 'fact', complexity: 'max' },
+            { name: 'conferences', rows: 10, type: 'dim', complexity: 'low' }
+        ];
+
+        // --- Update Total Stats ---
+        const totalRows = tables.reduce((acc, curr) => acc + curr.rows, 0);
+        document.getElementById('total-records-display').innerText = totalRows.toLocaleString();
+
+        // --- Sidebar List Generation ---
+        const listContainer = document.getElementById('table-list-container');
+        
+        tables.forEach(table => {
+            const item = document.createElement('div');
+            const isEmpty = table.rows === 0;
+            
+            item.className = `
+                group p-3 border-b border-white/5 cursor-pointer transition-all duration-200
+                hover:bg-slate-800/50 hover:border-l-2 hover:border-l-brand-red
+                ${isEmpty ? 'opacity-50 grayscale' : ''}
+            `;
+            
+            item.onclick = () => loadTableData(table.name);
+
+            // Icon selection based on type
+            let iconName = 'table';
+            if (table.type === 'rank') iconName = 'list-ordered';
+            if (table.type === 'fact') iconName = 'database';
+            if (table.type === 'derived') iconName = 'function-square';
+
+            item.innerHTML = `
+                <div class="flex items-center justify-between mb-1">
+                    <div class="flex items-center gap-2 overflow-hidden">
+                        <i data-lucide="${iconName}" class="w-3.5 h-3.5 text-slate-500 group-hover:text-brand-red transition-colors"></i>
+                        <span class="text-xs font-medium text-slate-300 group-hover:text-white truncate font-mono">${table.name}</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between pl-6">
+                    <span class="text-[10px] text-slate-500">${table.rows.toLocaleString()} rows</span>
+                    <div class="w-1.5 h-1.5 rounded-full ${isEmpty ? 'bg-slate-700' : 'bg-emerald-500/50 group-hover:bg-brand-red group-hover:shadow-[0_0_8px_rgba(255,15,69,0.8)]'} transition-all"></div>
+                </div>
+            `;
+            listContainer.appendChild(item);
+        });
+        lucide.createIcons();
+
+        // --- Table Data Logic ---
+        async function loadTableData(tableName) {
+            const emptyState = document.getElementById('empty-state');
+            const loadingState = document.getElementById('loading-state');
+            const contentWrapper = document.getElementById('table-content-wrapper');
+            const tableTitle = document.getElementById('active-table-name');
+            const dataTable = document.getElementById('main-data-table');
+
+            // Reset UI
+            emptyState.classList.add('hidden');
+            contentWrapper.classList.add('hidden');
+            loadingState.classList.remove('hidden');
+            tableTitle.innerText = tableName.toUpperCase();
+
+            try {
+                const startTime = performance.now();
+                const response = await fetch(`/api/predictions/table/${tableName}`);
+                
+                if (!response.ok) throw new Error('Network error');
+                
+                const data = await response.json();
+                const queryTime = Math.round(performance.now() - startTime);
+                document.getElementById('query-time').textContent = `Query: ${queryTime}ms`;
+
+                if (!data.rows || data.rows.length === 0) {
+                    renderEmptyTable(dataTable);
+                } else {
+                    renderTable(dataTable, data.columns, data.rows);
+                }
+                
+                loadingState.classList.add('hidden');
+                contentWrapper.classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Error loading table data:', error);
+                loadingState.classList.add('hidden');
+                contentWrapper.classList.remove('hidden');
+                dataTable.innerHTML = '<thead><tr><th class="px-4 py-3">Error</th></tr></thead><tbody><tr><td class="px-4 py-8 text-center text-red-400">Failed to load data. Make sure the server is running.</td></tr></tbody>';
+            }
+        }
+
+        let currentSortColumn = null;
+        let currentSortOrder = 'asc';
+        let currentTableData = { columns: [], rows: [] };
+
+        function renderTable(tableEl, columns, rows) {
+            currentTableData = { columns, rows };
+            
+            // Find team_name column index (case-insensitive)
+            const teamNameIdx = columns.findIndex(col => col.toLowerCase() === 'team_name');
+            
+            const limit = 100;
+            let html = '<thead><tr>';
+            columns.forEach((col, idx) => {
+                const sortClass = currentSortColumn === idx ? `sort-${currentSortOrder}` : 'sortable';
+                const stickyClass = idx === teamNameIdx ? 'sticky-team-col' : '';
+                html += `<th class="px-4 py-3 sticky top-0 backdrop-blur-md z-10 ${sortClass} ${stickyClass}" onclick="sortTable(${idx})">${col}</th>`;
+            });
+            html += '</tr></thead><tbody>';
+
+            rows.slice(0, limit).forEach(row => {
+                html += '<tr class="transition-colors">';
+                columns.forEach((col, idx) => {
+                    let val = row[col];
+                    // Format nulls nicely
+                    if (val === null || val === undefined) val = '<span class="text-slate-600 italic">null</span>';
+                    const stickyClass = idx === teamNameIdx ? 'sticky-team-col' : '';
+                    html += `<td class="px-4 py-2 font-mono whitespace-nowrap ${stickyClass}">${val}</td>`;
+                });
+                html += '</tr>';
+            });
+            html += '</tbody>';
+            tableEl.innerHTML = html;
+        }
+
+        function sortTable(columnIndex) {
+            const column = currentTableData.columns[columnIndex];
+            
+            // Toggle sort order if clicking same column
+            if (currentSortColumn === columnIndex) {
+                currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSortColumn = columnIndex;
+                currentSortOrder = 'asc';
+            }
+
+            // Sort the rows
+            const sortedRows = [...currentTableData.rows].sort((a, b) => {
+                let aVal = a[column];
+                let bVal = b[column];
+
+                // Handle nulls
+                if (aVal === null || aVal === undefined) return 1;
+                if (bVal === null || bVal === undefined) return -1;
+
+                // Try numeric comparison first
+                const aNum = parseFloat(aVal);
+                const bNum = parseFloat(bVal);
+                if (!isNaN(aNum) && !isNaN(bNum)) {
+                    return currentSortOrder === 'asc' ? aNum - bNum : bNum - aNum;
+                }
+
+                // String comparison
+                const aStr = String(aVal).toLowerCase();
+                const bStr = String(bVal).toLowerCase();
+                if (currentSortOrder === 'asc') {
+                    return aStr < bStr ? -1 : aStr > bStr ? 1 : 0;
+                } else {
+                    return aStr > bStr ? -1 : aStr < bStr ? 1 : 0;
+                }
+            });
+
+            // Re-render with sorted data
+            const dataTable = document.getElementById('main-data-table');
+            renderTable(dataTable, currentTableData.columns, sortedRows);
+        }
+
+        function renderEmptyTable(tableEl) {
+            tableEl.innerHTML = '<thead><tr><th class="px-4 py-3">Status</th></tr></thead><tbody><tr><td class="px-4 py-8 text-center text-slate-500">No records found in this dataset.</td></tr></tbody>';
+        }
+
+        function closeTable() {
+            document.getElementById('table-content-wrapper').classList.add('hidden');
+            document.getElementById('empty-state').classList.remove('hidden');
+        }
+
+        // --- Mock Data Generator (Fallback) ---
+        function generateMockData(tableName, tableEl) {
+            const columns = ['id', 'team_id', 'metric_val', 'created_at', 'status'];
+            const rows = Array.from({length: 15}, (_, i) => ({
+                id: i + 1000,
+                team_id: `TM-${Math.floor(Math.random() * 900) + 100}`,
+                metric_val: (Math.random() * 100).toFixed(2),
+                created_at: new Date().toISOString().split('T')[0],
+                status: Math.random() > 0.5 ? 'ACTIVE' : 'ARCHIVED'
+            }));
+            renderTable(tableEl, columns, rows);
+        }
+
+        // --- Canvas Visualization (The "Modern Web") ---
+        const canvas = document.getElementById('schema-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let nodes = [];
+        let connections = [];
+
+        function resizeCanvas() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            width = rect.width;
+            height = rect.height;
+            canvas.width = width;
+            canvas.height = height;
+            initGraph();
+        }
+
+        class Node {
+            constructor(label, size, type) {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.label = label;
+                this.size = size; // visual weight
+                this.type = type; // 'hub' or 'leaf'
+                
+                // Color based on type
+                if (type === 'hub') this.color = '#FF0F45'; // Brand Red
+                else if (type === 'sub') this.color = '#EF4444'; // Red-500
+                else this.color = '#64748b'; // Slate
+            }
+
+            update() {
+                // Bounds checking
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+                
+                this.x += this.vx;
+                this.y += this.vy;
+            }
+
+            draw() {
+                // Glow
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = this.color;
+                
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.type === 'hub' ? 4 : 2, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                
+                // Reset shadow for text
+                ctx.shadowBlur = 0;
+                
+                // Text Label
+                ctx.fillStyle = "rgba(255,255,255,0.7)";
+                ctx.font = "10px JetBrains Mono";
+                ctx.fillText(this.label, this.x + 8, this.y + 3);
+            }
+        }
+
+        function initGraph() {
+            nodes = [];
+            connections = [];
+            
+            // Create specific meaningful nodes
+            const hubs = ['GAMES', 'TEAMS', 'DRIVES'];
+            const subs = ['POLLS', 'STATS', 'COACHES', 'CONF'];
+            
+            hubs.forEach(h => nodes.push(new Node(h, 10, 'hub')));
+            subs.forEach(s => nodes.push(new Node(s, 6, 'sub')));
+            
+            // Add remaining tables as smaller nodes
+            tables.slice(0, 6).forEach(t => {
+                if(!hubs.includes(t.name) && !subs.includes(t.name)) {
+                    nodes.push(new Node('', 3, 'leaf'));
+                }
+            });
+
+            // Create connections
+            // Connect hubs to each other
+            for(let i=0; i<hubs.length; i++) {
+                for(let j=i+1; j<hubs.length; j++) {
+                    connections.push([nodes[i], nodes[j]]);
+                }
+            }
+            
+            // Connect subs to random hubs
+            for(let i=hubs.length; i<nodes.length; i++) {
+                const target = nodes[Math.floor(Math.random() * hubs.length)];
+                connections.push([nodes[i], target]);
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw connections first
+            ctx.lineWidth = 1;
+            connections.forEach(conn => {
+                const [n1, n2] = conn;
+                
+                // Distance based opacity
+                const dx = n1.x - n2.x;
+                const dy = n1.y - n2.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                const opacity = 1 - (dist / 300);
+                
+                if (opacity > 0) {
+                    ctx.strokeStyle = `rgba(255,255,255,${opacity * 0.15})`;
+                    ctx.beginPath();
+                    ctx.moveTo(n1.x, n1.y);
+                    ctx.lineTo(n2.x, n2.y);
+                    ctx.stroke();
+                }
+            });
+
+            // Update and draw nodes
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // Start
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        animate();
+
+    </script>
+</body>
+</html>

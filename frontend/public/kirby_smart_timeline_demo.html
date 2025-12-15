@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirby Smart Career Timeline</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/stock.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #0a0e1a;
+            color: white;
+        }
+        #container {
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 600px;
+            background: #1a1f2e;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ba0c2f;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏈 Kirby Smart Career Timeline</h1>
+    <p class="subtitle">Georgia Bulldogs • 2016-2025 • Interactive Chart with Zoom/Pan</p>
+    <div id="container"></div>
+
+    <script>
+        // Store watermark elements
+        let watermarkElements = [];
+        
+        // Function to clear previous watermarks
+        function clearWatermarks() {
+            watermarkElements.forEach(el => {
+                if (el && el.destroy) {
+                    el.destroy();
+                }
+            });
+            watermarkElements = [];
+        }
+        
+        // Chart load and redraw event - draw watermarks and school logos
+        function drawWatermarks() {
+            const chart = this;
+            const chartWidth = chart.chartWidth;
+            const chartHeight = chart.chartHeight;
+            const plotLeft = chart.plotLeft;
+            const plotTop = chart.plotTop;
+            const plotWidth = chart.plotWidth;
+            const plotHeight = chart.plotHeight;
+            
+            // Only draw if chart is wide enough
+            if (chartWidth < 600) return;
+            
+            // Clear previous watermarks
+            clearWatermarks();
+            
+            // Georgia logo watermark in center of plot area
+            const logoSize = 180;
+            watermarkElements.push(
+                chart.renderer.image(
+                    'https://a.espncdn.com/i/teamlogos/ncaa/500/61.png',
+                    plotLeft + (plotWidth - logoSize) / 2,
+                    plotTop + (plotHeight - logoSize) / 2,
+                    logoSize,
+                    logoSize
+                )
+                .attr({
+                    opacity: 0.08,
+                    zIndex: 0
+                })
+                .add()
+            );
+            
+            // Add Georgia text watermark
+            watermarkElements.push(
+                chart.renderer.text(
+                    '<b>GEORGIA BULLDOGS</b><br/>2016-2025<br/>117-20 (.854)',
+                    plotLeft + (plotWidth - logoSize) / 2 + 20,
+                    plotTop + (plotHeight - logoSize) / 2 + logoSize + 20
+                )
+                .css({
+                    color: '#ba0c2f',
+                    fontSize: '12px',
+                    opacity: 0.5,
+                    textAlign: 'center'
+                })
+                .attr({
+                    zIndex: 0
+                })
+                .add()
+            );
+            
+            // Position for headshot in header (top center)
+            const headshotSize = 100;
+            const headshotX = (chartWidth - headshotSize) / 2;
+            const headshotY = 20;
+            
+            // Draw Kirby Smart headshot - clear and prominent
+            watermarkElements.push(
+                chart.renderer.image(
+                    'https://pbs.twimg.com/profile_images/674335491802705920/_AmewjKA_400x400.jpg',
+                    headshotX,
+                    headshotY,
+                    headshotSize,
+                    headshotSize
+                )
+                .attr({
+                    opacity: 0.95,
+                    zIndex: 5
+                })
+                .add()
+            );
+            
+            // Add circular border around headshot
+            watermarkElements.push(
+                chart.renderer.circle(
+                    headshotX + headshotSize/2,
+                    headshotY + headshotSize/2,
+                    headshotSize/2 + 2
+                )
+                .attr({
+                    fill: 'transparent',
+                    stroke: '#ba0c2f',
+                    'stroke-width': 3,
+                    zIndex: 5
+                })
+                .add()
+            );
+            
+            // Add "Kirby Smart" text label below headshot
+            watermarkElements.push(
+                chart.renderer.text('Kirby Smart', headshotX + 5, headshotY + headshotSize + 20)
+                    .css({
+                        color: '#ba0c2f',
+                        fontSize: '16px',
+                        fontWeight: 'bold',
+                        opacity: 0.9
+                    })
+                    .attr({
+                        zIndex: 5
+                    })
+                    .add()
+            );
+            
+            // Add career record below name
+            watermarkElements.push(
+                chart.renderer.text('Georgia • 117-20 (.854)', headshotX - 5, headshotY + headshotSize + 38)
+                    .css({
+                        color: '#ffffff',
+                        fontSize: '12px',
+                        fontWeight: 'bold',
+                        opacity: 0.8
+                    })
+                    .attr({
+                        zIndex: 5
+                    })
+                    .add()
+            );
+        }
+        
+        // Main load handler
+        function onChartLoad() {
+            drawWatermarks.call(this);
+        }
+        
+        // Load Kirby Smart timeline data
+        fetch('../src/data/kirby_smart_timeline.json')
+            .then(response => response.json())
+            .then(timelineData => {
+                
+                // Prepare series data
+                const weeklyWinPct = timelineData.weekly.map(w => [w.x, w.win_pct]);
+                const weeklyHomeWinPct = timelineData.weekly.map(w => [w.x, w.home_win_pct]);
+                const weeklyConfWinPct = timelineData.weekly.map(w => [w.x, w.conf_win_pct]);
+                const weeklyAPRank = timelineData.weekly.map(w => [w.x, w.ap_rank_score]);
+                const weeklyMargin = timelineData.weekly.map(w => [w.x, w.avg_margin]);
+                const yearlyEliteScore = timelineData.yearly.map(y => [y.x, y.elite_score]);
+                const yearlyPPG = timelineData.yearly.filter(y => y.ppg).map(y => [y.x, y.ppg]);
+                const yearlyPPGAllowed = timelineData.yearly.filter(y => y.ppg_allowed).map(y => [y.x, y.ppg_allowed]);
+                
+                const options = {
+                    chart: {
+                        backgroundColor: '#1a1f2e',
+                        style: {
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+                        },
+                        scrollablePlotArea: {
+                            minWidth: 1200,
+                            scrollPositionX: 1
+                        },
+                        zoomType: 'x',
+                        panning: true,
+                        panKey: 'shift',
+                        events: {
+                            load: onChartLoad,
+                            redraw: drawWatermarks
+                        }
+                    },
+                    
+                    title: {
+                        text: 'Kirby Smart Career Analytics: Elite Score, Win %, Rankings, & Performance Metrics',
+                        style: {
+                            color: '#ffffff',
+                            fontSize: '18px',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    
+                    subtitle: {
+                        text: 'Click and drag to zoom • Hold Shift and drag to pan • Double-click to reset',
+                        style: {
+                            color: '#888'
+                        }
+                    },
+                    
+                    credits: {
+                        enabled: false
+                    },
+                    
+                    xAxis: {
+                        type: 'datetime',
+                        labels: {
+                            style: {
+                                color: '#888'
+                            }
+                        },
+                        gridLineColor: '#2a2f3e',
+                        lineColor: '#2a2f3e',
+                        plotBands: timelineData.plot_bands.map(band => ({
+                            ...band,
+                            color: '#ba0c2f22', // Georgia red with transparency
+                            label: {
+                                ...band.label,
+                                style: {
+                                    ...band.label.style,
+                                    color: '#ba0c2f',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        }))
+                    },
+                    
+                    yAxis: [
+                        {
+                            // Primary axis - Win % and Elite Score
+                            title: {
+                                text: 'Percentage / Elite Score',
+                                style: {
+                                    color: '#ffffff'
+                                }
+                            },
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#888'
+                                }
+                            },
+                            gridLineColor: '#2a2f3e',
+                            min: 0,
+                            max: 100
+                        },
+                        {
+                            // Secondary axis - AP Ranking Score
+                            title: {
+                                text: 'AP Ranking Quality',
+                                style: {
+                                    color: '#f59e0b'
+                                }
+                            },
+                            labels: {
+                                style: {
+                                    color: '#f59e0b'
+                                }
+                            },
+                            opposite: true,
+                            gridLineWidth: 0,
+                            min: 0,
+                            max: 100
+                        },
+                        {
+                            // Third axis - Points Per Game
+                            title: {
+                                text: 'Points Per Game',
+                                style: {
+                                    color: '#8b5cf6'
+                                }
+                            },
+                            labels: {
+                                style: {
+                                    color: '#8b5cf6'
+                                }
+                            },
+                            opposite: true,
+                            gridLineWidth: 0,
+                            min: 0
+                        },
+                        {
+                            // Fourth axis - Point Margin
+                            title: {
+                                text: 'Avg Point Margin',
+                                style: {
+                                    color: '#06b6d4'
+                                }
+                            },
+                            labels: {
+                                style: {
+                                    color: '#06b6d4'
+                                }
+                            },
+                            opposite: false,
+                            gridLineWidth: 0
+                        }
+                    ],
+                    
+                    legend: {
+                        itemStyle: {
+                            color: '#ffffff'
+                        },
+                        itemHoverStyle: {
+                            color: '#ba0c2f'
+                        }
+                    },
+                    
+                    tooltip: {
+                        shared: true,
+                        backgroundColor: '#0a0e1a',
+                        borderColor: '#ba0c2f',
+                        style: {
+                            color: '#ffffff'
+                        }
+                    },
+                    
+                    plotOptions: {
+                        series: {
+                            marker: {
+                                enabled: false,
+                                radius: 3,
+                                states: {
+                                    hover: {
+                                        enabled: true,
+                                        radius: 5
+                                    }
+                                }
+                            },
+                            states: {
+                                hover: {
+                                    lineWidthPlus: 1
+                                }
+                            }
+                        },
+                        area: {
+                            fillOpacity: 0.2,
+                            lineWidth: 2
+                        },
+                        flags: {
+                            tooltip: {
+                                xDateFormat: '%B %e, %Y'
+                            },
+                            style: {
+                                color: '#ffffff'
+                            }
+                        }
+                    },
+                    
+                    series: [
+                        {
+                            name: 'Elite Score',
+                            type: 'area',
+                            data: yearlyEliteScore,
+                            color: '#ba0c2f',
+                            fillColor: {
+                                linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+                                stops: [
+                                    [0, 'rgba(186, 12, 47, 0.4)'],
+                                    [1, 'rgba(186, 12, 47, 0.0)']
+                                ]
+                            },
+                            tooltip: {
+                                valueSuffix: ' / 100',
+                                valueDecimals: 1
+                            },
+                            yAxis: 0,
+                            zIndex: 3
+                        },
+                        {
+                            name: 'Win Percentage',
+                            type: 'line',
+                            data: weeklyWinPct,
+                            color: '#10b981',
+                            lineWidth: 2,
+                            tooltip: {
+                                valueSuffix: '%',
+                                valueDecimals: 1
+                            },
+                            yAxis: 0,
+                            zIndex: 2
+                        },
+                        {
+                            name: 'AP Ranking Quality',
+                            type: 'line',
+                            data: weeklyAPRank,
+                            color: '#f59e0b',
+                            lineWidth: 2,
+                            dashStyle: 'ShortDash',
+                            tooltip: {
+                                valueSuffix: ' / 100',
+                                valueDecimals: 1,
+                                headerFormat: '<span style="font-size: 10px">{point.key}</span><br/>'
+                            },
+                            yAxis: 1,
+                            zIndex: 1                        },
+                        {
+                            name: 'Home Win %',
+                            type: 'line',
+                            data: weeklyHomeWinPct,
+                            color: '#22d3ee',
+                            lineWidth: 1.5,
+                            dashStyle: 'Dot',
+                            tooltip: {
+                                valueSuffix: '%',
+                                valueDecimals: 1
+                            },
+                            yAxis: 0,
+                            zIndex: 2,
+                            visible: false
+                        },
+                        {
+                            name: 'Conference Win %',
+                            type: 'line',
+                            data: weeklyConfWinPct,
+                            color: '#a78bfa',
+                            lineWidth: 1.5,
+                            dashStyle: 'Dot',
+                            tooltip: {
+                                valueSuffix: '%',
+                                valueDecimals: 1
+                            },
+                            yAxis: 0,
+                            zIndex: 2,
+                            visible: false
+                        },
+                        {
+                            name: 'Points Per Game',
+                            type: 'spline',
+                            data: yearlyPPG,
+                            color: '#8b5cf6',
+                            lineWidth: 2,
+                            tooltip: {
+                                valueSuffix: ' pts',
+                                valueDecimals: 1
+                            },
+                            yAxis: 2,
+                            zIndex: 2,
+                            visible: false
+                        },
+                        {
+                            name: 'Points Allowed',
+                            type: 'spline',
+                            data: yearlyPPGAllowed,
+                            color: '#ef4444',
+                            lineWidth: 2,
+                            tooltip: {
+                                valueSuffix: ' pts',
+                                valueDecimals: 1
+                            },
+                            yAxis: 2,
+                            zIndex: 2,
+                            visible: false
+                        },
+                        {
+                            name: 'Avg Point Margin',
+                            type: 'line',
+                            data: weeklyMargin,
+                            color: '#06b6d4',
+                            lineWidth: 2,
+                            tooltip: {
+                                valueSuffix: ' pts',
+                                valueDecimals: 1
+                            },
+                            yAxis: 3,
+                            zIndex: 2,
+                            visible: false                        }
+                    ]
+                };
+                
+                // Add flags if available
+                if (timelineData.flags && timelineData.flags.length > 0) {
+                    // Bowl wins
+                    const bowlFlags = timelineData.flags.filter(f => f.title === '🏆');
+                    if (bowlFlags.length > 0) {
+                        options.series.push({
+                            type: 'flags',
+                            name: 'Bowl Wins',
+                            data: bowlFlags,
+                            color: '#ba0c2f',
+                            fillColor: '#ba0c2f',
+                            shape: 'squarepin',
+                            y: -60,
+                            style: {
+                                color: 'white'
+                            },
+                            states: {
+                                hover: {
+                                    fillColor: '#d10f38'
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Draft picks
+                    const draftFlags = timelineData.flags.filter(f => f.title === '⭐');
+                    if (draftFlags.length > 0) {
+                        options.series.push({
+                            type: 'flags',
+                            name: 'First Round Picks',
+                            data: draftFlags,
+                            color: '#f59e0b',
+                            fillColor: '#f59e0b',
+                            shape: 'circlepin',
+                            y: -90,
+                            style: {
+                                color: 'white'
+                            },
+                            states: {
+                                hover: {
+                                    fillColor: '#fbbf24'
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Win streaks
+                    const streakFlags = timelineData.flags.filter(f => f.title === '🔥');
+                    if (streakFlags.length > 0) {
+                        options.series.push({
+                            type: 'flags',
+                            name: 'Win Streaks',
+                            data: streakFlags,
+                            color: '#ef4444',
+                            fillColor: '#ef4444',
+                            shape: 'circlepin',
+                            y: -120,
+                            style: {
+                                color: 'white'
+                            },
+                            states: {
+                                hover: {
+                                    fillColor: '#f87171'
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Signature wins
+                    const signatureFlags = timelineData.flags.filter(f => f.title === '🌟');
+                    if (signatureFlags.length > 0) {
+                        options.series.push({
+                            type: 'flags',
+                            name: 'Signature Wins',
+                            data: signatureFlags,
+                            color: '#fbbf24',
+                            fillColor: '#fbbf24',
+                            shape: 'flag',
+                            y: -100,
+                            style: {
+                                color: 'white'
+                            },
+                            states: {
+                                hover: {
+                                    fillColor: '#fcd34d'
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Undefeated seasons
+                    const undefeatedFlags = timelineData.flags.filter(f => f.title === '💎');
+                    if (undefeatedFlags.length > 0) {
+                        options.series.push({
+                            type: 'flags',
+                            name: 'Undefeated Seasons',
+                            data: undefeatedFlags,
+                            color: '#06b6d4',
+                            fillColor: '#06b6d4',
+                            shape: 'squarepin',
+                            y: -30,
+                            style: {
+                                color: 'white'
+                            },
+                            states: {
+                                hover: {
+                                    fillColor: '#22d3ee'
+                                }
+                            }
+                        });
+                    }
+                }
+                
+                // Create the chart
+                Highcharts.chart('container', options);
+            })
+            .catch(error => {
+                console.error('Error loading timeline data:', error);
+                document.getElementById('container').innerHTML = 
+                    '<div style="color: red; padding: 40px; text-align: center;">' +
+                    'Error loading timeline data. Make sure kirby_smart_timeline.json exists.' +
+                    '</div>';
+            });
+    </script>
+</body>
+</html>
