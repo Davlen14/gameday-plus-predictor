@@ -3,7 +3,7 @@ import './EVBettingDashboard.css';
 import draftKingsLogo from '../assets/Draftking.svg';
 import fanduelLogo from '../assets/FanduelSports.png';
 import betmgmLogo from '../assets/MGM.png';
-import caesarsLogo from '../assets/caesars.png';
+import caesarsLogo from '../assets/Caesars.png';
 import fanaticsLogo from '../assets/fanatics.png';
 import espnbetLogo from '../assets/espnbet.svg';
 import bovadaLogo from '../assets/Bovada-Casino-Logo.svg';
@@ -12,7 +12,7 @@ import { LayoutGrid, Zap, TrendingUp, Calendar, CalendarDays, ArrowLeft, Refresh
 import DraftkingsLogo from '../assets/Draftking.svg';
 import FanduelLogo from '../assets/FanduelSports.png';
 import MGMLogo from '../assets/MGM.png';
-import CaesarsLogo from '../assets/caesars.png';
+import CaesarsLogo from '../assets/Caesars.png';
 import FanaticsLogo from '../assets/fanatics.png';
 import { useOddsTimeline } from '../hooks/useOddsTimeline';
 import { OddsTimelineChart } from './figma/OddsTimelineChart';
