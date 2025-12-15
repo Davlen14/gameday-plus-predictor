@@ -185,6 +185,22 @@ def serve_predictor_assets(path):
     except Exception as e:
         return jsonify({'error': 'Error serving predictor assets', 'details': str(e)}), 500
 
+@app.route('/ats_data_2025.json')
+def serve_ats_data():
+    """Serve ATS dataset used by the predictor"""
+    frontend_dist = os.path.join('frontend', 'dist')
+    if os.path.exists(os.path.join(frontend_dist, 'ats_data_2025.json')):
+        return send_from_directory(frontend_dist, 'ats_data_2025.json')
+    return jsonify({'error': 'ats_data_2025.json not found'}), 404
+
+@app.route('/CFP.png')
+def serve_cfp_logo():
+    """Serve CFP logo used by the predictor"""
+    frontend_dist = os.path.join('frontend', 'dist')
+    if os.path.exists(os.path.join(frontend_dist, 'CFP.png')):
+        return send_from_directory(frontend_dist, 'CFP.png')
+    return jsonify({'error': 'CFP.png not found'}), 404
+
 
 # =============================================================================
 # API ROUTES
