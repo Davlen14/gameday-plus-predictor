@@ -39,6 +39,7 @@ WHERE c.name LIKE '%Saban%'
 ORDER BY s.start_year;
 
 -- Find coaches who have coached multiple P5 schools
+-- Note: Threshold of 2 means coaches with 3+ schools (showing truly transient coaches)
 SELECT c.name, COUNT(DISTINCT s.school) as school_count,
        GROUP_CONCAT(DISTINCT s.school) as schools
 FROM coaches c
@@ -139,11 +140,22 @@ GROUP BY t.school, p.position_abbr
 ORDER BY player_count DESC;
 
 -- Top players by stats (example: rushing yards)
+-- Note: Update the season year as needed (e.g., 2024 -> 2025)
 SELECT p.name, t.school, ps.season, ps.rushing_yards, ps.rushing_tds
 FROM player_stats ps
 JOIN players p ON ps.player_id = p.id
 JOIN teams t ON p.team_id = t.id
 WHERE ps.season = 2024 AND ps.rushing_yards > 0
+ORDER BY ps.rushing_yards DESC
+LIMIT 20;
+
+-- Alternative: Get current season's top rushers dynamically
+SELECT p.name, t.school, ps.season, ps.rushing_yards, ps.rushing_tds
+FROM player_stats ps
+JOIN players p ON ps.player_id = p.id
+JOIN teams t ON p.team_id = t.id
+WHERE ps.season = (SELECT MAX(season) FROM player_stats) 
+  AND ps.rushing_yards > 0
 ORDER BY ps.rushing_yards DESC
 LIMIT 20;
 ```

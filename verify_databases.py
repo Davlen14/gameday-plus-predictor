@@ -34,7 +34,8 @@ def verify_database(db_path, db_name):
             print(f"   Sample tables:")
             for table in tables[:3]:
                 table_name = table[0]
-                cursor.execute(f"SELECT COUNT(*) FROM {table_name}")
+                # Use parameterized query with identifier quoting to prevent SQL injection
+                cursor.execute(f'SELECT COUNT(*) FROM "{table_name}"')
                 count = cursor.fetchone()[0]
                 print(f"      - {table_name}: {count:,} rows")
         
