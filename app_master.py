@@ -37,11 +37,24 @@ from espn_game_service import ESPNGameService
 app = Flask(__name__)
 espn_service = ESPNGameService()
 CORS(app)
-DB_PATH = 'instance/coaches_master.db'
+
+# Database path - check multiple locations
+if os.path.exists('instance/coaches_master.db'):
+    DB_PATH = 'instance/coaches_master.db'
+elif os.path.exists('/opt/render/project/src/instance/coaches_master.db'):
+    DB_PATH = '/opt/render/project/src/instance/coaches_master.db'
+elif os.path.exists('coaches_master.db'):
+    DB_PATH = 'coaches_master.db'
+else:
+    # Fallback - will create error message on routes
+    DB_PATH = 'instance/coaches_master.db'
+    print("⚠️  WARNING: Database not found at any expected location")
 
 
 def get_db_connection():
     """Get database connection with row factory"""
+    if not os.path.exists(DB_PATH):
+        raise FileNotFoundError(f"Database not found at: {DB_PATH}")
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -2171,11 +2184,13 @@ def server_error(e):
 
 
 if __name__ == '__main__':
-    # Check database exists
+    # Check database exists - but don't exit, just warn
     if not Path(DB_PATH).exists():
-        print("❌ Database not found!")
+        print("❌ Database not found at:", DB_PATH)
+        print("⚠️  App will start but database routes may not work")
         print("Run setup_master_db.py first to create the database")
-        exit(1)
+    else:
+        print(f"✅ Database found: {DB_PATH}")
     
     print("\n" + "=" * 80)
     print("🌐 UNIVERSAL COACH DATABASE API")
