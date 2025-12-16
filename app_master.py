@@ -32,10 +32,17 @@ import os
 import math
 from pathlib import Path
 from typing import Dict, List, Optional
-from espn_game_service import ESPNGameService
+
+# Try to import ESPN service, but don't fail if it's not available
+try:
+    from espn_game_service import ESPNGameService
+    espn_service = ESPNGameService()
+    print("✅ ESPN Game Service loaded")
+except Exception as e:
+    print(f"⚠️  ESPN Game Service not available: {e}")
+    espn_service = None
 
 app = Flask(__name__)
-espn_service = ESPNGameService()
 CORS(app)
 
 # Database path - check multiple locations
@@ -62,7 +69,13 @@ if not DB_PATH:
 def get_db_connection():
     """Get database connection with row factory"""
     if not os.path.exists(DB_PATH):
-        raise FileNotFoundError(f"Database not found at: {DB_PATH}")
+        error_msg = f"Database not found at: {DB_PATH}"
+        print(f"❌ {error_msg}")
+        print(f"❌ Current working directory: {os.getcwd()}")
+        print(f"❌ Directory contents: {os.listdir('.')}")
+        if os.path.exists('instance'):
+            print(f"❌ Instance directory contents: {os.listdir('instance')}")
+        raise FileNotFoundError(error_msg)
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -79,8 +92,78 @@ def rows_to_list(rows) -> List[Dict]:
 
 
 # =============================================================================
+# ERROR HANDLERS
+# =============================================================================
+
+@app.errorhandler(FileNotFoundError)
+def handle_db_not_found(e):
+    """Handle database not found errors"""
+    return jsonify({
+        'error': 'Database not available',
+        'message': str(e),
+        'status': 'service_unavailable'
+    }), 503
+
+@app.errorhandler(500)
+def handle_server_error(e):
+    """Handle internal server errors"""
+    return jsonify({
+        'error': 'Internal server error',
+        'message': str(e),
+        'status': 'error'
+    }), 500
+
+@app.errorhandler(404)
+def handle_not_found(e):
+    """Handle 404 errors"""
+    return jsonify({
+        'error': 'Not found',
+        'message': 'The requested resource was not found',
+        'status': 'not_found'
+    }), 404
+
+
+# =============================================================================
 # HTML ROUTES
 # =============================================================================
+
+@app.route('/health')
+def health_check():
+    """Health check endpoint with database status"""
+    db_exists = os.path.exists(DB_PATH)
+    cwd = os.getcwd()
+    
+    status = {
+        'status': 'healthy' if db_exists else 'degraded',
+        'database': {
+            'path': DB_PATH,
+            'exists': db_exists,
+            'size': os.path.getsize(DB_PATH) if db_exists else None
+        },
+        'environment': {
+            'cwd': cwd,
+            'port': os.environ.get('PORT', 'not set'),
+            'python_version': os.sys.version
+        }
+    }
+    
+    if db_exists:
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            cursor.execute("SELECT COUNT(*) as count FROM coaches")
+            coach_count = cursor.fetchone()[0]
+            cursor.execute("SELECT COUNT(*) as count FROM teams")
+            team_count = cursor.fetchone()[0]
+            conn.close()
+            status['database']['coaches'] = coach_count
+            status['database']['teams'] = team_count
+            status['database']['accessible'] = True
+        except Exception as e:
+            status['database']['accessible'] = False
+            status['database']['error'] = str(e)
+    
+    return jsonify(status), 200 if db_exists else 503
 
 @app.route('/')
 def index():
@@ -89,6 +172,7 @@ def index():
         'message': 'Gameday+ Coach Database API',
         'version': '1.0.0',
         'endpoints': {
+            '/health': 'Health check with database status',
             '/api/coaches': 'List all coaches',
             '/api/coach/<id>': 'Get coach details',
             '/api/coach/<id>/stints': 'Coaching history',
@@ -330,6 +414,9 @@ def game_recap(game_id):
 @app.route('/api/espn/game/<game_id>')
 def api_espn_game(game_id):
     """Get ESPN game data for field visualization"""
+    if not espn_service:
+        return jsonify({'success': False, 'error': 'ESPN service not available'}), 503
+    
     force_refresh = request.args.get('refresh', 'false').lower() == 'true'
     
     try:
@@ -355,6 +442,9 @@ def api_espn_game(game_id):
 @app.route('/api/espn/game/<game_id>/playbyplay')
 def api_espn_playbyplay(game_id):
     """Get full play-by-play data from ESPN"""
+    if not espn_service:
+        return jsonify({'success': False, 'error': 'ESPN service not available'}), 503
+    
     force_refresh = request.args.get('refresh', 'false').lower() == 'true'
     
     try:
@@ -380,6 +470,9 @@ def api_espn_playbyplay(game_id):
 @app.route('/api/espn/game/<game_id>/summary')
 def api_espn_summary(game_id):
     """Get raw ESPN game summary"""
+    if not espn_service:
+        return jsonify({'success': False, 'error': 'ESPN service not available'}), 503
+    
     force_refresh = request.args.get('refresh', 'false').lower() == 'true'
     
     try:
@@ -504,46 +597,51 @@ def api_get_coaches():
 @app.route('/api/teams')
 def api_get_teams():
     """Get list of all FBS teams"""
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    
-    cursor.execute("""
-        SELECT 
-            t.id,
-            t.school,
-            t.mascot,
-            t.abbreviation,
-            t.conference,
-            t.division,
-            t.classification,
-            t.color,
-            t.alt_color,
-            t.logo_url,
-            t.location_name,
-            t.city,
-            t.state,
-            t.capacity,
-            COUNT(DISTINCT r.id) as total_rankings,
-            COUNT(DISTINCT s.id) as total_seasons,
-            ts.wins as latest_wins,
-            ts.losses as latest_losses,
-            ts.sp_rating as latest_sp,
-            ts.talent_composite as latest_talent
-        FROM teams t
-        LEFT JOIN team_rankings r ON t.id = r.team_id
-        LEFT JOIN team_seasons s ON t.id = s.team_id
-        LEFT JOIN team_seasons ts ON t.id = ts.team_id AND ts.season = (SELECT MAX(season) FROM team_seasons)
-        GROUP BY t.id
-        ORDER BY t.school
-    """)
-    
-    teams = rows_to_list(cursor.fetchall())
-    conn.close()
-    
-    return jsonify({
-        'teams': teams,
-        'count': len(teams)
-    })
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        cursor.execute("""
+            SELECT 
+                t.id,
+                t.school,
+                t.mascot,
+                t.abbreviation,
+                t.conference,
+                t.division,
+                t.classification,
+                t.color,
+                t.alt_color,
+                t.logo_url,
+                t.location_name,
+                t.city,
+                t.state,
+                t.capacity,
+                COUNT(DISTINCT r.id) as total_rankings,
+                COUNT(DISTINCT s.id) as total_seasons,
+                ts.wins as latest_wins,
+                ts.losses as latest_losses,
+                ts.sp_rating as latest_sp,
+                ts.talent_composite as latest_talent
+            FROM teams t
+            LEFT JOIN team_rankings r ON t.id = r.team_id
+            LEFT JOIN team_seasons s ON t.id = s.team_id
+            LEFT JOIN team_seasons ts ON t.id = ts.team_id AND ts.season = (SELECT MAX(season) FROM team_seasons)
+            GROUP BY t.id
+            ORDER BY t.school
+        """)
+        
+        teams = rows_to_list(cursor.fetchall())
+        conn.close()
+        
+        return jsonify({
+            'teams': teams,
+            'count': len(teams)
+        })
+    except FileNotFoundError as e:
+        return jsonify({'error': 'Database not available', 'message': str(e)}), 503
+    except Exception as e:
+        return jsonify({'error': 'Failed to load teams', 'message': str(e)}), 500
 
 
 @app.route('/api/stats/conference-wins')
