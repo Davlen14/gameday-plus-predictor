@@ -21,4 +21,4 @@ cmds = ["npm --prefix frontend run build"]
 
 # Define the final start command for the Python backend
 [start]
-cmd = "gunicorn app:app --bind 0.0.0.0:$PORT"
+cmd = "gunicorn app_master:app --bind 0.0.0.0:$PORT"

@@ -39,16 +39,24 @@ espn_service = ESPNGameService()
 CORS(app)
 
 # Database path - check multiple locations
-if os.path.exists('instance/coaches_master.db'):
-    DB_PATH = 'instance/coaches_master.db'
-elif os.path.exists('/opt/render/project/src/instance/coaches_master.db'):
-    DB_PATH = '/opt/render/project/src/instance/coaches_master.db'
-elif os.path.exists('coaches_master.db'):
-    DB_PATH = 'coaches_master.db'
-else:
+DB_PATH = None
+possible_paths = [
+    'instance/coaches_master.db',
+    '/opt/render/project/src/instance/coaches_master.db',  # Render
+    '/app/instance/coaches_master.db',  # Railway/Docker
+    'coaches_master.db',  # Root directory
+]
+
+for path in possible_paths:
+    if os.path.exists(path):
+        DB_PATH = path
+        break
+
+if not DB_PATH:
     # Fallback - will create error message on routes
     DB_PATH = 'instance/coaches_master.db'
     print("⚠️  WARNING: Database not found at any expected location")
+    print(f"⚠️  Checked: {', '.join(possible_paths)}")
 
 
 def get_db_connection():
@@ -2196,8 +2204,9 @@ if __name__ == '__main__':
     print("🌐 UNIVERSAL COACH DATABASE API")
     print("=" * 80)
     print(f"📁 Database: {DB_PATH}")
-    print(f"🌍 Server: http://localhost:5555")
-    print(f"📊 API Docs: http://localhost:5555/api/stats")
+    port = int(os.environ.get('PORT', 5555))
+    print(f"🌍 Server: http://localhost:{port}")
+    print(f"📊 API Docs: http://localhost:{port}/api/stats")
     print("=" * 80 + "\n")
     
-    app.run(debug=True, port=5555)
+    app.run(debug=os.environ.get('FLASK_ENV') != 'production', host='0.0.0.0', port=port)

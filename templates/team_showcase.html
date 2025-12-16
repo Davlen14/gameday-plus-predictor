@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Team Explorer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Enterprise Team Showcase — GAMEDAY+</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -96,36 +96,36 @@
         <div class="relative z-10 flex flex-col items-center justify-center h-full w-full p-6">
             
             <!-- Header / Nav Indicator -->
-            <div class="absolute top-8 w-full flex justify-between items-center px-12">
-                <div class="flex items-center gap-6">
-                    <div class="text-7xl font-black tracking-tighter font-display text-white/10 select-none">G+</div>
-                    <div class="h-12 w-px bg-white/10"></div>
-                    <div id="counter-text" class="text-sm font-bold tracking-[0.3em] uppercase font-display text-white/60">
+            <div class="absolute top-4 md:top-8 w-full flex justify-between items-center px-4 md:px-12">
+                <div class="flex items-center gap-3 md:gap-6">
+                    <div class="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter font-display text-white/10 select-none">G+</div>
+                    <div class="h-6 md:h-12 w-px bg-white/10"></div>
+                    <div id="counter-text" class="text-xs md:text-sm font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase font-display text-white/60">
                         TEAM ENTERPRISE
                     </div>
                 </div>
                 <!-- Progress Bar -->
-                <div class="w-32 h-1 bg-white/20 rounded-full overflow-hidden">
+                <div class="w-16 md:w-32 h-1 bg-white/20 rounded-full overflow-hidden">
                     <div id="progress-bar" class="h-full bg-white transition-all duration-300" style="width: 0%"></div>
                 </div>
             </div>
 
             <!-- 3. The Glassmorphism Card -->
-            <div class="relative w-full max-w-7xl mx-auto perspective-1000">
+            <div class="relative w-full max-w-7xl mx-auto perspective-1000 px-4 md:px-0">
                 
-                <div id="card-container" class="w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl overflow-hidden fade-enter-active">
-                    <div class="grid grid-cols-1 md:grid-cols-2 min-h-[700px]">
+                <div id="card-container" class="w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden fade-enter-active">
+                    <div class="grid grid-cols-1 md:grid-cols-2 min-h-[500px] md:min-h-[700px]">
                         
                         <!-- Left Column: Visuals & Logo -->
-                        <div class="relative flex items-center justify-center p-12 bg-gradient-to-br from-white/5 to-transparent border-r border-white/10 group">
-                            <div class="absolute top-4 left-6">
-                                <span id="team-conf" class="px-3 py-1 rounded-full border border-white/20 text-xs font-semibold tracking-wider bg-black/20 uppercase">
+                        <div class="relative flex items-center justify-center p-6 md:p-12 bg-gradient-to-br from-white/5 to-transparent md:border-r border-white/10 group">
+                            <div class="absolute top-3 left-3 md:top-4 md:left-6">
+                                <span id="team-conf" class="px-2 md:px-3 py-1 rounded-full border border-white/20 text-xs font-semibold tracking-wider bg-black/20 uppercase">
                                     CONF
                                 </span>
                             </div>
                             
                             <!-- Logo with reflection effect -->
-                            <div class="relative w-64 h-64 md:w-96 md:h-96 transition-transform duration-700 hover:scale-105 hover:rotate-3">
+                            <div class="relative w-48 h-48 md:w-64 lg:w-96 md:h-64 lg:h-96 transition-transform duration-700 hover:scale-105 hover:rotate-3">
                                 <!-- Main Upward Logo -->
                                 <img id="team-logo" src="" alt="Team Logo" class="relative z-10 w-full h-full object-contain drop-shadow-2xl">
                                 
@@ -135,12 +135,12 @@
                         </div>
 
                         <!-- Right Column: Info & Typography -->
-                        <div class="flex flex-col justify-center p-8 md:p-16 space-y-10">
+                        <div class="flex flex-col justify-center p-6 md:p-8 lg:p-16 space-y-6 md:space-y-10">
                             <div>
-                                <h2 id="team-name" class="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70 font-display">
+                                <h2 id="team-name" class="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-none mb-2 md:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70 font-display">
                                     Team Name
                                 </h2>
-                                <p id="team-mascot" class="text-2xl md:text-3xl font-light tracking-widest uppercase opacity-80 font-display">
+                                <p id="team-mascot" class="text-lg md:text-2xl lg:text-3xl font-light tracking-widest uppercase opacity-80 font-display">
                                     Mascot
                                 </p>
                             </div>
@@ -181,11 +181,11 @@
 
                             <!-- Call To Action Button -->
                             <div class="pt-4">
-                                <button id="explore-btn" class="group relative px-8 py-3 rounded-xl bg-white text-black font-bold tracking-wide overflow-hidden transition-all hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.7)]">
-                                    <span class="relative z-10 flex items-center gap-2">
-                                        Explore Team <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                <button onclick="openEnterpriseModal()" id="explore-btn" class="group relative w-full md:w-auto px-6 md:px-8 py-3 rounded-xl bg-white/10 backdrop-blur-md border-2 border-white/30 text-white font-bold tracking-wide overflow-hidden transition-all hover:bg-white/20 hover:border-white/40 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.7)]">
+                                    <span class="relative z-10 flex items-center justify-center gap-2">
+                                        <i data-lucide="lock" class="w-4 h-4"></i>
+                                        Request Enterprise Access
                                     </span>
-                                    <div class="absolute inset-0 bg-white transition-transform group-hover:scale-105"></div>
                                 </button>
                             </div>
 
@@ -194,31 +194,112 @@
                 </div>
                 
                 <!-- Navigation Controls (Floating) -->
-                <div class="absolute top-1/2 -left-4 md:-left-16 transform -translate-y-1/2 z-20">
-                    <button onclick="changeSlide(-1)" class="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all hover:scale-110 active:scale-95 shadow-lg">
-                        <i data-lucide="chevron-left" class="w-8 h-8"></i>
+                <div class="absolute top-1/2 left-2 md:-left-4 lg:-left-16 transform -translate-y-1/2 z-20">
+                    <button onclick="changeSlide(-1)" class="p-2 md:p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all hover:scale-110 active:scale-95 shadow-lg">
+                        <i data-lucide="chevron-left" class="w-6 h-6 md:w-8 md:h-8"></i>
                     </button>
                 </div>
-                <div class="absolute top-1/2 -right-4 md:-right-16 transform -translate-y-1/2 z-20">
-                    <button onclick="changeSlide(1)" class="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all hover:scale-110 active:scale-95 shadow-lg">
-                        <i data-lucide="chevron-right" class="w-8 h-8"></i>
+                <div class="absolute top-1/2 right-2 md:-right-4 lg:-right-16 transform -translate-y-1/2 z-20">
+                    <button onclick="changeSlide(1)" class="p-2 md:p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all hover:scale-110 active:scale-95 shadow-lg">
+                        <i data-lucide="chevron-right" class="w-6 h-6 md:w-8 md:h-8"></i>
                     </button>
                 </div>
 
             </div>
 
             <!-- Footer Info -->
-            <div class="mt-12 text-center flex flex-col items-center gap-4">
-                <div class="opacity-40 text-sm font-light">
+            <div class="mt-6 md:mt-12 text-center flex flex-col items-center gap-3 md:gap-4 px-4">
+                <div class="opacity-40 text-xs md:text-sm font-light">
                     Use arrow keys to navigate • Swipe to explore
                 </div>
                 <div class="relative">
-                    <div class="text-3xl font-cursive text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50 overflow-hidden whitespace-nowrap border-r border-white/30 pr-2 animate-typewriter drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+                    <div class="text-lg md:text-2xl lg:text-3xl font-cursive text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50 overflow-hidden whitespace-nowrap border-r border-white/30 pr-2 animate-typewriter drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
                         Start your journey to greatness today
                     </div>
                 </div>
             </div>
 
+        </div>
+    </div>
+
+    <!-- Enterprise Access Modal -->
+    <div id="enterprise-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="relative bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl md:rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl transform scale-95 transition-all duration-300">
+            <!-- Close Button -->
+            <button onclick="closeEnterpriseModal()" class="absolute top-4 right-4 text-white/50 hover:text-white/80 transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <!-- Modal Header -->
+            <div class="text-center mb-6 md:mb-8">
+                <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-full mb-4">
+                    <i data-lucide="shield-check" class="w-8 h-8 md:w-10 md:h-10 text-yellow-400"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-2" style="font-family: 'Orbitron', sans-serif;">
+                    Enterprise Access
+                </h2>
+                <p class="text-sm md:text-base text-white/60">
+                    This premium feature is reserved for enterprise-level users
+                </p>
+            </div>
+
+            <!-- Access Methods -->
+            <div class="space-y-6">
+                <!-- Code Entry -->
+                <div class="space-y-3">
+                    <label class="text-xs md:text-sm text-white/70 uppercase tracking-wider font-semibold flex items-center gap-2">
+                        <i data-lucide="key" class="w-4 h-4"></i>
+                        Have an Access Code?
+                    </label>
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="access-code" 
+                            placeholder="Enter your code" 
+                            class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors"
+                        />
+                    </div>
+                    <button onclick="submitAccessCode()" class="w-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 rounded-xl px-4 py-3 text-yellow-400 font-semibold uppercase tracking-wider transition-all hover:from-yellow-500/30 hover:to-orange-500/30 hover:scale-105 active:scale-95">
+                        Verify Code
+                    </button>
+                </div>
+
+                <!-- Divider -->
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-white/10"></div>
+                    </div>
+                    <div class="relative flex justify-center text-xs uppercase">
+                        <span class="bg-black px-3 text-white/40">or</span>
+                    </div>
+                </div>
+
+                <!-- Email Submission -->
+                <div class="space-y-3">
+                    <label class="text-xs md:text-sm text-white/70 uppercase tracking-wider font-semibold flex items-center gap-2">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        Request Access
+                    </label>
+                    <div class="relative">
+                        <input 
+                            type="email" 
+                            id="request-email" 
+                            placeholder="your.email@company.com" 
+                            class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors"
+                        />
+                    </div>
+                    <button onclick="submitAccessRequest()" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white font-semibold uppercase tracking-wider transition-all hover:bg-white/20 hover:scale-105 active:scale-95">
+                        Submit Request
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer Note -->
+            <div class="mt-6 pt-6 border-t border-white/10">
+                <p class="text-xs text-center text-white/40">
+                    Enterprise features include advanced analytics, custom branding, and priority support
+                </p>
+            </div>
         </div>
     </div>
 
@@ -479,6 +560,87 @@
             if (e.key === 'ArrowRight') changeSlide(1);
             if (e.key === 'ArrowLeft') changeSlide(-1);
         });
+
+        // --- MODAL FUNCTIONS ---
+        function openEnterpriseModal() {
+            const modal = document.getElementById('enterprise-modal');
+            modal.classList.remove('pointer-events-none');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-95');
+                modal.querySelector('div').classList.add('scale-100');
+            }, 10);
+            lucide.createIcons();
+        }
+
+        function closeEnterpriseModal() {
+            const modal = document.getElementById('enterprise-modal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('pointer-events-none');
+            }, 300);
+        }
+
+        function submitAccessCode() {
+            const code = document.getElementById('access-code').value.trim();
+            if (!code) {
+                alert('Please enter an access code');
+                return;
+            }
+            // TODO: Implement backend validation
+            console.log('Access code submitted:', code);
+            alert('Access code validation coming soon. Our team will review your request.');
+        }
+
+        function submitAccessRequest() {
+            const email = document.getElementById('request-email').value.trim();
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            // TODO: Implement backend submission
+            console.log('Access request submitted:', email);
+            alert('Thank you! Our team will review your request and contact you within 24-48 hours.');
+            closeEnterpriseModal();
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeEnterpriseModal();
+        });
+
+        // Close modal on backdrop click
+        document.getElementById('enterprise-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'enterprise-modal') closeEnterpriseModal();
+        });
+
+        // --- TOUCH SWIPE SUPPORT ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    changeSlide(1); // Swipe left
+                } else {
+                    changeSlide(-1); // Swipe right
+                }
+            }
+        }
 
         // --- INITIALIZATION ---
         updateUI();
