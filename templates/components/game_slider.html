@@ -1,0 +1,1428 @@
+<!-- Upcoming Games Slider Component (ESPN Style) -->
+<style>
+    /* Game Slider Component Styles */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Optimized Game Card */
+    .game-card {
+        min-width: 320px;
+        height: 180px;
+        flex-shrink: 0;
+        background: rgba(20, 20, 20, 0.6);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .game-card:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Light Mode Support */
+    @media (prefers-color-scheme: light) {
+        .game-card {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+        .game-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+        .game-card .team-name { color: #1a1a1a; text-shadow: none; }
+        .game-card .team-score { color: #000; text-shadow: none; }
+        .game-card .card-header { color: #555; text-shadow: none; }
+        .game-card .vs-text { color: #888; }
+        .game-card .odds-label { color: #666; }
+        .game-card .odds-value { color: #000; text-shadow: none; }
+        .game-card .card-footer { background: rgba(0, 0, 0, 0.05); border-color: rgba(0,0,0,0.05); color: #333; }
+        .game-card .watermark-container { opacity: 0.08; filter: grayscale(100%); }
+        .game-card:hover .watermark-container { opacity: 0.12; filter: grayscale(0%); }
+        .game-card .content-overlay { background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.6) 80%); }
+        .game-card .predict-btn {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #111827;
+        }
+        .game-card .predict-btn:hover {
+            background: rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.16);
+        }
+    }
+
+    /* Full-bleed Watermark Background */
+    .watermark-container {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.2;
+        filter: grayscale(100%) contrast(1.2);
+        transition: all 0.5s ease;
+    }
+    
+    .game-card:hover .watermark-container {
+        opacity: 0.3;
+        filter: grayscale(0%) contrast(1.1);
+    }
+    
+    .watermark-logo {
+        width: 70%;
+        height: 120%;
+        object-fit: contain;
+        position: absolute;
+        top: -10%;
+    }
+    
+    .watermark-left {
+        left: -20%;
+        transform: rotate(-10deg);
+        mask-image: linear-gradient(to right, black, transparent);
+        -webkit-mask-image: linear-gradient(to right, black, transparent);
+    }
+    
+    .watermark-right {
+        right: -20%;
+        transform: rotate(10deg);
+        mask-image: linear-gradient(to left, black, transparent);
+        -webkit-mask-image: linear-gradient(to left, black, transparent);
+    }
+
+    /* Content Overlay */
+    .content-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 14px;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6) 80%);
+    }
+
+    /* Header */
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 10px;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.6);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Matchup */
+    .matchup-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;
+        padding: 4px 0;
+    }
+    
+    .team-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        width: 40%;
+        position: relative;
+    }
+    
+    .team-logo-main {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+        transition: transform 0.3s ease;
+    }
+    
+    .game-card:hover .team-logo-main {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+    }
+    
+    .team-name {
+        font-size: 13px;
+        font-weight: 800;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        line-height: 1.1;
+        letter-spacing: 0.5px;
+    }
+    
+    .team-rank {
+        position: absolute;
+        top: -5px;
+        right: 5px;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 10px;
+        font-weight: 900;
+        background: linear-gradient(135deg, #FFD700 0%, #FDB931 50%, #FFD700 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+        letter-spacing: 1px;
+        z-index: 20;
+    }
+    
+    .team-score {
+        font-size: 22px;
+        font-weight: 900;
+        color: white;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+    
+    .team-record {
+        font-size: 9px;
+        color: rgba(255, 255, 255, 0.5);
+        font-family: monospace;
+    }
+
+    /* VS */
+    .vs-display {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .vs-text {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.3);
+        font-weight: 700;
+        font-style: italic;
+    }
+    
+    /* Predict CTA */
+    .game-card .predict-btn {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 10px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #e5e7eb;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        z-index: 20;
+    }
+    
+    .predict-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 9999px;
+        background: #7cf17c;
+        box-shadow: 0 0 6px rgba(124, 241, 124, 0.5);
+    }
+    
+    .game-card .predict-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.18);
+    }
+    
+    .game-card .predict-btn:focus-visible {
+        outline: 1px solid rgba(124, 241, 124, 0.7);
+        outline-offset: 2px;
+    }
+
+    /* Footer */
+    .card-footer {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        font-size: 10px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 6px 12px;
+        border-radius: 20px;
+        align-self: center;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        width: fit-content;
+    }
+    
+    .odds-item {
+        display: flex;
+        gap: 4px;
+    }
+    
+    .odds-label { color: rgba(255, 255, 255, 0.4); }
+    .odds-value { color: #fff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); }
+
+    /* Header Animations */
+    @keyframes blink-green {
+        0%, 100% { opacity: 1; text-shadow: 0 0 8px rgba(74, 222, 128, 0.8); }
+        50% { opacity: 0.4; text-shadow: none; }
+    }
+    .blink-live {
+        color: #4ade80;
+        animation: blink-green 2s ease-in-out infinite;
+    }
+    
+    /* Predict Modal (Frosted Glass) */
+    .predict-modal-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .predict-modal {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 24px;
+        overflow: hidden;
+        background: rgba(15, 15, 15, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(22px) saturate(160%);
+        -webkit-backdrop-filter: blur(22px) saturate(160%);
+        animation: predictFadeIn 160ms ease-out;
+        position: relative;
+    }
+    
+    .predict-modal-watermark {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.15;
+        filter: grayscale(100%) contrast(1.2);
+        overflow: hidden;
+    }
+
+    .predict-modal-watermark img {
+        width: 60%;
+        height: 120%;
+        object-fit: contain;
+        position: absolute;
+        top: -10%;
+    }
+
+    .predict-modal-watermark .watermark-left {
+        left: -15%;
+        transform: rotate(-10deg);
+        mask-image: linear-gradient(to right, black, transparent);
+        -webkit-mask-image: linear-gradient(to right, black, transparent);
+    }
+
+    .predict-modal-watermark .watermark-right {
+        right: -15%;
+        transform: rotate(10deg);
+        mask-image: linear-gradient(to left, black, transparent);
+        -webkit-mask-image: linear-gradient(to left, black, transparent);
+    }
+    
+    @keyframes predictFadeIn {
+        from { opacity: 0; transform: translateY(8px) scale(0.98); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    
+    .predict-modal-inner { padding: 24px; position: relative; z-index: 1; }
+    
+    .predict-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 16px;
+    }
+    
+    .predict-modal-close {
+        width: 28px;
+        height: 28px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.75);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    .predict-modal-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.18);
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .predict-matchup {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .predict-team {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        max-width: 45%;
+    }
+    .predict-team-logo {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.12));
+        flex: 0 0 auto;
+    }
+    
+    .predict-logo-wrap {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        flex: 0 0 auto;
+    }
+    
+    .predict-logo-skeleton {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.06) 0%,
+            rgba(255, 255, 255, 0.14) 40%,
+            rgba(255, 255, 255, 0.06) 80%
+        );
+        background-size: 200% 100%;
+        animation: predictShimmer 1.1s ease-in-out infinite;
+    }
+    
+    @keyframes predictShimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+    
+    .predict-img {
+        opacity: 0;
+        transition: opacity 180ms ease;
+    }
+    
+    .predict-img.is-loaded { opacity: 1; }
+    .predict-team-name {
+        font-size: 12px;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.92);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .predict-at {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        color: rgba(255, 255, 255, 0.35);
+        flex: 0 0 auto;
+    }
+    
+    .predict-main {
+        margin-top: 12px;
+        padding: 12px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+    .predict-pick {
+        font-size: 18px;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.96);
+        letter-spacing: 0.02em;
+    }
+    .predict-sub {
+        margin-top: 4px;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .predict-chart {
+        margin-top: 16px;
+        padding: 16px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .predict-chart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    .predict-chart-team {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .predict-chart-logo {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .predict-chart-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .predict-bar-track {
+        display: flex;
+        height: 16px;
+        border-radius: 9999px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        position: relative;
+    }
+    
+    .predict-bar-seg { height: 100%; transition: width 0.5s ease-out; }
+    
+    .predict-bar-away {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), var(--away-color, rgba(255, 255, 255, 0.22)));
+    }
+    
+    .predict-bar-home {
+        background: linear-gradient(135deg, rgba(124, 241, 124, 0.25), var(--home-color, rgba(124, 241, 124, 0.55)));
+    }
+
+    .predict-bar-separator {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: rgba(255, 255, 255, 0.8);
+        transform: translateX(-50%);
+        z-index: 2;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    .predict-metrics {
+        margin-top: 10px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .predict-chip {
+        padding: 6px 10px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.72);
+        letter-spacing: 0.02em;
+    }
+    .predict-chip b {
+        color: rgba(255, 255, 255, 0.92);
+        font-weight: 800;
+    }
+    .predict-factors {
+        margin-top: 10px;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.45;
+    }
+    .predict-factors-title {
+        color: rgba(255, 255, 255, 0.65);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 9px;
+        margin-bottom: 4px;
+        font-family: 'Orbitron', sans-serif;
+    }
+    
+    .predict-market {
+        margin-top: 10px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .predict-market-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    
+    .predict-book {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+    }
+    
+    .predict-book-name {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.65);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-family: 'Orbitron', sans-serif;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .predict-book-logo {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.12));
+    }
+    
+    .predict-book-fallback {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.72);
+        letter-spacing: 0.06em;
+    }
+    
+    .predict-market-lines {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    
+    .predict-line {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .predict-line b {
+        color: rgba(255, 255, 255, 0.92);
+        font-weight: 800;
+    }
+    
+    .predict-best {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .predict-best-label {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 9px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+    }
+    
+    .predict-best-pick {
+        margin-top: 4px;
+        font-size: 14px;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.95);
+        letter-spacing: 0.02em;
+    }
+    
+    .predict-edge-meter {
+        margin-top: 8px;
+        height: 8px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+    }
+    
+    .predict-edge-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, rgba(124, 241, 124, 0.25), rgba(124, 241, 124, 0.75));
+        transition: width 220ms ease;
+    }
+    
+    .predict-best-sub {
+        margin-top: 6px;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .predict-loading {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.65);
+    }
+    .predict-spinner {
+        width: 14px;
+        height: 14px;
+        border-radius: 9999px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-top-color: rgba(124, 241, 124, 0.85);
+        animation: predictSpin 0.8s linear infinite;
+    }
+    @keyframes predictSpin { to { transform: rotate(360deg); } }
+    
+    @media (prefers-color-scheme: light) {
+        .predict-modal-overlay { background: rgba(0, 0, 0, 0.35); }
+        .predict-modal {
+            background: rgba(255, 255, 255, 0.72);
+            border-color: rgba(0, 0, 0, 0.08);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
+        }
+        .predict-modal-header { color: rgba(17, 24, 39, 0.65); }
+        .predict-modal-close {
+            background: rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.08);
+            color: rgba(17, 24, 39, 0.75);
+        }
+        .predict-modal-close:hover { background: rgba(0, 0, 0, 0.08); }
+        .predict-team-name { color: rgba(17, 24, 39, 0.9); }
+        .predict-at { color: rgba(17, 24, 39, 0.45); }
+        .predict-logo-wrap { background: rgba(0, 0, 0, 0.04); border-color: rgba(0, 0, 0, 0.07); }
+        .predict-logo-skeleton {
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.04) 0%,
+                rgba(0, 0, 0, 0.08) 40%,
+                rgba(0, 0, 0, 0.04) 80%
+            );
+            background-size: 200% 100%;
+        }
+        .predict-main {
+            background: rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.07);
+        }
+        .predict-chart { background: rgba(0, 0, 0, 0.03); border-color: rgba(0, 0, 0, 0.07); }
+        .predict-chart-row { color: rgba(17, 24, 39, 0.6); }
+        .predict-chart-row b { color: rgba(17, 24, 39, 0.9); }
+        .predict-bar-track { background: rgba(0, 0, 0, 0.04); border-color: rgba(0, 0, 0, 0.07); }
+        .predict-bar-away { background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), var(--away-color, rgba(0, 0, 0, 0.12))); }
+        .predict-bar-home { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), var(--home-color, rgba(16, 185, 129, 0.5))); }
+        .predict-pick { color: rgba(17, 24, 39, 0.95); }
+        .predict-sub { color: rgba(17, 24, 39, 0.6); }
+        .predict-chip {
+            background: rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.07);
+            color: rgba(17, 24, 39, 0.65);
+        }
+        .predict-chip b { color: rgba(17, 24, 39, 0.9); }
+        .predict-factors { color: rgba(17, 24, 39, 0.6); }
+        .predict-factors-title { color: rgba(17, 24, 39, 0.65); }
+        .predict-market { background: rgba(0, 0, 0, 0.03); border-color: rgba(0, 0, 0, 0.07); }
+        .predict-book-name { color: rgba(17, 24, 39, 0.65); }
+        .predict-book-fallback { color: rgba(17, 24, 39, 0.75); }
+        .predict-line { color: rgba(17, 24, 39, 0.6); }
+        .predict-line b { color: rgba(17, 24, 39, 0.92); }
+        .predict-best-label { color: rgba(17, 24, 39, 0.55); }
+        .predict-best-pick { color: rgba(17, 24, 39, 0.95); }
+        .predict-edge-meter { background: rgba(0, 0, 0, 0.04); border-color: rgba(0, 0, 0, 0.07); }
+        .predict-edge-fill { background: linear-gradient(90deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.6)); }
+        .predict-best-sub { color: rgba(17, 24, 39, 0.6); }
+        .predict-loading { color: rgba(17, 24, 39, 0.65); }
+        .predict-spinner { border-color: rgba(0, 0, 0, 0.15); border-top-color: rgba(16, 185, 129, 0.9); }
+    }
+</style>
+
+<div class="pt-20 overflow-hidden relative bg-transparent">
+    <div class="px-6 py-2 relative z-10">
+        <div class="flex items-center justify-between mb-2 max-w-7xl mx-auto">
+            <h3 class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] flex items-center gap-2">
+                <i data-lucide="radio" class="w-3.5 h-3.5 blink-live"></i>
+                Upcoming Games
+            </h3>
+            <div class="flex gap-1">
+                <button onclick="scrollGames('left')" class="w-6 h-6 rounded-full bg-white/5 hover:bg-white/10 transition flex items-center justify-center group">
+                    <i data-lucide="chevron-left" class="w-3 h-3 text-gray-500 group-hover:text-white transition-colors"></i>
+                </button>
+                <button onclick="scrollGames('right')" class="w-6 h-6 rounded-full bg-white/5 hover:bg-white/10 transition flex items-center justify-center group">
+                    <i data-lucide="chevron-right" class="w-3 h-3 text-gray-500 group-hover:text-white transition-colors"></i>
+                </button>
+            </div>
+        </div>
+        <div class="relative -mx-6">
+            <div id="gamesSlider" class="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth py-2 px-6" style="mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);">
+                <!-- Games will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Game Slider Component JavaScript (ES5 Compatible)
+    var _predictCache = {};
+    var _predictModalRequestKey = null;
+    var _predictEscHandler = null;
+    var _predictPrevOverflow = null;
+    
+    function _escapeHtml(value) {
+        return String(value == null ? '' : value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+    
+    function _formatPercent(value0to1) {
+        if (typeof value0to1 !== 'number' || isNaN(value0to1)) return '—';
+        return Math.round(value0to1 * 100) + '%';
+    }
+    
+    function _formatSignedNumber(value, digits) {
+        if (typeof value !== 'number' || isNaN(value)) return '—';
+        var d = typeof digits === 'number' ? digits : 1;
+        var n = value.toFixed(d);
+        return (value > 0 ? '+' : '') + n;
+    }
+    
+    function _parseNumber(value) {
+        if (value == null || value === '') return null;
+        var n = (typeof value === 'number') ? value : parseFloat(String(value));
+        return isNaN(n) ? null : n;
+    }
+    
+    function _safeHexColor(value) {
+        var s = String(value || '').trim();
+        return /^#[0-9a-fA-F]{3,8}$/.test(s) ? s : '';
+    }
+    
+    function _getBookLogo(provider) {
+        var p = String(provider || '').toLowerCase();
+        if (p.indexOf('draft') !== -1) return { src: '/static/img/sportsbooks/Draftking.svg', alt: 'DraftKings' };
+        if (p.indexOf('bovada') !== -1) return { src: '/static/img/sportsbooks/Bovada-Casino-Logo.svg', alt: 'Bovada' };
+        if (p.indexOf('espn') !== -1) return { src: '/static/img/sportsbooks/espnbet.svg', alt: 'ESPN BET' };
+        return null;
+    }
+    
+    function _bindImageSkeletons(root) {
+        if (!root || !root.querySelectorAll) return;
+        
+        var imgs = root.querySelectorAll('img.predict-img');
+        for (var i = 0; i < imgs.length; i++) {
+            (function(img) {
+                if (img._predictSkelBound) return;
+                img._predictSkelBound = true;
+                
+                function reveal(ok) {
+                    var skel = img.previousElementSibling;
+                    if (skel && skel.classList && skel.classList.contains('predict-logo-skeleton')) {
+                        skel.style.display = 'none';
+                    }
+                    if (ok) img.classList.add('is-loaded');
+                }
+                
+                function onLoad() { reveal(true); }
+                function onError() { reveal(false); img.style.display = 'none'; }
+                
+                img.addEventListener('load', onLoad);
+                img.addEventListener('error', onError);
+                
+                if (img.complete) {
+                    if (img.naturalWidth && img.naturalWidth > 0) onLoad();
+                    else onError();
+                }
+            })(imgs[i]);
+        }
+    }
+    
+    function closePredictModal() {
+        var existing = document.getElementById('predictModalOverlay');
+        if (existing) existing.parentNode.removeChild(existing);
+        _predictModalRequestKey = null;
+        
+        if (_predictPrevOverflow !== null) {
+            document.body.style.overflow = _predictPrevOverflow;
+            _predictPrevOverflow = null;
+        }
+        
+        if (_predictEscHandler) {
+            document.removeEventListener('keydown', _predictEscHandler);
+            _predictEscHandler = null;
+        }
+    }
+    
+    function openPredictModal(opts) {
+        closePredictModal();
+        
+        var homeTeam = (opts && opts.homeTeam) ? String(opts.homeTeam) : '';
+        var awayTeam = (opts && opts.awayTeam) ? String(opts.awayTeam) : '';
+        var homeLogo = (opts && opts.homeLogo) ? String(opts.homeLogo) : '';
+        var awayLogo = (opts && opts.awayLogo) ? String(opts.awayLogo) : '';
+        var homeColor = _safeHexColor(opts && opts.homeColor);
+        var awayColor = _safeHexColor(opts && opts.awayColor);
+        var marketHomeSpread = _parseNumber(opts && opts.marketHomeSpread);
+        var marketTotal = _parseNumber(opts && opts.marketTotal);
+        var book = (opts && opts.book) ? String(opts.book) : '';
+        var formattedSpread = (opts && opts.formattedSpread) ? String(opts.formattedSpread) : '';
+        
+        var requestKey = homeTeam + '||' + awayTeam;
+        _predictModalRequestKey = requestKey;
+        
+        var overlay = document.createElement('div');
+        overlay.id = 'predictModalOverlay';
+        overlay.className = 'predict-modal-overlay';
+        overlay.setAttribute('role', 'presentation');
+        
+        overlay.innerHTML =
+            '<div class="predict-modal" role="dialog" aria-modal="true" aria-labelledby="predictModalTitle">' +
+                '<div class="predict-modal-watermark">' +
+                    (awayLogo ? '<img src="' + _escapeHtml(awayLogo) + '" class="watermark-left">' : '') +
+                    (homeLogo ? '<img src="' + _escapeHtml(homeLogo) + '" class="watermark-right">' : '') +
+                '</div>' +
+                '<div class="predict-modal-inner">' +
+                    '<div class="predict-modal-header">' +
+                        '<div id="predictModalTitle">Prediction</div>' +
+                        '<div class="predict-modal-close" role="button" tabindex="0" aria-label="Close">×</div>' +
+                    '</div>' +
+                    '<div class="predict-matchup">' +
+                        '<div class="predict-team">' +
+                            (awayLogo ? ('<div class="predict-logo-wrap"><div class="predict-logo-skeleton"></div><img class="predict-team-logo predict-img" src="' + _escapeHtml(awayLogo) + '" loading="eager" decoding="async" alt="' + _escapeHtml(awayTeam) + ' logo"></div>') : '') +
+                            '<div class="predict-team-name">' + _escapeHtml(awayTeam) + '</div>' +
+                        '</div>' +
+                        '<div class="predict-at">@</div>' +
+                        '<div class="predict-team" style="justify-content:flex-end;">' +
+                            '<div class="predict-team-name" style="text-align:right;">' + _escapeHtml(homeTeam) + '</div>' +
+                            (homeLogo ? ('<div class="predict-logo-wrap"><div class="predict-logo-skeleton"></div><img class="predict-team-logo predict-img" src="' + _escapeHtml(homeLogo) + '" loading="eager" decoding="async" alt="' + _escapeHtml(homeTeam) + ' logo"></div>') : '') +
+                        '</div>' +
+                    '</div>' +
+                    '<div id="predictModalBody">' +
+                        '<div class="predict-main">' +
+                            '<div class="predict-loading"><span class="predict-spinner"></span><span>Running model…</span></div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+        
+        if (_predictPrevOverflow === null) _predictPrevOverflow = document.body.style.overflow || '';
+        document.body.style.overflow = 'hidden';
+        document.body.appendChild(overlay);
+        _bindImageSkeletons(overlay);
+        
+        var modal = overlay.querySelector('.predict-modal');
+        var closeBtn = overlay.querySelector('.predict-modal-close');
+        
+        function handleCloseActivate(ev) {
+            if (ev) {
+                ev.preventDefault();
+                ev.stopPropagation();
+            }
+            closePredictModal();
+        }
+        
+        overlay.addEventListener('click', function(ev) {
+            if (ev.target === overlay) handleCloseActivate(ev);
+        });
+        
+        closeBtn.addEventListener('click', handleCloseActivate);
+        closeBtn.addEventListener('keydown', function(ev) {
+            var key = ev.key || ev.keyCode;
+            if (key === 'Enter' || key === ' ' || key === 13 || key === 32) handleCloseActivate(ev);
+        });
+        
+        _predictEscHandler = function(ev) {
+            var key = ev.key || ev.keyCode;
+            if (key === 'Escape' || key === 'Esc' || key === 27) closePredictModal();
+        };
+        document.addEventListener('keydown', _predictEscHandler);
+        if (closeBtn && closeBtn.focus) closeBtn.focus();
+        
+        if (!homeTeam || !awayTeam) {
+            var body = document.getElementById('predictModalBody');
+            if (body) {
+                body.innerHTML = '<div class="predict-main"><div class="predict-sub">Missing team data for prediction.</div></div>';
+            }
+            return;
+        }
+        
+        if (_predictCache[requestKey]) {
+            _renderPredictModalBody(_predictCache[requestKey], {
+                homeTeam: homeTeam,
+                awayTeam: awayTeam,
+                homeLogo: homeLogo,
+                awayLogo: awayLogo,
+                homeColor: homeColor,
+                awayColor: awayColor,
+                marketHomeSpread: marketHomeSpread,
+                marketTotal: marketTotal,
+                book: book,
+                formattedSpread: formattedSpread
+            });
+            return;
+        }
+        
+        fetch('/predict/' + encodeURIComponent(homeTeam) + '/' + encodeURIComponent(awayTeam))
+            .then(function(r) { return r.ok ? r.json() : Promise.reject(r.statusText); })
+            .then(function(data) {
+                if (_predictModalRequestKey !== requestKey) return;
+                if (!data || !data.prediction) throw new Error('Invalid response');
+                _predictCache[requestKey] = data.prediction;
+                _renderPredictModalBody(data.prediction, {
+                    homeTeam: homeTeam,
+                    awayTeam: awayTeam,
+                    homeLogo: homeLogo,
+                    awayLogo: awayLogo,
+                    homeColor: homeColor,
+                    awayColor: awayColor,
+                    marketHomeSpread: marketHomeSpread,
+                    marketTotal: marketTotal,
+                    book: book,
+                    formattedSpread: formattedSpread
+                });
+            })
+            .catch(function(err) {
+                if (_predictModalRequestKey !== requestKey) return;
+                var body = document.getElementById('predictModalBody');
+                if (body) {
+                    body.innerHTML = '<div class="predict-main"><div class="predict-sub" style="color: rgba(248, 113, 113, 0.95);">Prediction failed.</div><div class="predict-sub" style="margin-top:6px;opacity:0.8;">' + _escapeHtml(err && err.message ? err.message : String(err)) + '</div></div>';
+                }
+            });
+    }
+    
+    function _computeBestBet(prediction, ctx) {
+        if (!prediction || !ctx) return null;
+        
+        var modelTotal = _parseNumber(prediction.total);
+        var modelMargin = _parseNumber(prediction.spread);
+        
+        if (modelMargin === null) {
+            var hs = _parseNumber(prediction.home_score);
+            var as = _parseNumber(prediction.away_score);
+            if (hs !== null && as !== null) modelMargin = hs - as;
+        }
+        
+        var marketHomeSpread = (typeof ctx.marketHomeSpread === 'number') ? ctx.marketHomeSpread : null;
+        var marketTotal = (typeof ctx.marketTotal === 'number') ? ctx.marketTotal : null;
+        
+        var candidates = [];
+        
+        if (modelMargin !== null && marketHomeSpread !== null) {
+            var marketMargin = -marketHomeSpread;
+            var diff = modelMargin - marketMargin;
+            var pickHome = diff > 0;
+            var pickTeam = pickHome ? ctx.homeTeam : ctx.awayTeam;
+            var pickLine = pickHome ? marketHomeSpread : -marketHomeSpread;
+            var modelHomeLine = -modelMargin;
+            var edge = Math.abs(diff);
+            
+            candidates.push({
+                type: 'spread',
+                edge: edge,
+                pick: pickTeam + ' ' + _formatSignedNumber(pickLine, 1),
+                detail: 'Model ' + ctx.homeTeam + ' ' + _formatSignedNumber(modelHomeLine, 1) + ' · Market ' + ctx.homeTeam + ' ' + _formatSignedNumber(marketHomeSpread, 1)
+            });
+        }
+        
+        if (modelTotal !== null && marketTotal !== null) {
+            var tdiff = modelTotal - marketTotal;
+            candidates.push({
+                type: 'total',
+                edge: Math.abs(tdiff),
+                pick: (tdiff > 0 ? 'Over ' : 'Under ') + marketTotal.toFixed(1),
+                detail: 'Model ' + modelTotal.toFixed(1) + ' · Market ' + marketTotal.toFixed(1)
+            });
+        }
+        
+        if (!candidates.length) return null;
+        candidates.sort(function(a, b) { return b.edge - a.edge; });
+        return candidates[0];
+    }
+    
+    function _renderPredictModalBody(prediction, ctx) {
+        var body = document.getElementById('predictModalBody');
+        if (!body) return;
+        
+        var homeTeam = (ctx && ctx.homeTeam) ? ctx.homeTeam : (prediction.home_team || '');
+        var awayTeam = (ctx && ctx.awayTeam) ? ctx.awayTeam : (prediction.away_team || '');
+        
+        var winner = prediction.predicted_winner || '—';
+        var awayScore = (typeof prediction.away_score === 'number') ? prediction.away_score : null;
+        var homeScore = (typeof prediction.home_score === 'number') ? prediction.home_score : null;
+        var scoreLine = (awayScore != null && homeScore != null) ? (awayScore + '–' + homeScore) : '—';
+        
+        var total = _parseNumber(prediction.total);
+        var margin = _parseNumber(prediction.spread);
+        if (margin === null && awayScore != null && homeScore != null) margin = homeScore - awayScore;
+        var modelHomeLine = (margin === null) ? null : -margin;
+        var homeWP = prediction.home_win_probability;
+        var confidence = prediction.confidence;
+        
+        var winChartHtml = '';
+        if (typeof homeWP === 'number' && !isNaN(homeWP)) {
+            var homePct = Math.max(0, Math.min(100, Math.round(homeWP * 100)));
+            var awayPct = 100 - homePct;
+            var hc = _safeHexColor(ctx && ctx.homeColor);
+            var ac = _safeHexColor(ctx && ctx.awayColor);
+            var style = '';
+            if (ac) style += '--away-color:' + ac + ';';
+            if (hc) style += '--home-color:' + hc + ';';
+            var styleAttr = style ? ' style="' + style + '"' : '';
+            
+            winChartHtml =
+                '<div class="predict-chart">' +
+                    '<div class="predict-chart-header">' +
+                        '<div class="predict-chart-team">' +
+                             (ctx.awayLogo ? '<img src="' + _escapeHtml(ctx.awayLogo) + '" class="predict-chart-logo">' : '') +
+                             '<span>' + _escapeHtml(awayPct + '%') + '</span>' +
+                        '</div>' +
+                        '<div class="predict-chart-title">Win Probability</div>' +
+                        '<div class="predict-chart-team">' +
+                             '<span>' + _escapeHtml(homePct + '%') + '</span>' +
+                             (ctx.homeLogo ? '<img src="' + _escapeHtml(ctx.homeLogo) + '" class="predict-chart-logo">' : '') +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="predict-bar-track"' + styleAttr + '>' +
+                        '<div class="predict-bar-seg predict-bar-away" style="width:' + awayPct + '%"></div>' +
+                        '<div class="predict-bar-seg predict-bar-home" style="width:' + homePct + '%"></div>' +
+                        '<div class="predict-bar-separator" style="left: ' + awayPct + '%"></div>' +
+                    '</div>' +
+                '</div>';
+        }
+        
+        var marketHomeSpread = (ctx && typeof ctx.marketHomeSpread === 'number') ? ctx.marketHomeSpread : null;
+        var marketTotal = (ctx && typeof ctx.marketTotal === 'number') ? ctx.marketTotal : null;
+        var book = (ctx && ctx.book) ? ctx.book : '';
+        var formattedSpread = (ctx && ctx.formattedSpread) ? ctx.formattedSpread : '';
+        
+        var marketHtml = '';
+        if (book || marketHomeSpread !== null || marketTotal !== null) {
+            var bookLogo = _getBookLogo(book);
+            var bookLogoHtml = '';
+            if (bookLogo) {
+                bookLogoHtml =
+                    '<div class="predict-logo-wrap">' +
+                        '<div class="predict-logo-skeleton"></div>' +
+                        '<img class="predict-book-logo predict-img" src="' + _escapeHtml(bookLogo.src) + '" loading="eager" decoding="async" alt="' + _escapeHtml(bookLogo.alt) + '">' +
+                    '</div>';
+            } else {
+                var initials = String(book || 'ML').replace(/[^A-Za-z0-9]/g, '').slice(0, 2).toUpperCase() || 'ML';
+                bookLogoHtml =
+                    '<div class="predict-logo-wrap predict-book-fallback">' + _escapeHtml(initials) + '</div>';
+            }
+            
+            var marketSpreadText = '—';
+            if (formattedSpread) marketSpreadText = formattedSpread;
+            else if (marketHomeSpread !== null) marketSpreadText = homeTeam + ' ' + _formatSignedNumber(marketHomeSpread, 1);
+            
+            var marketTotalText = (marketTotal !== null) ? marketTotal.toFixed(1) : '—';
+            var bestBet = _computeBestBet(prediction, ctx);
+            
+            var bestHtml = '';
+            if (bestBet) {
+                var edgePct = Math.min(bestBet.edge / 10, 1) * 100;
+                bestHtml =
+                    '<div class="predict-best">' +
+                        '<div class="predict-best-label">Best Bet · ' + _escapeHtml(bestBet.type === 'spread' ? 'Spread' : 'Total') + '</div>' +
+                        '<div class="predict-best-pick">' + _escapeHtml(bestBet.pick) + '</div>' +
+                        '<div class="predict-edge-meter"><div class="predict-edge-fill" data-edge-pct="' + edgePct.toFixed(0) + '"></div></div>' +
+                        '<div class="predict-best-sub">Edge ' + _escapeHtml(bestBet.edge.toFixed(1)) + ' pts · ' + _escapeHtml(bestBet.detail) + '</div>' +
+                    '</div>';
+            }
+            
+            marketHtml =
+                '<div class="predict-market">' +
+                    '<div class="predict-market-top">' +
+                        '<div class="predict-book">' +
+                            bookLogoHtml +
+                            '<div class="predict-book-name">' + _escapeHtml(book || 'Market') + '</div>' +
+                        '</div>' +
+                        '<div class="predict-market-lines">' +
+                            '<div class="predict-line">Spread <b>' + _escapeHtml(marketSpreadText) + '</b></div>' +
+                            '<div class="predict-line">O/U <b>' + _escapeHtml(marketTotalText) + '</b></div>' +
+                        '</div>' +
+                    '</div>' +
+                    bestHtml +
+                '</div>';
+        }
+        
+        var keyFactors = prediction.key_factors || [];
+        var factorsHtml = '';
+        if (keyFactors && keyFactors.length) {
+            var take = Math.min(3, keyFactors.length);
+            var lines = [];
+            for (var i = 0; i < take; i++) {
+                lines.push('• ' + _escapeHtml(keyFactors[i]));
+            }
+            factorsHtml =
+                '<div class="predict-factors">' +
+                    '<div class="predict-factors-title">Key Factors</div>' +
+                    '<div>' + lines.join('<br>') + '</div>' +
+                '</div>';
+        }
+        
+        body.innerHTML =
+            '<div class="predict-main">' +
+                '<div class="predict-pick">' + _escapeHtml(winner) + ' win</div>' +
+                '<div class="predict-sub">' + _escapeHtml(awayTeam) + ' ' + _escapeHtml(scoreLine) + ' ' + _escapeHtml(homeTeam) + '</div>' +
+            '</div>' +
+            winChartHtml +
+            '<div class="predict-metrics">' +
+                '<div class="predict-chip">Home WP <b>' + _escapeHtml(_formatPercent(homeWP)) + '</b></div>' +
+                '<div class="predict-chip">Model Spread <b>' + _escapeHtml(homeTeam) + ' ' + _escapeHtml(modelHomeLine == null ? '—' : _formatSignedNumber(modelHomeLine, 1)) + '</b></div>' +
+                '<div class="predict-chip">Model Total <b>' + _escapeHtml(total == null ? '—' : total.toFixed(1)) + '</b></div>' +
+                '<div class="predict-chip">Conf <b>' + _escapeHtml(_formatPercent(confidence)) + '</b></div>' +
+            '</div>' +
+            marketHtml +
+            factorsHtml;
+        
+        var fill = body.querySelector('.predict-edge-fill');
+        if (fill) {
+            var pct = fill.getAttribute('data-edge-pct');
+            fill.style.width = '0%';
+            var raf = window.requestAnimationFrame || function(cb) { return setTimeout(cb, 0); };
+            raf(function() { fill.style.width = pct + '%'; });
+        }
+        
+        var overlay = document.getElementById('predictModalOverlay');
+        if (overlay) _bindImageSkeletons(overlay);
+    }
+    
+    function _getClosestPredictBtn(target, root) {
+        var node = target;
+        while (node && node !== root) {
+            if (node.classList && node.classList.contains('predict-btn')) return node;
+            node = node.parentNode;
+        }
+        return null;
+    }
+    
+    function _bindPredictHandlers() {
+        var slider = document.getElementById('gamesSlider');
+        if (!slider || slider._predictBound) return;
+        slider._predictBound = true;
+        
+        slider.addEventListener('click', function(ev) {
+            var btn = _getClosestPredictBtn(ev.target, slider);
+            if (!btn) return;
+            ev.preventDefault();
+            ev.stopPropagation();
+            
+            openPredictModal({
+                homeTeam: btn.getAttribute('data-home-team') || '',
+                awayTeam: btn.getAttribute('data-away-team') || '',
+                homeLogo: btn.getAttribute('data-home-logo') || '',
+                awayLogo: btn.getAttribute('data-away-logo') || '',
+                homeColor: btn.getAttribute('data-home-color') || '',
+                awayColor: btn.getAttribute('data-away-color') || '',
+                marketHomeSpread: btn.getAttribute('data-market-spread') || '',
+                marketTotal: btn.getAttribute('data-market-total') || '',
+                book: btn.getAttribute('data-market-book') || '',
+                formattedSpread: btn.getAttribute('data-market-formatted-spread') || ''
+            });
+        });
+        
+        slider.addEventListener('keydown', function(ev) {
+            var key = ev.key || ev.keyCode;
+            if (!(key === 'Enter' || key === ' ' || key === 'Spacebar' || key === 13 || key === 32)) return;
+            var btn = _getClosestPredictBtn(ev.target, slider);
+            if (!btn) return;
+            ev.preventDefault();
+            ev.stopPropagation();
+            
+            openPredictModal({
+                homeTeam: btn.getAttribute('data-home-team') || '',
+                awayTeam: btn.getAttribute('data-away-team') || '',
+                homeLogo: btn.getAttribute('data-home-logo') || '',
+                awayLogo: btn.getAttribute('data-away-logo') || '',
+                homeColor: btn.getAttribute('data-home-color') || '',
+                awayColor: btn.getAttribute('data-away-color') || '',
+                marketHomeSpread: btn.getAttribute('data-market-spread') || '',
+                marketTotal: btn.getAttribute('data-market-total') || '',
+                book: btn.getAttribute('data-market-book') || '',
+                formattedSpread: btn.getAttribute('data-market-formatted-spread') || ''
+            });
+        });
+    }
+    
+    function loadUpcomingGames() {
+        fetch('/api/upcoming-games')
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('HTTP ' + response.status + ': ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                var slider = document.getElementById('gamesSlider');
+                
+                if (!data.games || data.games.length === 0) {
+                    slider.innerHTML = '<p class="text-gray-500 text-sm">No upcoming games found</p>';
+                    return;
+                }
+                
+                var gamesHtml = '';
+                for (var i = 0; i < data.games.length; i++) {
+                    var game = data.games[i];
+                    var gameDate = new Date(game.date);
+                    var dateStr = gameDate.toLocaleDateString('en-US', { 
+                        weekday: 'short', 
+                        month: 'short', 
+                        day: 'numeric',
+                        hour: 'numeric',
+                        minute: '2-digit'
+                    });
+                    
+                    var gameId = game.id || Math.floor(Math.random() * 100000);
+                    
+                    // Route to recap if completed, preview if upcoming
+                    var isCompleted = game.status === 'Final' || game.status === 'final' || 
+                                      game.statusDetail === 'Final' || game.statusDescription === 'Final';
+                    var gameUrl = isCompleted ? '/game-recap/' + gameId : '/game-preview/' + gameId;
+                    
+                    var awayRank = game.away.rank ? '<span class="team-rank">#' + game.away.rank + '</span>' : '';
+                    var homeRank = game.home.rank ? '<span class="team-rank">#' + game.home.rank + '</span>' : '';
+                    
+                    var awaySubtext = isCompleted ? 
+                        '<div class="team-score">' + (game.away.score || 0) + '</div>' : 
+                        '<div class="team-record">' + (game.away.record || '') + '</div>';
+                        
+                    var homeSubtext = isCompleted ? 
+                        '<div class="team-score">' + (game.home.score || 0) + '</div>' : 
+                        '<div class="team-record">' + (game.home.record || '') + '</div>';
+                    
+                    var footerContent = '';
+                    if (!isCompleted && (game.betting.spread || game.betting.overUnder)) {
+                        footerContent = '<div class="card-footer">';
+                        if (game.betting.spread) {
+                            footerContent += '<div class="odds-item"><span class="odds-label">SPREAD</span><span class="odds-value">' + (game.betting.spread > 0 ? '+' : '') + game.betting.spread + '</span></div>';
+                        }
+                        if (game.betting.overUnder) {
+                            footerContent += '<div class="odds-item"><span class="odds-label">O/U</span><span class="odds-value">' + game.betting.overUnder + '</span></div>';
+                        }
+                        footerContent += '</div>';
+                    } else if (isCompleted) {
+                        footerContent = '<div class="card-footer"><div class="odds-item"><span class="odds-value">FINAL SCORE</span></div></div>';
+                    }
+                    
+                    gamesHtml += '<a href="' + gameUrl + '" class="game-card block" style="text-decoration: none;">' +
+                        '<div class="watermark-container">' +
+                            '<img src="' + game.away.logo + '" class="watermark-logo watermark-left" onerror="this.style.display=\'none\'">' +
+                            '<img src="' + game.home.logo + '" class="watermark-logo watermark-right" onerror="this.style.display=\'none\'">' +
+                        '</div>' +
+                        '<div class="content-overlay">' +
+                            '<div class="card-header">' +
+                                '<span>' + (isCompleted ? 'FINAL' : dateStr) + '</span>' +
+                                '<span>' + (game.seasonType === 'postseason' ? 'BOWL' : 'WEEK ' + game.week) + '</span>' +
+                            '</div>' +
+                            '<div class="matchup-container">' +
+                                '<div class="team-info">' +
+                                    '<img src="' + game.away.logo + '" class="team-logo-main" onerror="this.style.display=\'none\'">' +
+                                    awayRank +
+                                    '<div class="team-name">' + (game.away.abbr || game.away.team) + '</div>' +
+                                    awaySubtext +
+                                '</div>' +
+                                '<div class="vs-display">' +
+                                    '<span class="vs-text">VS</span>' +
+                                '</div>' +
+                                '<div class="team-info">' +
+                                    '<img src="' + game.home.logo + '" class="team-logo-main" onerror="this.style.display=\'none\'">' +
+                                    homeRank +
+                                    '<div class="team-name">' + (game.home.abbr || game.home.team) + '</div>' +
+                                    homeSubtext +
+                                '</div>' +
+                            '</div>' +
+                            footerContent +
+                            '<div class="predict-btn" role="button" tabindex="0" aria-label="Predict this matchup" data-game-id="' + gameId + '"' +
+                                ' data-home-team="' + _escapeHtml(game.home.team) + '"' +
+                                ' data-away-team="' + _escapeHtml(game.away.team) + '"' +
+                                ' data-home-logo="' + _escapeHtml(game.home.logo) + '"' +
+                                ' data-away-logo="' + _escapeHtml(game.away.logo) + '"' +
+                                ' data-home-color="' + _escapeHtml(game.home.color || '') + '"' +
+                                ' data-away-color="' + _escapeHtml(game.away.color || '') + '"' +
+                                ' data-market-spread="' + ((game.betting && game.betting.spread != null) ? game.betting.spread : '') + '"' +
+                                ' data-market-total="' + ((game.betting && game.betting.overUnder != null) ? game.betting.overUnder : '') + '"' +
+                                ' data-market-book="' + _escapeHtml((game.betting && game.betting.provider) ? game.betting.provider : '') + '"' +
+                                ' data-market-formatted-spread="' + _escapeHtml((game.betting && game.betting.formattedSpread) ? game.betting.formattedSpread : '') + '"' +
+                                '>' +
+                                '<span class="predict-dot"></span>' +
+                                '<span>Predict</span>' +
+                            '</div>' +
+                        '</div>' +
+                    '</a>';
+                }
+                
+                slider.innerHTML = gamesHtml;
+                
+                _bindPredictHandlers();
+                
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            })
+            .catch(function(error) {
+                console.error('Error loading games:', error);
+                document.getElementById('gamesSlider').innerHTML = 
+                    '<div class="text-red-400 text-sm p-4">' +
+                        '<p>Error loading games: ' + error.message + '</p>' +
+                        '<p class="text-xs mt-2">Check console for details</p>' +
+                    '</div>';
+            });
+    }
+    
+    function scrollGames(direction) {
+        var slider = document.getElementById('gamesSlider');
+        var scrollAmount = 300;
+        if (direction === 'left') {
+            slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        } else {
+            slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadUpcomingGames);
+    } else {
+        loadUpcomingGames();
+    }
+</script>

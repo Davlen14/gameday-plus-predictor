@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Game Recap - Gamecast</title>
+    <!-- Google Fonts: Inter (Apple-style) & SF Pro Display fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['SF Mono', 'Menlo', 'monospace'],
+                        display: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        royal: '#1e40af',
+                    },
+                    animation: {
+                        'blob': 'blob 20s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-in': 'slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                        'slide-out': 'slideOut 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                        'ticker': 'ticker 15s linear infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        glow: {
+                            '0%': { opacity: '0.6', textShadow: '0 0 20px currentColor' },
+                            '100%': { opacity: '1', textShadow: '0 0 30px currentColor, 0 0 60px currentColor' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideOut: {
+                            '0%': { transform: 'translateX(0)', opacity: '1' },
+                            '100%': { transform: 'translateX(100%)', opacity: '0' },
+                        },
+                        ticker: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Scrollbar - Ultra thin Apple style */
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+        
+        /* Apple Vision Glass - Ultra Clean */
+        .liquid-glass {
+            background: rgba(40, 40, 45, 0.15);
+            backdrop-filter: blur(30px) saturate(120%);
+            -webkit-backdrop-filter: blur(30px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Sidebar - 3D Glassy with shine - More transparent */
+        .liquid-glass-strong {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.08) 0%,
+                rgba(150, 150, 160, 0.12) 20%,
+                rgba(60, 60, 70, 0.15) 50%,
+                rgba(30, 30, 40, 0.2) 100%
+            );
+            backdrop-filter: blur(40px) saturate(120%);
+            -webkit-backdrop-filter: blur(40px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-top-color: rgba(255, 255, 255, 0.25);
+            border-left-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                inset 0 1px 2px rgba(255, 255, 255, 0.3),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.15),
+                inset 2px 0 4px rgba(255, 255, 255, 0.1),
+                -4px 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .liquid-glass-strong::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.06) 30%,
+                transparent 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Dynamic Island - 3D Glassy with shine - More transparent */
+        .dynamic-island {
+            background: linear-gradient(
+                165deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(120, 120, 130, 0.12) 20%,
+                rgba(50, 50, 60, 0.18) 60%,
+                rgba(20, 20, 30, 0.25) 100%
+            );
+            backdrop-filter: blur(40px) saturate(140%);
+            -webkit-backdrop-filter: blur(40px) saturate(140%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-top-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.25),
+                inset 0 1px 2px rgba(255, 255, 255, 0.35),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Shine overlay effect */
+        .dynamic-island::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.12) 0%,
+                rgba(255, 255, 255, 0.04) 40%,
+                transparent 100%
+            );
+            border-radius: 24px 24px 0 0;
+            pointer-events: none;
+        }
+
+        .marker-tag {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.2px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            letter-spacing: 0.02em;
+        }
+
+        /* Clean Clock - No glow */
+        .dot-matrix {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Apple-style text */
+        .apple-text {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        
+        .apple-text-light {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        /* Scoring Animation Keyframes */
+        @keyframes score-pop {
+            0% { transform: translate(60px, 26.65px) scale(0); opacity: 0; }
+            50% { transform: translate(60px, 26.65px) scale(1.5); opacity: 1; }
+            70% { transform: translate(60px, 26.65px) scale(0.9); }
+            100% { transform: translate(60px, 26.65px) scale(1); opacity: 1; }
+        }
+        @keyframes shockwave {
+            0% { transform: translate(60px, 26.65px) scale(0.5); opacity: 1; stroke-width: 2; }
+            100% { transform: translate(60px, 26.65px) scale(3); opacity: 0; stroke-width: 0; }
+        }
+        
+        .animate-score-pop { animation: score-pop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .animate-shockwave { animation: shockwave 1.5s ease-out infinite; }
+        
+        /* Sidebar Toggle Animation */
+        .sidebar-open { transform: translateX(0); }
+        .sidebar-closed { transform: translateX(100%); }
+        
+        /* Smooth number transitions */
+        .score-number {
+            font-variant-numeric: tabular-nums;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Ticker animation */
+        .ticker-wrapper {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        /* ========================================
+           ULTRA-PREMIUM BACKGROUND SYSTEM
+           Dynamic team-color gradient with glass sheen
+           ======================================== */
+        :root {
+            --team1-primary: #0033A0;
+            --team1-secondary: #D64309;
+            --team2-primary: #4b2e83;
+            --team2-secondary: #B7A57A;
+        }
+
+        .premium-game-background {
+            background: linear-gradient(
+                125deg,
+                var(--team1-primary) 0%,
+                var(--team1-secondary) 25%,
+                #0a0a15 50%,
+                var(--team2-secondary) 75%,
+                var(--team2-primary) 100%
+            );
+            background-size: 300% 300%;
+            animation: luxuryFlow 18s ease-in-out infinite alternate;
+        }
+
+        .premium-game-background::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                115deg,
+                transparent 35%,
+                rgba(255, 255, 255, 0.03) 45%,
+                rgba(255, 255, 255, 0.15) 50%,
+                rgba(255, 255, 255, 0.03) 55%,
+                transparent 65%
+            );
+            background-size: 200% 200%;
+            mix-blend-mode: overlay;
+            animation: sheenSweep 10s linear infinite;
+        }
+
+        .premium-game-background::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at 50% 50%,
+                rgba(255, 255, 255, 0.1) 0%,
+                transparent 40%,
+                rgba(0, 0, 0, 0.4) 100%
+            );
+            mix-blend-mode: soft-light;
+            animation: breathe 8s ease-in-out infinite;
+        }
+
+        @keyframes luxuryFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @keyframes sheenSweep {
+            0% { 
+                background-position: 200% 0%; 
+                opacity: 0;
+            }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { 
+                background-position: -200% 0%; 
+                opacity: 0;
+            }
+        }
+
+        @keyframes breathe {
+            0%, 100% { 
+                transform: scale(1); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: scale(1.1); 
+                opacity: 0.6;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0f] text-white overflow-hidden h-screen w-screen flex flex-col relative">
+
+    <!-- ULTRA-PREMIUM DYNAMIC BACKGROUND -->
+    <div class="premium-game-background fixed inset-0 z-0 pointer-events-none overflow-hidden"></div>
+
+    <!-- TOP HEADER BAR - Clean Apple Vision -->
+    <header class="h-[68px] w-full liquid-glass z-50 flex items-center justify-between px-8 shrink-0 relative">
+        
+        <!-- Left: Matchup - Clean & Prominent -->
+        <div class="flex items-center gap-6 relative z-10">
+            <div class="flex items-center gap-3">
+                <img id="away-logo" src="" class="h-10 w-10 transition-all duration-300 hover:scale-105" alt="">
+                <div class="text-right">
+                    <div id="away-name" class="text-[9px] text-white/30 apple-text uppercase tracking-[0.12em]"></div>
+                    <div class="text-2xl apple-text font-semibold leading-none text-white score-number" id="away-score">0</div>
+                </div>
+            </div>
+            
+            <div class="px-2">
+                <div class="text-[9px] text-white/20 apple-text tracking-[0.1em]">–</div>
+            </div>
+            
+            <div class="flex items-center gap-3 flex-row-reverse">
+                <img id="home-logo" src="" class="h-10 w-10 transition-all duration-300 hover:scale-105" alt="">
+                <div class="text-left">
+                    <div id="home-name" class="text-[9px] text-white/30 apple-text uppercase tracking-[0.12em]"></div>
+                    <div class="text-2xl apple-text font-semibold leading-none score-number" id="home-score">0</div>
+                    <div id="home-underline" class="h-[2px] w-full mt-1 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center: Game Info - With Icons -->
+        <div class="flex flex-col items-center justify-center relative z-10">
+            <div class="flex items-center gap-3 mb-1">
+                <div class="flex items-center gap-1.5">
+                    <svg class="w-2.5 h-2.5 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg>
+                    <span class="text-[8px] text-white/40 apple-text tracking-[0.1em] uppercase">Final</span>
+                </div>
+                <span class="text-white/10">·</span>
+                <div class="flex items-center gap-1">
+                    <svg class="w-2.5 h-2.5 text-white/25" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span id="venue-name" class="text-[8px] text-white/25 apple-text tracking-[0.05em]"></span>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div class="dot-matrix text-base text-white/60 tracking-tight" id="game-clock">
+                    Final <span class="text-white/15 mx-1.5">·</span> 0:00
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Situation - With Icons -->
+        <div class="flex items-center gap-4 relative z-10">
+            <div class="text-right">
+                <div class="flex items-center justify-end gap-1 mb-0.5">
+                    <svg class="w-2 h-2 text-white/25" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div class="text-[8px] text-white/25 apple-text uppercase tracking-[0.1em]">Situation</div>
+                </div>
+                <div class="text-sm apple-text text-white/70 font-medium" id="situation-text">Final</div>
+                <div class="flex items-center justify-end gap-1.5 mt-0.5">
+                    <img id="possession-logo" src="" class="w-3.5 h-3.5" alt="" />
+                    <div class="text-[10px] text-white/30 apple-text-light" id="ball-on-text">Game Over</div>
+                </div>
+            </div>
+            <div class="h-9 w-9 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center" id="down-indicator">
+                <span class="text-white/50 text-xs apple-text font-medium">F</span>
+            </div>
+        </div>
+        
+        <!-- Sidebar Toggle Button -->
+        <button onclick="toggleSidebar()" class="absolute right-4 top-1/2 -translate-y-1/2 h-7 w-7 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all z-50 lg:hidden" id="sidebar-toggle-mobile">
+            <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 flex overflow-hidden relative z-10">
+        
+        <!-- LEFT: FIELD AREA -->
+        <div class="flex-1 relative flex flex-col justify-center items-center p-4 lg:p-6 gap-4 transition-all duration-500" id="field-container">
+            
+            <!-- Context Overlay - Clean minimal with team logo -->
+            <div class="absolute top-4 left-6 z-20 flex gap-2">
+                <div class="bg-black/40 backdrop-blur-xl rounded-xl px-4 py-2.5 text-white transition-all duration-300 flex items-center gap-3" id="play-context-box">
+                    <img id="context-team-logo" src="" class="w-8 h-8 rounded-lg" alt="" />
+                    <div>
+                        <div class="flex items-center gap-1.5 mb-0.5">
+                            <div class="w-1 h-1 rounded-full" id="context-dot"></div>
+                            <div class="text-[8px] text-white/30 apple-text uppercase tracking-[0.1em]">Current Play</div>
+                        </div>
+                        <div class="apple-text text-xs text-white/70" id="play-description-overlay">Loading...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Field Container -->
+            <div class="w-full max-w-[90vw] aspect-[2.1/1] relative perspective-[1500px] group transition-all duration-700 z-10">
+                <div class="w-full h-full relative transform-style-3d rotate-x-[12deg] scale-[0.98] group-hover:scale-100 group-hover:rotate-x-0 transition-transform duration-700 ease-out">
+                    
+                    <svg viewBox="-10 -10 140 73.3" class="w-full h-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+                        <defs>
+                            <pattern id="techGrid" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
+                                <path d="M 5 0 L 0 0 0 5" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.08"/>
+                            </pattern>
+                            <pattern id="stripePattern" x="0" y="0" width="10" height="53.3" patternUnits="userSpaceOnUse">
+                                <rect x="0" y="0" width="5" height="53.3" fill="rgba(16, 185, 129, 0.12)" />
+                                <rect x="5" y="0" width="5" height="53.3" fill="rgba(5, 150, 105, 0.18)" />
+                            </pattern>
+                            <filter id="crispGlow" x="-10%" y="-10%" width="120%" height="120%">
+                                <feGaussianBlur stdDeviation="0.15" result="blur"/>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                             <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+                                <path d="M0,0 L0,5 L5,2.5 z" fill="#a855f7" id="arrow-color" />
+                            </marker>
+                            
+                            <linearGradient id="fieldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="white" stop-opacity="0.0"/>
+                                <stop offset="45%" stop-color="white" stop-opacity="0.0"/>
+                                <stop offset="50%" stop-color="white" stop-opacity="0.06"/>
+                                <stop offset="55%" stop-color="white" stop-opacity="0.0"/>
+                                <stop offset="100%" stop-color="white" stop-opacity="0.0"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Field Base -->
+                        
+                        <!-- Field Markings -->
+                        <g>
+                            <rect x="0" y="0" width="120" height="53.3" fill="url(#stripePattern)" />
+                            <rect x="0" y="0" width="120" height="53.3" fill="url(#techGrid)" />
+                            <rect x="0" y="0" width="120" height="53.3" fill="url(#fieldShine)" style="mix-blend-mode: overlay;" />
+                            
+                            <!-- Endzones - Dynamic colors from API -->
+                            <rect id="away-endzone" x="0" y="0" width="10" height="53.3" fill="#0033A0" />
+                            <rect id="home-endzone" x="110" y="0" width="10" height="53.3" fill="#fa4616" />
+
+                            <!-- Yard Lines (Sharp & Precise) -->
+                            <g stroke="rgba(255,255,255,0.6)" stroke-width="0.12" stroke-linecap="square">
+                                <line x1="15" y1="0" x2="15" y2="53.3"/>
+                                <line x1="20" y1="0" x2="20" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="25" y1="0" x2="25" y2="53.3"/>
+                                <line x1="30" y1="0" x2="30" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="35" y1="0" x2="35" y2="53.3"/>
+                                <line x1="40" y1="0" x2="40" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="45" y1="0" x2="45" y2="53.3"/>
+                                <line x1="50" y1="0" x2="50" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="55" y1="0" x2="55" y2="53.3"/>
+                                <line x1="60" y1="0" x2="60" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="65" y1="0" x2="65" y2="53.3"/>
+                                <line x1="70" y1="0" x2="70" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="75" y1="0" x2="75" y2="53.3"/>
+                                <line x1="80" y1="0" x2="80" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="85" y1="0" x2="85" y2="53.3"/>
+                                <line x1="90" y1="0" x2="90" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="95" y1="0" x2="95" y2="53.3"/>
+                                <line x1="100" y1="0" x2="100" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="105" y1="0" x2="105" y2="53.3"/>
+                            </g>
+
+                            <!-- Numbers - Clean SF-style -->
+                            <g font-family="'Inter', sans-serif" font-weight="600" font-size="2.2" fill="white" text-anchor="middle" opacity="0.75" style="letter-spacing: -0.02em;">
+                                <text x="20" y="11.5" transform="rotate(180, 20, 11.5)">10</text><text x="20" y="44.5">10</text>
+                                <text x="30" y="11.5" transform="rotate(180, 30, 11.5)">20</text><text x="30" y="44.5">20</text>
+                                <text x="40" y="11.5" transform="rotate(180, 40, 11.5)">30</text><text x="40" y="44.5">30</text>
+                                <text x="50" y="11.5" transform="rotate(180, 50, 11.5)">40</text><text x="50" y="44.5">40</text>
+                                <text x="60" y="11.5" transform="rotate(180, 60, 11.5)">50</text><text x="60" y="44.5">50</text>
+                                <text x="70" y="11.5" transform="rotate(180, 70, 11.5)">40</text><text x="70" y="44.5">40</text>
+                                <text x="80" y="11.5" transform="rotate(180, 80, 11.5)">30</text><text x="80" y="44.5">30</text>
+                                <text x="90" y="11.5" transform="rotate(180, 90, 11.5)">20</text><text x="90" y="44.5">20</text>
+                                <text x="100" y="11.5" transform="rotate(180, 100, 11.5)">10</text><text x="100" y="44.5">10</text>
+                            </g>
+
+                            <!-- Wordmarks - Dynamic -->
+                            <image id="away-wordmark" href="" 
+                                x="-15" y="-80" width="40" height="213.2" transform="rotate(-90, 5, 26.65)" opacity="0.95" />
+                            <image id="home-wordmark" href="" 
+                                x="95" y="-80" width="40" height="213.2" transform="rotate(90, 115, 26.65)" opacity="0.95" />
+                            <!-- Bowl/Game Logo at midfield -->
+                            <image id="midfield-logo" href="" 
+                                x="45" y="13.65" width="30" height="30" preserveAspectRatio="xMidYMid meet" opacity="1.0" />
+                        </g>
+
+                        <!-- SLEEK AR OVERLAYS (Crisp & Precise) -->
+                        <g id="ar-overlays">
+                            
+                            <!-- 1. LINE OF SCRIMMAGE (Sharp Blue Line) -->
+                            <line id="ar-los" x1="60" y1="0" x2="60" y2="53.3" stroke="#0033A0" stroke-width="0.35" stroke-linecap="square" />
+                            
+                            <!-- 2. FIRST DOWN MARKER (Sharp Yellow Line) -->
+                            <line id="ar-first-down" x1="70" y1="0" x2="70" y2="53.3" stroke="#facc15" stroke-width="0.35" stroke-linecap="square" />
+
+                            <!-- 3. BALL POSITION with Team Logo -->
+                            <g id="ar-ball-group">
+                                <circle id="ar-ball" cx="60" cy="26.65" r="0.8" fill="#5c3d11" stroke="#fff" stroke-width="0.15" />
+                                <!-- Possession Team Logo -->
+                                <image id="ar-possession-logo" x="56" y="28" width="8" height="8" href="" opacity="0.95" />
+                            </g>
+                            
+                            <!-- 4. PLAY PATH (Clean Arrow) -->
+                            <path id="ar-path" d="M 60 26.65 Q 65 15 70 26.65" fill="none" stroke="#a855f7" stroke-width="0.5" stroke-linecap="round" stroke-dasharray="1.5 0.8" marker-end="url(#arrowhead)" opacity="0.9">
+                                <animate attributeName="stroke-dashoffset" from="80" to="0" dur="1.5s" repeatCount="indefinite" />
+                            </path>
+
+                        </g>
+
+                        <!-- SCORING CELEBRATION OVERLAY (Hidden by default) -->
+                        <g id="score-overlay" class="opacity-0" transform="translate(60, 26.65)">
+                            <!-- Shockwave Circles -->
+                            <circle r="20" fill="none" stroke="currentColor" class="opacity-0" id="score-shockwave-1" />
+                            <circle r="15" fill="none" stroke="currentColor" class="opacity-0" id="score-shockwave-2" />
+                            
+                            <!-- Team Logo Centerpiece -->
+                            <image id="score-logo" x="-12" y="-12" width="24" height="24" href="" class="drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]" />
+                            
+                            <!-- Text Projection -->
+                            <text id="score-text" y="18" font-family="'Inter', sans-serif" font-weight="700" font-size="6" text-anchor="middle" fill="white" style="text-shadow: 0 4px 10px black; letter-spacing: 0.1em;">TOUCHDOWN</text>
+                        </g>
+
+                        <!-- Field Border (Clean & Sharp) -->
+                        <rect x="0" y="0" width="120" height="53.3" fill="none" stroke="white" stroke-width="0.8" rx="1" ry="1" />
+
+                    </svg>
+                </div>
+            </div>
+
+            <!-- DYNAMIC ISLAND - Clean Playmaker Center -->
+            <div class="w-full max-w-[70vw] dynamic-island p-3.5 rounded-[24px] flex items-center justify-between relative z-20 transition-all duration-500">
+                
+                <!-- Left: Player Info with Team Logo -->
+                <div id="play-card" class="flex items-center gap-4 transition-all duration-500">
+                    <img id="playmaker-team-logo" src="" class="w-10 h-10" alt="" />
+                    <div class="relative">
+                        <div class="h-14 w-14 rounded-xl flex items-center justify-center border border-white/10 relative z-10 transition-all duration-300 overflow-hidden" id="player-img-container">
+                            <img id="player-headshot" class="w-full h-full object-cover hidden" alt="" />
+                            <span class="text-xl font-medium apple-text" id="player-number">00</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-0.5">
+                            <span class="bg-white/5 text-white/40 text-[8px] apple-text px-2 py-0.5 rounded-md uppercase tracking-[0.08em]" id="player-role">Playmaker</span>
+                        </div>
+                        <div class="text-white apple-text text-lg font-medium leading-none tracking-tight" id="player-name">Loading...</div>
+                        <div class="text-white/30 text-[10px] mt-0.5 apple-text-light flex items-center gap-2">
+                            <span id="player-team">Team • Position</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center: Last Plays Ticker -->
+                <div class="flex-1 mx-6 overflow-hidden ticker-wrapper">
+                    <div class="flex items-center gap-1 mb-0.5">
+                        <span class="text-[7px] text-white/20 apple-text uppercase tracking-[0.1em]">Recent</span>
+                    </div>
+                    <div class="flex gap-4 whitespace-nowrap" id="last-plays-ticker">
+                        <span class="text-[10px] text-white/35 apple-text">Loading plays...</span>
+                    </div>
+                </div>
+
+                <!-- Right: Controls -->
+                <div class="flex items-center gap-2">
+                     <button onclick="prevPlay()" class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all active:scale-95">
+                        <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                     </button>
+                     
+                     <div class="flex flex-col items-center">
+                         <div class="bg-white/[0.03] px-3 py-1 rounded-full text-[8px] apple-text text-white/35 flex items-center gap-1.5 uppercase tracking-[0.08em]">
+                            <span class="relative flex h-1 w-1">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-1 w-1 bg-emerald-500"></span>
+                            </span>
+                            Recap
+                         </div>
+                     </div>
+
+                     <button onclick="nextPlay()" class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all active:scale-95">
+                        <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                     </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- SIDEBAR - Same exact styling as header -->
+        <aside class="w-14 hover:w-80 group liquid-glass z-40 flex flex-col transition-all duration-300 ease-out" id="sidebar">
+            
+            <!-- Pin Button -->
+            <div class="flex items-center justify-between p-2 border-b border-white/5">
+                <button onclick="toggleSidebarPin()" id="pin-button" class="w-10 h-10 flex items-center justify-center transition-all duration-200 hover:bg-white/10" title="Pin sidebar">
+                    <svg id="pin-icon" class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Icon Nav -->
+            <div class="flex flex-col gap-0.5 p-1.5 border-b border-white/5">
+                <button onclick="switchTab('plays')" id="tab-plays" class="w-10 h-8 flex items-center justify-center transition-all duration-200 bg-white/10 backdrop-blur-xl rounded">
+                    <svg class="w-3.5 h-3.5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <span class="absolute left-14 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[10px] apple-text text-white/60 whitespace-nowrap pointer-events-none">Play-by-Play</span>
+                </button>
+                <button onclick="switchTab('stats')" id="tab-stats" class="w-10 h-8 flex items-center justify-center transition-all duration-200 hover:bg-white/5 rounded">
+                    <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <span class="absolute left-14 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[10px] apple-text text-white/60 whitespace-nowrap pointer-events-none">Stats</span>
+                </button>
+                <button onclick="switchTab('drives')" id="tab-drives" class="w-10 h-8 flex items-center justify-center transition-all duration-200 hover:bg-white/5 rounded">
+                    <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    <span class="absolute left-14 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[10px] apple-text text-white/60 whitespace-nowrap pointer-events-none">Drives</span>
+                </button>
+                <button onclick="switchTab('winprob')" id="tab-winprob" class="w-10 h-8 flex items-center justify-center transition-all duration-200 hover:bg-white/5 rounded">
+                    <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                    <span class="absolute left-14 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[10px] apple-text text-white/60 whitespace-nowrap pointer-events-none">Win Probability</span>
+                </button>
+                <button onclick="switchTab('teamstats')" id="tab-teamstats" class="w-10 h-8 flex items-center justify-center transition-all duration-200 hover:bg-white/5 rounded">
+                    <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <span class="absolute left-14 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[10px] apple-text text-white/60 whitespace-nowrap pointer-events-none">Team Comparison</span>
+                </button>
+                <button onclick="switchTab('scoring')" id="tab-scoring" class="w-10 h-8 flex items-center justify-center transition-all duration-200 hover:bg-white/5 rounded">
+                    <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="absolute left-14 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[10px] apple-text text-white/60 whitespace-nowrap pointer-events-none">Scoring Timeline</span>
+                </button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-3 space-y-2" id="feed-container">
+                <div class="text-center py-8">
+                    <div class="animate-spin rounded-full h-8 w-8 border border-white/20 border-t-white/60 mx-auto mb-3"></div>
+                    <div class="text-[10px] text-white/40 apple-text">Loading plays...</div>
+                </div>
+            </div>
+            <div class="flex-1 overflow-y-auto p-3 space-y-2 hidden" id="stats-container">
+                <div class="text-center py-8">
+                    <div class="text-[10px] text-white/40 apple-text">Loading stats...</div>
+                </div>
+            </div>
+            <div class="flex-1 overflow-y-auto p-3 space-y-2 hidden" id="drives-container">
+                <div class="text-center py-8">
+                    <div class="text-[10px] text-white/40 apple-text">Loading drives...</div>
+                </div>
+            </div>
+            <div class="flex-1 overflow-y-auto p-3 space-y-2 hidden" id="winprob-container">
+                <div class="text-center py-8">
+                    <div class="text-[10px] text-white/40 apple-text">Loading win probability...</div>
+                </div>
+            </div>
+            <div class="flex-1 overflow-y-auto p-3 space-y-2 hidden" id="teamstats-container">
+                <div class="text-center py-8">
+                    <div class="text-[10px] text-white/40 apple-text">Loading team stats...</div>
+                </div>
+            </div>
+            <div class="flex-1 overflow-y-auto p-3 space-y-2 hidden" id="scoring-container">
+                <div class="text-center py-8">
+                    <div class="text-[10px] text-white/40 apple-text">Loading scoring timeline...</div>
+                </div>
+            </div>
+            <div class="p-2.5 border-t border-white/[0.03] relative z-10">
+                <div class="flex items-center gap-2">
+                    <img src="/static/Appicon2.svg" alt="GAMEDAY+" class="h-5 w-5 rounded object-cover opacity-30" />
+                    <div>
+                        <div class="text-[7px] text-white/20 apple-text tracking-[0.08em] uppercase">Powered by</div>
+                        <div class="text-[9px] text-white/30 apple-text-light">GAMEDAY+</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <script>
+        // Game configuration
+        const gameId = "{{ game_id }}";
+        let gameData = null;
+        let plays = [];
+        let currentPlayIndex = 0;
+        let playerDatabase = {}; // Map of jersey number to player data
+        let sidebarOpen = true;
+        let sidebarPinned = false;
+        
+        // Sidebar Pin Toggle
+        function toggleSidebarPin() {
+            const sidebar = document.getElementById('sidebar');
+            const pinIcon = document.getElementById('pin-icon');
+            sidebarPinned = !sidebarPinned;
+            
+            if (sidebarPinned) {
+                sidebar.classList.remove('hover:w-80', 'w-14');
+                sidebar.classList.add('w-80');
+                pinIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" fill="currentColor"></path>';
+                pinIcon.parentElement.classList.add('bg-white/10');
+            } else {
+                sidebar.classList.add('hover:w-80', 'w-14');
+                sidebar.classList.remove('w-80');
+                pinIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>';
+                pinIcon.parentElement.classList.remove('bg-white/10');
+            }
+        }
+
+        // Sidebar Toggle Function
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const toggleIcon = document.getElementById('toggle-icon');
+            const fieldContainer = document.getElementById('field-container');
+            
+            sidebarOpen = !sidebarOpen;
+            
+            if (sidebarOpen) {
+                sidebar.style.transform = 'translateX(0)';
+                sidebar.style.width = '288px';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            } else {
+                sidebar.style.transform = 'translateX(100%)';
+                sidebar.style.width = '0';
+                toggleIcon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        async function loadGameData() {
+            try {
+                console.log(`Loading game data for: ${gameId}`);
+                const response = await fetch(`/api/espn/game/${gameId}`);
+                const result = await response.json();
+                
+                if (!result.success) {
+                    console.error('Failed to fetch game data:', result.error);
+                    return;
+                }
+                
+                gameData = result.data;
+                console.log('Game data loaded:', gameData);
+                
+                // Set dynamic background colors
+                setBackgroundColors();
+                
+                // Build player database from boxscore
+                buildPlayerDatabase();
+                
+                // Setup game header and teams
+                setupGameHeader();
+                
+                // Setup field appearance
+                setupField();
+                
+                // Convert drives to plays for playback
+                convertDrivesToPlays();
+                
+                if (plays.length > 0) {
+                    renderFeed();
+                    updateUI();
+                    updateTicker();
+                }
+                
+            } catch (error) {
+                console.error("Error loading game data:", error);
+                document.getElementById('feed-container').innerHTML = `
+                    <div class="text-center py-8">
+                        <div class="text-red-400 text-[10px] apple-text">Error loading game</div>
+                        <div class="text-white/30 text-[8px] mt-1">${error.message}</div>
+                    </div>
+                `;
+            }
+        }
+
+        function buildPlayerDatabase() {
+            playerDatabase = {};
+            
+            if (!gameData || !gameData.boxscore || !gameData.boxscore.players) {
+                console.warn('⚠️ No boxscore.players data available');
+                return;
+            }
+            
+            console.log('👥 Building player database from boxscore...');
+            
+            // Iterate through both teams
+            gameData.boxscore.players.forEach(team => {
+                if (!team.statistics || !Array.isArray(team.statistics)) return;
+                
+                // Iterate through statistics categories (rushing, passing, etc.)
+                team.statistics.forEach(category => {
+                    if (!category.athletes || !Array.isArray(category.athletes)) return;
+                    
+                    // Extract each athlete
+                    category.athletes.forEach(athleteData => {
+                        if (!athleteData.athlete) return;
+                        
+                        const athlete = athleteData.athlete;
+                        const jersey = athlete.jersey;
+                        const headshotUrl = athlete.headshot?.href || null;
+                        
+                        // Store in database by jersey number
+                        if (jersey) {
+                            playerDatabase[jersey] = {
+                                name: athlete.displayName || athlete.name,
+                                jersey: jersey,
+                                headshot: headshotUrl,
+                                position: athlete.position?.abbreviation || athlete.position,
+                                teamId: team.team?.id
+                            };
+                        }
+                    });
+                });
+            });
+            
+            console.log(`✅ Player database built with ${Object.keys(playerDatabase).length} players:`, playerDatabase);
+        }
+
+        function setupGameHeader() {
+            if (!gameData) return;
+            
+            const { home, away, status } = gameData;
+            
+            // Update team logos and names
+            document.getElementById('home-logo').src = home.logo;
+            document.getElementById('home-name').textContent = home.name;
+            document.getElementById('home-score').textContent = home.score;
+            
+            document.getElementById('away-logo').src = away.logo;
+            document.getElementById('away-name').textContent = away.name;
+            document.getElementById('away-score').textContent = away.score;
+            
+            // Style scores
+            document.getElementById('home-score').style.color = home.color;
+            document.getElementById('home-underline').style.backgroundColor = `${home.color}60`;
+            
+            // Update venue
+            document.getElementById('venue-name').textContent = gameData.venue.name;
+            
+            // Update page title
+            document.getElementById('page-title').textContent = `${away.name} vs ${home.name} - Game Recap`;
+            
+            // Update game clock
+            document.getElementById('game-clock').innerHTML = `Final <span class="text-white/15 mx-1.5">·</span> 0:00`;
+        }
+
+        function setBackgroundColors() {
+            if (!gameData || !gameData.home || !gameData.away) return;
+            
+            const root = document.documentElement;
+            const away = gameData.away;
+            const home = gameData.home;
+            
+            // Remove # from color values if present
+            const cleanColor = (color) => color ? color.replace('#', '') : '333333';
+            
+            // Set CSS variables for premium background
+            root.style.setProperty('--team1-primary', `#${cleanColor(away.color)}`);
+            root.style.setProperty('--team1-secondary', `#${cleanColor(away.alternateColor)}`);
+            root.style.setProperty('--team2-primary', `#${cleanColor(home.color)}`);
+            root.style.setProperty('--team2-secondary', `#${cleanColor(home.alternateColor)}`);
+            
+            console.log('🎨 Background colors set:', {
+                team1Primary: away.color,
+                team1Secondary: away.alternateColor,
+                team2Primary: home.color,
+                team2Secondary: home.alternateColor
+            });
+        }
+
+        function setupField() {
+            if (!gameData) return;
+            
+            const { home, away } = gameData;
+            
+            // Check for Army-Navy game
+            let homeTeam = home.name.toLowerCase();
+            let awayTeam = away.name.toLowerCase();
+            const isArmyNavy = (homeTeam.includes('army') && awayTeam.includes('navy')) || 
+                               (homeTeam.includes('navy') && awayTeam.includes('army'));
+            
+            // Set endzone colors - Army gets secondary/alternate, Navy gets primary in Army-Navy
+            let awayEndzoneColor = away.alternateColor;
+            let homeEndzoneColor = home.alternateColor;
+            
+            // In Army-Navy game: Army uses alternate (gold), Navy uses primary (navy blue)
+            if (isArmyNavy) {
+                if (awayTeam.includes('army')) {
+                    awayEndzoneColor = away.alternateColor;
+                    console.log('🎖️ Army away - using alternate color (gold) for endzone');
+                }
+                if (homeTeam.includes('army')) {
+                    homeEndzoneColor = home.alternateColor;
+                    console.log('🎖️ Army home - using alternate color (gold) for endzone');
+                }
+                if (awayTeam.includes('navy')) {
+                    awayEndzoneColor = away.color;
+                    console.log('🎖️ Navy away - using primary color (navy) for endzone');
+                }
+                if (homeTeam.includes('navy')) {
+                    homeEndzoneColor = home.color;
+                    console.log('🎖️ Navy home - using primary color (navy) for endzone');
+                }
+            }
+            
+            document.getElementById('away-endzone').style.fill = awayEndzoneColor;
+            document.getElementById('home-endzone').style.fill = homeEndzoneColor;
+            
+            // Use wordmarks from database if available, otherwise use logo
+            const awayWordmark = away.wordmark || away.logo;
+            const homeWordmark = home.wordmark || home.logo;
+            
+            console.log('🏈 Setting up field wordmarks:');
+            console.log('Away wordmark:', awayWordmark);
+            console.log('Home wordmark:', homeWordmark);
+            
+            const awayImg = document.getElementById('away-wordmark');
+            const homeImg = document.getElementById('home-wordmark');
+            
+            if (awayImg) {
+                awayImg.setAttribute('href', awayWordmark);
+                console.log('✓ Away wordmark set');
+            } else {
+                console.error('✗ away-wordmark element not found');
+            }
+            
+            if (homeImg) {
+                homeImg.setAttribute('href', homeWordmark);
+                console.log('✓ Home wordmark set');
+            } else {
+                console.error('✗ home-wordmark element not found');
+            }
+            
+            // Set bowl/game logo at midfield
+            const midfieldLogo = document.getElementById('midfield-logo');
+            let bowlLogoUrl = 'https://external-preview.redd.it/la-bowl-its-official-v0-vWjktS9qE4mRPd389CM2glwh4ssxgOacgXVVftFld9c.png?auto=webp&s=facd84c771d592691b10a948812cac69872bca57';
+            
+            // Check for specific rivalry games (reuse variables from above)
+            homeTeam = home.name.toLowerCase();
+            awayTeam = away.name.toLowerCase();
+            
+            if ((homeTeam.includes('army') && awayTeam.includes('navy')) || 
+                (homeTeam.includes('navy') && awayTeam.includes('army'))) {
+                bowlLogoUrl = 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Army-Navy_football_game_logo.svg';
+                console.log('🎖️ Army-Navy game detected!');
+            }
+            
+            if (midfieldLogo) {
+                midfieldLogo.setAttribute('href', bowlLogoUrl);
+                midfieldLogo.style.display = 'block';
+                console.log('✓ Bowl logo set at midfield:', bowlLogoUrl);
+            } else {
+                console.error('✗ midfield-logo element not found');
+            }
+        }
+
+        function convertDrivesToPlays() {
+            if (!gameData || !gameData.drives) return;
+            
+            plays = [];
+            let playIdCounter = 1;
+            
+            // Debug: log game data structure
+            console.log('🏈 Game Data loaded');
+            console.log('🏠 Home team:', gameData.home?.name);
+            console.log('✈️ Away team:', gameData.away?.name);
+            
+            gameData.drives.forEach((drive, driveIndex) => {
+                // Debug first drive structure only
+                if (driveIndex === 0) {
+                    console.log('🚗 First Drive - Team:', drive.team.isHome ? 'Home' : 'Away');
+                }
+                
+                drive.plays.forEach((play, playIndex) => {
+                    
+                    // Get the correct team name based on isHome flag
+                    const teamName = drive.team.isHome ? gameData.home.name : gameData.away.name;
+                    
+                    // Try multiple sources for player data
+                    let playerName = 'Unknown Player';
+                    let playerNumber = '00';
+                    let playerHeadshot = null;
+                    
+                    // Check if athletes array exists and has data
+                    if (play.athletes && play.athletes.length > 0) {
+                        const athlete = play.athletes[0];
+                        playerName = athlete?.name || athlete?.displayName || playerName;
+                        playerNumber = athlete?.jersey || athlete?.number || playerNumber;
+                        playerHeadshot = athlete?.headshot || athlete?.headshotHref || playerHeadshot;
+                    }
+                    // Parse from play text if no athlete data
+                    else if (play.text) {
+                        // Extract player number from text like: "#22 E.Heidenreich rush"
+                        // More flexible regex to handle various formats
+                        const playerMatch = play.text.match(/#(\d+)/);
+                        if (playerMatch) {
+                            playerNumber = playerMatch[1];
+                            
+                            // Also try to extract name from the text
+                            const nameMatch = play.text.match(/#\d+\s+([A-Z]\.[A-Za-z-]+)/);
+                            if (nameMatch) {
+                                playerName = nameMatch[1];
+                            }
+                            
+                            // Lookup player in database by jersey number
+                            const dbPlayer = playerDatabase[playerNumber];
+                            if (dbPlayer) {
+                                playerName = dbPlayer.name;
+                                playerHeadshot = dbPlayer.headshot;
+                                if (playIdCounter <= 5) {
+                                    console.log(`✅ Play ${playIdCounter}: Found #${playerNumber} ${dbPlayer.name}`, dbPlayer.headshot ? '✅ HAS HEADSHOT' : '❌ NO HEADSHOT');
+                                }
+                            } else {
+                                if (playIdCounter <= 5) {
+                                    console.log(`❌ Play ${playIdCounter}: Player #${playerNumber} NOT in database`);
+                                }
+                            }
+                        } else {
+                            if (playIdCounter <= 5) {
+                                console.log(`❌ Play ${playIdCounter}: Could not extract player # from: "${play.text.substring(0, 50)}..."`);
+                            }
+                        }
+                    }
+                    
+                    const processedPlay = {
+                        id: playIdCounter++,
+                        driveId: drive.id,
+                        time: `${play.clock} - ${ordinal(play.period)}`,
+                        type: getPlayType(play.type),
+                        title: play.type,
+                        desc: play.text,
+                        shortDesc: play.shortText,
+                        team: playerName,
+                        teamId: drive.team.id,
+                        player: {
+                            name: playerName,
+                            number: playerNumber,
+                            team: `${teamName} • ${getPlayerPosition(play.type)}`,
+                            headshot: playerHeadshot
+                        },
+                        los: play.svgCoords.start,
+                        firstDown: play.svgCoords.start + 10, // Simplified
+                        ball: play.svgCoords.end,
+                        path: play.svgCoords.path,
+                        arrowColor: play.color,
+                        primaryColor: drive.team.isHome ? gameData.home.color : gameData.away.color,
+                        secondaryColor: drive.team.isHome ? gameData.home.alternateColor : gameData.away.alternateColor,
+                        situation: play.downDistanceText,
+                        possession: `${drive.team.abbreviation} ${Math.round(play.svgCoords.start - 10)}`,
+                        isScoring: play.scoringPlay,
+                        homeScore: play.homeScore,
+                        awayScore: play.awayScore
+                    };
+                    
+                    plays.push(processedPlay);
+                });
+            });
+            
+            console.log(`Converted ${plays.length} plays from ${gameData.drives.length} drives`);
+        }
+
+        function getPlayType(type) {
+            if (type.includes('Touchdown')) return 'TD';
+            if (type.includes('Field Goal')) return 'FG';
+            if (type.includes('Interception')) return 'INT';
+            if (type.includes('Sack')) return 'SACK';
+            if (type.includes('Punt')) return 'PUNT';
+            if (type.includes('Pass')) return 'PASS';
+            if (type.includes('Rush')) return 'RUSH';
+            return 'PLAY';
+        }
+
+        function getPlayerPosition(playType) {
+            if (playType.includes('Interception') || playType.includes('Sack')) return 'Defense';
+            return 'Offense';
+        }
+
+        function ordinal(num) {
+            const suffixes = ['th', 'st', 'nd', 'rd'];
+            const v = num % 100;
+            return num + (suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0]);
+        }
+
+        function updateTicker() {
+            const ticker = document.getElementById('last-plays-ticker');
+            if (!plays || plays.length === 0) return;
+            
+            // Get last 5 plays
+            const recentPlays = plays.slice(Math.max(0, currentPlayIndex - 4), currentPlayIndex + 1).reverse();
+            
+            ticker.innerHTML = recentPlays.map((play, i) => `
+                <span class="inline-flex items-center gap-1.5 ${i === 0 ? 'text-white/50' : 'text-white/25'} text-[10px] apple-text">
+                    <span class="w-1 h-1 rounded-full opacity-60" style="background-color: ${play.arrowColor}"></span>
+                    <span class="font-medium">${play.type}</span>
+                    <span class="text-white/15">·</span>
+                    <span>${play.player.name.split(' ').pop()}</span>
+                </span>
+            `).join('<span class="text-white/10 mx-2">|</span>');
+        }
+
+        function renderFeed() {
+            const container = document.getElementById('feed-container');
+            container.innerHTML = '';
+            plays.forEach((play, index) => {
+                const isActive = index === currentPlayIndex;
+                const opacity = isActive ? 'opacity-100' : 'opacity-60 hover:opacity-80 cursor-pointer';
+                const teamLogo = play.teamId === gameData.home.id ? gameData.home.logo : gameData.away.logo;
+                
+                const headshotHtml = play.player.headshot 
+                    ? `<img src="${play.player.headshot}" class="w-9 h-9 rounded-full object-cover" style="${isActive ? `box-shadow: 0 0 12px ${play.arrowColor}60;` : ''}" alt="${play.player.name}" />`
+                    : `<div class="w-9 h-9 rounded-full flex items-center justify-center text-xs font-medium" style="background: ${play.primaryColor}40; color: ${play.secondaryColor};">${play.player.number}</div>`;
+                
+                const html = `
+                    <div class="relative py-2 transition-all duration-300 ${opacity}" onclick="setPlay(${index})">
+                        <div class="flex items-start gap-3">
+                            <div class="relative">
+                                ${headshotHtml}
+                                <img src="${teamLogo}" class="w-4 h-4 absolute -bottom-0.5 -right-0.5 rounded-full bg-black/50" alt="" />
+                            </div>
+                            <div class="flex-1 min-w-0 pt-0.5">
+                                <div class="flex justify-between items-center mb-0.5">
+                                    <span class="apple-text font-medium text-[12px] truncate" style="color:${isActive ? play.arrowColor : 'rgba(255,255,255,0.7)'}">${play.player.name}</span>
+                                    <span class="text-[7px] apple-text px-1.5 py-0.5 rounded text-black/90 uppercase tracking-wide font-medium ml-2 shrink-0" style="background-color: ${play.arrowColor === '#fff' ? 'rgba(255,255,255,0.8)' : play.arrowColor}">${play.type}</span>
+                                </div>
+                                <p class="text-[10px] leading-relaxed apple-text-light ${isActive ? 'text-white/60' : 'text-white/40'} line-clamp-2">
+                                    ${play.desc.substring(0, 60)}${play.desc.length > 60 ? '...' : ''}
+                                </p>
+                                <span class="text-[8px] apple-text tracking-[0.05em] ${isActive ? 'text-white/50' : 'text-white/30'} mt-1 block">${play.time}</span>
+                            </div>
+                        </div>
+                        ${isActive ? `<div class="absolute left-0 top-0 bottom-0 w-0.5 rounded-full" style="background: ${play.arrowColor}; box-shadow: 0 0 8px ${play.arrowColor};"></div>` : ''}
+                    </div>`;
+                container.innerHTML += html;
+            });
+        }
+
+        function updateUI() {
+            if (!plays || plays.length === 0) return;
+            const play = plays[currentPlayIndex];
+            
+            // Header Stats
+            document.getElementById('situation-text').textContent = play.situation;
+            document.getElementById('ball-on-text').textContent = "Ball on " + play.possession;
+            
+            // Update clock
+            document.getElementById('game-clock').innerHTML = `${play.time} <span class="text-white/15 mx-1.5">·</span> ${play.time.split(' - ')[0]}`;
+            
+            // Update team scores with possession indicator
+            const isHome = play.teamId === gameData.home.id;
+            const homeScore = document.getElementById('home-score');
+            const awayScore = document.getElementById('away-score');
+            
+            homeScore.textContent = play.homeScore;
+            awayScore.textContent = play.awayScore;
+            
+            if (isHome) {
+                homeScore.style.color = gameData.home.color;
+                homeScore.style.textShadow = `0 0 30px ${gameData.home.color}80`;
+                awayScore.style.color = 'rgba(255,255,255,0.5)';
+                awayScore.style.textShadow = 'none';
+            } else {
+                awayScore.style.color = gameData.away.color;
+                awayScore.style.textShadow = `0 0 30px ${gameData.away.color}80`;
+                homeScore.style.color = 'rgba(255,255,255,0.5)';
+                homeScore.style.textShadow = 'none';
+            }
+
+            // AR Lines
+            document.getElementById('ar-los').setAttribute('x1', play.los);
+            document.getElementById('ar-los').setAttribute('x2', play.los);
+            document.getElementById('ar-first-down').setAttribute('x1', play.firstDown);
+            document.getElementById('ar-first-down').setAttribute('x2', play.firstDown);
+
+            // Ball & Path
+            document.getElementById('ar-ball').setAttribute('cx', play.ball);
+            document.getElementById('ar-path').setAttribute('d', play.path);
+            document.getElementById('ar-path').setAttribute('stroke', play.arrowColor);
+            
+            // Possession logo on field
+            const possLogo = document.getElementById('ar-possession-logo');
+            const teamLogo = play.teamId === gameData.home.id ? gameData.home.logo : gameData.away.logo;
+            possLogo.setAttribute('href', teamLogo);
+            possLogo.setAttribute('x', parseFloat(play.ball) - 4);
+            possLogo.setAttribute('y', 28);
+            
+            // SCORING ANIMATION LOGIC
+            const scoreOverlay = document.getElementById('score-overlay');
+            const scoreLogo = document.getElementById('score-logo');
+            const scoreText = document.getElementById('score-text');
+            const shock1 = document.getElementById('score-shockwave-1');
+            const shock2 = document.getElementById('score-shockwave-2');
+
+            // Reset animation state
+            scoreOverlay.classList.remove('animate-score-pop');
+            shock1.classList.remove('animate-shockwave');
+            shock2.classList.remove('animate-shockwave');
+            scoreOverlay.classList.add('opacity-0');
+
+            if (play.type === 'TD' || play.type === 'FG') {
+                // Trigger animation
+                scoreLogo.setAttribute('href', teamLogo);
+                scoreText.textContent = play.type === 'TD' ? 'TOUCHDOWN' : 'FIELD GOAL';
+                scoreText.style.fill = play.secondaryColor;
+                scoreOverlay.style.color = play.primaryColor;
+
+                // Force reflow to restart animation
+                void scoreOverlay.offsetWidth;
+
+                scoreOverlay.classList.remove('opacity-0');
+                scoreOverlay.classList.add('animate-score-pop');
+                shock1.classList.add('animate-shockwave');
+                shock2.classList.add('animate-shockwave');
+                shock2.style.animationDelay = '0.3s';
+            }
+
+            // Player Card
+            document.getElementById('player-number').textContent = play.player.number;
+            document.getElementById('player-name').textContent = play.player.name;
+            document.getElementById('player-team').textContent = play.player.team;
+            
+            // Update player headshot
+            const headshot = document.getElementById('player-headshot');
+            const numberDisplay = document.getElementById('player-number');
+            if (play.player.headshot) {
+                headshot.src = play.player.headshot;
+                headshot.classList.remove('hidden');
+                numberDisplay.classList.add('hidden');
+            } else {
+                headshot.classList.add('hidden');
+                numberDisplay.classList.remove('hidden');
+            }
+            
+            const imgContainer = document.getElementById('player-img-container');
+            imgContainer.style.background = `linear-gradient(135deg, ${play.primaryColor} 0%, ${play.primaryColor}80 100%)`;
+            imgContainer.style.borderColor = `${play.secondaryColor}40`;
+            
+            document.getElementById('player-number').style.color = play.secondaryColor;
+            
+            // Context Box
+            const ctxDot = document.getElementById('context-dot');
+            ctxDot.style.backgroundColor = play.arrowColor;
+            document.getElementById('play-description-overlay').textContent = `PLAY: ${play.player.name}`;
+            document.getElementById('context-team-logo').src = teamLogo;
+            
+            // Playmaker team logo
+            document.getElementById('playmaker-team-logo').src = teamLogo;
+            
+            // Header possession logo
+            document.getElementById('possession-logo').src = teamLogo;
+
+            // Update ticker
+            updateTicker();
+            
+            renderFeed();
+        }
+
+        function nextPlay() {
+            if (currentPlayIndex < plays.length - 1) {
+                currentPlayIndex++;
+                updateUI();
+            }
+        }
+
+        function prevPlay() {
+            if (currentPlayIndex > 0) {
+                currentPlayIndex--;
+                updateUI();
+            }
+        }
+
+        function setPlay(index) {
+            currentPlayIndex = index;
+            updateUI();
+        }
+
+        function switchTab(tab) {
+            // Update tab buttons - icon style
+            const playBtn = document.getElementById('tab-plays');
+            const statsBtn = document.getElementById('tab-stats');
+            const drivesBtn = document.getElementById('tab-drives');
+            const winprobBtn = document.getElementById('tab-winprob');
+            const teamstatsBtn = document.getElementById('tab-teamstats');
+            const scoringBtn = document.getElementById('tab-scoring');
+            
+            // Reset all buttons
+            [playBtn, statsBtn, drivesBtn, winprobBtn, teamstatsBtn, scoringBtn].forEach(btn => {
+                btn.className = 'w-10 h-10 flex items-center justify-center transition-all duration-200 hover:bg-white/5';
+                btn.querySelector('svg').className = 'w-4 h-4 text-white/40';
+            });
+            
+            // Hide all containers
+            document.getElementById('feed-container').classList.add('hidden');
+            document.getElementById('stats-container').classList.add('hidden');
+            document.getElementById('drives-container').classList.add('hidden');
+            document.getElementById('winprob-container').classList.add('hidden');
+            document.getElementById('teamstats-container').classList.add('hidden');
+            document.getElementById('scoring-container').classList.add('hidden');
+            
+            // Show selected tab and highlight button
+            if (tab === 'plays') {
+                playBtn.className = 'w-10 h-10 flex items-center justify-center transition-all duration-200 bg-white/10 backdrop-blur-xl';
+                playBtn.querySelector('svg').className = 'w-4 h-4 text-white/70';
+                document.getElementById('feed-container').classList.remove('hidden');
+            } else if (tab === 'stats') {
+                statsBtn.className = 'w-10 h-10 flex items-center justify-center transition-all duration-200 bg-white/10 backdrop-blur-xl';
+                statsBtn.querySelector('svg').className = 'w-4 h-4 text-white/70';
+                document.getElementById('stats-container').classList.remove('hidden');
+                renderStats();
+            } else if (tab === 'drives') {
+                drivesBtn.className = 'w-10 h-10 flex items-center justify-center transition-all duration-200 bg-white/10 backdrop-blur-xl';
+                drivesBtn.querySelector('svg').className = 'w-4 h-4 text-white/70';
+                document.getElementById('drives-container').classList.remove('hidden');
+                renderDrives();
+            } else if (tab === 'winprob') {
+                winprobBtn.className = 'w-10 h-10 flex items-center justify-center transition-all duration-200 bg-white/10 backdrop-blur-xl';
+                winprobBtn.querySelector('svg').className = 'w-4 h-4 text-white/70';
+                document.getElementById('winprob-container').classList.remove('hidden');
+                renderWinProbability();
+            } else if (tab === 'teamstats') {
+                teamstatsBtn.className = 'w-10 h-10 flex items-center justify-center transition-all duration-200 bg-white/10 backdrop-blur-xl';
+                teamstatsBtn.querySelector('svg').className = 'w-4 h-4 text-white/70';
+                document.getElementById('teamstats-container').classList.remove('hidden');
+                renderTeamStats();
+            } else if (tab === 'scoring') {
+                scoringBtn.className = 'w-10 h-10 flex items-center justify-center transition-all duration-200 bg-white/10 backdrop-blur-xl';
+                scoringBtn.querySelector('svg').className = 'w-4 h-4 text-white/70';
+                document.getElementById('scoring-container').classList.remove('hidden');
+                renderScoring();
+            }
+        }
+
+        function renderStats() {
+            const container = document.getElementById('stats-container');
+            if (!gameData || !gameData.boxscore || !gameData.boxscore.teams) {
+                container.innerHTML = '<div class="text-center py-8 text-[10px] text-white/40 apple-text">No stats available</div>';
+                return;
+            }
+
+            const teams = gameData.boxscore.teams;
+            let html = '';
+
+            teams.forEach(teamData => {
+                const team = teamData.team;
+                html += `
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <img src="${team.logo}" class="w-5 h-5" alt="${team.name}" />
+                            <span class="text-[11px] apple-text font-medium text-white/80">${team.name}</span>
+                        </div>
+                        
+                        ${['passing', 'rushing', 'receiving'].map(category => {
+                            const players = teamData[category] || [];
+                            if (players.length === 0) return '';
+                            
+                            return `
+                                <div class="mb-3">
+                                    <div class="text-[8px] apple-text text-white/30 uppercase tracking-wider mb-1">${category}</div>
+                                    ${players.slice(0, 3).map(player => `
+                                        <div class="flex items-center justify-between py-1.5 px-2 rounded hover:bg-white/[0.02]">
+                                            <div class="flex items-center gap-2">
+                                                ${player.headshot ? 
+                                                    `<img src="${player.headshot}" class="w-6 h-6 rounded-full object-cover" alt="${player.name}" />` :
+                                                    `<div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center text-[8px] text-white/40">${player.jersey}</div>`
+                                                }
+                                                <div>
+                                                    <div class="text-[10px] apple-text text-white/70">${player.name}</div>
+                                                    <div class="text-[8px] apple-text text-white/30">${player.position}</div>
+                                                </div>
+                                            </div>
+                                            <div class="text-[9px] apple-text text-white/50">${player.stats.join(' | ')}</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html || '<div class="text-center py-8 text-[10px] text-white/40 apple-text">No stats available</div>';
+        }
+
+        function renderDrives() {
+            const container = document.getElementById('drives-container');
+            if (!gameData || !gameData.drives) {
+                container.innerHTML = '<div class="text-center py-8 text-[10px] text-white/40 apple-text">No drives available</div>';
+                return;
+            }
+
+            const html = gameData.drives.map((drive, index) => {
+                const teamName = drive.team.isHome ? gameData.home.name : gameData.away.name;
+                const teamLogo = drive.team.isHome ? gameData.home.logo : gameData.away.logo;
+                const teamColor = drive.team.isHome ? gameData.home.color : gameData.away.color;
+                const result = drive.result || 'No Result';
+                const yards = drive.yards || 0;
+                const plays = drive.plays?.length || 0;
+                
+                return `
+                    <div class="relative py-2 px-3 rounded hover:bg-white/[0.02] transition-all">
+                        <div class="flex items-start gap-3">
+                            <img src="${teamLogo}" class="w-7 h-7 mt-0.5" alt="${teamName}" />
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-1">
+                                    <span class="text-[11px] apple-text font-medium text-white/80">${teamName}</span>
+                                    <span class="text-[8px] apple-text text-white/30">Drive ${index + 1}</span>
+                                </div>
+                                <div class="text-[9px] apple-text-light text-white/50 mb-1">${result}</div>
+                                <div class="flex gap-3 text-[8px] apple-text text-white/40">
+                                    <span>${plays} plays</span>
+                                    <span>•</span>
+                                    <span>${yards} yards</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = html || '<div class="text-center py-8 text-[10px] text-white/40 apple-text">No drives available</div>';
+        }
+
+        function renderWinProbability() {
+            const container = document.getElementById('winprob-container');
+            
+            if (!gameData) {
+                container.innerHTML = '<div class="text-center py-8 text-[10px] text-white/40 apple-text">No game data available</div>';
+                return;
+            }
+
+            const homeTeam = gameData.home;
+            const awayTeam = gameData.away;
+            
+            // Check if we have win probability data from ESPN
+            const hasWPData = gameData.winprobability && Array.isArray(gameData.winprobability) && gameData.winprobability.length > 0;
+            
+            let html = `<div class="space-y-3">`;
+            
+            if (hasWPData) {
+                // Extract win probability data points
+                const wpData = gameData.winprobability;
+                
+                // Get current/final win probability
+                const latestWP = wpData[wpData.length - 1];
+                const homeWinProb = latestWP?.homeWinPercentage || (homeTeam.score > awayTeam.score ? 100 : 0);
+                const awayWinProb = 100 - homeWinProb;
+                
+                html += `
+                    <!-- Current Win Probability -->
+                    <div class="bg-white/[0.02] rounded-lg p-4">
+                        <div class="text-[9px] apple-text text-white/30 uppercase tracking-wider mb-3">Win Probability</div>
+                        <div class="flex items-center justify-between gap-4 mb-2">
+                            <div class="flex items-center gap-2">
+                                <img src="${homeTeam.logo}" class="w-6 h-6" />
+                                <span class="text-[11px] apple-text text-white/70">${homeTeam.abbreviation}</span>
+                            </div>
+                            <div class="text-2xl apple-text font-bold ${homeWinProb > 50 ? 'text-green-400' : 'text-white/50'}">${homeWinProb.toFixed(1)}%</div>
+                        </div>
+                        <div class="flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-2">
+                                <img src="${awayTeam.logo}" class="w-6 h-6" />
+                                <span class="text-[11px] apple-text text-white/70">${awayTeam.abbreviation}</span>
+                            </div>
+                            <div class="text-2xl apple-text font-bold ${awayWinProb > 50 ? 'text-green-400' : 'text-white/50'}">${awayWinProb.toFixed(1)}%</div>
+                        </div>
+                    </div>
+
+                    <!-- Win Probability Chart -->
+                    <div class="bg-white/[0.02] rounded-lg p-4">
+                        <div class="text-[9px] apple-text text-white/30 uppercase tracking-wider mb-3">Game Flow</div>
+                        <svg width="100%" height="180" class="w-full" viewBox="0 0 280 180">
+                            <!-- Grid lines -->
+                            <line x1="0" y1="90" x2="280" y2="90" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="4,4"/>
+                            <line x1="0" y1="45" x2="280" y2="45" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="2,2"/>
+                            <line x1="0" y1="135" x2="280" y2="135" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="2,2"/>
+                            
+                            <!-- Win probability area fill -->
+                            <defs>
+                                <linearGradient id="wpGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:rgba(34,197,94,0.4);stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:rgba(34,197,94,0.1);stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:rgba(34,197,94,0);stop-opacity:0" />
+                                </linearGradient>
+                            </defs>
+                            
+                            ${(() => {
+                                const points = wpData.map((wp, i) => {
+                                    const x = (i / (wpData.length - 1)) * 280;
+                                    const y = 180 - (wp.homeWinPercentage * 1.8);
+                                    return `${x},${y}`;
+                                }).join(' ');
+                                
+                                const areaPoints = points + ` 280,180 0,180`;
+                                
+                                return `
+                                    <!-- Area fill under line -->
+                                    <polygon points="${areaPoints}" fill="url(#wpGradient)" opacity="0.6"/>
+                                    
+                                    <!-- Win probability line -->
+                                    <polyline
+                                        points="${points}"
+                                        fill="none"
+                                        stroke="rgba(34,197,94,0.8)"
+                                        stroke-width="2.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                `;
+                            })()}
+                            
+                            <!-- Labels -->
+                            <text x="5" y="15" fill="rgba(255,255,255,0.5)" font-size="10" class="apple-text" font-weight="500">${homeTeam.abbreviation}</text>
+                            <text x="5" y="30" fill="rgba(255,255,255,0.3)" font-size="9" class="apple-text">100%</text>
+                            <text x="5" y="95" fill="rgba(255,255,255,0.3)" font-size="9" class="apple-text">50%</text>
+                            <text x="5" y="175" fill="rgba(255,255,255,0.5)" font-size="10" class="apple-text" font-weight="500">${awayTeam.abbreviation}</text>
+                            <text x="5" y="160" fill="rgba(255,255,255,0.3)" font-size="9" class="apple-text">100%</text>
+                        </svg>
+                    </div>
+                `;
+            } else {
+                // Fallback: Show final score if no WP data
+                const finalHomeScore = homeTeam.score;
+                const finalAwayScore = awayTeam.score;
+                html += `
+                    <!-- Final Result -->
+                    <div class="bg-white/[0.02] rounded-lg p-4">
+                        <div class="text-[9px] apple-text text-white/30 uppercase tracking-wider mb-3">Final Result</div>
+                        <div class="flex items-center justify-between gap-4 mb-2">
+                            <div class="flex items-center gap-2">
+                                <img src="${homeTeam.logo}" class="w-6 h-6" />
+                                <span class="text-[11px] apple-text text-white/70">${homeTeam.abbreviation}</span>
+                            </div>
+                            <div class="text-2xl apple-text font-bold ${finalHomeScore > finalAwayScore ? 'text-green-400' : 'text-white/50'}">${finalHomeScore}</div>
+                        </div>
+                        <div class="flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-2">
+                                <img src="${awayTeam.logo}" class="w-6 h-6" />
+                                <span class="text-[11px] apple-text text-white/70">${awayTeam.abbreviation}</span>
+                            </div>
+                            <div class="text-2xl apple-text font-bold ${finalAwayScore > finalHomeScore ? 'text-green-400' : 'text-white/50'}">${finalAwayScore}</div>
+                        </div>
+                    </div>
+                    <div class="text-center py-4 text-[9px] text-white/30 apple-text">Win probability data not available for this game</div>
+                `;
+            }
+            
+            // Score progression from plays
+            if (plays && plays.length > 0) {
+                const scoringPlays = plays.filter(p => p.scoringPlay);
+                if (scoringPlays.length > 0) {
+                    html += `
+                        <div class="bg-white/[0.02] rounded-lg p-4">
+                            <div class="text-[9px] apple-text text-white/30 uppercase tracking-wider mb-3">Score Progression</div>
+                            ${scoringPlays.map((play, i) => {
+                                const team = play.homeScore > (i > 0 ? scoringPlays[i-1]?.homeScore || 0 : 0) ? homeTeam : awayTeam;
+                                return `
+                                    <div class="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
+                                        <div class="flex items-center gap-2">
+                                            <img src="${team.logo}" class="w-5 h-5" />
+                                            <span class="text-[10px] apple-text text-white/60">Q${play.period} ${play.clock}</span>
+                                        </div>
+                                        <div class="text-[11px] apple-text text-white/70 font-medium">${play.awayScore}-${play.homeScore}</div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    `;
+                }
+            }
+            
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        function renderTeamStats() {
+            const container = document.getElementById('teamstats-container');
+            if (!gameData || !gameData.boxscore || !gameData.boxscore.teams) {
+                container.innerHTML = '<div class="text-center py-8 text-[10px] text-white/40 apple-text">Team stats not available</div>';
+                return;
+            }
+
+            const homeTeam = gameData.home;
+            const awayTeam = gameData.away;
+            const teams = gameData.boxscore.teams;
+
+            // Get statistics arrays for each team
+            const homeTeamStats = teams.find(t => t.team.id == homeTeam.id);
+            const awayTeamStats = teams.find(t => t.team.id == awayTeam.id);
+
+            let html = `
+                <div class="space-y-1">
+                    <!-- Final Score -->
+                    <div class="bg-white/[0.02] rounded-lg p-3 mb-3">
+                        <div class="text-[9px] apple-text text-white/30 uppercase tracking-wider mb-2 text-center">Final Score</div>
+                        <div class="flex items-center justify-around">
+                            <div class="text-center">
+                                <img src="${awayTeam.logo}" class="w-10 h-10 mx-auto mb-2" />
+                                <div class="text-[10px] apple-text text-white/50 mb-1">${awayTeam.abbreviation}</div>
+                                <div class="text-3xl apple-text font-bold text-white/90">${awayTeam.score}</div>
+                            </div>
+                            <div class="text-[14px] apple-text text-white/20">-</div>
+                            <div class="text-center">
+                                <img src="${homeTeam.logo}" class="w-10 h-10 mx-auto mb-2" />
+                                <div class="text-[10px] apple-text text-white/50 mb-1">${homeTeam.abbreviation}</div>
+                                <div class="text-3xl apple-text font-bold text-white/90">${homeTeam.score}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Stats Comparison -->
+                    <div class="text-[9px] apple-text text-white/30 uppercase tracking-wider mb-2 px-1">Team Statistics</div>
+                    ${homeTeamStats && awayTeamStats ? homeTeamStats.statistics.map(homeStat => {
+                        const awayStat = awayTeamStats.statistics.find(s => s.label === homeStat.label);
+                        if (!awayStat) return '';
+                        
+                        const homeValue = parseFloat(homeStat.displayValue) || 0;
+                        const awayValue = parseFloat(awayStat.displayValue) || 0;
+                        const total = homeValue + awayValue;
+                        const homePercent = total > 0 ? (homeValue / total) * 100 : 50;
+                        const awayPercent = total > 0 ? (awayValue / total) * 100 : 50;
+
+                        return `
+                            <div class="bg-white/[0.02] rounded-lg p-2.5 mb-1.5">
+                                <div class="text-[9px] apple-text text-white/50 text-center mb-1.5">${homeStat.label}</div>
+                                <div class="flex items-center justify-between gap-2 mb-1">
+                                    <span class="text-[10px] apple-text text-white/70 font-medium">${awayStat.displayValue}</span>
+                                    <span class="text-[10px] apple-text text-white/70 font-medium">${homeStat.displayValue}</span>
+                                </div>
+                                <div class="flex h-1.5 rounded-full overflow-hidden bg-white/5">
+                                    <div class="bg-gradient-to-r from-blue-500/60 to-blue-500/40" style="width: ${awayPercent}%"></div>
+                                    <div class="bg-gradient-to-r from-green-500/40 to-green-500/60" style="width: ${homePercent}%"></div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('') : '<div class="text-center py-4 text-[10px] text-white/40 apple-text">No team stats available</div>'}
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function renderScoring() {
+            const container = document.getElementById('scoring-container');
+            if (!plays || plays.length === 0) {
+                container.innerHTML = '<div class="text-center py-8 text-[10px] text-white/40 apple-text">No plays available</div>';
+                return;
+            }
+
+            const homeTeam = gameData.home;
+            const awayTeam = gameData.away;
+            const scoringPlays = plays.filter(p => p.scoringPlay);
+
+            if (scoringPlays.length === 0) {
+                container.innerHTML = '<div class="text-center py-8 text-[10px] text-white/40 apple-text">No scoring plays</div>';
+                return;
+            }
+
+            let html = `
+                <div class="space-y-2">
+                    <!-- Scoring Timeline -->
+                    <div class="text-[9px] apple-text text-white/30 uppercase tracking-wider mb-2 px-1">Scoring Plays (${scoringPlays.length})</div>
+                    ${scoringPlays.map((play, index) => {
+                        // Determine which team scored based on score change
+                        const prevPlay = index > 0 ? scoringPlays[index - 1] : { homeScore: 0, awayScore: 0 };
+                        const homeScored = play.homeScore > prevPlay.homeScore;
+                        const team = homeScored ? homeTeam : awayTeam;
+                        
+                        return `
+                            <div class="bg-white/[0.02] rounded-lg p-3 hover:bg-white/[0.04] transition-all">
+                                <div class="flex items-start gap-3">
+                                    <img src="${team.logo}" class="w-7 h-7 mt-0.5" alt="${team.name}" />
+                                    <div class="flex-1">
+                                        <div class="flex justify-between items-start mb-1">
+                                            <span class="text-[11px] apple-text font-medium text-white/80">${team.abbreviation} scores</span>
+                                            <span class="text-[8px] apple-text text-white/40">Q${play.period} ${play.clock}</span>
+                                        </div>
+                                        <div class="text-[10px] apple-text-light text-white/60 mb-2">${play.text}</div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-[9px] apple-text text-white/40">Score:</span>
+                                            <span class="text-[11px] apple-text font-medium ${play.awayScore > play.homeScore ? 'text-blue-400' : 'text-white/50'}">${awayTeam.abbreviation} ${play.awayScore}</span>
+                                            <span class="text-[9px] apple-text text-white/30">-</span>
+                                            <span class="text-[11px] apple-text font-medium ${play.homeScore > play.awayScore ? 'text-green-400' : 'text-white/50'}">${homeTeam.abbreviation} ${play.homeScore}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGameData();
+        });
+    </script>
+</body>
+</html>

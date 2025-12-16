@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Tester - Game Database Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .glass-panel {
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .field-label {
+            color: #8b5cf6;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .field-value {
+            color: #e5e7eb;
+            font-family: 'Monaco', 'Menlo', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            word-break: break-all;
+        }
+        
+        .dropdown {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            padding: 12px;
+            font-size: 14px;
+        }
+        
+        .dropdown option {
+            background: #1a1a2e;
+            color: white;
+            padding: 8px;
+        }
+        
+        .section-title {
+            color: #ff0f45;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 2px solid rgba(255, 15, 69, 0.3);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .team-section {
+            background: linear-gradient(135deg, rgba(255, 15, 69, 0.1) 0%, rgba(255, 15, 69, 0.05) 100%);
+            border: 1px solid rgba(255, 15, 69, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .logo-preview {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .color-swatch {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: inline-block;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body class="p-6">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="glass-panel p-6 mb-6">
+            <h1 class="text-3xl font-bold text-white mb-2">🏈 Field Tester</h1>
+            <p class="text-gray-400">Explore all 40 games and their database fields</p>
+        </div>
+
+        <!-- Game Selector -->
+        <div class="glass-panel p-6 mb-6">
+            <label for="gameSelect" class="field-label block mb-3">Select Game to Inspect:</label>
+            <select id="gameSelect" class="dropdown w-full">
+                <option value="">Choose a game...</option>
+            </select>
+        </div>
+
+        <!-- Game Details Panel -->
+        <div id="gameDetails" class="hidden">
+            <!-- Basic Info -->
+            <div class="glass-panel p-6 mb-6">
+                <h2 class="section-title">Basic Game Information</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <div class="field-label">Game ID</div>
+                        <div class="field-value" id="gameId"></div>
+                    </div>
+                    <div>
+                        <div class="field-label">Date</div>
+                        <div class="field-value" id="gameDate"></div>
+                    </div>
+                    <div>
+                        <div class="field-label">Week</div>
+                        <div class="field-value" id="gameWeek"></div>
+                    </div>
+                    <div>
+                        <div class="field-label">Season Type</div>
+                        <div class="field-value" id="seasonType"></div>
+                    </div>
+                    <div>
+                        <div class="field-label">Status</div>
+                        <div class="field-value" id="gameStatus"></div>
+                    </div>
+                    <div>
+                        <div class="field-label">Venue</div>
+                        <div class="field-value" id="gameVenue"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teams Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <!-- Away Team -->
+                <div class="team-section">
+                    <h3 class="section-title">Away Team</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <img id="awayLogo" class="logo-preview" alt="Away team logo">
+                            <div class="flex-1">
+                                <div class="field-label">Team Name</div>
+                                <div class="field-value" id="awayTeam"></div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <div class="field-label">Abbreviation</div>
+                                <div class="field-value" id="awayAbbr"></div>
+                            </div>
+                            <div>
+                                <div class="field-label">Record</div>
+                                <div class="field-value" id="awayRecord"></div>
+                            </div>
+                            <div>
+                                <div class="field-label">Rank</div>
+                                <div class="field-value" id="awayRank"></div>
+                            </div>
+                            <div>
+                                <div class="field-label">Score</div>
+                                <div class="field-value" id="awayScore"></div>
+                            </div>
+                            <div>
+                                <div class="field-label">FPI</div>
+                                <div class="field-value" id="awayFpi"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="field-label">Colors</div>
+                            <div class="field-value flex items-center">
+                                <span id="awayColor"></span>
+                                <span class="color-swatch" id="awayColorSwatch"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="field-label">Logo URL</div>
+                            <div class="field-value" id="awayLogoUrl"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Team -->
+                <div class="team-section">
+                    <h3 class="section-title">Home Team</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <img id="homeLogo" class="logo-preview" alt="Home team logo">
+                            <div class="flex-1">
+                                <div class="field-label">Team Name</div>
+                                <div class="field-value" id="homeTeam"></div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <div class="field-label">Abbreviation</div>
+                                <div class="field-value" id="homeAbbr"></div>
+                            </div>
+                            <div>
+                                <div class="field-label">Record</div>
+                                <div class="field-value" id="homeRecord"></div>
+                            </div>
+                            <div>
+                                <div class="field-label">Rank</div>
+                                <div class="field-value" id="homeRank"></div>
+                            </div>
+                            <div>
+                                <div class="field-label">Score</div>
+                                <div class="field-value" id="homeScore"></div>
+                            </div>
+                            <div>
+                                <div class="field-label">FPI</div>
+                                <div class="field-value" id="homeFpi"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="field-label">Colors</div>
+                            <div class="field-value flex items-center">
+                                <span id="homeColor"></span>
+                                <span class="color-swatch" id="homeColorSwatch"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="field-label">Logo URL</div>
+                            <div class="field-value" id="homeLogoUrl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Betting Information -->
+            <div class="glass-panel p-6 mb-6">
+                <h2 class="section-title">Betting Information</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <div class="field-label">Spread</div>
+                        <div class="field-value" id="bettingSpread"></div>
+                    </div>
+                    <div>
+                        <div class="field-label">Over/Under</div>
+                        <div class="field-value" id="bettingOverUnder"></div>
+                    </div>
+                    <div>
+                        <div class="field-label">Home Moneyline</div>
+                        <div class="field-value" id="bettingHomeML"></div>
+                    </div>
+                    <div>
+                        <div class="field-label">Away Moneyline</div>
+                        <div class="field-value" id="bettingAwayML"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Raw JSON -->
+            <div class="glass-panel p-6">
+                <h2 class="section-title">Raw JSON Data</h2>
+                <div class="field-label mb-2">Complete Game Object:</div>
+                <pre class="field-value text-xs overflow-auto max-h-96" id="rawJson"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let gamesData = [];
+
+        // Load games data
+        fetch('./static_games.json')
+            .then(response => response.json())
+            .then(games => {
+                gamesData = games;
+                populateGameSelect();
+            })
+            .catch(error => {
+                console.error('Error loading games:', error);
+                document.getElementById('gameSelect').innerHTML = '<option value="">Error loading games</option>';
+            });
+
+        function populateGameSelect() {
+            const select = document.getElementById('gameSelect');
+            select.innerHTML = '<option value="">Choose a game...</option>';
+            
+            gamesData.forEach((game, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                const status = game.status === 'Final' ? '✅ FINAL' : '📅 UPCOMING';
+                option.textContent = `${status} - ${game.away.team} @ ${game.home.team}`;
+                select.appendChild(option);
+            });
+
+            select.addEventListener('change', function() {
+                const gameIndex = this.value;
+                if (gameIndex !== '') {
+                    displayGame(gamesData[gameIndex]);
+                } else {
+                    document.getElementById('gameDetails').classList.add('hidden');
+                }
+            });
+        }
+
+        function displayGame(game) {
+            // Basic Info
+            document.getElementById('gameId').textContent = game.id || 'N/A';
+            document.getElementById('gameDate').textContent = game.date || 'N/A';
+            document.getElementById('gameWeek').textContent = game.week || 'N/A';
+            document.getElementById('seasonType').textContent = game.seasonType || 'N/A';
+            document.getElementById('gameStatus').textContent = game.status || 'N/A';
+            document.getElementById('gameVenue').textContent = game.venue || 'N/A';
+
+            // Away Team
+            document.getElementById('awayLogo').src = game.away.logo || '';
+            document.getElementById('awayTeam').textContent = game.away.team || 'N/A';
+            document.getElementById('awayAbbr').textContent = game.away.abbr || 'N/A';
+            document.getElementById('awayRecord').textContent = game.away.record || 'N/A';
+            document.getElementById('awayRank').textContent = game.away.rank || 'Unranked';
+            document.getElementById('awayScore').textContent = game.away.score || '0';
+            document.getElementById('awayFpi').textContent = game.away.fpi || 'N/A';
+            document.getElementById('awayColor').textContent = game.away.color || '#666666';
+            document.getElementById('awayColorSwatch').style.backgroundColor = game.away.color || '#666666';
+            document.getElementById('awayLogoUrl').textContent = game.away.logo || 'N/A';
+
+            // Home Team
+            document.getElementById('homeLogo').src = game.home.logo || '';
+            document.getElementById('homeTeam').textContent = game.home.team || 'N/A';
+            document.getElementById('homeAbbr').textContent = game.home.abbr || 'N/A';
+            document.getElementById('homeRecord').textContent = game.home.record || 'N/A';
+            document.getElementById('homeRank').textContent = game.home.rank || 'Unranked';
+            document.getElementById('homeScore').textContent = game.home.score || '0';
+            document.getElementById('homeFpi').textContent = game.home.fpi || 'N/A';
+            document.getElementById('homeColor').textContent = game.home.color || '#666666';
+            document.getElementById('homeColorSwatch').style.backgroundColor = game.home.color || '#666666';
+            document.getElementById('homeLogoUrl').textContent = game.home.logo || 'N/A';
+
+            // Betting
+            document.getElementById('bettingSpread').textContent = game.betting.spread || 'N/A';
+            document.getElementById('bettingOverUnder').textContent = game.betting.overUnder || 'N/A';
+            document.getElementById('bettingHomeML').textContent = game.betting.homeMoneyline || 'N/A';
+            document.getElementById('bettingAwayML').textContent = game.betting.awayMoneyline || 'N/A';
+
+            // Raw JSON
+            document.getElementById('rawJson').textContent = JSON.stringify(game, null, 2);
+
+            // Show the details panel
+            document.getElementById('gameDetails').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/networkgraph.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: transparent;
+        }
+        
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        var currentView = 'conference';
+        var chart = null;
+        
+        // Conference logo URL mapping
+        var conferenceLogos = {
+            'SEC': 'https://a.espncdn.com/i/teamlogos/leagues/500/sec.png',
+            'Big Ten': 'https://a.espncdn.com/i/teamlogos/leagues/500/big10.png',
+            'ACC': 'https://a.espncdn.com/i/teamlogos/leagues/500/acc.png',
+            'Big 12': 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/big12.png',
+            'American Athletic': 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/aac.png',
+            'Conference USA': 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/cusa.png',
+            'Mid-American': 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/mac.png',
+            'Mountain West': 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/mwc.png',
+            'Sun Belt': 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/sunbelt.png'
+        };
+
+        // Team logo URL mapping
+        var teamLogos = {
+            'Alabama': 'https://a.espncdn.com/i/teamlogos/ncaa/500/333.png',
+            'Arkansas': 'https://a.espncdn.com/i/teamlogos/ncaa/500/8.png',
+            'Auburn': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2.png',
+            'Florida': 'https://a.espncdn.com/i/teamlogos/ncaa/500/57.png',
+            'Georgia': 'https://a.espncdn.com/i/teamlogos/ncaa/500/61.png',
+            'Kentucky': 'https://a.espncdn.com/i/teamlogos/ncaa/500/96.png',
+            'LSU': 'https://a.espncdn.com/i/teamlogos/ncaa/500/99.png',
+            'Mississippi State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/344.png',
+            'Missouri': 'https://a.espncdn.com/i/teamlogos/ncaa/500/142.png',
+            'Illinois': 'https://a.espncdn.com/i/teamlogos/ncaa/500/356.png',
+            'Indiana': 'https://a.espncdn.com/i/teamlogos/ncaa/500/84.png',
+            'Iowa': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png',
+            'Maryland': 'https://a.espncdn.com/i/teamlogos/ncaa/500/120.png',
+            'Michigan': 'https://a.espncdn.com/i/teamlogos/ncaa/500/130.png',
+            'Michigan State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/127.png',
+            'Minnesota': 'https://a.espncdn.com/i/teamlogos/ncaa/500/135.png',
+            'Boston College': 'https://a.espncdn.com/i/teamlogos/ncaa/500/103.png',
+            'California': 'https://a.espncdn.com/i/teamlogos/ncaa/500/25.png',
+            'Clemson': 'https://a.espncdn.com/i/teamlogos/ncaa/500/228.png',
+            'Duke': 'https://a.espncdn.com/i/teamlogos/ncaa/500/150.png',
+            'Florida State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/52.png',
+            'Georgia Tech': 'https://a.espncdn.com/i/teamlogos/ncaa/500/59.png',
+            'Louisville': 'https://a.espncdn.com/i/teamlogos/ncaa/500/97.png',
+            'Miami': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png',
+            'Arizona': 'https://a.espncdn.com/i/teamlogos/ncaa/500/12.png',
+            'Arizona State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/9.png',
+            'Baylor': 'https://a.espncdn.com/i/teamlogos/ncaa/500/239.png',
+            'BYU': 'https://a.espncdn.com/i/teamlogos/ncaa/500/252.png',
+            'Cincinnati': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2132.png',
+            'Colorado': 'https://a.espncdn.com/i/teamlogos/ncaa/500/38.png',
+            'Houston': 'https://a.espncdn.com/i/teamlogos/ncaa/500/248.png',
+            'Iowa State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/66.png',
+            'Kansas': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2305.png',
+            'Kansas State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2306.png',
+            'Army': 'https://a.espncdn.com/i/teamlogos/ncaa/500/349.png',
+            'Charlotte': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2429.png',
+            'East Carolina': 'https://a.espncdn.com/i/teamlogos/ncaa/500/151.png',
+            'Florida Atlantic': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2226.png',
+            'Memphis': 'https://a.espncdn.com/i/teamlogos/ncaa/500/235.png',
+            'Navy': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2426.png',
+            'Delaware': 'https://a.espncdn.com/i/teamlogos/ncaa/500/48.png',
+            'Florida International': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2229.png',
+            'Jacksonville State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/55.png',
+            'Kennesaw State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/338.png',
+            'Liberty': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png',
+            'Louisiana Tech': 'https://a.espncdn.com/i/teamlogos/ncaa/500/309.png',
+            'Middle Tennessee': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2393.png',
+            'Missouri State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2623.png',
+            'Akron': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2.png',
+            'Ball State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2050.png',
+            'Bowling Green': 'https://a.espncdn.com/i/teamlogos/ncaa/500/189.png',
+            'Buffalo': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2084.png',
+            'Central Michigan': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2117.png',
+            'Eastern Michigan': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2199.png',
+            'Kent State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2309.png',
+            'Massachusetts': 'https://a.espncdn.com/i/teamlogos/ncaa/500/113.png',
+            'Miami (OH)': 'https://a.espncdn.com/i/teamlogos/ncaa/500/193.png',
+            'Air Force': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png',
+            'Boise State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/68.png',
+            'Colorado State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/36.png',
+            'Fresno State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/278.png',
+            'Hawai\'i': 'https://a.espncdn.com/i/teamlogos/ncaa/500/62.png',
+            'App State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2026.png',
+            'Arkansas State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2032.png',
+            'Coastal Carolina': 'https://a.espncdn.com/i/teamlogos/ncaa/500/324.png',
+            'Georgia Southern': 'https://a.espncdn.com/i/teamlogos/ncaa/500/290.png',
+            'Georgia State': 'https://a.espncdn.com/i/teamlogos/ncaa/500/2247.png',
+            'James Madison': 'https://a.espncdn.com/i/teamlogos/ncaa/500/256.png',
+            'Louisiana': 'https://a.espncdn.com/i/teamlogos/ncaa/500/309.png',
+            'Marshall': 'https://a.espncdn.com/i/teamlogos/ncaa/500/276.png'
+        };
+
+        // Team data with additional metrics
+        var teamData = {
+            'Alabama': { perf: 3.17, conf: 'SEC', offense: 4.27, defense: 4.45, style: 'explosive', tier: 'elite' },
+            'Arkansas': { perf: 2.99, conf: 'SEC', offense: 4.2, defense: 4.21, style: 'explosive', tier: 'strong' },
+            'Auburn': { perf: 2.77, conf: 'SEC', offense: 3.9, defense: 3.37, style: 'balanced', tier: 'average' },
+            'Florida': { perf: 2.87, conf: 'SEC', offense: 4.0, defense: 3.46, style: 'balanced', tier: 'average' },
+            'Georgia': { perf: 3.0, conf: 'SEC', offense: 4.81, defense: 3.66, style: 'explosive', tier: 'elite' },
+            'Kentucky': { perf: 2.93, conf: 'SEC', offense: 3.84, defense: 3.98, style: 'defensive', tier: 'average' },
+            'LSU': { perf: 2.9, conf: 'SEC', offense: 3.2, defense: 2.98, style: 'balanced', tier: 'average' },
+            'Mississippi State': { perf: 3.05, conf: 'SEC', offense: 4.49, defense: 4.64, style: 'balanced', tier: 'strong' },
+            'Missouri': { perf: 2.89, conf: 'SEC', offense: 4.01, defense: 4.12, style: 'explosive', tier: 'average' },
+            'Illinois': { perf: 3.14, conf: 'Big Ten', offense: 4.3, defense: 4.27, style: 'balanced', tier: 'strong' },
+            'Indiana': { perf: 3.07, conf: 'Big Ten', offense: 4.98, defense: 1.82, style: 'explosive', tier: 'elite' },
+            'Iowa': { perf: 3.26, conf: 'Big Ten', offense: 4.39, defense: 3.27, style: 'defensive', tier: 'elite' },
+            'Maryland': { perf: 3.09, conf: 'Big Ten', offense: 3.39, defense: 3.6, style: 'balanced', tier: 'strong' },
+            'Michigan': { perf: 3.08, conf: 'Big Ten', offense: 3.67, defense: 3.27, style: 'balanced', tier: 'strong' },
+            'Michigan State': { perf: 3.11, conf: 'Big Ten', offense: 3.75, defense: 3.91, style: 'balanced', tier: 'strong' },
+            'Minnesota': { perf: 2.83, conf: 'Big Ten', offense: 3.79, defense: 3.84, style: 'defensive', tier: 'average' },
+            'Boston College': { perf: 2.88, conf: 'ACC', offense: 3.39, defense: 3.82, style: 'defensive', tier: 'average' },
+            'California': { perf: 3.02, conf: 'ACC', offense: 3.73, defense: 3.57, style: 'balanced', tier: 'average' },
+            'Clemson': { perf: 2.88, conf: 'ACC', offense: 3.92, defense: 2.69, style: 'balanced', tier: 'average' },
+            'Duke': { perf: 3.09, conf: 'ACC', offense: 4.28, defense: 4.45, style: 'balanced', tier: 'strong' },
+            'Florida State': { perf: 3.37, conf: 'ACC', offense: 3.95, defense: 4.12, style: 'explosive', tier: 'elite' },
+            'Georgia Tech': { perf: 2.83, conf: 'ACC', offense: 3.67, defense: 3.52, style: 'balanced', tier: 'average' },
+            'Louisville': { perf: 3.24, conf: 'ACC', offense: 3.59, defense: 3.38, style: 'balanced', tier: 'strong' },
+            'Miami': { perf: 2.86, conf: 'ACC', offense: 4.62, defense: 2.62, style: 'explosive', tier: 'average' },
+            'Arizona': { perf: 3.26, conf: 'Big 12', offense: 3.57, defense: 3.38, style: 'balanced', tier: 'strong' },
+            'Arizona State': { perf: 3.16, conf: 'Big 12', offense: 3.32, defense: 3.06, style: 'balanced', tier: 'strong' },
+            'Baylor': { perf: 3.16, conf: 'Big 12', offense: 3.69, defense: 4.3, style: 'defensive', tier: 'strong' },
+            'BYU': { perf: 3.1, conf: 'Big 12', offense: 4.04, defense: 3.06, style: 'balanced', tier: 'strong' },
+            'Cincinnati': { perf: 3.17, conf: 'Big 12', offense: 4.66, defense: 3.81, style: 'explosive', tier: 'strong' },
+            'Colorado': { perf: 3.03, conf: 'Big 12', offense: 3.48, defense: 4.01, style: 'balanced', tier: 'strong' },
+            'Houston': { perf: 3.26, conf: 'Big 12', offense: 3.39, defense: 3.77, style: 'defensive', tier: 'strong' },
+            'Iowa State': { perf: 3.02, conf: 'Big 12', offense: 3.54, defense: 3.06, style: 'balanced', tier: 'strong' },
+            'Kansas': { perf: 2.63, conf: 'Big 12', offense: 3.94, defense: 4.24, style: 'balanced', tier: 'developing' },
+            'Kansas State': { perf: 3.26, conf: 'Big 12', offense: 4.15, defense: 3.45, style: 'balanced', tier: 'strong' },
+            'Army': { perf: 3.11, conf: 'American Athletic', offense: 3.5, defense: 3.73, style: 'balanced', tier: 'strong' },
+            'Charlotte': { perf: 3.12, conf: 'American Athletic', offense: 2.73, defense: 4.16, style: 'defensive', tier: 'strong' },
+            'East Carolina': { perf: 3.08, conf: 'American Athletic', offense: 4.06, defense: 3.13, style: 'explosive', tier: 'strong' },
+            'Florida Atlantic': { perf: 3.44, conf: 'American Athletic', offense: 3.49, defense: 4.58, style: 'defensive', tier: 'elite' },
+            'Memphis': { perf: 2.99, conf: 'American Athletic', offense: 4.61, defense: 3.94, style: 'explosive', tier: 'average' },
+            'Navy': { perf: 3.14, conf: 'American Athletic', offense: 4.13, defense: 4.24, style: 'explosive', tier: 'strong' },
+            'Delaware': { perf: 2.93, conf: 'Conference USA', offense: 3.62, defense: 4.19, style: 'defensive', tier: 'average' },
+            'Florida International': { perf: 3.29, conf: 'Conference USA', offense: 4.21, defense: 3.36, style: 'explosive', tier: 'strong' },
+            'Jacksonville State': { perf: 2.81, conf: 'Conference USA', offense: 3.8, defense: 3.58, style: 'balanced', tier: 'average' },
+            'Kennesaw State': { perf: 2.95, conf: 'Conference USA', offense: 3.24, defense: 3.58, style: 'balanced', tier: 'average' },
+            'Liberty': { perf: 3.05, conf: 'Conference USA', offense: 3.68, defense: 3.55, style: 'balanced', tier: 'strong' },
+            'Louisiana Tech': { perf: 2.62, conf: 'Conference USA', offense: 3.33, defense: 3.05, style: 'balanced', tier: 'developing' },
+            'Middle Tennessee': { perf: 2.89, conf: 'Conference USA', offense: 3.33, defense: 4.45, style: 'defensive', tier: 'average' },
+            'Missouri State': { perf: 3.25, conf: 'Conference USA', offense: 3.66, defense: 3.9, style: 'balanced', tier: 'strong' },
+            'Akron': { perf: 3.1, conf: 'Mid-American', offense: 3.25, defense: 3.68, style: 'defensive', tier: 'strong' },
+            'Ball State': { perf: 3.03, conf: 'Mid-American', offense: 3.66, defense: 4.18, style: 'defensive', tier: 'strong' },
+            'Bowling Green': { perf: 3.02, conf: 'Mid-American', offense: 3.19, defense: 3.44, style: 'defensive', tier: 'strong' },
+            'Buffalo': { perf: 3.0, conf: 'Mid-American', offense: 3.5, defense: 3.07, style: 'balanced', tier: 'average' },
+            'Central Michigan': { perf: 3.16, conf: 'Mid-American', offense: 3.66, defense: 3.09, style: 'balanced', tier: 'strong' },
+            'Eastern Michigan': { perf: 2.77, conf: 'Mid-American', offense: 3.95, defense: 3.85, style: 'balanced', tier: 'average' },
+            'Kent State': { perf: 3.2, conf: 'Mid-American', offense: 3.42, defense: 4.29, style: 'defensive', tier: 'strong' },
+            'Massachusetts': { perf: 2.88, conf: 'Mid-American', offense: 2.17, defense: 4.64, style: 'defensive', tier: 'average' },
+            'Miami (OH)': { perf: 3.05, conf: 'Mid-American', offense: 3.52, defense: 3.46, style: 'balanced', tier: 'strong' },
+            'Air Force': { perf: 2.79, conf: 'Mountain West', offense: 4.6, defense: 4.28, style: 'balanced', tier: 'average' },
+            'Boise State': { perf: 3.02, conf: 'Mountain West', offense: 3.7, defense: 3.14, style: 'balanced', tier: 'average' },
+            'Colorado State': { perf: 2.82, conf: 'Mountain West', offense: 3.52, defense: 4.03, style: 'defensive', tier: 'average' },
+            'Fresno State': { perf: 3.31, conf: 'Mountain West', offense: 3.35, defense: 3.48, style: 'balanced', tier: 'strong' },
+            'Hawai\'i': { perf: 3.08, conf: 'Mountain West', offense: 3.67, defense: 3.38, style: 'balanced', tier: 'strong' },
+            'App State': { perf: 3.06, conf: 'Sun Belt', offense: 3.69, defense: 3.63, style: 'balanced', tier: 'strong' },
+            'Arkansas State': { perf: 2.88, conf: 'Sun Belt', offense: 3.26, defense: 3.88, style: 'defensive', tier: 'average' },
+            'Coastal Carolina': { perf: 3.23, conf: 'Sun Belt', offense: 3.82, defense: 3.63, style: 'balanced', tier: 'strong' },
+            'Georgia Southern': { perf: 2.92, conf: 'Sun Belt', offense: 4.01, defense: 4.45, style: 'balanced', tier: 'average' },
+            'Georgia State': { perf: 2.92, conf: 'Sun Belt', offense: 3.39, defense: 4.45, style: 'defensive', tier: 'average' },
+            'James Madison': { perf: 3.26, conf: 'Sun Belt', offense: 3.95, defense: 3.33, style: 'balanced', tier: 'strong' },
+            'Louisiana': { perf: 2.99, conf: 'Sun Belt', offense: 3.56, defense: 3.42, style: 'balanced', tier: 'average' },
+            'Marshall': { perf: 2.88, conf: 'Sun Belt', offense: 3.89, defense: 3.62, style: 'balanced', tier: 'average' }
+        };
+
+        function hexToRgb(hex) {
+            var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? 
+                parseInt(result[1], 16) + ',' + parseInt(result[2], 16) + ',' + parseInt(result[3], 16)
+                : '255,255,255';
+        }
+
+        function switchView(view) {
+            currentView = view;
+            buildChart();
+        }
+
+        function getDataForView(view) {
+            var data = [];
+            var rootNode = 'FBS Football 2025';
+            
+            if (view === 'conference') {
+                var conferences = ['SEC', 'Big Ten', 'ACC', 'Big 12', 'American Athletic', 'Conference USA', 'Mid-American', 'Mountain West', 'Sun Belt'];
+                conferences.forEach(function(conf) {
+                    data.push([rootNode, conf]);
+                });
+                
+                Object.keys(teamData).forEach(function(team) {
+                    data.push([teamData[team].conf, team, teamData[team].perf]);
+                });
+                
+            } else if (view === 'performance') {
+                Object.keys(teamData).forEach(function(team) {
+                    var perf = teamData[team].perf;
+                    if (perf >= 3.2) {
+                        data.push(['Elite Tier (3.2+)', team, perf]);
+                    } else if (perf >= 3.0) {
+                        data.push(['Strong Tier (3.0-3.19)', team, perf]);
+                    } else if (perf >= 2.8) {
+                        data.push(['Average Tier (2.8-2.99)', team, perf]);
+                    } else {
+                        data.push(['Developing Tier (<2.8)', team, perf]);
+                    }
+                });
+                
+                data.unshift([rootNode, 'Elite Tier (3.2+)']);
+                data.unshift([rootNode, 'Strong Tier (3.0-3.19)']);
+                data.unshift([rootNode, 'Average Tier (2.8-2.99)']);
+                data.unshift([rootNode, 'Developing Tier (<2.8)']);
+                
+            } else if (view === 'offense') {
+                data.push([rootNode, 'Elite Offense (4.5+)']);
+                data.push([rootNode, 'Strong Offense (4.0-4.49)']);
+                data.push([rootNode, 'Average Offense (3.5-3.99)']);
+                data.push([rootNode, 'Developing Offense (<3.5)']);
+                
+                Object.keys(teamData).forEach(function(team) {
+                    var off = teamData[team].offense;
+                    if (off >= 4.5) {
+                        data.push(['Elite Offense (4.5+)', team, teamData[team].perf]);
+                    } else if (off >= 4.0) {
+                        data.push(['Strong Offense (4.0-4.49)', team, teamData[team].perf]);
+                    } else if (off >= 3.5) {
+                        data.push(['Average Offense (3.5-3.99)', team, teamData[team].perf]);
+                    } else {
+                        data.push(['Developing Offense (<3.5)', team, teamData[team].perf]);
+                    }
+                });
+                
+            } else if (view === 'defense') {
+                data.push([rootNode, 'Elite Defense (4.5+)']);
+                data.push([rootNode, 'Strong Defense (4.0-4.49)']);
+                data.push([rootNode, 'Average Defense (3.5-3.99)']);
+                data.push([rootNode, 'Developing Defense (<3.5)']);
+                
+                Object.keys(teamData).forEach(function(team) {
+                    var def = teamData[team].defense;
+                    if (def >= 4.5) {
+                        data.push(['Elite Defense (4.5+)', team, teamData[team].perf]);
+                    } else if (def >= 4.0) {
+                        data.push(['Strong Defense (4.0-4.49)', team, teamData[team].perf]);
+                    } else if (def >= 3.5) {
+                        data.push(['Average Defense (3.5-3.99)', team, teamData[team].perf]);
+                    } else {
+                        data.push(['Developing Defense (<3.5)', team, teamData[team].perf]);
+                    }
+                });
+                
+            } else if (view === 'style') {
+                data.push([rootNode, 'Explosive Style']);
+                data.push([rootNode, 'Balanced Style']);
+                data.push([rootNode, 'Defensive Style']);
+                
+                Object.keys(teamData).forEach(function(team) {
+                    var style = teamData[team].style;
+                    if (style === 'explosive') {
+                        data.push(['Explosive Style', team, teamData[team].perf]);
+                    } else if (style === 'balanced') {
+                        data.push(['Balanced Style', team, teamData[team].perf]);
+                    } else {
+                        data.push(['Defensive Style', team, teamData[team].perf]);
+                    }
+                });
+            }
+            
+            return data;
+        }
+
+        Highcharts.addEvent(
+            Highcharts.Series,
+            'afterSetOptions',
+            function (e) {
+                var colors = [
+                    '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
+                    '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B739', '#52B788',
+                    '#E63946', '#06FFA5', '#7209B7'
+                ],
+                i = 0,
+                nodes = {};
+
+                if (
+                    this instanceof Highcharts.Series.types.networkgraph &&
+                    e.options.id === 'cfb-tree'
+                ) {
+                    e.options.data.forEach(function (link) {
+                        if (link[0] === 'FBS Football 2025') {
+                            nodes['FBS Football 2025'] = {
+                                id: 'FBS Football 2025',
+                                marker: {
+                                    radius: 35,
+                                    symbol: 'circle',
+                                    lineWidth: 3,
+                                    lineColor: '#FFD700'
+                                },
+                                color: 'rgba(255, 215, 0, 0.3)'
+                            };
+                            
+                            var isConference = conferenceLogos[link[1]];
+                            var logoUrl = isConference ? conferenceLogos[link[1]] : null;
+                            
+                            nodes[link[1]] = {
+                                id: link[1],
+                                marker: {
+                                    symbol: logoUrl ? 'url(' + logoUrl + ')' : 'circle',
+                                    width: logoUrl ? 50 : 25,
+                                    height: logoUrl ? 50 : 25,
+                                    radius: 25,
+                                    lineWidth: 3,
+                                    lineColor: colors[i]
+                                },
+                                color: logoUrl ? colors[i] : 'rgba(' + hexToRgb(colors[i]) + ', 0.4)'
+                            };
+                            i++;
+                        } else if (nodes[link[0]] && nodes[link[0]].color) {
+                            var performanceScore = link[2] || 3;
+                            var radius = 10 + (performanceScore * 3);
+                            var logoUrl = teamLogos[link[1]];
+                            var parentColor = nodes[link[0]].marker.lineColor || nodes[link[0]].color;
+                            
+                            nodes[link[1]] = {
+                                id: link[1],
+                                color: logoUrl ? 'rgba(255, 255, 255, 0.15)' : nodes[link[0]].color,
+                                marker: {
+                                    symbol: logoUrl ? 'url(' + logoUrl + ')' : 'circle',
+                                    width: radius * 2.2,
+                                    height: radius * 2.2,
+                                    radius: radius,
+                                    lineWidth: 2,
+                                    lineColor: parentColor
+                                }
+                            };
+                        }
+                    });
+
+                    e.options.nodes = Object.keys(nodes).map(function (id) {
+                        return nodes[id];
+                    });
+                }
+            }
+        );
+
+        function buildChart() {
+            var chartData = getDataForView(currentView);
+            
+            chart = Highcharts.chart('container', {
+                chart: {
+                    type: 'networkgraph',
+                    height: '100%',
+                    backgroundColor: 'transparent',
+                    zooming: {
+                        type: 'xy'
+                    },
+                    panning: {
+                        enabled: true,
+                        type: 'xy'
+                    },
+                    panKey: 'shift',
+                    events: {
+                        load: function() {
+                            var chart = this;
+                            setTimeout(function() {
+                                if (chart.series[0] && chart.series[0].points) {
+                                    chart.setSize(chart.chartWidth, chart.chartHeight, false);
+                                }
+                            }, 100);
+                        }
+                    }
+                },
+                title: {
+                    text: '',
+                    style: {
+                        color: '#fff'
+                    }
+                },
+                subtitle: {
+                    text: '',
+                    style: {
+                        color: '#9aa0a6'
+                    }
+                },
+                plotOptions: {
+                    networkgraph: {
+                        keys: ['from', 'to', 'performance'],
+                        draggable: true,
+                        layoutAlgorithm: {
+                            enableSimulation: true,
+                            friction: -0.9,
+                            linkLength: 100,
+                            gravitationalConstant: 0.015,
+                            maxSpeed: 10,
+                            integration: 'verlet',
+                            approximation: 'barnes-hut',
+                            initialPositions: 'circle'
+                        },
+                        link: {
+                            color: 'rgba(255, 255, 255, 0.2)',
+                            width: 1.5
+                        },
+                        states: {
+                            hover: {
+                                halo: {
+                                    size: 15,
+                                    opacity: 0.5
+                                },
+                                brightness: 0.3
+                            },
+                            inactive: {
+                                opacity: 0.3
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    accessibility: {
+                        enabled: false
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        linkFormat: '',
+                        style: {
+                            fontSize: '0.75em',
+                            fontWeight: 'normal',
+                            color: '#e8eaed',
+                            textOutline: '2px #0f1419'
+                        }
+                    },
+                    id: 'cfb-tree',
+                    data: chartData
+                }],
+                tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.85)',
+                    borderColor: '#666',
+                    style: {
+                        color: '#fff'
+                    },
+                    formatter: function() {
+                        if (this.point.id === 'FBS Football 2025') {
+                            return '<b>FBS Football 2025</b><br/>All conferences and teams';
+                        } else if (this.point.linksFrom && this.point.linksFrom.length > 5) {
+                            return '<b>' + this.point.id + '</b><br/>' + 
+                                   this.point.linksFrom.length + ' teams';
+                        } else {
+                            var team = teamData[this.point.id];
+                            if (team) {
+                                return '<b>' + this.point.id + '</b><br/>' + 
+                                       'Conference: <b>' + team.conf + '</b><br/>' +
+                                       'Performance: <b>' + team.perf.toFixed(2) + '</b><br/>' + 
+                                       'Offense Rating: <b>' + team.offense.toFixed(2) + '</b><br/>' + 
+                                       'Defense Rating: <b>' + team.defense.toFixed(2) + '</b><br/>' + 
+                                       'Style: <b>' + team.style.charAt(0).toUpperCase() + team.style.slice(1) + '</b>';
+                            }
+                            return '<b>' + this.point.id + '</b>';
+                        }
+                    }
+                }
+            });
+        }
+
+        // Listen for messages from parent window to change views
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.action === 'switchView') {
+                switchView(event.data.view);
+            }
+        });
+        
+        buildChart();
+    </script>
+</body>
+</html>

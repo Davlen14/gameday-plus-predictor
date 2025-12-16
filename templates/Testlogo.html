@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameday+ Circuit Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Animations usually found in CSS-in-JS */
+        @keyframes shine {
+            0% { transform: translateX(-200%) skewX(-12deg); }
+            20% { transform: translateX(200%) skewX(-12deg); }
+            100% { transform: translateX(200%) skewX(-12deg); }
+        }
+        @keyframes scan-fast {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(500%); }
+        }
+        @keyframes move-lines {
+            0% { background-position: 0 0; }
+            100% { background-position: 200% 0; }
+        }
+        .animate-shine {
+            animation: shine 3s infinite linear;
+        }
+        .animate-scan-fast {
+            animation: scan-fast 4s infinite linear;
+        }
+        .moving-lines {
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.16) 0px,
+                rgba(255, 255, 255, 0.16) 6px,
+                transparent 6px,
+                transparent 12px
+            );
+            animation: move-lines 6s linear infinite;
+            mix-blend-mode: screen;
+            opacity: 0.35;
+        }
+        
+        /* Ensure canvas sits behind everything */
+        canvas {
+            touch-action: none;
+        }
+    </style>
+</head>
+<body class="bg-black overflow-hidden m-0 p-0 w-full h-screen flex items-center justify-center font-sans">
+
+    <!-- 1. Background Circuit Canvas -->
+    <canvas id="circuitCanvas" class="absolute inset-0 w-full h-full opacity-60"></canvas>
+
+    <!-- 2. Main Logo Container -->
+    <div class="relative z-10 group cursor-pointer">
+
+        <!-- Logo Wrapper -->
+        <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl shadow-2xl overflow-hidden flex items-center justify-center">
+            
+            <!-- THE IMAGE CONTAINER -->
+            <div class="relative w-48 h-48 flex items-center justify-center">
+                
+                <!-- Actual Image Layer -->
+                <!-- Note: Starts opacity-0, JS toggles it on load -->
+                <img 
+                    id="logoImage"
+                    src="Appicon2.svg" 
+                    alt="Gameday+ App Icon 2" 
+                    class="w-full h-full object-contain relative z-10 transition-opacity duration-500 opacity-0"
+                />
+
+                <!-- Fallback SVG (Visible initially or on error) -->
+                <div id="fallbackSvg" class="absolute inset-0 flex items-center justify-center">
+                    <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[0_0_15px_rgba(220,38,38,0.8)]">
+                        <!-- Abstract 'G' Circuit Shape -->
+                        <path 
+                            d="M 60 45 L 60 55 L 45 55 L 45 75 L 75 75 L 75 25 L 25 25 L 25 75 L 35 75" 
+                            fill="none" 
+                            stroke="#dc2626" 
+                            stroke-width="8" 
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                        <!-- Circuit Dots -->
+                        <circle cx="25" cy="25" r="4" fill="#fff" />
+                        <circle cx="75" cy="75" r="4" fill="#fff" />
+                        <circle cx="60" cy="45" r="4" fill="#fff" />
+                    </svg>
+                </div>
+
+                <!-- THE "FLOW" ANIMATION OVERLAY -->
+                <div class="absolute inset-0 z-20 pointer-events-none mix-blend-color-dodge">
+                    <!-- Moving line texture clipped to the logo area -->
+                    <div class="absolute inset-0 moving-lines"></div>
+                    <!-- Horizontal Scanline -->
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-red-500/50 to-transparent h-[20%] w-full animate-scan-fast opacity-50"></div>
+                    
+                    <!-- Diagonal Shine -->
+                    <div class="absolute -inset-full bg-gradient-to-r from-transparent via-white/40 to-transparent w-[50%] skew-x-12 animate-shine"></div>
+                </div>
+            </div>
+
+            <!-- Decorative Corner Brackets (HUD style) -->
+            <div class="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-red-600"></div>
+            <div class="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-red-600"></div>
+            <div class="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-red-600"></div>
+            <div class="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-red-600"></div>
+
+        </div>
+
+        <!-- Text Label -->
+        <div class="absolute -bottom-16 left-0 right-0 text-center">
+            <h2 class="text-red-500 font-bold tracking-[0.3em] text-sm uppercase animate-pulse">
+                System Online
+            </h2>
+            <div class="text-xs text-red-800 mt-1">Gameday+ Intelligence</div>
+        </div>
+    </div>
+
+    <!-- Logic Script -->
+    <script>
+        // --- Image Loading Logic ---
+        const img = document.getElementById('logoImage');
+        const fallback = document.getElementById('fallbackSvg');
+
+        img.onload = () => {
+            img.classList.remove('opacity-0');
+            img.classList.add('opacity-100');
+            fallback.style.display = 'none';
+        };
+
+        img.onerror = () => {
+            img.style.display = 'none';
+            fallback.style.display = 'flex';
+        };
+
+        // --- Canvas Animation Logic ---
+        const canvas = document.getElementById('circuitCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Configuration
+        const circuitConfig = {
+            lineColor: 'rgba(220, 38, 38, 0.3)', // Red trace
+            nodeColor: 'rgba(239, 68, 68, 0.8)', // Bright red node
+            particleColor: '#ffffff', // White data packet
+            nodeCount: 15,
+            speed: 1.5
+        };
+
+        let particles = [];
+        let nodes = [];
+        let animationFrameId;
+
+        // Initialize Nodes & Particles
+        function initNodes() {
+            nodes = [];
+            const cx = canvas.width / 2;
+            const cy = canvas.height / 2;
+            
+            // Create nodes in a radial pattern around the logo
+            for (let i = 0; i < circuitConfig.nodeCount; i++) {
+                const angle = (Math.PI * 2 * i) / circuitConfig.nodeCount;
+                const dist = 180 + Math.random() * 200; // Distance from center logo
+                nodes.push({
+                    x: cx + Math.cos(angle) * dist,
+                    y: cy + Math.sin(angle) * dist,
+                });
+            }
+
+            // Connect nodes to center
+            particles = [];
+            nodes.forEach((node) => {
+                particles.push({
+                    path: [
+                        {x: cx, y: cy}, // Start at logo
+                        {x: cx + (node.x - cx) * 0.5, y: node.y}, // Dogleg turn
+                        {x: node.x, y: node.y} // End at node
+                    ],
+                    progress: Math.random(), // Random start time
+                    speed: 0.005 + Math.random() * 0.01
+                });
+            });
+        }
+
+        function draw() {
+            // Clear background
+            ctx.fillStyle = '#0a0a0a'; 
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw static grid
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+            ctx.lineWidth = 1;
+            const gridSize = 40;
+            
+            ctx.beginPath();
+            for(let x = 0; x < canvas.width; x += gridSize) {
+                ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height);
+            }
+            for(let y = 0; y < canvas.height; y += gridSize) {
+                ctx.moveTo(0, y); ctx.lineTo(canvas.width, y);
+            }
+            ctx.stroke();
+
+            // Draw circuit lines
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            
+            particles.forEach(p => {
+                // Draw the static wire
+                ctx.strokeStyle = circuitConfig.lineColor;
+                ctx.beginPath();
+                ctx.moveTo(p.path[0].x, p.path[0].y);
+                for(let i=1; i<p.path.length; i++) ctx.lineTo(p.path[i].x, p.path[i].y);
+                ctx.stroke();
+
+                // Move data packet
+                p.progress += p.speed;
+                if(p.progress >= 1) p.progress = 0;
+
+                // Calculate current position
+                let tx = 0, ty = 0;
+                if (p.progress < 0.5) {
+                    // First leg
+                    const t = p.progress * 2;
+                    tx = p.path[0].x + (p.path[1].x - p.path[0].x) * t;
+                    ty = p.path[0].y + (p.path[1].y - p.path[0].y) * t;
+                } else {
+                    // Second leg
+                    const t = (p.progress - 0.5) * 2;
+                    tx = p.path[1].x + (p.path[2].x - p.path[1].x) * t;
+                    ty = p.path[1].y + (p.path[2].y - p.path[1].y) * t;
+                }
+
+                // Draw glow packet
+                ctx.save();
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = circuitConfig.nodeColor;
+                ctx.fillStyle = circuitConfig.particleColor;
+                ctx.beginPath();
+                ctx.arc(tx, ty, 3, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            });
+
+            // Draw Nodes
+            nodes.forEach(node => {
+                ctx.fillStyle = circuitConfig.nodeColor;
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 4, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            animationFrameId = requestAnimationFrame(draw);
+        }
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initNodes();
+        }
+
+        // Start
+        window.addEventListener('resize', resize);
+        resize();
+        draw();
+
+    </script>
+</body>
+</html>

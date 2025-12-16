@@ -29,7 +29,6 @@
                         void: '#030712', // Deepest black
                         surface: '#0B1121', // Secondary dark
                         nd: '#D6001C', // Crimson Neon
-                        cyan: '#00D9FF',
                         glass: 'rgba(255, 255, 255, 0.03)',
                     },
                     animation: {
@@ -60,8 +59,39 @@
     <style>
         body {
             background-color: #030712;
-            color: #e2e8f0;
+            color: #e0e0e0;
             overflow-x: hidden;
+        }
+
+        /* Premium Apple-like Gradient Background */
+        .noise-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, 
+                #000000 0%,
+                #0a0a0f 20%,
+                #050508 40%,
+                #0a0a0f 60%,
+                #000000 100%
+            );
+            pointer-events: none;
+            z-index: -3;
+        }
+        
+        /* Subtle radial glow overlay */
+        .noise-bg::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(20, 20, 30, 0.3) 0%,
+                transparent 70%
+            );
         }
 
         /* 2030 Grid Background */
@@ -89,7 +119,7 @@
 
         /* Glassmorphism Panel - Premium Edition */
         .glass-panel {
-            background: linear-gradient(135deg, rgba(11, 17, 33, 0.75) 0%, rgba(11, 17, 33, 0.55) 100%);
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.75) 0%, rgba(15, 15, 15, 0.55) 100%);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1.5px solid rgba(255, 255, 255, 0.08);
@@ -121,7 +151,7 @@
                 inset 0 1px 1px rgba(255, 255, 255, 0.15),
                 0 0 0 1px rgba(214, 0, 28, 0.15);
             transform: translateY(-4px);
-            background: linear-gradient(135deg, rgba(11, 17, 33, 0.85) 0%, rgba(11, 17, 33, 0.65) 100%);
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.85) 0%, rgba(20, 20, 20, 0.65) 100%);
         }
 
         /* Tech Corners */
@@ -136,40 +166,162 @@
 
         /* Modern Scrollbar */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #030712; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #D6001C; }
 
-        /* Data Tables */
+        /* Remove browser default focus ring - museum case styling */
+        *:focus {
+            outline: none;
+        }
+        
+        /* Custom focus styles - museum case glass effect */
+        button:focus,
+        input:focus,
+        a:focus,
+        .tab-btn:focus {
+            outline: none;
+            border-radius: 0px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                inset 0 0 40px rgba(255, 255, 255, 0.03),
+                0 2px 10px rgba(0,0,0,0.4);
+        }
+        
+        /* Table row focus - museum case glass */
+        .data-table tr:focus,
+        .data-table tr:focus-within {
+            outline: none;
+            border-radius: 0px;
+            box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.03);
+        }
+        
+        /* Custom text selection - neutral gray museum style */
+        ::selection {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            text-shadow: none;
+        }
+        
+        ::-moz-selection {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            text-shadow: none;
+        }
+
+        /* --- BASE CARD TYPOGRAPHY & LAYOUT --- */
+        /* Analytical look inside cards */
+        .card {
+            font-family: 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hero stat styling */
+        .hero-stat {
+            text-align: center;
+            margin: 8px 0 16px 0;
+        }
+
+        .hero-val { 
+            font-size: 38px;
+            font-weight: 300;
+            letter-spacing: -1.5px;
+            line-height: 1;
+            font-family: 'SF Pro Display', sans-serif;
+        }
+
+        .hero-lbl { 
+            font-size: 10px;
+            opacity: 0.4;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 6px; 
+        }
+
+        /* Data rows */
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            margin-bottom: 8px; 
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            padding-bottom: 6px;
+        }
+
+        .data-label { 
+            opacity: 0.5;
+            font-weight: 400;
+            letter-spacing: 0.2px; 
+        }
+
+        .data-val { 
+            font-weight: 500;
+            font-family: 'SF Mono', 'Roboto Mono', monospace;
+            letter-spacing: -0.3px;
+            font-size: 11px;
+        }
+
+        /* Trend colors */
+        .trend-up { color: #81c784; }
+        .trend-down { color: #e57373; }
+
+        /* STYLE 16: "Museum Case" - Ultra-minimalist with sharp corners */
+        .glass-16 { 
+            border-radius: 0px; 
+            background: rgba(10, 10, 10, 0.04); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            box-shadow: 
+                inset 0 0 40px rgba(255, 255, 255, 0.01), 
+                0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Data Tables with Museum Case styling */
         .data-table {
             width: 100%;
             border-collapse: separate;
-            border-spacing: 0 4px; /* Row spacing */
+            border-spacing: 0 4px;
+            background: transparent;
         }
         .data-table th {
             text-align: left;
             padding: 1rem;
-            color: #94a3b8;
+            color: rgba(255,255,255,0.6);
             font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
             font-size: 0.7rem;
             letter-spacing: 0.1em;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            background: transparent;
         }
         .data-table td {
             padding: 1rem;
-            background: rgba(255,255,255,0.015);
-            border-top: 1px solid rgba(255,255,255,0.02);
-            border-bottom: 1px solid rgba(255,255,255,0.02);
-            transition: background 0.2s;
+            background: rgba(255,255,255,0.005);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.2s;
         }
         .data-table tr:hover td {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.02);
             border-color: rgba(214, 0, 28, 0.2);
+            box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.01);
         }
-        .data-table tr td:first-child { border-left: 2px solid transparent; border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
-        .data-table tr:hover td:first-child { border-left: 2px solid #D6001C; }
-        .data-table tr td:last-child { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
+        .data-table tr td:first-child { 
+            border-left: 1px solid rgba(255,255,255,0.03); 
+            border-radius: 0px; 
+        }
+        .data-table tr:hover td:first-child { 
+            border-left: 1px solid rgba(214, 0, 28, 0.4); 
+        }
+        .data-table tr td:last-child { 
+            border-right: 1px solid rgba(255,255,255,0.03); 
+            border-radius: 0px; 
+        }
 
         /* Skeleton Loading */
         .skeleton {
@@ -203,10 +355,136 @@
         .tab-content.active {
             display: block;
         }
+
+        /* ========================================
+           TAILWIND CSS DEFAULT BLUE OVERRIDE
+           ========================================
+           Tailwind CDN injects default blue styles.
+           These rules override ALL blue colors with
+           our neutral color scheme.
+        ======================================== */
+        
+        /* Override ALL links - no blue anywhere */
+        a, a:link, a:visited, a:hover, a:active, a:focus {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+        
+        /* Override Tailwind's default blue focus rings */
+        *:focus, 
+        *:focus-visible,
+        button:focus,
+        input:focus,
+        select:focus,
+        textarea:focus,
+        a:focus {
+            outline: none !important;
+            ring-color: rgba(255, 255, 255, 0.2) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            box-shadow: none !important;
+        }
+        
+        /* Override any blue text colors from Tailwind */
+        .text-blue-100, .text-blue-200, .text-blue-300, .text-blue-400,
+        .text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800,
+        .text-blue-900, .text-sky-100, .text-sky-200, .text-sky-300,
+        .text-sky-400, .text-sky-500, .text-sky-600, .text-sky-700,
+        .text-sky-800, .text-sky-900, .text-indigo-100, .text-indigo-200,
+        .text-indigo-300, .text-indigo-400, .text-indigo-500, .text-indigo-600,
+        .text-indigo-700, .text-indigo-800, .text-indigo-900 {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+        
+        /* Override any blue background colors from Tailwind */
+        .bg-blue-100, .bg-blue-200, .bg-blue-300, .bg-blue-400,
+        .bg-blue-500, .bg-blue-600, .bg-blue-700, .bg-blue-800,
+        .bg-blue-900, .bg-sky-100, .bg-sky-200, .bg-sky-300,
+        .bg-sky-400, .bg-sky-500, .bg-sky-600, .bg-sky-700,
+        .bg-sky-800, .bg-sky-900, .bg-indigo-100, .bg-indigo-200,
+        .bg-indigo-300, .bg-indigo-400, .bg-indigo-500, .bg-indigo-600,
+        .bg-indigo-700, .bg-indigo-800, .bg-indigo-900 {
+            background-color: rgba(255, 255, 255, 0.03) !important;
+        }
+        
+        /* Override any blue border colors from Tailwind */
+        .border-blue-100, .border-blue-200, .border-blue-300, .border-blue-400,
+        .border-blue-500, .border-blue-600, .border-blue-700, .border-blue-800,
+        .border-blue-900, .border-sky-100, .border-sky-200, .border-sky-300,
+        .border-sky-400, .border-sky-500, .border-sky-600, .border-sky-700,
+        .border-sky-800, .border-sky-900, .border-indigo-100, .border-indigo-200,
+        .border-indigo-300, .border-indigo-400, .border-indigo-500, .border-indigo-600,
+        .border-indigo-700, .border-indigo-800, .border-indigo-900 {
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* Force table elements to use our custom styles */
+        table, table *, 
+        .data-table, .data-table *,
+        thead, thead *,
+        tbody, tbody *,
+        tr, tr *,
+        th, th *,
+        td, td * {
+            color: rgba(255,255,255,0.9) !important;
+            background-color: transparent !important;
+        }
+        
+        /* Re-apply our custom table colors with !important */
+        .data-table th {
+            color: rgba(255,255,255,0.6) !important;
+            background: transparent !important;
+        }
+        
+        .data-table td {
+            color: rgba(255,255,255,0.9) !important;
+            background: rgba(255,255,255,0.01) !important;
+        }
+        
+        .data-table tbody {
+            color: rgba(255,255,255,0.9) !important;
+        }
+        
+        .data-table tbody td {
+            color: rgba(255,255,255,0.9) !important;
+        }
+        
+        .data-table tr:hover td {
+            background: rgba(255,255,255,0.05) !important;
+            color: rgba(255,255,255,1) !important;
+        }
+        
+        /* Target Tailwind's text color utilities */
+        #coachesBody, #teamsBody, #nilBody, #gamesBody, #playersBody {
+            color: rgba(255,255,255,0.9) !important;
+        }
+        
+        #coachesBody *, #teamsBody *, #nilBody *, #gamesBody *, #playersBody * {
+            color: inherit !important;
+        }
+        
+        /* Override browser default table link colors */
+        table a, 
+        .data-table a,
+        td a,
+        th a {
+            color: rgba(255,255,255,0.9) !important;
+            text-decoration: none !important;
+        }
+        
+        table a:hover, 
+        .data-table a:hover,
+        td a:hover,
+        th a:hover {
+            color: #D6001C !important;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col relative font-sans text-sm">
 
+    <!-- Background Layers -->
+    <div class="noise-bg"></div>
+    <canvas id="network-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0.25;"></canvas>
+    
     <!-- FX Layer -->
     <div class="cyber-grid"></div>
     <div class="scanline"></div>
@@ -227,7 +505,7 @@
                 <h1 class="text-5xl md:text-7xl font-black font-orbitron tracking-tighter text-white">
                     GAMEDAY<span class="text-nd drop-shadow-[0_0_15px_rgba(214,0,28,0.8)]">+</span> <span class="text-white/20">DB</span>
                 </h1>
-                <p class="text-slate-400 font-mono text-xs mt-2 uppercase tracking-wider">
+                <p class="text-white/60 font-mono text-xs mt-2 uppercase tracking-wider">
                     Advanced College Football Analytics Interface
                 </p>
             </div>
@@ -235,13 +513,13 @@
             <!-- SEARCH MODULE -->
             <div class="w-full lg:w-auto">
                 <div class="relative group">
-                    <div class="absolute -inset-0.5 bg-gradient-to-r from-nd to-cyan rounded-lg blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-nd to-nd rounded-lg blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
                     <div class="relative flex bg-void rounded-lg items-center p-1">
-                        <div class="pl-3 text-slate-500">
+                        <div class="pl-3 text-white/50">
                             <i data-lucide="search" class="h-4 w-4"></i>
                         </div>
                         <input type="text" id="searchInput" 
-                               class="bg-transparent border-none text-white text-sm focus:ring-0 w-full md:w-80 font-mono placeholder-slate-600 h-10 px-3"
+                               class="bg-transparent border-none text-white text-sm focus:ring-0 w-full md:w-80 font-mono placeholder-white/40 h-10 px-3"
                                placeholder="INITIATE QUERY..." autocomplete="off">
                         <button onclick="performSearch()" 
                                 class="bg-white/5 hover:bg-nd hover:text-white text-nd border border-nd/30 px-6 py-2 rounded font-orbitron text-xs font-bold transition-all duration-300 shadow-[0_0_10px_rgba(0,0,0,0.5)]">
@@ -255,51 +533,63 @@
         <!-- STATS HUD (HEADS UP DISPLAY) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-4 mb-10" id="statsGrid">
             <!-- HUD Cards created via HTML for layout, populated by JS -->
-            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
+            <div class="glass-16 card relative overflow-hidden group">
                 <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="users" class="text-nd h-8 w-8"></i></div>
-                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Coaches</div>
-                <div class="text-3xl font-bold font-mono text-white group-hover:text-nd transition-colors" id="totalCoaches"><div class="skeleton w-12 h-8"></div></div>
+                <div class="hero-lbl">Coaches</div>
+                <div class="hero-stat">
+                    <div class="hero-val text-white group-hover:text-nd transition-colors" id="totalCoaches"><div class="skeleton w-12 h-8"></div></div>
+                </div>
                 <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-nd h-0.5 w-[75%]"></div></div>
             </div>
             
-            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="shield" class="text-cyan h-8 w-8"></i></div>
-                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Programs</div>
-                <div class="text-3xl font-bold font-mono text-white group-hover:text-cyan transition-colors" id="totalTeams"><div class="skeleton w-12 h-8"></div></div>
-                <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-cyan h-0.5 w-[60%]"></div></div>
+            <div class="glass-16 card relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="shield" class="text-nd h-8 w-8"></i></div>
+                <div class="hero-lbl">Programs</div>
+                <div class="hero-stat">
+                    <div class="hero-val text-white group-hover:text-nd transition-colors" id="totalTeams"><div class="skeleton w-12 h-8"></div></div>
+                </div>
+                <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-nd h-0.5 w-[60%]"></div></div>
             </div>
 
-            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
+            <div class="glass-16 card relative overflow-hidden group">
                 <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="banknote" class="text-emerald-500 h-8 w-8"></i></div>
-                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Capital</div>
-                <div class="text-3xl font-bold font-mono text-white group-hover:text-emerald-500 transition-colors" id="totalNIL"><div class="skeleton w-12 h-8"></div></div>
+                <div class="hero-lbl">Capital</div>
+                <div class="hero-stat">
+                    <div class="hero-val text-white group-hover:text-emerald-500 transition-colors" id="totalNIL"><div class="skeleton w-12 h-8"></div></div>
+                </div>
                 <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-emerald-500 h-0.5 w-[45%]"></div></div>
             </div>
 
-            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
+            <div class="glass-16 card relative overflow-hidden group">
                 <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="calendar" class="text-purple-500 h-8 w-8"></i></div>
-                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Events</div>
-                <div class="text-3xl font-bold font-mono text-white group-hover:text-purple-500 transition-colors" id="totalGames"><div class="skeleton w-12 h-8"></div></div>
+                <div class="hero-lbl">Events</div>
+                <div class="hero-stat">
+                    <div class="hero-val text-white group-hover:text-purple-500 transition-colors" id="totalGames"><div class="skeleton w-12 h-8"></div></div>
+                </div>
                 <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-purple-500 h-0.5 w-[30%]"></div></div>
             </div>
 
-            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
+            <div class="glass-16 card relative overflow-hidden group">
                 <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="activity" class="text-orange-500 h-8 w-8"></i></div>
-                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Telemetry</div>
-                <div class="text-3xl font-bold font-mono text-white group-hover:text-orange-500 transition-colors" id="totalDriveTeams"><div class="skeleton w-12 h-8"></div></div>
+                <div class="hero-lbl">Telemetry</div>
+                <div class="hero-stat">
+                    <div class="hero-val text-white group-hover:text-orange-500 transition-colors" id="totalDriveTeams"><div class="skeleton w-12 h-8"></div></div>
+                </div>
                 <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-orange-500 h-0.5 w-[80%]"></div></div>
             </div>
 
-            <div class="glass-panel p-5 rounded-lg relative overflow-hidden group">
+            <div class="glass-16 card relative overflow-hidden group">
                 <div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity"><i data-lucide="user" class="text-pink-500 h-8 w-8"></i></div>
-                <div class="text-[10px] font-orbitron text-slate-400 uppercase tracking-widest mb-1">Athletes</div>
-                <div class="text-3xl font-bold font-mono text-white group-hover:text-pink-500 transition-colors" id="totalPlayers"><div class="skeleton w-12 h-8"></div></div>
+                <div class="hero-lbl">Athletes</div>
+                <div class="hero-stat">
+                    <div class="hero-val text-white group-hover:text-pink-500 transition-colors" id="totalPlayers"><div class="skeleton w-12 h-8"></div></div>
+                </div>
                 <div class="w-full bg-white/10 h-0.5 mt-3"><div class="bg-pink-500 h-0.5 w-[90%]"></div></div>
             </div>
             
-             <div class="glass-panel p-5 rounded-lg relative overflow-hidden group flex flex-col justify-center items-center text-center">
-                 <div class="text-[10px] font-orbitron text-slate-500 uppercase tracking-widest">Network Status</div>
-                 <div class="text-green-500 font-mono text-xs mt-1 animate-pulse">● SECURE LINK</div>
+             <div class="glass-16 card relative overflow-hidden group flex flex-col justify-center items-center text-center">
+                 <div class="hero-lbl">Network Status</div>
+                 <div class="text-green-500 font-mono text-xs mt-3 animate-pulse">● SECURE LINK</div>
             </div>
         </div>
 
@@ -313,10 +603,10 @@
                         </div>
                         <div>
                             <h2 class="text-2xl font-orbitron text-white">QUERY RESULTS</h2>
-                            <p class="text-slate-400 font-mono text-xs">Hits Found: <span id="resultCount" class="text-nd font-bold">0</span></p>
+                            <p class="text-white/60 font-mono text-xs">Hits Found: <span id="resultCount" class="text-nd font-bold">0</span></p>
                         </div>
                     </div>
-                    <button onclick="closeSearchResults()" class="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                    <button onclick="closeSearchResults()" class="group flex items-center gap-2 text-white/60 hover:text-white transition-colors">
                         <span class="text-xs font-mono group-hover:tracking-widest transition-all">ESC_CLOSE</span>
                         <div class="p-2 border border-white/10 rounded group-hover:border-nd group-hover:bg-nd/10">
                             <i data-lucide="x" class="w-5 h-5"></i>
@@ -333,31 +623,31 @@
             <!-- Tab Navigation -->
             <div class="border-b border-white/10 bg-gradient-to-r from-black/40 via-black/20 to-black/40 backdrop-blur-lg sticky top-0 z-40">
                 <div class="flex flex-wrap gap-1 p-2 tabs" role="tablist">
-                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('coaches')">
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-white/50 hover:text-white transition-all group overflow-hidden" onclick="switchTab('coaches')">
                         <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="users" class="w-3 h-3"></i> COACHES</span>
                         <div class="absolute bottom-0 left-0 w-full h-0.5 bg-nd transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                     </button>
-                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('teams')">
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-white/50 hover:text-white transition-all group overflow-hidden" onclick="switchTab('teams')">
                         <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="shield" class="w-3 h-3"></i> TEAMS</span>
-                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-nd transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                     </button>
-                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('nil')">
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-white/50 hover:text-white transition-all group overflow-hidden" onclick="switchTab('nil')">
                         <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="banknote" class="w-3 h-3"></i> NIL VALUATION</span>
                         <div class="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                     </button>
-                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('games')">
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-white/50 hover:text-white transition-all group overflow-hidden" onclick="switchTab('games')">
                         <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="swords" class="w-3 h-3"></i> GAMES</span>
                         <div class="absolute bottom-0 left-0 w-full h-0.5 bg-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                     </button>
-                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('drives')">
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-white/50 hover:text-white transition-all group overflow-hidden" onclick="switchTab('drives')">
                         <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="activity" class="w-3 h-3"></i> DRIVES</span>
                         <div class="absolute bottom-0 left-0 w-full h-0.5 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                     </button>
-                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('players')">
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-white/50 hover:text-white transition-all group overflow-hidden" onclick="switchTab('players')">
                         <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="user" class="w-3 h-3"></i> PLAYERS</span>
                         <div class="absolute bottom-0 left-0 w-full h-0.5 bg-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                     </button>
-                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-slate-500 hover:text-white transition-all group overflow-hidden" onclick="switchTab('stats')">
+                    <button class="tab-btn flex-1 md:flex-none relative px-6 py-4 text-xs font-orbitron font-bold text-white/50 hover:text-white transition-all group overflow-hidden" onclick="switchTab('stats')">
                         <span class="relative z-10 flex items-center justify-center gap-2"><i data-lucide="bar-chart-2" class="w-3 h-3"></i> GLOBAL</span>
                         <div class="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                     </button>
@@ -371,12 +661,12 @@
                 <div id="coaches" class="tab-content active">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-nd inline-block"></span> PERSONNEL ROSTER</h3>
-                        <div class="font-mono text-xs text-slate-500 flex items-center gap-2">
+                        <div class="font-mono text-xs text-white/50 flex items-center gap-2">
                              <span id="coachesUpdated">SYNCING...</span>
                              <div class="w-2 h-2 bg-nd rounded-full animate-pulse"></div>
                         </div>
                     </div>
-                    <div class="overflow-x-auto rounded-lg border border-white/5">
+                    <div class="glass-16 overflow-x-auto">
                         <table class="data-table" id="coachesTable">
                             <thead>
                                 <tr>
@@ -397,10 +687,10 @@
                 <!-- Teams Tab -->
                 <div id="teams" class="tab-content">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-cyan inline-block"></span> PROGRAM INDEX</h3>
-                        <div class="font-mono text-xs text-slate-500" id="teamsUpdated">SYNCING...</div>
+                        <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-nd inline-block"></span> PROGRAM INDEX</h3>
+                        <div class="font-mono text-xs text-white/50" id="teamsUpdated">SYNCING...</div>
                     </div>
-                    <div class="overflow-x-auto rounded-lg border border-white/5">
+                    <div class="glass-16 overflow-x-auto">
                         <table class="data-table" id="teamsTable">
                             <thead>
                                 <tr>
@@ -420,9 +710,9 @@
                 <div id="nil" class="tab-content">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-emerald-500 inline-block"></span> FINANCIAL LEDGER</h3>
-                        <div class="font-mono text-xs text-slate-500" id="nilUpdated">SYNCING...</div>
+                        <div class="font-mono text-xs text-white/50" id="nilUpdated">SYNCING...</div>
                     </div>
-                    <div class="overflow-x-auto rounded-lg border border-white/5">
+                    <div class="glass-16 overflow-x-auto">
                         <table class="data-table" id="nilTable">
                             <thead>
                                 <tr>
@@ -441,9 +731,9 @@
                 <div id="games" class="tab-content">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-purple-500 inline-block"></span> SCHEDULE MATRIX</h3>
-                        <div class="font-mono text-xs text-slate-500" id="gamesUpdated">SYNCING...</div>
+                        <div class="font-mono text-xs text-white/50" id="gamesUpdated">SYNCING...</div>
                     </div>
-                    <div class="overflow-x-auto rounded-lg border border-white/5">
+                    <div class="glass-16 overflow-x-auto">
                         <table class="data-table" id="gamesTable">
                             <thead>
                                 <tr>
@@ -462,7 +752,7 @@
                 <div id="drives" class="tab-content">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-orange-500 inline-block"></span> DRIVE CHART TELEMETRY</h3>
-                        <div class="font-mono text-xs text-slate-500" id="drivesUpdated">SYNCING...</div>
+                        <div class="font-mono text-xs text-white/50" id="drivesUpdated">SYNCING...</div>
                     </div>
                     <div id="drivesContainer" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                         <!-- Populated by JS -->
@@ -474,7 +764,7 @@
                     <div class="flex flex-col gap-4 mb-6">
                         <div class="flex justify-between items-center">
                             <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-pink-500 inline-block"></span> PLAYER SEASON STATS</h3>
-                            <div class="font-mono text-xs text-slate-500 flex items-center gap-2">
+                            <div class="font-mono text-xs text-white/50 flex items-center gap-2">
                                  <span id="playersUpdated">SYNCING...</span>
                                  <div class="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></div>
                             </div>
@@ -485,40 +775,40 @@
                             <button onclick="filterPlayersByPosition('ALL')" class="position-filter-btn active px-4 py-2 text-xs font-orbitron font-bold bg-pink-500/20 border border-pink-500/30 text-pink-400 rounded hover:bg-pink-500/30 transition-all" data-position="ALL">
                                 ALL <span class="ml-1 opacity-60" id="count-ALL">0</span>
                             </button>
-                            <button onclick="filterPlayersByPosition('QB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-blue-500/20 hover:border-blue-500/30 hover:text-blue-400 transition-all" data-position="QB">
+                            <button onclick="filterPlayersByPosition('QB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-white/60 rounded hover:bg-nd/20 hover:border-nd/30 hover:text-nd transition-all" data-position="QB">
                                 QB <span class="ml-1 opacity-60" id="count-QB">0</span>
                             </button>
-                            <button onclick="filterPlayersByPosition('RB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-green-500/20 hover:border-green-500/30 hover:text-green-400 transition-all" data-position="RB">
+                            <button onclick="filterPlayersByPosition('RB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-white/60 rounded hover:bg-green-500/20 hover:border-green-500/30 hover:text-green-400 transition-all" data-position="RB">
                                 RB <span class="ml-1 opacity-60" id="count-RB">0</span>
                             </button>
-                            <button onclick="filterPlayersByPosition('WR')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-orange-500/20 hover:border-orange-500/30 hover:text-orange-400 transition-all" data-position="WR">
+                            <button onclick="filterPlayersByPosition('WR')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-white/60 rounded hover:bg-orange-500/20 hover:border-orange-500/30 hover:text-orange-400 transition-all" data-position="WR">
                                 WR <span class="ml-1 opacity-60" id="count-WR">0</span>
                             </button>
-                            <button onclick="filterPlayersByPosition('TE')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-cyan-500/20 hover:border-cyan-500/30 hover:text-cyan-400 transition-all" data-position="TE">
+                            <button onclick="filterPlayersByPosition('TE')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-white/60 rounded hover:bg-nd/20 hover:border-nd/30 hover:text-nd transition-all" data-position="TE">
                                 TE <span class="ml-1 opacity-60" id="count-TE">0</span>
                             </button>
-                            <button onclick="filterPlayersByPosition('K')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-yellow-500/20 hover:border-yellow-500/30 hover:text-yellow-400 transition-all" data-position="K">
+                            <button onclick="filterPlayersByPosition('K')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-white/60 rounded hover:bg-yellow-500/20 hover:border-yellow-500/30 hover:text-yellow-400 transition-all" data-position="K">
                                 K <span class="ml-1 opacity-60" id="count-K">0</span>
                             </button>
-                            <button onclick="filterPlayersByPosition('P')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-purple-500/20 hover:border-purple-500/30 hover:text-purple-400 transition-all" data-position="P">
+                            <button onclick="filterPlayersByPosition('P')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-white/60 rounded hover:bg-purple-500/20 hover:border-purple-500/30 hover:text-purple-400 transition-all" data-position="P">
                                 P <span class="ml-1 opacity-60" id="count-P">0</span>
                             </button>
-                            <button onclick="filterPlayersByPosition('OL')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-gray-500/20 hover:border-gray-500/30 hover:text-gray-400 transition-all" data-position="OL">
+                            <button onclick="filterPlayersByPosition('OL')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-white/60 rounded hover:bg-gray-500/20 hover:border-gray-500/30 hover:text-gray-400 transition-all" data-position="OL">
                                 OL <span class="ml-1 opacity-60" id="count-OL">0</span>
                             </button>
-                            <button onclick="filterPlayersByPosition('DL')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-red-500/20 hover:border-red-500/30 hover:text-red-400 transition-all" data-position="DL">
+                            <button onclick="filterPlayersByPosition('DL')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-white/60 rounded hover:bg-red-500/20 hover:border-red-500/30 hover:text-red-400 transition-all" data-position="DL">
                                 DL <span class="ml-1 opacity-60" id="count-DL">0</span>
                             </button>
-                            <button onclick="filterPlayersByPosition('LB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-red-500/20 hover:border-red-500/30 hover:text-red-400 transition-all" data-position="LB">
+                            <button onclick="filterPlayersByPosition('LB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-white/60 rounded hover:bg-red-500/20 hover:border-red-500/30 hover:text-red-400 transition-all" data-position="LB">
                                 LB <span class="ml-1 opacity-60" id="count-LB">0</span>
                             </button>
-                            <button onclick="filterPlayersByPosition('DB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-slate-400 rounded hover:bg-red-500/20 hover:border-red-500/30 hover:text-red-400 transition-all" data-position="DB">
+                            <button onclick="filterPlayersByPosition('DB')" class="position-filter-btn px-4 py-2 text-xs font-orbitron font-bold bg-white/5 border border-white/10 text-white/60 rounded hover:bg-red-500/20 hover:border-red-500/30 hover:text-red-400 transition-all" data-position="DB">
                                 DB <span class="ml-1 opacity-60" id="count-DB">0</span>
                             </button>
                         </div>
                     </div>
                     
-                    <div class="overflow-x-auto rounded-lg border border-white/5">
+                    <div class="glass-16 overflow-x-auto">
                         <table class="data-table" id="playersTable">
                             <thead id="playersTableHead">
                                 <!-- Dynamic header populated by JS -->
@@ -534,7 +824,7 @@
                 <div id="stats" class="tab-content">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-xl font-orbitron text-white flex items-center gap-2"><span class="w-1 h-6 bg-white inline-block"></span> GLOBAL METRICS</h3>
-                        <div class="font-mono text-xs text-slate-500" id="statsUpdated">SYNCING...</div>
+                        <div class="font-mono text-xs text-white/50" id="statsUpdated">SYNCING...</div>
                     </div>
                     <div id="statsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Populated by JS -->
@@ -545,10 +835,10 @@
         </div>
 
         <!-- FOOTER -->
-        <footer class="mt-12 pt-8 border-t border-white/5 text-slate-500 text-xs font-mono flex flex-col md:flex-row justify-between items-center gap-4">
+        <footer class="mt-12 pt-8 border-t border-white/5 text-white/50 text-xs font-mono flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
                 <p>GAMEDAY+ ANALYTICS SUITE // 2030 EDITION</p>
-                <p class="mt-1 text-slate-600">SECURE CONNECTION :: LOCALHOST:5555</p>
+                <p class="mt-1 text-white/40">SECURE CONNECTION :: LOCALHOST:5555</p>
             </div>
             <div class="flex gap-6">
                 <span class="flex items-center gap-2"><div class="w-2 h-2 bg-emerald-500 rounded-full"></div> DB_ONLINE</span>
@@ -576,9 +866,9 @@
 
         // Helper: Rank Colors
         const getRankColor = (rank) => {
-            if (!rank) return 'text-slate-400';
+            if (!rank) return 'text-white/60';
             if (rank <= 10) return 'text-emerald-500';
-            if (rank <= 25) return 'text-blue-500';
+            if (rank <= 25) return 'text-nd';
             if (rank <= 50) return 'text-yellow-500';
             return 'text-orange-500';
         };
@@ -587,7 +877,7 @@
         const rankBadge = (rank) => {
             if (!rank) return '';
             let color = 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400';
-            if (rank > 10 && rank <= 25) color = 'bg-blue-500/20 border-blue-500/50 text-blue-400';
+            if (rank > 10 && rank <= 25) color = 'bg-nd/20 border-nd/50 text-nd';
             if (rank > 25 && rank <= 50) color = 'bg-yellow-500/20 border-yellow-500/50 text-yellow-400';
             if (rank > 50) color = 'bg-orange-500/20 border-orange-500/50 text-orange-400';
             return `<span class="ml-2 px-2 py-0.5 rounded text-[9px] font-bold border ${color} inline-block">#${rank}</span>`;
@@ -624,7 +914,7 @@
             // Remove active state from all buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('text-white', 'bg-white/5');
-                btn.classList.add('text-slate-500');
+                btn.classList.add('text-white/50');
                 const line = btn.querySelector('.absolute.bottom-0');
                 if(line) {
                     line.classList.add('scale-x-0');
@@ -642,7 +932,7 @@
             // Highlight active button
             const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => btn.getAttribute('onclick').includes(tabName));
             if(activeBtn) {
-                activeBtn.classList.remove('text-slate-500');
+                activeBtn.classList.remove('text-white/50');
                 activeBtn.classList.add('text-white', 'bg-white/5');
                 const line = activeBtn.querySelector('.absolute.bottom-0');
                 if(line) {
@@ -704,17 +994,17 @@
                 
                 const headshotHtml = coach.headshot_url ? `
                     <div class="relative group mr-3 inline-block">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-nd to-cyan rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute -inset-1 bg-gradient-to-r from-nd to-nd rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <img src="${coach.headshot_url}" class="relative w-12 h-12 rounded-full border-2 border-nd/50 object-cover bg-white/10 ring-2 ring-white/20 group-hover:ring-nd/80 group-hover:border-nd transition-all duration-300 drop-shadow-lg group-hover:drop-shadow-[0_0_12px_rgba(214,0,28,0.6)]">
                     </div>
                 ` : '';
                 return `
                     <tr class="animate-enter" style="animation-delay: ${idx * 30}ms">
                         <td class="flex items-center text-white font-medium">${teamLogoHtml}${headshotHtml}${coach.name || `Coach ${idx + 1}`}</td>
-                        <td class="text-slate-400">${schoolName || '-'}</td>
-                        <td><span class="px-2 py-1 rounded text-[10px] bg-white/5 border border-white/10 text-slate-300 font-mono">${coach.conference || coach.conf || 'N/A'}</span></td>
+                        <td class="text-white/60">${schoolName || '-'}</td>
+                        <td><span class="px-2 py-1 rounded text-[10px] bg-white/5 border border-white/10 text-white/70 font-mono">${coach.conference || coach.conf || 'N/A'}</span></td>
                         <td class="text-nd font-bold font-mono">${wins}</td>
-                        <td class="font-mono text-slate-500">${losses} <span class="text-xs opacity-70">(${winPct}%)</span></td>
+                        <td class="font-mono text-white/50">${losses} <span class="text-xs opacity-70">(${winPct}%)</span></td>
                     </tr>
                 `;
             }).join('');
@@ -742,10 +1032,10 @@
                 return `
                     <tr class="animate-enter" style="animation-delay: ${idx * 30}ms">
                         <td class="flex items-center text-white font-medium">${logoHtml}${team.school || team.name || `Team ${idx + 1}`}</td>
-                        <td><span class="px-2 py-1 rounded text-[10px] bg-cyan/10 border border-cyan/20 text-cyan font-mono">${team.conference || team.conf || '-'}</span></td>
-                        <td class="font-mono text-slate-500 text-[10px] tracking-widest">ID_${team.id || '-'}</td>
-                        <td class="text-cyan font-bold font-mono">${team.total_rankings || team.total_seasons || '-'}</td>
-                        <td class="text-slate-500 text-xs uppercase">${team.location_name || team.city || '-'}</td>
+                        <td><span class="px-2 py-1 rounded text-[10px] bg-nd/10 border border-nd/20 text-nd font-mono">${team.conference || team.conf || '-'}</span></td>
+                        <td class="font-mono text-white/50 text-[10px] tracking-widest">ID_${team.id || '-'}</td>
+                        <td class="text-nd font-bold font-mono">${team.total_rankings || team.total_seasons || '-'}</td>
+                        <td class="text-white/50 text-xs uppercase">${team.location_name || team.city || '-'}</td>
                     </tr>
                 `;
             }).join('');
@@ -784,8 +1074,8 @@
                     <tr class="animate-enter" style="animation-delay: ${idx * 30}ms">
                         <td class="text-white font-medium">${team.team_name || team.school}</td>
                         <td class="text-emerald-500 font-mono font-bold glow-text">$${(totalValue / 1000000).toFixed(1)}M</td>
-                        <td class="font-mono text-slate-400">${playerCount}</td>
-                        <td class="font-mono text-slate-500">$${Number(avgPerPlayer).toLocaleString()}</td>
+                        <td class="font-mono text-white/60">${playerCount}</td>
+                        <td class="font-mono text-white/50">$${Number(avgPerPlayer).toLocaleString()}</td>
                     </tr>
                 `;
             }).join('');
@@ -815,10 +1105,10 @@
                 
                 return `
                     <tr class="animate-enter" style="animation-delay: ${idx * 30}ms">
-                        <td class="text-slate-300 font-semibold">${away}</td>
+                        <td class="text-white/70 font-semibold">${away}</td>
                         <td class="text-white font-bold"><span class="text-purple-500">@</span> ${home}</td>
                         <td class="text-purple-400 font-mono font-bold border border-purple-500/20 bg-purple-500/5 inline-block px-2 py-1 rounded text-center my-2">WK ${game.week || '-'}</td>
-                        <td class="font-mono text-xs text-slate-500">${dateObj.toLocaleDateString()}</td>
+                        <td class="font-mono text-xs text-white/50">${dateObj.toLocaleDateString()}</td>
                     </tr>
                 `;
             }).join('');
@@ -850,9 +1140,8 @@
                 if (team.abbreviation) logoMap[team.abbreviation] = team.logo_url;
             });
 
-            // Generate Grid
-            let html = '<p style="margin-bottom: 20px; font-family: \'Orbitron\'; font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">DATASETS LOADED: <span class="text-nd font-bold">' + teams.length + '</span></p>';
-            html += '<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">';
+            // Generate Grid (no nested grid since parent already has grid classes)
+            let html = '';
             teams.forEach((team, idx) => {
                 const name = typeof team === 'object' ? team.team_name : team;
                 const conf = typeof team === 'object' ? team.conference : '';
@@ -860,13 +1149,12 @@
                 const logoHtml = logoUrl ? `<img src="${logoUrl}" alt="${name}" class="h-10 w-auto mx-auto mb-3 drop-shadow-md group-hover:scale-110 transition-transform">` : `<div class="h-10 flex items-center justify-center text-gray-600"><i data-lucide="shield" class="w-6 h-6"></i></div>`;
 
                 html += `
-                <div class="glass-panel p-4 text-center hover:bg-white/5 transition-all cursor-pointer animate-enter group border-l-2 border-l-transparent hover:border-l-orange-500" style="animation-delay: ${idx * 10}ms">
+                <div class="glass-panel p-4 text-center hover:bg-white/5 transition-all cursor-pointer animate-enter group border-l-2 border-l-transparent hover:border-l-orange-500" style="animation-delay: ${idx * 10}ms; min-width: 120px;">
                     ${logoHtml}
-                    <strong class="text-xs text-slate-300 block truncate mt-2 font-mono">${name}</strong>
-                    <span class="text-[9px] text-slate-500 font-mono uppercase tracking-widest mt-1 block">${conf}</span>
+                    <strong class="text-xs text-white/70 block truncate mt-2 font-mono">${name}</strong>
+                    <span class="text-[9px] text-white/50 font-mono uppercase tracking-widest mt-1 block">${conf}</span>
                 </div>`;
             });
-            html += '</div>';
             document.getElementById('drivesContainer').innerHTML = html;
             requestAnimationFrame(() => {
                 updateIcons();
@@ -886,13 +1174,13 @@
                     const displayValue = typeof value === 'object' ? JSON.stringify(value).substring(0, 50) + "..." : value;
                     html += `
                         <div class="glass-panel p-4 border-t-2 border-t-white/10 hover:border-t-nd transition-all animate-enter" style="animation-delay: ${idx * 50}ms">
-                            <strong class="text-slate-500 font-orbitron text-[10px] block mb-2 uppercase tracking-widest">${key}</strong>
+                            <strong class="text-white/50 font-orbitron text-[10px] block mb-2 uppercase tracking-widest">${key}</strong>
                             <code class="text-sm text-white font-mono block bg-black/40 p-2 rounded border border-white/5 truncate">${displayValue}</code>
                         </div>
                     `;
                 });
             } else {
-                html += `<div class="glass-panel p-6"><code class="text-slate-600 dark:text-gray-300 font-mono">${JSON.stringify(data, null, 2).substring(0, 300)}</code></div>`;
+                html += `<div class="glass-panel p-6"><code class="text-white/40 dark:text-gray-300 font-mono">${JSON.stringify(data, null, 2).substring(0, 300)}</code></div>`;
             }
             document.getElementById('statsContainer').innerHTML = html;
         }
@@ -954,10 +1242,10 @@
             // Update active button
             document.querySelectorAll('.position-filter-btn').forEach(btn => {
                 if (btn.dataset.position === position) {
-                    btn.classList.remove('bg-white/5', 'border-white/10', 'text-slate-400');
+                    btn.classList.remove('bg-white/5', 'border-white/10', 'text-white/60');
                     btn.classList.add('bg-pink-500/20', 'border-pink-500/30', 'text-pink-400', 'active');
                 } else {
-                    btn.classList.add('bg-white/5', 'border-white/10', 'text-slate-400');
+                    btn.classList.add('bg-white/5', 'border-white/10', 'text-white/60');
                     btn.classList.remove('bg-pink-500/20', 'border-pink-500/30', 'text-pink-400', 'active');
                 }
             });
@@ -999,10 +1287,10 @@
                 
                 let statCells = statColumns.map(stat => {
                     const value = player[stat];
-                    if (value === null || value === undefined || value === 0) return '<td class="font-mono text-slate-600">-</td>';
+                    if (value === null || value === undefined || value === 0) return '<td class="font-mono text-white/40">-</td>';
                     
                     let colorClass = 'text-white';
-                    if (stat.includes('passing')) colorClass = 'text-blue-400';
+                    if (stat.includes('passing')) colorClass = 'text-nd';
                     else if (stat.includes('rushing')) colorClass = 'text-green-400';
                     else if (stat.includes('receiving') || stat.includes('reception')) colorClass = 'text-orange-400';
                     else if (stat.includes('td') || stat.includes('tds')) colorClass += ' font-bold';
@@ -1014,14 +1302,14 @@
                     <tr class="animate-enter" style="animation-delay: ${idx * 15}ms">
                         <td class="flex items-center text-white font-medium">${headshotHtml}<span class="truncate max-w-[150px]">${player.player_name || '-'}</span></td>
                         <td><span class="px-2 py-1 rounded text-[10px] bg-pink-500/10 border border-pink-500/20 text-pink-400 font-mono">${player.position || '-'}</span></td>
-                        <td class="text-slate-300 flex items-center">${player.team || '-'}${logoHtml}</td>
-                        <td class="text-slate-500 text-[10px] uppercase tracking-wider">${player.conference || '-'}</td>
+                        <td class="text-white/70 flex items-center">${player.team || '-'}${logoHtml}</td>
+                        <td class="text-white/50 text-[10px] uppercase tracking-wider">${player.conference || '-'}</td>
                         ${statCells}
                     </tr>
                 `;
             }).join('');
             
-            document.getElementById('playersBody').innerHTML = html || '<tr><td colspan="15" class="text-center text-slate-500 py-8">No players found for this position</td></tr>';
+            document.getElementById('playersBody').innerHTML = html || '<tr><td colspan="15" class="text-center text-white/50 py-8">No players found for this position</td></tr>';
             document.getElementById('playersUpdated').textContent = `SYNCED: ${new Date().toLocaleTimeString()} | ${filteredPlayers.length} players`;
             updateIcons();
         }
@@ -1062,7 +1350,7 @@
             document.getElementById('resultCount').textContent = allResults.length;
 
             if (allResults.length === 0) {
-                container.innerHTML = `<div class="text-center py-20 text-slate-500 font-mono">NO DATA FOUND FOR QUERY "${query}"</div>`;
+                container.innerHTML = `<div class="text-center py-20 text-white/50 font-mono">NO DATA FOUND FOR QUERY "${query}"</div>`;
                 return;
             }
 
@@ -1085,12 +1373,12 @@
                                 ${item.headshot_url ? `<img src="${item.headshot_url}" class="w-14 h-20 rounded bg-white/5 border border-white/10 object-cover">` : ''}
                                 <div class="flex-1">
                                     <h3 class="text-white font-bold font-orbitron text-lg group-hover:text-nd transition-colors">${item.name}</h3>
-                                    <p class="text-xs text-slate-500 font-mono mt-1">${item.current_school || 'N/A'}</p>
+                                    <p class="text-xs text-white/50 font-mono mt-1">${item.current_school || 'N/A'}</p>
                                 </div>
                             </div>
                             <div class="text-right">
                                 <div class="font-mono text-xl text-nd font-bold">${parts[0]}-${parts[1]}</div>
-                                <p class="text-xs text-slate-500 mt-1">${winPct}% W.L.</p>
+                                <p class="text-xs text-white/50 mt-1">${winPct}% W.L.</p>
                             </div>
                         </div>
                     `;
@@ -1106,13 +1394,13 @@
                         
                         itemHtml += '<div class="grid grid-cols-3 gap-3 text-xs">';
                         if (rankings && rankings.total) {
-                            itemHtml += `<div class="bg-white/5 p-2 rounded"><div class="text-nd font-bold">${rankings.total}</div><div class="text-slate-500">Top 25 Weeks</div></div>`;
+                            itemHtml += `<div class="bg-white/5 p-2 rounded"><div class="text-nd font-bold">${rankings.total}</div><div class="text-white/50">Top 25 Weeks</div></div>`;
                         }
                         if (recruiting && recruiting.length > 0) {
-                            itemHtml += `<div class="bg-white/5 p-2 rounded"><div class="text-nd font-bold">${recruiting.length}</div><div class="text-slate-500">Recruit Classes</div></div>`;
+                            itemHtml += `<div class="bg-white/5 p-2 rounded"><div class="text-nd font-bold">${recruiting.length}</div><div class="text-white/50">Recruit Classes</div></div>`;
                         }
                         if (draftPicks && draftPicks.length > 0) {
-                            itemHtml += `<div class="bg-white/5 p-2 rounded"><div class="text-nd font-bold">${draftPicks.length}</div><div class="text-slate-500">Draft Picks</div></div>`;
+                            itemHtml += `<div class="bg-white/5 p-2 rounded"><div class="text-nd font-bold">${draftPicks.length}</div><div class="text-white/50">Draft Picks</div></div>`;
                         }
                         itemHtml += '</div>';
                     }
@@ -1122,10 +1410,10 @@
                         <div class="flex items-start gap-4 pb-3 border-b border-white/5">
                             ${logoHtml}
                             <div class="flex-1">
-                                <h3 class="text-white font-bold font-orbitron text-lg group-hover:text-cyan transition-colors">${item.school || item.name}</h3>
+                                <h3 class="text-white font-bold font-orbitron text-lg group-hover:text-nd transition-colors">${item.school || item.name}</h3>
                                 <div class="flex gap-4 mt-2">
-                                    <span class="text-xs text-slate-500 font-mono border border-white/10 px-2 py-0.5 rounded">${item.conference || 'N/A'}</span>
-                                    <span class="text-xs text-cyan font-mono font-bold">ID: ${item.id}</span>
+                                    <span class="text-xs text-white/50 font-mono border border-white/10 px-2 py-0.5 rounded">${item.conference || 'N/A'}</span>
+                                    <span class="text-xs text-nd font-mono font-bold">ID: ${item.id}</span>
                                 </div>
                             </div>
                         </div>
@@ -1146,17 +1434,17 @@
                         if (fullTeamData && fullTeamData.rankings && fullTeamData.rankings.length > 0) {
                             const currentRank = fullTeamData.rankings[0];
                             let rankStr = currentRank.playoff_rank ? `#${currentRank.playoff_rank} CFP` : (currentRank.ap_rank ? `#${currentRank.ap_rank} AP` : 'UR');
-                            itemHtml += `<div class="bg-white/5 p-2 rounded border border-white/5"><div class="text-cyan font-bold">${rankStr}</div><div class="text-slate-500">Rank</div></div>`;
+                            itemHtml += `<div class="bg-white/5 p-2 rounded border border-white/5"><div class="text-nd font-bold">${rankStr}</div><div class="text-white/50">Rank</div></div>`;
                         }
                         
                         if (roster) {
                             const rosterCount = Array.isArray(roster) ? roster.length : (roster.players ? roster.players.length : 0);
-                            itemHtml += `<div class="bg-white/5 p-2 rounded border border-white/5"><div class="text-cyan font-bold">${rosterCount}</div><div class="text-slate-500">Roster</div></div>`;
+                            itemHtml += `<div class="bg-white/5 p-2 rounded border border-white/5"><div class="text-nd font-bold">${rosterCount}</div><div class="text-white/50">Roster</div></div>`;
                         }
 
                         if (nilData) {
                             const nilValue = (nilData.total_valuation || 0) / 1000000;
-                            itemHtml += `<div class="bg-white/5 p-2 rounded border border-white/5"><div class="text-emerald-500 font-bold">$${nilValue.toFixed(1)}M</div><div class="text-slate-500">NIL</div></div>`;
+                            itemHtml += `<div class="bg-white/5 p-2 rounded border border-white/5"><div class="text-emerald-500 font-bold">$${nilValue.toFixed(1)}M</div><div class="text-white/50">NIL</div></div>`;
                         }
                         itemHtml += '</div>';
 
@@ -1164,17 +1452,17 @@
                         if (fullTeamData && fullTeamData.seasons && fullTeamData.seasons.length > 0) {
                             const season = fullTeamData.seasons[0];
                             itemHtml += `<div class="border-t border-white/5 pt-3 mt-3">
-                                <div class="text-[10px] font-bold text-cyan mb-2 uppercase tracking-widest flex items-center gap-2"><i data-lucide="cpu" class="w-3 h-3"></i> Advanced Analytics (${season.season})</div>
+                                <div class="text-[10px] font-bold text-nd mb-2 uppercase tracking-widest flex items-center gap-2"><i data-lucide="cpu" class="w-3 h-3"></i> Advanced Analytics (${season.season})</div>
                                 
                                 <!-- 1. Efficiency Ratings -->
                                 <div class="mb-4 bg-white/5 p-3 rounded-lg border border-white/5">
-                                    <div class="text-[9px] text-slate-400 mb-2 uppercase tracking-widest font-bold">Efficiency Ratings</div>
+                                    <div class="text-[9px] text-white/60 mb-2 uppercase tracking-widest font-bold">Efficiency Ratings</div>
                                     <div class="grid grid-cols-4 gap-2">`;
                             
-                            if (season.fpi) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">FPI</div><div class="text-white font-bold">${season.fpi.toFixed(1)}</div>${rankBadge(season.fpi_ranking)}</div>`;
-                            if (season.sp_rating) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">SP+</div><div class="text-white font-bold">${season.sp_rating.toFixed(1)}</div>${rankBadge(season.sp_ranking)}</div>`;
-                            if (season.elo_rating) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">ELO</div><div class="text-white font-bold">${season.elo_rating}</div></div>`;
-                            if (season.srs) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">SRS</div><div class="text-white font-bold">${season.srs.toFixed(1)}</div></div>`;
+                            if (season.fpi) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">FPI</div><div class="text-white font-bold">${season.fpi.toFixed(1)}</div>${rankBadge(season.fpi_ranking)}</div>`;
+                            if (season.sp_rating) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">SP+</div><div class="text-white font-bold">${season.sp_rating.toFixed(1)}</div>${rankBadge(season.sp_ranking)}</div>`;
+                            if (season.elo_rating) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">ELO</div><div class="text-white font-bold">${season.elo_rating}</div></div>`;
+                            if (season.srs) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">SRS</div><div class="text-white font-bold">${season.srs.toFixed(1)}</div></div>`;
                             itemHtml += `</div></div>`;
 
                             // 2. Offensive Efficiency
@@ -1182,14 +1470,14 @@
                                 <div class="text-[9px] text-emerald-500 mb-2 uppercase tracking-widest font-bold">Offensive Efficiency</div>
                                 <div class="grid grid-cols-4 gap-2">`;
                             
-                            if (season.fpi_offense_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-emerald-500"><div class="text-[9px] text-slate-500">FPI Off</div><div class="text-white font-bold">${season.fpi_offense_efficiency.toFixed(1)}</div></div>`;
-                            if (season.sp_offense) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-emerald-500"><div class="text-[9px] text-slate-500">SP+ Off</div><div class="text-white font-bold">${season.sp_offense.toFixed(1)}</div></div>`;
-                            if (season.off_ppa) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">PPA</div><div class="text-white font-bold">${season.off_ppa.toFixed(3)}</div></div>`;
-                            if (season.off_success_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Success %</div><div class="text-white font-bold">${(season.off_success_rate*100).toFixed(1)}%</div></div>`;
-                            if (season.off_explosiveness) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Explosiveness</div><div class="text-white font-bold">${season.off_explosiveness.toFixed(2)}</div></div>`;
-                            if (season.off_power_success) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Power Succ</div><div class="text-white font-bold">${(season.off_power_success*100).toFixed(1)}%</div></div>`;
-                            if (season.off_line_yards) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Line Yards</div><div class="text-white font-bold">${season.off_line_yards.toFixed(2)}</div></div>`;
-                            if (season.off_points_per_opportunity) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Pts/Opp</div><div class="text-white font-bold">${season.off_points_per_opportunity.toFixed(2)}</div></div>`;
+                            if (season.fpi_offense_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-emerald-500"><div class="text-[9px] text-white/50">FPI Off</div><div class="text-white font-bold">${season.fpi_offense_efficiency.toFixed(1)}</div></div>`;
+                            if (season.sp_offense) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-emerald-500"><div class="text-[9px] text-white/50">SP+ Off</div><div class="text-white font-bold">${season.sp_offense.toFixed(1)}</div></div>`;
+                            if (season.off_ppa) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">PPA</div><div class="text-white font-bold">${season.off_ppa.toFixed(3)}</div></div>`;
+                            if (season.off_success_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Success %</div><div class="text-white font-bold">${(season.off_success_rate*100).toFixed(1)}%</div></div>`;
+                            if (season.off_explosiveness) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Explosiveness</div><div class="text-white font-bold">${season.off_explosiveness.toFixed(2)}</div></div>`;
+                            if (season.off_power_success) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Power Succ</div><div class="text-white font-bold">${(season.off_power_success*100).toFixed(1)}%</div></div>`;
+                            if (season.off_line_yards) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Line Yards</div><div class="text-white font-bold">${season.off_line_yards.toFixed(2)}</div></div>`;
+                            if (season.off_points_per_opportunity) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Pts/Opp</div><div class="text-white font-bold">${season.off_points_per_opportunity.toFixed(2)}</div></div>`;
                             itemHtml += `</div></div>`;
 
                             // 3. Defensive Efficiency
@@ -1197,37 +1485,37 @@
                                 <div class="text-[9px] text-red-500 mb-2 uppercase tracking-widest font-bold">Defensive Efficiency</div>
                                 <div class="grid grid-cols-4 gap-2">`;
                             
-                            if (season.fpi_defense_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-red-500"><div class="text-[9px] text-slate-500">FPI Def</div><div class="text-white font-bold">${season.fpi_defense_efficiency.toFixed(1)}</div></div>`;
-                            if (season.sp_defense) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-red-500"><div class="text-[9px] text-slate-500">SP+ Def</div><div class="text-white font-bold">${season.sp_defense.toFixed(1)}</div></div>`;
-                            if (season.def_ppa) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">PPA</div><div class="text-white font-bold">${season.def_ppa.toFixed(3)}</div></div>`;
-                            if (season.def_success_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Success %</div><div class="text-white font-bold">${(season.def_success_rate*100).toFixed(1)}%</div></div>`;
-                            if (season.def_explosiveness) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Explosiveness</div><div class="text-white font-bold">${season.def_explosiveness.toFixed(2)}</div></div>`;
-                            if (season.def_power_success) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Power Succ</div><div class="text-white font-bold">${(season.def_power_success*100).toFixed(1)}%</div></div>`;
-                            if (season.def_line_yards) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Line Yards</div><div class="text-white font-bold">${season.def_line_yards.toFixed(2)}</div></div>`;
-                            if (season.def_points_per_opportunity) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Pts/Opp</div><div class="text-white font-bold">${season.def_points_per_opportunity.toFixed(2)}</div></div>`;
+                            if (season.fpi_defense_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-red-500"><div class="text-[9px] text-white/50">FPI Def</div><div class="text-white font-bold">${season.fpi_defense_efficiency.toFixed(1)}</div></div>`;
+                            if (season.sp_defense) itemHtml += `<div class="bg-black/40 p-2 rounded border-l-2 border-red-500"><div class="text-[9px] text-white/50">SP+ Def</div><div class="text-white font-bold">${season.sp_defense.toFixed(1)}</div></div>`;
+                            if (season.def_ppa) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">PPA</div><div class="text-white font-bold">${season.def_ppa.toFixed(3)}</div></div>`;
+                            if (season.def_success_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Success %</div><div class="text-white font-bold">${(season.def_success_rate*100).toFixed(1)}%</div></div>`;
+                            if (season.def_explosiveness) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Explosiveness</div><div class="text-white font-bold">${season.def_explosiveness.toFixed(2)}</div></div>`;
+                            if (season.def_power_success) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Power Succ</div><div class="text-white font-bold">${(season.def_power_success*100).toFixed(1)}%</div></div>`;
+                            if (season.def_line_yards) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Line Yards</div><div class="text-white font-bold">${season.def_line_yards.toFixed(2)}</div></div>`;
+                            if (season.def_points_per_opportunity) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Pts/Opp</div><div class="text-white font-bold">${season.def_points_per_opportunity.toFixed(2)}</div></div>`;
                             itemHtml += `</div></div>`;
 
                             // 4. Field Position & Havoc
                             itemHtml += `<div class="mb-4 bg-purple-500/5 p-3 rounded-lg border border-purple-500/10">
                                 <div class="text-[9px] text-purple-500 mb-2 uppercase tracking-widest font-bold">Field Position & Havoc</div>
                                 <div class="grid grid-cols-4 gap-2">`;
-                            if (season.off_field_pos_avg_start) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Off FP</div><div class="text-white font-bold">${season.off_field_pos_avg_start.toFixed(1)}</div></div>`;
-                            if (season.def_field_pos_avg_start) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Def FP</div><div class="text-white font-bold">${season.def_field_pos_avg_start.toFixed(1)}</div></div>`;
-                            if (season.off_havoc_total) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Off Havoc</div><div class="text-white font-bold">${(season.off_havoc_total*100).toFixed(1)}%</div></div>`;
-                            if (season.def_havoc_total) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Def Havoc</div><div class="text-white font-bold">${(season.def_havoc_total*100).toFixed(1)}%</div></div>`;
-                            if (season.off_stuff_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Off Stuff</div><div class="text-white font-bold">${(season.off_stuff_rate*100).toFixed(1)}%</div></div>`;
-                            if (season.def_stuff_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Def Stuff</div><div class="text-white font-bold">${(season.def_stuff_rate*100).toFixed(1)}%</div></div>`;
+                            if (season.off_field_pos_avg_start) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Off FP</div><div class="text-white font-bold">${season.off_field_pos_avg_start.toFixed(1)}</div></div>`;
+                            if (season.def_field_pos_avg_start) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Def FP</div><div class="text-white font-bold">${season.def_field_pos_avg_start.toFixed(1)}</div></div>`;
+                            if (season.off_havoc_total) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Off Havoc</div><div class="text-white font-bold">${(season.off_havoc_total*100).toFixed(1)}%</div></div>`;
+                            if (season.def_havoc_total) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Def Havoc</div><div class="text-white font-bold">${(season.def_havoc_total*100).toFixed(1)}%</div></div>`;
+                            if (season.off_stuff_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Off Stuff</div><div class="text-white font-bold">${(season.off_stuff_rate*100).toFixed(1)}%</div></div>`;
+                            if (season.def_stuff_rate) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Def Stuff</div><div class="text-white font-bold">${(season.def_stuff_rate*100).toFixed(1)}%</div></div>`;
                             itemHtml += `</div></div>`;
 
                             // 5. Recruiting & Talent
                             itemHtml += `<div class="bg-yellow-500/5 p-3 rounded-lg border border-yellow-500/10">
                                 <div class="text-[9px] text-yellow-500 mb-2 uppercase tracking-widest font-bold">Recruiting & Talent</div>
                                 <div class="grid grid-cols-4 gap-2">`;
-                            if (season.recruiting_rank) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Recruit Rank</div><div class="text-white font-bold">#${season.recruiting_rank}</div></div>`;
-                            if (season.recruiting_points) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Points</div><div class="text-white font-bold">${season.recruiting_points.toFixed(1)}</div></div>`;
-                            if (season.talent_composite) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Talent</div><div class="text-white font-bold">${season.talent_composite.toFixed(1)}</div></div>`;
-                            if (season.fpi_overall_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">Overall Eff</div><div class="text-white font-bold">${season.fpi_overall_efficiency.toFixed(1)}</div></div>`;
-                            if (season.fpi_special_teams_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-slate-500">ST Eff</div><div class="text-white font-bold">${season.fpi_special_teams_efficiency.toFixed(1)}</div></div>`;
+                            if (season.recruiting_rank) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Recruit Rank</div><div class="text-white font-bold">#${season.recruiting_rank}</div></div>`;
+                            if (season.recruiting_points) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Points</div><div class="text-white font-bold">${season.recruiting_points.toFixed(1)}</div></div>`;
+                            if (season.talent_composite) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Talent</div><div class="text-white font-bold">${season.talent_composite.toFixed(1)}</div></div>`;
+                            if (season.fpi_overall_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">Overall Eff</div><div class="text-white font-bold">${season.fpi_overall_efficiency.toFixed(1)}</div></div>`;
+                            if (season.fpi_special_teams_efficiency) itemHtml += `<div class="bg-black/40 p-2 rounded"><div class="text-[9px] text-white/50">ST Eff</div><div class="text-white font-bold">${season.fpi_special_teams_efficiency.toFixed(1)}</div></div>`;
                             itemHtml += `</div></div>`;
 
                             itemHtml += `</div>`;
@@ -1265,6 +1553,82 @@
         // Auto Refresh
         setInterval(initDashboard, 300000);
 
+    </script>
+    
+    <!-- Network Visualization Script -->
+    <script>
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Network nodes
+        const nodes = [];
+        const nodeCount = 150;
+        const connectionDistance = 200;
+        
+        // Create nodes
+        for (let i = 0; i < nodeCount; i++) {
+            nodes.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                radius: Math.random() * 2.5 + 1.5
+            });
+        }
+        
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Update and draw nodes
+            nodes.forEach((node, i) => {
+                // Move node
+                node.x += node.vx;
+                node.y += node.vy;
+                
+                // Bounce off edges
+                if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+                if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+                
+                // Draw node
+                ctx.fillStyle = 'rgba(214, 0, 28, 0.8)';
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'rgba(214, 0, 28, 0.5)';
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                
+                // Draw connections
+                nodes.slice(i + 1).forEach(otherNode => {
+                    const dx = node.x - otherNode.x;
+                    const dy = node.y - otherNode.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < connectionDistance) {
+                        const opacity = (1 - distance / connectionDistance) * 0.6;
+                        ctx.strokeStyle = `rgba(214, 0, 28, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(node.x, node.y);
+                        ctx.lineTo(otherNode.x, otherNode.y);
+                        ctx.stroke();
+                    }
+                });
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
     </script>
 </body>
 </html>

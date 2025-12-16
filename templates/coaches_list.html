@@ -7,20 +7,23 @@
     
     <!-- Tailwind & Config -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        background: '#030712',
-                        surface: '#111827',
+                        background: '#F3F4F6', // Light Gray
+                        surface: '#FFFFFF',
                         primary: '#F43F5E', // Rose 500
                         'primary-dim': 'rgba(244, 63, 94, 0.1)',
                         success: '#10B981',
                         warning: '#F59E0B',
                         danger: '#EF4444',
-                        'tech-border': 'rgba(255, 255, 255, 0.08)',
+                        'tech-border': 'rgba(0, 0, 0, 0.08)',
                     },
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', 'sans-serif'],
@@ -28,7 +31,7 @@
                         'display': ['Orbitron', 'sans-serif'],
                     },
                     backgroundImage: {
-                        'grid-scan': "linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
+                        'grid-scan': "linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px)",
                     }
                 }
             }
@@ -44,147 +47,224 @@
 
     <style>
         body {
-            background-color: #030712;
-            color: #E5E7EB;
+            background-color: #F3F4F6;
+            color: #111827;
             overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* HUD Panels */
+        /* Dark Mode Overrides */
+        .dark body {
+            background-color: #111827; /* Gray 900 */
+            color: #F3F4F6;
+        }
+
+        /* HUD Panels - Modern Glassmorphism */
         .hud-panel {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--tech-border);
-            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .dark .hud-panel {
+            background: rgba(17, 24, 39, 0.6); /* Darker glass */
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
         }
 
         .hud-panel:hover {
-            border-color: rgba(244, 63, 94, 0.3);
-            box-shadow: 0 0 15px rgba(244, 63, 94, 0.15);
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            transform: translateY(-2px);
+        }
+
+        .dark .hud-panel:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(31, 41, 55, 0.7);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
         }
 
         /* Coach Card Specifics */
         .coach-card {
             position: relative;
             overflow: hidden;
-            border-left: 2px solid transparent; /* Placeholder for team color */
+            background: rgba(255, 255, 255, 0.25) !important;
+        }
+
+        .dark .coach-card {
+            background: rgba(31, 41, 55, 0.4) !important; /* Gray 800 glass */
         }
         
+        /* Modern Gradient Glow */
         .coach-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(0,0,0,0.03), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .dark .coach-card::before {
+            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(255,255,255,0.05), transparent 40%);
+        }
+        
+        .coach-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Team Color Accent */
+        .coach-card::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
-            pointer-events: none;
-        }
-
-        /* Scanline Animation */
-        @keyframes scanline {
-            0% { transform: translateY(-100%); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(100%); opacity: 0; }
-        }
-
-        .scan-overlay::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: rgba(244, 63, 94, 0.5);
-            box-shadow: 0 0 10px rgba(244, 63, 94, 0.8);
-            animation: scanline 4s linear infinite;
-            opacity: 0;
-        }
-        
-        .coach-card:hover .scan-overlay::after {
-            opacity: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--team-color, rgba(0,0,0,0.2)), transparent);
+            opacity: 0.8;
         }
 
         /* Metric Bars */
         .tech-bar-bg {
-            background: rgba(255, 255, 255, 0.1);
-            height: 4px;
+            background: rgba(0, 0, 0, 0.05);
+            height: 6px;
             width: 100%;
-            border-radius: 2px;
+            border-radius: 9999px;
             overflow: hidden;
+        }
+
+        .dark .tech-bar-bg {
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .tech-bar-fill {
             height: 100%;
-            background: #F43F5E;
-            box-shadow: 0 0 8px #F43F5E;
+            border-radius: 9999px;
             transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Filter Buttons */
         .filter-btn {
-            background: rgba(17, 24, 39, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #9CA3AF;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #6B7280;
             transition: all 0.2s;
         }
 
+        .dark .filter-btn {
+            background: rgba(31, 41, 55, 0.4);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #9CA3AF;
+        }
+
         .filter-btn:hover {
-            color: white;
-            border-color: rgba(255, 255, 255, 0.3);
+            color: #111827;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .dark .filter-btn:hover {
+            color: #F3F4F6;
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(55, 65, 81, 0.6);
         }
 
         .filter-btn.active {
-            background: rgba(244, 63, 94, 0.1);
+            background: rgba(255, 255, 255, 0.8);
             border-color: #F43F5E;
             color: #F43F5E;
-            box-shadow: 0 0 10px rgba(244, 63, 94, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(244, 63, 94, 0.1);
+        }
+
+        .dark .filter-btn.active {
+            background: rgba(244, 63, 94, 0.15);
+            border-color: #F43F5E;
+            color: #F43F5E;
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.2);
         }
 
         /* Team Watermark */
         .watermark-logo {
             position: absolute;
-            right: -20px;
-            bottom: -20px;
-            width: 140px;
-            height: 140px;
-            opacity: 0.04;
-            filter: grayscale(100%);
-            transform: rotate(-10deg);
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+            transform: none;
+            z-index: 0;
+            pointer-events: none;
+        }
             z-index: 0;
             pointer-events: none;
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #030712; }
-        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #F43F5E; }
+        ::-webkit-scrollbar-track { background: #F3F4F6; }
+        .dark ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
+        .dark ::-webkit-scrollbar-thumb { background: #4B5563; }
+        ::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+
+        /* Blurred Background Image */
+        .bg-image-blur {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image: url('https://media.cnn.com/api/v1/images/stellar/prod/221222170706-03-college-football-playoffs-watch.jpg?c=original');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(2px);
+            opacity: 0.15;
+        }
+
+        .bg-image-blur::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(243, 244, 246, 0.8) 0%, rgba(243, 244, 246, 0.4) 50%, rgba(243, 244, 246, 0.8) 100%);
+        }
+        
+        .dark .bg-image-blur::after {
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.9) 0%, rgba(17, 24, 39, 0.6) 50%, rgba(17, 24, 39, 0.9) 100%);
+        }
     </style>
 </head>
 <body class="antialiased min-h-screen relative selection:bg-primary selection:text-white">
+    
+    <!-- Blurred Background Image -->
+    <div class="bg-image-blur"></div>
     
     <!-- Background Grid -->
     <div class="fixed inset-0 bg-grid-scan pointer-events-none z-0 opacity-40"></div>
 
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 border-b border-white/10 bg-[#030712]/80 backdrop-blur-md">
+    <header class="fixed top-0 w-full z-50 border-b border-gray-200 dark:border-white/10 bg-white/80 dark:bg-[#030712]/80 backdrop-blur-md transition-colors duration-300">
         <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-4">
-                <div class="w-2 h-8 bg-primary shadow-[0_0_15px_rgba(244,63,94,0.5)]"></div>
-                <a href="/" class="font-display font-bold text-2xl tracking-wider text-white">
-                    GAMEDAY<span class="text-primary">+</span> <span class="text-xs text-gray-500 font-mono align-top mt-1 ml-1 opacity-70">SYS.V.2.0</span>
+                <div class="w-2 h-8 bg-primary shadow-[0_0_15px_rgba(244,63,94,0.3)]"></div>
+                <a href="/" class="font-display font-bold text-2xl tracking-wider text-gray-900 dark:text-white">
+                    GAMEDAY<span class="text-primary">+</span> <span class="text-xs text-gray-400 dark:text-gray-500 font-mono align-top mt-1 ml-1 opacity-70">SYS.V.2.0</span>
                 </a>
             </div>
             
             <div class="flex items-center gap-4">
-                <nav class="flex items-center gap-1 bg-surface/50 p-1 rounded-lg border border-white/5">
-                    <a href="/" class="px-4 py-1.5 text-xs font-mono text-gray-400 hover:text-white transition rounded hover:bg-white/5">DB_HOME</a>
-                    <a href="/coaches" class="px-4 py-1.5 text-xs font-mono text-primary bg-primary/10 rounded font-bold border border-primary/20">COACHES_Index</a>
-                    <a href="/teams" class="px-4 py-1.5 text-xs font-mono text-gray-400 hover:text-white transition rounded hover:bg-white/5">TEAMS</a>
+                <nav class="flex items-center gap-1 bg-gray-100 dark:bg-white/5 p-1 rounded-lg border border-gray-200 dark:border-white/5">
+                    <a href="/" class="px-4 py-1.5 text-xs font-mono text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition rounded hover:bg-white dark:hover:bg-white/5 shadow-sm hover:shadow">DB_HOME</a>
+                    <a href="/coaches" class="px-4 py-1.5 text-xs font-mono text-primary bg-white dark:bg-primary/10 rounded font-bold border border-gray-200 dark:border-primary/20 shadow-sm">COACHES_Index</a>
+                    <a href="/teams" class="px-4 py-1.5 text-xs font-mono text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition rounded hover:bg-white dark:hover:bg-white/5 shadow-sm hover:shadow">TEAMS</a>
                 </nav>
                 
-                <button onclick="generateLeagueBriefing()" class="px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400 border border-cyan-500/30 rounded-lg hover:from-cyan-500/30 hover:to-blue-500/30 transition-all duration-300 font-mono text-xs font-bold shadow-lg hover:shadow-cyan-500/20 flex items-center gap-2">
+                <button onclick="generateLeagueBriefing()" class="px-4 py-2 bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-mono text-xs font-bold shadow-sm hover:shadow-md flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/><path d="M2 9h2"/></svg>
                     <span>LEAGUE_BRIEFING // AI</span>
                 </button>
@@ -204,20 +284,20 @@
                     <div>
                         <div class="flex items-center gap-3 mb-2">
                             <i data-lucide="database" class="text-primary w-6 h-6"></i>
-                            <h1 class="text-3xl md:text-4xl font-display font-bold text-white tracking-tight">COACH ANALYTICS</h1>
+                            <h1 class="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white tracking-tight">COACH ANALYTICS</h1>
                         </div>
-                        <div class="flex items-center gap-4 text-xs font-mono text-gray-400">
+                        <div class="flex items-center gap-4 text-xs font-mono text-gray-500 dark:text-gray-400">
                             <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-success animate-pulse"></span>DATABASE_ONLINE</span>
-                            <span class="text-gray-700">|</span>
+                            <span class="text-gray-300 dark:text-gray-600">|</span>
                             <span>coaches_master.db</span>
-                            <span class="text-gray-700">|</span>
+                            <span class="text-gray-300 dark:text-gray-600">|</span>
                             <span class="text-primary" id="last-updated">LIVE_FEED</span>
                         </div>
                     </div>
                     
-                    <div class="text-right border-l border-white/10 pl-6 hidden sm:block">
-                        <div class="text-xs text-gray-500 font-mono uppercase tracking-widest mb-1">Total Records</div>
-                        <div class="text-4xl font-mono font-bold text-white" id="coach-count">--</div>
+                    <div class="text-right border-l border-gray-200 dark:border-white/10 pl-6 hidden sm:block">
+                        <div class="text-xs text-gray-500 dark:text-gray-400 font-mono uppercase tracking-widest mb-1">Total Records</div>
+                        <div class="text-4xl font-mono font-bold text-gray-900 dark:text-white" id="coach-count">--</div>
                     </div>
                 </div>
             </div>
@@ -226,64 +306,64 @@
             <div class="lg:col-span-4 grid grid-cols-3 gap-3">
                 <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 uppercase">SEC</span>
+                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">SEC</span>
                         <span class="text-xs font-bold text-primary" id="sec-count">--</span>
                     </div>
                     <div class="tech-bar-bg"><div class="tech-bar-fill" style="width: 30%"></div></div>
                 </div>
                 <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 uppercase">B1G</span>
-                        <span class="text-xs font-bold text-blue-400" id="bigten-count">--</span>
+                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">B1G</span>
+                        <span class="text-xs font-bold text-blue-600 dark:text-blue-400" id="bigten-count">--</span>
                     </div>
                     <div class="tech-bar-bg"><div class="tech-bar-fill bg-blue-500 shadow-blue-500/50" style="width: 30%"></div></div>
                 </div>
                 <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 uppercase">ACC</span>
-                        <span class="text-xs font-bold text-purple-400" id="acc-count">--</span>
+                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">ACC</span>
+                        <span class="text-xs font-bold text-purple-600 dark:text-purple-400" id="acc-count">--</span>
                     </div>
                     <div class="tech-bar-bg"><div class="tech-bar-fill bg-purple-500 shadow-purple-500/50" style="width: 30%"></div></div>
                 </div>
                 <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 uppercase">B12</span>
-                        <span class="text-xs font-bold text-gray-300" id="big12-count">--</span>
+                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">B12</span>
+                        <span class="text-xs font-bold text-gray-600 dark:text-gray-300" id="big12-count">--</span>
                     </div>
-                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-gray-400 shadow-white/20" style="width: 30%"></div></div>
+                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-gray-400 shadow-gray-400/20" style="width: 30%"></div></div>
                 </div>
                 <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 uppercase">AAC</span>
-                        <span class="text-xs font-bold text-cyan-400" id="aac-count">--</span>
+                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">AAC</span>
+                        <span class="text-xs font-bold text-cyan-600 dark:text-cyan-400" id="aac-count">--</span>
                     </div>
                     <div class="tech-bar-bg"><div class="tech-bar-fill bg-cyan-500 shadow-cyan-500/50" style="width: 30%"></div></div>
                 </div>
                 <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 uppercase">MAC</span>
-                        <span class="text-xs font-bold text-green-400" id="mac-count">--</span>
+                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">MAC</span>
+                        <span class="text-xs font-bold text-green-600 dark:text-green-400" id="mac-count">--</span>
                     </div>
                     <div class="tech-bar-bg"><div class="tech-bar-fill bg-green-500 shadow-green-500/50" style="width: 30%"></div></div>
                 </div>
                 <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 uppercase">MW</span>
-                        <span class="text-xs font-bold text-orange-400" id="mw-count">--</span>
+                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">MW</span>
+                        <span class="text-xs font-bold text-orange-600 dark:text-orange-400" id="mw-count">--</span>
                     </div>
                     <div class="tech-bar-bg"><div class="tech-bar-fill bg-orange-500 shadow-orange-500/50" style="width: 30%"></div></div>
                 </div>
                 <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 uppercase">SBC</span>
-                        <span class="text-xs font-bold text-yellow-400" id="sbc-count">--</span>
+                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">SBC</span>
+                        <span class="text-xs font-bold text-yellow-600 dark:text-yellow-400" id="sbc-count">--</span>
                     </div>
                     <div class="tech-bar-bg"><div class="tech-bar-fill bg-yellow-500 shadow-yellow-500/50" style="width: 30%"></div></div>
                 </div>
                 <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 uppercase">CUSA</span>
-                        <span class="text-xs font-bold text-red-400" id="cusa-count">--</span>
+                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">CUSA</span>
+                        <span class="text-xs font-bold text-red-600 dark:text-red-400" id="cusa-count">--</span>
                     </div>
                     <div class="tech-bar-bg"><div class="tech-bar-fill bg-red-500 shadow-red-500/50" style="width: 30%"></div></div>
                 </div>
@@ -291,12 +371,12 @@
         </div>
 
         <!-- Controls Bar -->
-        <div class="hud-panel rounded-lg p-4 mb-8 sticky top-20 z-40 bg-[#111827]/90 backdrop-blur-xl">
+        <div class="hud-panel rounded-lg p-4 mb-8 sticky top-20 z-40 bg-white/60 dark:bg-black/40 backdrop-blur-xl">
             <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
                 
                 <!-- Filters -->
                 <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
-                    <i data-lucide="filter" class="w-4 h-4 text-gray-500 mr-2 flex-shrink-0"></i>
+                    <i data-lucide="filter" class="w-4 h-4 text-gray-500 dark:text-gray-400 mr-2 flex-shrink-0"></i>
                     <button onclick="filterCoaches('all')" id="filter-all" class="filter-btn active px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">All</button>
                     <button onclick="filterCoaches('Big Ten')" id="filter-bigten" class="filter-btn px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">B1G</button>
                     <button onclick="filterCoaches('SEC')" id="filter-sec" class="filter-btn px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">SEC</button>
@@ -315,10 +395,10 @@
                         type="text" 
                         id="search-input"
                         placeholder="SEARCH_DATABASE..."
-                        class="w-full bg-black/40 border border-white/10 rounded px-4 py-2 pl-10 text-xs font-mono text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all uppercase"
+                        class="w-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded px-4 py-2 pl-10 text-xs font-mono text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all uppercase shadow-sm"
                         oninput="searchCoaches()"
                     >
-                    <i data-lucide="search" class="absolute left-3 top-2 w-4 h-4 text-gray-600"></i>
+                    <i data-lucide="search" class="absolute left-3 top-2 w-4 h-4 text-gray-400 dark:text-gray-500"></i>
                 </div>
             </div>
         </div>
@@ -328,8 +408,8 @@
             <!-- Chart 1: Games Coached vs Success -->
             <div class="hud-panel rounded-lg p-6">
                 <div class="flex items-center gap-2 mb-4">
-                    <i data-lucide="bar-chart-3" class="w-5 h-5 text-purple-400"></i>
-                    <h3 class="text-sm font-display font-bold text-white uppercase tracking-wider">Games Coached vs. Success Matrix</h3>
+                    <i data-lucide="bar-chart-3" class="w-5 h-5 text-purple-500 dark:text-purple-400"></i>
+                    <h3 class="text-sm font-display font-bold text-gray-900 dark:text-white uppercase tracking-wider">Games Coached vs. Success Matrix</h3>
                 </div>
                 <div class="h-[400px]">
                     <canvas id="gamesChart"></canvas>
@@ -339,14 +419,25 @@
             <!-- Chart 2: Weeks Ranked vs Win % -->
             <div class="hud-panel rounded-lg p-6">
                 <div class="flex items-center gap-2 mb-4">
-                    <i data-lucide="trending-up" class="w-5 h-5 text-blue-400"></i>
-                    <h3 class="text-sm font-display font-bold text-white uppercase tracking-wider">Weeks Ranked vs. Career Win %</h3>
+                    <i data-lucide="trending-up" class="w-5 h-5 text-blue-500 dark:text-blue-400"></i>
+                    <h3 class="text-sm font-display font-bold text-gray-900 dark:text-white uppercase tracking-wider">Weeks Ranked vs. Career Win %</h3>
                 </div>
                 <div class="h-[400px]">
                     <canvas id="weeksChart"></canvas>
                 </div>
             </div>
         </div>
+
+        <!-- Coach Status Treemap (Disabled) -->
+        <!--
+        <div class="hud-panel rounded-lg mb-8 overflow-hidden">
+            <div class="flex items-center gap-2 p-6 border-b border-gray-100 dark:border-white/5">
+                <i data-lucide="layout-dashboard" class="w-5 h-5 text-emerald-500 dark:text-emerald-400"></i>
+                <h3 class="text-sm font-display font-bold text-gray-900 dark:text-white uppercase tracking-wider">Coach Status Hierarchy</h3>
+            </div>
+            <div id="treemapChart" class="h-[600px] w-full"></div>
+        </div>
+        -->
 
         <!-- Coaches Grid -->
         <div id="coaches-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -451,6 +542,16 @@
             'Notre Dame': 'Independent'
         };
 
+        function handleCardHover(e) {
+            const card = e.currentTarget;
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        }
+
         async function loadCoaches() {
             try {
                 const response = await fetch('/api/coaches');
@@ -460,6 +561,7 @@
                 updateStats();
                 displayCoaches(allCoaches);
                 createCharts();
+                // createTreemap(); // Disabled
                 lucide.createIcons();
             } catch (error) {
                 console.error('Error loading coaches:', error);
@@ -519,60 +621,63 @@
                 const initials = coach.name.split(' ').map(n => n[0]).join('').substring(0,2);
 
                 return `
-                <div class="coach-card hud-panel rounded-lg p-5 cursor-pointer group scan-overlay" 
+                <div class="coach-card hud-panel rounded-2xl p-6 cursor-pointer group" 
                      onclick="viewCoach(${coach.id})" 
-                     style="border-left-color: ${teamInfo.color}">
+                     onmousemove="handleCardHover(event)"
+                     style="--team-color: ${teamInfo.color}">
                     
-                    ${teamInfo.logo ? `<img src="${teamInfo.logo}" class="watermark-logo" alt="">` : ''}
+                    ${teamInfo.logo ? `<img src="${teamInfo.logo}" class="watermark-logo opacity-[0.08] group-hover:opacity-[0.15] grayscale group-hover:grayscale-0 transition-all duration-500" alt="">` : ''}
 
                     <!-- Header -->
-                    <div class="relative z-10 flex gap-4 mb-4">
-                        <div class="relative">
+                    <div class="relative z-10 flex gap-5 mb-5 items-center">
+                        <div class="relative shrink-0">
                             ${coach.headshot_url ? 
-                                `<img src="${coach.headshot_url}" alt="${coach.name}" class="w-16 h-16 rounded object-cover border border-white/10 bg-black/50">` :
-                                `<div class="w-16 h-16 rounded bg-gradient-to-br from-surface to-black border border-white/10 flex items-center justify-center font-display font-bold text-gray-500 text-xl">${initials}</div>`
+                                `<img src="${coach.headshot_url}" alt="${coach.name}" class="w-16 h-16 rounded-xl object-cover shadow-sm ring-1 ring-gray-200 dark:ring-white/10 bg-gray-50 dark:bg-white/5">` :
+                                `<div class="w-16 h-16 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-white/5 dark:to-white/10 ring-1 ring-gray-200 dark:ring-white/10 flex items-center justify-center font-display font-bold text-gray-400 dark:text-gray-500 text-xl shadow-sm">${initials}</div>`
                             }
-                            <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-gray-900 rounded-full flex items-center justify-center">
-                                <div class="w-1.5 h-1.5 rounded-full ${winPct > 60 ? 'bg-success' : 'bg-warning'}"></div>
+                            <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-white dark:bg-gray-900 rounded-full flex items-center justify-center ring-1 ring-white dark:ring-gray-800 shadow-sm">
+                                <div class="w-2 h-2 rounded-full ${winPct > 60 ? 'bg-emerald-500' : 'bg-amber-500'}"></div>
                             </div>
                         </div>
                         
                         <div class="flex-1 min-w-0 flex flex-col justify-center">
-                            <h3 class="text-base font-bold text-white leading-tight truncate group-hover:text-primary transition-colors">${coach.name}</h3>
-                            <p class="text-xs font-mono text-gray-400 uppercase truncate mt-1">${coach.current_school}</p>
-                            <span class="inline-block mt-1 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-white/5 border border-white/10 w-fit">
-                                ${conferenceMap[coach.current_school] || 'N/A'}
-                            </span>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight truncate group-hover:text-[var(--team-color)] transition-colors duration-300">${coach.name}</h3>
+                            <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase truncate mt-1 tracking-wide">${coach.current_school}</p>
+                            <div class="flex gap-2 mt-2">
+                                <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 tracking-wider">
+                                    ${conferenceMap[coach.current_school] || 'N/A'}
+                                </span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Stats Grid -->
-                    <div class="relative z-10 space-y-3 border-t border-white/5 pt-3">
-                        <div class="flex justify-between items-end">
-                            <span class="text-[10px] text-gray-500 font-mono uppercase">Career Rec</span>
-                            <span class="text-sm font-mono font-bold text-white">${coach.career_record}</span>
+                    <div class="relative z-10 space-y-4 border-t border-gray-100 dark:border-white/5 pt-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Career Record</span>
+                            <span class="text-sm font-mono font-bold text-gray-900 dark:text-white tracking-tight">${coach.career_record}</span>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between items-end mb-1">
-                                <span class="text-[10px] text-gray-500 font-mono uppercase">Efficiency</span>
-                                <span class="text-xs font-mono font-bold ${winPct > 65 ? 'text-success' : 'text-primary'}">${winPct}%</span>
+                            <div class="flex justify-between items-end mb-1.5">
+                                <span class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Win Efficiency</span>
+                                <span class="text-xs font-mono font-bold ${winPct > 65 ? 'text-emerald-600 dark:text-emerald-400' : 'text-gray-400 dark:text-gray-500'}">${winPct}%</span>
                             </div>
-                            <div class="tech-bar-bg">
-                                <div class="tech-bar-fill" style="width: ${winPct}%; background-color: ${teamInfo.color}; box-shadow: 0 0 5px ${teamInfo.color}"></div>
+                            <div class="tech-bar-bg bg-gray-100 dark:bg-white/10">
+                                <div class="tech-bar-fill" style="width: ${winPct}%; background-color: ${teamInfo.color}; box-shadow: 0 0 12px ${teamInfo.color}40"></div>
                             </div>
                         </div>
 
-                        <div class="flex justify-between items-end pt-1">
-                            <span class="text-[10px] text-gray-500 font-mono uppercase">Tenure (G)</span>
-                            <span class="text-xs font-mono text-gray-300">${coach.total_games}</span>
+                        <div class="flex justify-between items-center pt-1">
+                            <span class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Experience</span>
+                            <span class="text-xs font-mono text-gray-500 dark:text-gray-400">${coach.total_games} Games</span>
                         </div>
                     </div>
 
                     <!-- AI Scan Button -->
-                    <div class="relative z-10 mt-3 pt-3 border-t border-white/5">
+                    <div class="relative z-10 mt-4 pt-4 border-t border-gray-100 dark:border-white/5">
                         <button onclick="event.stopPropagation(); generateScoutReport('${coach.name}', '${coach.current_school}', '${coach.career_record}', '${winPct}', ${coach.total_games})" 
-                                class="w-full px-3 py-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 text-cyan-400 border border-cyan-500/20 rounded hover:from-cyan-500/20 hover:to-blue-500/20 transition-all duration-300 font-mono text-xs font-bold flex items-center justify-center gap-2 group/btn">
+                                class="w-full py-2.5 bg-gray-50 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-medium text-xs flex items-center justify-center gap-2 group/btn shadow-sm hover:shadow">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover/btn:animate-pulse"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg>
                             <span>TACTICAL_SCAN</span>
                         </button>
@@ -698,7 +803,7 @@
                                     color: '#9ca3af',
                                     font: { family: 'JetBrains Mono', size: 11 }
                                 },
-                                grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                                grid: { color: 'rgba(156, 163, 175, 0.1)' },
                                 ticks: { color: '#6b7280', font: { family: 'JetBrains Mono', size: 10 } }
                             },
                             y: {
@@ -710,7 +815,7 @@
                                 },
                                 min: 0,
                                 max: 1.0,
-                                grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                                grid: { color: 'rgba(156, 163, 175, 0.1)' },
                                 ticks: {
                                     color: '#6b7280',
                                     font: { family: 'JetBrains Mono', size: 10 },
@@ -788,7 +893,7 @@
                                     color: '#9ca3af',
                                     font: { family: 'JetBrains Mono', size: 11 }
                                 },
-                                grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                                grid: { color: 'rgba(156, 163, 175, 0.1)' },
                                 ticks: { color: '#6b7280', font: { family: 'JetBrains Mono', size: 10 } }
                             },
                             y: {
@@ -800,7 +905,7 @@
                                 },
                                 min: 0,
                                 max: 1.0,
-                                grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                                grid: { color: 'rgba(156, 163, 175, 0.1)' },
                                 ticks: {
                                     color: '#6b7280',
                                     font: { family: 'JetBrains Mono', size: 10 },
@@ -812,6 +917,226 @@
                 });
             }
         }
+
+        let treemapChart = null;
+
+        function createTreemap() {
+            const chartDom = document.getElementById('treemapChart');
+            if (!chartDom) return;
+            
+            if (treemapChart) treemapChart.dispose();
+            treemapChart = echarts.init(chartDom);
+            
+            // Theme Detection
+            const isDark = document.documentElement.classList.contains('dark');
+            const textColor = isDark ? 'rgba(255,255,255,0.9)' : 'rgba(17, 24, 39, 0.9)';
+            const borderColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.4)';
+            const labelShadow = isDark ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.8)';
+            
+            // Helper: Hex to RGBA
+            const hexToRgba = (hex, alpha) => {
+                if (!hex) return `rgba(107, 114, 128, ${alpha})`;
+                hex = hex.replace('#', '');
+                if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+                const r = parseInt(hex.substring(0, 2), 16);
+                const g = parseInt(hex.substring(2, 4), 16);
+                const b = parseInt(hex.substring(4, 6), 16);
+                return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+            };
+
+            // Process Data
+            const categories = {
+                'ELITE': { min: 0.70, weight: 4, color: '#F59E0B', coaches: [] }, // Gold
+                'CONTENDER': { min: 0.60, weight: 3, color: '#94A3B8', coaches: [] }, // Silver
+                'ESTABLISHED': { min: 0.50, weight: 2, color: '#B45309', coaches: [] }, // Bronze
+                'PROVISIONAL': { min: 0.00, weight: 1, color: '#475569', coaches: [] } // Iron
+            };
+
+            allCoaches.forEach(coach => {
+                const winPct = parseFloat(coach.career_win_pct);
+                if (winPct >= 0.70) categories['ELITE'].coaches.push(coach);
+                else if (winPct >= 0.60) categories['CONTENDER'].coaches.push(coach);
+                else if (winPct >= 0.50) categories['ESTABLISHED'].coaches.push(coach);
+                else categories['PROVISIONAL'].coaches.push(coach);
+            });
+
+            const data = Object.keys(categories).map(key => {
+                return {
+                    name: key,
+                    itemStyle: {
+                        color: 'rgba(0,0,0,0)',
+                        borderColor: categories[key].color,
+                        borderWidth: 2
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            color: 'rgba(0,0,0,0)'
+                        }
+                    },
+                    upperLabel: {
+                        show: true,
+                        backgroundColor: 'rgba(0,0,0,0)',
+                        color: categories[key].color,
+                        fontWeight: '900',
+                        fontFamily: 'Orbitron',
+                        fontSize: 16,
+                        height: 30,
+                        padding: [4, 8]
+                    },
+                    children: categories[key].coaches.map(c => {
+                        const teamInfo = teamLogos[c.current_school] || { logo: '', color: '#6B7280' };
+                        const glassColor = hexToRgba(teamInfo.color, isDark ? 0.5 : 0.35);
+                        
+                        return {
+                            name: c.name,
+                            value: parseFloat(c.career_win_pct) * categories[key].weight,
+                            realValue: parseFloat(c.career_win_pct),
+                            school: c.current_school,
+                            itemStyle: {
+                                color: glassColor,
+                                borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.5)',
+                                borderWidth: 1
+                            },
+                            label: {
+                                show: true,
+                                formatter: teamInfo.logo ? '{logo|}\n{name|' + c.name + '}' : '{name|' + c.name + '}',
+                                rich: {
+                                    logo: {
+                                        backgroundColor: {
+                                            image: teamInfo.logo
+                                        },
+                                        height: 40,
+                                        width: 40,
+                                        align: 'center',
+                                        opacity: 0.4
+                                    },
+                                    name: {
+                                        color: textColor,
+                                        align: 'center',
+                                        padding: [0, 0, 0, 0], // Overlap slightly? No, just tight
+                                        fontSize: 11,
+                                        fontFamily: 'JetBrains Mono',
+                                        fontWeight: 700,
+                                        textShadowColor: labelShadow,
+                                        textShadowBlur: 4,
+                                        backgroundColor: 'rgba(0,0,0,0.2)', // Name pill
+                                        borderRadius: 4,
+                                        padding: [2, 4]
+                                    }
+                                }
+                            }
+                        };
+                    })
+                };
+            });
+
+            const option = {
+                tooltip: {
+                    backgroundColor: isDark ? 'rgba(17, 24, 39, 0.8)' : 'rgba(255, 255, 255, 0.8)',
+                    borderColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
+                    borderWidth: 1,
+                    padding: 0,
+                    textStyle: { color: isDark ? '#fff' : '#111827', fontFamily: 'JetBrains Mono' },
+                    extraCssText: 'backdrop-filter: blur(12px); border-radius: 8px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); overflow: hidden;',
+                    formatter: function (info) {
+                        var value = info.data.realValue || info.value;
+                        var treePathInfo = info.treePathInfo;
+                        var treePath = [];
+                        for (var i = 1; i < treePathInfo.length; i++) {
+                            treePath.push(treePathInfo[i].name);
+                        }
+                        
+                        const headerBg = isDark ? 'bg-white/5' : 'bg-black/5';
+                        const headerBorder = isDark ? 'border-white/10' : 'border-black/10';
+                        const subText = isDark ? 'text-gray-400' : 'text-gray-500';
+                        const mainText = isDark ? 'text-white' : 'text-gray-900';
+                        
+                        return `
+                            <div class="px-4 py-3 border-b ${headerBorder} ${headerBg}">
+                                <div class="text-[10px] ${subText} uppercase tracking-wider font-bold mb-1">${treePath.join(' > ')}</div>
+                                <div class="text-sm font-bold ${mainText} font-display">${info.name}</div>
+                            </div>
+                            <div class="px-4 py-3">
+                                <div class="flex items-center justify-between gap-6 mb-1">
+                                    <span class="text-xs ${subText}">School</span>
+                                    <span class="text-xs text-primary font-bold">${info.data.school || 'N/A'}</span>
+                                </div>
+                                <div class="flex items-center justify-between gap-6">
+                                    <span class="text-xs ${subText}">Win Efficiency</span>
+                                    <span class="text-xs ${mainText} font-mono">${(value * 100).toFixed(1)}%</span>
+                                </div>
+                            </div>
+                        `;
+                    }
+                },
+                series: [
+                    {
+                        type: 'treemap',
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0,
+                        width: '100%',
+                        height: '100%',
+                        visibleMin: 0,
+                        breadcrumb: { show: false },
+                        label: {
+                            show: true,
+                            formatter: '{b}',
+                            color: textColor,
+                            fontFamily: 'JetBrains Mono',
+                            fontSize: 10,
+                            fontWeight: 500
+                        },
+                        itemStyle: {
+                            borderColor: borderColor,
+                            borderWidth: 1,
+                            gapWidth: 2
+                        },
+                        levels: [
+                            {
+                                itemStyle: {
+                                    color: 'rgba(0,0,0,0)',
+                                    borderColor: borderColor,
+                                    borderWidth: 0,
+                                    gapWidth: 4
+                                }
+                            },
+                            {
+                                itemStyle: {
+                                    color: 'rgba(0,0,0,0)',
+                                    borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)',
+                                    borderWidth: 1,
+                                    gapWidth: 2
+                                }
+                            },
+                            {
+                                itemStyle: {
+                                    gapWidth: 1
+                                }
+                            }
+                        ],
+                        data: data
+                    }
+                ]
+            };
+
+            treemapChart.setOption(option);
+        }
+
+        // Resize & Theme Observer
+        window.addEventListener('resize', function() {
+            if (treemapChart) treemapChart.resize();
+        });
+        
+        const themeObserver = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.attributeName === "class") {
+                    // createTreemap(); // Disabled
+                }
+            });
+        });
+        themeObserver.observe(document.documentElement, { attributes: true });
 
         // ═══════════════════════════════════════════════════════════════════════════
         // GEMINI AI INTEGRATION
@@ -914,9 +1239,9 @@ STYLE: Military/Cyberpunk, concise, data-driven.`;
         async function generateLeagueBriefing() {
             openAiModal("GLOBAL_LEAGUE_BRIEFING");
             
-            const totalCoaches = DATA_COACHES.length;
+            const totalCoaches = allCoaches.length;
             const avgWin = (
-                DATA_COACHES.reduce((a,b)=>a+parseFloat(b.career_win_pct||0),0) / totalCoaches * 100
+                allCoaches.reduce((a,b)=>a+parseFloat(b.career_win_pct||0),0) / totalCoaches * 100
             ).toFixed(1);
             
             const prompt = `System AI. Generate global status report.

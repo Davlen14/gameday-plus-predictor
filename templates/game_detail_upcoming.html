@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Preview - GAMEDAY+</title>
+    <!-- Google Fonts: Inter (Apple-style) & SF Pro Display fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['SF Mono', 'Menlo', 'monospace'],
+                        display: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 20s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-in': 'slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                        'slide-out': 'slideOut 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                        'ticker': 'ticker 15s linear infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        glow: {
+                            '0%': { opacity: '0.6', textShadow: '0 0 20px currentColor' },
+                            '100%': { opacity: '1', textShadow: '0 0 30px currentColor, 0 0 60px currentColor' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideOut: {
+                            '0%': { transform: 'translateX(0)', opacity: '1' },
+                            '100%': { transform: 'translateX(100%)', opacity: '0' },
+                        },
+                        ticker: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Scrollbar - Ultra thin Apple style */
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+        
+        /* Apple Vision Glass - Ultra Clean */
+        .liquid-glass {
+            background: rgba(40, 40, 45, 0.65);
+            backdrop-filter: blur(40px) saturate(120%);
+            -webkit-backdrop-filter: blur(40px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Sidebar - 3D Glassy with shine - More transparent */
+        .liquid-glass-strong {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.08) 0%,
+                rgba(150, 150, 160, 0.12) 20%,
+                rgba(60, 60, 70, 0.15) 50%,
+                rgba(30, 30, 40, 0.2) 100%
+            );
+            backdrop-filter: blur(40px) saturate(120%);
+            -webkit-backdrop-filter: blur(40px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-top-color: rgba(255, 255, 255, 0.25);
+            border-left-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                inset 0 1px 2px rgba(255, 255, 255, 0.3),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.15),
+                inset 2px 0 4px rgba(255, 255, 255, 0.1),
+                -4px 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .liquid-glass-strong::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.06) 30%,
+                transparent 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Dynamic Island - 3D Glassy with shine - More transparent */
+        .dynamic-island {
+            background: linear-gradient(
+                165deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(120, 120, 130, 0.12) 20%,
+                rgba(50, 50, 60, 0.18) 60%,
+                rgba(20, 20, 30, 0.25) 100%
+            );
+            backdrop-filter: blur(40px) saturate(140%);
+            -webkit-backdrop-filter: blur(40px) saturate(140%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-top-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.25),
+                inset 0 1px 2px rgba(255, 255, 255, 0.35),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Shine overlay effect */
+        .dynamic-island::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.12) 0%,
+                rgba(255, 255, 255, 0.04) 40%,
+                transparent 100%
+            );
+            border-radius: 24px 24px 0 0;
+            pointer-events: none;
+        }
+
+        .marker-tag {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.2px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            letter-spacing: 0.02em;
+        }
+
+        /* Clean Clock - No glow */
+        .dot-matrix {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Apple-style text */
+        .apple-text {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        
+        .apple-text-light {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Sidebar Toggle Animation */
+        .sidebar-open { transform: translateX(0); }
+        .sidebar-closed { transform: translateX(100%); }
+        
+        /* Smooth number transitions */
+        .score-number {
+            font-variant-numeric: tabular-nums;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Ticker animation */
+        .ticker-wrapper {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        /* ========================================
+           ULTRA-PREMIUM BACKGROUND SYSTEM
+           Dynamic team-color gradient with glass sheen
+           ======================================== */
+        :root {
+            --team1-primary: #0033A0;
+            --team1-secondary: #D64309;
+            --team2-primary: #4b2e83;
+            --team2-secondary: #B7A57A;
+        }
+
+        .premium-game-background {
+            background: linear-gradient(
+                125deg,
+                var(--team1-primary) 0%,
+                var(--team1-secondary) 25%,
+                #0a0a15 50%,
+                var(--team2-secondary) 75%,
+                var(--team2-primary) 100%
+            );
+            background-size: 300% 300%;
+            animation: luxuryFlow 18s ease-in-out infinite alternate;
+        }
+
+        .premium-game-background::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                115deg,
+                transparent 35%,
+                rgba(255, 255, 255, 0.03) 45%,
+                rgba(255, 255, 255, 0.15) 50%,
+                rgba(255, 255, 255, 0.03) 55%,
+                transparent 65%
+            );
+            background-size: 200% 200%;
+            mix-blend-mode: overlay;
+            animation: sheenSweep 10s linear infinite;
+        }
+
+        .premium-game-background::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at 50% 50%,
+                rgba(255, 255, 255, 0.1) 0%,
+                transparent 40%,
+                rgba(0, 0, 0, 0.4) 100%
+            );
+            mix-blend-mode: soft-light;
+            animation: breathe 8s ease-in-out infinite;
+        }
+
+        @keyframes luxuryFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @keyframes sheenSweep {
+            0% { 
+                background-position: 200% 0%; 
+                opacity: 0;
+            }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { 
+                background-position: -200% 0%; 
+                opacity: 0;
+            }
+        }
+
+        @keyframes breathe {
+            0%, 100% { 
+                transform: scale(1); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: scale(1.1); 
+                opacity: 0.6;
+            }
+        }
+
+        /* Countdown digits */
+        .countdown-digit {
+            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0f] text-white overflow-hidden h-screen w-screen flex flex-col relative">
+
+    <!-- DYNAMIC BACKGROUND - Softer, more ethereal -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <!-- Base Gradient - Darker, more subtle -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#030308] via-[#0d0a15] to-[#030308]"></div>
+
+        <!-- Team Color Blobs - More diffused -->
+        <div class="absolute top-[-30%] left-[-20%] w-[70vw] h-[70vw] rounded-full mix-blend-screen filter blur-[150px] opacity-25 animate-blob" id="blob-away"></div>
+        <div class="absolute top-[-20%] right-[-20%] w-[70vw] h-[70vw] rounded-full mix-blend-screen filter blur-[150px] opacity-25 animate-blob animation-delay-2000" id="blob-home"></div>
+        <div class="absolute bottom-[-30%] left-[5%] w-[60vw] h-[60vw] rounded-full mix-blend-screen filter blur-[180px] opacity-15 animate-blob animation-delay-4000" id="blob-away-alt"></div>
+        <div class="absolute bottom-[-20%] right-[5%] w-[60vw] h-[60vw] rounded-full mix-blend-screen filter blur-[180px] opacity-15 animate-blob animation-delay-1000" id="blob-home-alt"></div>
+        
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay"></div>
+    </div>
+
+    <!-- TOP HEADER BAR - Clean Apple Vision -->
+    <header class="h-[68px] w-full liquid-glass z-50 flex items-center justify-between px-8 shrink-0 relative">
+        
+        <!-- GAMEDAY+ Logo -->
+        <div class="absolute left-1/2 -translate-x-1/2 top-2 z-50">
+            <img src="/static/Appicon2.svg" class="h-6 w-auto opacity-40" alt="GAMEDAY+" />
+        </div>
+        
+        <!-- Left: Matchup - Clean & Prominent -->
+        <div class="flex items-center gap-6 relative z-10">
+            <a href="/gamedaylive" class="h-9 w-9 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center hover:bg-white/10 transition-all mr-2">
+                <svg class="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </a>
+            <div class="flex items-center gap-3">
+                <img id="away-logo-header" src="" class="h-10 w-10 transition-all duration-300 hover:scale-105" alt="Away Team">
+                <div class="text-right">
+                    <div class="text-[9px] text-white/30 apple-text uppercase tracking-[0.12em]" id="away-name-header">Away Team</div>
+                    <div class="text-2xl apple-text font-semibold leading-none text-white/50 score-number">-</div>
+                </div>
+            </div>
+            
+            <div class="px-2">
+                <div class="text-[9px] text-white/20 apple-text tracking-[0.1em]">vs</div>
+            </div>
+            
+            <div class="flex items-center gap-3 flex-row-reverse">
+                <img id="home-logo-header" src="" class="h-10 w-10 transition-all duration-300 hover:scale-105" alt="Home Team">
+                <div class="text-left">
+                    <div class="text-[9px] text-white/30 apple-text uppercase tracking-[0.12em]" id="home-name-header">Home Team</div>
+                    <div class="text-2xl apple-text font-semibold leading-none text-white/50 score-number">-</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center: Game Info - With Icons -->
+        <div class="flex flex-col items-center justify-center relative z-10">
+            <div class="flex items-center gap-3 mb-1">
+                <div class="flex items-center gap-1.5">
+                    <div class="w-2 h-2 rounded-full bg-amber-500/80 animate-pulse"></div>
+                    <span class="text-[8px] text-white/40 apple-text tracking-[0.1em] uppercase" id="game-status">Upcoming</span>
+                </div>
+                <span class="text-white/10">·</span>
+                <div class="flex items-center gap-1">
+                    <svg class="w-2.5 h-2.5 text-white/25" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span class="text-[8px] text-white/25 apple-text tracking-[0.05em]" id="venue-name">TBD</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div class="dot-matrix text-base text-white/60 tracking-tight" id="game-datetime">
+                    Loading...
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Betting Info -->
+        <div class="flex items-center gap-4 relative z-10">
+            <div class="text-right">
+                <div class="flex items-center justify-end gap-1 mb-0.5">
+                    <svg class="w-2 h-2 text-white/25" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div class="text-[8px] text-white/25 apple-text uppercase tracking-[0.1em]">Lines</div>
+                </div>
+                <div class="text-sm apple-text text-white/70 font-medium" id="spread-display">-</div>
+                <div class="flex items-center justify-end gap-1.5 mt-0.5">
+                    <div class="text-[10px] text-white/30 apple-text-light" id="ou-display">O/U: -</div>
+                </div>
+            </div>
+            <div class="h-9 w-9 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center">
+                <span class="text-white/50 text-[10px] apple-text font-medium">PREV</span>
+            </div>
+        </div>
+        
+        <!-- Sidebar Toggle Button -->
+        <button onclick="toggleSidebar()" class="absolute right-4 top-1/2 -translate-y-1/2 h-7 w-7 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all z-50 lg:hidden" id="sidebar-toggle-mobile">
+            <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 flex overflow-hidden relative z-10">
+        
+        <!-- LEFT: FIELD AREA -->
+        <div class="flex-1 relative flex flex-col items-center p-4 lg:p-6 gap-4 transition-all duration-500 overflow-y-auto" id="field-container">
+            
+            <!-- Context Overlay - Clean minimal with countdown -->
+            <div class="absolute top-4 left-6 z-20 flex gap-2">
+                <div class="bg-black/40 backdrop-blur-xl rounded-xl px-4 py-2.5 text-white transition-all duration-300 flex items-center gap-3" id="countdown-box">
+                    <div class="flex items-center gap-3">
+                        <div class="text-center">
+                            <div class="countdown-digit text-2xl text-white" id="countdown-days">0</div>
+                            <div class="text-[7px] text-white/30 apple-text uppercase tracking-widest">Days</div>
+                        </div>
+                        <span class="text-white/20 text-xl">:</span>
+                        <div class="text-center">
+                            <div class="countdown-digit text-2xl text-white" id="countdown-hours">0</div>
+                            <div class="text-[7px] text-white/30 apple-text uppercase tracking-widest">Hrs</div>
+                        </div>
+                        <span class="text-white/20 text-xl">:</span>
+                        <div class="text-center">
+                            <div class="countdown-digit text-2xl text-white" id="countdown-mins">0</div>
+                            <div class="text-[7px] text-white/30 apple-text uppercase tracking-widest">Min</div>
+                        </div>
+                        <span class="text-white/20 text-xl">:</span>
+                        <div class="text-center">
+                            <div class="countdown-digit text-2xl text-white" id="countdown-secs">0</div>
+                            <div class="text-[7px] text-white/30 apple-text uppercase tracking-widest">Sec</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Field Container -->
+            <div class="w-full max-w-[90vw] aspect-[2.1/1] relative perspective-[1500px] group transition-all duration-700 z-10">
+                <div class="w-full h-full relative transform-style-3d rotate-x-[12deg] scale-[0.98] group-hover:scale-100 group-hover:rotate-x-0 transition-transform duration-700 ease-out">
+                    
+                    <svg viewBox="-10 -10 140 73.3" class="w-full h-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+                        <defs>
+                            <pattern id="techGrid" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
+                                <path d="M 5 0 L 0 0 0 5" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.08"/>
+                            </pattern>
+                            <pattern id="stripePattern" x="0" y="0" width="10" height="53.3" patternUnits="userSpaceOnUse">
+                                <rect x="0" y="0" width="5" height="53.3" fill="rgba(16, 185, 129, 0.12)" />
+                                <rect x="5" y="0" width="5" height="53.3" fill="rgba(5, 150, 105, 0.18)" />
+                            </pattern>
+                            <filter id="crispGlow" x="-10%" y="-10%" width="120%" height="120%">
+                                <feGaussianBlur stdDeviation="0.15" result="blur"/>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                            
+                            <linearGradient id="fieldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="white" stop-opacity="0.0"/>
+                                <stop offset="45%" stop-color="white" stop-opacity="0.0"/>
+                                <stop offset="50%" stop-color="white" stop-opacity="0.06"/>
+                                <stop offset="55%" stop-color="white" stop-opacity="0.0"/>
+                                <stop offset="100%" stop-color="white" stop-opacity="0.0"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Field Markings -->
+                        <g>
+                            <rect x="0" y="0" width="120" height="53.3" fill="url(#stripePattern)" />
+                            <rect x="0" y="0" width="120" height="53.3" fill="url(#techGrid)" />
+                            <rect x="0" y="0" width="120" height="53.3" fill="url(#fieldShine)" style="mix-blend-mode: overlay;" />
+                            
+                            <!-- Endzones - Will be colored dynamically -->
+                            <rect id="away-endzone" x="0" y="0" width="10" height="53.3" fill="#666666" opacity="0.6" />
+                            <rect id="home-endzone" x="110" y="0" width="10" height="53.3" fill="#666666" opacity="0.6" />
+
+                            <!-- Yard Lines (Sharp & Precise) -->
+                            <g stroke="rgba(255,255,255,0.6)" stroke-width="0.12" stroke-linecap="square">
+                                <line x1="15" y1="0" x2="15" y2="53.3"/>
+                                <line x1="20" y1="0" x2="20" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="25" y1="0" x2="25" y2="53.3"/>
+                                <line x1="30" y1="0" x2="30" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="35" y1="0" x2="35" y2="53.3"/>
+                                <line x1="40" y1="0" x2="40" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="45" y1="0" x2="45" y2="53.3"/>
+                                <line x1="50" y1="0" x2="50" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="55" y1="0" x2="55" y2="53.3"/>
+                                <line x1="60" y1="0" x2="60" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="65" y1="0" x2="65" y2="53.3"/>
+                                <line x1="70" y1="0" x2="70" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="75" y1="0" x2="75" y2="53.3"/>
+                                <line x1="80" y1="0" x2="80" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="85" y1="0" x2="85" y2="53.3"/>
+                                <line x1="90" y1="0" x2="90" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="95" y1="0" x2="95" y2="53.3"/>
+                                <line x1="100" y1="0" x2="100" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="105" y1="0" x2="105" y2="53.3"/>
+                            </g>
+
+                            <!-- Numbers - Clean SF-style -->
+                            <g font-family="'Inter', sans-serif" font-weight="600" font-size="2.2" fill="white" text-anchor="middle" opacity="0.75" style="letter-spacing: -0.02em;">
+                                <text x="20" y="11.5" transform="rotate(180, 20, 11.5)">10</text><text x="20" y="44.5">10</text>
+                                <text x="30" y="11.5" transform="rotate(180, 30, 11.5)">20</text><text x="30" y="44.5">20</text>
+                                <text x="40" y="11.5" transform="rotate(180, 40, 11.5)">30</text><text x="40" y="44.5">30</text>
+                                <text x="50" y="11.5" transform="rotate(180, 50, 11.5)">40</text><text x="50" y="44.5">40</text>
+                                <text x="60" y="11.5" transform="rotate(180, 60, 11.5)">50</text><text x="60" y="44.5">50</text>
+                                <text x="70" y="11.5" transform="rotate(180, 70, 11.5)">40</text><text x="70" y="44.5">40</text>
+                                <text x="80" y="11.5" transform="rotate(180, 80, 11.5)">30</text><text x="80" y="44.5">30</text>
+                                <text x="90" y="11.5" transform="rotate(180, 90, 11.5)">20</text><text x="90" y="44.5">20</text>
+                                <text x="100" y="11.5" transform="rotate(180, 100, 11.5)">10</text><text x="100" y="44.5">10</text>
+                            </g>
+
+                            <!-- Wordmarks - Dynamic with Auto-Scaling -->
+                            <image id="away-wordmark" href="" 
+                                x="-5" y="-50" width="20" height="153.3" transform="rotate(-90, 5, 26.65)" 
+                                preserveAspectRatio="xMidYMid meet" opacity="0.95" />
+                            <image id="home-wordmark" href="" 
+                                x="105" y="-50" width="20" height="153.3" transform="rotate(90, 115, 26.65)" 
+                                preserveAspectRatio="xMidYMid meet" opacity="0.95" />
+                            
+                            <!-- Bowl/Game Logo - Center Field -->
+                            <image id="bowl-logo" href="" 
+                                x="50" y="16.65" width="20" height="20" preserveAspectRatio="xMidYMid meet" opacity="0.9" />
+                        </g>
+
+                        <!-- 50 Yard Line Highlight -->
+                        <line x1="60" y1="0" x2="60" y2="53.3" stroke="rgba(255,255,255,0.3)" stroke-width="0.3" stroke-dasharray="1 0.5" />
+
+                        <!-- Field Border (Clean & Sharp) -->
+                        <rect x="0" y="0" width="120" height="53.3" fill="none" stroke="white" stroke-width="0.8" rx="1" ry="1" />
+
+                    </svg>
+                </div>
+            </div>
+
+            <!-- DYNAMIC ISLAND - Matchup Preview -->
+            <div class="w-full max-w-[70vw] dynamic-island p-3.5 rounded-[24px] flex items-center justify-between relative z-20 transition-all duration-500">
+                
+                <!-- Left: Away Team Info -->
+                <div id="away-card" class="flex items-center gap-4 transition-all duration-500">
+                    <img id="away-logo-island" src="" class="w-10 h-10" alt="Away Team" />
+                    <div class="relative">
+                        <div class="h-14 w-14 rounded-xl flex items-center justify-center border border-white/10 relative z-10 transition-all duration-300 overflow-hidden" id="away-rank-container" style="background: linear-gradient(135deg, #333 0%, #111 100%);">
+                            <span class="text-xl font-bold text-white apple-text" id="away-rank-display">-</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-0.5">
+                            <span class="bg-white/5 text-white/40 text-[8px] apple-text px-2 py-0.5 rounded-md uppercase tracking-[0.08em]" id="away-record">0-0</span>
+                        </div>
+                        <div class="text-white apple-text text-lg font-medium leading-none tracking-tight" id="away-team-name">Away Team</div>
+                        <div class="text-white/30 text-[10px] mt-0.5 apple-text-light flex items-center gap-2">
+                            <span id="away-conference">Conference</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center: VS Badge -->
+                <div class="flex flex-col items-center justify-center px-6">
+                    <div class="text-3xl font-bold text-white/20 apple-text tracking-tight">VS</div>
+                    <div class="text-[8px] text-white/30 apple-text uppercase tracking-widest mt-1" id="season-type-badge">Regular Season</div>
+                </div>
+
+                <!-- Right: Home Team Info -->
+                <div id="home-card" class="flex items-center gap-4 transition-all duration-500 flex-row-reverse">
+                    <img id="home-logo-island" src="" class="w-10 h-10" alt="Home Team" />
+                    <div class="relative">
+                        <div class="h-14 w-14 rounded-xl flex items-center justify-center border border-white/10 relative z-10 transition-all duration-300 overflow-hidden" id="home-rank-container" style="background: linear-gradient(135deg, #333 0%, #111 100%);">
+                            <span class="text-xl font-bold text-white apple-text" id="home-rank-display">-</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="flex items-center justify-end gap-2 mb-0.5">
+                            <span class="bg-white/5 text-white/40 text-[8px] apple-text px-2 py-0.5 rounded-md uppercase tracking-[0.08em]" id="home-record">0-0</span>
+                        </div>
+                        <div class="text-white apple-text text-lg font-medium leading-none tracking-tight" id="home-team-name">Home Team</div>
+                        <div class="text-white/30 text-[10px] mt-0.5 apple-text-light flex items-center gap-2 justify-end">
+                            <span id="home-conference">Conference</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Season Leaders Section -->
+            <div class="w-full max-w-[70vw] mt-6 space-y-4">
+                <div class="text-white/40 apple-text text-sm uppercase tracking-widest mb-3">Season Leaders</div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Away Team Leaders -->
+                    <div class="liquid-glass rounded-2xl p-4 space-y-3">
+                        <div class="text-white apple-text font-medium text-sm mb-3" id="away-leaders-team">Away Team</div>
+                        
+                        <!-- Passing Leader -->
+                        <div class="flex items-center gap-3 p-2 rounded-lg bg-white/[0.02]">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-white/70 apple-text text-[10px] uppercase tracking-wider">Passing</div>
+                                <div class="text-white apple-text text-xs font-medium" id="away-pass-leader">-</div>
+                            </div>
+                            <div class="text-white/50 apple-text-light text-xs" id="away-pass-yards">- YDS</div>
+                        </div>
+                        
+                        <!-- Rushing Leader -->
+                        <div class="flex items-center gap-3 p-2 rounded-lg bg-white/[0.02]">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500/20 to-green-600/20 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-white/70 apple-text text-[10px] uppercase tracking-wider">Rushing</div>
+                                <div class="text-white apple-text text-xs font-medium" id="away-rush-leader">-</div>
+                            </div>
+                            <div class="text-white/50 apple-text-light text-xs" id="away-rush-yards">- YDS</div>
+                        </div>
+                        
+                        <!-- Receiving Leader -->
+                        <div class="flex items-center gap-3 p-2 rounded-lg bg-white/[0.02]">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/></svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-white/70 apple-text text-[10px] uppercase tracking-wider">Receiving</div>
+                                <div class="text-white apple-text text-xs font-medium" id="away-rec-leader">-</div>
+                            </div>
+                            <div class="text-white/50 apple-text-light text-xs" id="away-rec-yards">- YDS</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Home Team Leaders -->
+                    <div class="liquid-glass rounded-2xl p-4 space-y-3">
+                        <div class="text-white apple-text font-medium text-sm mb-3" id="home-leaders-team">Home Team</div>
+                        
+                        <!-- Passing Leader -->
+                        <div class="flex items-center gap-3 p-2 rounded-lg bg-white/[0.02]">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-white/70 apple-text text-[10px] uppercase tracking-wider">Passing</div>
+                                <div class="text-white apple-text text-xs font-medium" id="home-pass-leader">-</div>
+                            </div>
+                            <div class="text-white/50 apple-text-light text-xs" id="home-pass-yards">- YDS</div>
+                        </div>
+                        
+                        <!-- Rushing Leader -->
+                        <div class="flex items-center gap-3 p-2 rounded-lg bg-white/[0.02]">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500/20 to-green-600/20 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-white/70 apple-text text-[10px] uppercase tracking-wider">Rushing</div>
+                                <div class="text-white apple-text text-xs font-medium" id="home-rush-leader">-</div>
+                            </div>
+                            <div class="text-white/50 apple-text-light text-xs" id="home-rush-yards">- YDS</div>
+                        </div>
+                        
+                        <!-- Receiving Leader -->
+                        <div class="flex items-center gap-3 p-2 rounded-lg bg-white/[0.02]">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/></svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-white/70 apple-text text-[10px] uppercase tracking-wider">Receiving</div>
+                                <div class="text-white apple-text text-xs font-medium" id="home-rec-leader">-</div>
+                            </div>
+                            <div class="text-white/50 apple-text-light text-xs" id="home-rec-yards">- YDS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last 5 Games Section -->
+            <div class="w-full max-w-[70vw] mt-6 space-y-4">
+                <div class="text-white/40 apple-text text-sm uppercase tracking-widest mb-3">Last 5 Games</div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Away Team Last 5 -->
+                    <div class="liquid-glass rounded-2xl p-4">
+                        <div class="text-white apple-text font-medium text-sm mb-3" id="away-last5-team">Away Team</div>
+                        <div class="space-y-2" id="away-last-5-games">
+                            <!-- Will be populated by JavaScript -->
+                            <div class="text-white/30 apple-text-light text-xs">Loading...</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Home Team Last 5 -->
+                    <div class="liquid-glass rounded-2xl p-4">
+                        <div class="text-white apple-text font-medium text-sm mb-3" id="home-last5-team">Home Team</div>
+                        <div class="space-y-2" id="home-last-5-games">
+                            <!-- Will be populated by JavaScript -->
+                            <div class="text-white/30 apple-text-light text-xs">Loading...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SIDEBAR - Game Preview Info -->
+        <aside class="w-72 liquid-glass z-40 flex flex-col transition-all duration-500 ease-out" id="sidebar">
+            
+            <!-- Sidebar Toggle (Desktop) -->
+            <button onclick="toggleSidebar()" class="absolute -left-3 top-1/2 -translate-y-1/2 h-6 w-6 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all z-50" id="sidebar-toggle">
+                <svg class="w-3 h-3 text-white/30 transition-transform duration-300" id="toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+            
+            <div class="flex border-b border-white/5">
+                <button class="flex-1 py-3 text-[8px] apple-text text-white/60 border-b border-white/15 bg-white/[0.02] tracking-[0.12em] uppercase">Preview</button>
+                <button class="flex-1 py-3 text-[8px] apple-text text-white/25 hover:text-white/40 transition-colors tracking-[0.12em] uppercase">Betting</button>
+                <button class="flex-1 py-3 text-[8px] apple-text text-white/25 hover:text-white/40 transition-colors tracking-[0.12em] uppercase">History</button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto p-4 space-y-4" id="sidebar-content">
+                
+                <!-- Prediction Section -->
+                <div class="space-y-3">
+                    <div class="text-[8px] text-white/30 apple-text uppercase tracking-widest">Win Probability</div>
+                    <div class="flex items-center gap-3">
+                        <img id="sidebar-away-logo" src="" class="w-6 h-6" alt="Away" />
+                        <div class="flex-1 h-2 rounded-full bg-black/30 overflow-hidden">
+                            <div class="h-full rounded-full transition-all duration-500" id="win-prob-bar" style="width: 50%; background: linear-gradient(90deg, var(--away-color) 0%, var(--home-color) 100%);"></div>
+                        </div>
+                        <img id="sidebar-home-logo" src="" class="w-6 h-6" alt="Home" />
+                    </div>
+                    <div class="flex justify-between text-[10px] apple-text">
+                        <span class="text-white/50" id="away-win-pct">50%</span>
+                        <span class="text-white/50" id="home-win-pct">50%</span>
+                    </div>
+                </div>
+
+                <!-- Betting Lines Section - Minimal & Sleek -->
+                <div class="space-y-2 pt-3 border-t border-white/5">
+                    <div class="text-[7px] text-white/20 apple-text uppercase tracking-[0.15em] mb-3">Lines</div>
+                    
+                    <!-- DraftKings -->
+                    <div class="flex items-center justify-between py-1.5 group">
+                        <div class="flex items-center gap-2 flex-1">
+                            <img src="/static/img/sportsbooks/Draftking.svg" class="h-3 w-auto opacity-60 group-hover:opacity-80 transition-opacity" alt="DK" />
+                        </div>
+                        <div class="flex items-center gap-3 text-[11px] font-medium text-white/60">
+                            <span id="dk-spread" class="min-w-[2.5rem] text-right">-</span>
+                            <span id="dk-ou" class="min-w-[2rem] text-right text-white/40">-</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Bovada -->
+                    <div class="flex items-center justify-between py-1.5 group">
+                        <div class="flex items-center gap-2 flex-1">
+                            <img src="/static/img/bovada-logo-square.svg" class="h-3 w-auto opacity-60 group-hover:opacity-80 transition-opacity" alt="BV" />
+                        </div>
+                        <div class="flex items-center gap-3 text-[11px] font-medium text-white/60">
+                            <span id="bovada-spread" class="min-w-[2.5rem] text-right">-</span>
+                            <span id="bovada-ou" class="min-w-[2rem] text-right text-white/40">-</span>
+                        </div>
+                    </div>
+                    
+                    <!-- ESPN BET -->
+                    <div class="flex items-center justify-between py-1.5 group">
+                        <div class="flex items-center gap-2 flex-1">
+                            <img src="/static/img/sportsbooks/espnbet.svg" class="h-3 w-auto opacity-60 group-hover:opacity-80 transition-opacity" alt="ESPN" />
+                        </div>
+                        <div class="flex items-center gap-3 text-[11px] font-medium text-white/60">
+                            <span id="espn-spread" class="min-w-[2.5rem] text-right">-</span>
+                            <span id="espn-ou" class="min-w-[2rem] text-right text-white/40">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coaches Comparison -->
+                <div class="space-y-3 pt-3 border-t border-white/5" id="coaches-section">
+                    <div class="text-[8px] text-white/30 apple-text uppercase tracking-widest">Head Coaches</div>
+                    
+                    <div class="space-y-3">
+                        <!-- Away Coach -->
+                        <div class="space-y-1.5">
+                            <div class="flex items-center gap-2">
+                                <img id="away-coach-headshot" src="" class="w-6 h-6 rounded-full bg-white/5" alt="" onerror="this.style.display='none'" />
+                                <div class="flex-1">
+                                    <div class="text-[10px] text-white/70 apple-text font-medium" id="away-coach-name">-</div>
+                                    <div class="text-[8px] text-white/40 apple-text" id="away-coach-record">-</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 text-[9px]">
+                                <div class="text-white/40 apple-text">
+                                    <span class="text-white/25">vs Ranked:</span> <span id="away-coach-ranked">-</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Home Coach -->
+                        <div class="space-y-1.5">
+                            <div class="flex items-center gap-2">
+                                <img id="home-coach-headshot" src="" class="w-6 h-6 rounded-full bg-white/5" alt="" onerror="this.style.display='none'" />
+                                <div class="flex-1">
+                                    <div class="text-[10px] text-white/70 apple-text font-medium" id="home-coach-name">-</div>
+                                    <div class="text-[8px] text-white/40 apple-text" id="home-coach-record">-</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 text-[9px]">
+                                <div class="text-white/40 apple-text">
+                                    <span class="text-white/25">vs Ranked:</span> <span id="home-coach-ranked">-</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Head to Head -->
+                        <div class="p-2 rounded-lg bg-white/[0.02] border border-white/5" id="h2h-section">
+                            <div class="text-[8px] text-white/25 apple-text uppercase tracking-wider mb-1">Head-to-Head</div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-[11px] text-white/50 apple-text" id="h2h-away-wins">-</span>
+                                <span class="text-[8px] text-white/30 apple-text">All-Time</span>
+                                <span class="text-[11px] text-white/50 apple-text" id="h2h-home-wins">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Stats Comparison -->
+                <div class="space-y-3 pt-3 border-t border-white/5">
+                    <div class="text-[8px] text-white/30 apple-text uppercase tracking-widest">Offensive Stats</div>
+                    
+                    <div class="space-y-2">
+                        <!-- PPG -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[10px] text-white/50 apple-text font-medium" id="away-ppg">-</span>
+                                <span class="text-[7px] text-white/25 apple-text uppercase tracking-wider">Points/Game</span>
+                                <span class="text-[10px] text-white/50 apple-text font-medium" id="home-ppg">-</span>
+                            </div>
+                            <div class="h-1 rounded-full bg-white/5 overflow-hidden">
+                                <div id="ppg-bar" class="h-full transition-all duration-500" style="width: 50%; background: linear-gradient(90deg, var(--away-color), var(--home-color));"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Yards/Game -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[10px] text-white/50 apple-text" id="away-ypg">-</span>
+                                <span class="text-[7px] text-white/25 apple-text uppercase tracking-wider">Yards/Game</span>
+                                <span class="text-[10px] text-white/50 apple-text" id="home-ypg">-</span>
+                            </div>
+                            <div class="h-1 rounded-full bg-white/5 overflow-hidden">
+                                <div id="ypg-bar" class="h-full transition-all duration-500" style="width: 50%; background: linear-gradient(90deg, var(--away-color), var(--home-color));"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Third Down % -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-3rd">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">3rd Down</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-3rd">-</span>
+                        </div>
+                        
+                        <!-- Red Zone % -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-rz">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">Red Zone</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-rz">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Defensive Stats -->
+                <div class="space-y-3 pt-3 border-t border-white/5">
+                    <div class="text-[8px] text-white/30 apple-text uppercase tracking-widest">Defensive Stats</div>
+                    
+                    <div class="space-y-2">
+                        <!-- Points Allowed -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] text-white/50 apple-text font-medium" id="away-ppg-allowed">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase tracking-wider">Pts Allowed</span>
+                            <span class="text-[10px] text-white/50 apple-text font-medium" id="home-ppg-allowed">-</span>
+                        </div>
+                        
+                        <!-- Sacks/Game -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-sacks">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">Sacks/Game</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-sacks">-</span>
+                        </div>
+                        
+                        <!-- Turnovers -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-to">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">TO/Game</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-to">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Advanced Metrics -->
+                <div class="space-y-3 pt-3 border-t border-white/5">
+                    <div class="text-[8px] text-white/30 apple-text uppercase tracking-widest">Advanced Metrics</div>
+                    
+                    <div class="space-y-2">
+                        <!-- FPI -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] text-white/40 apple-text" id="away-fpi">-</span>
+                            <span class="text-[8px] text-white/30 apple-text uppercase">FPI</span>
+                            <span class="text-[10px] text-white/40 apple-text" id="home-fpi">-</span>
+                        </div>
+                        
+                        <!-- SP+ Overall -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-sp">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">SP+ Overall</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-sp">-</span>
+                        </div>
+                        
+                        <!-- SP+ Offense -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-sp-off">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">SP+ Off</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-sp-off">-</span>
+                        </div>
+                        
+                        <!-- SP+ Defense -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-sp-def">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">SP+ Def</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-sp-def">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recruiting & Talent -->
+                <div class="space-y-3 pt-3 border-t border-white/5">
+                    <div class="text-[8px] text-white/30 apple-text uppercase tracking-widest">Talent Pipeline</div>
+                    
+                    <div class="space-y-2">
+                        <!-- Recruiting Rank -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] text-white/50 apple-text" id="away-recruiting">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">Latest Class</span>
+                            <span class="text-[10px] text-white/50 apple-text" id="home-recruiting">-</span>
+                        </div>
+                        
+                        <!-- Talent Composite -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-talent">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">Talent Rank</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-talent">-</span>
+                        </div>
+                        
+                        <!-- NFL Draft Picks -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-draft">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">Draft Picks (Career)</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-draft">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Situational Performance -->
+                <div class="space-y-3 pt-3 border-t border-white/5">
+                    <div class="text-[8px] text-white/30 apple-text uppercase tracking-widest">Clutch Performance</div>
+                    
+                    <div class="space-y-2">
+                        <!-- One Score Games -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-close">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">1-Score Games</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-close">-</span>
+                        </div>
+                        
+                        <!-- Comeback Wins -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-comeback">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">Comeback Wins</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-comeback">-</span>
+                        </div>
+                        
+                        <!-- Conference Record -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] text-white/40 apple-text" id="away-conf">-</span>
+                            <span class="text-[7px] text-white/25 apple-text uppercase">Conf Record</span>
+                            <span class="text-[9px] text-white/40 apple-text" id="home-conf">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Info -->
+                <div class="space-y-3 pt-3 border-t border-white/5">
+                    <div class="text-[8px] text-white/30 apple-text uppercase tracking-widest">Game Info</div>
+                    
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-3 h-3 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                            <span class="text-[10px] text-white/50 apple-text" id="sidebar-venue">TBD</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-3 h-3 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            <span class="text-[10px] text-white/50 apple-text" id="sidebar-datetime">TBD</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-3 h-3 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                            <span class="text-[10px] text-white/50 apple-text" id="sidebar-broadcast">TBD</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="p-2.5 border-t border-white/[0.03]">
+                <div class="flex items-center gap-2">
+                    <div class="h-5 w-5 rounded bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center">
+                        <span class="text-[8px] font-bold text-white">G+</span>
+                    </div>
+                    <div>
+                        <div class="text-[7px] text-white/20 apple-text tracking-[0.08em] uppercase">Powered by</div>
+                        <div class="text-[9px] text-white/30 apple-text-light">GAMEDAY+</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <script>
+        // Game data - Injected from server
+        {% if game_data %}
+        const SERVER_GAME_DATA = {{ game_data | tojson | safe }};
+        console.log('✅ Loaded game preview data:', SERVER_GAME_DATA);
+        {% else %}
+        const SERVER_GAME_DATA = null;
+        console.log('⚠️ No server game data available');
+        {% endif %}
+        
+        let gameData = SERVER_GAME_DATA;
+        let sidebarOpen = true;
+        let countdownInterval = null;
+
+        // Base URL for wordmarks
+        const WORDMARK_BASE = 'https://raw.githubusercontent.com/sportsdataverse/cfbplotR/main/data-raw/wordmarks/';
+
+        // Sidebar Toggle Function
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const toggleIcon = document.getElementById('toggle-icon');
+            
+            sidebarOpen = !sidebarOpen;
+            
+            if (sidebarOpen) {
+                sidebar.style.transform = 'translateX(0)';
+                sidebar.style.width = '288px';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            } else {
+                sidebar.style.transform = 'translateX(100%)';
+                sidebar.style.width = '0';
+                toggleIcon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Initialize game from URL
+        async function initGame() {
+            // If we have server data, use it
+            if (SERVER_GAME_DATA && SERVER_GAME_DATA.game) {
+                console.log('✅ Using server-injected game data');
+                transformServerData();
+                updateUI();
+                startCountdown();
+                return;
+            }
+            
+            // Otherwise try to fetch from API
+            const pathParts = window.location.pathname.split('/');
+            let gameId = pathParts[pathParts.length - 1];
+            
+            if (!gameId || gameId === 'game-preview' || gameId === '') {
+                const urlParams = new URLSearchParams(window.location.search);
+                gameId = urlParams.get('id');
+            }
+            
+            if (gameId) {
+                try {
+                    const response = await fetch(`/api/game-preview/${gameId}`);
+                    if (response.ok) {
+                        const result = await response.json();
+                        if (result.success) {
+                            gameData = result.data;
+                            transformServerData();
+                            updateUI();
+                            startCountdown();
+                        } else {
+                            loadDemoData();
+                        }
+                    } else {
+                        loadDemoData();
+                    }
+                } catch (error) {
+                    console.error('Error loading game data:', error);
+                    loadDemoData();
+                }
+            } else {
+                loadDemoData();
+            }
+        }
+        
+        // Transform server data to match UI expectations
+        function transformServerData() {
+            if (!gameData || !gameData.matchup) return;
+            
+            const matchup = gameData.matchup;
+            const teams = gameData.teams;
+            const betting = gameData.betting || {};
+            
+            // Create UI-friendly structure
+            gameData.home = {
+                name: teams.home.school || 'Home',
+                mascot: teams.home.mascot || '',
+                conference: '',
+                record: teams.home.record || '0-0',
+                logo: teams.home.logo || '',
+                wordmark: teams.home.wordmark || '',
+                primaryColor: teams.home.color || '#666',
+                altColor: teams.home.alt_color || '#333',
+                rank: teams.home.rank,
+                fpi: teams.home.fpi
+            };
+            
+            gameData.away = {
+                name: teams.away.school || 'Away',
+                mascot: teams.away.mascot || '',
+                conference: '',
+                record: teams.away.record || '0-0',
+                logo: teams.away.logo || '',
+                wordmark: teams.away.wordmark || '',
+                primaryColor: teams.away.color || '#666',
+                altColor: teams.away.alt_color || '#333',
+                rank: teams.away.rank,
+                fpi: teams.away.fpi
+            };
+            
+            // Add game details
+            gameData.venue = matchup.venue || 'TBD';
+            gameData.datetime = matchup.start_date || '2025-01-20T20:00:00Z';
+            gameData.broadcast = '';
+            gameData.spread = betting.spread;
+            gameData.overUnder = betting.over_under;
+            gameData.homeMoneyline = betting.home_moneyline;
+            gameData.awayMoneyline = betting.away_moneyline;
+            gameData.seasonType = matchup.is_conference ? 'conference' : 'regular';
+            
+            console.log('🎨 Transformed data:', {
+                home: gameData.home.name,
+                away: gameData.away.name,
+                spread: gameData.spread,
+                ou: gameData.overUnder
+            });
+        }
+
+        function loadDemoData() {
+            // Demo data for preview
+            gameData = {
+                id: 1,
+                home: {
+                    name: 'Notre Dame',
+                    mascot: 'Fighting Irish',
+                    conference: 'Independent',
+                    record: '13-1',
+                    logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/87.png',
+                    wordmark: 'notre_dame_fighting_irish_logo_wordmark_2015_sportslogosnet-5359.png',
+                    primaryColor: '#0C2340',
+                    altColor: '#C99700',
+                    rank: 1,
+                    fpi: 18.5
+                },
+                away: {
+                    name: 'Ohio State',
+                    mascot: 'Buckeyes',
+                    conference: 'Big Ten',
+                    record: '12-2',
+                    logo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/194.png',
+                    wordmark: 'ohio_state_buckeyes_logo_wordmark_2013_sportslogosnet-9521.png',
+                    primaryColor: '#BB0000',
+                    altColor: '#666666',
+                    rank: 8,
+                    fpi: 22.3
+                },
+                venue: 'Mercedes-Benz Stadium',
+                datetime: '2025-01-20T20:00:00Z',
+                broadcast: 'ESPN',
+                spread: -2.5,
+                overUnder: 45.5,
+                prediction: {
+                    homeWinPct: 55,
+                    awayWinPct: 45
+                }
+            };
+            
+            updateUI();
+            startCountdown();
+        }
+
+        function updateUI() {
+            if (!gameData) return;
+
+            const home = gameData.home;
+            const away = gameData.away;
+
+            // Update page title
+            document.title = `${away.name} vs ${home.name} - Game Preview | GAMEDAY+`;
+
+            // Update background blobs
+            document.getElementById('blob-away').style.backgroundColor = away.primaryColor || '#666';
+            document.getElementById('blob-home').style.backgroundColor = home.primaryColor || '#666';
+            document.getElementById('blob-away-alt').style.backgroundColor = away.altColor || '#333';
+            document.getElementById('blob-home-alt').style.backgroundColor = home.altColor || '#333';
+
+            // Header - Logos and Names
+            document.getElementById('away-logo-header').src = away.logo || '';
+            document.getElementById('away-name-header').textContent = away.name || 'Away';
+            document.getElementById('home-logo-header').src = home.logo || '';
+            document.getElementById('home-name-header').textContent = home.name || 'Home';
+
+            // Header - Venue and Date
+            document.getElementById('venue-name').textContent = gameData.venue || 'TBD';
+            
+            const gameDate = new Date(gameData.datetime);
+            const dateStr = gameDate.toLocaleDateString('en-US', { 
+                weekday: 'short', 
+                month: 'short', 
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit',
+                timeZoneName: 'short'
+            });
+            document.getElementById('game-datetime').textContent = dateStr;
+
+            // Header - Betting
+            const spread = gameData.spread;
+            if (spread !== null && spread !== undefined) {
+                const spreadTeam = spread < 0 ? home.name : away.name;
+                const spreadVal = Math.abs(spread);
+                document.getElementById('spread-display').textContent = `${spreadTeam.split(' ')[0]} -${spreadVal}`;
+            }
+            document.getElementById('ou-display').textContent = `O/U: ${gameData.overUnder || '-'}`;
+
+            // Field - Endzones
+            document.getElementById('away-endzone').setAttribute('fill', away.primaryColor || '#666');
+            document.getElementById('home-endzone').setAttribute('fill', home.primaryColor || '#666');
+
+            // Field - Wordmarks
+            if (away.wordmark) {
+                const awayWordmarkUrl = away.wordmark.startsWith('http') ? away.wordmark : WORDMARK_BASE + away.wordmark;
+                document.getElementById('away-wordmark').setAttribute('href', awayWordmarkUrl);
+            }
+            if (home.wordmark) {
+                const homeWordmarkUrl = home.wordmark.startsWith('http') ? home.wordmark : WORDMARK_BASE + home.wordmark;
+                document.getElementById('home-wordmark').setAttribute('href', homeWordmarkUrl);
+            }
+
+            // 50 Yard Line - Home Team Logo
+            document.getElementById('bowl-logo').setAttribute('href', home.logo || '');
+
+            // Dynamic Island - Away Team
+            document.getElementById('away-logo-island').src = away.logo || '';
+            document.getElementById('away-team-name').textContent = away.name || 'Away';
+            document.getElementById('away-record').textContent = away.record || '0-0';
+            document.getElementById('away-conference').textContent = away.conference || '';
+            document.getElementById('away-rank-container').style.background = `linear-gradient(135deg, ${away.primaryColor || '#333'} 0%, ${away.primaryColor || '#333'}80 100%)`;
+            document.getElementById('away-rank-display').textContent = away.rank ? `#${away.rank}` : '-';
+            document.getElementById('away-rank-display').style.color = away.altColor || '#fff';
+
+            // Dynamic Island - Home Team
+            document.getElementById('home-logo-island').src = home.logo || '';
+            document.getElementById('home-team-name').textContent = home.name || 'Home';
+            document.getElementById('home-record').textContent = home.record || '0-0';
+            document.getElementById('home-conference').textContent = home.conference || '';
+            document.getElementById('home-rank-container').style.background = `linear-gradient(135deg, ${home.primaryColor || '#333'} 0%, ${home.primaryColor || '#333'}80 100%)`;
+            document.getElementById('home-rank-display').textContent = home.rank ? `#${home.rank}` : '-';
+            document.getElementById('home-rank-display').style.color = home.altColor || '#fff';
+
+            // Season type badge
+            const seasonType = gameData.seasonType || 'regular';
+            document.getElementById('season-type-badge').textContent = seasonType === 'postseason' ? 'Bowl Game' : 'Regular Season';
+
+            // Sidebar - Win Probability
+            document.getElementById('sidebar-away-logo').src = away.logo || '';
+            document.getElementById('sidebar-home-logo').src = home.logo || '';
+            
+            const awayWinPct = gameData.prediction?.awayWinPct || 50;
+            const homeWinPct = gameData.prediction?.homeWinPct || 50;
+            document.getElementById('away-win-pct').textContent = `${awayWinPct}%`;
+            document.getElementById('home-win-pct').textContent = `${homeWinPct}%`;
+            
+            const winProbBar = document.getElementById('win-prob-bar');
+            winProbBar.style.width = `${awayWinPct}%`;
+            winProbBar.style.background = `linear-gradient(90deg, ${away.primaryColor || '#666'} 0%, ${away.primaryColor || '#666'} 100%)`;
+
+            // Sidebar - Sportsbook Betting Lines (Minimal)
+            const spreadVal = spread !== null ? (spread > 0 ? `+${spread}` : spread) : '-';
+            const ouVal = gameData.overUnder || '-';
+            
+            // DraftKings
+            document.getElementById('dk-spread').textContent = spreadVal;
+            document.getElementById('dk-ou').textContent = ouVal;
+            
+            // Bovada
+            document.getElementById('bovada-spread').textContent = spreadVal;
+            document.getElementById('bovada-ou').textContent = ouVal;
+            
+            // ESPN BET
+            document.getElementById('espn-spread').textContent = spreadVal;
+            document.getElementById('espn-ou').textContent = ouVal;
+
+            // Sidebar - FPI
+            document.getElementById('away-fpi').textContent = away.fpi ? away.fpi.toFixed(1) : '-';
+            document.getElementById('home-fpi').textContent = home.fpi ? home.fpi.toFixed(1) : '-';
+
+            // Sidebar - Game Info
+            document.getElementById('sidebar-venue').textContent = gameData.venue || 'TBD';
+            document.getElementById('sidebar-datetime').textContent = dateStr;
+            document.getElementById('sidebar-broadcast').textContent = gameData.broadcast || 'TBD';
+
+            // CSS Variables for colors (for premium background)
+            const awayColor = away.primaryColor || '#0033A0';
+            const awayAltColor = away.altColor || '#D64309';
+            const homeColor = home.primaryColor || '#BB0000';
+            const homeAltColor = home.altColor || '#666666';
+            
+            document.documentElement.style.setProperty('--team1-primary', awayColor);
+            document.documentElement.style.setProperty('--team1-secondary', awayAltColor);
+            document.documentElement.style.setProperty('--team2-primary', homeColor);
+            document.documentElement.style.setProperty('--team2-secondary', homeAltColor);
+            document.documentElement.style.setProperty('--away-color', awayColor);
+            document.documentElement.style.setProperty('--home-color', homeColor);
+            
+            // Populate Coach Info
+            populateCoachInfo();
+            
+            // Populate Season Analytics
+            populateSeasonAnalytics();
+            
+            // Populate Situational Stats
+            populateSituationalStats();
+            
+            // Populate Recruiting & Talent
+            populateRecruitingTalent();
+            
+            // Populate Season Leaders
+            populateSeasonLeaders();
+            
+            // Populate Last 5 Games
+            populateLast5Games();
+        }
+        
+        function populateCoachInfo() {
+            if (!gameData || !gameData.coaches) return;
+            
+            const awayCoach = gameData.coaches.away_coach;
+            const homeCoach = gameData.coaches.home_coach;
+            
+            // Away Coach
+            if (awayCoach) {
+                document.getElementById('away-coach-name').textContent = awayCoach.name || '-';
+                document.getElementById('away-coach-record').textContent = awayCoach.career_record || '-';
+                if (awayCoach.headshot_url) {
+                    document.getElementById('away-coach-headshot').src = awayCoach.headshot_url;
+                    document.getElementById('away-coach-headshot').style.display = 'block';
+                }
+            }
+            
+            // Home Coach
+            if (homeCoach) {
+                document.getElementById('home-coach-name').textContent = homeCoach.name || '-';
+                document.getElementById('home-coach-record').textContent = homeCoach.career_record || '-';
+                if (homeCoach.headshot_url) {
+                    document.getElementById('home-coach-headshot').src = homeCoach.headshot_url;
+                    document.getElementById('home-coach-headshot').style.display = 'block';
+                }
+            }
+            
+            // Situational stats for vs ranked
+            const awaySit = gameData.situational_stats?.primary;
+            const homeSit = gameData.situational_stats?.opponent;
+            
+            if (awaySit) {
+                document.getElementById('away-coach-ranked').textContent = awaySit.vs_ranked_record || '-';
+            }
+            if (homeSit) {
+                document.getElementById('home-coach-ranked').textContent = homeSit.vs_ranked_record || '-';
+            }
+            
+            // Head to Head
+            const h2h = gameData.head_to_head;
+            if (h2h) {
+                document.getElementById('h2h-away-wins').textContent = h2h.away_wins || '0';
+                document.getElementById('h2h-home-wins').textContent = h2h.home_wins || '0';
+            }
+        }
+        
+        function populateSeasonAnalytics() {
+            console.log('🔍 DEBUG: populateSeasonAnalytics called');
+            console.log('🔍 DEBUG: gameData exists?', !!gameData);
+            console.log('🔍 DEBUG: gameData.season_analytics exists?', !!gameData?.season_analytics);
+            
+            if (!gameData || !gameData.season_analytics) {
+                console.log('⚠️ No season analytics data available');
+                console.log('🔍 DEBUG: gameData keys:', gameData ? Object.keys(gameData) : 'null');
+                return;
+            }
+            
+            const awayAnalytics = gameData.season_analytics.primary;
+            const homeAnalytics = gameData.season_analytics.opponent;
+            
+            console.log('📊 Season Analytics:', {
+                primary: awayAnalytics,
+                opponent: homeAnalytics
+            });
+            console.log('🔍 DEBUG: awayAnalytics fields:', awayAnalytics ? Object.keys(awayAnalytics) : 'null');
+            console.log('🔍 DEBUG: homeAnalytics fields:', homeAnalytics ? Object.keys(homeAnalytics) : 'null');
+            console.log('🔍 DEBUG: awayAnalytics.yards_per_game =', awayAnalytics?.yards_per_game);
+            console.log('🔍 DEBUG: homeAnalytics.yards_per_game =', homeAnalytics?.yards_per_game);
+            
+            if (!awayAnalytics || !homeAnalytics) {
+                console.log('⚠️ Missing analytics:', { awayAnalytics: !!awayAnalytics, homeAnalytics: !!homeAnalytics });
+                return;
+            }
+            
+            // Offensive Stats
+            const awayPPG = awayAnalytics.points_per_game || 0;
+            const homePPG = homeAnalytics.points_per_game || 0;
+            document.getElementById('away-ppg').textContent = awayPPG.toFixed(1);
+            document.getElementById('home-ppg').textContent = homePPG.toFixed(1);
+            updateBar('ppg-bar', awayPPG, homePPG);
+            
+            const awayYPG = awayAnalytics.yards_per_game || 0;
+            const homeYPG = homeAnalytics.yards_per_game || 0;
+            document.getElementById('away-ypg').textContent = awayYPG.toFixed(0);
+            document.getElementById('home-ypg').textContent = homeYPG.toFixed(0);
+            updateBar('ypg-bar', awayYPG, homeYPG);
+            
+            // Note: third_down_pct is already stored as percentage (e.g., 47.9 not 0.479)
+            document.getElementById('away-3rd').textContent = awayAnalytics.third_down_pct ? `${awayAnalytics.third_down_pct.toFixed(1)}%` : '-';
+            document.getElementById('home-3rd').textContent = homeAnalytics.third_down_pct ? `${homeAnalytics.third_down_pct.toFixed(1)}%` : '-';
+            
+            // Note: red_zone_pct is already stored as percentage (e.g., 85.5 not 0.855)
+            document.getElementById('away-rz').textContent = awayAnalytics.red_zone_pct ? `${awayAnalytics.red_zone_pct.toFixed(1)}%` : '-';
+            document.getElementById('home-rz').textContent = homeAnalytics.red_zone_pct ? `${homeAnalytics.red_zone_pct.toFixed(1)}%` : '-';
+            
+            // Defensive Stats
+            document.getElementById('away-ppg-allowed').textContent = awayAnalytics.points_allowed_pg ? awayAnalytics.points_allowed_pg.toFixed(1) : '-';
+            document.getElementById('home-ppg-allowed').textContent = homeAnalytics.points_allowed_pg ? homeAnalytics.points_allowed_pg.toFixed(1) : '-';
+            
+            document.getElementById('away-sacks').textContent = awayAnalytics.sacks_per_game ? awayAnalytics.sacks_per_game.toFixed(1) : '-';
+            document.getElementById('home-sacks').textContent = homeAnalytics.sacks_per_game ? homeAnalytics.sacks_per_game.toFixed(1) : '-';
+            
+            document.getElementById('away-to').textContent = awayAnalytics.turnovers_gained_pg ? awayAnalytics.turnovers_gained_pg.toFixed(1) : '-';
+            document.getElementById('home-to').textContent = homeAnalytics.turnovers_gained_pg ? homeAnalytics.turnovers_gained_pg.toFixed(1) : '-';
+            
+            // Advanced Metrics
+            document.getElementById('away-sp').textContent = awayAnalytics.sp_overall ? awayAnalytics.sp_overall.toFixed(1) : '-';
+            document.getElementById('home-sp').textContent = homeAnalytics.sp_overall ? homeAnalytics.sp_overall.toFixed(1) : '-';
+            
+            document.getElementById('away-sp-off').textContent = awayAnalytics.sp_offense ? awayAnalytics.sp_offense.toFixed(1) : '-';
+            document.getElementById('home-sp-off').textContent = homeAnalytics.sp_offense ? homeAnalytics.sp_offense.toFixed(1) : '-';
+            
+            document.getElementById('away-sp-def').textContent = awayAnalytics.sp_defense ? awayAnalytics.sp_defense.toFixed(1) : '-';
+            document.getElementById('home-sp-def').textContent = homeAnalytics.sp_defense ? homeAnalytics.sp_defense.toFixed(1) : '-';
+        }
+        
+        function populateSituationalStats() {
+            if (!gameData || !gameData.situational_stats) return;
+            
+            const awaySit = gameData.situational_stats.primary;
+            const homeSit = gameData.situational_stats.opponent;
+            
+            if (!awaySit || !homeSit) return;
+            
+            // One Score Games
+            const awayOneScore = awaySit.one_score_wins && awaySit.one_score_losses ? 
+                `${awaySit.one_score_wins}-${awaySit.one_score_losses}` : '-';
+            const homeOneScore = homeSit.one_score_wins && homeSit.one_score_losses ? 
+                `${homeSit.one_score_wins}-${homeSit.one_score_losses}` : '-';
+            document.getElementById('away-close').textContent = awayOneScore;
+            document.getElementById('home-close').textContent = homeOneScore;
+            
+            // Comeback Wins
+            document.getElementById('away-comeback').textContent = awaySit.comeback_wins || '0';
+            document.getElementById('home-comeback').textContent = homeSit.comeback_wins || '0';
+            
+            // Conference Record
+            document.getElementById('away-conf').textContent = awaySit.conference_record || '-';
+            document.getElementById('home-conf').textContent = homeSit.conference_record || '-';
+        }
+        
+        function populateRecruitingTalent() {
+            if (!gameData) return;
+            
+            // Recruiting Classes
+            const awayRecruiting = gameData.recruiting?.primary;
+            const homeRecruiting = gameData.recruiting?.opponent;
+            
+            if (awayRecruiting && awayRecruiting[0]) {
+                document.getElementById('away-recruiting').textContent = awayRecruiting[0].class_rank ? `#${awayRecruiting[0].class_rank}` : '-';
+            }
+            if (homeRecruiting && homeRecruiting[0]) {
+                document.getElementById('home-recruiting').textContent = homeRecruiting[0].class_rank ? `#${homeRecruiting[0].class_rank}` : '-';
+            }
+            
+            // Talent Composite
+            const awayTalent = gameData.talent?.primary;
+            const homeTalent = gameData.talent?.opponent;
+            
+            if (awayTalent) {
+                document.getElementById('away-talent').textContent = awayTalent.talent_rank ? `#${awayTalent.talent_rank}` : '-';
+            }
+            if (homeTalent) {
+                document.getElementById('home-talent').textContent = homeTalent.talent_rank ? `#${homeTalent.talent_rank}` : '-';
+            }
+            
+            // Draft Picks (need to count from coaches data)
+            const awayCoach = gameData.coaches?.away_coach;
+            const homeCoach = gameData.coaches?.home_coach;
+            
+            // These would come from draft_picks queries - placeholder for now
+            document.getElementById('away-draft').textContent = '-';
+            document.getElementById('home-draft').textContent = '-';
+        }
+        
+        async function populateSeasonLeaders() {
+            if (!gameData) return;
+            
+            const awayTeam = gameData.away?.name || gameData.teams?.away?.school;
+            const homeTeam = gameData.home?.name || gameData.teams?.home?.school;
+            
+            // Set team names
+            document.getElementById('away-leaders-team').textContent = awayTeam || 'Away Team';
+            document.getElementById('home-leaders-team').textContent = homeTeam || 'Home Team';
+            
+            const season = gameData.matchup?.season || 2025;
+            
+            // Fetch real player data for away team
+            if (awayTeam) {
+                try {
+                    const awayResponse = await fetch(`/api/team-leaders/${encodeURIComponent(awayTeam)}/${season}`);
+                    if (awayResponse.ok) {
+                        const awayData = await awayResponse.json();
+                        if (awayData.passing) {
+                            document.getElementById('away-pass-leader').textContent = awayData.passing.player_name;
+                            document.getElementById('away-pass-yards').textContent = `${Math.round(awayData.passing.passing_yards)} YDS`;
+                        }
+                        if (awayData.rushing) {
+                            document.getElementById('away-rush-leader').textContent = awayData.rushing.player_name;
+                            document.getElementById('away-rush-yards').textContent = `${Math.round(awayData.rushing.rushing_yards)} YDS`;
+                        }
+                        if (awayData.receiving) {
+                            document.getElementById('away-rec-leader').textContent = awayData.receiving.player_name;
+                            document.getElementById('away-rec-yards').textContent = `${Math.round(awayData.receiving.receiving_yards)} YDS`;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error fetching away team leaders:', error);
+                }
+            }
+            
+            // Fetch real player data for home team
+            if (homeTeam) {
+                try {
+                    const homeResponse = await fetch(`/api/team-leaders/${encodeURIComponent(homeTeam)}/${season}`);
+                    if (homeResponse.ok) {
+                        const homeData = await homeResponse.json();
+                        if (homeData.passing) {
+                            document.getElementById('home-pass-leader').textContent = homeData.passing.player_name;
+                            document.getElementById('home-pass-yards').textContent = `${Math.round(homeData.passing.passing_yards)} YDS`;
+                        }
+                        if (homeData.rushing) {
+                            document.getElementById('home-rush-leader').textContent = homeData.rushing.player_name;
+                            document.getElementById('home-rush-yards').textContent = `${Math.round(homeData.rushing.rushing_yards)} YDS`;
+                        }
+                        if (homeData.receiving) {
+                            document.getElementById('home-rec-leader').textContent = homeData.receiving.player_name;
+                            document.getElementById('home-rec-yards').textContent = `${Math.round(homeData.receiving.receiving_yards)} YDS`;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error fetching home team leaders:', error);
+                }
+            }
+        }
+        
+        function populateLast5Games() {
+            if (!gameData || !gameData.coaches) return;
+            
+            // Set team names
+            document.getElementById('away-last5-team').textContent = gameData.away?.name || 'Away Team';
+            document.getElementById('home-last5-team').textContent = gameData.home?.name || 'Home Team';
+            
+            // Get last 10 games from coaches data (we'll show last 5)
+            const awayCoach = gameData.coaches?.away_coach;
+            const homeCoach = gameData.coaches?.home_coach;
+            
+            // Away team last 5
+            const awayContainer = document.getElementById('away-last-5-games');
+            if (awayCoach && awayCoach.last_10_games) {
+                awayContainer.innerHTML = '';
+                awayCoach.last_10_games.slice(0, 5).forEach(game => {
+                    const gameEl = createGameCard(game, 'away');
+                    awayContainer.appendChild(gameEl);
+                });
+            } else {
+                awayContainer.innerHTML = '<div class="text-white/30 apple-text-light text-xs">No recent games</div>';
+            }
+            
+            // Home team last 5
+            const homeContainer = document.getElementById('home-last-5-games');
+            if (homeCoach && homeCoach.last_10_games) {
+                homeContainer.innerHTML = '';
+                homeCoach.last_10_games.slice(0, 5).forEach(game => {
+                    const gameEl = createGameCard(game, 'home');
+                    homeContainer.appendChild(gameEl);
+                });
+            } else {
+                homeContainer.innerHTML = '<div class="text-white/30 apple-text-light text-xs">No recent games</div>';
+            }
+        }
+        
+        function createGameCard(game, side) {
+            const div = document.createElement('div');
+            const isWin = game.result === 'W';
+            const score = `${game.coach_score}-${game.opponent_score}`;
+            
+            div.className = `flex items-center justify-between p-2 rounded-lg ${isWin ? 'bg-green-500/10' : 'bg-red-500/10'}`;
+            div.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 rounded-full ${isWin ? 'bg-green-500/20' : 'bg-red-500/20'} flex items-center justify-center">
+                        <span class="text-[10px] font-bold ${isWin ? 'text-green-400' : 'text-red-400'}">${game.result}</span>
+                    </div>
+                    <div>
+                        <div class="text-white/70 apple-text text-xs">${game.opponent}</div>
+                        <div class="text-white/40 apple-text-light text-[10px]">Week ${game.week}, ${game.season}</div>
+                    </div>
+                </div>
+                <div class="text-white/60 apple-text-light text-xs font-medium">${score}</div>
+            `;
+            return div;
+        }
+        
+        function updateBar(barId, awayVal, homeVal) {
+            const total = awayVal + homeVal;
+            if (total > 0) {
+                const awayPct = (awayVal / total) * 100;
+                const bar = document.getElementById(barId);
+                if (bar) {
+                    bar.style.width = `${awayPct}%`;
+                }
+            }
+            
+            // Update blob colors - get colors from CSS variables or gameData
+            const awayColor = getComputedStyle(document.documentElement).getPropertyValue('--away-color') || '#0033A0';
+            const homeColor = getComputedStyle(document.documentElement).getPropertyValue('--home-color') || '#BB0000';
+            const awayAltColor = getComputedStyle(document.documentElement).getPropertyValue('--team1-secondary') || '#D64309';
+            const homeAltColor = getComputedStyle(document.documentElement).getPropertyValue('--team2-secondary') || '#666666';
+            
+            const blobAway = document.getElementById('blob-away');
+            const blobHome = document.getElementById('blob-home');
+            const blobAwayAlt = document.getElementById('blob-away-alt');
+            const blobHomeAlt = document.getElementById('blob-home-alt');
+            
+            if (blobAway) blobAway.style.backgroundColor = awayColor;
+            if (blobHome) blobHome.style.backgroundColor = homeColor;
+            if (blobAwayAlt) blobAwayAlt.style.backgroundColor = awayAltColor;
+            if (blobHomeAlt) blobHomeAlt.style.backgroundColor = homeAltColor;
+        }
+
+        function startCountdown() {
+            if (!gameData || !gameData.datetime) return;
+            
+            const gameDate = new Date(gameData.datetime);
+            
+            function updateCountdown() {
+                const now = new Date();
+                const diff = gameDate - now;
+                
+                if (diff <= 0) {
+                    document.getElementById('countdown-days').textContent = '0';
+                    document.getElementById('countdown-hours').textContent = '0';
+                    document.getElementById('countdown-mins').textContent = '0';
+                    document.getElementById('countdown-secs').textContent = '0';
+                    document.getElementById('game-status').textContent = 'Game Time!';
+                    if (countdownInterval) clearInterval(countdownInterval);
+                    return;
+                }
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('countdown-days').textContent = days;
+                document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('countdown-mins').textContent = mins.toString().padStart(2, '0');
+                document.getElementById('countdown-secs').textContent = secs.toString().padStart(2, '0');
+            }
+            
+            updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
+        }
+
+        // Initialize on load
+        initGame();
+    </script>
+</body>
+</html>

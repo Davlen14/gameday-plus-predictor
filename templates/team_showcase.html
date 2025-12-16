@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Team Explorer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&family=Orbitron:wght@400;500;700;900&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Orbitron', 'sans-serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                        'cursive': ['Pinyon Script', 'cursive'],
+                    },
+                    animation: {
+                        'typewriter': 'typewriter 16s steps(60) infinite',
+                    },
+                    keyframes: {
+                        typewriter: {
+                            '0%, 10%': { width: '0%' },
+                            '40%, 60%': { width: '100%' },
+                            '90%, 100%': { width: '0%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background: #000;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        /* Reflection Mask Logic - Fixed to fade correctly from connection point down */
+        .mask-image-linear-to-b {
+            /* Gradient to bottom: Top (0%) is Opaque, Bottom (100%) is Transparent */
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 90%);
+        }
+
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        /* Smooth transitions for background updates */
+        #dynamic-bg {
+            transition: background 1.0s ease-in-out;
+        }
+        
+        #glow-orb, #secondary-orb {
+            transition: all 1.0s ease-in-out;
+        }
+
+        /* Fade transition for content updates */
+        .fade-enter {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .fade-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 500ms ease-out, transform 500ms ease-out;
+        }
+    </style>
+</head>
+<body class="text-white font-sans selection:bg-white/30">
+
+    <div class="relative w-full h-screen overflow-hidden">
+        
+        <!-- 1. Dynamic Background Layer -->
+        <div id="dynamic-bg" class="absolute inset-0 z-0">
+            <!-- Overlay for texture/noise -->
+            <div class="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
+            
+            <!-- Animated Glow Orbs -->
+            <div id="glow-orb" class="absolute w-96 h-96 rounded-full blur-3xl opacity-60 mix-blend-screen animate-pulse"></div>
+            <div id="secondary-orb" class="absolute w-80 h-80 rounded-full blur-3xl opacity-40 mix-blend-overlay" style="bottom: 10%; right: 10%;"></div>
+        </div>
+
+        <!-- 2. Main Content Container -->
+        <div class="relative z-10 flex flex-col items-center justify-center h-full w-full p-6">
+            
+            <!-- Header / Nav Indicator -->
+            <div class="absolute top-8 w-full flex justify-between items-center px-12">
+                <div class="flex items-center gap-6">
+                    <div class="text-7xl font-black tracking-tighter font-display text-white/10 select-none">G+</div>
+                    <div class="h-12 w-px bg-white/10"></div>
+                    <div id="counter-text" class="text-sm font-bold tracking-[0.3em] uppercase font-display text-white/60">
+                        TEAM ENTERPRISE
+                    </div>
+                </div>
+                <!-- Progress Bar -->
+                <div class="w-32 h-1 bg-white/20 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="h-full bg-white transition-all duration-300" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- 3. The Glassmorphism Card -->
+            <div class="relative w-full max-w-7xl mx-auto perspective-1000">
+                
+                <div id="card-container" class="w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl overflow-hidden fade-enter-active">
+                    <div class="grid grid-cols-1 md:grid-cols-2 min-h-[700px]">
+                        
+                        <!-- Left Column: Visuals & Logo -->
+                        <div class="relative flex items-center justify-center p-12 bg-gradient-to-br from-white/5 to-transparent border-r border-white/10 group">
+                            <div class="absolute top-4 left-6">
+                                <span id="team-conf" class="px-3 py-1 rounded-full border border-white/20 text-xs font-semibold tracking-wider bg-black/20 uppercase">
+                                    CONF
+                                </span>
+                            </div>
+                            
+                            <!-- Logo with reflection effect -->
+                            <div class="relative w-64 h-64 md:w-96 md:h-96 transition-transform duration-700 hover:scale-105 hover:rotate-3">
+                                <!-- Main Upward Logo -->
+                                <img id="team-logo" src="" alt="Team Logo" class="relative z-10 w-full h-full object-contain drop-shadow-2xl">
+                                
+                                <!-- Upside Down Reflection Logo -->
+                                <img id="team-logo-reflect" src="" alt="" class="absolute top-[85%] left-0 w-full h-full object-contain opacity-50 blur-[1px] transform scale-y-[-1] mask-image-linear-to-b" aria-hidden="true">
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Info & Typography -->
+                        <div class="flex flex-col justify-center p-8 md:p-16 space-y-10">
+                            <div>
+                                <h2 id="team-name" class="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70 font-display">
+                                    Team Name
+                                </h2>
+                                <p id="team-mascot" class="text-2xl md:text-3xl font-light tracking-widest uppercase opacity-80 font-display">
+                                    Mascot
+                                </p>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="h-px w-full bg-gradient-to-r from-white/30 to-transparent"></div>
+                                
+                                <!-- Color Palette -->
+                                <div class="space-y-4">
+                                    <p class="text-xs font-bold uppercase tracking-widest opacity-50">Team Palette</p>
+                                    <div class="flex flex-col gap-4">
+                                        <!-- Primary Swatch -->
+                                        <div id="swatch-primary-container" class="flex items-center gap-3 group cursor-pointer" onclick="copyColor('primary')">
+                                            <div id="swatch-primary-color" class="w-10 h-10 rounded-full shadow-lg border-2 border-white/20 transition-transform group-hover:scale-110"></div>
+                                            <div class="flex flex-col">
+                                                <span class="text-xs uppercase tracking-wider text-white/60">Primary</span>
+                                                <div class="flex items-center gap-2">
+                                                    <span id="swatch-primary-hex" class="text-sm font-mono text-white font-medium">#000000</span>
+                                                    <i data-lucide="copy" class="w-3.5 h-3.5 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Alternate Swatch -->
+                                        <div id="swatch-alt-container" class="flex items-center gap-3 group cursor-pointer" onclick="copyColor('alt')">
+                                            <div id="swatch-alt-color" class="w-10 h-10 rounded-full shadow-lg border-2 border-white/20 transition-transform group-hover:scale-110"></div>
+                                            <div class="flex flex-col">
+                                                <span class="text-xs uppercase tracking-wider text-white/60">Alternate</span>
+                                                <div class="flex items-center gap-2">
+                                                    <span id="swatch-alt-hex" class="text-sm font-mono text-white font-medium">#FFFFFF</span>
+                                                    <i data-lucide="copy" class="w-3.5 h-3.5 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Call To Action Button -->
+                            <div class="pt-4">
+                                <button id="explore-btn" class="group relative px-8 py-3 rounded-xl bg-white text-black font-bold tracking-wide overflow-hidden transition-all hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.7)]">
+                                    <span class="relative z-10 flex items-center gap-2">
+                                        Explore Team <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                    </span>
+                                    <div class="absolute inset-0 bg-white transition-transform group-hover:scale-105"></div>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Controls (Floating) -->
+                <div class="absolute top-1/2 -left-4 md:-left-16 transform -translate-y-1/2 z-20">
+                    <button onclick="changeSlide(-1)" class="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all hover:scale-110 active:scale-95 shadow-lg">
+                        <i data-lucide="chevron-left" class="w-8 h-8"></i>
+                    </button>
+                </div>
+                <div class="absolute top-1/2 -right-4 md:-right-16 transform -translate-y-1/2 z-20">
+                    <button onclick="changeSlide(1)" class="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all hover:scale-110 active:scale-95 shadow-lg">
+                        <i data-lucide="chevron-right" class="w-8 h-8"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Footer Info -->
+            <div class="mt-12 text-center flex flex-col items-center gap-4">
+                <div class="opacity-40 text-sm font-light">
+                    Use arrow keys to navigate • Swipe to explore
+                </div>
+                <div class="relative">
+                    <div class="text-3xl font-cursive text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50 overflow-hidden whitespace-nowrap border-r border-white/30 pr-2 animate-typewriter drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+                        Start your journey to greatness today
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MAIN JAVASCRIPT LOGIC -->
+    <script>
+        // --- DATA CONFIGURATION ---
+        const TEAMS = [
+          { id: 1, name: "Air Force", mascot: "Falcons", conf: "Mountain West", primary: "#004a7b", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2005.png" },
+          { id: 2, name: "Akron", mascot: "Zips", conf: "Mid-American", primary: "#00285e", alt: "#84754e", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2006.png" },
+          { id: 3, name: "Alabama", mascot: "Crimson Tide", conf: "SEC", primary: "#9e1632", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/333.png" },
+          { id: 4, name: "App State", mascot: "Mountaineers", conf: "Sun Belt", primary: "#ffcc00", alt: "#222222", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2026.png" },
+          { id: 5, name: "Arizona", mascot: "Wildcats", conf: "Big 12", primary: "#0c234b", alt: "#ab0520", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/12.png" },
+          { id: 6, name: "Arizona State", mascot: "Sun Devils", conf: "Big 12", primary: "#8e0c3a", alt: "#ffc72c", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/9.png" },
+          { id: 7, name: "Arkansas", mascot: "Razorbacks", conf: "SEC", primary: "#a41f35", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/8.png" },
+          { id: 8, name: "Arkansas State", mascot: "Red Wolves", conf: "Sun Belt", primary: "#e81018", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2032.png" },
+          { id: 9, name: "Army", mascot: "Black Knights", conf: "American Athletic", primary: "#ce9c00", alt: "#231f20", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/349.png" },
+          { id: 10, name: "Auburn", mascot: "Tigers", conf: "SEC", primary: "#002b5c", alt: "#f26522", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2.png" },
+          { id: 11, name: "BYU", mascot: "Cougars", conf: "Big 12", primary: "#003da5", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/252.png" },
+          { id: 12, name: "Ball State", mascot: "Cardinals", conf: "Mid-American", primary: "#DA0000", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2050.png" },
+          { id: 13, name: "Baylor", mascot: "Bears", conf: "Big 12", primary: "#154734", alt: "#ffb81c", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/239.png" },
+          { id: 14, name: "Boise State", mascot: "Broncos", conf: "Mountain West", primary: "#0033a0", alt: "#fa4616", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/68.png" },
+          { id: 15, name: "Boston College", mascot: "Eagles", conf: "ACC", primary: "#8c2232", alt: "#dbcca6", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/103.png" },
+          { id: 16, name: "Bowling Green", mascot: "Falcons", conf: "Mid-American", primary: "#2b1000", alt: "#492000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/189.png" },
+          { id: 17, name: "Buffalo", mascot: "Bulls", conf: "Mid-American", primary: "#041A9B", alt: "#ebebeb", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2084.png" },
+          { id: 18, name: "California", mascot: "Golden Bears", conf: "ACC", primary: "#031522", alt: "#ffc423", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/25.png" },
+          { id: 19, name: "Central Michigan", mascot: "Chippewas", conf: "Mid-American", primary: "#6a0032", alt: "#ffc82e", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2117.png" },
+          { id: 20, name: "Charlotte", mascot: "49ers", conf: "American Athletic", primary: "#046A38", alt: "#B9975B", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2429.png" },
+          { id: 21, name: "Cincinnati", mascot: "Bearcats", conf: "Big 12", primary: "#E00122", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2132.png" },
+          { id: 22, name: "Clemson", mascot: "Tigers", conf: "ACC", primary: "#f56600", alt: "#522d80", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/228.png" },
+          { id: 23, name: "Coastal Carolina", mascot: "Chanticleers", conf: "Sun Belt", primary: "#007073", alt: "#876447", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/324.png" },
+          { id: 24, name: "Colorado", mascot: "Buffaloes", conf: "Big 12", primary: "#CFB87C", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/38.png" },
+          { id: 25, name: "Colorado State", mascot: "Rams", conf: "Mountain West", primary: "#1e4d2b", alt: "#c8c372", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/36.png" },
+          { id: 26, name: "Delaware", mascot: "Blue Hens", conf: "Conference USA", primary: "#033594", alt: "#e8ce31", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/48.png" },
+          { id: 27, name: "Duke", mascot: "Blue Devils", conf: "ACC", primary: "#013088", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/150.png" },
+          { id: 28, name: "East Carolina", mascot: "Pirates", conf: "American Athletic", primary: "#4b1869", alt: "#f0907b", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/151.png" },
+          { id: 29, name: "Eastern Michigan", mascot: "Eagles", conf: "Mid-American", primary: "#00331b", alt: "#f0f0f0", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2199.png" },
+          { id: 30, name: "Florida", mascot: "Gators", conf: "SEC", primary: "#0021a5", alt: "#fa4616", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/57.png" },
+          { id: 31, name: "Florida Atlantic", mascot: "Owls", conf: "American Athletic", primary: "#00447c", alt: "#d31245", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2226.png" },
+          { id: 32, name: "Florida International", mascot: "Panthers", conf: "Conference USA", primary: "#001538", alt: "#c5960c", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2229.png" },
+          { id: 33, name: "Florida State", mascot: "Seminoles", conf: "ACC", primary: "#782f40", alt: "#ceb888", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/52.png" },
+          { id: 34, name: "Fresno State", mascot: "Bulldogs", conf: "Mountain West", primary: "#db0032", alt: "#002e6d", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/278.png" },
+          { id: 35, name: "Georgia", mascot: "Bulldogs", conf: "SEC", primary: "#ba0c2f", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/61.png" },
+          { id: 36, name: "Georgia Southern", mascot: "Eagles", conf: "Sun Belt", primary: "#003775", alt: "#f0f0f0", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/290.png" },
+          { id: 37, name: "Georgia State", mascot: "Panthers", conf: "Sun Belt", primary: "#1e539a", alt: "#ebebeb", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2247.png" },
+          { id: 38, name: "Georgia Tech", mascot: "Yellow Jackets", conf: "ACC", primary: "#003057", alt: "#b3a369", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/59.png" },
+          { id: 39, name: "Hawai'i", mascot: "Rainbow Warriors", conf: "Mountain West", primary: "#003420", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/62.png" },
+          { id: 40, name: "Houston", mascot: "Cougars", conf: "Big 12", primary: "#c92a39", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/248.png" },
+          { id: 41, name: "Illinois", mascot: "Fighting Illini", conf: "Big Ten", primary: "#ff5f05", alt: "#13294b", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/356.png" },
+          { id: 42, name: "Indiana", mascot: "Hoosiers", conf: "Big Ten", primary: "#990000", alt: "#edebeb", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/84.png" },
+          { id: 43, name: "Iowa", mascot: "Hawkeyes", conf: "Big Ten", primary: "#000000", alt: "#FFCD00", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2294.png" },
+          { id: 44, name: "Iowa State", mascot: "Cyclones", conf: "Big 12", primary: "#822433", alt: "#fdca2f", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/66.png" },
+          { id: 45, name: "Jacksonville State", mascot: "Gamecocks", conf: "Conference USA", primary: "#b50500", alt: "#b5b7ba", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/55.png" },
+          { id: 46, name: "James Madison", mascot: "Dukes", conf: "Sun Belt", primary: "#450084", alt: "#b5a068", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/256.png" },
+          { id: 47, name: "Kansas", mascot: "Jayhawks", conf: "Big 12", primary: "#0051ba", alt: "#e8000d", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2305.png" },
+          { id: 48, name: "Kansas State", mascot: "Wildcats", conf: "Big 12", primary: "#3c0969", alt: "#e2e3e4", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2306.png" },
+          { id: 49, name: "Kennesaw State", mascot: "Owls", conf: "Conference USA", primary: "#fdbb30", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/338.png" },
+          { id: 50, name: "Kent State", mascot: "Golden Flashes", conf: "Mid-American", primary: "#003976", alt: "#efab00", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2309.png" },
+          { id: 51, name: "Kentucky", mascot: "Wildcats", conf: "SEC", primary: "#0033a0", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/96.png" },
+          { id: 52, name: "LSU", mascot: "Tigers", conf: "SEC", primary: "#461d7c", alt: "#fdd023", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/99.png" },
+          { id: 53, name: "Liberty", mascot: "Flames", conf: "Conference USA", primary: "#071740", alt: "#a61f21", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2335.png" },
+          { id: 54, name: "Louisiana", mascot: "Ragin' Cajuns", conf: "Sun Belt", primary: "#ce181e", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/309.png" },
+          { id: 55, name: "Louisiana Tech", mascot: "Bulldogs", conf: "Conference USA", primary: "#002d65", alt: "#d3313a", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2348.png" },
+          { id: 56, name: "Louisville", mascot: "Cardinals", conf: "ACC", primary: "#c9001f", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/97.png" },
+          { id: 57, name: "Marshall", mascot: "Thundering Herd", conf: "Sun Belt", primary: "#00ae42", alt: "#be854c", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/276.png" },
+          { id: 58, name: "Maryland", mascot: "Terrapins", conf: "Big Ten", primary: "#D5002B", alt: "#ffcd00", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/120.png" },
+          { id: 59, name: "Massachusetts", mascot: "Minutemen", conf: "Mid-American", primary: "#971B2F", alt: "#B1B3B3", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/113.png" },
+          { id: 60, name: "Memphis", mascot: "Tigers", conf: "American Athletic", primary: "#004991", alt: "#8e908f", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/235.png" },
+          { id: 61, name: "Miami", mascot: "Hurricanes", conf: "ACC", primary: "#005030", alt: "#f47321", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2390.png" },
+          { id: 62, name: "Miami (OH)", mascot: "RedHawks", conf: "Mid-American", primary: "#a4000c", alt: "#f0f0f0", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/193.png" },
+          { id: 63, name: "Michigan", mascot: "Wolverines", conf: "Big Ten", primary: "#00274c", alt: "#ffcb05", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/130.png" },
+          { id: 64, name: "Michigan State", mascot: "Spartans", conf: "Big Ten", primary: "#18453b", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/127.png" },
+          { id: 65, name: "Middle Tennessee", mascot: "Blue Raiders", conf: "Conference USA", primary: "#006db6", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2393.png" },
+          { id: 66, name: "Minnesota", mascot: "Golden Gophers", conf: "Big Ten", primary: "#5e0a2f", alt: "#fab41c", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/135.png" },
+          { id: 67, name: "Mississippi State", mascot: "Bulldogs", conf: "SEC", primary: "#5d1725", alt: "#c1c6c8", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/344.png" },
+          { id: 68, name: "Missouri", mascot: "Tigers", conf: "SEC", primary: "#f1b82d", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/142.png" },
+          { id: 69, name: "Missouri State", mascot: "Bears", conf: "Conference USA", primary: "#5F0000", alt: "#e8e8e8", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2623.png" },
+          { id: 70, name: "NC State", mascot: "Wolfpack", conf: "ACC", primary: "#cc0000", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/152.png" },
+          { id: 71, name: "Navy", mascot: "Midshipmen", conf: "American Athletic", primary: "#00225b", alt: "#b5a67c", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2426.png" },
+          { id: 72, name: "Nebraska", mascot: "Cornhuskers", conf: "Big Ten", primary: "#d00000", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/158.png" },
+          { id: 73, name: "Nevada", mascot: "Wolf Pack", conf: "Mountain West", primary: "#002d62", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2440.png" },
+          { id: 74, name: "New Mexico", mascot: "Lobos", conf: "Mountain West", primary: "#BA0C2F", alt: "#a7a8aa", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/167.png" },
+          { id: 75, name: "New Mexico State", mascot: "Aggies", conf: "Conference USA", primary: "#891216", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/166.png" },
+          { id: 76, name: "North Carolina", mascot: "Tar Heels", conf: "ACC", primary: "#7bafd4", alt: "#13294b", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/153.png" },
+          { id: 77, name: "North Texas", mascot: "Mean Green", conf: "American Athletic", primary: "#00853E", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/249.png" },
+          { id: 78, name: "Northern Illinois", mascot: "Huskies", conf: "Mid-American", primary: "#F1122C", alt: "#cc0000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2459.png" },
+          { id: 79, name: "Northwestern", mascot: "Wildcats", conf: "Big Ten", primary: "#582c83", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/77.png" },
+          { id: 80, name: "Notre Dame", mascot: "Fighting Irish", conf: "Independent", primary: "#0c2340", alt: "#c99700", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/87.png" },
+          { id: 81, name: "Ohio", mascot: "Bobcats", conf: "Mid-American", primary: "#295A29", alt: "#e4bb85", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/195.png" },
+          { id: 82, name: "Ohio State", mascot: "Buckeyes", conf: "Big Ten", primary: "#ce1141", alt: "#505056", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/194.png" },
+          { id: 83, name: "Oklahoma", mascot: "Sooners", conf: "SEC", primary: "#a32036", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/201.png" },
+          { id: 84, name: "Oklahoma State", mascot: "Cowboys", conf: "Big 12", primary: "#FF7300", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/197.png" },
+          { id: 85, name: "Old Dominion", mascot: "Monarchs", conf: "Sun Belt", primary: "#00507d", alt: "#a1d2f1", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/295.png" },
+          { id: 86, name: "Ole Miss", mascot: "Rebels", conf: "SEC", primary: "#13294b", alt: "#c8102e", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/145.png" },
+          { id: 87, name: "Oregon", mascot: "Ducks", conf: "Big Ten", primary: "#007030", alt: "#fee11a", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2483.png" },
+          { id: 88, name: "Oregon State", mascot: "Beavers", conf: "Pac-12", primary: "#231f20", alt: "#d73f09", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/204.png" },
+          { id: 89, name: "Penn State", mascot: "Nittany Lions", conf: "Big Ten", primary: "#041E42", alt: "#FFFFFF", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/213.png" },
+          { id: 90, name: "Pittsburgh", mascot: "Panthers", conf: "ACC", primary: "#003263", alt: "#231f20", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/221.png" },
+          { id: 91, name: "Purdue", mascot: "Boilermakers", conf: "Big Ten", primary: "#000000", alt: "#ceb888", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2509.png" },
+          { id: 92, name: "Rice", mascot: "Owls", conf: "American Athletic", primary: "#d1d5d8", alt: "#003d7d", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/242.png" },
+          { id: 93, name: "Rutgers", mascot: "Scarlet Knights", conf: "Big Ten", primary: "#d21034", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/164.png" },
+          { id: 94, name: "SMU", mascot: "Mustangs", conf: "ACC", primary: "#354ca1", alt: "#cc0035", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2567.png" },
+          { id: 95, name: "Sam Houston", mascot: "Bearkats", conf: "Conference USA", primary: "#fe5000", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2534.png" },
+          { id: 96, name: "San Diego State", mascot: "Aztecs", conf: "Mountain West", primary: "#c41230", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/21.png" },
+          { id: 97, name: "San José State", mascot: "Spartans", conf: "Mountain West", primary: "#005893", alt: "#fdba31", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/23.png" },
+          { id: 98, name: "South Alabama", mascot: "Jaguars", conf: "Sun Belt", primary: "#00205B", alt: "#BF0D3E", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/6.png" },
+          { id: 99, name: "South Carolina", mascot: "Gamecocks", conf: "SEC", primary: "#73000a", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2579.png" },
+          { id: 100, name: "South Florida", mascot: "Bulls", conf: "American Athletic", primary: "#004A36", alt: "#231f20", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/58.png" },
+          { id: 101, name: "Southern Miss", mascot: "Golden Eagles", conf: "Sun Belt", primary: "#FFAA3C", alt: "#ffc423", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2572.png" },
+          { id: 102, name: "Stanford", mascot: "Cardinal", conf: "ACC", primary: "#8c1515", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/24.png" },
+          { id: 103, name: "Syracuse", mascot: "Orange", conf: "ACC", primary: "#ff6500", alt: "#000e54", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/183.png" },
+          { id: 104, name: "TCU", mascot: "Horned Frogs", conf: "Big 12", primary: "#4d1979", alt: "#f1f2f3", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2628.png" },
+          { id: 105, name: "Temple", mascot: "Owls", conf: "American Athletic", primary: "#A80532", alt: "#a7a9ac", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/218.png" },
+          { id: 106, name: "Tennessee", mascot: "Volunteers", conf: "SEC", primary: "#ff8200", alt: "#58595b", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2633.png" },
+          { id: 107, name: "Texas", mascot: "Longhorns", conf: "SEC", primary: "#c15d26", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/251.png" },
+          { id: 108, name: "Texas A&M", mascot: "Aggies", conf: "SEC", primary: "#500000", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/245.png" },
+          { id: 109, name: "Texas State", mascot: "Bobcats", conf: "Sun Belt", primary: "#4e1719", alt: "#b4975a", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/326.png" },
+          { id: 110, name: "Texas Tech", mascot: "Red Raiders", conf: "Big 12", primary: "#CC0000", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2641.png" },
+          { id: 111, name: "Toledo", mascot: "Rockets", conf: "Mid-American", primary: "#0a2240", alt: "#ffcd00", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2649.png" },
+          { id: 112, name: "Troy", mascot: "Trojans", conf: "Sun Belt", primary: "#AE0210", alt: "#88898c", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2653.png" },
+          { id: 113, name: "Tulane", mascot: "Green Wave", conf: "American Athletic", primary: "#006547", alt: "#468ac9", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" },
+          { id: 114, name: "Tulsa", mascot: "Golden Hurricane", conf: "American Athletic", primary: "#003595", alt: "#d0b787", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/202.png" },
+          { id: 115, name: "UAB", mascot: "Blazers", conf: "American Athletic", primary: "#003b28", alt: "#ffc845", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/5.png" },
+          { id: 116, name: "UCF", mascot: "Knights", conf: "Big 12", primary: "#ba9b37", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2116.png" },
+          { id: 117, name: "UCLA", mascot: "Bruins", conf: "Big Ten", primary: "#2774ae", alt: "#f2a900", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/26.png" },
+          { id: 118, name: "UConn", mascot: "Huskies", conf: "Independent", primary: "#0c2340", alt: "#f1f2f3", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/41.png" },
+          { id: 119, name: "UL Monroe", mascot: "Warhawks", conf: "Sun Belt", primary: "#231F20", alt: "#b18445", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2433.png" },
+          { id: 120, name: "UNLV", mascot: "Rebels", conf: "Mountain West", primary: "#b10202", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2439.png" },
+          { id: 121, name: "USC", mascot: "Trojans", conf: "Big Ten", primary: "#9e2237", alt: "#ffcc00", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/30.png" },
+          { id: 122, name: "UTEP", mascot: "Miners", conf: "Conference USA", primary: "#ff8200", alt: "#041e42", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2638.png" },
+          { id: 123, name: "UTSA", mascot: "Roadrunners", conf: "American Athletic", primary: "#002A5C", alt: "#f47321", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2636.png" },
+          { id: 124, name: "Utah", mascot: "Utes", conf: "Big 12", primary: "#ea002a", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/254.png" },
+          { id: 125, name: "Utah State", mascot: "Aggies", conf: "Mountain West", primary: "#00263a", alt: "#949ca1", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/328.png" },
+          { id: 126, name: "Vanderbilt", mascot: "Commodores", conf: "SEC", primary: "#866d4b", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/238.png" },
+          { id: 127, name: "Virginia", mascot: "Cavaliers", conf: "ACC", primary: "#232d4b", alt: "#f84c1e", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/258.png" },
+          { id: 128, name: "Virginia Tech", mascot: "Hokies", conf: "ACC", primary: "#630031", alt: "#cf4520", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/259.png" },
+          { id: 129, name: "Wake Forest", mascot: "Demon Deacons", conf: "ACC", primary: "#9E7E38", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/154.png" },
+          { id: 130, name: "Washington", mascot: "Huskies", conf: "Big Ten", primary: "#33006f", alt: "#e8d3a2", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/264.png" },
+          { id: 131, name: "Washington State", mascot: "Cougars", conf: "Pac-12", primary: "#981e32", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/265.png" },
+          { id: 132, name: "West Virginia", mascot: "Mountaineers", conf: "Big 12", primary: "#002855", alt: "#eaaa00", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/277.png" },
+          { id: 133, name: "Western Kentucky", mascot: "Hilltoppers", conf: "Conference USA", primary: "#F32026", alt: "#b3b5b8", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/98.png" },
+          { id: 134, name: "Western Michigan", mascot: "Broncos", conf: "Mid-American", primary: "#532e1f", alt: "#8b7f79", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2711.png" },
+          { id: 135, name: "Wisconsin", mascot: "Badgers", conf: "Big Ten", primary: "#c4012f", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/275.png" },
+          { id: 136, name: "Wyoming", mascot: "Cowboys", conf: "Mountain West", primary: "#492f24", alt: "#ffc425", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2751.png" }
+        ];
+
+        let activeIndex = 0;
+        const totalTeams = TEAMS.length;
+
+        // --- DOM ELEMENTS ---
+        const els = {
+            bg: document.getElementById('dynamic-bg'),
+            glow: document.getElementById('glow-orb'),
+            secondaryGlow: document.getElementById('secondary-orb'),
+            card: document.getElementById('card-container'),
+            conf: document.getElementById('team-conf'),
+            logo: document.getElementById('team-logo'),
+            logoReflect: document.getElementById('team-logo-reflect'),
+            name: document.getElementById('team-name'),
+            mascot: document.getElementById('team-mascot'),
+            counter: document.getElementById('counter-text'),
+            progressBar: document.getElementById('progress-bar'),
+            btn: document.getElementById('explore-btn'),
+            
+            swatchPrimaryColor: document.getElementById('swatch-primary-color'),
+            swatchPrimaryHex: document.getElementById('swatch-primary-hex'),
+            swatchAltColor: document.getElementById('swatch-alt-color'),
+            swatchAltHex: document.getElementById('swatch-alt-hex')
+        };
+
+        // --- LOGIC ---
+        
+        function getGradientStyle(team, index) {
+            const isDarkAlt = team.alt === "#000000" || team.alt === "#492000" || team.alt === "#222222";
+            const secondary = isDarkAlt ? "#1a1a1a" : team.alt;
+            const angle = 45 + (index * 15) % 360; 
+            const stop1 = 10 + (index * 2) % 30;
+            return `linear-gradient(${angle}deg, ${team.primary} 0%, ${team.primary} ${stop1}%, ${secondary} 100%)`;
+        }
+
+        function getGlowStyle(team, index) {
+            const color = (team.alt === '#000000' || team.alt === '#222222') ? '#ffffff' : team.alt;
+            const top = 20 + (index * 13) % 60;
+            const left = 20 + (index * 7) % 60;
+            return { color, top, left };
+        }
+
+        function updateUI() {
+            const team = TEAMS[activeIndex];
+            
+            // 1. Update Background
+            els.bg.style.background = getGradientStyle(team, activeIndex);
+            
+            const glow = getGlowStyle(team, activeIndex);
+            els.glow.style.backgroundColor = glow.color;
+            els.glow.style.top = `${glow.top}%`;
+            els.glow.style.left = `${glow.left}%`;
+            els.glow.style.boxShadow = `0 0 150px 80px ${glow.color}`;
+            
+            els.secondaryGlow.style.backgroundColor = team.primary;
+
+            // 2. Update Content with simple fade effect simulation
+            // Trigger reflow for animation restart (optional, keeping it simple for now)
+            els.card.classList.remove('fade-enter-active');
+            void els.card.offsetWidth; // trigger reflow
+            els.card.classList.add('fade-enter-active');
+
+            els.conf.textContent = team.conf;
+            
+            // Update both logos
+            const setLogos = (src) => {
+                els.logo.src = src;
+                els.logoReflect.src = src;
+            };
+
+            setLogos(team.logo);
+            
+            // Fallback for broken images - ensure both update if main fails
+            els.logo.onerror = function() { 
+                const fallback = "https://a.espncdn.com/i/teamlogos/ncaa/500/500.png";
+                if (this.src !== fallback) {
+                    setLogos(fallback);
+                }
+            };
+            
+            els.name.textContent = team.name;
+            els.mascot.textContent = team.mascot;
+            
+            // els.counter.textContent = `NCAA FBS • Template ${activeIndex + 1}/${totalTeams}`;
+            els.progressBar.style.width = `${((activeIndex + 1) / totalTeams) * 100}%`;
+
+            // 3. Update Colors
+            els.swatchPrimaryColor.style.backgroundColor = team.primary;
+            els.swatchPrimaryHex.textContent = team.primary;
+            
+            els.swatchAltColor.style.backgroundColor = team.alt;
+            els.swatchAltHex.textContent = team.alt;
+
+            const btnTextColor = team.primary === '#ffffff' ? '#000' : team.primary;
+            els.btn.style.color = btnTextColor;
+        }
+
+        function changeSlide(direction) {
+            activeIndex = (activeIndex + direction + totalTeams) % totalTeams;
+            updateUI();
+        }
+
+        function copyColor(type) {
+            const team = TEAMS[activeIndex];
+            const color = type === 'primary' ? team.primary : team.alt;
+            navigator.clipboard.writeText(color).then(() => {
+                // Could add a small toast notification here
+                console.log('Copied:', color);
+            });
+        }
+
+        // --- EVENT LISTENERS ---
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        // --- INITIALIZATION ---
+        updateUI();
+        lucide.createIcons();
+
+    </script>
+</body>
+</html>

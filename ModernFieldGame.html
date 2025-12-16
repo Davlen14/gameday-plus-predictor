@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 LA Bowl - Gamecast</title>
+    <!-- Google Fonts: Inter (Apple-style) & SF Pro Display fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['SF Mono', 'Menlo', 'monospace'],
+                        display: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        wash: { primary: '#33006f', secondary: '#e8d3a2' },
+                        boise: { primary: '#0033A0', secondary: '#fa4616' },
+                        royal: '#1e40af',
+                    },
+                    animation: {
+                        'blob': 'blob 20s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-in': 'slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                        'slide-out': 'slideOut 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                        'ticker': 'ticker 15s linear infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        glow: {
+                            '0%': { opacity: '0.6', textShadow: '0 0 20px currentColor' },
+                            '100%': { opacity: '1', textShadow: '0 0 30px currentColor, 0 0 60px currentColor' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideOut: {
+                            '0%': { transform: 'translateX(0)', opacity: '1' },
+                            '100%': { transform: 'translateX(100%)', opacity: '0' },
+                        },
+                        ticker: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Scrollbar - Ultra thin Apple style */
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+        
+        /* Apple Vision Glass - Ultra Clean */
+        .liquid-glass {
+            background: rgba(40, 40, 45, 0.65);
+            backdrop-filter: blur(40px) saturate(120%);
+            -webkit-backdrop-filter: blur(40px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Sidebar - 3D Glassy with shine - More transparent */
+        .liquid-glass-strong {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.08) 0%,
+                rgba(150, 150, 160, 0.12) 20%,
+                rgba(60, 60, 70, 0.15) 50%,
+                rgba(30, 30, 40, 0.2) 100%
+            );
+            backdrop-filter: blur(40px) saturate(120%);
+            -webkit-backdrop-filter: blur(40px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-top-color: rgba(255, 255, 255, 0.25);
+            border-left-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                inset 0 1px 2px rgba(255, 255, 255, 0.3),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.15),
+                inset 2px 0 4px rgba(255, 255, 255, 0.1),
+                -4px 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .liquid-glass-strong::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.06) 30%,
+                transparent 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Dynamic Island - 3D Glassy with shine - More transparent */
+        .dynamic-island {
+            background: linear-gradient(
+                165deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(120, 120, 130, 0.12) 20%,
+                rgba(50, 50, 60, 0.18) 60%,
+                rgba(20, 20, 30, 0.25) 100%
+            );
+            backdrop-filter: blur(40px) saturate(140%);
+            -webkit-backdrop-filter: blur(40px) saturate(140%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-top-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.25),
+                inset 0 1px 2px rgba(255, 255, 255, 0.35),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Shine overlay effect */
+        .dynamic-island::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.12) 0%,
+                rgba(255, 255, 255, 0.04) 40%,
+                transparent 100%
+            );
+            border-radius: 24px 24px 0 0;
+            pointer-events: none;
+        }
+
+        .marker-tag {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.2px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            letter-spacing: 0.02em;
+        }
+
+        /* Clean Clock - No glow */
+        .dot-matrix {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Apple-style text */
+        .apple-text {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        
+        .apple-text-light {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        /* Scoring Animation Keyframes */
+        @keyframes score-pop {
+            0% { transform: translate(60px, 26.65px) scale(0); opacity: 0; }
+            50% { transform: translate(60px, 26.65px) scale(1.5); opacity: 1; }
+            70% { transform: translate(60px, 26.65px) scale(0.9); }
+            100% { transform: translate(60px, 26.65px) scale(1); opacity: 1; }
+        }
+        @keyframes shockwave {
+            0% { transform: translate(60px, 26.65px) scale(0.5); opacity: 1; stroke-width: 2; }
+            100% { transform: translate(60px, 26.65px) scale(3); opacity: 0; stroke-width: 0; }
+        }
+        
+        .animate-score-pop { animation: score-pop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .animate-shockwave { animation: shockwave 1.5s ease-out infinite; }
+        
+        /* Sidebar Toggle Animation */
+        .sidebar-open { transform: translateX(0); }
+        .sidebar-closed { transform: translateX(100%); }
+        
+        /* Smooth number transitions */
+        .score-number {
+            font-variant-numeric: tabular-nums;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Ticker animation */
+        .ticker-wrapper {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0f] text-white overflow-hidden h-screen w-screen flex flex-col relative">
+
+    <!-- DYNAMIC BACKGROUND - Softer, more ethereal -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <!-- Base Gradient - Darker, more subtle -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#030308] via-[#0d0a15] to-[#030308]"></div>
+
+        <!-- Team Color Blobs - More diffused -->
+        <div class="absolute top-[-30%] left-[-20%] w-[70vw] h-[70vw] bg-[#0033A0] rounded-full mix-blend-screen filter blur-[150px] opacity-25 animate-blob"></div>
+        <div class="absolute top-[-20%] right-[-20%] w-[70vw] h-[70vw] bg-[#33006f] rounded-full mix-blend-screen filter blur-[150px] opacity-25 animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-[-30%] left-[5%] w-[60vw] h-[60vw] bg-[#fa4616] rounded-full mix-blend-screen filter blur-[180px] opacity-15 animate-blob animation-delay-4000"></div>
+        <div class="absolute bottom-[-20%] right-[5%] w-[60vw] h-[60vw] bg-[#e8d3a2] rounded-full mix-blend-screen filter blur-[180px] opacity-15 animate-blob animation-delay-1000"></div>
+        
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay"></div>
+    </div>
+
+    <!-- TOP HEADER BAR - Clean Apple Vision -->
+    <header class="h-[68px] w-full liquid-glass z-50 flex items-center justify-between px-8 shrink-0 relative">
+        
+        <!-- Left: Matchup - Clean & Prominent -->
+        <div class="flex items-center gap-6 relative z-10">
+            <div class="flex items-center gap-3">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/68.png" class="h-10 w-10 transition-all duration-300 hover:scale-105" alt="Boise State">
+                <div class="text-right">
+                    <div class="text-[9px] text-white/30 apple-text uppercase tracking-[0.12em]">Boise State</div>
+                    <div class="text-2xl apple-text font-semibold leading-none text-white score-number" id="boise-score">10</div>
+                </div>
+            </div>
+            
+            <div class="px-2">
+                <div class="text-[9px] text-white/20 apple-text tracking-[0.1em]">–</div>
+            </div>
+            
+            <div class="flex items-center gap-3 flex-row-reverse">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/264.png" class="h-10 w-10 transition-all duration-300 hover:scale-105" alt="Washington">
+                <div class="text-left">
+                    <div class="text-[9px] text-white/30 apple-text uppercase tracking-[0.12em]">Washington</div>
+                    <div class="text-2xl apple-text font-semibold leading-none score-number" id="wash-score" style="color: #e8d3a2;">3</div>
+                    <div class="h-[2px] w-full bg-[#e8d3a2]/60 mt-1 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center: Game Info - With Icons -->
+        <div class="flex flex-col items-center justify-center relative z-10">
+            <div class="flex items-center gap-3 mb-1">
+                <div class="flex items-center gap-1.5">
+                    <svg class="w-2.5 h-2.5 text-red-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg>
+                    <span class="text-[8px] text-white/40 apple-text tracking-[0.1em] uppercase">Live</span>
+                </div>
+                <span class="text-white/10">·</span>
+                <div class="flex items-center gap-1">
+                    <svg class="w-2.5 h-2.5 text-white/25" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span class="text-[8px] text-white/25 apple-text tracking-[0.05em]">SoFi Stadium</span>
+                </div>
+                <span class="text-white/10">·</span>
+                <!-- Weather Info -->
+                <div class="flex items-center gap-2.5">
+                    <!-- Sun/Temperature -->
+                    <div class="flex items-center gap-1">
+                        <svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span class="text-[9px] text-white/50 apple-text font-medium">68°F</span>
+                    </div>
+                    <!-- Wind -->
+                    <div class="flex items-center gap-1">
+                        <svg class="w-3 h-3 text-sky-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+                            <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+                        </svg>
+                        <span class="text-[9px] text-white/50 apple-text font-medium">8 mph</span>
+                    </div>
+                    <!-- Dew Point -->
+                    <div class="flex items-center gap-1">
+                        <svg class="w-2.5 h-2.5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2c-5.33 8-8 12-8 15a8 8 0 1 0 16 0c0-3-2.67-7-8-15z"/>
+                        </svg>
+                        <span class="text-[9px] text-white/50 apple-text font-medium">52°</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div class="dot-matrix text-base text-white/60 tracking-tight" id="game-clock">
+                    1st Quarter <span class="text-white/15 mx-1.5">·</span> 1:09
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Situation - With Icons -->
+        <div class="flex items-center gap-4 relative z-10">
+            <div class="text-right">
+                <div class="flex items-center justify-end gap-1 mb-0.5">
+                    <svg class="w-2 h-2 text-white/25" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div class="text-[8px] text-white/25 apple-text uppercase tracking-[0.1em]">Situation</div>
+                </div>
+                <div class="text-sm apple-text text-white/70 font-medium" id="situation-text">1st & 10</div>
+                <div class="flex items-center justify-end gap-1.5 mt-0.5">
+                    <img id="possession-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/264.png" class="w-3.5 h-3.5" alt="Possession" />
+                    <div class="text-[10px] text-white/30 apple-text-light" id="ball-on-text">Ball on BOIS 34</div>
+                </div>
+            </div>
+            <div class="h-9 w-9 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center" id="down-indicator">
+                <span class="text-white/50 text-xs apple-text font-medium">1st</span>
+            </div>
+        </div>
+        
+        <!-- Sidebar Toggle Button -->
+        <button onclick="toggleSidebar()" class="absolute right-4 top-1/2 -translate-y-1/2 h-7 w-7 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all z-50 lg:hidden" id="sidebar-toggle-mobile">
+            <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 flex overflow-hidden relative z-10">
+        
+        <!-- LEFT: FIELD AREA -->
+        <div class="flex-1 relative flex flex-col justify-center items-center p-4 lg:p-6 gap-4 transition-all duration-500" id="field-container">
+            
+            <!-- Context Overlay - Clean minimal with team logo -->
+            <div class="absolute top-4 left-6 z-20 flex gap-2">
+                <div class="bg-black/40 backdrop-blur-xl rounded-xl px-4 py-2.5 text-white transition-all duration-300 flex items-center gap-3" id="play-context-box">
+                    <img id="context-team-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/264.png" class="w-8 h-8 rounded-lg" alt="Team" />
+                    <div>
+                        <div class="flex items-center gap-1.5 mb-0.5">
+                            <div class="w-1 h-1 rounded-full" id="context-dot" style="background-color: #a855f7;"></div>
+                            <div class="text-[8px] text-white/30 apple-text uppercase tracking-[0.1em]">Current Play</div>
+                        </div>
+                        <div class="apple-text text-xs text-white/70" id="play-description-overlay">PLAY: X. Alexander</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Field Container -->
+            <div class="w-full max-w-[90vw] aspect-[2.1/1] relative perspective-[1500px] group transition-all duration-700 z-10">
+                <div class="w-full h-full relative transform-style-3d rotate-x-[12deg] scale-[0.98] group-hover:scale-100 group-hover:rotate-x-0 transition-transform duration-700 ease-out">
+                    
+                    <svg viewBox="-10 -10 140 73.3" class="w-full h-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+                        <defs>
+                            <pattern id="techGrid" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
+                                <path d="M 5 0 L 0 0 0 5" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.08"/>
+                            </pattern>
+                            <pattern id="stripePattern" x="0" y="0" width="10" height="53.3" patternUnits="userSpaceOnUse">
+                                <rect x="0" y="0" width="5" height="53.3" fill="rgba(16, 185, 129, 0.12)" />
+                                <rect x="5" y="0" width="5" height="53.3" fill="rgba(5, 150, 105, 0.18)" />
+                            </pattern>
+                            <filter id="crispGlow" x="-10%" y="-10%" width="120%" height="120%">
+                                <feGaussianBlur stdDeviation="0.15" result="blur"/>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                             <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+                                <path d="M0,0 L0,5 L5,2.5 z" fill="#a855f7" id="arrow-color" />
+                            </marker>
+                            
+                            <linearGradient id="fieldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="white" stop-opacity="0.0"/>
+                                <stop offset="45%" stop-color="white" stop-opacity="0.0"/>
+                                <stop offset="50%" stop-color="white" stop-opacity="0.06"/>
+                                <stop offset="55%" stop-color="white" stop-opacity="0.0"/>
+                                <stop offset="100%" stop-color="white" stop-opacity="0.0"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Field Base - Removed gray container -->
+                        
+                        <!-- Field Markings -->
+                        <g>
+                            <rect x="0" y="0" width="120" height="53.3" fill="url(#stripePattern)" />
+                            <rect x="0" y="0" width="120" height="53.3" fill="url(#techGrid)" />
+                            <rect x="0" y="0" width="120" height="53.3" fill="url(#fieldShine)" style="mix-blend-mode: overlay;" />
+                            
+                            <!-- Endzones -->
+                            <rect x="0" y="0" width="10" height="53.3" fill="#fa4616" opacity="0.6" />
+                            <rect x="110" y="0" width="10" height="53.3" fill="#e8d3a2" opacity="0.6" />
+
+                            <!-- Yard Lines (Sharp & Precise) -->
+                            <g stroke="rgba(255,255,255,0.6)" stroke-width="0.12" stroke-linecap="square">
+                                <line x1="15" y1="0" x2="15" y2="53.3"/>
+                                <line x1="20" y1="0" x2="20" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="25" y1="0" x2="25" y2="53.3"/>
+                                <line x1="30" y1="0" x2="30" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="35" y1="0" x2="35" y2="53.3"/>
+                                <line x1="40" y1="0" x2="40" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="45" y1="0" x2="45" y2="53.3"/>
+                                <line x1="50" y1="0" x2="50" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="55" y1="0" x2="55" y2="53.3"/>
+                                <line x1="60" y1="0" x2="60" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="65" y1="0" x2="65" y2="53.3"/>
+                                <line x1="70" y1="0" x2="70" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="75" y1="0" x2="75" y2="53.3"/>
+                                <line x1="80" y1="0" x2="80" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="85" y1="0" x2="85" y2="53.3"/>
+                                <line x1="90" y1="0" x2="90" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="95" y1="0" x2="95" y2="53.3"/>
+                                <line x1="100" y1="0" x2="100" y2="53.3" stroke-width="0.2" stroke="rgba(255,255,255,0.85)"/>
+                                <line x1="105" y1="0" x2="105" y2="53.3"/>
+                            </g>
+
+                            <!-- Numbers - Clean SF-style -->
+                            <g font-family="'Inter', sans-serif" font-weight="600" font-size="2.2" fill="white" text-anchor="middle" opacity="0.75" style="letter-spacing: -0.02em;">
+                                <text x="20" y="11.5" transform="rotate(180, 20, 11.5)">10</text><text x="20" y="44.5">10</text>
+                                <text x="30" y="11.5" transform="rotate(180, 30, 11.5)">20</text><text x="30" y="44.5">20</text>
+                                <text x="40" y="11.5" transform="rotate(180, 40, 11.5)">30</text><text x="40" y="44.5">30</text>
+                                <text x="50" y="11.5" transform="rotate(180, 50, 11.5)">40</text><text x="50" y="44.5">40</text>
+                                <text x="60" y="11.5" transform="rotate(180, 60, 11.5)">50</text><text x="60" y="44.5">50</text>
+                                <text x="70" y="11.5" transform="rotate(180, 70, 11.5)">40</text><text x="70" y="44.5">40</text>
+                                <text x="80" y="11.5" transform="rotate(180, 80, 11.5)">30</text><text x="80" y="44.5">30</text>
+                                <text x="90" y="11.5" transform="rotate(180, 90, 11.5)">20</text><text x="90" y="44.5">20</text>
+                                <text x="100" y="11.5" transform="rotate(180, 100, 11.5)">10</text><text x="100" y="44.5">10</text>
+                            </g>
+
+                            <!-- Wordmarks -->
+                            <image href="https://raw.githubusercontent.com/sportsdataverse/cfbplotR/main/data-raw/wordmarks/boise_state_broncos_logo_wordmark_2013_sportslogosnet-5682.png" 
+                                x="-15" y="-80" width="40" height="213.2" transform="rotate(-90, 5, 26.65)" opacity="0.95" />
+                            <image href="https://raw.githubusercontent.com/sportsdataverse/cfbplotR/main/data-raw/wordmarks/washington_huskies_logo_wordmark_2016_sportslogosnet-3187.png" 
+                                x="95" y="-80" width="40" height="213.2" transform="rotate(90, 115, 26.65)" opacity="0.95" />
+                            <image href="https://external-preview.redd.it/la-bowl-its-official-v0-vWjktS9qE4mRPd389CM2glwh4ssxgOacgXVVftFld9c.png?auto=webp&s=facd84c771d592691b10a948812cac69872bca57" 
+                                x="50" y="16.65" width="20" height="20" preserveAspectRatio="xMidYMid meet" opacity="0.9" />
+                        </g>
+
+                        <!-- SLEEK AR OVERLAYS (Crisp & Precise) -->
+                        <g id="ar-overlays">
+                            
+                            <!-- 1. LINE OF SCRIMMAGE (Sharp Blue Line) -->
+                            <line id="ar-los" x1="44" y1="0" x2="44" y2="53.3" stroke="#0033A0" stroke-width="0.35" stroke-linecap="square" />
+                            
+                            <!-- 2. FIRST DOWN MARKER (Sharp Yellow Line) -->
+                            <line id="ar-first-down" x1="34" y1="0" x2="34" y2="53.3" stroke="#facc15" stroke-width="0.35" stroke-linecap="square" />
+
+                            <!-- 3. BALL POSITION with Team Logo -->
+                            <g id="ar-ball-group">
+                                <circle id="ar-ball" cx="44" cy="26.65" r="0.8" fill="#5c3d11" stroke="#fff" stroke-width="0.15" />
+                                <!-- Possession Team Logo -->
+                                <image id="ar-possession-logo" x="40" y="28" width="8" height="8" href="https://a.espncdn.com/i/teamlogos/ncaa/500/264.png" opacity="0.95" />
+                            </g>
+                            
+                            <!-- 4. PLAY PATH (Clean Arrow) -->
+                            <path id="ar-path" d="M 73 20 Q 60 40 44 26.65" fill="none" stroke="#a855f7" stroke-width="0.5" stroke-linecap="round" stroke-dasharray="1.5 0.8" marker-end="url(#arrowhead)" opacity="0.9">
+                                <animate attributeName="stroke-dashoffset" from="80" to="0" dur="1.5s" repeatCount="indefinite" />
+                            </path>
+
+                        </g>
+
+                        <!-- SCORING CELEBRATION OVERLAY (Hidden by default) -->
+                        <g id="score-overlay" class="opacity-0" transform="translate(60, 26.65)">
+                            <!-- Shockwave Circles -->
+                            <circle r="20" fill="none" stroke="currentColor" class="opacity-0" id="score-shockwave-1" />
+                            <circle r="15" fill="none" stroke="currentColor" class="opacity-0" id="score-shockwave-2" />
+                            
+                            <!-- Team Logo Centerpiece -->
+                            <image id="score-logo" x="-12" y="-12" width="24" height="24" href="" class="drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]" />
+                            
+                            <!-- Text Projection -->
+                            <text id="score-text" y="18" font-family="'Inter', sans-serif" font-weight="700" font-size="6" text-anchor="middle" fill="white" style="text-shadow: 0 4px 10px black; letter-spacing: 0.1em;">TOUCHDOWN</text>
+                        </g>
+
+                        <!-- Field Border (Clean & Sharp) -->
+                        <rect x="0" y="0" width="120" height="53.3" fill="none" stroke="white" stroke-width="0.8" rx="1" ry="1" />
+
+                    </svg>
+                </div>
+            </div>
+
+            <!-- DYNAMIC ISLAND - Clean Playmaker Center -->
+            <div class="w-full max-w-[70vw] dynamic-island p-3.5 rounded-[24px] flex items-center justify-between relative z-20 transition-all duration-500">
+                
+                <!-- Left: Player Info with Team Logo -->
+                <div id="play-card" class="flex items-center gap-4 transition-all duration-500">
+                    <img id="playmaker-team-logo" src="https://a.espncdn.com/i/teamlogos/ncaa/500/264.png" class="w-10 h-10" alt="Team" />
+                    <div class="relative">
+                        <div class="h-14 w-14 rounded-xl flex items-center justify-center border border-white/10 relative z-10 transition-all duration-300 overflow-hidden" id="player-img-container" style="background: linear-gradient(135deg, #33006f 0%, #1a003a 100%);">
+                            <img id="player-headshot" class="w-full h-full object-cover hidden" alt="Player" />
+                            <span class="text-xl font-medium text-[#e8d3a2] apple-text" id="player-number">10</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-0.5">
+                            <span class="bg-white/5 text-white/40 text-[8px] apple-text px-2 py-0.5 rounded-md uppercase tracking-[0.08em]" id="player-role">Playmaker</span>
+                        </div>
+                        <div class="text-white apple-text text-lg font-medium leading-none tracking-tight" id="player-name">X. Alexander</div>
+                        <div class="text-white/30 text-[10px] mt-0.5 apple-text-light flex items-center gap-2">
+                            <span id="player-team">Washington Huskies • Defense</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center: Last Plays Ticker -->
+                <div class="flex-1 mx-6 overflow-hidden ticker-wrapper">
+                    <div class="flex items-center gap-1 mb-0.5">
+                        <span class="text-[7px] text-white/20 apple-text uppercase tracking-[0.1em]">Recent</span>
+                    </div>
+                    <div class="flex gap-4 whitespace-nowrap" id="last-plays-ticker">
+                        <span class="text-[10px] text-white/35 apple-text">Loading plays...</span>
+                    </div>
+                </div>
+
+                <!-- Right: Controls -->
+                <div class="flex items-center gap-2">
+                     <button onclick="prevPlay()" class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all active:scale-95">
+                        <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                     </button>
+                     
+                     <div class="flex flex-col items-center">
+                         <div class="bg-white/[0.03] px-3 py-1 rounded-full text-[8px] apple-text text-white/35 flex items-center gap-1.5 uppercase tracking-[0.08em]">
+                            <span class="relative flex h-1 w-1">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/40 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-1 w-1 bg-white/50"></span>
+                            </span>
+                            Recap
+                         </div>
+                     </div>
+
+                     <button onclick="nextPlay()" class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all active:scale-95">
+                        <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                     </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- SIDEBAR - Same style as header -->
+        <aside class="w-72 liquid-glass z-40 flex flex-col transition-all duration-500 ease-out" id="sidebar">
+            
+            <!-- Sidebar Toggle (Desktop) -->
+            <button onclick="toggleSidebar()" class="absolute -left-3 top-1/2 -translate-y-1/2 h-6 w-6 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all z-50" id="sidebar-toggle">
+                <svg class="w-3 h-3 text-white/30 transition-transform duration-300" id="toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+            
+            <div class="flex border-b border-white/5">
+                <button class="flex-1 py-3 text-[8px] apple-text text-white/60 border-b border-white/15 bg-white/[0.02] tracking-[0.12em] uppercase">Play-by-Play</button>
+                <button class="flex-1 py-3 text-[8px] apple-text text-white/25 hover:text-white/40 transition-colors tracking-[0.12em] uppercase">Stats</button>
+                <button class="flex-1 py-3 text-[8px] apple-text text-white/25 hover:text-white/40 transition-colors tracking-[0.12em] uppercase">Drive</button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-3 space-y-2" id="feed-container"></div>
+            <div class="p-2.5 border-t border-white/[0.03]">
+                <div class="flex items-center gap-2">
+                    <img src="out/IMG_4744.jpg" alt="GAMEDAY+" class="h-5 w-5 rounded object-cover opacity-30" />
+                    <div>
+                        <div class="text-[7px] text-white/20 apple-text tracking-[0.08em] uppercase">Powered by</div>
+                        <div class="text-[9px] text-white/30 apple-text-light">GAMEDAY+</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <script>
+        let teamLogos = {};
+        let plays = [];
+        let currentPlayIndex = 0;
+        let sidebarOpen = true;
+
+        let playerDatabase = {};
+
+        // Sidebar Toggle Function
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const toggleIcon = document.getElementById('toggle-icon');
+            const fieldContainer = document.getElementById('field-container');
+            
+            sidebarOpen = !sidebarOpen;
+            
+            if (sidebarOpen) {
+                sidebar.style.transform = 'translateX(0)';
+                sidebar.style.width = '288px';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            } else {
+                sidebar.style.transform = 'translateX(100%)';
+                sidebar.style.width = '0';
+                toggleIcon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        async function loadGameData() {
+            try {
+                const response = await fetch('out/washington_boisestate_labowl_playbyplay.json');
+                const data = await response.json();
+                
+                // Setup Teams
+                const homeTeam = data.boxscore.teams[0];
+                const awayTeam = data.boxscore.teams[1];
+                
+                teamLogos[homeTeam.team.id] = homeTeam.team.logo;
+                teamLogos[awayTeam.team.id] = awayTeam.team.logo;
+                
+                // Build Player Database
+                buildPlayerDatabase(data);
+                
+                // Process Plays
+                plays = convertPlaysFromGameData(data);
+                
+                if (plays.length > 0) {
+                    renderFeed();
+                    updateUI();
+                    updateTicker();
+                }
+            } catch (error) {
+                console.error("Error loading game data:", error);
+            }
+        }
+
+        function buildPlayerDatabase(data) {
+            data.boxscore.players.forEach(teamPlayers => {
+                teamPlayers.statistics.forEach(statCategory => {
+                    if (statCategory.athletes) {
+                        statCategory.athletes.forEach(athleteData => {
+                            const athlete = athleteData.athlete;
+                            if (athlete && athlete.jersey) {
+                                const key = athlete.jersey;
+                                playerDatabase[key] = {
+                                    name: athlete.displayName,
+                                    jersey: athlete.jersey,
+                                    headshot: athlete.headshot ? athlete.headshot.href : null,
+                                    teamId: teamPlayers.team.id
+                                };
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        function convertPlaysFromGameData(data) {
+            const processedPlays = [];
+            // Check if drives exist
+            if (!data.drives || !data.drives.previous) return [];
+            
+            const drives = data.drives.previous;
+            let playIdCounter = 1;
+
+            drives.forEach(drive => {
+                drive.plays.forEach(play => {
+                    if (!play.start || !play.end) return;
+
+                    const isWashington = play.start.team.id === '264';
+                    const teamId = play.start.team.id;
+                    
+                    // Map 0-100 yards to 10-110 SVG coordinates
+                    // Assuming yardLine is absolute 0-100
+                    let startYard = play.start.yardLine;
+                    let endYard = play.end.yardLine;
+                    
+                    const los = 10 + startYard; 
+                    const ball = 10 + endYard;
+                    const firstDown = los + (play.start.distance || 10);
+
+                    let type = play.type.text;
+                    let arrowColor = "#fff";
+                    let primaryColor = isWashington ? "#33006f" : "#0033A0";
+                    let secondaryColor = isWashington ? "#e8d3a2" : "#fa4616";
+                    
+                    if (type.includes('Touchdown')) {
+                        type = 'TD';
+                        arrowColor = isWashington ? "#33006f" : "#fa4616";
+                    } else if (type.includes('Field Goal')) {
+                        type = 'FG';
+                        arrowColor = "#10b981";
+                    } else if (type.includes('Interception')) {
+                        type = 'INT';
+                        arrowColor = "#a855f7";
+                    } else if (type.includes('Sack')) {
+                        type = 'SACK';
+                        arrowColor = "#ef4444";
+                    } else if (type.includes('Punt')) {
+                        type = 'PUNT';
+                        arrowColor = "#fff";
+                    } else if (type.includes('Pass')) {
+                        type = 'PASS';
+                        arrowColor = isWashington ? "#e8d3a2" : "#0033A0";
+                    } else if (type.includes('Rush')) {
+                        type = 'RUSH';
+                        arrowColor = isWashington ? "#eab308" : "#fa4616";
+                    } else {
+                        type = 'PLAY';
+                    }
+
+                    let player = { name: "Unknown", number: "00", team: isWashington ? "Washington" : "Boise State", headshot: null };
+                    
+                    // Extract player info from play text (e.g., "#2 D.Williams Jr.")
+                    const jerseyMatch = play.text.match(/#(\d+)\s+([A-Z]\.\s*[A-Za-z-\.\s]+?)(?:\s+(?:rush|pass|sacked|punt|field goal|kickoff))/i);
+                    if (jerseyMatch) {
+                        const jersey = jerseyMatch[1];
+                        const nameFromText = jerseyMatch[2].trim();
+                        
+                        if (playerDatabase[jersey]) {
+                            const dbPlayer = playerDatabase[jersey];
+                            player.name = dbPlayer.name;
+                            player.number = jersey;
+                            player.headshot = dbPlayer.headshot;
+                            player.team = (isWashington ? "Washington" : "Boise State") + " • " + (type === 'INT' || type === 'SACK' ? 'Defense' : 'Offense');
+                        } else {
+                            player.name = nameFromText;
+                            player.number = jersey;
+                            player.team = (isWashington ? "Washington" : "Boise State") + " • " + (type === 'INT' || type === 'SACK' ? 'Defense' : 'Offense');
+                        }
+                    }
+
+                    const midX = (los + ball) / 2;
+                    const midY = type === 'PASS' || type === 'PUNT' || type === 'FG' ? 5 : 35;
+                    const path = `M ${los} 26.65 Q ${midX} ${midY} ${ball} 26.65`;
+
+                    processedPlays.push({
+                        id: playIdCounter++,
+                        time: (play.clock ? play.clock.displayValue : "00:00") + " - " + (play.period.number <= 4 ? play.period.number + (play.period.number===1?"st":play.period.number===2?"nd":play.period.number===3?"rd":"th") : "OT"),
+                        type: type,
+                        title: type,
+                        desc: play.text,
+                        team: teamId,
+                        player: player,
+                        los: los,
+                        firstDown: firstDown,
+                        ball: ball,
+                        path: path,
+                        arrowColor: arrowColor,
+                        primaryColor: primaryColor,
+                        secondaryColor: secondaryColor,
+                        situation: play.start.downDistanceText || "1st & 10",
+                        possession: (isWashington ? "WASH " : "BOIS ") + Math.round(startYard)
+                    });
+                });
+            });
+            
+            return processedPlays;
+        }
+
+        loadGameData();
+
+        function updateTicker() {
+            const ticker = document.getElementById('last-plays-ticker');
+            if (!plays || plays.length === 0) return;
+            
+            // Get last 5 plays
+            const recentPlays = plays.slice(Math.max(0, currentPlayIndex - 4), currentPlayIndex + 1).reverse();
+            
+            ticker.innerHTML = recentPlays.map((play, i) => `
+                <span class="inline-flex items-center gap-1.5 ${i === 0 ? 'text-white/50' : 'text-white/25'} text-[10px] apple-text">
+                    <span class="w-1 h-1 rounded-full opacity-60" style="background-color: ${play.arrowColor}"></span>
+                    <span class="font-medium">${play.type}</span>
+                    <span class="text-white/15">·</span>
+                    <span>${play.player.name.split(' ').pop()}</span>
+                </span>
+            `).join('<span class="text-white/10 mx-2">|</span>');
+        }
+
+        function renderFeed() {
+            const container = document.getElementById('feed-container');
+            container.innerHTML = '';
+            plays.forEach((play, index) => {
+                const isActive = index === currentPlayIndex;
+                const opacity = isActive ? 'opacity-100' : 'opacity-60 hover:opacity-80 cursor-pointer';
+                const teamLogo = teamLogos[play.team] || '';
+                
+                const headshotHtml = play.player.headshot 
+                    ? `<img src="${play.player.headshot}" class="w-9 h-9 rounded-full object-cover" style="${isActive ? `box-shadow: 0 0 12px ${play.arrowColor}60;` : ''}" alt="${play.player.name}" />`
+                    : `<div class="w-9 h-9 rounded-full flex items-center justify-center text-xs font-medium" style="background: ${play.primaryColor}40; color: ${play.secondaryColor};">${play.player.number}</div>`;
+                
+                const html = `
+                    <div class="relative py-2 transition-all duration-300 ${opacity} cursor-pointer" onclick="setPlay(${index})">
+                        <div class="flex items-start gap-3">
+                            <div class="relative">
+                                ${headshotHtml}
+                                <img src="${teamLogo}" class="w-4 h-4 absolute -bottom-0.5 -right-0.5 rounded-full bg-black/50" alt="" />
+                            </div>
+                            <div class="flex-1 min-w-0 pt-0.5">
+                                <div class="flex justify-between items-center mb-0.5">
+                                    <span class="apple-text font-medium text-[12px] truncate" style="color:${isActive ? play.arrowColor : 'rgba(255,255,255,0.7)'}">${play.player.name}</span>
+                                    <span class="text-[7px] apple-text px-1.5 py-0.5 rounded text-black/90 uppercase tracking-wide font-medium ml-2 shrink-0" style="background-color: ${play.arrowColor === '#fff' ? 'rgba(255,255,255,0.8)' : play.arrowColor}">${play.type}</span>
+                                </div>
+                                <p class="text-[10px] leading-relaxed apple-text-light ${isActive ? 'text-white/60' : 'text-white/40'} line-clamp-2">
+                                    ${play.desc.substring(0, 60)}${play.desc.length > 60 ? '...' : ''}
+                                </p>
+                                <span class="text-[8px] apple-text tracking-[0.05em] ${isActive ? 'text-white/50' : 'text-white/30'} mt-1 block">${play.time}</span>
+                            </div>
+                        </div>
+                        ${isActive ? `<div class="absolute left-0 top-0 bottom-0 w-0.5 rounded-full" style="background: ${play.arrowColor}; box-shadow: 0 0 8px ${play.arrowColor};"></div>` : ''}
+                    </div>`;
+                container.innerHTML += html;
+            });
+        }
+
+        function updateUI() {
+            if (!plays || plays.length === 0) return;
+            const play = plays[currentPlayIndex];
+            
+            // Header Stats
+            document.getElementById('situation-text').textContent = play.situation;
+            document.getElementById('ball-on-text').textContent = "Ball on " + play.possession;
+            
+            // Update clock - clean subtle style
+            const timeParts = play.time.split('-');
+            const quarter = timeParts[1] ? timeParts[1].trim() : '1st';
+            const clock = timeParts[0] ? timeParts[0].trim() : '0:00';
+            document.getElementById('game-clock').innerHTML = `${quarter} Quarter <span class="text-white/15 mx-1.5">·</span> ${clock}`;
+            
+            // Update team scores with possession indicator (team color)
+            const isWashington = play.team === '264';
+            const washScore = document.getElementById('wash-score');
+            const boiseScore = document.getElementById('boise-score');
+            
+            if (isWashington) {
+                washScore.style.color = '#e8d3a2';
+                washScore.style.textShadow = '0 0 30px rgba(232, 211, 162, 0.5)';
+                boiseScore.style.color = 'rgba(255,255,255,0.5)';
+                boiseScore.style.textShadow = 'none';
+            } else {
+                boiseScore.style.color = '#0033A0';
+                boiseScore.style.textShadow = '0 0 30px rgba(0, 51, 160, 0.5)';
+                washScore.style.color = 'rgba(255,255,255,0.5)';
+                washScore.style.textShadow = 'none';
+            }
+
+            // AR Lines
+            document.getElementById('ar-los').setAttribute('x1', play.los);
+            document.getElementById('ar-los').setAttribute('x2', play.los);
+            document.getElementById('ar-first-down').setAttribute('x1', play.firstDown);
+            document.getElementById('ar-first-down').setAttribute('x2', play.firstDown);
+
+            // Ball & Path
+            document.getElementById('ar-ball').setAttribute('cx', play.ball);
+            document.getElementById('ar-path').setAttribute('d', play.path);
+            document.getElementById('ar-path').setAttribute('stroke', play.arrowColor);
+            
+            // Possession logo on field
+            const possLogo = document.getElementById('ar-possession-logo');
+            possLogo.setAttribute('href', teamLogos[play.team] || '');
+            possLogo.setAttribute('x', parseFloat(play.ball) - 4);
+            possLogo.setAttribute('y', 28);
+            
+            // SCORING ANIMATION LOGIC
+            const scoreOverlay = document.getElementById('score-overlay');
+            const scoreLogo = document.getElementById('score-logo');
+            const scoreText = document.getElementById('score-text');
+            const shock1 = document.getElementById('score-shockwave-1');
+            const shock2 = document.getElementById('score-shockwave-2');
+
+            // Reset animation state
+            scoreOverlay.classList.remove('animate-score-pop');
+            shock1.classList.remove('animate-shockwave');
+            shock2.classList.remove('animate-shockwave');
+            scoreOverlay.classList.add('opacity-0');
+            shock1.classList.add('opacity-0');
+            shock2.classList.add('opacity-0');
+
+            if (play.type === 'TD' || play.type === 'FG') {
+                // Trigger animation
+                scoreLogo.setAttribute('href', teamLogos[play.team]);
+                scoreText.textContent = play.type === 'TD' ? 'TOUCHDOWN' : 'FIELD GOAL';
+                scoreText.style.fill = play.secondaryColor;
+                scoreOverlay.style.color = play.primaryColor; // Set currentColor for shockwaves
+
+                // Force reflow to restart animation
+                void scoreOverlay.offsetWidth;
+
+                // Add classes
+                scoreOverlay.classList.remove('opacity-0');
+                scoreOverlay.classList.add('animate-score-pop');
+                shock1.classList.remove('opacity-0');
+                shock1.classList.add('animate-shockwave');
+                shock2.classList.remove('opacity-0');
+                shock2.classList.add('animate-shockwave');
+                // Offset start times
+                shock2.style.animationDelay = '0.3s';
+            }
+
+            // Player Card
+            const card = document.getElementById('play-card');
+            card.classList.remove('play-card-enter');
+            void card.offsetWidth;
+            card.classList.add('play-card-enter');
+
+            document.getElementById('player-number').textContent = play.player.number;
+            document.getElementById('player-name').textContent = play.player.name;
+            document.getElementById('player-team').textContent = play.player.team;
+            
+            // Update player headshot
+            const headshot = document.getElementById('player-headshot');
+            const numberDisplay = document.getElementById('player-number');
+            if (play.player.headshot) {
+                headshot.src = play.player.headshot;
+                headshot.classList.remove('hidden');
+                numberDisplay.classList.add('hidden');
+            } else {
+                headshot.classList.add('hidden');
+                numberDisplay.classList.remove('hidden');
+            }
+            
+            const imgContainer = document.getElementById('player-img-container');
+            imgContainer.style.background = `linear-gradient(135deg, ${play.primaryColor} 0%, ${play.primaryColor}80 100%)`;
+            imgContainer.style.borderColor = `${play.secondaryColor}40`;
+            
+            document.getElementById('player-number').style.color = play.secondaryColor;
+            document.getElementById('player-role').style.color = `${play.secondaryColor}cc`;
+            document.getElementById('player-role').style.backgroundColor = `${play.secondaryColor}15`;
+            document.getElementById('player-role').style.borderColor = `${play.secondaryColor}20`;
+
+            // Context Box with team logo
+            const ctxDot = document.getElementById('context-dot');
+            ctxDot.style.backgroundColor = play.arrowColor;
+            document.getElementById('play-description-overlay').textContent = `PLAY: ${play.player.name}`;
+            document.getElementById('context-team-logo').src = teamLogos[play.team] || '';
+            
+            // Playmaker team logo
+            document.getElementById('playmaker-team-logo').src = teamLogos[play.team] || '';
+            
+            // Header possession logo
+            document.getElementById('possession-logo').src = teamLogos[play.team] || '';
+
+            // Update ticker
+            updateTicker();
+            
+            renderFeed();
+        }
+
+        function nextPlay() {
+            currentPlayIndex = (currentPlayIndex + 1) % plays.length;
+            updateUI();
+        }
+
+        function prevPlay() {
+            currentPlayIndex = (currentPlayIndex - 1 + plays.length) % plays.length;
+            updateUI();
+        }
+
+        function setPlay(index) {
+            currentPlayIndex = index;
+            updateUI();
+        }
+    </script>
+</body>
+</html>

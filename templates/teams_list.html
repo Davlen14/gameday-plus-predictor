@@ -39,102 +39,160 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
         body {
-            background-color: #030712;
-            color: #E5E7EB;
+            background-color: #F3F4F6;
+            color: #111827;
             overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* HUD Panels */
+        /* Dark Mode Overrides */
+        .dark body {
+            background-color: #111827; /* Gray 900 */
+            color: #F3F4F6;
+        }
+
+        /* HUD Panels - Modern Glassmorphism */
         .hud-panel {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--tech-border);
-            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .dark .hud-panel {
+            background: rgba(17, 24, 39, 0.6); /* Darker glass */
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
         }
 
         .hud-panel:hover {
-            border-color: rgba(244, 63, 94, 0.3);
-            box-shadow: 0 0 20px rgba(244, 63, 94, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
             transform: translateY(-2px);
         }
 
-        /* Scanline Animation for Cards */
-        @keyframes scanline {
-            0% { transform: translateY(-100%); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(100%); opacity: 0; }
+        .dark .hud-panel:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(31, 41, 55, 0.7);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
         }
 
-        .scan-overlay {
+        /* Team Card Specifics */
+        .team-card {
             position: relative;
             overflow: hidden;
+            background: rgba(255, 255, 255, 0.25) !important;
         }
 
-        .scan-overlay::after {
+        .dark .team-card {
+            background: rgba(31, 41, 55, 0.4) !important; /* Gray 800 glass */
+        }
+        
+        /* Modern Gradient Glow */
+        .team-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(0,0,0,0.03), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .dark .team-card::before {
+            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(255,255,255,0.05), transparent 40%);
+        }
+        
+        .team-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Team Color Accent */
+        .team-card::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
+            width: 100%;
             height: 2px;
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            animation: scanline 3s linear infinite;
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        .hud-panel:hover .scan-overlay::after {
-            opacity: 1;
+            background: linear-gradient(90deg, transparent, var(--team-color, rgba(0,0,0,0.2)), transparent);
+            opacity: 0.8;
         }
 
         /* Filter Buttons */
         .filter-btn {
-            background: rgba(17, 24, 39, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #9CA3AF;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #6B7280;
             transition: all 0.2s;
         }
 
+        .dark .filter-btn {
+            background: rgba(31, 41, 55, 0.4);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #9CA3AF;
+        }
+
         .filter-btn:hover {
-            color: white;
-            border-color: rgba(255, 255, 255, 0.3);
+            color: #111827;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .dark .filter-btn:hover {
+            color: #F3F4F6;
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(55, 65, 81, 0.6);
         }
 
         .filter-btn.active {
-            background: rgba(244, 63, 94, 0.1);
+            background: rgba(255, 255, 255, 0.8);
             border-color: #F43F5E;
             color: #F43F5E;
-            box-shadow: 0 0 10px rgba(244, 63, 94, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(244, 63, 94, 0.1);
+        }
+
+        .dark .filter-btn.active {
+            background: rgba(244, 63, 94, 0.15);
+            border-color: #F43F5E;
+            color: #F43F5E;
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.2);
         }
 
         /* Watermark Logo */
         .watermark-logo {
             position: absolute;
-            right: -20px;
-            bottom: -20px;
-            width: 120px;
-            height: 120px;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2rem;
             opacity: 0.05;
             filter: grayscale(100%);
-            transform: rotate(-10deg);
             z-index: 0;
             pointer-events: none;
-            transition: opacity 0.3s;
+            transition: all 0.5s ease;
         }
         
-        .hud-panel:hover .watermark-logo {
-            opacity: 0.1;
+        .team-card:hover .watermark-logo {
+            opacity: 0.15;
+            filter: grayscale(0%);
+            transform: scale(1.05);
         }
 
         /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #030712; }
-        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
+        .dark ::-webkit-scrollbar-thumb { background: #374151; }
         ::-webkit-scrollbar-thumb:hover { background: #F43F5E; }
     </style>
 </head>
@@ -256,6 +314,85 @@
             </div>
         </div>
 
+        <!-- Analytics Charts -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Chart 1: Power 5 Radar -->
+            <div class="hud-panel rounded-lg p-6 flex flex-col relative">
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="radar" class="w-5 h-5 text-amber-500"></i>
+                    <h3 class="text-sm font-display font-bold text-white uppercase tracking-wider">Power 5 Matrix</h3>
+                </div>
+                
+                <!-- Legend -->
+                <div class="absolute top-6 right-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2 z-10">
+                    <div class="flex flex-col gap-1.5 text-[10px] font-mono">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #D97706;"></div>
+                            <span class="text-gray-300">SEC</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #3B82F6;"></div>
+                            <span class="text-gray-300">Big Ten</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #EF4444;"></div>
+                            <span class="text-gray-300">Big 12</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #8B5CF6;"></div>
+                            <span class="text-gray-300">ACC</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #10B981;"></div>
+                            <span class="text-gray-300">Pac-12</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative w-full" style="height: 550px;">
+                    <canvas id="p5Chart"></canvas>
+                </div>
+            </div>
+
+            <!-- Chart 2: G5 Radar -->
+            <div class="hud-panel rounded-lg p-6 flex flex-col relative">
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="radar" class="w-5 h-5 text-blue-500"></i>
+                    <h3 class="text-sm font-display font-bold text-white uppercase tracking-wider">Group of 5 Matrix</h3>
+                </div>
+                
+                <!-- Legend -->
+                <div class="absolute top-6 right-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2 z-10">
+                    <div class="flex flex-col gap-1.5 text-[10px] font-mono">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #06B6D4;"></div>
+                            <span class="text-gray-300">American Athletic</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #8B5CF6;"></div>
+                            <span class="text-gray-300">Mountain West</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #F97316;"></div>
+                            <span class="text-gray-300">Sun Belt</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #10B981;"></div>
+                            <span class="text-gray-300">Mid-American</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #EC4899;"></div>
+                            <span class="text-gray-300">Conference USA</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative w-full" style="height: 550px;">
+                    <canvas id="g5Chart"></canvas>
+                </div>
+            </div>
+        </div>
+
         <!-- Teams Grid -->
         <div id="teamsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             <!-- Loading State -->
@@ -279,18 +416,518 @@
         const confStyles = {
             'SEC': { color: '#F59E0B', text: 'text-amber-500', bg: 'bg-amber-500/10', border: 'border-amber-500/20' },
             'Big Ten': { color: '#3B82F6', text: 'text-blue-500', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
-            'Big 12': { color: '#E5E7EB', text: 'text-gray-200', bg: 'bg-gray-500/10', border: 'border-gray-500/20' },
+            'Big 12': { color: '#EF4444', text: 'text-red-500', bg: 'bg-red-500/10', border: 'border-red-500/20' },
             'ACC': { color: '#A855F7', text: 'text-purple-500', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
             'Pac-12': { color: '#10B981', text: 'text-emerald-500', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
+            
+            // G5
+            'American Athletic': { color: '#06B6D4', text: 'text-cyan-500', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
+            'Mountain West': { color: '#8B5CF6', text: 'text-violet-500', bg: 'bg-violet-500/10', border: 'border-violet-500/20' },
+            'Sun Belt': { color: '#F97316', text: 'text-orange-500', bg: 'bg-orange-500/10', border: 'border-orange-500/20' },
+            'Mid-American': { color: '#22C55E', text: 'text-green-500', bg: 'bg-green-500/10', border: 'border-green-500/20' },
+            'Conference USA': { color: '#EC4899', text: 'text-pink-500', bg: 'bg-pink-500/10', border: 'border-pink-500/20' },
+            
             'default': { color: '#6B7280', text: 'text-gray-500', bg: 'bg-gray-500/10', border: 'border-gray-500/20' }
         };
+
+        function getConfStyle(confName) {
+            if (!confName) return confStyles['default'];
+            const name = confName;
+            if (confStyles[name]) return confStyles[name];
+            
+            if (name.includes('SEC')) return confStyles['SEC'];
+            if (name.includes('Big Ten') || name.includes('Big 10')) return confStyles['Big Ten'];
+            if (name.includes('Big 12')) return confStyles['Big 12'];
+            if (name.includes('ACC')) return confStyles['ACC'];
+            if (name.includes('Pac')) return confStyles['Pac-12'];
+            
+            if (name.includes('American')) return confStyles['American Athletic'];
+            if (name.includes('Mountain')) return confStyles['Mountain West'];
+            if (name.includes('Sun Belt')) return confStyles['Sun Belt'];
+            if (name.includes('Mid-American') || name.includes('MAC')) return confStyles['Mid-American'];
+            if (name.includes('USA')) return confStyles['Conference USA'];
+            
+            return confStyles['default'];
+        }
+
+        function handleCardHover(e) {
+            const card = e.currentTarget;
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        }
+
+        async function createCharts() {
+            try {
+                const response = await fetch('/api/stats/conference-wins');
+                const data = await response.json();
+                
+                // Conference Logos Configuration
+                const conferenceLogos = {
+                    'ACC': '/frontend/public/photos/ACC.png',
+                    'Big 12': '/frontend/public/photos/Big 12.png',
+                    'Big Ten': '/frontend/public/photos/Big Ten.png',
+                    'SEC': '/frontend/public/photos/SEC.png',
+                    'Pac-12': '/frontend/public/photos/Pac-12.png',
+                    'American Athletic': '/frontend/public/photos/American Athletic.png',
+                    'Mid-American': '/frontend/public/photos/Mid-American.png',
+                    'Mountain West': '/frontend/public/photos/Mountain West.png',
+                    'Sun Belt': '/frontend/public/photos/Sun Belt.png',
+                    'Conference USA': '/frontend/public/photos/Conference USA.png'
+                };
+
+                // Preload images
+                const logoImages = {};
+                Object.entries(conferenceLogos).forEach(([key, url]) => {
+                    const img = new Image();
+                    img.src = url;
+                    logoImages[key] = img;
+                });
+
+                // Custom Plugin for Logo Watermarks
+                const logoPlugin = {
+                    id: 'conferenceLogos',
+                    beforeDatasetDraw(chart, args, options) {
+                        const { ctx } = chart;
+                        const meta = chart.getDatasetMeta(0);
+                        
+                        // Draw watermarked slices BEFORE the data
+                        meta.data.forEach((element, index) => {
+                            const confName = chart.data.labels[index];
+                            const img = logoImages[confName];
+                            const confStyle = getConfStyle(confName);
+                            
+                            if (img && img.complete && img.naturalWidth > 0) {
+                                const centerX = chart.scales.r.xCenter;
+                                const centerY = chart.scales.r.yCenter;
+                                const startAngle = element.startAngle;
+                                const endAngle = element.endAngle;
+                                const outerRadius = element.outerRadius;
+                                const innerRadius = chart.scales.r.drawingArea * 0.15; // Small inner radius
+                                
+                                ctx.save();
+                                
+                                // Fill the entire quadrant/slice with conference color (semi-transparent)
+                                ctx.beginPath();
+                                ctx.moveTo(centerX, centerY);
+                                ctx.arc(centerX, centerY, outerRadius, startAngle, endAngle);
+                                ctx.closePath();
+                                
+                                // Convert hex to rgba with very low opacity for watermark effect
+                                const hex = confStyle.color.replace('#', '');
+                                const r = parseInt(hex.substring(0, 2), 16);
+                                const g = parseInt(hex.substring(2, 4), 16);
+                                const b = parseInt(hex.substring(4, 6), 16);
+                                ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.18)`;
+                                ctx.fill();
+                                
+                                // Calculate logo position and size based on slice dimensions
+                                const sliceAngle = endAngle - startAngle;
+                                const midAngle = (startAngle + endAngle) / 2;
+                                
+                                // Position logo at 50% of radius - center of the slice
+                                const logoRadius = outerRadius * 0.5;
+                                const x = centerX + Math.cos(midAngle) * logoRadius;
+                                const y = centerY + Math.sin(midAngle) * logoRadius;
+                                
+                                // Calculate logo size to fit nicely within quadrant
+                                // Make logo proportional to the outer radius
+                                const size = outerRadius * 0.8; // Balanced size for quadrant
+                                
+                                // Draw logo with transparency and rotation
+                                ctx.globalAlpha = 0.28; // Adjusted opacity
+                                ctx.translate(x, y);
+                                // Special rotation for Big Ten
+                                const rotation = confName === 'Big Ten' ? 90 : 45;
+                                ctx.rotate(rotation * Math.PI / 180);
+                                ctx.drawImage(img, -size/2, -size/2, size, size);
+                                
+                                ctx.restore();
+                            }
+                        });
+                    }
+                };
+
+                // Common Chart Options
+                const commonOptions = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: { 
+                            display: true,
+                            labels: { color: '#9CA3AF', font: { family: 'JetBrains Mono', size: 10 } }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(17, 24, 39, 0.9)',
+                            titleColor: '#fff',
+                            bodyColor: '#ccc',
+                            borderColor: 'rgba(255, 255, 255, 0.1)',
+                            borderWidth: 1,
+                            padding: 12,
+                            titleFont: { family: 'Orbitron', size: 13 },
+                            bodyFont: { family: 'JetBrains Mono', size: 11 },
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y;
+                                    }
+                                    return label;
+                                },
+                                afterBody: function(context) {
+                                    const index = context[0].dataIndex;
+                                    const dataset = context[0].chart.data.datasets[0].raw_data;
+                                    if (dataset && dataset[index]) {
+                                        return [
+                                            `Avg Talent: ${dataset[index].avg_talent}`,
+                                            `Avg SOS Rank: ${dataset[index].avg_sos} (Lower is Harder)`,
+                                            `Avg Turnover Margin: ${dataset[index].avg_turnover > 0 ? '+' : ''}${dataset[index].avg_turnover}`
+                                        ];
+                                    }
+                                    return '';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9CA3AF', font: { family: 'JetBrains Mono' } },
+                            title: { display: true, text: 'Avg Wins', color: '#6B7280', font: { size: 10 } }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            grid: { drawOnChartArea: false },
+                            ticks: { color: '#F43F5E', font: { family: 'JetBrains Mono' } },
+                            title: { display: true, text: 'SP+ Rating', color: '#F43F5E', font: { size: 10 } }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#D1D5DB', font: { family: 'JetBrains Mono', size: 10 } }
+                        }
+                    }
+                };
+
+                // Custom plugin for percentage labels outside the chart with L-shaped arrows
+                const percentagePlugin = {
+                    id: 'percentageLabels',
+                    afterDraw(chart) {
+                        const { ctx } = chart;
+                        const meta = chart.getDatasetMeta(0);
+                        const dataset = chart.data.datasets[0];
+                        const total = dataset.data.reduce((sum, val) => sum + val, 0);
+                        
+                        meta.data.forEach((element, index) => {
+                            const centerX = chart.scales.r.xCenter;
+                            const centerY = chart.scales.r.yCenter;
+                            const midAngle = (element.startAngle + element.endAngle) / 2;
+                            const value = dataset.data[index];
+                            const percentage = ((value / total) * 100).toFixed(1);
+                            
+                            // Get conference style for color
+                            const rawData = dataset.raw_data[index];
+                            const confStyle = getConfStyle(rawData.conference);
+                            
+                            // Color based on positive/negative
+                            let textColor;
+                            if (rawData.avg_sp > 5) {
+                                textColor = '#10B981'; // Green for strong
+                            } else if (rawData.avg_sp < -5) {
+                                textColor = '#EF4444'; // Red for weak
+                            } else {
+                                textColor = '#10B981'; // Emerald default
+                            }
+                            
+                            // L-shaped arrow positions
+                            const lineStartRadius = element.outerRadius * 1.05; // Start outside the circle
+                            const elbowRadius = element.outerRadius * 1.25; // Where the L bends
+                            const horizontalLength = 50; // Length of horizontal line
+                            
+                            // Start point (outside circle)
+                            const startX = centerX + Math.cos(midAngle) * lineStartRadius;
+                            const startY = centerY + Math.sin(midAngle) * lineStartRadius;
+                            
+                            // Elbow point (where line bends)
+                            const elbowX = centerX + Math.cos(midAngle) * elbowRadius;
+                            const elbowY = centerY + Math.sin(midAngle) * elbowRadius;
+                            
+                            // Determine if label should go left or right based on angle
+                            // Right side: -90 to 90 degrees
+                            const angleDeg = (midAngle * 180 / Math.PI) % 360;
+                            const isRightSide = angleDeg > -90 && angleDeg < 90;
+                            const direction = isRightSide ? 1 : -1;
+                            
+                            // End point of horizontal line
+                            const endX = elbowX + (horizontalLength * direction);
+                            const endY = elbowY;
+                            
+                            ctx.save();
+                            
+                            // Draw L-shaped line
+                            ctx.beginPath();
+                            ctx.moveTo(startX, startY);
+                            ctx.lineTo(elbowX, elbowY); // Radial line
+                            ctx.lineTo(endX, endY); // Horizontal line
+                            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+                            ctx.lineWidth = 1.5;
+                            ctx.stroke();
+                            
+                            // Style the percentage text
+                            ctx.font = 'bold 20px JetBrains Mono';
+                            ctx.textAlign = isRightSide ? 'left' : 'right';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillStyle = textColor;
+                            
+                            // Add subtle glow effect
+                            ctx.shadowColor = textColor;
+                            ctx.shadowBlur = 12;
+                            
+                            // Position text at end of horizontal line with padding
+                            const textX = endX + (10 * direction);
+                            ctx.fillText(`${percentage}%`, textX, endY);
+                            ctx.restore();
+                        });
+                    }
+                };
+
+                // Helper to build chart config
+                const buildConfig = (ctx, dataset) => {
+                    return new Chart(ctx, {
+                        type: 'polarArea',
+                        data: {
+                            labels: dataset.map(d => d.conference),
+                            datasets: [{
+                                label: 'Power Rating',
+                                data: dataset.map(d => Math.max(0, d.avg_sp + 15)), // Normalize SP+ for visualization
+                                raw_data: dataset,
+                                backgroundColor: dataset.map(d => {
+                                    const style = getConfStyle(d.conference);
+                                    // Convert hex to rgba with opacity
+                                    const hex = style.color.replace('#', '');
+                                    const r = parseInt(hex.substring(0, 2), 16);
+                                    const g = parseInt(hex.substring(2, 4), 16);
+                                    const b = parseInt(hex.substring(4, 6), 16);
+                                    return `rgba(${r}, ${g}, ${b}, 0.7)`;
+                                }),
+                                borderColor: dataset.map(d => {
+                                    const style = getConfStyle(d.conference);
+                                    return style.color;
+                                }),
+                                borderWidth: 2,
+                                hoverBackgroundColor: dataset.map(d => {
+                                    const style = getConfStyle(d.conference);
+                                    return style.color;
+                                }),
+                                hoverBorderColor: '#fff',
+                                hoverBorderWidth: 3
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            layout: {
+                                padding: {
+                                    top: 50,
+                                    right: 80,
+                                    bottom: 50,
+                                    left: 80
+                                }
+                            },
+                            scales: {
+                                r: {
+                                    grid: {
+                                        color: 'rgba(255, 255, 255, 0.08)',
+                                        lineWidth: 1,
+                                        circular: true
+                                    },
+                                    angleLines: {
+                                        color: 'rgba(255, 255, 255, 0.12)',
+                                        lineWidth: 1
+                                    },
+                                    ticks: {
+                                        display: false,
+                                        backdropColor: 'transparent'
+                                    },
+                                    pointLabels: {
+                                        display: false
+                                    },
+                                    beginAtZero: true,
+                                    suggestedMin: 0,
+                                    suggestedMax: undefined
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                tooltip: {
+                                    enabled: true,
+                                    backgroundColor: 'rgba(17, 24, 39, 0.98)',
+                                    titleColor: '#fff',
+                                    bodyColor: '#D1D5DB',
+                                    borderColor: 'rgba(255, 255, 255, 0.15)',
+                                    borderWidth: 1,
+                                    padding: 16,
+                                    titleFont: { family: 'Orbitron', size: 14, weight: 'bold' },
+                                    bodyFont: { family: 'JetBrains Mono', size: 11 },
+                                    displayColors: true,
+                                    boxWidth: 12,
+                                    boxHeight: 12,
+                                    boxPadding: 6,
+                                    callbacks: {
+                                        title: function(context) {
+                                            return context[0].label;
+                                        },
+                                        label: function(context) {
+                                            const index = context.dataIndex;
+                                            const d = context.chart.data.datasets[0].raw_data[index];
+                                            return [
+                                                `Avg Wins: ${d.avg_wins}`,
+                                                `SP+ Rating: ${d.avg_sp}`,
+                                                `Talent Composite: ${d.avg_talent}`,
+                                                `Offense (SP+): ${d.avg_offense}`,
+                                                `Defense (SP+): ${d.avg_defense}`,
+                                                `SOS Rank: ${d.avg_sos}`,
+                                                `Turnover Margin: ${d.avg_turnover > 0 ? '+' : ''}${d.avg_turnover}`
+                                            ];
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        plugins: [logoPlugin, percentagePlugin]
+                    });
+                };
+
+                // P5 Chart
+                const p5Ctx = document.getElementById('p5Chart');
+                if (p5Ctx && data.p5.length > 0) {
+                    buildConfig(p5Ctx, data.p5);
+                }
+
+                // G5 Chart
+                const g5Ctx = document.getElementById('g5Chart');
+                if (g5Ctx && data.g5.length > 0) {
+                    buildConfig(g5Ctx, data.g5);
+                }
+
+                // Helper for Efficiency Charts
+                const buildEfficiencyConfig = (ctx, dataset) => {
+                    return new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: dataset.map(d => d.conference),
+                            datasets: [
+                                {
+                                    label: 'Avg Offense (Higher is Better)',
+                                    data: dataset.map(d => d.avg_offense),
+                                    backgroundColor: '#10B981', // Emerald-500
+                                    borderRadius: 4,
+                                    barThickness: 20,
+                                    stack: 'Stack 0'
+                                },
+                                {
+                                    label: 'Avg Defense (Lower is Better)',
+                                    data: dataset.map(d => d.avg_defense),
+                                    backgroundColor: '#F43F5E', // Rose-500
+                                    borderRadius: 4,
+                                    barThickness: 20,
+                                    stack: 'Stack 1'
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                                    ticks: { color: '#9CA3AF', font: { family: 'JetBrains Mono' } },
+                                    title: { display: true, text: 'SP+ Rating', color: '#6B7280', font: { size: 10 } }
+                                },
+                                x: {
+                                    grid: { display: false },
+                                    ticks: { color: '#D1D5DB', font: { family: 'JetBrains Mono', size: 10 } }
+                                }
+                            },
+                            plugins: {
+                                legend: { 
+                                    display: true,
+                                    labels: { color: '#9CA3AF', font: { family: 'JetBrains Mono', size: 10 } }
+                                },
+                                tooltip: {
+                                    backgroundColor: 'rgba(17, 24, 39, 0.9)',
+                                    titleColor: '#fff',
+                                    bodyColor: '#ccc',
+                                    borderColor: 'rgba(255, 255, 255, 0.1)',
+                                    borderWidth: 1,
+                                    padding: 12,
+                                    titleFont: { family: 'Orbitron', size: 13 },
+                                    bodyFont: { family: 'JetBrains Mono', size: 11 },
+                                    callbacks: {
+                                        label: function(context) {
+                                            return `${context.dataset.label}: ${context.raw}`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                };
+
+                // P5 Efficiency Chart
+                const p5EffCtx = document.getElementById('p5EffChart');
+                if (p5EffCtx && data.p5.length > 0) {
+                    buildEfficiencyConfig(p5EffCtx, data.p5);
+                }
+
+                // G5 Efficiency Chart
+                const g5EffCtx = document.getElementById('g5EffChart');
+                if (g5EffCtx && data.g5.length > 0) {
+                    buildEfficiencyConfig(g5EffCtx, data.g5);
+                }
+
+            } catch (error) {
+                console.error('Error creating charts:', error);
+            }
+        }
 
         async function loadTeams() {
             try {
                 const response = await fetch('/api/teams');
                 const data = await response.json();
                 allTeams = data.teams || [];
+                
+                // Sort: FBS first, then alphabetical
+                allTeams.sort((a, b) => {
+                    const isFbsA = (a.classification || '').toLowerCase() === 'fbs';
+                    const isFbsB = (b.classification || '').toLowerCase() === 'fbs';
+                    
+                    if (isFbsA && !isFbsB) return -1;
+                    if (!isFbsA && isFbsB) return 1;
+                    
+                    return a.school.localeCompare(b.school);
+                });
+
                 renderTeams(allTeams);
+                createCharts();
             } catch (error) {
                 console.error('Error loading teams:', error);
                 document.getElementById('teamsGrid').innerHTML = `
@@ -301,17 +938,6 @@
                 `;
                 lucide.createIcons();
             }
-        }
-
-        function getConfStyle(confName) {
-            if (!confName) return confStyles['default'];
-            const name = confName;
-            if (name.includes('SEC')) return confStyles['SEC'];
-            if (name.includes('Big Ten') || name.includes('Big 10')) return confStyles['Big Ten'];
-            if (name.includes('Big 12')) return confStyles['Big 12'];
-            if (name.includes('ACC')) return confStyles['ACC'];
-            if (name.includes('Pac')) return confStyles['Pac-12'];
-            return confStyles['default'];
         }
 
         function renderTeams(teams) {
@@ -330,55 +956,69 @@
                 const conf = team.conference || 'N/A';
                 const style = getConfStyle(conf);
                 const logoUrl = team.logo_url || `https://a.espncdn.com/i/teamlogos/ncaa/500/${team.espn_id || team.id}.png`;
+                const teamColor = team.color || style.color;
                 
                 return `
-                    <a href="/team/${team.id}" class="hud-panel rounded-lg p-5 block group scan-overlay relative overflow-hidden" 
-                       style="border-left: 3px solid ${style.color}">
+                    <a href="/team/${team.id}" class="team-card hud-panel rounded-2xl p-6 block group cursor-pointer transition-all duration-300" 
+                       onmousemove="handleCardHover(event)"
+                       style="--team-color: ${teamColor}">
                         
                         <!-- Watermark -->
                         <img src="${logoUrl}" alt="" class="watermark-logo">
                         
                         <!-- Header -->
-                        <div class="relative z-10 flex items-start gap-4 mb-4">
-                            <div class="w-12 h-12 rounded bg-black/40 border border-white/5 p-1 flex items-center justify-center flex-shrink-0">
-                                <img src="${logoUrl}" alt="${team.school}" class="w-full h-full object-contain" 
-                                     onerror="this.src='https://via.placeholder.com/48?text=TM'">
+                        <div class="relative z-10 flex gap-5 mb-5 items-center">
+                            <div class="relative flex-shrink-0 flex-grow-0" style="width: 80px; height: 80px;">
+                                <div class="w-full h-full rounded-xl bg-white dark:bg-white/5 ring-1 ring-gray-200 dark:ring-white/10 flex items-center justify-center p-2 shadow-sm">
+                                    <img src="${logoUrl}" alt="${team.school}" style="width: 100%; height: 100%; object-fit: contain;" 
+                                         onerror="this.src='https://via.placeholder.com/80?text=TM'">
+                                </div>
                             </div>
-                            <div class="flex-1 min-w-0">
-                                <h3 class="font-display font-bold text-white text-base truncate group-hover:text-primary transition-colors">
+                            
+                            <div class="flex-1 min-w-0 flex flex-col justify-center">
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight truncate group-hover:text-[var(--team-color)] transition-colors duration-300">
                                     ${team.school}
                                 </h3>
-                                <div class="flex items-center gap-2 mt-1">
-                                    <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold border ${style.bg} ${style.text} ${style.border}">
+                                <div class="flex gap-2 mt-2">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 tracking-wider">
                                         ${conf}
                                     </span>
-                                    ${team.division ? `<span class="text-[10px] font-mono text-gray-500 border border-white/5 px-1.5 py-0.5 rounded">${team.division}</span>` : ''}
+                                    ${team.division ? `<span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-500 dark:text-gray-400 tracking-wider">${team.division}</span>` : ''}
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Stats Grid -->
-                        <div class="relative z-10 grid grid-cols-2 gap-3 pt-3 border-t border-white/5">
+                        <div class="relative z-10 grid grid-cols-2 gap-4 border-t border-gray-100 dark:border-white/5 pt-4">
                             <div>
-                                <div class="text-[9px] text-gray-500 font-mono uppercase tracking-wider mb-0.5">Seasons</div>
-                                <div class="text-sm font-mono font-bold text-white">${team.total_seasons || 0}</div>
+                                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider mb-0.5">2025 Record</div>
+                                <div class="text-sm font-mono font-bold text-gray-900 dark:text-white tracking-tight">
+                                    ${team.latest_wins !== null ? `<span class="text-white">${team.latest_wins}</span><span class="text-gray-500">-</span><span class="text-gray-400">${team.latest_losses}</span>` : '<span class="text-gray-600">--</span>'}
+                                </div>
                             </div>
                             <div>
-                                <div class="text-[9px] text-gray-500 font-mono uppercase tracking-wider mb-0.5">Rankings</div>
-                                <div class="text-sm font-mono font-bold text-gray-300">${team.total_rankings || 0} <span class="text-[9px] text-gray-600">WKS</span></div>
+                                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider mb-0.5">SP+ Rating</div>
+                                <div class="text-sm font-mono font-bold text-gray-900 dark:text-white tracking-tight">
+                                    ${team.latest_sp ? `<span class="${team.latest_sp > 0 ? 'text-emerald-400' : 'text-rose-400'}">${parseFloat(team.latest_sp).toFixed(1)}</span>` : '<span class="text-gray-600">--</span>'}
+                                </div>
                             </div>
-                            <div class="col-span-2">
-                                <div class="text-[9px] text-gray-500 font-mono uppercase tracking-wider mb-0.5">Base of Ops</div>
-                                <div class="text-xs font-mono text-gray-400 truncate flex items-center gap-1">
-                                    <i data-lucide="map-pin" class="w-3 h-3"></i>
-                                    ${team.location_name ? team.location_name : (team.city ? `${team.city}, ${team.state}` : 'Unknown')}
+                            <div>
+                                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider mb-0.5">Talent Comp</div>
+                                <div class="text-sm font-mono font-bold text-gray-900 dark:text-white tracking-tight">
+                                    ${team.latest_talent ? Math.round(team.latest_talent) : '<span class="text-gray-600">--</span>'}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider mb-0.5">Location</div>
+                                <div class="text-xs font-mono text-gray-400 truncate" title="${team.location_name || team.city}">
+                                    ${team.city || 'Unknown'}, ${team.state || ''}
                                 </div>
                             </div>
                         </div>
 
                         <!-- Hover Arrow -->
-                        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-primary"></i>
+                        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-[var(--team-color)]"></i>
                         </div>
                     </a>
                 `;

@@ -1,0 +1,379 @@
+<!-- Upcoming Games Slider Component (ESPN Style) -->
+<style>
+    /* Game Slider Component Styles */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .game-card {
+        min-width: 340px;
+        flex-shrink: 0;
+        background: rgba(10, 10, 10, 0.6);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 
+                    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    }
+    .game-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(255, 15, 69, 0.2), rgba(255, 15, 69, 0.05), transparent);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    .game-card:hover {
+        border-color: rgba(255, 15, 69, 0.5);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(255, 15, 69, 0.3), 
+                    0 0 0 1px rgba(255, 15, 69, 0.3) inset,
+                    0 0 40px rgba(255, 15, 69, 0.2);
+        background: rgba(15, 15, 15, 0.7);
+    }
+    .game-card:hover::before {
+        opacity: 1;
+    }
+    .game-header {
+        padding: 18px 20px 8px 20px;
+        background: transparent;
+    }
+    .teams-container {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: stretch;
+        gap: 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .team-side {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 24px 16px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    .team-watermark {
+        position: absolute;
+        inset: -40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.12;
+        pointer-events: none;
+        overflow: hidden;
+        mask-image: radial-gradient(ellipse at center, black 20%, transparent 85%);
+        -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 85%);
+    }
+    .team-watermark img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        filter: brightness(1.5) contrast(1.1) blur(1px);
+        opacity: 0.15;
+        transform: scale(1.2);
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .game-card:hover .team-watermark img {
+        transform: scale(1.15);
+        opacity: 1.2;
+    }
+    .vs-divider-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 8px;
+        position: relative;
+        z-index: 10;
+    }
+    .vs-divider {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 15, 69, 0.1);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 15, 69, 0.3);
+        border-radius: 8px;
+        box-shadow: 0 4px 16px rgba(255, 15, 69, 0.2),
+                    0 0 0 1px rgba(255, 15, 69, 0.1) inset;
+        transition: all 0.3s ease;
+    }
+    .vs-divider::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(255, 15, 69, 0.3), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .game-card:hover .vs-divider {
+        transform: scale(1.05);
+        background: rgba(255, 15, 69, 0.2);
+        border-color: rgba(255, 15, 69, 0.5);
+        box-shadow: 0 6px 24px rgba(255, 15, 69, 0.4),
+                    0 0 30px rgba(255, 15, 69, 0.3),
+                    0 0 0 1px rgba(255, 15, 69, 0.3) inset;
+    }
+    .game-card:hover .vs-divider::before {
+        opacity: 1;
+    }
+    .vs-text {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: rgba(255, 15, 69, 1);
+        text-transform: uppercase;
+        text-shadow: 0 0 10px rgba(255, 15, 69, 0.5);
+        position: relative;
+        z-index: 1;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+    }
+    .game-card:hover .vs-text {
+        text-shadow: 0 0 20px rgba(255, 15, 69, 0.8),
+                     0 0 40px rgba(255, 15, 69, 0.4);
+    }
+    .team-left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .team-logo-small {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+        filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+        transition: all 0.3s ease;
+    }
+    .game-card:hover .team-logo-small {
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+        transform: scale(1.05);
+    }
+    .rank-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        font-size: 8px;
+        font-weight: 700;
+        padding: 3px 5px;
+        background: rgba(255, 15, 69, 0.2);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 15, 69, 0.5);
+        border-radius: 4px;
+        color: #FF0F45;
+        line-height: 1;
+        box-shadow: 0 2px 8px rgba(255, 15, 69, 0.4),
+                    0 0 16px rgba(255, 15, 69, 0.2);
+        text-shadow: 0 0 8px rgba(255, 15, 69, 0.8);
+        transition: all 0.3s ease;
+    }
+    .game-card:hover .rank-badge {
+        background: rgba(255, 15, 69, 0.3);
+        box-shadow: 0 3px 12px rgba(255, 15, 69, 0.6),
+                    0 0 24px rgba(255, 15, 69, 0.4);
+        transform: scale(1.05);
+    }
+    .team-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+    .game-divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        margin: 4px 0;
+    }
+    .betting-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding: 12px 20px 18px 20px;
+        background: transparent;
+    }
+    .betting-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(8px);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.3s ease;
+    }
+    .game-card:hover .betting-item {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 15, 69, 0.2);
+        transform: translateY(-2px);
+    }
+</style>
+
+<div class="pt-20 border-b border-white/10 backdrop-blur-xl overflow-hidden relative" style="background: rgba(0, 0, 0, 0.4);">
+    <!-- Subtle geometric pattern overlay -->
+    <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(255, 15, 69, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 15, 69, 0.02) 1px, transparent 1px); background-size: 30px 30px; opacity: 0.5;"></div>
+    <div class="px-6 py-4 relative z-10">
+        <div class="flex items-center justify-between mb-3 max-w-7xl mx-auto">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+                <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                Upcoming Games
+            </h3>
+            <div class="flex gap-2">
+                <button onclick="scrollGames('left')" class="w-7 h-7 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition flex items-center justify-center">
+                    <i data-lucide="chevron-left" class="w-4 h-4 text-white"></i>
+                </button>
+                <button onclick="scrollGames('right')" class="w-7 h-7 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition flex items-center justify-center">
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-white"></i>
+                </button>
+            </div>
+        </div>
+        <div class="relative -mx-6">
+            <div id="gamesSlider" class="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth py-2 px-6" style="mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);">
+                <!-- Games will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Game Slider Component JavaScript
+    async function loadUpcomingGames() {
+        try {
+            const response = await fetch('/api/upcoming-games');
+            const data = await response.json();
+            const slider = document.getElementById('gamesSlider');
+            
+            if (!data.games || data.games.length === 0) {
+                slider.innerHTML = '<p class="text-gray-500 text-sm">No upcoming games found</p>';
+                return;
+            }
+            
+            slider.innerHTML = data.games.map(game => {
+                const gameDate = new Date(game.date);
+                const dateStr = gameDate.toLocaleDateString('en-US', { 
+                    weekday: 'short', 
+                    month: 'short', 
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: '2-digit'
+                });
+                
+                const awayColor = game.away.color || '#666666';
+                const homeColor = game.home.color || '#666666';
+                const gameId = game.id || Math.floor(Math.random() * 100000);
+                
+                return `
+                    <div class="game-card" onclick="window.location.href='/game/${gameId}'">
+                        <div class="game-header">
+                            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest text-center">
+                                ${dateStr}
+                            </div>
+                            <div class="text-[9px] font-mono text-gray-500 uppercase tracking-wider text-center mt-1">
+                                ${game.seasonType === 'postseason' ? 'BOWL GAME' : 'WEEK ' + game.week}
+                            </div>
+                        </div>
+                        
+                        <div class="teams-container">
+                            <div class="team-side" style="background: linear-gradient(135deg, ${awayColor}15 0%, ${awayColor}05 100%);">
+                                <div class="team-watermark">
+                                    <img src="${game.away.logo}" alt="${game.away.team}" onerror="this.style.display='none'">
+                                </div>
+                                <div class="team-left" style="position: relative; z-index: 1;">
+                                    <img src="${game.away.logo}" alt="${game.away.team}" class="team-logo-small" onerror="this.style.display='none'">
+                                    ${game.away.rank ? `<span class="rank-badge">#${game.away.rank}</span>` : ''}
+                                </div>
+                                <div class="text-xs font-semibold text-gray-400 text-center leading-tight" style="position: relative; z-index: 1;">${game.away.abbr || game.away.team}</div>
+                                <div class="text-[9px] text-gray-500 font-mono" style="position: relative; z-index: 1;">${game.away.record || 'N/A'}</div>
+                            </div>
+                            
+                            <div class="vs-divider-container">
+                                <div class="vs-divider">
+                                    <span class="vs-text">vs</span>
+                                </div>
+                            </div>
+                            
+                            <div class="team-side" style="background: linear-gradient(225deg, ${homeColor}15 0%, ${homeColor}05 100%);">
+                                <div class="team-watermark">
+                                    <img src="${game.home.logo}" alt="${game.home.team}" onerror="this.style.display='none'">
+                                </div>
+                                <div class="team-left" style="position: relative; z-index: 1;">
+                                    <img src="${game.home.logo}" alt="${game.home.team}" class="team-logo-small" onerror="this.style.display='none'">
+                                    ${game.home.rank ? `<span class="rank-badge">#${game.home.rank}</span>` : ''}
+                                </div>
+                                <div class="text-xs font-semibold text-gray-400 text-center leading-tight" style="position: relative; z-index: 1;">${game.home.abbr || game.home.team}</div>
+                                <div class="text-[9px] text-gray-500 font-mono" style="position: relative; z-index: 1;">${game.home.record || 'N/A'}</div>
+                            </div>
+                        </div>
+                        
+                        ${(game.betting.spread || game.betting.overUnder) ? `
+                        <div class="betting-info" style="padding: 12px 16px 16px 16px;">
+                            ${game.betting.spread ? `
+                            <div class="betting-item">
+                                <span class="text-[9px] text-gray-500 uppercase tracking-wider font-bold">Spread</span>
+                                <span class="text-sm font-bold text-brand-accent">${game.betting.spread > 0 ? '+' : ''}${game.betting.spread}</span>
+                            </div>
+                            ` : ''}
+                            ${game.betting.overUnder ? `
+                            <div class="betting-item">
+                                <span class="text-[9px] text-gray-500 uppercase tracking-wider font-bold">O/U</span>
+                                <span class="text-sm font-bold text-gray-300">${game.betting.overUnder}</span>
+                            </div>
+                            ` : ''}
+                        </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        } catch (error) {
+            console.error('Error loading games:', error);
+            document.getElementById('gamesSlider').innerHTML = 
+                '<p class="text-red-400 text-sm">Error loading games</p>';
+        }
+    }
+    
+    function scrollGames(direction) {
+        const slider = document.getElementById('gamesSlider');
+        const scrollAmount = 300;
+        if (direction === 'left') {
+            slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        } else {
+            slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadUpcomingGames);
+    } else {
+        loadUpcomingGames();
+    }
+</script>

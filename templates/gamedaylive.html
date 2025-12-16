@@ -75,7 +75,10 @@
             --cursor-x: 0px;
             --cursor-y: 0px;
             
-            /* Dark Mode Colors (Default) */
+            /* GAMEDAYLIVE 5-stop brand gradient */
+            --gamedaylive-gradient: linear-gradient(135deg, #cc001c, #a10014, #73000d, #a10014, #cc001c);
+            
+            /* Dark Mode Colors (Always Active) */
             --bg-primary: #030303;
             --bg-secondary: #0A0A0A;
             --bg-surface: rgba(10, 10, 10, 0.6);
@@ -100,59 +103,58 @@
             --glow-opacity: 0.15;
         }
 
-        /* Light Mode Colors */
-        @media (prefers-color-scheme: light) {
-            :root {
-                --bg-primary: #F9FAFB;
-                --bg-secondary: #FFFFFF;
-                --bg-surface: rgba(255, 255, 255, 0.8);
-                --bg-surface-solid: #FFFFFF;
-                --bg-card: rgba(255, 255, 255, 0.95);
-                --bg-hover: rgba(0, 0, 0, 0.05);
-                --text-primary: #111827;
-                --text-secondary: #4B5563;
-                --text-tertiary: rgba(0, 0, 0, 0.6);
-                --border-color: rgba(0, 0, 0, 0.1);
-                --border-subtle: rgba(0, 0, 0, 0.05);
-                --shadow-color: rgba(0, 0, 0, 0.1);
-                --noise-opacity: 0.02;
-                --spotlight-color: rgba(0, 0, 0, 0.03);
-                --grid-color: rgba(0, 0, 0, 0.05);
-                --code-bg: rgba(255, 255, 255, 0.95);
-                --nav-bg: rgba(249, 250, 251, 0.8);
-                --nav-bg-blur: rgba(249, 250, 251, 0.6);
-                --map-bg: #F3F4F6;
-                --tooltip-bg-start: rgba(255, 255, 255, 0.98);
-                --tooltip-bg-end: rgba(245, 245, 245, 0.98);
-                --glow-opacity: 0.25;
-            }
-        }
-
         body { 
             background-color: var(--bg-primary);
             color: var(--text-primary);
             overflow-x: hidden;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        /* Smooth transitions for theme changes */
-        *, *::before, *::after {
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        
-        /* Preserve existing transitions */
-        [class*="transition"] {
-            transition: all 0.3s ease !important;
         }
 
-        /* Ambient Noise Texture */
+        /* Dark Mode Overrides */
         .noise-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: var(--noise-opacity);
-            pointer-events: none;
-            z-index: 50;
+                background: linear-gradient(135deg, 
+                    #000000 0%,
+                    #0a0a0f 20%,
+                    #050508 40%,
+                    #0a0a0f 60%,
+                    #000000 100%
+                );
+            }
+            .noise-bg::before {
+                background: radial-gradient(
+                    ellipse at center,
+                    rgba(20, 20, 30, 0.3) 0%,
+                    transparent 70%
+                );
+            }
+            
+            /* Reset overrides for dark mode */
+            .text-gray-300 { color: #d1d5db !important; }
+            .text-gray-400 { color: #9ca3af !important; }
+            .text-gray-500 { color: #6b7280 !important; }
+            .text-white { color: #ffffff !important; }
+            
+            .bg-black { background-color: #000000 !important; }
+            .bg-\[\#030303\] { background-color: #030303 !important; }
+            .bg-\[\#0A0A0A\] { background-color: #0A0A0A !important; }
+            
+            .bg-white\/5 { background-color: rgba(255, 255, 255, 0.05) !important; }
+            .bg-white\/10 { background-color: rgba(255, 255, 255, 0.1) !important; }
+            
+            .border-white\/5 { border-color: rgba(255, 255, 255, 0.05) !important; }
+            .border-white\/10 { border-color: rgba(255, 255, 255, 0.1) !important; }
+            
+            nav { background: rgba(3, 3, 3, 0.7) !important; }
+            footer { background: #030303 !important; }
+            
+            .spotlight-card:hover, .group:hover { background: rgba(255, 255, 255, 0.05) !important; }
+        }
+
+        /* Shared gradient text helper */
+        .gamedaylive-gradient {
+            background: var(--gamedaylive-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Spotlight Effect Logic */
@@ -220,239 +222,6 @@
         /* Text Utilities */
         .text-glow { text-shadow: 0 0 20px rgba(255, 15, 69, 0.5); }
         .text-glow-accent { text-shadow: 0 0 20px rgba(204, 255, 0, 0.3); }
-
-        /* Game Slider Styles */
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-        .game-card {
-            min-width: 340px;
-            flex-shrink: 0;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(15, 15, 15, 0.95) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        }
-        .game-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 20px;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(255, 15, 69, 0.2), rgba(255, 15, 69, 0.05), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .game-card:hover {
-            border-color: rgba(255, 15, 69, 0.3);
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 20px 48px rgba(255, 15, 69, 0.2), 0 8px 16px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 15, 69, 0.1);
-        }
-        .game-card:hover::before {
-            opacity: 1;
-        }
-        .game-header {
-            padding: 16px 16px 12px 16px;
-        }
-        .teams-container {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: stretch;
-            gap: 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .team-side {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 24px 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .team-watermark {
-            position: absolute;
-            inset: -40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.12;
-            pointer-events: none;
-            overflow: hidden;
-            mask-image: radial-gradient(ellipse at center, black 20%, transparent 85%);
-            -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 85%);
-        }
-        .team-watermark img {
-            width: 200px;
-            height: 200px;
-            object-fit: contain;
-            filter: brightness(2) contrast(1.2) blur(3px);
-            mix-blend-mode: soft-light;
-            transform: scale(1.2);
-            transition: transform 0.4s ease, opacity 0.4s ease;
-        }
-        .game-card:hover .team-watermark img {
-            transform: scale(1.15);
-            opacity: 1.2;
-        }
-        /* Modern 3D VS Divider */
-        .vs-divider-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 8px;
-            position: relative;
-            z-index: 10;
-        }
-        .vs-divider {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, rgba(255, 15, 69, 0.15) 0%, rgba(255, 15, 69, 0.05) 100%);
-            border: 1px solid rgba(255, 15, 69, 0.2);
-            border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(255, 15, 69, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        .vs-divider::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255, 15, 69, 0.3), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .game-card:hover .vs-divider {
-            transform: scale(1.1) rotateY(180deg);
-            background: linear-gradient(135deg, rgba(255, 15, 69, 0.25) 0%, rgba(255, 15, 69, 0.1) 100%);
-            box-shadow: 0 6px 20px rgba(255, 15, 69, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.15);
-        }
-        .game-card:hover .vs-divider::before {
-            opacity: 1;
-        }
-        .vs-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            font-style: italic;
-            color: rgba(255, 15, 69, 0.9);
-            text-transform: lowercase;
-            text-shadow: 
-                0 1px 0 rgba(255, 255, 255, 0.1),
-                0 2px 4px rgba(255, 15, 69, 0.5),
-                0 0 20px rgba(255, 15, 69, 0.3);
-            position: relative;
-            z-index: 1;
-            letter-spacing: 1px;
-            transform: perspective(500px) rotateX(10deg);
-            transition: all 0.3s ease;
-        }
-        .game-card:hover .vs-text {
-            color: rgba(255, 15, 69, 1);
-            text-shadow: 
-                0 2px 0 rgba(255, 255, 255, 0.15),
-                0 4px 8px rgba(255, 15, 69, 0.7),
-                0 0 30px rgba(255, 15, 69, 0.5);
-            transform: perspective(500px) rotateX(-10deg) scale(1.05);
-        }
-        .team-left {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .team-logo-small {
-            width: 36px;
-            height: 36px;
-            object-fit: contain;
-            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
-            transition: all 0.3s ease;
-        }
-        .game-card:hover .team-logo-small {
-            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
-            transform: scale(1.05);
-        }
-        .rank-badge {
-            position: absolute;
-            top: -4px;
-            right: -4px;
-            font-size: 8px;
-            font-weight: 700;
-            padding: 3px 5px;
-            background: linear-gradient(135deg, rgba(255, 15, 69, 0.3), rgba(255, 15, 69, 0.15));
-            border: 1px solid rgba(255, 15, 69, 0.5);
-            border-radius: 4px;
-            color: #FF0F45;
-            line-height: 1;
-            box-shadow: 0 2px 6px rgba(255, 15, 69, 0.3);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
-        }
-        .game-card:hover .rank-badge {
-            background: linear-gradient(135deg, rgba(255, 15, 69, 0.5), rgba(255, 15, 69, 0.25));
-            box-shadow: 0 3px 10px rgba(255, 15, 69, 0.5);
-            transform: scale(1.1);
-        }
-        .game-header {
-            padding: 18px 20px 8px 20px;
-            background: transparent;
-        }
-        .team-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-        .game-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            margin: 4px 0;
-        }
-        .betting-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            padding: 12px 20px 18px 20px;
-            background: transparent;
-        }
-        .betting-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-        .game-card:hover .betting-item {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 15, 69, 0.2);
-            transform: translateY(-2px);
-        }
 
         /* Code Block Styling */
         .code-window {
@@ -572,7 +341,7 @@
         /* Advanced Stats Tooltip - Digital HUD Style */
         .leaflet-tooltip.team-stats-tooltip {
             background: linear-gradient(135deg, var(--tooltip-bg-start) 0%, var(--tooltip-bg-end) 100%) !important;
-            backdrop-filter: blur(16px) !important;
+            backdrop-filter: blur(8px) !important;
             border: none !important;
             border-radius: 12px !important;
             padding: 0 !important;
@@ -580,7 +349,7 @@
                 0 0 0 1px var(--border-color),
                 0 8px 32px var(--shadow-color),
                 inset 0 1px 0 var(--border-color) !important;
-            min-width: 240px !important;
+            min-width: 140px !important;
             font-family: 'Inter', -apple-system, sans-serif !important;
         }
         
@@ -666,302 +435,92 @@
             display: none !important;
         }
 
-        /* Dynamic Color Classes for Light/Dark Mode */
-        @media (prefers-color-scheme: light) {
-            /* Navigation overrides */
-            nav {
-                background: var(--nav-bg) !important;
-                border-color: rgba(0, 0, 0, 0.1) !important;
+        /* Logo Plus Symbol - Pure white in dark mode */
+        .plus-symbol {
+            background: none !important;
+            -webkit-text-fill-color: white !important;
+            color: white !important;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)) !important;
+        }
+        
+        /* Circuit Animation */
+        @keyframes circuitPulse {
+            0%, 100% { 
+                filter: drop-shadow(0 0 8px rgba(255, 15, 69, 0.6)) drop-shadow(0 0 16px rgba(255, 15, 69, 0.3));
+                transform: scale(1);
             }
-            
-            nav.supports-\[backdrop-filter\]\:bg-\[#030303\]\/40 {
-                background: var(--nav-bg-blur) !important;
+            50% { 
+                filter: drop-shadow(0 0 20px rgba(255, 15, 69, 0.9)) drop-shadow(0 0 40px rgba(255, 15, 69, 0.5));
+                transform: scale(1.05);
             }
-            
-            /* Code terminal overrides */
-            .code-window {
-                background: var(--code-bg) !important;
-                border-color: var(--border-color) !important;
-            }
-            
-            /* Button and link hover states */
-            .hover\:text-white:hover {
-                color: var(--text-primary) !important;
-            }
-            
-            .text-white {
-                color: var(--text-primary) !important;
-            }
-            
-            .text-gray-300, .text-gray-400, .text-gray-500 {
-                color: var(--text-secondary) !important;
-            }
-            
-            /* Background overlays */
-            .bg-black\/40, .bg-black {
-                background-color: rgba(255, 255, 255, 0.8) !important;
-            }
-            
-            .bg-\[#030303\], .bg-\[#0A0A0A\], .bg-\[#080808\] {
-                background: var(--bg-secondary) !important;
-            }
-            
-            /* Border colors */
-            .border-white\/5, .border-white\/10, .border-white\/20 {
-                border-color: var(--border-subtle) !important;
-            }
-            
-            /* Icon colors in light mode */
-            i[data-lucide] {
-                color: var(--text-primary);
-            }
-            
-            .text-brand-red i[data-lucide] {
-                color: #FF0F45 !important;
-            }
-            
-            /* Background surfaces */
-            .bg-white\/5 {
-                background-color: rgba(0, 0, 0, 0.05) !important;
-            }
-            
-            .hover\:bg-white\/5:hover, .hover\:bg-white\/10:hover {
-                background-color: rgba(0, 0, 0, 0.08) !important;
-            }
-            
-            /* Terminal/Code colors in light mode */
-            pre code .text-white {
-                color: #1F2937 !important;
-            }
-            
-            pre code .text-gray-500 {
-                color: #6B7280 !important;
-            }
-            
-            /* Keep branded colors consistent - more saturated for light mode */
-            .text-brand-red {
-                color: #FF0F45 !important;
-            }
-            
-            .text-purple-400, .text-purple-500 {
-                color: #7C3AED !important;
-            }
-            
-            .text-blue-400, .text-blue-500 {
-                color: #2563EB !important;
-            }
-            
-            .text-green-400, .text-green-500 {
-                color: #059669 !important;
-            }
-            
-            .text-yellow-300, .text-yellow-400 {
-                color: #D97706 !important;
-            }
-            
-            .text-orange-400 {
-                color: #EA580C !important;
-            }
-            
-            .text-pink-400 {
-                color: #DB2777 !important;
-            }
-            
-            .text-brand-accent {
-                color: #84CC16 !important;
-            }
-            
-            /* Scanline effect for light mode */
-            .animate-scanline {
-                background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.05), transparent) !important;
-            }
-            
-            /* Stats banner */
-            .border-y.border-white\/5 {
-                border-color: var(--border-subtle) !important;
-            }
-            
-            /* Gradient backgrounds need adjustment */
-            .bg-gradient-to-b {
-                background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary)) !important;
-            }
-            
-            /* Hero glow effect */
-            .bg-hero-glow {
-                background: conic-gradient(from 90deg at 50% 50%, #E5E7EB 0%, #F3F4F6 50%, #E5E7EB 100%) !important;
-            }
-            
-            /* Buttons */
-            .bg-white {
-                background-color: var(--text-primary) !important;
-                color: var(--bg-primary) !important;
-            }
-            
-            .text-black {
-                color: var(--bg-primary) !important;
-            }
-            
-            .hover\:bg-gray-200:hover {
-                background-color: #E5E7EB !important;
-            }
-            
-            .bg-slate-950 {
-                background-color: var(--bg-primary) !important;
-                color: var(--text-primary) !important;
-            }
-            
-            .hover\:bg-slate-950\/80:hover {
-                background-color: rgba(249, 250, 251, 0.8) !important;
-            }
-            
-            /* Specific section overrides */
-            #map-section {
-                background: var(--bg-secondary) !important;
-            }
-            
-            /* Card hover states */
-            .spotlight-card:hover {
-                background: var(--bg-hover) !important;
-            }
-            
-            /* Inline background styles */
-            [style*="background: linear-gradient(180deg, rgba(0,0,0"] {
-                background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 100%) !important;
-            }
-            
-            /* Fix text in inline gradient backgrounds */
-            [style*="background: linear-gradient(180deg"] .text-gray-400,
-            [style*="background: linear-gradient(180deg"] .text-gray-500 {
-                color: var(--text-secondary) !important;
-            }
-            
-            /* Footer overrides */
-            footer {
-                background: var(--bg-primary) !important;
-            }
-            
-            .text-gray-600 {
-                color: var(--text-secondary) !important;
-            }
-            
-            /* Divider lines */
-            .bg-white\/20 {
-                background-color: rgba(0, 0, 0, 0.15) !important;
-            }
-            
-            /* Map overlay gradient */
-            .bg-gradient-to-b.from-\[\#0A0A0A\]\/40 {
-                background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, transparent 50%, rgba(255, 255, 255, 0.3) 100%) !important;
-            }
-            
-            /* Game card inline styles */
-            [style*="background: linear-gradient(135deg"] {
-                opacity: 0.6 !important;
-            }
-            
-            [style*="background: linear-gradient(225deg"] {
-                opacity: 0.6 !important;
-            }
-            
-            /* Team watermark in light mode */
-            .team-watermark img {
-                filter: brightness(0.8) contrast(1.1) blur(1px) !important;
-            }
-            
-            /* Betting info text */
-            .text-gray-300 {
-                color: var(--text-secondary) !important;
-            }
-            
-            /* Red text elements that should stay visible */
-            .text-red-400, .text-red-500 {
-                color: #DC2626 !important;
-            }
-            
-            /* Status badges and pills */
-            .bg-white\/10 {
-                background-color: rgba(0, 0, 0, 0.1) !important;
-            }
-            
-            /* Gradient text should remain visible */
-            .text-transparent.bg-clip-text {
-                -webkit-text-fill-color: transparent !important;
-            }
-            
-            /* VS divider in games */
-            .text-gray-600 {
-                color: #6B7280 !important;
-            }
-            
-            /* Hover effects on links */
-            a:hover {
-                color: var(--text-primary) !important;
-            }
-            
-            a.hover\:text-brand-red:hover {
-                color: #FF0F45 !important;
-            }
-            
-            /* Additional utility class overrides */
-            .text-red-900 {
-                color: #7F1D1D !important;
-            }
-            
-            /* Background opacity utilities */
-            .opacity-70 {
-                opacity: 0.9 !important;
-            }
-            
-            /* Ensure tooltips work in light mode */
-            .leaflet-tooltip {
-                background: var(--tooltip-bg-start) !important;
-                color: var(--text-primary) !important;
-            }
-            
-            /* Make sure shadow colors adapt */
-            .shadow-2xl {
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
-            }
-            
-            /* Ensure proper contrast for small text */
-            [class*="text-["] {
-                color: inherit;
-            }
-            
-            /* SVG bracket corners */
-            svg[class*="text-brand-red"] {
-                color: rgba(255, 15, 69, 0.5) !important;
-            }
-            
-            /* Grayscale/opacity hover states */
-            .grayscale {
-                filter: grayscale(100%) brightness(0.9);
-            }
-            
-            .hover\:grayscale-0:hover {
-                filter: grayscale(0%) brightness(1);
-            }
+        }
+        
+        @keyframes circuitScan {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .circuit-logo {
+            animation: circuitPulse 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .circuit-logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 15, 69, 0.1) 25%,
+                rgba(255, 15, 69, 0.3) 50%,
+                rgba(255, 15, 69, 0.1) 75%,
+                transparent 100%
+            );
+            background-size: 200% 100%;
+            animation: circuitScan 2s linear infinite;
+            pointer-events: none;
+            border-radius: 4px;
+        }
+        
+        .circuit-logo:hover {
+            animation: circuitPulse 1s ease-in-out infinite;
+            filter: drop-shadow(0 0 24px rgba(255, 15, 69, 1)) drop-shadow(0 0 48px rgba(255, 15, 69, 0.7)) !important;
+            transform: scale(1.1) rotate(2deg);
         }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-red selection:text-white">
 
     <div class="noise-bg"></div>
+    
+    <!-- Network Visualization Canvas -->
+    <canvas id="network-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;"></canvas>
+
+    <!-- Light Mode Ambient Background (Blemishes) -->
+    <div id="light-mode-ambient" class="fixed inset-0 z-0 pointer-events-none overflow-hidden hidden">
+        <!-- Brand Red Blemish -->
+        <div class="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-brand-red/5 rounded-full blur-[120px] animate-float"></div>
+        <!-- Cool Blue Blemish -->
+        <div class="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] bg-blue-500/5 rounded-full blur-[120px] animate-float" style="animation-delay: -5s;"></div>
+        <!-- Center Accent Blemish -->
+        <div class="absolute top-[30%] left-[40%] w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[100px] animate-pulse-slow"></div>
+    </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 border-b border-white/5 bg-[#030303]/70 backdrop-blur-xl supports-[backdrop-filter]:bg-[#030303]/40">
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-[#030303]/70 backdrop-blur-[8px] supports-[backdrop-filter]:bg-[#030303]/40">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3 group cursor-pointer">
-                <div class="relative w-8 h-8 flex items-center justify-center bg-white/5 rounded border border-white/10 overflow-hidden group-hover:border-brand-red/50 transition duration-300">
-                    <div class="absolute inset-0 bg-brand-red/20 blur opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                    <i data-lucide="cpu" class="w-4 h-4 text-white relative z-10"></i>
-                </div>
-                <div class="font-display font-bold text-xl tracking-tighter italic">
-                    GAMEDAY<span class="text-brand-red">+</span>
-                </div>
+            <div class="flex items-center gap-4 cursor-pointer" style="backdrop-filter: none; -webkit-backdrop-filter: none;">
+                <span class="font-display font-black text-2xl relative tracking-tight" style="z-index: 100; isolation: isolate;">
+                    <span style="background: linear-gradient(135deg, #ff3355, #cc001c, #a10014, #cc001c, #ff3355); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: brightness(1.3) contrast(1.2) drop-shadow(0 0 12px rgba(255, 51, 85, 0.8)) drop-shadow(0 0 24px rgba(204, 0, 28, 0.6));">GAMEDAY</span><span class="plus-symbol" style="background: none !important; -webkit-text-fill-color: white !important; color: white !important; filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)) !important;">+</span>
+                </span>
             </div>
 
-            <div class="hidden md:flex items-center gap-1 p-1 rounded-full border border-white/5 bg-white/5 backdrop-blur-md">
+            <div class="hidden md:flex items-center gap-1 p-1 rounded-full border border-white/5 bg-white/5 backdrop-blur-[8px]">
                 <a href="/master-dashboard" class="px-5 py-2 text-sm font-medium text-gray-400 hover:text-brand-red hover:bg-white/5 rounded-full transition-all flex items-center gap-2"><i data-lucide="grid-3x3" class="w-3 h-3"></i>Dashboard</a>
                 <a href="/predictor/" class="px-5 py-2 text-sm font-medium text-gray-400 hover:text-brand-red hover:bg-white/5 rounded-full transition-all flex items-center gap-2"><i data-lucide="brain-circuit" class="w-3 h-3"></i>Predictions</a>
                 <a href="/coaches" class="px-5 py-2 text-sm font-medium text-gray-400 hover:text-brand-red hover:bg-white/5 rounded-full transition-all flex items-center gap-2"><i data-lucide="users" class="w-3 h-3"></i>Coaches</a>
@@ -973,7 +532,7 @@
                 <a href="/master-dashboard" class="hidden md:block text-sm font-mono text-gray-400 hover:text-brand-red transition-colors">System_</a>
                 <a href="#" class="relative inline-flex h-10 overflow-hidden rounded-lg p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                     <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"></span>
-                    <span class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-slate-950 px-6 py-1 text-sm font-medium text-white backdrop-blur-3xl hover:bg-slate-950/80 transition-colors" onclick="window.location.href='/master-dashboard'">
+                    <span class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-slate-950 px-6 py-1 text-sm font-medium text-white backdrop-blur-[8px] hover:bg-slate-950/80 transition-colors" onclick="window.location.href='/master-dashboard'">
                         Enter System
                     </span>
                 </a>
@@ -982,7 +541,7 @@
     </nav>
 
     <!-- Mobile Quick Nav -->
-    <div class="md:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40 flex gap-2 rounded-full border border-white/10 bg-black/80 backdrop-blur-xl p-2">
+    <div class="md:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40 flex gap-2 rounded-full border border-white/10 bg-black/80 backdrop-blur-[8px] p-2">
         <a href="/master-dashboard" class="p-3 rounded-full bg-white/5 hover:bg-brand-red/20 hover:border-brand-red transition-all border border-white/10 hover:border-brand-red/50" title="Dashboard"><i data-lucide="grid-3x3" class="w-4 h-4 text-white"></i></a>
         <a href="/predictor/" class="p-3 rounded-full bg-white/5 hover:bg-brand-red/20 hover:border-brand-red transition-all border border-white/10 hover:border-brand-red/50" title="Predictions"><i data-lucide="brain-circuit" class="w-4 h-4 text-white"></i></a>
         <a href="/coaches" class="p-3 rounded-full bg-white/5 hover:bg-brand-red/20 hover:border-brand-red transition-all border border-white/10 hover:border-brand-red/50" title="Coaches"><i data-lucide="users" class="w-4 h-4 text-white"></i></a>
@@ -991,29 +550,7 @@
     </div>
 
     <!-- Upcoming Games Slider (ESPN Style) -->
-    <div class="pt-20 border-b border-white/10 backdrop-blur-md overflow-hidden" style="background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);">
-        <div class="px-6 py-4">
-            <div class="flex items-center justify-between mb-3 max-w-7xl mx-auto">
-                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
-                    <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
-                    Upcoming Games
-                </h3>
-                <div class="flex gap-2">
-                    <button onclick="scrollGames('left')" class="w-7 h-7 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition flex items-center justify-center">
-                        <i data-lucide="chevron-left" class="w-4 h-4 text-white"></i>
-                    </button>
-                    <button onclick="scrollGames('right')" class="w-7 h-7 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition flex items-center justify-center">
-                        <i data-lucide="chevron-right" class="w-4 h-4 text-white"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="relative -mx-6">
-                <div id="gamesSlider" class="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth py-2 px-6" style="mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);">
-                    <!-- Games will be loaded here -->
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include 'components/game_slider.html' %}
 
     <!-- Hero Section -->
     <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden min-h-screen flex flex-col justify-center">
@@ -1028,17 +565,23 @@
             <!-- Left Column: Copy -->
             <div class="text-left space-y-8">
                 <!-- Status Badge -->
-                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
-                    <span class="relative flex h-2 w-2">
+                <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#0A0A0A]/80 border border-brand-red/30 backdrop-blur-[8px] shadow-[0_0_20px_-5px_rgba(255,15,69,0.3)]">
+                    <span class="relative flex h-2.5 w-2.5">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-red shadow-[0_0_10px_rgba(255,15,69,0.8)]"></span>
                     </span>
-                    <span class="text-xs font-mono text-gray-300 tracking-wider">SYSTEM v2.0: <span class="text-white font-bold">ONLINE</span></span>
+                    <span class="text-xs font-mono tracking-wider">
+                        <span style="background: linear-gradient(135deg, #ff3355, #cc001c, #a10014, #cc001c, #ff3355); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: brightness(1.2);">SYSTEM v2.0:</span> 
+                        <span class="text-white font-bold ml-1">ONLINE</span>
+                    </span>
                 </div>
 
                 <h1 class="font-display font-black text-5xl md:text-7xl tracking-tight leading-[0.95]">
-                    THE NEURAL NETWORK <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-rose-500 to-purple-600 text-glow">REDEFINING COLLEGE FOOTBALL INTELLIGENCE</span>
+                    <span style="background: linear-gradient(135deg, #ff3355, #cc001c, #a10014, #cc001c, #ff3355); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: brightness(1.3) contrast(1.1) drop-shadow(0 0 20px rgba(204, 0, 28, 0.4));">THE NEURAL NETWORK</span>
+                    <br>
+                    <span class="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]">REDEFINING COLLEGE FOOTBALL</span>
+                    <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-lime-400 to-brand-accent drop-shadow-[0_0_20px_rgba(204,255,0,0.4)]">INTELLIGENCE</span>
                 </h1>
                 
                 <p class="text-lg md:text-xl text-gray-400 max-w-xl leading-relaxed font-light border-l-2 border-brand-red/30 pl-6">
@@ -1046,7 +589,7 @@
                 </p>
                 
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="/coaches" class="px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all flex items-center gap-2">
+                    <a href="/coaches" class="px-8 py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-lg hover:bg-white/10 hover:border-white/50 transition-all flex items-center gap-2">
                         <i data-lucide="terminal" class="w-4 h-4"></i>
                         Start Building
                     </a>
@@ -1068,8 +611,8 @@
                 <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px]"></div>
 
                 <!-- Terminal -->
-                <div class="code-window relative bg-[#0A0A0A]/90 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden">
-                    <div class="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5">
+                <div class="code-window relative bg-[#0f0f0f] backdrop-blur-[8px] border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+                    <div class="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-black/40">
                         <div class="flex gap-2">
                             <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
                             <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
@@ -1104,7 +647,7 @@ print(<span class="text-green-400">f"Win Probability: <span class="text-brand-ac
     </header>
 
     <!-- Key Stats Banner (Auto-Updating) -->
-    <div class="border-y border-white/5 bg-black/40 backdrop-blur-sm py-6 overflow-hidden relative">
+    <div class="border-y border-white/5 bg-[#0A0A0A] backdrop-blur-[8px] py-6 overflow-hidden relative">
         <div class="flex animate-scroll whitespace-nowrap w-max gap-16 px-12">
             <!-- Stat 1 -->
             <div class="flex items-center gap-4">
@@ -1190,7 +733,7 @@ print(<span class="text-green-400">f"Win Probability: <span class="text-brand-ac
 
         <div class="grid md:grid-cols-2 gap-8">
             <!-- Traditional -->
-            <div class="p-8 rounded-2xl bg-[#080808] border border-white/5 relative overflow-hidden group">
+            <div class="p-8 rounded-2xl bg-[#080808]/90 backdrop-blur-[8px] border border-white/5 relative overflow-hidden group">
                 <div class="absolute inset-0 bg-red-500/5 opacity-0 group-hover:opacity-100 transition duration-500"></div>
                 <div class="relative z-10">
                     <h3 class="font-display text-2xl font-bold text-gray-500 mb-6 flex items-center gap-3">
@@ -1223,7 +766,7 @@ print(<span class="text-green-400">f"Win Probability: <span class="text-brand-ac
             </div>
 
             <!-- Neural Network -->
-            <div class="spotlight-card p-8 rounded-2xl border border-brand-accent/20 relative overflow-hidden">
+            <div class="spotlight-card p-8 rounded-2xl backdrop-blur-[8px] border border-brand-accent/20 relative overflow-hidden">
                 <div class="spotlight-border"></div>
                 <div class="absolute inset-0 bg-brand-accent/5"></div>
                 <div class="relative z-10">
@@ -1263,133 +806,334 @@ print(<span class="text-green-400">f"Win Probability: <span class="text-brand-ac
     </section>
 
     <!-- The Database Ecosystem (8 Categories) -->
-    <section id="ecosystem" class="py-24 bg-gradient-to-b from-[#030303] to-[#0A0A0A] border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center gap-4 mb-12">
-                <div class="h-px bg-white/10 flex-1"></div>
-                <span class="font-mono text-xs text-brand-accent tracking-widest uppercase">Select Intelligence Module</span>
-                <div class="h-px bg-white/10 flex-1"></div>
+    <section id="ecosystem" class="py-24 relative overflow-hidden bg-[#030303]">
+        <!-- Cosmic Background Effects -->
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 dark-mode-bg"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black via-transparent to-black z-10 dark-mode-bg"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-[#030303] to-[#030303] dark-mode-bg"></div>
+        
+        <!-- Grid Overlay -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-20">
+            <div class="flex items-center justify-center gap-4 mb-16">
+                <div class="h-px bg-gradient-to-r from-transparent via-brand-accent/50 to-transparent w-24"></div>
+                <span class="font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-primary)] to-gray-500 tracking-[0.2em] uppercase text-sm">System Modules</span>
+                <div class="h-px bg-gradient-to-r from-transparent via-brand-accent/50 to-transparent w-24"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4" id="cards-container">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="cards-container">
                 <!-- 1. Predictive Engine -->
-                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
-                    <div class="spotlight-border"></div>
-                    <div class="w-10 h-10 bg-purple-500/10 rounded flex items-center justify-center border border-purple-500/20 mb-4 text-purple-400">
-                        <i data-lucide="target" class="w-5 h-5"></i>
+                <div class="group relative bg-[#0A0A0A]/80 backdrop-blur-[8px] border border-white/10 rounded-xl overflow-hidden hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <!-- Tech Header -->
+                    <div class="relative flex items-center justify-between px-4 py-2 border-b border-white/5 bg-white/5">
+                        <span class="font-mono text-[10px] text-purple-400 tracking-widest">SYS.01 // NEURAL</span>
+                        <div class="flex gap-1">
+                            <div class="w-1 h-1 rounded-full bg-purple-500/50 animate-pulse"></div>
+                            <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                        </div>
                     </div>
-                    <h4 class="font-display font-bold text-white mb-2">Predictive Engine</h4>
-                    <p class="text-xs text-gray-500 font-mono mb-3">Game Predictions Powered by Neural Networks</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Live Game Predictor</li>
-                        <li>• Line Value Finder</li>
-                        <li>• Playoff Matrix</li>
-                    </ul>
+
+                    <div class="p-6 relative z-10">
+                        <div class="mb-6 relative">
+                            <div class="absolute -inset-4 bg-purple-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="w-12 h-12 bg-[#030303] border border-white/10 rounded-lg flex items-center justify-center relative z-10 group-hover:border-purple-500/50 group-hover:text-purple-400 text-gray-500 transition-colors">
+                                <i data-lucide="target" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+
+                        <h4 class="font-display font-bold text-lg text-white mb-2 group-hover:text-purple-400 transition-colors">Predictive Engine</h4>
+                        <p class="text-xs text-gray-500 font-mono mb-6 h-8 leading-relaxed">Game Predictions Powered by Neural Networks</p>
+
+                        <div class="space-y-3 border-t border-white/5 pt-4">
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-purple-500 rounded-sm shadow-[0_0_8px_rgba(168,85,247,0.8)]"></span>
+                                Live Game Predictor
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-purple-500/50 rounded-sm"></span>
+                                Line Value Finder
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-purple-500/50 rounded-sm"></span>
+                                Playoff Matrix
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 2. Coaching Intelligence -->
-                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
-                    <div class="spotlight-border"></div>
-                    <div class="w-10 h-10 bg-brand-red/10 rounded flex items-center justify-center border border-brand-red/20 mb-4 text-brand-red">
-                        <i data-lucide="user-check" class="w-5 h-5"></i>
+                <div class="group relative bg-[#0A0A0A]/80 backdrop-blur-[8px] border border-white/10 rounded-xl overflow-hidden hover:border-brand-red/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(255,15,69,0.3)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-red/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative flex items-center justify-between px-4 py-2 border-b border-white/5 bg-white/5">
+                        <span class="font-mono text-[10px] text-brand-red tracking-widest">SYS.02 // HUMAN</span>
+                        <div class="flex gap-1">
+                            <div class="w-1 h-1 rounded-full bg-brand-red/50 animate-pulse"></div>
+                            <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                        </div>
                     </div>
-                    <h4 class="font-display font-bold text-white mb-2">Coaching Intel</h4>
-                    <p class="text-xs text-gray-500 font-mono mb-3">Deep Analytics on 51+ Active Head Coaches</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Tendency Analysis</li>
-                        <li>• QB Development Index</li>
-                        <li>• Hot Seat Predictor</li>
-                    </ul>
+
+                    <div class="p-6 relative z-10">
+                        <div class="mb-6 relative">
+                            <div class="absolute -inset-4 bg-brand-red/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="w-12 h-12 bg-[#030303] border border-white/10 rounded-lg flex items-center justify-center relative z-10 group-hover:border-brand-red/50 group-hover:text-brand-red text-gray-500 transition-colors">
+                                <i data-lucide="user-check" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+
+                        <h4 class="font-display font-bold text-lg text-white mb-2 group-hover:text-brand-red transition-colors">Coaching Intel</h4>
+                        <p class="text-xs text-gray-500 font-mono mb-6 h-8 leading-relaxed">Deep Analytics on 51+ Active Head Coaches</p>
+
+                        <div class="space-y-3 border-t border-white/5 pt-4">
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-brand-red rounded-sm shadow-[0_0_8px_rgba(255,15,69,0.8)]"></span>
+                                Tendency Analysis
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-brand-red/50 rounded-sm"></span>
+                                QB Development Index
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-brand-red/50 rounded-sm"></span>
+                                Hot Seat Predictor
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 3. Team Intelligence -->
-                <a href="/teams" class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition block">
-                    <div class="spotlight-border"></div>
-                    <div class="w-10 h-10 bg-blue-500/10 rounded flex items-center justify-center border border-blue-500/20 mb-4 text-blue-400">
-                        <i data-lucide="shield" class="w-5 h-5"></i>
+                <a href="/teams" class="group relative bg-[#0A0A0A]/80 backdrop-blur-[8px] border border-white/10 rounded-xl overflow-hidden hover:border-blue-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.3)] block">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative flex items-center justify-between px-4 py-2 border-b border-white/5 bg-white/5">
+                        <span class="font-mono text-[10px] text-blue-400 tracking-widest">SYS.03 // ROSTER</span>
+                        <div class="flex gap-1">
+                            <div class="w-1 h-1 rounded-full bg-blue-500/50 animate-pulse"></div>
+                            <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                        </div>
                     </div>
-                    <h4 class="font-display font-bold text-white mb-2">Team Center</h4>
-                    <p class="text-xs text-gray-500 font-mono mb-3">134 FBS Teams with 25 Years of Data</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Comparison Matrix</li>
-                        <li>• Venue Advantage</li>
-                        <li>• Style Classifier</li>
-                    </ul>
+
+                    <div class="p-6 relative z-10">
+                        <div class="mb-6 relative">
+                            <div class="absolute -inset-4 bg-blue-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="w-12 h-12 bg-[#030303] border border-white/10 rounded-lg flex items-center justify-center relative z-10 group-hover:border-blue-500/50 group-hover:text-blue-400 text-gray-500 transition-colors">
+                                <i data-lucide="shield" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+
+                        <h4 class="font-display font-bold text-lg text-white mb-2 group-hover:text-blue-400 transition-colors">Team Center</h4>
+                        <p class="text-xs text-gray-500 font-mono mb-6 h-8 leading-relaxed">134 FBS Teams with 25 Years of Data</p>
+
+                        <div class="space-y-3 border-t border-white/5 pt-4">
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-sm shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+                                Comparison Matrix
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-blue-500/50 rounded-sm"></span>
+                                Venue Advantage
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-blue-500/50 rounded-sm"></span>
+                                Style Classifier
+                            </div>
+                        </div>
+                    </div>
                 </a>
 
                 <!-- 4. NIL & Portal -->
-                <a href="/nil" class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
-                    <div class="spotlight-border"></div>
-                    <div class="w-10 h-10 bg-green-500/10 rounded flex items-center justify-center border border-green-500/20 mb-4 text-green-400">
-                        <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+                <a href="/nil" class="group relative bg-[#0A0A0A]/80 backdrop-blur-[8px] border border-white/10 rounded-xl overflow-hidden hover:border-emerald-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(16,185,129,0.3)] block">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative flex items-center justify-between px-4 py-2 border-b border-white/5 bg-white/5">
+                        <span class="font-mono text-[10px] text-emerald-400 tracking-widest">SYS.04 // ASSETS</span>
+                        <div class="flex gap-1">
+                            <div class="w-1 h-1 rounded-full bg-emerald-500/50 animate-pulse"></div>
+                            <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                        </div>
                     </div>
-                    <h4 class="font-display font-bold text-white mb-2">NIL & Portal Hub</h4>
-                    <p class="text-xs text-gray-500 font-mono mb-3">The New Economics of College Football</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Valuation Tracker</li>
-                        <li>• Spend Efficiency</li>
-                        <li>• Tampering Detection</li>
-                    </ul>
+
+                    <div class="p-6 relative z-10">
+                        <div class="mb-6 relative">
+                            <div class="absolute -inset-4 bg-emerald-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="w-12 h-12 bg-[#030303] border border-white/10 rounded-lg flex items-center justify-center relative z-10 group-hover:border-emerald-500/50 group-hover:text-emerald-400 text-gray-500 transition-colors">
+                                <i data-lucide="dollar-sign" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+
+                        <h4 class="font-display font-bold text-lg text-white mb-2 group-hover:text-emerald-400 transition-colors">NIL & Portal Hub</h4>
+                        <p class="text-xs text-gray-500 font-mono mb-6 h-8 leading-relaxed">The New Economics of College Football</p>
+
+                        <div class="space-y-3 border-t border-white/5 pt-4">
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-sm shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+                                Valuation Tracker
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-emerald-500/50 rounded-sm"></span>
+                                Spend Efficiency
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-emerald-500/50 rounded-sm"></span>
+                                Tampering Detection
+                            </div>
+                        </div>
+                    </div>
                 </a>
 
                 <!-- 5. Advanced Metrics -->
-                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
-                    <div class="spotlight-border"></div>
-                    <div class="w-10 h-10 bg-brand-accent/10 rounded flex items-center justify-center border border-brand-accent/20 mb-4 text-brand-accent">
-                        <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+                <div class="group relative bg-[#0A0A0A]/80 backdrop-blur-[8px] border border-white/10 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(6,182,212,0.3)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative flex items-center justify-between px-4 py-2 border-b border-white/5 bg-white/5">
+                        <span class="font-mono text-[10px] text-cyan-400 tracking-widest">SYS.05 // QUANT</span>
+                        <div class="flex gap-1">
+                            <div class="w-1 h-1 rounded-full bg-cyan-500/50 animate-pulse"></div>
+                            <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                        </div>
                     </div>
-                    <h4 class="font-display font-bold text-white mb-2">Metrics Lab</h4>
-                    <p class="text-xs text-gray-500 font-mono mb-3">Beyond Basic Stats - The Numbers That Matter</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• EPA Database</li>
-                        <li>• Success Rate Analytics</li>
-                        <li>• Explosive Play Rate</li>
-                    </ul>
+
+                    <div class="p-6 relative z-10">
+                        <div class="mb-6 relative">
+                            <div class="absolute -inset-4 bg-cyan-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="w-12 h-12 bg-[#030303] border border-white/10 rounded-lg flex items-center justify-center relative z-10 group-hover:border-cyan-500/50 group-hover:text-cyan-400 text-gray-500 transition-colors">
+                                <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+
+                        <h4 class="font-display font-bold text-lg text-white mb-2 group-hover:text-cyan-400 transition-colors">Metrics Lab</h4>
+                        <p class="text-xs text-gray-500 font-mono mb-6 h-8 leading-relaxed">Beyond Basic Stats - The Numbers That Matter</p>
+
+                        <div class="space-y-3 border-t border-white/5 pt-4">
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-cyan-500 rounded-sm shadow-[0_0_8px_rgba(6,182,212,0.8)]"></span>
+                                EPA Database
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-cyan-500/50 rounded-sm"></span>
+                                Success Rate Analytics
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-cyan-500/50 rounded-sm"></span>
+                                Explosive Play Rate
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 6. Betting Intelligence -->
-                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
-                    <div class="spotlight-border"></div>
-                    <div class="w-10 h-10 bg-yellow-500/10 rounded flex items-center justify-center border border-yellow-500/20 mb-4 text-yellow-400">
-                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                <div class="group relative bg-[#0A0A0A]/80 backdrop-blur-[8px] border border-white/10 rounded-xl overflow-hidden hover:border-yellow-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(234,179,8,0.3)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative flex items-center justify-between px-4 py-2 border-b border-white/5 bg-white/5">
+                        <span class="font-mono text-[10px] text-yellow-400 tracking-widest">SYS.06 // MARKET</span>
+                        <div class="flex gap-1">
+                            <div class="w-1 h-1 rounded-full bg-yellow-500/50 animate-pulse"></div>
+                            <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                        </div>
                     </div>
-                    <h4 class="font-display font-bold text-white mb-2">Betting Intel</h4>
-                    <p class="text-xs text-gray-500 font-mono mb-3">Where Sharp Money Meets Data Science</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Live Line Comparison</li>
-                        <li>• Kelly Criterion Calc</li>
-                        <li>• Public Betting %</li>
-                    </ul>
+
+                    <div class="p-6 relative z-10">
+                        <div class="mb-6 relative">
+                            <div class="absolute -inset-4 bg-yellow-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="w-12 h-12 bg-[#030303] border border-white/10 rounded-lg flex items-center justify-center relative z-10 group-hover:border-yellow-500/50 group-hover:text-yellow-400 text-gray-500 transition-colors">
+                                <i data-lucide="trending-up" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+
+                        <h4 class="font-display font-bold text-lg text-white mb-2 group-hover:text-yellow-400 transition-colors">Betting Intel</h4>
+                        <p class="text-xs text-gray-500 font-mono mb-6 h-8 leading-relaxed">Where Sharp Money Meets Data Science</p>
+
+                        <div class="space-y-3 border-t border-white/5 pt-4">
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-yellow-500 rounded-sm shadow-[0_0_8px_rgba(234,179,8,0.8)]"></span>
+                                Live Line Comparison
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-yellow-500/50 rounded-sm"></span>
+                                Kelly Criterion Calc
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-yellow-500/50 rounded-sm"></span>
+                                Public Betting %
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 7. Historical Archives -->
-                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
-                    <div class="spotlight-border"></div>
-                    <div class="w-10 h-10 bg-orange-500/10 rounded flex items-center justify-center border border-orange-500/20 mb-4 text-orange-400">
-                        <i data-lucide="archive" class="w-5 h-5"></i>
+                <div class="group relative bg-[#0A0A0A]/80 backdrop-blur-[8px] border border-white/10 rounded-xl overflow-hidden hover:border-orange-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(249,115,22,0.3)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative flex items-center justify-between px-4 py-2 border-b border-white/5 bg-white/5">
+                        <span class="font-mono text-[10px] text-orange-400 tracking-widest">SYS.07 // LEGACY</span>
+                        <div class="flex gap-1">
+                            <div class="w-1 h-1 rounded-full bg-orange-500/50 animate-pulse"></div>
+                            <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                        </div>
                     </div>
-                    <h4 class="font-display font-bold text-white mb-2">The Archives</h4>
-                    <p class="text-xs text-gray-500 font-mono mb-3">25 Years of Data at Your Fingertips</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Rankings Timeline</li>
-                        <li>• Season Rewind</li>
-                        <li>• What-If Simulator</li>
-                    </ul>
+
+                    <div class="p-6 relative z-10">
+                        <div class="mb-6 relative">
+                            <div class="absolute -inset-4 bg-orange-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="w-12 h-12 bg-[#030303] border border-white/10 rounded-lg flex items-center justify-center relative z-10 group-hover:border-orange-500/50 group-hover:text-orange-400 text-gray-500 transition-colors">
+                                <i data-lucide="archive" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+
+                        <h4 class="font-display font-bold text-lg text-white mb-2 group-hover:text-orange-400 transition-colors">The Archives</h4>
+                        <p class="text-xs text-gray-500 font-mono mb-6 h-8 leading-relaxed">25 Years of Data at Your Fingertips</p>
+
+                        <div class="space-y-3 border-t border-white/5 pt-4">
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-orange-500 rounded-sm shadow-[0_0_8px_rgba(249,115,22,0.8)]"></span>
+                                Rankings Timeline
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-orange-500/50 rounded-sm"></span>
+                                Season Rewind
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-orange-500/50 rounded-sm"></span>
+                                What-If Simulator
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 8. Neural Network Insights -->
-                <div class="spotlight-card p-6 rounded-xl border border-white/10 group cursor-pointer hover:bg-white/5 transition">
-                    <div class="spotlight-border"></div>
-                    <div class="w-10 h-10 bg-pink-500/10 rounded flex items-center justify-center border border-pink-500/20 mb-4 text-pink-400">
-                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                <div class="group relative bg-[#0A0A0A]/80 backdrop-blur-[8px] border border-white/10 rounded-xl overflow-hidden hover:border-pink-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(236,72,153,0.3)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative flex items-center justify-between px-4 py-2 border-b border-white/5 bg-white/5">
+                        <span class="font-mono text-[10px] text-pink-400 tracking-widest">SYS.08 // CORE</span>
+                        <div class="flex gap-1">
+                            <div class="w-1 h-1 rounded-full bg-pink-500/50 animate-pulse"></div>
+                            <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                        </div>
                     </div>
-                    <h4 class="font-display font-bold text-white mb-2">Neural Insights</h4>
-                    <p class="text-xs text-gray-500 font-mono mb-3">How Our AI Actually Works</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Model Accuracy Logs</li>
-                        <li>• Feature Importance</li>
-                        <li>• Confidence Intervals</li>
-                    </ul>
+
+                    <div class="p-6 relative z-10">
+                        <div class="mb-6 relative">
+                            <div class="absolute -inset-4 bg-pink-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="w-12 h-12 bg-[#030303] border border-white/10 rounded-lg flex items-center justify-center relative z-10 group-hover:border-pink-500/50 group-hover:text-pink-400 text-gray-500 transition-colors">
+                                <i data-lucide="cpu" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+
+                        <h4 class="font-display font-bold text-lg text-white mb-2 group-hover:text-pink-400 transition-colors">Neural Insights</h4>
+                        <p class="text-xs text-gray-500 font-mono mb-6 h-8 leading-relaxed">How Our AI Actually Works</p>
+
+                        <div class="space-y-3 border-t border-white/5 pt-4">
+                            <div class="flex items-center gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                <span class="w-1.5 h-1.5 bg-pink-500 rounded-sm shadow-[0_0_8px_rgba(236,72,153,0.8)]"></span>
+                                Model Accuracy Logs
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1404,7 +1148,7 @@ print(<span class="text-green-400">f"Win Probability: <span class="text-brand-ac
                 <p class="font-mono text-xs text-gray-400 tracking-widest uppercase">134 Teams Across The Nation</p>
             </div>
             
-            <div class="flex items-center gap-4 bg-[#0A0A0A] border border-white/10 px-6 py-3 rounded-full backdrop-blur-md">
+            <div class="flex items-center gap-4 bg-[#0A0A0A] border border-white/10 px-6 py-3 rounded-full backdrop-blur-[8px]">
                 <span class="flex items-center gap-3 text-xs font-mono text-white uppercase tracking-wider">
                     <span class="relative flex h-2 w-2">
                       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
@@ -1441,25 +1185,25 @@ print(<span class="text-green-400">f"Win Probability: <span class="text-brand-ac
         
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Fans -->
-            <div class="p-6 border-l-2 border-brand-red/30 bg-white/5 backdrop-blur-sm rounded-r-lg">
+            <div class="p-6 border-l-2 border-brand-red/30 bg-white/5 backdrop-blur-[8px] rounded-r-lg">
                 <h3 class="font-display font-bold text-white mb-2">For Fans</h3>
                 <p class="text-sm text-gray-400 leading-relaxed">"Stop guessing. Start knowing. Our neural network processes factors you can't see - from coaching tendencies to weather impact."</p>
             </div>
             
             <!-- Bettors -->
-            <div class="p-6 border-l-2 border-brand-accent/30 bg-white/5 backdrop-blur-sm rounded-r-lg">
+            <div class="p-6 border-l-2 border-brand-accent/30 bg-white/5 backdrop-blur-[8px] rounded-r-lg">
                 <h3 class="font-display font-bold text-white mb-2">For Bettors</h3>
                 <p class="text-sm text-gray-400 leading-relaxed">"Vegas doesn't have our data. They react to public perception. We react to mathematical reality."</p>
             </div>
             
             <!-- Media -->
-            <div class="p-6 border-l-2 border-purple-500/30 bg-white/5 backdrop-blur-sm rounded-r-lg">
+            <div class="p-6 border-l-2 border-purple-500/30 bg-white/5 backdrop-blur-[8px] rounded-r-lg">
                 <h3 class="font-display font-bold text-white mb-2">For Media</h3>
                 <p class="text-sm text-gray-400 leading-relaxed">"The talking heads use gut feelings. You can use predictive models trained on 1.2 million data points."</p>
             </div>
 
             <!-- Scouts/ADs -->
-            <div class="p-6 border-l-2 border-blue-500/30 bg-white/5 backdrop-blur-sm rounded-r-lg">
+            <div class="p-6 border-l-2 border-blue-500/30 bg-white/5 backdrop-blur-[8px] rounded-r-lg">
                 <h3 class="font-display font-bold text-white mb-2">For Recruiters</h3>
                 <p class="text-sm text-gray-400 leading-relaxed">"Which coaches actually develop talent? Which programs overperform their rankings? The data tells the real story."</p>
             </div>
@@ -1536,116 +1280,6 @@ print(<span class="text-green-400">f"Win Probability: <span class="text-brand-ac
                 el.innerText = val.toLocaleString();
             }
         }, 80);
-
-        // 3.5 Load Upcoming Games
-        async function loadUpcomingGames() {
-            try {
-                const response = await fetch('/api/upcoming-games');
-                const data = await response.json();
-                const slider = document.getElementById('gamesSlider');
-                
-                if (!data.games || data.games.length === 0) {
-                    slider.innerHTML = '<p class="text-gray-500 text-sm">No upcoming games found</p>';
-                    return;
-                }
-                
-                slider.innerHTML = data.games.map(game => {
-                    const gameDate = new Date(game.date);
-                    const dateStr = gameDate.toLocaleDateString('en-US', { 
-                        weekday: 'short', 
-                        month: 'short', 
-                        day: 'numeric',
-                        hour: 'numeric',
-                        minute: '2-digit'
-                    });
-                    
-                    const awayColor = game.away.color || '#666666';
-                    const homeColor = game.home.color || '#666666';
-                    const gameId = game.id || Math.floor(Math.random() * 100000);
-                    
-                    return `
-                        <div class="game-card" onclick="window.location.href='/game/${gameId}'">
-                            <div class="game-header">
-                                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest text-center">
-                                    ${dateStr}
-                                </div>
-                                <div class="text-[9px] font-mono text-gray-500 uppercase tracking-wider text-center mt-1">
-                                    ${game.seasonType === 'postseason' ? 'BOWL GAME' : 'WEEK ' + game.week}
-                                </div>
-                            </div>
-                            
-                            <div class="teams-container">
-                                <div class="team-side" style="background: linear-gradient(135deg, ${awayColor}15 0%, ${awayColor}05 100%);">
-                                    <div class="team-watermark">
-                                        <img src="${game.away.logo}" alt="${game.away.team}" onerror="this.style.display='none'">
-                                    </div>
-                                    <div class="team-left" style="position: relative; z-index: 1;">
-                                        <img src="${game.away.logo}" alt="${game.away.team}" class="team-logo-small" onerror="this.style.display='none'">
-                                        ${game.away.rank ? `<span class="rank-badge">#${game.away.rank}</span>` : ''}
-                                    </div>
-                                    <div class="text-xs font-semibold text-gray-400 text-center leading-tight" style="position: relative; z-index: 1;">${game.away.abbr || game.away.team}</div>
-                                    <div class="text-[9px] text-gray-500 font-mono" style="position: relative; z-index: 1;">${game.away.record || 'N/A'}</div>
-                                </div>
-                                
-                                <div class="vs-divider-container">
-                                    <div class="vs-divider">
-                                        <span class="vs-text">vs</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="team-side" style="background: linear-gradient(225deg, ${homeColor}15 0%, ${homeColor}05 100%);">
-                                    <div class="team-watermark">
-                                        <img src="${game.home.logo}" alt="${game.home.team}" onerror="this.style.display='none'">
-                                    </div>
-                                    <div class="team-left" style="position: relative; z-index: 1;">
-                                        <img src="${game.home.logo}" alt="${game.home.team}" class="team-logo-small" onerror="this.style.display='none'">
-                                        ${game.home.rank ? `<span class="rank-badge">#${game.home.rank}</span>` : ''}
-                                    </div>
-                                    <div class="text-xs font-semibold text-gray-400 text-center leading-tight" style="position: relative; z-index: 1;">${game.home.abbr || game.home.team}</div>
-                                    <div class="text-[9px] text-gray-500 font-mono" style="position: relative; z-index: 1;">${game.home.record || 'N/A'}</div>
-                                </div>
-                            </div>
-                            
-                            ${(game.betting.spread || game.betting.overUnder) ? `
-                            <div class="betting-info" style="padding: 12px 16px 16px 16px;">
-                                ${game.betting.spread ? `
-                                <div class="betting-item">
-                                    <span class="text-[9px] text-gray-500 uppercase tracking-wider font-bold">Spread</span>
-                                    <span class="text-sm font-bold text-brand-accent">${game.betting.spread > 0 ? '+' : ''}${game.betting.spread}</span>
-                                </div>
-                                ` : ''}
-                                ${game.betting.overUnder ? `
-                                <div class="betting-item">
-                                    <span class="text-[9px] text-gray-500 uppercase tracking-wider font-bold">O/U</span>
-                                    <span class="text-sm font-bold text-gray-300">${game.betting.overUnder}</span>
-                                </div>
-                                ` : ''}
-                            </div>
-                            ` : ''}
-                        </div>
-                    `;
-                }).join('');
-                
-                lucide.createIcons();
-            } catch (error) {
-                console.error('Error loading games:', error);
-                document.getElementById('gamesSlider').innerHTML = 
-                    '<p class="text-red-400 text-sm">Error loading games</p>';
-            }
-        }
-        
-        function scrollGames(direction) {
-            const slider = document.getElementById('gamesSlider');
-            const scrollAmount = 300;
-            if (direction === 'left') {
-                slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            } else {
-                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            }
-        }
-        
-        // Load games on page load
-        loadUpcomingGames();
 
         // 4. Number Counters
         const animateValue = (obj, start, end, duration) => {
@@ -1766,6 +1400,105 @@ print(<span class="text-green-400">f"Win Probability: <span class="text-brand-ac
                 }, index * 80); // Staggered animation
             });
         });
+    </script>
+    
+    <!-- Network Visualization Script -->
+    <script>
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Network nodes
+        const nodes = [];
+        const nodeCount = 150;
+        const connectionDistance = 200;
+        
+        // Check for light mode
+        const isLightMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        
+        if (isLightMode) {
+            // Hide particles, show ambient blemishes
+            document.getElementById('network-canvas').style.display = 'none';
+            document.getElementById('light-mode-ambient').classList.remove('hidden');
+        } else {
+            // Dark Mode: Run Particle Animation
+            
+            // Particle Colors
+            const particleColor = 'rgba(204, 0, 28, 0.8)';
+            const shadowColor = 'rgba(204, 0, 28, 0.5)';
+            const lineColorBase = '204, 0, 28';
+            
+            // Create nodes
+            for (let i = 0; i < nodeCount; i++) {
+                nodes.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    radius: Math.random() * 2.5 + 1.5
+                });
+            }
+            
+            // Animation loop
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Update and draw nodes
+                nodes.forEach((node, i) => {
+                    // Move node
+                    node.x += node.vx;
+                    node.y += node.vy;
+                    
+                    // Bounce off edges
+                    if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+                    if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+                    
+                    // Draw node
+                    ctx.fillStyle = particleColor;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = shadowColor;
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                    
+                    // Draw connections
+                    nodes.slice(i + 1).forEach(otherNode => {
+                        const dx = node.x - otherNode.x;
+                        const dy = node.y - otherNode.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < connectionDistance) {
+                            const opacity = (1 - distance / connectionDistance) * 0.6;
+                            ctx.strokeStyle = `rgba(${lineColorBase}, ${opacity})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(node.x, node.y);
+                            ctx.lineTo(otherNode.x, otherNode.y);
+                            ctx.stroke();
+                        }
+                    });
+                });
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+        
+        // Listen for theme changes
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+            window.location.reload(); // Simple reload to refresh canvas colors
+        });
+        
+        animate();
     </script>
 </body>
 </html>

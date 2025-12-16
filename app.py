@@ -3138,7 +3138,7 @@ def get_upcoming_games():
                     id, start_date, week, season_type,
                     home_team, home_id, home_abbreviation, home_logo, home_color, home_alt_color, home_record, home_rank,
                     away_team, away_id, away_abbreviation, away_logo, away_color, away_alt_color, away_record, away_rank,
-                    spread, over_under, home_moneyline, away_moneyline,
+                    line_provider, formatted_spread, spread, over_under, home_moneyline, away_moneyline,
                     venue, neutral_site,
                     home_fpi, away_fpi, home_conference, away_conference
                 FROM upcoming_games
@@ -3151,7 +3151,7 @@ def get_upcoming_games():
                     id, start_date, week, season_type,
                     home_team, home_id, home_abbreviation, home_logo, home_color, home_alt_color, home_record, home_rank,
                     away_team, away_id, away_abbreviation, away_logo, away_color, away_alt_color, away_record, away_rank,
-                    spread, over_under, home_moneyline, away_moneyline,
+                    line_provider, formatted_spread, spread, over_under, home_moneyline, away_moneyline,
                     venue, neutral_site,
                     home_fpi, away_fpi, home_conference, away_conference
                 FROM upcoming_games
@@ -3190,6 +3190,8 @@ def get_upcoming_games():
                     'conference': row['away_conference']
                 },
                 'betting': {
+                    'provider': row['line_provider'],
+                    'formattedSpread': row['formatted_spread'],
                     'spread': row['spread'],
                     'overUnder': row['over_under'],
                     'homeMoneyline': row['home_moneyline'],

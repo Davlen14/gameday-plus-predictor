@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Test - Boise State vs Washington</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Premier Animated Gradient Background */
+        .game-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            
+            /* Animated gradient base */
+            background: linear-gradient(
+                135deg,
+                #0033A0 0%,
+                #1a5290 20%,
+                #2d2359 50%,
+                #3d2270 70%,
+                #4b2e83 100%
+            );
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        /* Glossy shine layer with animation */
+        .game-background::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(100, 150, 255, 0.1) 0%, transparent 60%);
+            animation: shine 8s ease-in-out infinite;
+            mix-blend-mode: overlay;
+        }
+
+        /* Glow effects layer */
+        .game-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(0, 51, 160, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(75, 46, 131, 0.4) 0%, transparent 50%);
+            filter: blur(60px);
+            animation: glow 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes shine {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: translate(-10%, -10%) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes glow {
+            0% { 
+                opacity: 0.6;
+                filter: blur(60px) brightness(1);
+            }
+            100% { 
+                opacity: 0.8;
+                filter: blur(80px) brightness(1.2);
+            }
+        }
+
+        /* Content container */
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .score-display {
+            font-size: 120px;
+            font-weight: 700;
+            margin: 20px 0;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-name {
+            font-size: 48px;
+            font-weight: 600;
+            margin: 10px 0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .vs {
+            font-size: 32px;
+            opacity: 0.8;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-background"></div>
+    
+    <div class="content">
+        <div>
+            <div class="team-name">Boise State</div>
+            <div class="score-display">21</div>
+            <div class="vs">vs</div>
+            <div class="score-display">17</div>
+            <div class="team-name">Washington</div>
+        </div>
+    </div>
+</body>
+</html>
