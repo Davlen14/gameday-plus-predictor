@@ -46,17 +46,18 @@ app = Flask(__name__)
 CORS(app)
 
 # Database path - check multiple locations
+# Priority order: instance folder first (local/Railway), then deployment paths
 DB_PATH = None
 possible_paths = [
-    'instance/coaches_master.db',
+    'instance/coaches_master.db',  # Local and Railway
     '/opt/render/project/src/instance/coaches_master.db',  # Render
-    '/app/instance/coaches_master.db',  # Railway/Docker
-    'coaches_master.db',  # Root directory
+    '/app/instance/coaches_master.db',  # Docker generic
 ]
 
 for path in possible_paths:
-    if os.path.exists(path):
+    if os.path.exists(path) and os.path.getsize(path) > 0:  # Ensure file is not empty
         DB_PATH = path
+        print(f"✅ Found database at: {DB_PATH} ({os.path.getsize(path) / (1024*1024):.1f}MB)")
         break
 
 if not DB_PATH:
@@ -64,6 +65,9 @@ if not DB_PATH:
     DB_PATH = 'instance/coaches_master.db'
     print("⚠️  WARNING: Database not found at any expected location")
     print(f"⚠️  Checked: {', '.join(possible_paths)}")
+    print(f"⚠️  Current directory: {os.getcwd()}")
+    if os.path.exists('instance'):
+        print(f"⚠️  Files in instance/: {os.listdir('instance')}")
 
 
 def get_db_connection():
