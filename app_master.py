@@ -88,6 +88,114 @@ def gamedaylive():
     """GAMEDAY+ Live - Real-time game and analytics showcase"""
     return render_template('gamedaylive.html')
 
+@app.route('/api/map-data')
+def map_data():
+    """Get team data for the map with latest season stats"""
+    # Coordinates for major programs
+    TEAM_COORDINATES = {
+        'Georgia': [33.9519, -83.3576], 'Florida State': [30.4383, -84.2807], 'Alabama': [33.2098, -87.5692],
+        'Ohio State': [40.0142, -83.0305], 'Michigan': [42.2808, -83.7430], 'USC': [34.0522, -118.2437],
+        'Texas A&M': [30.6280, -96.3344], 'Texas': [30.2849, -97.7341], 'Oklahoma': [35.2058, -97.4459],
+        'Texas Tech': [33.2164, -97.1292], 'Notre Dame': [41.7001, -86.2379], 'UCLA': [34.0224, -118.2851],
+        'California': [37.8716, -122.2585], 'Oregon': [45.5051, -122.6750], 'LSU': [30.4133, -91.1800],
+        'Clemson': [34.6781, -82.8374], 'Penn State': [40.7982, -77.8599], 'Florida': [29.6496, -82.3486],
+        'Miami': [25.7195, -80.2781], 'Tennessee': [35.9544, -83.9295], 'Auburn': [32.6010, -85.4911],
+        'Washington': [47.6553, -122.3035], 'Wisconsin': [43.0702, -89.4125], 'Nebraska': [40.8202, -96.7005],
+        'Iowa': [41.6586, -91.5425], 'Utah': [40.7649, -111.8421], 'TCU': [32.7097, -97.3681],
+        'Baylor': [31.5493, -97.1143], 'Ole Miss': [34.3647, -89.5384], 'Mississippi State': [33.4552, -88.7944],
+        'Arkansas': [36.0687, -94.1748], 'Kentucky': [38.0307, -84.5040], 'South Carolina': [33.9905, -81.0296],
+        'Missouri': [38.9358, -92.3332], 'North Carolina': [35.9049, -79.0469], 'NC State': [35.7847, -78.6821],
+        'Virginia Tech': [37.2284, -80.4234], 'Louisville': [38.2157, -85.7585], 'Pittsburgh': [40.4446, -79.9609],
+        'Georgia Tech': [33.7756, -84.3963], 'Colorado': [40.0076, -105.2659], 'Arizona': [32.2287, -110.9488],
+        'Arizona State': [33.4242, -111.9281], 'Stanford': [37.4275, -122.1697], 'Oregon State': [44.5595, -123.2813],
+        'Washington State': [46.7313, -117.1617], 'Boise State': [43.6029, -116.1959], 'UCF': [28.6024, -81.2001],
+        'Cincinnati': [39.1339, -84.5150], 'Houston': [29.7222, -95.3422], 'BYU': [40.2518, -111.6493],
+        'Kansas State': [39.1974, -96.5847], 'Kansas': [38.9543, -95.2558], 'Oklahoma State': [36.1264, -97.0665],
+        'West Virginia': [39.6358, -79.9559], 'Iowa State': [42.0266, -93.6465]
+    }
+
+    conn = get_db_connection()
+    
+    # Get latest season
+    latest_season = conn.execute('SELECT MAX(season) FROM team_seasons').fetchone()[0]
+    
+    # Join teams and team_seasons
+    query = """
+        SELECT 
+            t.school, t.logo_url, t.color, t.conference,
+            ts.wins, ts.losses, ts.off_ppa, ts.def_ppa, ts.sp_rating, ts.fpi
+        FROM teams t
+        JOIN team_seasons ts ON t.id = ts.team_id
+        WHERE ts.season = ?
+    """
+    rows = conn.execute(query, (latest_season,)).fetchall()
+    conn.close()
+    
+    teams_data = []
+    for row in rows:
+        team = dict(row)
+        school = team['school']
+        if school in TEAM_COORDINATES:
+            team['coords'] = TEAM_COORDINATES[school]
+            team['name'] = school
+            team['logo'] = team['logo_url']
+            team['rank'] = "NR" 
+            team['record'] = f"{team['wins']}-{team['losses']}"
+            team['sp_plus'] = round(team['sp_rating'], 1) if team['sp_rating'] else None
+            team['ppa'] = round(team['off_ppa'], 2) if team['off_ppa'] else None
+            team['fpi'] = round(team['fpi'], 1) if team['fpi'] else None
+            teams_data.append(team)
+            
+    return jsonify(teams_data)
+
+@app.route('/api/predictions/game/<int:game_id>')
+def game_prediction(game_id):
+    """Get prediction data for a specific game"""
+    try:
+        conn = sqlite3.connect('instance/predictions.db')
+        conn.row_factory = sqlite3.Row
+        
+        # Get game details
+        game = conn.execute('SELECT * FROM upcoming_games WHERE id = ?', (game_id,)).fetchone()
+        if not game:
+            return jsonify({'error': 'Game not found'}), 404
+            
+        game = dict(game)
+        
+        # Calculate win probability based on FPI if available
+        home_fpi = game.get('home_fpi')
+        away_fpi = game.get('away_fpi')
+        home_win_prob = 0.5
+        
+        if home_fpi is not None and away_fpi is not None:
+            # Simple logistic function for win prob based on FPI diff
+            diff = home_fpi - away_fpi + 2.5 # +2.5 for home field
+            home_win_prob = 1 / (1 + 10**(-diff/15))
+            
+        # Construct response
+        response = {
+            'home_win_prob': home_win_prob,
+            'context': {
+                'homeColor': game.get('home_color'),
+                'awayColor': game.get('away_color'),
+                'homeLogo': game.get('home_logo'),
+                'awayLogo': game.get('away_logo'),
+                'marketHomeSpread': game.get('spread'),
+                'marketTotal': game.get('over_under'),
+                'book': game.get('line_provider'),
+                'formattedSpread': game.get('formatted_spread')
+            },
+            'key_factors': [
+                f"{game.get('home_team')} FPI: {game.get('home_fpi')}",
+                f"{game.get('away_team')} FPI: {game.get('away_fpi')}",
+                f"Venue: {game.get('venue')}"
+            ]
+        }
+        
+        return jsonify(response)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/network-graph')
 def network_graph():
     """CFB Network Graph - Interactive team and conference visualization"""
