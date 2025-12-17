@@ -1079,6 +1079,63 @@
         return candidates[0];
     }
     
+    function _checkBetStatus(bestBet, liveHomeScore, liveAwayScore, ctx) {
+        if (!bestBet || liveHomeScore == null || liveAwayScore == null) return null;
+        
+        var liveMargin = liveHomeScore - liveAwayScore;  // Positive means home winning
+        var liveTotal = liveHomeScore + liveAwayScore;
+        
+        var status = { isWinning: false, statusText: '', statusClass: '' };
+        
+        if (bestBet.type === 'spread') {
+            // Parse the bet pick to determine which team and what line
+            // Format is like "Ohio State -7.5" or "Notre Dame +7.5"
+            var pickParts = bestBet.pick.split(' ');
+            var pickLine = parseFloat(pickParts[pickParts.length - 1]);
+            var isHomeBet = bestBet.pick.indexOf(ctx.homeTeam) !== -1;
+            
+            // Calculate cover margin
+            // If bet is "Home -7.5", home needs to win by more than 7.5
+            // If bet is "Away +7.5", away needs to lose by less than 7.5
+            if (isHomeBet) {
+                // Home is favored (negative spread like -7.5)
+                var coverMargin = liveMargin + pickLine;  // e.g., if winning by 10 and line is -7.5, coverMargin = 2.5
+                status.isWinning = coverMargin > 0;
+                status.statusText = status.isWinning ? 
+                    'Covering by ' + Math.abs(coverMargin).toFixed(1) + ' pts' : 
+                    'Not covering by ' + Math.abs(coverMargin).toFixed(1) + ' pts';
+            } else {
+                // Away is favored or getting points
+                var awayCoverMargin = -liveMargin + Math.abs(pickLine);
+                status.isWinning = awayCoverMargin > 0;
+                status.statusText = status.isWinning ? 
+                    'Covering by ' + Math.abs(awayCoverMargin).toFixed(1) + ' pts' : 
+                    'Not covering by ' + Math.abs(awayCoverMargin).toFixed(1) + ' pts';
+            }
+        } else if (bestBet.type === 'total') {
+            // Parse over/under from pick like "Over 45.5" or "Under 45.5"
+            var isOver = bestBet.pick.indexOf('Over') !== -1;
+            var totalLine = parseFloat(bestBet.pick.split(' ')[1]);
+            
+            if (isOver) {
+                var overMargin = liveTotal - totalLine;
+                status.isWinning = overMargin > 0;
+                status.statusText = status.isWinning ? 
+                    'Over by ' + Math.abs(overMargin).toFixed(1) + ' pts' : 
+                    'Under by ' + Math.abs(overMargin).toFixed(1) + ' pts';
+            } else {
+                var underMargin = totalLine - liveTotal;
+                status.isWinning = underMargin > 0;
+                status.statusText = status.isWinning ? 
+                    'Under by ' + Math.abs(underMargin).toFixed(1) + ' pts' : 
+                    'Over by ' + Math.abs(underMargin).toFixed(1) + ' pts';
+            }
+        }
+        
+        status.statusClass = status.isWinning ? 'bet-winning' : 'bet-losing';
+        return status;
+    }
+    
     function _renderPredictModalBody(prediction, ctx) {
         var body = document.getElementById('predictModalBody');
         if (!body) return;
@@ -1161,12 +1218,37 @@
             var bestHtml = '';
             if (bestBet) {
                 var edgePct = Math.min(bestBet.edge / 10, 1) * 100;
+                
+                // Check if this is a live game and compute bet status
+                var liveStatusHtml = '';
+                if (ctx.isLive && ctx.liveHomeScore != null && ctx.liveAwayScore != null) {
+                    var betStatus = _checkBetStatus(bestBet, ctx.liveHomeScore, ctx.liveAwayScore, ctx);
+                    if (betStatus) {
+                        var statusIcon = betStatus.isWinning ? '✓' : '✗';
+                        var statusColor = betStatus.isWinning ? '#4ade80' : '#ef4444';
+                        liveStatusHtml =
+                            '<div class="predict-live-status" style="margin-top: 12px; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 3px solid ' + statusColor + ';">' +
+                                '<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">' +
+                                    '<span style="font-size: 18px;">' + statusIcon + '</span>' +
+                                    '<span style="font-weight: 600; color: ' + statusColor + ';">' + (betStatus.isWinning ? 'WINNING' : 'LOSING') + '</span>' +
+                                    '<span class="blink-live" style="margin-left: auto;">●</span>' +
+                                    '<span style="font-size: 11px; color: #9ca3af;">' + _escapeHtml(ctx.gameStatus) + '</span>' +
+                                '</div>' +
+                                '<div style="font-size: 12px; color: #d1d5db;">' +
+                                    'Live: ' + _escapeHtml(ctx.awayTeam) + ' ' + ctx.liveAwayScore + ' - ' + ctx.liveHomeScore + ' ' + _escapeHtml(ctx.homeTeam) +
+                                '</div>' +
+                                '<div style="font-size: 11px; color: #9ca3af; margin-top: 4px;">' + _escapeHtml(betStatus.statusText) + '</div>' +
+                            '</div>';
+                    }
+                }
+                
                 bestHtml =
                     '<div class="predict-best">' +
                         '<div class="predict-best-label">Best Bet · ' + _escapeHtml(bestBet.type === 'spread' ? 'Spread' : 'Total') + '</div>' +
                         '<div class="predict-best-pick">' + _escapeHtml(bestBet.pick) + '</div>' +
                         '<div class="predict-edge-meter"><div class="predict-edge-fill" data-edge-pct="' + edgePct.toFixed(0) + '"></div></div>' +
                         '<div class="predict-best-sub">Edge ' + _escapeHtml(bestBet.edge.toFixed(1)) + ' pts · ' + _escapeHtml(bestBet.detail) + '</div>' +
+                        liveStatusHtml +
                     '</div>';
             }
             
@@ -1258,7 +1340,11 @@
                 marketHomeSpread: btn.getAttribute('data-market-spread') || '',
                 marketTotal: btn.getAttribute('data-market-total') || '',
                 book: btn.getAttribute('data-market-book') || '',
-                formattedSpread: btn.getAttribute('data-market-formatted-spread') || ''
+                formattedSpread: btn.getAttribute('data-market-formatted-spread') || '',
+                isLive: btn.getAttribute('data-is-live') === '1',
+                liveHomeScore: parseFloat(btn.getAttribute('data-live-home-score')) || null,
+                liveAwayScore: parseFloat(btn.getAttribute('data-live-away-score')) || null,
+                gameStatus: btn.getAttribute('data-game-status') || ''
             });
         });
         
@@ -1280,7 +1366,11 @@
                 marketHomeSpread: btn.getAttribute('data-market-spread') || '',
                 marketTotal: btn.getAttribute('data-market-total') || '',
                 book: btn.getAttribute('data-market-book') || '',
-                formattedSpread: btn.getAttribute('data-market-formatted-spread') || ''
+                formattedSpread: btn.getAttribute('data-market-formatted-spread') || '',
+                isLive: btn.getAttribute('data-is-live') === '1',
+                liveHomeScore: parseFloat(btn.getAttribute('data-live-home-score')) || null,
+                liveAwayScore: parseFloat(btn.getAttribute('data-live-away-score')) || null,
+                gameStatus: btn.getAttribute('data-game-status') || ''
             });
         });
     }
@@ -1431,6 +1521,10 @@
                                 ' data-market-total="' + ((game.betting && game.betting.overUnder != null) ? game.betting.overUnder : '') + '"' +
                                 ' data-market-book="' + _escapeHtml((game.betting && game.betting.provider) ? game.betting.provider : '') + '"' +
                                 ' data-market-formatted-spread="' + _escapeHtml((game.betting && game.betting.formattedSpread) ? game.betting.formattedSpread : '') + '"' +
+                                ' data-is-live="' + (isLive ? '1' : '0') + '"' +
+                                ' data-live-home-score="' + ((isLive && game.home.score != null) ? game.home.score : '') + '"' +
+                                ' data-live-away-score="' + ((isLive && game.away.score != null) ? game.away.score : '') + '"' +
+                                ' data-game-status="' + _escapeHtml(game.statusDetail || game.status || '') + '"' +
                                 '>' +
                                 '<span class="predict-dot"></span>' +
                                 '<span>Predict</span>' +
