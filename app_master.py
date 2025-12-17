@@ -584,7 +584,7 @@ def api_get_coaches():
             c.career_record, c.career_win_pct, c.total_games, c.created_at,
             COUNT(DISTINCT r.id) as weeks_ranked
         FROM coaches c
-        LEFT JOIN rankings r ON c.id = r.coach_id
+        LEFT JOIN coach_rankings r ON c.id = r.coach_id
         GROUP BY c.id
         ORDER BY c.name
     """)
