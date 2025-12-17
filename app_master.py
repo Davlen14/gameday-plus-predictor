@@ -703,7 +703,12 @@ def api_get_teams():
     except FileNotFoundError as e:
         return jsonify({'error': 'Database not available', 'message': str(e)}), 503
     except Exception as e:
-        return jsonify({'error': 'Failed to load teams', 'message': str(e)}), 500
+        import traceback
+        return jsonify({
+            'error': 'Failed to load teams',
+            'message': str(e),
+            'traceback': traceback.format_exc()
+        }), 500
 
 
 @app.route('/api/stats/conference-wins')
@@ -712,9 +717,10 @@ def api_get_conference_wins():
     conn = get_db_connection()
     cursor = conn.cursor()
     
-    # Get latest season
+    # Get latest season - safely handle empty result
     cursor.execute("SELECT MAX(season) FROM team_seasons")
-    latest_season = cursor.fetchone()[0] or 2024
+    result = cursor.fetchone()
+    latest_season = result[0] if result and result[0] else 2024
     
     query = """
         SELECT 
