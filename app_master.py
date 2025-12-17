@@ -432,7 +432,7 @@ def api_espn_game(game_id):
     force_refresh = request.args.get('refresh', 'false').lower() == 'true'
     
     try:
-        data = espn_service.get_game_for_field(game_id)
+        data = espn_service.get_game_for_field(game_id, force_refresh=force_refresh)
         
         if data:
             return jsonify({
@@ -1581,7 +1581,8 @@ def get_upcoming_games():
             # Fetch live status from ESPN if not completed
             if espn_service and not row['completed']:
                 try:
-                    espn_data = espn_service.get_game_for_field(str(game_id))
+                    # Force refresh for live games to get latest status
+                    espn_data = espn_service.get_game_for_field(str(game_id), force_refresh=True)
                     if espn_data and espn_data.get('status'):
                         espn_status = espn_data['status']
                         # ESPN service returns simplified status: {'state': 'in', 'period': 2, ...}

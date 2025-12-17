@@ -143,9 +143,9 @@ class ESPNGameService:
         
         return None
     
-    def get_game_for_field(self, game_id: str) -> Optional[Dict]:
+    def get_game_for_field(self, game_id: str, force_refresh: bool = False) -> Optional[Dict]:
         """Get all data needed for the game field visualization"""
-        data = self.get_game_summary(game_id)
+        data = self.get_game_summary(game_id, force_refresh=force_refresh)
         
         if not data:
             return None
