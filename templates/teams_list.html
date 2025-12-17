@@ -43,128 +43,170 @@
     
     <style>
         body {
-            background-color: #F3F4F6;
+            background-image: url('/static/Gemini_Generated_Image_jtfxwojtfxwojtfx.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            position: relative;
             color: #111827;
             overflow-x: hidden;
-            transition: background-color 0.3s, color 0.3s;
+            transition: color 0.3s;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('/static/Gemini_Generated_Image_jtfxwojtfxwojtfx.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            filter: blur(8px) brightness(0.7) contrast(1.1);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+            backdrop-filter: blur(20px) saturate(1.8);
+            -webkit-backdrop-filter: blur(20px) saturate(1.8);
+            z-index: -1;
+            pointer-events: none;
         }
 
         /* Dark Mode Overrides */
         .dark body {
-            background-color: #111827; /* Gray 900 */
             color: #F3F4F6;
         }
 
-        /* HUD Panels - Modern Glassmorphism */
+        .dark body::after {
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
+            backdrop-filter: blur(24px) saturate(1.5);
+            -webkit-backdrop-filter: blur(24px) saturate(1.5);
+        }
+
+        /* HUD Panels - Premium Glassmorphism */
         .hud-panel {
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            backdrop-filter: blur(32px) saturate(1.8) brightness(1.1);
+            -webkit-backdrop-filter: blur(32px) saturate(1.8) brightness(1.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .dark .hud-panel {
-            background: rgba(17, 24, 39, 0.6); /* Darker glass */
-            border-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .hud-panel:hover {
             border-color: rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-            transform: translateY(-2px);
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.15) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px) scale(1.02);
+            backdrop-filter: blur(40px) saturate(2) brightness(1.2);
+            -webkit-backdrop-filter: blur(40px) saturate(2) brightness(1.2);
         }
 
         .dark .hud-panel:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(31, 41, 55, 0.7);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        /* Team Card Specifics */
+        /* Team Card Specifics - Modern Glassmorphism */
         .team-card {
             position: relative;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.25) !important;
-        }
-
-        .dark .team-card {
-            background: rgba(31, 41, 55, 0.4) !important; /* Gray 800 glass */
         }
         
-        /* Modern Gradient Glow */
-        .team-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(0,0,0,0.03), transparent 40%);
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .dark .team-card::before {
-            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(255,255,255,0.05), transparent 40%);
+        /* Reflection Mask Logic */
+        .mask-image-linear-to-b {
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
         }
         
-        .team-card:hover::before {
+        /* Modern Gradient Glow - Updated for new design */
+        .team-card:hover .glow-effect {
             opacity: 1;
         }
 
-        /* Team Color Accent */
-        .team-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--team-color, rgba(0,0,0,0.2)), transparent);
-            opacity: 0.8;
-        }
-
-        /* Filter Buttons */
+        /* Filter Buttons - Premium Glass */
         .filter-btn {
-            background: rgba(255, 255, 255, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #6B7280;
-            transition: all 0.2s;
-        }
-
-        .dark .filter-btn {
-            background: rgba(31, 41, 55, 0.4);
-            border-color: rgba(255, 255, 255, 0.1);
-            color: #9CA3AF;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            backdrop-filter: blur(20px) saturate(1.5);
+            -webkit-backdrop-filter: blur(20px) saturate(1.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 4px 16px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .filter-btn:hover {
-            color: #111827;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
             border-color: rgba(255, 255, 255, 0.5);
-            background: rgba(255, 255, 255, 0.6);
-        }
-
-        .dark .filter-btn:hover {
-            color: #F3F4F6;
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(55, 65, 81, 0.6);
+            color: rgba(255, 255, 255, 1);
+            transform: translateY(-1px) scale(1.02);
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
         }
 
         .filter-btn.active {
-            background: rgba(255, 255, 255, 0.8);
-            border-color: #F43F5E;
+            background: 
+                linear-gradient(135deg, rgba(244, 63, 94, 0.25) 0%, rgba(244, 63, 94, 0.1) 100%),
+                radial-gradient(circle at 30% 30%, rgba(244, 63, 94, 0.15) 0%, transparent 70%);
+            border: 1px solid rgba(244, 63, 94, 0.5);
             color: #F43F5E;
-            box-shadow: 0 4px 6px -1px rgba(244, 63, 94, 0.1);
-        }
-
-        .dark .filter-btn.active {
-            background: rgba(244, 63, 94, 0.15);
-            border-color: #F43F5E;
-            color: #F43F5E;
-            box-shadow: 0 0 15px rgba(244, 63, 94, 0.2);
+            box-shadow: 
+                0 6px 20px rgba(244, 63, 94, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 20px rgba(244, 63, 94, 0.3);
+            backdrop-filter: blur(24px) saturate(1.8);
+            -webkit-backdrop-filter: blur(24px) saturate(1.8);
         }
 
         /* Watermark Logo */
@@ -193,7 +235,65 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
         .dark ::-webkit-scrollbar-thumb { background: #374151; }
+        
+        /* Conference Row Interactions */
+        .conf-row { 
+            transition: all 0.2s ease-out; 
+            border: 1px solid transparent;
+        }
+        .conf-row:hover { 
+            background: rgba(255, 255, 255, 0.15); 
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(4px);
+            backdrop-filter: blur(8px);
+        }
+        
+        /* Metric Bar Animation */
+        .bar-fill { 
+            transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+        
+        /* Chart Container Effects */
+        .chart-container {
+            position: relative;
+        }
+        
+        /* Conference Row Interactions */
+        .conf-row { 
+            transition: all 0.2s ease-out; 
+            border: 1px solid transparent;
+        }
+        .conf-row:hover { 
+            background: rgba(255, 255, 255, 0.15); 
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(4px);
+            backdrop-filter: blur(8px);
+        }
+        
+        /* Metric Bar Animation */
+        .bar-fill { 
+            transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+        
+        /* Chart Container Effects */
+        .chart-container {
+            position: relative;
+        }
         ::-webkit-scrollbar-thumb:hover { background: #F43F5E; }
+
+        /* Dark Mode Header */
+        .dark header {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.35) 100%), 
+                        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%), 
+                        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.04) 0%, transparent 50%), 
+                        linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%) !important;
+            backdrop-filter: blur(60px) saturate(1.8) brightness(0.8) contrast(1.2) !important;
+            -webkit-backdrop-filter: blur(60px) saturate(1.8) brightness(0.8) contrast(1.2) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+                        inset 0 -1px 0 rgba(255, 255, 255, 0.1) !important;
+        }
     </style>
 </head>
 <body class="antialiased min-h-screen relative selection:bg-primary selection:text-white">
@@ -202,19 +302,19 @@
     <div class="fixed inset-0 bg-grid-scan pointer-events-none z-0 opacity-40"></div>
 
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 border-b border-white/10 bg-[#030712]/80 backdrop-blur-md">
+    <header class="fixed top-0 w-full z-50 border-b border-white/30" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.15) 100%), radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%); backdrop-filter: blur(60px) saturate(2.2) brightness(1.3) contrast(1.1); -webkit-backdrop-filter: blur(60px) saturate(2.2) brightness(1.3) contrast(1.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 rgba(255, 255, 255, 0.2);">
         <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-4">
-                <div class="w-2 h-8 bg-primary shadow-[0_0_15px_rgba(244,63,94,0.5)]"></div>
-                <a href="/" class="font-display font-bold text-2xl tracking-wider text-white">
-                    GAMEDAY<span class="text-primary">+</span> <span class="text-xs text-gray-500 font-mono align-top mt-1 ml-1 opacity-70">SYS.V.2.0</span>
+                <div class="w-2 h-8 bg-white/60 shadow-[0_0_15px_rgba(255,255,255,0.3)]"></div>
+                <a href="/" class="font-display font-bold text-xl tracking-wider">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-900 via-red-800 via-red-700 via-red-600 to-red-500 drop-shadow-sm" style="background-image: linear-gradient(135deg, #7f1d1d 0%, #991b1b 25%, #b91c1c 50%, #dc2626 75%, #ef4444 100%); -webkit-background-clip: text; background-clip: text; filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));">GAMEDAY+</span> <span class="text-xs text-white/50 font-mono align-top mt-1 ml-1">SYS.V.2.0</span>
                 </a>
             </div>
             
-            <nav class="flex items-center gap-1 bg-surface/50 p-1 rounded-lg border border-white/5">
-                <a href="/" class="px-4 py-1.5 text-xs font-mono text-gray-400 hover:text-white transition rounded hover:bg-white/5">DB_HOME</a>
-                <a href="/coaches" class="px-4 py-1.5 text-xs font-mono text-gray-400 hover:text-white transition rounded hover:bg-white/5">COACHES</a>
-                <a href="/teams" class="px-4 py-1.5 text-xs font-mono text-primary bg-primary/10 rounded font-bold border border-primary/20">TEAMS_Index</a>
+            <nav class="flex items-center gap-1 bg-white/10 backdrop-blur-md p-1 rounded-lg border border-white/20">
+                <a href="/" class="px-4 py-1.5 text-xs font-mono text-white/70 hover:text-white transition rounded hover:bg-white/10">DB_HOME</a>
+                <a href="/coaches" class="px-4 py-1.5 text-xs font-mono text-white/70 hover:text-white transition rounded hover:bg-white/10">COACHES</a>
+                <a href="/teams" class="px-4 py-1.5 text-xs font-mono text-white bg-white/20 rounded font-bold border border-white/30">TEAMS_Index</a>
             </nav>
         </div>
     </header>
@@ -223,63 +323,63 @@
         
         <!-- Hero Section -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
-            <div class="lg:col-span-8 hud-panel rounded-lg p-8 relative overflow-hidden flex flex-col justify-center">
-                 <div class="absolute top-0 right-0 p-4 opacity-10">
-                    <i data-lucide="server" class="w-32 h-32"></i>
+            <div class="lg:col-span-8 hud-panel rounded-2xl p-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-5">
+                    <i data-lucide="server" class="w-24 h-24"></i>
                 </div>
                 
                 <div class="relative z-10">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/30 rounded mb-4">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    <div class="inline-flex items-center gap-2 px-2 py-1 bg-white/10 border border-white/20 rounded-lg mb-3">
+                        <span class="relative flex h-1.5 w-1.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/60 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-white/80"></span>
                         </span>
-                        <span class="text-[10px] font-mono text-primary uppercase tracking-widest font-bold">Live Database Connection</span>
+                        <span class="text-[9px] font-mono text-white/70 uppercase tracking-wider font-medium">Live Database Connection</span>
                     </div>
                     
-                    <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">
-                        FBS TEAMS <span class="text-primary">INDEX</span>
+                    <h1 class="font-display text-2xl md:text-3xl font-bold text-white/95 mb-2 tracking-tight">
+                        FBS TEAMS INDEX
                     </h1>
-                    <p class="text-gray-400 font-mono text-sm max-w-xl">
+                    <p class="text-white/60 font-mono text-xs max-w-xl leading-relaxed">
                         Full analytical access to 134 Division I programs. Historical data, SP+ ratings, and recruiting composites.
                     </p>
                 </div>
             </div>
 
             <!-- Stats Ticker -->
-            <div class="lg:col-span-4 hud-panel rounded-lg p-6 flex flex-col justify-center gap-4">
-                <div class="flex items-center justify-between border-b border-white/5 pb-3">
+            <div class="lg:col-span-4 hud-panel rounded-2xl p-6 flex flex-col justify-center gap-4">
+                <div class="flex items-center justify-between border-b border-white/10 pb-3">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded bg-surface border border-white/10 flex items-center justify-center text-primary">
+                        <div class="w-8 h-8 rounded bg-white/10 border border-white/20 flex items-center justify-center text-white/70">
                             <i data-lucide="users" class="w-4 h-4"></i>
                         </div>
-                        <div class="text-xs font-mono text-gray-400 uppercase">Active Programs</div>
+                        <div class="text-xs font-mono text-white/60 uppercase">Active Programs</div>
                     </div>
-                    <div class="text-2xl font-mono font-bold text-white">134</div>
+                    <div class="text-2xl font-mono font-bold text-white/95">134</div>
                 </div>
-                <div class="flex items-center justify-between border-b border-white/5 pb-3">
+                <div class="flex items-center justify-between border-b border-white/10 pb-3">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded bg-surface border border-white/10 flex items-center justify-center text-blue-400">
+                        <div class="w-8 h-8 rounded bg-white/10 border border-white/20 flex items-center justify-center text-white/70">
                             <i data-lucide="database" class="w-4 h-4"></i>
                         </div>
-                        <div class="text-xs font-mono text-gray-400 uppercase">Data Points</div>
+                        <div class="text-xs font-mono text-white/60 uppercase">Data Points</div>
                     </div>
-                    <div class="text-2xl font-mono font-bold text-white">24k+</div>
+                    <div class="text-2xl font-mono font-bold text-white/95">24k+</div>
                 </div>
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded bg-surface border border-white/10 flex items-center justify-center text-success">
+                        <div class="w-8 h-8 rounded bg-white/10 border border-white/20 flex items-center justify-center text-white/70">
                             <i data-lucide="history" class="w-4 h-4"></i>
                         </div>
-                        <div class="text-xs font-mono text-gray-400 uppercase">Archive Depth</div>
+                        <div class="text-xs font-mono text-white/60 uppercase">Archive Depth</div>
                     </div>
-                    <div class="text-2xl font-mono font-bold text-white">25 YRS</div>
+                    <div class="text-2xl font-mono font-bold text-white/95">25 YRS</div>
                 </div>
             </div>
         </div>
 
         <!-- Controls Bar -->
-        <div class="hud-panel rounded-lg p-4 mb-8 sticky top-20 z-40 bg-[#111827]/90 backdrop-blur-xl border-y border-white/10">
+        <div class="hud-panel rounded-2xl p-6 mb-8 sticky top-20 z-40">
             <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
                 
                 <!-- Filters -->
@@ -301,9 +401,9 @@
                             type="text" 
                             id="searchInput"
                             placeholder="SEARCH_TEAMS..."
-                            class="w-full bg-black/40 border border-white/10 rounded px-4 py-2 pl-10 text-xs font-mono text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all uppercase"
+                            class="w-full bg-white/10 backdrop-blur-md border border-white/30 rounded-xl px-4 py-2 pl-10 text-xs font-mono text-white placeholder-white/50 focus:outline-none focus:border-primary/60 focus:bg-white/15 transition-all uppercase shadow-inner"
                         >
-                        <i data-lucide="search" class="absolute left-3 top-2 w-4 h-4 text-gray-600"></i>
+                        <i data-lucide="search" class="absolute left-3 top-2 w-4 h-4 text-white/40"></i>
                     </div>
                     
                     <!-- Sort Button -->
@@ -314,87 +414,91 @@
             </div>
         </div>
 
-        <!-- Analytics Charts -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <!-- Chart 1: Power 5 Radar -->
-            <div class="hud-panel rounded-lg p-6 flex flex-col relative">
-                <div class="flex items-center gap-2 mb-4">
+        <!-- Conference Analytics -->
+        <!-- Power 5 Conferences Section -->
+        <div class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-1 h-8 bg-gradient-to-b from-amber-500 to-orange-600 shadow-[0_0_15px_rgba(245,158,11,0.4)]"></div>
+                <h2 class="text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+                    Power 5 Conference Analytics
+                </h2>
+                <div class="flex-1 h-px bg-gradient-to-r from-amber-500/50 to-transparent"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-8 mb-8">
+                <!-- Chart 1: Power 5 Radar -->
+            <div class="hud-panel rounded-lg flex flex-col h-full">
+                <div class="flex items-center gap-2 mb-4 px-6 pt-6">
                     <i data-lucide="radar" class="w-5 h-5 text-amber-500"></i>
                     <h3 class="text-sm font-display font-bold text-white uppercase tracking-wider">Power 5 Matrix</h3>
                 </div>
                 
-                <!-- Legend -->
-                <div class="absolute top-6 right-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2 z-10">
-                    <div class="flex flex-col gap-1.5 text-[10px] font-mono">
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full" style="background-color: #D97706;"></div>
-                            <span class="text-gray-300">SEC</span>
+                <div class="p-6 pt-2 flex flex-col lg:flex-row gap-10 h-full">
+                    <!-- Chart Area -->
+                    <div class="w-full lg:w-1/2 relative min-h-[400px] chart-container">
+                        <canvas id="p5Chart"></canvas>
+                    </div>
+
+                    <!-- Stats List -->
+                    <div class="w-full lg:w-1/2 flex flex-col justify-center space-y-2">
+                        <!-- Header -->
+                        <div class="grid grid-cols-12 text-[10px] text-gray-400 font-bold uppercase tracking-widest px-3 mb-2 border-b border-white/10 pb-2">
+                            <span class="col-span-4">Conference</span>
+                            <span class="col-span-4 text-center">Avg Wins</span>
+                            <span class="col-span-4 text-right">Talent Comp</span>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full" style="background-color: #3B82F6;"></div>
-                            <span class="text-gray-300">Big Ten</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full" style="background-color: #EF4444;"></div>
-                            <span class="text-gray-300">Big 12</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full" style="background-color: #8B5CF6;"></div>
-                            <span class="text-gray-300">ACC</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full" style="background-color: #10B981;"></div>
-                            <span class="text-gray-300">Pac-12</span>
-                        </div>
+
+                        <!-- Dynamic Container for P5 Rows -->
+                        <div id="p5List" class="space-y-1"></div>
                     </div>
                 </div>
-                
-                <div class="relative w-full" style="height: 550px;">
-                    <canvas id="p5Chart"></canvas>
-                </div>
             </div>
+        </div>
+        </div>
 
-            <!-- Chart 2: G5 Radar -->
-            <div class="hud-panel rounded-lg p-6 flex flex-col relative">
-                <div class="flex items-center gap-2 mb-4">
+        <!-- Group of 5 Conferences Section -->
+        <div class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-1 h-8 bg-gradient-to-b from-blue-500 to-cyan-600 shadow-[0_0_15px_rgba(59,130,246,0.4)]"></div>
+                <h2 class="text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500">
+                    Group of 5 Conference Analytics
+                </h2>
+                <div class="flex-1 h-px bg-gradient-to-r from-blue-500/50 to-transparent"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-8 mb-8">
+                <!-- Chart 2: G5 Radar -->
+            <div class="hud-panel rounded-lg flex flex-col h-full">
+                <div class="flex items-center gap-2 mb-4 px-6 pt-6">
                     <i data-lucide="radar" class="w-5 h-5 text-blue-500"></i>
                     <h3 class="text-sm font-display font-bold text-white uppercase tracking-wider">Group of 5 Matrix</h3>
                 </div>
                 
-                <!-- Legend -->
-                <div class="absolute top-6 right-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2 z-10">
-                    <div class="flex flex-col gap-1.5 text-[10px] font-mono">
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full" style="background-color: #06B6D4;"></div>
-                            <span class="text-gray-300">American Athletic</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full" style="background-color: #8B5CF6;"></div>
-                            <span class="text-gray-300">Mountain West</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full" style="background-color: #F97316;"></div>
-                            <span class="text-gray-300">Sun Belt</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full" style="background-color: #10B981;"></div>
-                            <span class="text-gray-300">Mid-American</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full" style="background-color: #EC4899;"></div>
-                            <span class="text-gray-300">Conference USA</span>
-                        </div>
+                <div class="p-6 pt-2 flex flex-col lg:flex-row gap-10 h-full">
+                    <!-- Chart Area -->
+                    <div class="w-full lg:w-1/2 relative min-h-[400px] chart-container">
+                        <canvas id="g5Chart"></canvas>
                     </div>
-                </div>
-                
-                <div class="relative w-full" style="height: 550px;">
-                    <canvas id="g5Chart"></canvas>
+
+                    <!-- Stats List -->
+                    <div class="w-full lg:w-1/2 flex flex-col justify-center space-y-2">
+                        <!-- Header -->
+                        <div class="grid grid-cols-12 text-[10px] text-gray-400 font-bold uppercase tracking-widest px-3 mb-2 border-b border-white/10 pb-2">
+                            <span class="col-span-4">Conference</span>
+                            <span class="col-span-4 text-center">Avg Wins</span>
+                            <span class="col-span-4 text-right">Talent Comp</span>
+                        </div>
+
+                        <!-- Dynamic Container for G5 Rows -->
+                        <div id="g5List" class="space-y-1"></div>
+                    </div>
                 </div>
             </div>
         </div>
+        </div>
 
         <!-- Teams Grid -->
-        <div id="teamsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div id="teamsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             <!-- Loading State -->
             <div class="col-span-full py-20 text-center">
                 <div class="inline-flex items-center gap-3 text-primary font-mono animate-pulse">
@@ -410,7 +514,11 @@
         lucide.createIcons();
 
         let allTeams = [];
+        let fbsTeams = [];
+        let nonFbsTeams = [];
+        let showAllTeams = false;
         let currentFilter = 'all';
+        let searchTerm = '';
 
         // Conference styling map
         const confStyles = {
@@ -450,177 +558,217 @@
             return confStyles['default'];
         }
 
-        function handleCardHover(e) {
-            const card = e.currentTarget;
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
+        // Chart data ranges for normalization
+        const ranges = {
+            wins: { min: 3, max: 9 },
+            off: { min: 15, max: 40 },
+            def: { min: 15, max: 40 },
+            sos: { min: 10, max: 130 },
+            sp: { min: -15, max: 20 },
+            talent: { min: 400, max: 900 }
+        };
+
+        // Conference logos mapping
+        const conferenceLogos = {
+            'SEC': '/frontend/public/photos/SEC.png',
+            'Big Ten': '/frontend/public/photos/Big Ten.png',
+            'Big 12': '/frontend/public/photos/Big 12.png',
+            'ACC': '/frontend/public/photos/ACC.png',
+            'Pac-12': '/frontend/public/photos/Pac-12.png',
+            'American Athletic': '/frontend/public/photos/American Athletic.png',
+            'Mid-American': '/frontend/public/photos/Mid-American.png',
+            'Mountain West': '/frontend/public/photos/Mountain West.png',
+            'Sun Belt': '/frontend/public/photos/Sun Belt.png',
+            'Conference USA': '/frontend/public/photos/Conference USA.png'
+        };
+
+        // Normalize function
+        function normalize(val, min, max, invert = false) {
+            let n = ((val - min) / (max - min)) * 100;
+            if (invert) n = 100 - n;
+            return Math.max(0, Math.min(100, n));
         }
+
+        // Shadow plugin for 3D effect
+        const shadowPlugin = {
+            id: 'shadowPlugin',
+            beforeDatasetDraw: (chart, args, options) => {
+                const { ctx } = chart;
+                ctx.save();
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.35)';
+                ctx.shadowBlur = 15;
+                ctx.shadowOffsetX = 6;
+                ctx.shadowOffsetY = 6;
+            },
+            afterDatasetDraw: (chart, args, options) => {
+                chart.ctx.restore();
+            }
+        };
 
         async function createCharts() {
             try {
                 const response = await fetch('/api/stats/conference-wins');
                 const data = await response.json();
-                
-                // Conference Logos Configuration
-                const conferenceLogos = {
-                    'ACC': '/frontend/public/photos/ACC.png',
-                    'Big 12': '/frontend/public/photos/Big 12.png',
-                    'Big Ten': '/frontend/public/photos/Big Ten.png',
-                    'SEC': '/frontend/public/photos/SEC.png',
-                    'Pac-12': '/frontend/public/photos/Pac-12.png',
-                    'American Athletic': '/frontend/public/photos/American Athletic.png',
-                    'Mid-American': '/frontend/public/photos/Mid-American.png',
-                    'Mountain West': '/frontend/public/photos/Mountain West.png',
-                    'Sun Belt': '/frontend/public/photos/Sun Belt.png',
-                    'Conference USA': '/frontend/public/photos/Conference USA.png'
-                };
 
-                // Preload images
-                const logoImages = {};
-                Object.entries(conferenceLogos).forEach(([key, url]) => {
-                    const img = new Image();
-                    img.src = url;
-                    logoImages[key] = img;
-                });
 
-                // Custom Plugin for Logo Watermarks
-                const logoPlugin = {
-                    id: 'conferenceLogos',
-                    beforeDatasetDraw(chart, args, options) {
-                        const { ctx } = chart;
-                        const meta = chart.getDatasetMeta(0);
+
+                // Register shadow plugin
+                Chart.register(shadowPlugin);
+
+                // Create list items for conferences
+                function createListItems(data, containerId, chartInstance) {
+                    const container = document.getElementById(containerId);
+                    container.innerHTML = '';
+                    
+                    data.forEach((conf, index) => {
+                        const row = document.createElement('div');
+                        row.className = 'conf-row cursor-pointer p-3 group bg-white/5 mb-1 backdrop-blur-sm rounded-lg border border-white/10';
+                        const style = getConfStyle(conf.conference);
+                        row.style.setProperty('--conf-color', style.color);
                         
-                        // Draw watermarked slices BEFORE the data
-                        meta.data.forEach((element, index) => {
-                            const confName = chart.data.labels[index];
-                            const img = logoImages[confName];
-                            const confStyle = getConfStyle(confName);
-                            
-                            if (img && img.complete && img.naturalWidth > 0) {
-                                const centerX = chart.scales.r.xCenter;
-                                const centerY = chart.scales.r.yCenter;
-                                const startAngle = element.startAngle;
-                                const endAngle = element.endAngle;
-                                const outerRadius = element.outerRadius;
-                                const innerRadius = chart.scales.r.drawingArea * 0.15; // Small inner radius
+                        // Mouse events for highlighting
+                        row.onmouseenter = () => highlightChart(chartInstance, index);
+                        row.onmouseleave = () => resetChart(chartInstance);
+
+                        const logoUrl = conferenceLogos[conf.conference] || 'https://via.placeholder.com/30';
+                        const winPct = (conf.avg_wins / 9) * 100;
+                        const talentPct = ((conf.avg_talent || 600) / 900) * 100;
+
+                        row.innerHTML = `
+                            <div class="grid grid-cols-12 items-center gap-4">
+                                <!-- Name & Logo -->
+                                <div class="col-span-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 flex items-center justify-center shrink-0">
+                                        <img src="${logoUrl}" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/30'">
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-sm text-white uppercase tracking-tight">${conf.conference}</div>
+                                        <div class="text-[10px] text-gray-400 font-mono">SOS #${Math.round(conf.avg_sos || 50)}</div>
+                                    </div>
+                                </div>
                                 
-                                ctx.save();
-                                
-                                // Fill the entire quadrant/slice with conference color (semi-transparent)
-                                ctx.beginPath();
-                                ctx.moveTo(centerX, centerY);
-                                ctx.arc(centerX, centerY, outerRadius, startAngle, endAngle);
-                                ctx.closePath();
-                                
-                                // Convert hex to rgba with very low opacity for watermark effect
-                                const hex = confStyle.color.replace('#', '');
-                                const r = parseInt(hex.substring(0, 2), 16);
-                                const g = parseInt(hex.substring(2, 4), 16);
-                                const b = parseInt(hex.substring(4, 6), 16);
-                                ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.18)`;
-                                ctx.fill();
-                                
-                                // Calculate logo position and size based on slice dimensions
-                                const sliceAngle = endAngle - startAngle;
-                                const midAngle = (startAngle + endAngle) / 2;
-                                
-                                // Position logo at 50% of radius - center of the slice
-                                const logoRadius = outerRadius * 0.5;
-                                const x = centerX + Math.cos(midAngle) * logoRadius;
-                                const y = centerY + Math.sin(midAngle) * logoRadius;
-                                
-                                // Calculate logo size to fit nicely within quadrant
-                                // Make logo proportional to the outer radius
-                                const size = outerRadius * 0.8; // Balanced size for quadrant
-                                
-                                // Draw logo with transparency and rotation
-                                ctx.globalAlpha = 0.28; // Adjusted opacity
-                                ctx.translate(x, y);
-                                // Special rotation for Big Ten
-                                const rotation = confName === 'Big Ten' ? 90 : 45;
-                                ctx.rotate(rotation * Math.PI / 180);
-                                ctx.drawImage(img, -size/2, -size/2, size, size);
-                                
-                                ctx.restore();
+                                <!-- Wins Visual -->
+                                <div class="col-span-4 flex flex-col justify-center px-2">
+                                    <div class="flex justify-between text-[10px] font-bold mb-1">
+                                        <span class="text-gray-400">Avg</span>
+                                        <span class="text-white">${(conf.avg_wins || 0).toFixed(1)}</span>
+                                    </div>
+                                    <div class="h-2 w-full bg-gray-600/30 overflow-hidden rounded-sm">
+                                        <div class="h-full bar-fill" style="width: ${winPct}%; background-color: ${style.color};"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Talent Visual -->
+                                <div class="col-span-4 flex flex-col justify-center text-right px-2">
+                                     <div class="flex justify-end items-baseline gap-1 mb-1">
+                                        <span class="text-white font-bold text-sm tabular-nums tracking-tight">${conf.avg_talent || 600}</span>
+                                    </div>
+                                     <div class="h-2 w-full bg-gray-600/30 overflow-hidden rounded-sm flex justify-end">
+                                        <div class="h-full opacity-80" style="width: ${talentPct}%; background-color: ${style.color}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(row);
+                    });
+                }
+
+                // Create chart data
+                function createChartData(data) {
+                    return {
+                        labels: ['Wins', 'Offense', 'Talent', 'SP+', 'Defense', 'SOS'],
+                        datasets: data.map(conf => {
+                            const style = getConfStyle(conf.conference);
+                            return {
+                                label: conf.conference,
+                                data: [
+                                    normalize(conf.avg_wins || 5, ranges.wins.min, ranges.wins.max),
+                                    normalize(conf.avg_off || 25, ranges.off.min, ranges.off.max),
+                                    normalize(conf.avg_talent || 600, ranges.talent.min, ranges.talent.max),
+                                    normalize(conf.avg_sp_rating || 0, ranges.sp.min, ranges.sp.max),
+                                    normalize(conf.avg_def || 25, ranges.def.min, ranges.def.max, true),
+                                    normalize(conf.avg_sos || 50, ranges.sos.min, ranges.sos.max, true)
+                                ],
+                                borderColor: style.color,
+                                backgroundColor: style.color + '33',
+                                borderWidth: 3,
+                                originalColor: style.color
                             }
-                        });
-                    }
-                };
+                        })
+                    };
+                }
+
+                // Highlight chart interaction
+                function highlightChart(chart, index) {
+                    chart.data.datasets.forEach((ds, i) => {
+                        if (i === index) {
+                            ds.borderColor = ds.originalColor;
+                            ds.borderWidth = 5;
+                            ds.backgroundColor = ds.originalColor + '4D';
+                            ds.order = 1;
+                        } else {
+                            ds.borderColor = '#374151';
+                            ds.borderWidth = 1;
+                            ds.backgroundColor = 'transparent';
+                            ds.order = 10;
+                        }
+                    });
+                    chart.update('none');
+                }
+
+                // Reset chart
+                function resetChart(chart) {
+                    chart.data.datasets.forEach(ds => {
+                        ds.borderColor = ds.originalColor;
+                        ds.borderWidth = 3;
+                        ds.backgroundColor = ds.originalColor + '33';
+                        ds.order = 0;
+                    });
+                    chart.update('none');
+                }
 
                 // Common Chart Options
                 const commonOptions = {
                     responsive: true,
                     maintainAspectRatio: false,
-                    interaction: {
-                        mode: 'index',
-                        intersect: false,
+                    scales: {
+                        r: {
+                            angleLines: { display: false },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)', circular: true, lineWidth: 1 },
+                            pointLabels: {
+                                color: '#9CA3AF',
+                                font: { size: 10, weight: '700', family: 'JetBrains Mono' },
+                                backdropColor: 'transparent'
+                            },
+                            ticks: { display: false },
+                            min: 0,
+                            max: 100
+                        }
                     },
                     plugins: {
-                        legend: { 
-                            display: true,
-                            labels: { color: '#9CA3AF', font: { family: 'JetBrains Mono', size: 10 } }
-                        },
+                        legend: { display: false },
                         tooltip: {
-                            backgroundColor: 'rgba(17, 24, 39, 0.9)',
+                            backgroundColor: 'rgba(17, 24, 39, 0.95)',
                             titleColor: '#fff',
-                            bodyColor: '#ccc',
-                            borderColor: 'rgba(255, 255, 255, 0.1)',
-                            borderWidth: 1,
+                            bodyColor: '#e4e4e7',
                             padding: 12,
-                            titleFont: { family: 'Orbitron', size: 13 },
-                            bodyFont: { family: 'JetBrains Mono', size: 11 },
+                            cornerRadius: 8,
+                            titleFont: { family: 'JetBrains Mono', size: 13, weight: '700' },
+                            bodyFont: { family: 'JetBrains Mono', size: 12 },
+                            displayColors: true,
+                            boxPadding: 4,
                             callbacks: {
                                 label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.parsed.y !== null) {
-                                        label += context.parsed.y;
-                                    }
-                                    return label;
-                                },
-                                afterBody: function(context) {
-                                    const index = context[0].dataIndex;
-                                    const dataset = context[0].chart.data.datasets[0].raw_data;
-                                    if (dataset && dataset[index]) {
-                                        return [
-                                            `Avg Talent: ${dataset[index].avg_talent}`,
-                                            `Avg SOS Rank: ${dataset[index].avg_sos} (Lower is Harder)`,
-                                            `Avg Turnover Margin: ${dataset[index].avg_turnover > 0 ? '+' : ''}${dataset[index].avg_turnover}`
-                                        ];
-                                    }
-                                    return '';
+                                    const conf = context.chart.data.datasets[context.datasetIndex];
+                                    const value = context.parsed.r;
+                                    return `${conf.label}: ${value.toFixed(1)}%`;
                                 }
                             }
                         }
                     },
-                    scales: {
-                        y: {
-                            type: 'linear',
-                            display: true,
-                            position: 'left',
-                            beginAtZero: true,
-                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                            ticks: { color: '#9CA3AF', font: { family: 'JetBrains Mono' } },
-                            title: { display: true, text: 'Avg Wins', color: '#6B7280', font: { size: 10 } }
-                        },
-                        y1: {
-                            type: 'linear',
-                            display: true,
-                            position: 'right',
-                            grid: { drawOnChartArea: false },
-                            ticks: { color: '#F43F5E', font: { family: 'JetBrains Mono' } },
-                            title: { display: true, text: 'SP+ Rating', color: '#F43F5E', font: { size: 10 } }
-                        },
-                        x: {
-                            grid: { display: false },
-                            ticks: { color: '#D1D5DB', font: { family: 'JetBrains Mono', size: 10 } }
-                        }
+                    elements: {
+                        line: { borderWidth: 3, tension: 0.1 },
+                        point: { radius: 0, hoverRadius: 6 }
                     }
                 };
 
@@ -811,20 +959,30 @@
                                 }
                             }
                         },
-                        plugins: [logoPlugin, percentagePlugin]
+                        plugins: [percentagePlugin]
                     });
                 };
 
                 // P5 Chart
-                const p5Ctx = document.getElementById('p5Chart');
-                if (p5Ctx && data.p5.length > 0) {
-                    buildConfig(p5Ctx, data.p5);
+                const ctxP5 = document.getElementById('p5Chart');
+                if (ctxP5 && data.p5.length > 0) {
+                    const p5Chart = new Chart(ctxP5, {
+                        type: 'radar',
+                        data: createChartData(data.p5),
+                        options: commonOptions
+                    });
+                    createListItems(data.p5, 'p5List', p5Chart);
                 }
 
                 // G5 Chart
-                const g5Ctx = document.getElementById('g5Chart');
-                if (g5Ctx && data.g5.length > 0) {
-                    buildConfig(g5Ctx, data.g5);
+                const ctxG5 = document.getElementById('g5Chart');
+                if (ctxG5 && data.g5.length > 0) {
+                    const g5Chart = new Chart(ctxG5, {
+                        type: 'radar',
+                        data: createChartData(data.g5),
+                        options: commonOptions
+                    });
+                    createListItems(data.g5, 'g5List', g5Chart);
                 }
 
                 // Helper for Efficiency Charts
@@ -915,18 +1073,65 @@
                 const data = await response.json();
                 allTeams = data.teams || [];
                 
-                // Sort: FBS first, then alphabetical
-                allTeams.sort((a, b) => {
-                    const isFbsA = (a.classification || '').toLowerCase() === 'fbs';
-                    const isFbsB = (b.classification || '').toLowerCase() === 'fbs';
+                // Define actual FBS conferences
+                const fbsConferences = [
+                    'SEC', 'Big Ten', 'Big 12', 'ACC', 'Pac-12',
+                    'American Athletic', 'Mountain West', 'Conference USA', 
+                    'Mid-American', 'Sun Belt', 'FBS Independents'
+                ];
+                
+                // Separate FBS and non-FBS teams based on conference
+                fbsTeams = allTeams.filter(team => {
+                    const conf = team.conference || '';
+                    const isFbs = fbsConferences.some(fbsConf => 
+                        conf.includes(fbsConf) || conf === fbsConf
+                    );
+                    return isFbs;
+                });
+                
+                nonFbsTeams = allTeams.filter(team => {
+                    const conf = team.conference || '';
+                    const isFbs = fbsConferences.some(fbsConf => 
+                        conf.includes(fbsConf) || conf === fbsConf
+                    );
+                    return !isFbs;
+                });
+                
+                console.log(`Loaded ${fbsTeams.length} FBS teams and ${nonFbsTeams.length} non-FBS teams`);
+                console.log('Sample FBS teams:', fbsTeams.slice(0, 3).map(t => `${t.school} (${t.conference})`));
+                console.log('Sample non-FBS teams:', nonFbsTeams.slice(0, 3).map(t => `${t.school} (${t.conference})`));
+                
+                // Define conference order for FBS teams
+                const conferenceOrder = {
+                    'SEC': 1,
+                    'Big Ten': 2,
+                    'Big 12': 3,
+                    'ACC': 4,
+                    'Pac-12': 5,
+                    'American Athletic': 6,
+                    'Mountain West': 7,
+                    'Conference USA': 8,
+                    'Mid-American': 9,
+                    'Sun Belt': 10,
+                    'FBS Independents': 11
+                };
+                
+                // Sort FBS teams by conference, then alphabetically
+                fbsTeams.sort((a, b) => {
+                    const confA = a.conference || 'Other';
+                    const confB = b.conference || 'Other';
                     
-                    if (isFbsA && !isFbsB) return -1;
-                    if (!isFbsA && isFbsB) return 1;
+                    const orderA = conferenceOrder[confA] || 99;
+                    const orderB = conferenceOrder[confB] || 99;
                     
+                    if (orderA !== orderB) return orderA - orderB;
                     return a.school.localeCompare(b.school);
                 });
+                
+                // Sort non-FBS teams alphabetically
+                nonFbsTeams.sort((a, b) => a.school.localeCompare(b.school));
 
-                renderTeams(allTeams);
+                applyFilters();
                 createCharts();
             } catch (error) {
                 console.error('Error loading teams:', error);
@@ -957,74 +1162,152 @@
                 const style = getConfStyle(conf);
                 const logoUrl = team.logo_url || `https://a.espncdn.com/i/teamlogos/ncaa/500/${team.espn_id || team.id}.png`;
                 const teamColor = team.color || style.color;
+                const altColor = team.alt_color || '#ffffff';
                 
                 return `
-                    <a href="/team/${team.id}" class="team-card hud-panel rounded-2xl p-6 block group cursor-pointer transition-all duration-300" 
-                       onmousemove="handleCardHover(event)"
-                       style="--team-color: ${teamColor}">
+                    <a href="/team/${team.id}" class="team-card group relative block cursor-pointer transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2" 
+                       style="--team-primary: ${teamColor}; --team-alt: ${altColor};">
                         
-                        <!-- Watermark -->
-                        <img src="${logoUrl}" alt="" class="watermark-logo">
-                        
-                        <!-- Header -->
-                        <div class="relative z-10 flex gap-5 mb-5 items-center">
-                            <div class="relative flex-shrink-0 flex-grow-0" style="width: 80px; height: 80px;">
-                                <div class="w-full h-full rounded-xl bg-white dark:bg-white/5 ring-1 ring-gray-200 dark:ring-white/10 flex items-center justify-center p-2 shadow-sm">
-                                    <img src="${logoUrl}" alt="${team.school}" style="width: 100%; height: 100%; object-fit: contain;" 
-                                         onerror="this.src='https://via.placeholder.com/80?text=TM'">
-                                </div>
-                            </div>
+                        <!-- Glassmorphism Card -->
+                        <div class="relative h-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden group-hover:bg-white/15 group-hover:border-white/30 transition-all duration-500">
                             
-                            <div class="flex-1 min-w-0 flex flex-col justify-center">
-                                <h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight truncate group-hover:text-[var(--team-color)] transition-colors duration-300">
-                                    ${team.school}
-                                </h3>
-                                <div class="flex gap-2 mt-2">
-                                    <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 tracking-wider">
-                                        ${conf}
-                                    </span>
-                                    ${team.division ? `<span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-500 dark:text-gray-400 tracking-wider">${team.division}</span>` : ''}
-                                </div>
+                            <!-- Top Conference Badge -->
+                            <div class="absolute top-3 left-3 z-20">
+                                <span class="px-3 py-1 rounded-full border border-white/30 text-xs font-semibold tracking-wider bg-black/20 uppercase text-white/90 backdrop-blur-sm">
+                                    ${conf}
+                                </span>
                             </div>
-                        </div>
-                        
-                        <!-- Stats Grid -->
-                        <div class="relative z-10 grid grid-cols-2 gap-4 border-t border-gray-100 dark:border-white/5 pt-4">
-                            <div>
-                                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider mb-0.5">2025 Record</div>
-                                <div class="text-sm font-mono font-bold text-gray-900 dark:text-white tracking-tight">
-                                    ${team.latest_wins !== null ? `<span class="text-white">${team.latest_wins}</span><span class="text-gray-500">-</span><span class="text-gray-400">${team.latest_losses}</span>` : '<span class="text-gray-600">--</span>'}
-                                </div>
-                            </div>
-                            <div>
-                                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider mb-0.5">SP+ Rating</div>
-                                <div class="text-sm font-mono font-bold text-gray-900 dark:text-white tracking-tight">
-                                    ${team.latest_sp ? `<span class="${team.latest_sp > 0 ? 'text-emerald-400' : 'text-rose-400'}">${parseFloat(team.latest_sp).toFixed(1)}</span>` : '<span class="text-gray-600">--</span>'}
-                                </div>
-                            </div>
-                            <div>
-                                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider mb-0.5">Talent Comp</div>
-                                <div class="text-sm font-mono font-bold text-gray-900 dark:text-white tracking-tight">
-                                    ${team.latest_talent ? Math.round(team.latest_talent) : '<span class="text-gray-600">--</span>'}
-                                </div>
-                            </div>
-                            <div>
-                                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider mb-0.5">Location</div>
-                                <div class="text-xs font-mono text-gray-400 truncate" title="${team.location_name || team.city}">
-                                    ${team.city || 'Unknown'}, ${team.state || ''}
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Hover Arrow -->
-                        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-[var(--team-color)]"></i>
+                            <!-- Team Logo Section -->
+                            <div class="relative flex items-center justify-center p-8 bg-gradient-to-br from-white/5 to-transparent border-b border-white/10 group-hover:from-white/10 transition-all duration-500 min-h-[200px]">
+                                <!-- Main Logo -->
+                                <div class="relative w-32 h-32 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3">
+                                    <img src="${logoUrl}" alt="${team.school}" class="relative z-10 w-full h-full object-contain drop-shadow-2xl" 
+                                         onerror="this.src='https://via.placeholder.com/128?text=${team.school.charAt(0)}'">
+                                    
+                                    <!-- Reflection Effect -->
+                                    <img src="${logoUrl}" alt="" class="absolute top-[85%] left-0 w-full h-full object-contain opacity-40 blur-[1px] transform scale-y-[-1] mask-image-linear-to-b" 
+                                         style="mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);" 
+                                         aria-hidden="true" onerror="this.style.display='none'">
+                                </div>
+                            </div>
+
+                            <!-- Team Info Section -->
+                            <div class="relative p-6 space-y-6">
+                                <!-- Team Name -->
+                                <div>
+                                    <h2 class="text-2xl font-black tracking-tighter leading-none mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70 font-display">
+                                        ${team.school}
+                                    </h2>
+                                    <p class="text-lg font-light tracking-widest uppercase opacity-80 font-display text-white/60">
+                                        ${team.mascot || 'Team'}
+                                    </p>
+                                </div>
+
+                                <!-- Gradient Line -->
+                                <div class="h-px w-full bg-gradient-to-r from-white/30 to-transparent"></div>
+                                
+                                <!-- Stats Grid -->
+                                <div class="grid grid-cols-2 gap-4 text-white">
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest opacity-50 mb-1">Record</div>
+                                        <div class="text-sm font-mono font-medium">
+                                            ${team.latest_wins !== null ? `${team.latest_wins}-${team.latest_losses}` : '--'}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest opacity-50 mb-1">SP+ Rating</div>
+                                        <div class="text-sm font-mono font-medium">
+                                            ${team.latest_sp ? `${parseFloat(team.latest_sp).toFixed(1)}` : '--'}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Color Swatches -->
+                                <div class="space-y-3">
+                                    <div class="text-xs font-bold uppercase tracking-widest opacity-50">Team Colors</div>
+                                    <div class="flex gap-3">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-6 h-6 rounded-full border-2 border-white/20 shadow-lg" style="background-color: ${teamColor}"></div>
+                                            <span class="text-xs font-mono text-white/60">${teamColor}</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-6 h-6 rounded-full border-2 border-white/20 shadow-lg" style="background-color: ${altColor}"></div>
+                                            <span class="text-xs font-mono text-white/60">${altColor}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Explore Button -->
+                                <div class="pt-2">
+                                    <div class="w-full px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/30 text-white font-medium tracking-wide overflow-hidden transition-all group-hover:bg-white/20 group-hover:border-white/40 group-hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]">
+                                        <span class="flex items-center justify-center gap-2">
+                                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                                            <span class="text-sm">View Details</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Glow Effect -->
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                                <div class="absolute inset-0 bg-gradient-to-br opacity-10 blur-xl" style="background: radial-gradient(circle at 30% 30%, ${teamColor}, transparent 70%);"></div>
+                            </div>
                         </div>
                     </a>
                 `;
             }).join('');
 
+            // Add "View All Teams" indicator if showing FBS only and there are non-FBS teams
+            if (!showAllTeams && nonFbsTeams.length > 0) {
+                grid.innerHTML += `
+                    <div class="col-span-full mt-8">
+                        <div class="hud-panel rounded-2xl p-8 text-center border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-primary dark:hover:border-primary transition-all duration-300 cursor-pointer group" onclick="toggleAllTeams()">
+                            <div class="flex flex-col items-center gap-4">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-300">
+                                    <i data-lucide="plus-circle" class="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-300"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-lg text-gray-900 dark:text-white mb-2">View All Teams</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400 font-mono">
+                                        ${nonFbsTeams.length} additional NCAA Division I teams available
+                                    </p>
+                                    <div class="mt-3 inline-flex items-center gap-2 text-xs font-medium text-primary">
+                                        <span>Expand Collection</span>
+                                        <i data-lucide="arrow-down" class="w-3 h-3 group-hover:translate-y-0.5 transition-transform duration-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Add "Collapse" option if showing all teams
+            if (showAllTeams && nonFbsTeams.length > 0) {
+                grid.innerHTML += `
+                    <div class="col-span-full mt-8 pt-8 border-t-2 border-dashed border-gray-300 dark:border-gray-600">
+                        <div class="hud-panel rounded-2xl p-6 text-center border border-gray-300 dark:border-gray-600 hover:border-primary dark:hover:border-primary transition-all duration-300 cursor-pointer group" onclick="toggleAllTeams()">
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-gray-400/20 to-gray-400/10 flex items-center justify-center">
+                                    <i data-lucide="minus-circle" class="w-4 h-4 text-gray-500 group-hover:scale-110 transition-transform duration-300"></i>
+                                </div>
+                                <div>
+                                    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">Show FBS Teams Only</span>
+                                    <i data-lucide="arrow-up" class="w-3 h-3 ml-2 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
             lucide.createIcons();
+        }
+
+        function toggleAllTeams() {
+            showAllTeams = !showAllTeams;
+            applyFilters();
         }
 
         function filterTeams(filter) {
@@ -1048,7 +1331,12 @@
         function applyFilters() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             
-            const filtered = allTeams.filter(team => {
+            // Get the base team list (FBS or all teams)
+            const baseTeams = showAllTeams ? [...fbsTeams, ...nonFbsTeams] : fbsTeams;
+            
+            console.log(`applyFilters: showAllTeams=${showAllTeams}, baseTeams length=${baseTeams.length}`);
+            
+            const filtered = baseTeams.filter(team => {
                 // Filter by Conference
                 const confMatch = currentFilter === 'all' || 
                     (currentFilter === 'Other' 
@@ -1075,11 +1363,17 @@
             btn.innerHTML = sortAscending ? '<i data-lucide="arrow-down-az" class="w-4 h-4"></i>' : '<i data-lucide="arrow-up-za" class="w-4 h-4"></i>';
             lucide.createIcons();
             
-            allTeams.sort((a, b) => {
+            // Sort both arrays
+            const sortFn = (a, b) => {
                 return sortAscending 
                     ? a.school.localeCompare(b.school)
                     : b.school.localeCompare(a.school);
-            });
+            };
+            
+            fbsTeams.sort(sortFn);
+            nonFbsTeams.sort(sortFn);
+            allTeams.sort(sortFn);
+            
             applyFilters(); // Re-render with current filters
         });
 

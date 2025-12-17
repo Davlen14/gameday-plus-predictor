@@ -197,6 +197,96 @@
             overflow-x: hidden;
         }
 
+        /* Mobile Optimizations */
+        @media (max-width: 640px) {
+            html {
+                -webkit-text-size-adjust: 100%;
+                -moz-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+            }
+            
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            
+            /* Prevent zoom on input focus */
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+            
+            /* Optimize button tap targets */
+            button {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+                touch-action: manipulation;
+            }
+        }
+
+        /* Mobile Text Utilities */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .truncate {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Touch-friendly interactions */
+        @media (hover: none) {
+            .hover\:scale-105:hover {
+                transform: none;
+            }
+            .hover\:bg-white\/20:hover {
+                background-color: transparent;
+            }
+        }
+
+        /* Touch optimization */
+        @media (pointer: coarse) {
+            .cursor-pointer {
+                cursor: default;
+            }
+            
+            button, .cursor-pointer {
+                min-height: 44px;
+            }
+        }
+
+        /* Mobile-optimized Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        @media (min-width: 768px) {
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+        
+        /* Tailwind scrollbar utilities */
+        .scrollbar-thin {
+            scrollbar-width: thin;
+            scrollbar-color: #4a5568 transparent;
+        }
+
         /* Dark Mode Overrides */
         .noise-bg {
                 background: linear-gradient(135deg, 
@@ -360,14 +450,21 @@
         }
         
         .team-logo-img {
-            width: 36px;
-            height: 36px;
+            width: 28px;
+            height: 28px;
             object-fit: contain;
             position: relative;
             z-index: 3;
             opacity: 0.75;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+        }
+        
+        @media (min-width: 640px) {
+            .team-logo-img {
+                width: 36px;
+                height: 36px;
+            }
         }
         
         .logo-container:hover .team-logo-img {
@@ -378,12 +475,19 @@
         
         .logo-glow {
             position: absolute;
-            width: 48px;
-            height: 48px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             z-index: 1;
             opacity: var(--glow-opacity);
             transition: all 0.4s ease;
+        }
+        
+        @media (min-width: 640px) {
+            .logo-glow {
+                width: 48px;
+                height: 48px;
+            }
         }
         
         .logo-container:hover .logo-glow {
@@ -579,6 +683,333 @@
             animation: circuitPulse 1s ease-in-out infinite;
             filter: drop-shadow(0 0 24px rgba(255, 15, 69, 1)) drop-shadow(0 0 48px rgba(255, 15, 69, 0.7)) !important;
             transform: scale(1.1) rotate(2deg);
+        }
+
+        /* CFP Bracket Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Oswald:ital,wght@0,500;0,700;1,700&family=Orbitron:wght@900&display=swap');
+
+        .cfp-gold-text {
+            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .team-slot {
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-slot.winner {
+            background: linear-gradient(to right, #18181b, #000000);
+            border-left: 4px solid;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 1;
+        }
+
+        .team-slot.loser {
+            opacity: 0.4;
+            filter: grayscale(1);
+        }
+
+        .team-slot.placeholder {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .team-slot:not(.winner):not(.placeholder) {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .team-slot:hover:not(.placeholder) {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .team-logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+            transition: transform 0.5s ease;
+        }
+
+        .team-slot.winner .team-logo {
+            transform: scale(1.1);
+        }
+
+        .electric-connector {
+            position: absolute;
+            z-index: 0;
+            transition: all 0.5s ease-out;
+        }
+
+        .electric-beam {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .electric-connector.active .electric-beam {
+            opacity: 1;
+        }
+
+        @keyframes electricFlowH {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+        }
+
+        @keyframes electricFlowV {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(200%); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .match-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0c0c0c;
+            border-top: 1px solid #27272a;
+            border-left: 1px solid #27272a;
+            border-right: 1px solid #27272a;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.125rem 0.125rem 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .match-body {
+            background: #18181b;
+            border-left: 1px solid #27272a;
+            border-right: 1px solid #27272a;
+            border-bottom: 1px solid #27272a;
+            transition: border-color 0.5s ease;
+            border-radius: 0 0 0.125rem 0.125rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 40px -10px rgba(0,0,0,0.6);
+        }
+
+        .match-body.winner-selected {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .vs-divider {
+            height: 1px;
+            background: #27272a;
+            width: 100%;
+            position: relative;
+            z-index: 20;
+            display: flex;
+            justify-content: center;
+        }
+
+        .vs-badge {
+            position: absolute;
+            top: -0.5rem;
+            background: #000;
+            border: 1px solid #27272a;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-size: 0.5rem;
+            font-weight: 900;
+            color: #52525b;
+            letter-spacing: 0.05em;
+            z-index: 30;
+        }
+        
+        @media (min-width: 640px) {
+            .vs-badge {
+                top: -0.75rem;
+                padding: 0.125rem 0.5rem;
+                font-size: 0.5625rem;
+                letter-spacing: 0.1em;
+            }
+        }
+
+        .flying-logo {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            transition: none;
+        }
+
+        .champion-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.25rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            max-width: 90vw;
+            max-height: 85vh;
+            margin: 1rem auto 0;
+            overflow-y: auto;
+        }
+        
+        @media (min-width: 640px) {
+            .champion-container {
+                max-width: 32rem;
+                max-height: none;
+                margin: 2rem auto 0;
+                overflow-y: visible;
+            }
+        }
+
+        .champion-bg {
+            position: absolute;
+            inset: 0;
+            border-radius: 1.5rem;
+            opacity: 0.5;
+            filter: blur(0.75rem);
+            transition: opacity 1s ease;
+        }
+
+        .champion-bg:hover {
+            opacity: 1;
+        }
+
+        .champion-content {
+            background: #000;
+            position: relative;
+            border-radius: 1.375rem;
+            padding: 1.5rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #27272a;
+            overflow: hidden;
+        }
+        
+        @media (min-width: 640px) {
+            .champion-content {
+                padding: 3rem;
+            }
+        }
+
+        .champion-trophy {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 50%;
+            border: 1px solid;
+            box-shadow: 0 0 20px currentColor;
+        }
+        
+        @media (min-width: 640px) {
+            .champion-trophy {
+                margin-bottom: 2rem;
+                padding: 1.5rem;
+                box-shadow: 0 0 40px currentColor;
+            }
+        }
+
+        .champion-title {
+            position: relative;
+            z-index: 10;
+            color: #71717a;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        @media (min-width: 640px) {
+            .champion-title {
+                font-size: 0.875rem;
+                letter-spacing: 0.4em;
+            }
+        }
+
+        .champion-name {
+            position: relative;
+            z-index: 10;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .champion-logo-container {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 2rem;
+            transform: scale(1);
+            transition: transform 0.5s ease;
+        }
+
+        .champion-logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .champion-logo {
+            width: 14rem;
+            height: 14rem;
+            object-fit: contain;
+            filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+            position: relative;
+            z-index: 10;
+        }
+
+        .placeholder-champion {
+            text-align: center;
+            opacity: 0.3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .placeholder-icon {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            border: 1px solid #27272a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: #3f3f46;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .placeholder-icon:hover {
+            border-color: #52525b;
+            color: #71717a;
+        }
+
+        .placeholder-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: #52525b;
+            letter-spacing: 0.3em;
         }
     </style>
 </head>
@@ -1409,6 +1840,142 @@ print(<span class="text-green-400">f"Win Probability: <span class="text-brand-ac
         </div>
     </section>
 
+    <!-- CFP Playoff Bracket -->
+    <section id="cfp-bracket" class="py-24 relative overflow-hidden bg-transparent">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-full h-[500px] bg-transparent"></div>
+            <div class="absolute inset-0 bg-transparent"></div>
+            <div class="absolute top-[-20%] left-[20%] w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[120px] animate-pulse"></div>
+        </div>
+
+        <!-- Confetti Container -->
+        <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50"></div>
+
+        <!-- Flying Logos Container -->
+        <div id="flying-logos" class="fixed inset-0 pointer-events-none z-40"></div>
+
+        <div class="relative z-10">
+            <!-- Header -->
+            <header class="border-b border-white/10 bg-black/20 backdrop-blur-md mb-12">
+                <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-6 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
+                    <div class="flex items-center gap-6">
+                        <div class="relative group">
+                            <span class="relative text-6xl font-black font-display cfp-gold-text z-10">G+</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <h1 class="text-3xl md:text-4xl font-black italic tracking-tighter font-display text-white">
+                                CFP <span class="cfp-gold-text">PLAYOFF</span>
+                            </h1>
+                            <div class="flex items-center gap-3">
+                                <div class="h-[1px] w-8 bg-gradient-to-r from-[#BF953F] to-[#B38728]"></div>
+                                <p class="text-xs text-zinc-400 font-mono tracking-[0.3em] uppercase">Official Bracket 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 md:gap-4 flex-wrap justify-center">
+                        <button id="simulate-btn" class="group relative px-4 md:px-8 py-2 md:py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold text-xs md:text-sm rounded-lg hover:bg-white/20 hover:border-white/40 transition-all duration-300 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700 ease-out"></div>
+                            <span class="flex items-center gap-1 md:gap-2 relative z-10">
+                                <i data-lucide="zap" class="w-3 md:w-4 h-3 md:h-4 group-hover:scale-110 transition-transform duration-200"></i>
+                                <span class="simulate-text group-hover:tracking-wider transition-all duration-200">
+                                    <span class="hidden sm:inline">SIMULATE TOURNAMENT</span>
+                                    <span class="sm:hidden">SIMULATE</span>
+                                </span>
+                            </span>
+                        </button>
+                        <button id="reset-btn" class="p-3 md:p-4 bg-zinc-900 text-zinc-500 hover:text-white border border-zinc-800 hover:border-zinc-600 transition-all skew-x-[-10deg]" title="Reset Bracket">
+                            <i data-lucide="rotate-ccw" class="w-4 md:w-5 h-4 md:h-5 skew-x-[10deg]"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Bracket Container -->
+            <main class="overflow-hidden p-1 w-full h-[90vh] relative bg-transparent" id="bracket-viewport">
+                <div id="bracket-container" class="inline-flex flex-col md:flex-row gap-8 md:gap-16 relative min-w-full justify-center cursor-default transition-transform duration-200 ease-out" style="transform: translate(-100px, 0px) scale(0.7); transform-origin: center top;">
+                <style>
+                    @media (max-width: 768px) {
+                        #bracket-container {
+                            transform: translate(0px, 0px) scale(0.45) !important;
+                            flex-direction: column !important;
+                            gap: 1rem !important;
+                        }
+                        #bracket-viewport {
+                            height: auto !important;
+                            min-height: 100vh;
+                        }
+                    }
+                    @media (max-width: 480px) {
+                        #bracket-container {
+                            transform: translate(0px, 0px) scale(0.35) !important;
+                        }
+                    }
+                </style>
+                    
+                    <!-- COLUMN 1: ROUND 1 -->
+                    <div class="flex flex-col justify-between gap-8 py-8">
+                        <div class="flex flex-col justify-center gap-16 relative">
+                            <div id="r1_g1" class="match-card relative flex flex-col w-full md:w-96 mb-8 md:mb-0 transition-all duration-500">
+                                <!-- Match content will be populated by JavaScript -->
+                            </div>
+                            <div id="r1_g4" class="match-card relative flex flex-col w-full md:w-96 mb-8 md:mb-0 transition-all duration-500">
+                                <!-- Match content will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center gap-16 relative">
+                            <div id="r1_g2" class="match-card relative flex flex-col w-full md:w-96 mb-4 md:mb-0 transition-all duration-500">
+                                <!-- Match content will be populated by JavaScript -->
+                            </div>
+                            <div id="r1_g3" class="match-card relative flex flex-col w-full md:w-96 mb-8 md:mb-0 transition-all duration-500">
+                                <!-- Match content will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 2: QUARTERFINALS -->
+                    <div class="flex flex-col justify-between gap-8 py-8">
+                        <div class="flex flex-col justify-center gap-16 relative">
+                            <div id="qf_orange" class="match-card relative flex flex-col w-full md:w-96 mb-8 md:mb-0 transition-all duration-500">
+                                <!-- Match content will be populated by JavaScript -->
+                            </div>
+                            <div id="qf_rose" class="match-card relative flex flex-col w-full md:w-96 mb-8 md:mb-0 transition-all duration-500">
+                                <!-- Match content will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center gap-16 relative">
+                            <div id="qf_sugar" class="match-card relative flex flex-col w-full md:w-96 mb-4 md:mb-0 transition-all duration-500">
+                                <!-- Match content will be populated by JavaScript -->
+                            </div>
+                            <div id="qf_cotton" class="match-card relative flex flex-col w-full md:w-96 mb-8 md:mb-0 transition-all duration-500">
+                                <!-- Match content will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 3: SEMIFINALS -->
+                    <div class="flex flex-col justify-around gap-12 py-8">
+                        <div id="sf_peach" class="match-card relative flex flex-col w-full md:w-96 mb-4 md:mb-0 transition-all duration-500">
+                            <!-- Match content will be populated by JavaScript -->
+                        </div>
+                        <div id="sf_fiesta" class="match-card relative flex flex-col w-full md:w-96 mb-4 md:mb-0 transition-all duration-500">
+                            <!-- Match content will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 4: CHAMPIONSHIP -->
+                    <div class="flex flex-col justify-center items-center gap-16">
+                        <div id="champ" class="match-card relative flex flex-col w-full md:w-96 mb-8 md:mb-0 transition-all duration-500">
+                            <!-- Match content will be populated by JavaScript -->
+                        </div>
+                        <div id="champion-display" class="absolute inset-0 flex items-center justify-center pointer-events-none z-50" style="opacity: 0; transition: opacity 0.5s ease-in-out;">
+                            <!-- Champion display will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+
     <!-- Platform at a Glance -->
     <section class="py-24 relative border-t border-white/10 bg-black/20">
         <div class="max-w-7xl mx-auto px-6">
@@ -1955,6 +2522,674 @@ print(<span class="text-green-400">f"Win Probability: <span class="text-brand-ac
         });
         
         animate();
+    </script>
+
+    <!-- CFP Bracket JavaScript -->
+    <script>
+        // Team and Match Data - 2025 Season (Database Records)
+        const TEAMS = {
+            1: { id: 1, name: "Indiana", nickname: "Hoosiers", seed: 1, record: "13-0", color: "#990000", accent: "#EEEDEB", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/84.png" },
+            2: { id: 2, name: "Ohio State", nickname: "Buckeyes", seed: 2, record: "12-1", color: "#BB0000", accent: "#666666", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" },
+            3: { id: 3, name: "Georgia", nickname: "Bulldogs", seed: 3, record: "12-1", color: "#BA0C2F", accent: "#000000", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" },
+            4: { id: 4, name: "Texas Tech", nickname: "Red Raiders", seed: 4, record: "12-1", color: "#CC0000", accent: "#000000", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png" },
+            5: { id: 5, name: "Oregon", nickname: "Ducks", seed: 5, record: "11-1", color: "#154733", accent: "#FEE123", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png" },
+            6: { id: 6, name: "Ole Miss", nickname: "Rebels", seed: 6, record: "11-1", color: "#CE1126", accent: "#14213D", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/145.png" },
+            7: { id: 7, name: "Texas A&M", nickname: "Aggies", seed: 7, record: "11-1", color: "#500000", accent: "#FFFFFF", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/245.png" },
+            8: { id: 8, name: "Oklahoma", nickname: "Sooners", seed: 8, record: "10-2", color: "#841617", accent: "#FDF9D8", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/201.png" },
+            9: { id: 9, name: "Alabama", nickname: "Crimson Tide", seed: 9, record: "10-3", color: "#9E1B32", accent: "#FFFFFF", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" },
+            10: { id: 10, name: "Miami", nickname: "Hurricanes", seed: 10, record: "10-2", color: "#005030", accent: "#F47321", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png" },
+            11: { id: 11, name: "Tulane", nickname: "Green Wave", seed: 11, record: "11-2", color: "#006747", accent: "#418FDE", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" },
+            12: { id: 12, name: "JMU", nickname: "Dukes", seed: 12, record: "12-1", color: "#450084", accent: "#CBB677", logo: "https://a.espncdn.com/i/teamlogos/ncaa/500/256.png" }
+        };
+
+        const MATCHES = {
+            r1_g1: { id: 'r1_g1', name: "First Round", location: "Eugene, OR", next: 'qf_orange', top: 5, bottom: 12, date: "DEC 20" },
+            r1_g4: { id: 'r1_g4', name: "First Round", location: "Norman, OK", next: 'qf_rose', top: 8, bottom: 9, date: "DEC 19" },
+            r1_g2: { id: 'r1_g2', name: "First Round", location: "Oxford, MS", next: 'qf_sugar', top: 6, bottom: 11, date: "DEC 20" },
+            r1_g3: { id: 'r1_g3', name: "First Round", location: "College Station, TX", next: 'qf_cotton', top: 7, bottom: 10, date: "DEC 20" },
+            
+            qf_orange: { id: 'qf_orange', name: "Orange Bowl", location: "Miami Gardens, FL", next: 'sf_peach', top: 4, bottomSrc: 'r1_g1', date: "JAN 1" },
+            qf_rose: { id: 'qf_rose', name: "Rose Bowl", location: "Pasadena, CA", next: 'sf_peach', top: 1, bottomSrc: 'r1_g4', date: "JAN 1" },
+            qf_sugar: { id: 'qf_sugar', name: "Sugar Bowl", location: "New Orleans, LA", next: 'sf_fiesta', top: 3, bottomSrc: 'r1_g2', date: "JAN 1" },
+            qf_cotton: { id: 'qf_cotton', name: "Cotton Bowl", location: "Arlington, TX", next: 'sf_fiesta', top: 2, bottomSrc: 'r1_g3', date: "DEC 31" },
+
+            sf_peach: { id: 'sf_peach', name: "Peach Bowl", location: "Atlanta, GA", next: 'champ', topSrc: 'qf_rose', bottomSrc: 'qf_orange', date: "JAN 9" },
+            sf_fiesta: { id: 'sf_fiesta', name: "Fiesta Bowl", location: "Glendale, AZ", next: 'champ', topSrc: 'qf_sugar', bottomSrc: 'qf_cotton', date: "JAN 8" },
+
+            champ: { id: 'champ', name: "National Championship", location: "Atlanta, GA", next: null, topSrc: 'sf_peach', bottomSrc: 'sf_fiesta', date: "JAN 20" }
+        };
+
+        // State
+        let winners = {};
+        let flyingLogos = [];
+        let isSimulating = false;
+
+        // Load confetti library
+        const script = document.createElement('script');
+        script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js";
+        script.async = true;
+        document.body.appendChild(script);
+
+        // Confetti function
+        function triggerConfetti() {
+            if (window.confetti) {
+                const duration = 3000;
+                const end = Date.now() + duration;
+                (function frame() {
+                    window.confetti({ 
+                        particleCount: 4, 
+                        angle: 60, 
+                        spread: 55, 
+                        origin: { x: 0 }, 
+                        colors: ['#BF953F', '#FCF6BA', '#B38728', '#FBF5B7'] 
+                    });
+                    window.confetti({ 
+                        particleCount: 4, 
+                        angle: 120, 
+                        spread: 55, 
+                        origin: { x: 1 }, 
+                        colors: ['#BF953F', '#FCF6BA', '#B38728', '#FBF5B7'] 
+                    });
+                    if (Date.now() < end) requestAnimationFrame(frame);
+                }());
+            }
+        }
+
+        // Flying logo animation
+        function createFlyingLogo(src, startRect, endRect, onComplete) {
+            const flyingDiv = document.createElement('div');
+            flyingDiv.className = 'flying-logo';
+            flyingDiv.style.left = startRect.left + 'px';
+            flyingDiv.style.top = startRect.top + 'px';
+            flyingDiv.style.width = startRect.width + 'px';
+            flyingDiv.style.height = startRect.height + 'px';
+            flyingDiv.style.opacity = '1';
+            flyingDiv.style.transform = 'scale(1)';
+
+            flyingDiv.innerHTML = `
+                <div style="position: relative; width: 100%; height: 100%;">
+                    <div style="position: absolute; inset: 0; background: rgba(255,255,255,0.2); border-radius: 50%; filter: blur(12px); animation: pulse 0.6s ease-in-out infinite;"></div>
+                    <img src="${src}" alt="Flying" style="width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 10; filter: drop-shadow(0 0 15px rgba(255,255,255,0.5));" />
+                </div>
+            `;
+
+            document.getElementById('flying-logos').appendChild(flyingDiv);
+
+            requestAnimationFrame(() => {
+                flyingDiv.style.transition = 'all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                flyingDiv.style.left = (endRect.left + (endRect.width / 2) - (startRect.width / 2)) + 'px';
+                flyingDiv.style.top = (endRect.top + (endRect.height / 2) - (startRect.height / 2)) + 'px';
+                flyingDiv.style.transform = 'scale(1.8)';
+
+                setTimeout(() => {
+                    flyingDiv.style.transform = 'scale(1)';
+                    flyingDiv.style.opacity = '0';
+                }, 900);
+            });
+
+            setTimeout(() => {
+                if (flyingDiv.parentNode) {
+                    flyingDiv.parentNode.removeChild(flyingDiv);
+                }
+                onComplete();
+            }, 1200);
+        }
+
+        // Get team helper
+        function getTeam(sourceId, sourceSeed) {
+            if (sourceSeed) return TEAMS[sourceSeed];
+            if (sourceId && winners[sourceId]) return TEAMS[winners[sourceId]];
+            return null;
+        }
+
+        // Create team slot HTML
+        function createTeamSlot(team, isWinner, isLoser, onClick, isPlaceholder, label, matchId, slotType) {
+            if (!team && isPlaceholder) {
+                return `
+                    <div data-match="${matchId}" data-slot="${slotType}" class="team-slot placeholder">
+                        <div style="position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); transform: translateX(-100%); animation: shimmer 2s infinite;"></div>
+                        <span style="color: #52525b; font-family: 'Orbitron', sans-serif; font-size: 0.875rem; letter-spacing: 0.2em; text-transform: uppercase; z-index: 10;">${label || "TBD"}</span>
+                    </div>
+                `;
+            }
+
+            if (!team) return `<div data-match="${matchId}" data-slot="${slotType}" class="team-slot placeholder"></div>`;
+
+            const winnerClass = isWinner ? 'winner' : '';
+            const loserClass = isLoser ? 'loser' : '';
+            const borderColor = isWinner ? team.color : team.color;
+            const boxShadow = isWinner ? `inset 10px 0 30px -10px ${team.color}40` : '';
+
+            return `
+                <div data-match="${matchId}" data-slot="${slotType}" data-team-id="${team.id}" 
+                     class="team-slot ${winnerClass} ${loserClass}" 
+                     style="border-left-color: ${borderColor}; ${isWinner ? `box-shadow: ${boxShadow}` : ''}"
+                     onclick="${onClick ? `handleTeamClick('${matchId}', ${team.seed}, '${slotType}')` : ''}">
+                    
+                    ${isWinner ? `
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(255,255,255,0.1), transparent); opacity: 0.2;"></div>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);"></div>
+                        <div style="position: absolute; inset: 0; background: rgba(255,255,255,0.3); animation: ping 0.5s ease-out;"></div>
+                    ` : ''}
+                    
+                    <div style="position: absolute; inset: 0; background: rgba(255,255,255,0.05); transform: translateY(100%); transition: transform 0.3s ease; pointer-events: none;"></div>
+
+                    <div style="display: flex; align-items: center; gap: 1.5rem; position: relative; z-index: 10; width: 100%;">
+                        <div style="position: relative;">
+                            <img data-match="${matchId}" data-slot="${slotType}" data-team-id="${team.id}"
+                                 src="${team.logo}" alt="${team.name}" class="team-logo" />
+                            ${isWinner ? '<div style="position: absolute; inset: 0; background: rgba(255,255,255,0.2); filter: blur(12px); border-radius: 50%; animation: pulse 1s ease-in-out infinite;"></div>' : ''}
+                        </div>
+                        
+                        <div style="display: flex; flex-direction: column; flex-grow: 1;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="font-size: 0.75rem; font-weight: 900; background: #18181b; color: #71717a; padding: 0.125rem 0.5rem; border-radius: 0.25rem; border: 1px solid #27272a; font-family: 'JetBrains Mono', monospace; box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);">${team.seed}</span>
+                                <span style="font-family: 'Orbitron', sans-serif; font-size: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; color: ${isWinner ? 'white' : '#9ca3af'}; transition: color 0.3s ease;">${team.name}</span>
+                            </div>
+                            <span style="font-size: 0.625rem; color: #52525b; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase;">${team.record} • ${team.nickname}</span>
+                        </div>
+
+                        ${isWinner ? '<img src="/static/CFP.png" alt="CFP" style="width: 2.5rem; height: auto; filter: drop-shadow(0 0 8px rgba(212,175,55,0.8));" />' : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Create electric connector
+        function createElectricConnector(type, isActive, color) {
+            const baseColor = isActive ? color : '#27272a';
+            const lineStyle = `background-color: ${baseColor}; box-shadow: ${isActive ? `0 0 10px ${color}, 0 0 20px ${color}` : 'none'}; transition: all 0.5s ease-out;`;
+            
+            const beamStyle = isActive ? 
+                `background: linear-gradient(90deg, transparent, ${color}, #ffffff, ${color}, transparent); box-shadow: 0 0 15px ${color}; opacity: 1;` : 
+                'opacity: 0;';
+
+            if (type === 'straight') {
+                return `
+                    <div class="electric-connector ${isActive ? 'active' : ''}" style="display: none; position: absolute; right: -8rem; top: 50%; width: 8rem; height: 2px; overflow: hidden; z-index: 0; ${lineStyle}">
+                        <div class="electric-beam" style="position: absolute; inset: 0; width: 50%; animation: electricFlowH 1.5s linear infinite; ${beamStyle}"></div>
+                    </div>
+                `;
+            }
+            
+            return '';
+        }
+
+        // Create match card
+        function createMatchCard(matchId, connectorType) {
+            const match = MATCHES[matchId];
+            const topTeam = getTeam(match.topSrc, match.top);
+            const bottomTeam = getTeam(match.bottomSrc, match.bottom);
+            
+            const winnerId = winners[matchId];
+            const isTopWinner = winnerId && topTeam && winnerId === topTeam.seed;
+            const isBottomWinner = winnerId && bottomTeam && winnerId === bottomTeam.seed;
+            const isComplete = !!winnerId;
+
+            const winnerTeam = winnerId ? TEAMS[winnerId] : null;
+            const winnerColor = winnerTeam ? winnerTeam.color : null;
+
+            const topLabel = match.top ? `Seed ${match.top}` : (match.topSrc ? `Winner` : 'TBD');
+            const bottomLabel = match.bottom ? `Seed ${match.bottom}` : (match.bottomSrc ? `Winner` : 'TBD');
+            const canInteract = (topTeam && bottomTeam);
+
+            const borderColor = isComplete && winnerColor ? `${winnerColor}40` : '#27272a';
+
+            return `
+                <div class="match-header">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(212,175,55,0.5), transparent);"></div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="width: 0.5rem; height: 0.5rem; border-radius: 50%; box-shadow: 0 0 5px currentColor; transition: all 0.5s ease; ${isComplete ? `background-color: ${winnerColor}; color: ${winnerColor};` : 'background-color: #D4AF37; color: #D4AF37; animation: pulse 2s ease-in-out infinite;'}"></span>
+                        <span style="font-size: 0.75rem; color: #d4d4d8; font-family: 'Orbitron', sans-serif; letter-spacing: 0.15em; text-transform: uppercase;">${match.name}</span>
+                    </div>
+                    <span style="font-size: 0.625rem; color: #52525b; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.1em;">${match.date}</span>
+                </div>
+
+                <div class="match-body ${isComplete ? 'winner-selected' : ''}" style="border-color: ${borderColor};">
+                    ${createTeamSlot(topTeam, isTopWinner, winnerId && !isTopWinner, canInteract, !topTeam, topLabel, matchId, 'top')}
+                    
+                    <div class="vs-divider">
+                        <div class="vs-badge">VS</div>
+                    </div>
+                    
+                    ${createTeamSlot(bottomTeam, isBottomWinner, winnerId && !isBottomWinner, canInteract, !bottomTeam, bottomLabel, matchId, 'bottom')}
+                </div>
+
+                ${connectorType ? createElectricConnector(connectorType, isComplete, winnerColor) : ''}
+            `;
+        }
+
+        // Create champion display
+        function createChampionDisplay(winnerId) {
+            if (!winnerId) {
+                return `
+                    <div class="placeholder-champion">
+                        <div class="placeholder-icon">
+                            <i data-lucide="shield" style="width: 3.5rem; height: 3.5rem;"></i>
+                        </div>
+                        <p class="placeholder-text">AWAITING RESULT</p>
+                    </div>
+                `;
+            }
+
+            const team = TEAMS[winnerId];
+            
+            // Show the champion display dynamically
+            setTimeout(() => {
+                document.getElementById('champion-display').style.opacity = '1';
+            }, 500);
+            
+            return `
+                <div class="champion-container" style="
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0);
+                    background: rgba(0,0,0,0.95);
+                    backdrop-filter: blur(20px);
+                    border: 2px solid ${team.color};
+                    border-radius: 20px;
+                    padding: clamp(1rem, 5vw, 3rem);
+                    text-align: center;
+                    animation: championReveal 1.5s ease-out forwards;
+                    box-shadow: 0 0 60px ${team.color}40, 0 0 120px ${team.color}20;
+                    z-index: 100;
+                    max-width: 90vw;
+                    max-height: 90vh;
+                    overflow: auto;
+                ">
+                    <style>
+                        @keyframes championReveal {
+                            0% { transform: translate(-50%, -50%) scale(0) rotate(180deg); opacity: 0; }
+                            50% { transform: translate(-50%, -50%) scale(1.1) rotate(0deg); opacity: 0.8; }
+                            100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
+                        }
+                        @keyframes cfpGlow {
+                            0%, 100% { filter: drop-shadow(0 0 20px rgba(212,175,55,0.8)) brightness(1); }
+                            50% { filter: drop-shadow(0 0 40px rgba(212,175,55,1)) brightness(1.2); }
+                        }
+                    </style>
+                    
+                    <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                        <img src="/static/CFP.png" alt="CFP Trophy" style="
+                            width: clamp(6rem, 20vw, 10rem); 
+                            height: auto; 
+                            animation: cfpGlow 2s ease-in-out infinite;
+                        " />
+                    </div>
+                    
+                    <h2 style="
+                        font-family: 'Orbitron', sans-serif;
+                        font-size: clamp(0.8rem, 4vw, 1.5rem);
+                        color: #D4AF37;
+                        margin-bottom: 1rem;
+                        letter-spacing: 0.1em;
+                        text-shadow: 0 0 10px rgba(212,175,55,0.8);
+                        text-align: center;
+                    ">🏆 NATIONAL CHAMPION 🏆</h2>
+                    
+                    <h1 style="
+                        font-family: 'Orbitron', sans-serif;
+                        font-size: clamp(1.5rem, 8vw, 3rem);
+                        color: white;
+                        margin-bottom: 2rem;
+                        text-shadow: 0 0 20px ${team.color};
+                        font-weight: 900;
+                    ">${team.name}</h1>
+                    
+                    <div style="display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 4vw, 2rem); flex-wrap: wrap;">
+                        <img src="${team.logo}" alt="Winner" style="
+                            width: clamp(4rem, 15vw, 6rem);
+                            height: clamp(4rem, 15vw, 6rem);
+                            border-radius: 50%;
+                            border: 3px solid ${team.color};
+                            box-shadow: 0 0 30px ${team.color}50;
+                            animation: pulse 2s ease-in-out infinite;
+                        " />
+                        <div style="
+                            font-family: 'JetBrains Mono', monospace;
+                            font-size: clamp(0.9rem, 3vw, 1.2rem);
+                            color: #D4AF37;
+                            text-shadow: 0 0 10px rgba(212,175,55,0.8);
+                            text-align: center;
+                        ">${team.record} • ${team.nickname}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Handle team click
+        function handleTeamClick(matchId, winnerSeed, clickedSlotType) {
+            const winnerTeam = TEAMS[winnerSeed];
+            const nextMatchId = MATCHES[matchId].next;
+
+            if (!nextMatchId) {
+                winners[matchId] = winnerSeed;
+                renderBracket();
+                if (winners['champ']) {
+                    triggerConfetti();
+                }
+                return;
+            }
+
+            const nextMatch = MATCHES[nextMatchId];
+            const targetSlotType = nextMatch.topSrc === matchId ? 'top' : 'bottom';
+
+            const startEl = document.querySelector(`[data-match="${matchId}"][data-slot="${clickedSlotType}"]`);
+            const endEl = document.querySelector(`[data-match="${nextMatchId}"][data-slot="${targetSlotType}"]`);
+
+            if (startEl && endEl) {
+                const startRect = startEl.getBoundingClientRect();
+                const endRect = endEl.getBoundingClientRect();
+
+                createFlyingLogo(winnerTeam.logo, startRect, endRect, () => {
+                    winners[matchId] = winnerSeed;
+                    renderBracket();
+                });
+            } else {
+                winners[matchId] = winnerSeed;
+                renderBracket();
+            }
+        }
+
+        // Simulate tournament
+        async function simulateTournament() {
+            isSimulating = true;
+            winners = {};
+            
+            const simulateBtn = document.getElementById('simulate-btn');
+            const simulateText = simulateBtn.querySelector('.simulate-text');
+            simulateText.textContent = 'RUNNING SIM...';
+            simulateBtn.disabled = true;
+            
+            const rounds = [
+                ['r1_g1', 'r1_g4', 'r1_g2', 'r1_g3'], 
+                ['qf_orange', 'qf_rose', 'qf_sugar', 'qf_cotton'],
+                ['sf_peach', 'sf_fiesta'],
+                ['champ']
+            ];
+            
+            let tempWinners = {};
+
+            for (const roundMatches of rounds) {
+                const roundResults = [];
+                
+                for (const matchId of roundMatches) {
+                    const match = MATCHES[matchId];
+                    let topSeed = match.top || tempWinners[match.topSrc];
+                    let bottomSeed = match.bottom || tempWinners[match.bottomSrc];
+                    
+                    if (topSeed && bottomSeed) {
+                        const roll = Math.random();
+                        const winSeed = roll > 0.4 ? (topSeed < bottomSeed ? topSeed : bottomSeed) : (topSeed < bottomSeed ? bottomSeed : topSeed);
+                        
+                        const isTopWinner = winSeed === topSeed;
+                        
+                        tempWinners[matchId] = winSeed;
+                        roundResults.push({ matchId, winSeed, slotType: isTopWinner ? 'top' : 'bottom' });
+                    }
+                }
+
+                if (roundResults.length > 0) {
+                    roundResults.forEach(res => {
+                        const winnerTeam = TEAMS[res.winSeed];
+                        const nextMatchId = MATCHES[res.matchId].next;
+
+                        if (nextMatchId) {
+                            const nextMatch = MATCHES[nextMatchId];
+                            const targetSlotType = nextMatch.topSrc === res.matchId ? 'top' : 'bottom';
+
+                            const startEl = document.querySelector(`[data-match="${res.matchId}"][data-slot="${res.slotType}"]`);
+                            const endEl = document.querySelector(`[data-match="${nextMatchId}"][data-slot="${targetSlotType}"]`);
+
+                            if (startEl && endEl) {
+                                const startRect = startEl.getBoundingClientRect();
+                                const endRect = endEl.getBoundingClientRect();
+
+                                createFlyingLogo(winnerTeam.logo, startRect, endRect, () => {
+                                    winners[res.matchId] = res.winSeed;
+                                    renderBracket();
+                                });
+                            } else {
+                                winners[res.matchId] = res.winSeed;
+                                renderBracket();
+                            }
+                        } else {
+                            winners[res.matchId] = res.winSeed;
+                            renderBracket();
+                        }
+                    });
+                    
+                    await new Promise(r => setTimeout(r, 2500));
+                }
+            }
+            
+            isSimulating = false;
+            simulateText.textContent = 'SIMULATE SEASON';
+            simulateBtn.disabled = false;
+        }
+
+        // Reset bracket
+        function resetBracket() {
+            winners = {};
+            renderBracket();
+        }
+
+        // Render bracket
+        function renderBracket() {
+            // Round 1
+            document.getElementById('r1_g1').innerHTML = createMatchCard('r1_g1', 'straight');
+            document.getElementById('r1_g4').innerHTML = createMatchCard('r1_g4', 'straight');
+            document.getElementById('r1_g2').innerHTML = createMatchCard('r1_g2', 'straight');
+            document.getElementById('r1_g3').innerHTML = createMatchCard('r1_g3', 'straight');
+            
+            // Quarterfinals
+            document.getElementById('qf_orange').innerHTML = createMatchCard('qf_orange', 'elbow-down');
+            document.getElementById('qf_rose').innerHTML = createMatchCard('qf_rose', 'elbow-up');
+            document.getElementById('qf_sugar').innerHTML = createMatchCard('qf_sugar', 'elbow-down');
+            document.getElementById('qf_cotton').innerHTML = createMatchCard('qf_cotton', 'elbow-up');
+            
+            // Semifinals
+            document.getElementById('sf_peach').innerHTML = createMatchCard('sf_peach', 'final-down');
+            document.getElementById('sf_fiesta').innerHTML = createMatchCard('sf_fiesta', 'final-up');
+            
+            // Championship
+            document.getElementById('champ').innerHTML = createMatchCard('champ');
+            
+            // Champion display
+            const championDisplay = document.getElementById('champion-display');
+            if (winners['champ']) {
+                championDisplay.innerHTML = createChampionDisplay(winners['champ']);
+                championDisplay.style.opacity = '0';
+            } else {
+                championDisplay.innerHTML = '';
+                championDisplay.style.opacity = '0';
+            }
+            
+            // Re-initialize Lucide icons
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        }
+
+        // Drag functionality for bracket
+        let isDragging = false;
+        let startX = 0;
+        let startY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        let initialTransform = { x: 0, y: 0 };
+        let isInteractive = false;
+
+        function initializeDragFunctionality() {
+            const bracketContainer = document.getElementById('bracket-container');
+            const viewport = document.getElementById('bracket-viewport');
+            
+            if (!bracketContainer || !viewport) return;
+
+            // Mouse events
+            bracketContainer.addEventListener('mousedown', handleStart);
+            document.addEventListener('mousemove', handleMove);
+            document.addEventListener('mouseup', handleEnd);
+            
+            // Touch events
+            bracketContainer.addEventListener('touchstart', handleStart);
+            document.addEventListener('touchmove', handleMove);
+            document.addEventListener('touchend', handleEnd);
+            
+            // Prevent default drag behavior on images and other elements
+            bracketContainer.addEventListener('dragstart', (e) => e.preventDefault());
+
+            function handleStart(e) {
+                if (!isInteractive) return;
+                // Don't start drag if clicking on a team slot (for team selection)
+                if (e.target.closest('.team-slot')) return;
+                
+                isDragging = true;
+                bracketContainer.style.cursor = 'grabbing';
+                
+                if (e.type === 'mousedown') {
+                    startX = e.clientX - currentX;
+                    startY = e.clientY - currentY;
+                } else if (e.type === 'touchstart') {
+                    startX = e.touches[0].clientX - currentX;
+                    startY = e.touches[0].clientY - currentY;
+                }
+                
+                // Add some visual feedback
+                bracketContainer.style.transition = 'none';
+                bracketContainer.style.filter = 'brightness(1.1)';
+            }
+
+            function handleMove(e) {
+                if (!isDragging || !isInteractive) return;
+                
+                e.preventDefault();
+                
+                let clientX, clientY;
+                if (e.type === 'mousemove') {
+                    clientX = e.clientX;
+                    clientY = e.clientY;
+                } else if (e.type === 'touchmove') {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                }
+                
+                currentX = clientX - startX;
+                currentY = clientY - startY;
+                
+                // Apply bounds to prevent dragging too far
+                const maxX = viewport.offsetWidth / 4;
+                const maxY = viewport.offsetHeight / 4;
+                const minX = -bracketContainer.offsetWidth + viewport.offsetWidth - maxX;
+                const minY = -bracketContainer.offsetHeight + viewport.offsetHeight - maxY;
+                
+                currentX = Math.max(minX, Math.min(maxX, currentX));
+                currentY = Math.max(minY, Math.min(maxY, currentY));
+                
+                bracketContainer.style.transform = `translate(${currentX}px, ${currentY}px)`;
+            }
+
+            function handleEnd() {
+                if (!isDragging || !isInteractive) return;
+                
+                isDragging = false;
+                bracketContainer.style.cursor = 'grab';
+                bracketContainer.style.transition = 'transform 0.2s ease-out, filter 0.3s ease';
+                bracketContainer.style.filter = 'brightness(1)';
+            }
+
+            // Mouse wheel zoom functionality
+            viewport.addEventListener('wheel', (e) => {
+                if (!isInteractive) return;
+                e.preventDefault();
+                
+                const rect = bracketContainer.getBoundingClientRect();
+                const scale = parseFloat(bracketContainer.style.transform.match(/scale\(([^)]+)\)/)?.[1] || 1);
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.max(0.5, Math.min(2, scale * delta));
+                
+                // Get mouse position relative to the container
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+                
+                // Calculate new position to zoom towards mouse cursor
+                const scaleChange = newScale / scale;
+                const newX = currentX - (mouseX * (scaleChange - 1));
+                const newY = currentY - (mouseY * (scaleChange - 1));
+                
+                currentX = newX;
+                currentY = newY;
+                
+                bracketContainer.style.transform = `translate(${currentX}px, ${currentY}px) scale(${newScale})`;
+            });
+
+            // Double-click to reset position and zoom
+            bracketContainer.addEventListener('dblclick', () => {
+                if (!isInteractive) return;
+                currentX = 0;
+                currentY = 0;
+                bracketContainer.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                bracketContainer.style.transform = 'translate(0px, 0px) scale(1)';
+                
+                setTimeout(() => {
+                    bracketContainer.style.transition = 'transform 0.2s ease-out';
+                }, 500);
+            });
+        }
+
+        function toggleInteractiveMode() {
+            isInteractive = !isInteractive;
+            const bracketContainer = document.getElementById('bracket-container');
+            const interactiveText = document.getElementById('interactive-text');
+            const toggleBtn = document.getElementById('interactive-toggle');
+            
+            if (isInteractive) {
+                bracketContainer.style.cursor = 'grab';
+                interactiveText.textContent = 'Disable Interactive';
+                toggleBtn.className = toggleBtn.className.replace('from-emerald-600 to-teal-600', 'from-red-600 to-pink-600')
+                    .replace('hover:from-emerald-700 hover:to-teal-700', 'hover:from-red-700 hover:to-pink-700');
+                initializeDragFunctionality();
+            } else {
+                bracketContainer.style.cursor = 'default';
+                interactiveText.textContent = 'Enable Interactive';
+                toggleBtn.className = toggleBtn.className.replace('from-red-600 to-pink-600', 'from-emerald-600 to-teal-600')
+                    .replace('hover:from-red-700 hover:to-pink-700', 'hover:from-emerald-700 hover:to-teal-700');
+                removeDragFunctionality();
+                // Reset position
+                currentX = 0;
+                currentY = 0;
+                bracketContainer.style.transform = 'translate(0px, 0px) scale(1)';
+            }
+        }
+
+        function removeDragFunctionality() {
+            const bracketContainer = document.getElementById('bracket-container');
+            const viewport = document.getElementById('bracket-viewport');
+            
+            if (!bracketContainer || !viewport) return;
+
+            // Remove all event listeners by cloning and replacing the elements
+            const newBracket = bracketContainer.cloneNode(true);
+            bracketContainer.parentNode.replaceChild(newBracket, bracketContainer);
+            
+            const newViewport = viewport.cloneNode(true);
+            viewport.parentNode.replaceChild(newViewport, viewport);
+            
+            isDragging = false;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderBracket();
+            
+            document.getElementById('simulate-btn').addEventListener('click', simulateTournament);
+            document.getElementById('reset-btn').addEventListener('click', resetBracket);
+            document.getElementById('interactive-toggle').addEventListener('click', toggleInteractiveMode);
+            
+            // Make handleTeamClick globally available
+            window.handleTeamClick = handleTeamClick;
+        });
     </script>
 </body>
 </html>

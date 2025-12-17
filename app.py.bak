@@ -15,6 +15,7 @@ from rivalry_config import is_rivalry_game, get_rivalry_info
 from batch_rivalry_analyzer import BatchRivalryAnalyzer
 from espn_player_service import ESPNPlayerService
 from advanced_drive_analytics import drive_analytics
+from typing import Dict, List
 
 # Try to import ESPN Game Service for game recap functionality
 try:
@@ -23,6 +24,25 @@ try:
     print("✅ ESPN Game Service loaded")
 except Exception as e:
     print(f"⚠️  ESPN Game Service not available: {e}")
+    espn_game_service = None
+
+# Database connection helpers (for coaches_master.db compatibility)
+def get_coaches_db_connection():
+    """Get database connection for coaches_master.db with row factory"""
+    DB_PATH = 'instance/coaches_master.db'
+    if not os.path.exists(DB_PATH):
+        raise FileNotFoundError(f"Coaches database not found at: {DB_PATH}")
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+def row_to_dict(row) -> Dict:
+    """Convert sqlite Row to dict"""
+    return dict(row) if row else None
+
+def rows_to_list(rows) -> List[Dict]:
+    """Convert list of rows to list of dicts"""
+    return [dict(row) for row in rows]
     espn_game_service = None
 
 app = Flask(__name__)
@@ -2324,8 +2344,7 @@ def get_live_game():
 def get_teams():
     """Get list of all FBS teams from coaches_master.db"""
     try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
+        conn = get_coaches_db_connection()
         cursor = conn.cursor()
         
         cursor.execute("""
@@ -2358,7 +2377,7 @@ def get_teams():
             ORDER BY t.school
         """)
         
-        teams = [dict(row) for row in cursor.fetchall()]
+        teams = rows_to_list(cursor.fetchall())
         conn.close()
         
         return jsonify({
@@ -2375,143 +2394,11 @@ def get_teams():
             'traceback': traceback.format_exc()
         }), 500
 
-def row_to_dict(row):
-    """Convert sqlite Row to dict"""
-    return dict(row) if row else None
-
-def rows_to_list(rows):
-    """Convert list of rows to list of dicts"""
-    return [dict(row) for row in rows]
-
-def get_coaches_db_connection():
-    """Get database connection to coaches_master.db"""
-    return sqlite3.connect('instance/coaches_master.db')
-
-@app.route('/api/team/<int:team_id>')
-def api_get_team(team_id: int):
-    """Get detailed information for a single team"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        # Get team basic info
-        cursor.execute("""
-            SELECT * FROM teams WHERE id = ?
-        """, (team_id,))
-        
-        team = row_to_dict(cursor.fetchone())
-        if not team:
-            conn.close()
-            return jsonify({'error': 'Team not found'}), 404
-        
-        # Get all rankings for this team
-        cursor.execute("""
-            SELECT 
-                season,
-                week,
-                ap_rank,
-                coaches_rank,
-                playoff_rank
-            FROM team_rankings
-            WHERE team_id = ?
-            ORDER BY season DESC, week DESC
-        """, (team_id,))
-        
-        team['rankings'] = rows_to_list(cursor.fetchall())
-        
-        # Get ALL season records with EVERY metric (113 columns total)
-        cursor.execute("""
-            SELECT *
-            FROM team_seasons
-            WHERE team_id = ?
-            ORDER BY season DESC
-        """, (team_id,))
-        
-        team['seasons'] = rows_to_list(cursor.fetchall())
-        
-        conn.close()
-        
-        return jsonify(team)
-    except FileNotFoundError as e:
-        return jsonify({'error': 'Database not available', 'message': str(e)}), 503
-    except Exception as e:
-        import traceback
-        return jsonify({
-            'error': 'Failed to load team',
-            'message': str(e),
-            'traceback': traceback.format_exc()
-        }), 500
-
-@app.route('/api/team/<int:team_id>/roster')
-def api_get_team_roster(team_id: int):
-    """Get team roster with player stats"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        # Get all players for this team with their stats
-        cursor.execute("""
-            SELECT 
-                p.*,
-                ps.season,
-                ps.games_played,
-                ps.passing_yards,
-                ps.passing_tds,
-                ps.rushing_yards,
-                ps.rushing_tds,
-                ps.receiving_yards,
-                ps.receiving_tds,
-                ps.total_tackles,
-                ps.sacks
-            FROM players p
-            LEFT JOIN player_stats ps ON p.id = ps.player_id
-            WHERE p.team_id = ?
-            ORDER BY 
-                CASE p.position_abbr 
-                    WHEN 'QB' THEN 1
-                    WHEN 'RB' THEN 2
-                    WHEN 'WR' THEN 3
-                    WHEN 'TE' THEN 4
-                    WHEN 'OL' THEN 5
-                    WHEN 'DL' THEN 6
-                    WHEN 'LB' THEN 7
-                    WHEN 'DB' THEN 8
-                    WHEN 'CB' THEN 9
-                    WHEN 'S' THEN 10
-                    ELSE 11
-                END,
-                CASE p.class_year
-                    WHEN 'SR' THEN 4
-                    WHEN 'JR' THEN 3
-                    WHEN 'SO' THEN 2
-                    WHEN 'FR' THEN 1
-                    ELSE 0
-                END DESC,
-                p.name
-        """, (team_id,))
-        
-        roster = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify(roster)
-    except FileNotFoundError as e:
-        return jsonify({'error': 'Database not available', 'message': str(e)}), 503
-    except Exception as e:
-        import traceback
-        return jsonify({
-            'error': 'Failed to load team roster',
-            'message': str(e),
-            'traceback': traceback.format_exc()
-        }), 500
-
 @app.route('/api/coaches')
 def api_get_coaches():
     """Get list of all coaches"""
     try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
+        conn = get_coaches_db_connection()
         cursor = conn.cursor()
         
         cursor.execute("""
@@ -2525,7 +2412,7 @@ def api_get_coaches():
             ORDER BY c.name
         """)
         
-        coaches = [dict(row) for row in cursor.fetchall()]
+        coaches = rows_to_list(cursor.fetchall())
         conn.close()
         
         return jsonify({
@@ -2540,444 +2427,11 @@ def api_get_coaches():
             'traceback': traceback.format_exc()
         }), 500
 
-@app.route('/api/coach/<int:coach_id>')
-def api_get_coach(coach_id: int):
-    """Get detailed coach information"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("SELECT * FROM coaches WHERE id = ?", (coach_id,))
-        coach = row_to_dict(cursor.fetchone())
-        
-        if not coach:
-            conn.close()
-            return jsonify({'error': 'Coach not found'}), 404
-        
-        # Get stint count
-        cursor.execute("SELECT COUNT(*) as count FROM stints WHERE coach_id = ?", (coach_id,))
-        coach['stint_count'] = cursor.fetchone()['count']
-        
-        # Get games count
-        cursor.execute("SELECT COUNT(*) as count FROM games WHERE coach_id = ?", (coach_id,))
-        coach['games_count'] = cursor.fetchone()['count']
-        
-        conn.close()
-        return jsonify(coach)
-    except FileNotFoundError as e:
-        return jsonify({'error': 'Database not available', 'message': str(e)}), 503
-    except Exception as e:
-        import traceback
-        return jsonify({
-            'error': 'Failed to load coach',
-            'message': str(e),
-            'traceback': traceback.format_exc()
-        }), 500
-
-@app.route('/api/coach/<int:coach_id>/stints')
-def api_get_stints(coach_id: int):
-    """Get coaching stints for a coach"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT * FROM stints 
-            WHERE coach_id = ? 
-            ORDER BY start_year DESC
-        """, (coach_id,))
-        
-        stints = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify({
-            'coach_id': coach_id,
-            'stints': stints,
-            'count': len(stints)
-        })
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load stints', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/coach/<int:coach_id>/games')
-def api_get_games(coach_id: int):
-    """Get game history for a coach"""
-    try:
-        # Optional filters
-        season = request.args.get('season', type=int)
-        school = request.args.get('school')
-        limit = request.args.get('limit', type=int, default=100)
-        
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        query = "SELECT * FROM games WHERE coach_id = ?"
-        params = [coach_id]
-        
-        if season:
-            query += " AND season = ?"
-            params.append(season)
-        
-        if school:
-            query += " AND school = ?"
-            params.append(school)
-        
-        query += " ORDER BY season DESC, week DESC LIMIT ?"
-        params.append(limit)
-        
-        cursor.execute(query, params)
-        games = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify({
-            'coach_id': coach_id,
-            'games': games,
-            'count': len(games)
-        })
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load games', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/coach/<int:coach_id>/rankings')
-def api_get_rankings(coach_id: int):
-    """Get AP Poll rankings history"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT * FROM rankings 
-            WHERE coach_id = ? 
-            ORDER BY season DESC, week DESC
-        """, (coach_id,))
-        
-        rankings = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify({
-            'coach_id': coach_id,
-            'rankings': rankings,
-            'count': len(rankings)
-        })
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load rankings', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/coach/<int:coach_id>/draft_picks')
-def api_get_draft_picks(coach_id: int):
-    """Get NFL draft picks produced"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT * FROM draft_picks 
-            WHERE coach_id = ? 
-            ORDER BY year DESC, round, pick
-        """, (coach_id,))
-        
-        picks = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify({
-            'coach_id': coach_id,
-            'draft_picks': picks,
-            'count': len(picks)
-        })
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load draft picks', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/coach/<int:coach_id>/situational')
-@app.route('/api/coach/<int:coach_id>/situational_stats')
-def api_get_situational_stats(coach_id: int):
-    """Get situational statistics"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT * FROM situational_stats 
-            WHERE coach_id = ? 
-            ORDER BY stint_id
-        """, (coach_id,))
-        
-        stats = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify({
-            'coach_id': coach_id,
-            'situational_stats': stats,
-            'count': len(stats)
-        })
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load situational stats', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/coach/<int:coach_id>/vs_coaches')
-def api_get_vs_coaches(coach_id: int):
-    """Get head-to-head records vs other coaches"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT * FROM vs_coaches 
-            WHERE coach_id = ? 
-            ORDER BY wins DESC, losses ASC
-        """, (coach_id,))
-        
-        records = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify({
-            'coach_id': coach_id,
-            'vs_coaches': records,
-            'count': len(records)
-        })
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load vs coaches', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/coach/<int:coach_id>/season_analytics')
-def api_get_season_analytics(coach_id: int):
-    """Get season-level analytics"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT * FROM season_analytics 
-            WHERE coach_id = ? 
-            ORDER BY season DESC
-        """, (coach_id,))
-        
-        analytics = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify({
-            'coach_id': coach_id,
-            'season_analytics': analytics,
-            'count': len(analytics)
-        })
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load season analytics', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/coach/<int:coach_id>/recruiting')
-@app.route('/api/coach/<int:coach_id>/recruiting_classes')
-def api_get_recruiting(coach_id: int):
-    """Get recruiting class data"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT * FROM recruiting_classes 
-            WHERE coach_id = ? 
-            ORDER BY year DESC
-        """, (coach_id,))
-        
-        classes = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify({
-            'coach_id': coach_id,
-            'recruiting_classes': classes,
-            'count': len(classes)
-        })
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load recruiting classes', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/coach/<int:coach_id>/talent')
-@app.route('/api/coach/<int:coach_id>/talent_composite')
-def api_get_talent(coach_id: int):
-    """Get talent composite data"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT * FROM talent_composite 
-            WHERE coach_id = ? 
-            ORDER BY year DESC
-        """, (coach_id,))
-        
-        talent = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify({
-            'coach_id': coach_id,
-            'talent_composite': talent,
-            'count': len(talent)
-        })
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load talent composite', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/coach/<int:coach_id>/portal')
-@app.route('/api/coach/<int:coach_id>/transfer_portal')
-def api_get_portal(coach_id: int):
-    """Get transfer portal data"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT * FROM transfer_portal 
-            WHERE coach_id = ? 
-            ORDER BY season DESC
-        """, (coach_id,))
-        
-        portal = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify({
-            'coach_id': coach_id,
-            'transfer_portal': portal,
-            'count': len(portal)
-        })
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load transfer portal', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/stats')
-def api_get_stats():
-    """Get database statistics"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        stats = {}
-        
-        # Count each table
-        tables = ['coaches', 'stints', 'games', 'rankings', 'draft_picks',
-                  'situational_stats', 'vs_coaches', 'season_analytics',
-                  'recruiting_classes', 'talent_composite', 'transfer_portal', 'player_season_stats']
-        
-        for table in tables:
-            cursor.execute(f"SELECT COUNT(*) as count FROM {table}")
-            stats[table] = cursor.fetchone()['count']
-        
-        conn.close()
-        
-        return jsonify(stats)
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load stats', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/players')
-def api_get_players():
-    """Get all player season stats"""
-    try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT 
-                id, season, player_id, player_name, position, team, conference, position_type,
-                passing_yards, passing_tds, pass_attempts, completions, completion_pct,
-                interceptions, yards_per_attempt, rushing_yards, rushing_tds, carries,
-                yards_per_carry, receiving_yards, receiving_tds, receptions,
-                yards_per_reception, longest_reception, headshot_url, team_logo_url
-            FROM player_season_stats
-            ORDER BY 
-                CASE 
-                    WHEN passing_yards IS NOT NULL AND passing_yards > 0 THEN passing_yards
-                    WHEN rushing_yards IS NOT NULL AND rushing_yards > 0 THEN rushing_yards
-                    WHEN receiving_yards IS NOT NULL AND receiving_yards > 0 THEN receiving_yards
-                    ELSE 0
-                END DESC
-            LIMIT 1000
-        """)
-        
-        rows = cursor.fetchall()
-        conn.close()
-        
-        players = [dict(row) for row in rows]
-        
-        return jsonify({'players': players, 'count': len(players)})
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load players', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/search')
-def api_search():
-    """Search for coaches by name or school"""
-    try:
-        query = request.args.get('q', '').strip()
-        
-        if not query:
-            return jsonify({'error': 'Query parameter q required'}), 400
-        
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT 
-                id, name, current_school, headshot_url,
-                career_record, career_win_pct, total_games
-            FROM coaches
-            WHERE name LIKE ? OR current_school LIKE ?
-            ORDER BY name
-            LIMIT 20
-        """, (f'%{query}%', f'%{query}%'))
-        
-        results = rows_to_list(cursor.fetchall())
-        conn.close()
-        
-        return jsonify({
-            'query': query,
-            'results': results,
-            'count': len(results)
-        })
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to search', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
-@app.route('/api/drives/teams', methods=['GET'])
-def get_drives_teams():
-    """Get all teams from gameday_analytics.db"""
-    try:
-        conn = sqlite3.connect('gameday_analytics.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        
-        cursor.execute("""
-            SELECT DISTINCT team_name, conference 
-            FROM teams 
-            ORDER BY team_name
-        """)
-        
-        teams = [dict(row) for row in cursor.fetchall()]
-        conn.close()
-        
-        return jsonify(teams)
-    except Exception as e:
-        import traceback
-        return jsonify({'error': 'Failed to load drives teams', 'message': str(e), 'traceback': traceback.format_exc()}), 500
-
 @app.route('/api/nil/teams')
 def api_nil_teams():
     """API endpoint for all NIL team summaries"""
     try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
+        conn = get_coaches_db_connection()
         cursor = conn.cursor()
         
         # Get all teams
@@ -3040,8 +2494,7 @@ def api_nil_teams():
 def api_nil_team(team_id: int):
     """API endpoint for single team NIL summary"""
     try:
-        conn = sqlite3.connect('instance/coaches_master.db')
-        conn.row_factory = sqlite3.Row
+        conn = get_coaches_db_connection()
         cursor = conn.cursor()
         cursor.execute('''
             SELECT 
@@ -3082,7 +2535,7 @@ def api_nil_team(team_id: int):
 def api_nil_team_players(team_id: int):
     """API endpoint for team's NIL player list"""
     try:
-        conn = get_coaches_db_connection()
+        conn = sqlite3.connect('instance/coaches_master.db')
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         cursor.execute('''
@@ -3120,7 +2573,7 @@ def api_nil_team_players(team_id: int):
 def api_nil_team_positions(team_id: int):
     """API endpoint for team's position group analytics"""
     try:
-        conn = get_coaches_db_connection()
+        conn = sqlite3.connect('instance/coaches_master.db')
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         cursor.execute('''
@@ -3158,7 +2611,7 @@ def api_nil_team_positions(team_id: int):
 def api_get_conference_wins():
     """Get aggregated conference wins for charts"""
     try:
-        conn = get_coaches_db_connection()
+        conn = sqlite3.connect('instance/coaches_master.db')
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         
@@ -3272,18 +2725,16 @@ def get_team_drives_stats(team_id):
         return jsonify({'error': str(e)}), 500
 
 @app.route('/api/coach/<int:coach_id>/timeline', methods=['GET'])
-def api_get_timeline(coach_id: int):
-    """Get career timeline data for Highcharts visualization"""
+def get_coach_timeline(coach_id):
+    """Get coach timeline data for visualization"""
     try:
-        import json
-        
         conn = sqlite3.connect('instance/coaches_master.db')
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         
+        # Get timeline data
         cursor.execute("""
             SELECT 
-                coach_id,
                 coach_name,
                 career_record,
                 career_win_pct,
@@ -3295,42 +2746,99 @@ def api_get_timeline(coach_id: int):
                 plot_bands,
                 flags,
                 generated_at
-            FROM coach_timeline_data 
+            FROM coach_timeline_data
             WHERE coach_id = ?
         """, (coach_id,))
         
         row = cursor.fetchone()
-        conn.close()
         
         if not row:
-            return jsonify({'error': 'Timeline data not found for this coach'}), 404
+            # Try to get basic coach info
+            cursor.execute("SELECT name, headshot_url FROM coaches WHERE id = ?", (coach_id,))
+            coach = cursor.fetchone()
+            if coach:
+                return jsonify({
+                    'coachName': coach['name'],
+                    'coachHeadshot': coach['headshot_url'],
+                    'data': [],
+                    'metadata': {
+                        'record': '0-0',
+                        'win_pct': '0.0'
+                    },
+                    'career_schools': []
+                }), 200
+            return jsonify({'error': 'Coach not found'}), 404
         
-        # Parse JSON strings to objects
-        timeline_data = {
-            'coach_id': row['coach_id'],
-            'coach_name': row['coach_name'],
-            'career_record': row['career_record'],
-            'career_win_pct': row['career_win_pct'],
-            'max_win_streak': row['max_win_streak'],
-            'total_ranked_wins': row['total_ranked_wins'],
-            'weekly': json.loads(row['weekly_data']) if row['weekly_data'] else [],
-            'monthly': json.loads(row['monthly_data']) if row['monthly_data'] else [],
-            'yearly': json.loads(row['yearly_data']) if row['yearly_data'] else [],
-            'plot_bands': json.loads(row['plot_bands']) if row['plot_bands'] else [],
-            'flags': json.loads(row['flags']) if row['flags'] else [],
-            'generated_at': row['generated_at']
-        }
+        # Parse JSON fields
+        import json
+        weekly_data = json.loads(row['weekly_data']) if row['weekly_data'] else []
+        plot_bands = json.loads(row['plot_bands']) if row['plot_bands'] else []
         
-        return jsonify(timeline_data)
-    except FileNotFoundError as e:
-        return jsonify({'error': 'Database not available', 'message': str(e)}), 503
-    except Exception as e:
-        import traceback
+        # Get coach headshot and career schools
+        cursor.execute("""
+            SELECT c.headshot_url, s.school, s.start_year, s.end_year, s.record, s.win_pct
+            FROM coaches c
+            LEFT JOIN stints s ON c.id = s.coach_id
+            WHERE c.id = ?
+            ORDER BY s.start_year
+        """, (coach_id,))
+        
+        coach_data = cursor.fetchall()
+        headshot = coach_data[0]['headshot_url'] if coach_data else None
+        
+        # Build career schools array
+        career_schools = []
+        for stint in coach_data:
+            if stint['school']:
+                # Get team data from fbs.json via database or use defaults
+                cursor.execute("""
+                    SELECT t.logos, t.color, t.alt_color 
+                    FROM teams t 
+                    WHERE t.school = ?
+                    LIMIT 1
+                """, (stint['school'],))
+                team_row = cursor.fetchone()
+                
+                if team_row and team_row['logos']:
+                    import json
+                    logos = json.loads(team_row['logos'])
+                    team_logo = logos[0] if logos else None
+                    team_color = team_row['color'] or team_row['alt_color']
+                else:
+                    team_logo = None
+                    team_color = '#666666'
+                
+                career_schools.append({
+                    'school_name': stint['school'],
+                    'school': stint['school'],
+                    'years': f"{stint['start_year']}-{stint['end_year'] if stint['end_year'] != stint['start_year'] else stint['start_year']}",
+                    'record': stint['record'],
+                    'win_pct': float(stint['win_pct']) if stint['win_pct'] else 0.0,
+                    'team_logo': team_logo,
+                    'team_color': team_color
+                })
+        
+        conn.close()
+        
         return jsonify({
-            'error': 'Failed to load timeline',
-            'message': str(e),
-            'traceback': traceback.format_exc()
-        }), 500
+            'coachName': row['coach_name'],
+            'coachHeadshot': headshot,
+            'data': weekly_data,
+            'metadata': {
+                'record': row['career_record'],
+                'win_pct': f"{float(row['career_win_pct']):.1f}" if row['career_win_pct'] else '0.0',
+                'max_win_streak': row['max_win_streak'],
+                'total_ranked_wins': row['total_ranked_wins']
+            },
+            'career_schools': career_schools,
+            'plot_bands': plot_bands
+        }), 200
+        
+    except Exception as e:
+        print(f"❌ Error getting timeline for coach {coach_id}: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/api/coaches/comparison', methods=['GET'])
 def get_coaches_comparison():
@@ -3344,7 +2852,7 @@ def get_coaches_comparison():
         
         print(f"\n👔 Coaches Comparison Request: {home_team} vs {away_team}")
         
-        conn = get_coaches_db_connection()
+        conn = sqlite3.connect('instance/coaches_master.db')
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         
@@ -3997,7 +3505,7 @@ def get_upcoming_games():
         # Build team color lookup from coaches_master.db
         team_colors = {}
         try:
-            coaches_conn = get_coaches_db_connection()
+            coaches_conn = sqlite3.connect('instance/coaches_master.db')
             coaches_conn.row_factory = sqlite3.Row
             coaches_cursor = coaches_conn.cursor()
             coaches_cursor.execute("SELECT school, color, alt_color FROM teams")
@@ -4148,7 +3656,7 @@ def map_data():
     }
 
     try:
-        conn = get_coaches_db_connection()
+        conn = sqlite3.connect('instance/coaches_master.db')
         conn.row_factory = sqlite3.Row
         
         # Get latest season
@@ -4430,7 +3938,7 @@ def get_game_by_id(game_id):
         home_win_pct = 50.0
         
         try:
-            coaches_conn = get_coaches_db_connection()
+            coaches_conn = sqlite3.connect('instance/coaches_master.db')
             coaches_conn.row_factory = sqlite3.Row
             coaches_cursor = coaches_conn.cursor()
             
@@ -4615,7 +4123,7 @@ def api_game_preview(game_id):
         
         # Get rich data from coaches_master.db
         try:
-            coaches_conn = get_coaches_db_connection()
+            coaches_conn = sqlite3.connect('instance/coaches_master.db')
             coaches_conn.row_factory = sqlite3.Row
             coaches_cursor = coaches_conn.cursor()
             

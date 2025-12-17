@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Profile | GAMEDAY+ ANALYTICS</title>
+    <title>Team Command Center | GAMEDAY+ SYS</title>
     
     <!-- Tailwind & Config -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,21 +13,22 @@
             theme: {
                 extend: {
                     colors: {
-                        background: '#030712', // Deepest gray/black
-                        surface: '#111827',
-                        primary: '#F43F5E', // Rose 500
-                        'primary-dim': 'rgba(244, 63, 94, 0.1)',
+                        background: '#020617', // Deep slate/black
+                        surface: '#0f172a',
+                        primary: '#ef4444', // Red 500
+                        'primary-dim': 'rgba(239, 68, 68, 0.1)',
                         success: '#10B981', // Emerald 500
                         warning: '#F59E0B', // Amber 500
                         danger: '#EF4444', // Red 500
+                        info: '#3B82F6',   // Blue 500
                     },
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', 'sans-serif'],
-                        'mono': ['JetBrains Mono', 'Menlo', 'monospace'], // Analytical font
+                        'mono': ['JetBrains Mono', 'Menlo', 'monospace'],
                         'display': ['Orbitron', 'sans-serif'],
                     },
                     backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, #1f2937 1px, transparent 1px), linear-gradient(to bottom, #1f2937 1px, transparent 1px)",
+                        'grid-pattern': "linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)",
                     }
                 }
             }
@@ -39,36 +40,78 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Highcharts for Data Visualization -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/stock.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
     <style>
-        /* HUD & Data Styling */
-        body {
-            background-color: #030712;
-            color: #E5E7EB;
+        :root {
+            --bg-color: #0f172a;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --accent-glow: rgba(255, 255, 255, 0.1);
+            --table-header-bg: rgba(255, 255, 255, 0.1);
+            --table-row-hover: rgba(255, 255, 255, 0.2);
+            
+            /* Fintech Palette */
+            --sem-success: #10B981;
+            --sem-danger: #EF4444;
+            --sem-warning: #F59E0B;
+            --sem-neutral: #64748B;
+            --cat-a: #3B82F6;
+            --cat-b: #F97316;
+            --cat-c: #14B8A6;
+            --cat-d: #8B5CF6;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #000000;
+            --glass-bg: rgba(0, 0, 0, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-glow: rgba(0, 0, 0, 0.5);
+            --table-header-bg: rgba(255, 255, 255, 0.05);
+            --table-row-hover: rgba(255, 255, 255, 0.1);
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background: var(--bg-color);
+            color: var(--text-primary);
             overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
-        .bg-grid-scan {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        /* Dynamic Background Transitions */
+        #dynamic-bg {
+            transition: background 1.0s ease-in-out;
+        }
+        #glow-orb, #secondary-orb {
+            transition: all 1.0s ease-in-out;
         }
 
-        /* Glass / HUD Panels */
+        /* Glassmorphism Panels */
         .hud-panel {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            background: var(--glass-bg);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border-radius: 1.5rem;
+            transition: background-color 0.5s ease, border-color 0.5s ease;
         }
 
-        .hud-panel:hover {
-            border-color: rgba(244, 63, 94, 0.3);
-        }
-
-        /* Analytical Table Styles */
+        /* Analytical Table Styles - Modernized */
         .analytics-table {
             width: 100%;
             border-collapse: separate;
@@ -77,427 +120,257 @@
         }
 
         .analytics-table th {
-            text-align: right; /* Numeric alignment */
-            padding: 12px 16px;
-            font-size: 0.7rem;
+            text-align: right;
+            padding: 16px 20px;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: #9CA3AF;
-            background: rgba(17, 24, 39, 0.95);
-            border-bottom: 2px solid #374151;
-            position: sticky;
-            top: 0;
-            z-index: 10;
+            color: var(--text-primary);
+            background: var(--table-header-bg);
+            border-bottom: 1px solid var(--glass-border);
+            white-space: nowrap;
+            font-weight: 700;
         }
         
         .analytics-table th:first-child { text-align: left; }
 
         .analytics-table td {
             text-align: right;
-            padding: 12px 16px;
-            font-size: 0.85rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            transition: all 0.2s;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--glass-border);
+            white-space: nowrap;
+            transition: background 0.2s;
+            color: var(--text-primary);
+            font-weight: 500;
         }
 
         .analytics-table td:first-child {
             text-align: left;
             font-weight: 700;
-            color: #fff;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
         }
 
         .analytics-table tr:hover td {
-            background: rgba(255, 255, 255, 0.03);
-            color: white;
+            background: var(--table-row-hover);
         }
 
-        /* Trend Indicators */
-        .trend-up { color: #10B981; }
-        .trend-down { color: #EF4444; }
-        .trend-neutral { color: #6B7280; }
+        /* Data Color Utility Classes - Sleek & Shiny */
+        .val-elite { color: var(--sem-success); text-shadow: 0 0 15px rgba(16, 185, 129, 0.3); font-weight: 700; } 
+        .val-good { color: var(--cat-c); font-weight: 600; } 
+        .val-avg { color: var(--text-primary); } 
+        .val-poor { color: var(--cat-b); } 
+        .val-bad { color: var(--sem-danger); text-shadow: 0 0 15px rgba(239, 68, 68, 0.3); font-weight: 700; } 
+        .val-neutral { color: var(--sem-warning); }
         
-        /* Value Coloring */
-        .val-elite { color: #34D399; text-shadow: 0 0 10px rgba(52, 211, 153, 0.2); }
-        .val-good { color: #A7F3D0; }
-        .val-mid { color: #FCD34D; }
-        .val-poor { color: #F87171; }
-        .val-bad { color: #EF4444; text-shadow: 0 0 10px rgba(239, 68, 68, 0.2); }
-
-        /* Custom Scrollbar */
+        /* Trend Indicators */
+        .trend-up { color: var(--sem-success); }
+        .trend-down { color: var(--sem-danger); }
+        .trend-neutral { color: var(--sem-neutral); }
+        
+        /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #030712; }
-        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #E11D48; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
 
-        /* Tab System */
+        /* Tabs */
         .tab-btn {
-            position: relative;
-            overflow: hidden;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            border-radius: 0.75rem;
         }
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #E11D48;
-            box-shadow: 0 0 10px #E11D48;
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .tab-btn.active {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Reflection Mask */
+        .mask-image-linear-to-b {
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
         }
     </style>
 </head>
-<body class="antialiased min-h-screen relative selection:bg-primary selection:text-white">
-    
-    <!-- Background Grid -->
-    <div class="fixed inset-0 bg-grid-scan pointer-events-none z-0"></div>
+<body class="antialiased min-h-screen relative selection:bg-white/30 selection:text-white">
 
-    <!-- Top Navigation / Header -->
-    <header class="fixed top-0 w-full z-50 border-b border-white/10 bg-[#030712]/80 backdrop-blur-md">
-        <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <div class="w-2 h-8 bg-primary shadow-[0_0_15px_rgba(225,29,72,0.5)]"></div>
-                <a href="/" class="font-display font-bold text-2xl tracking-wider text-white">
-                    GAMEDAY<span class="text-primary">+</span> <span class="text-xs text-gray-500 font-mono align-top mt-1 ml-1 opacity-70">SYS.V.2.0</span>
-                </a>
-            </div>
-            
-            <nav class="flex items-center gap-1 bg-surface/50 p-1 rounded-lg border border-white/5">
-                <a href="/" class="px-4 py-1.5 text-xs font-mono text-gray-400 hover:text-white transition rounded hover:bg-white/5">DB_HOME</a>
-                <a href="/coaches" class="px-4 py-1.5 text-xs font-mono text-gray-400 hover:text-white transition rounded hover:bg-white/5">COACHES</a>
-                <a href="/teams" class="px-4 py-1.5 text-xs font-mono text-primary bg-primary/10 rounded font-bold border border-primary/20">TEAMS_Index</a>
-            </nav>
-        </div>
-    </header>
+    <!-- Dynamic Background Layer -->
+    <div id="dynamic-bg" class="fixed inset-0 z-0">
+        <div class="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
+        <div id="glow-orb" class="absolute w-96 h-96 rounded-full blur-3xl opacity-60 mix-blend-screen animate-pulse"></div>
+        <div id="secondary-orb" class="absolute w-80 h-80 rounded-full blur-3xl opacity-40 mix-blend-overlay" style="bottom: 10%; right: 10%;"></div>
+    </div>
 
-    <main class="relative z-10 pt-24 pb-12 px-4 md:px-8 max-w-[1600px] mx-auto">
+    <div class="relative z-10 max-w-[1800px] mx-auto p-4 md:p-8">
         
+        <!-- Header Actions -->
+        <div class="flex items-center justify-between mb-8">
+            <a href="/" class="flex items-center gap-2 text-xs font-mono text-white/60 hover:text-white hover:bg-white/5 px-3 py-2 rounded transition border border-transparent hover:border-white/10">
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                SYSTEM_DASHBOARD
+            </a>
+            <div class="flex items-center gap-4">
+                <button onclick="toggleTheme()" id="theme-btn" class="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition border border-white/5">
+                    <i data-lucide="sun" class="w-4 h-4"></i>
+                </button>
+                <div class="text-[10px] font-mono text-white/40 tracking-widest">SECURE CONNECTION ESTABLISHED</div>
+            </div>
+        </div>
+
         <!-- Loading Indicator -->
-        <div id="loadingState" class="flex flex-col items-center justify-center py-20">
-            <div class="flex items-center gap-2 text-primary font-mono animate-pulse">
-                <i data-lucide="cpu" class="w-6 h-6"></i>
-                <span class="tracking-widest">INITIALIZING DATA STREAM...</span>
+        <div id="loadingState" class="flex flex-col items-center justify-center py-20 mb-8">
+            <div class="flex items-center gap-4 text-primary animate-pulse">
+                <i data-lucide="loader-2" class="w-8 h-8 animate-spin"></i>
+                <span class="font-mono text-xs tracking-widest">ACCESSING MAINFRAME...</span>
             </div>
         </div>
 
         <div id="teamContent" class="hidden animate-fade-in space-y-6">
             
-            <!-- Hero / Team Identity Block -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <!-- Main Identity Card -->
-                <div class="lg:col-span-8 hud-panel rounded-lg p-6 flex flex-col sm:flex-row items-center sm:items-start gap-8 relative overflow-hidden">
-                    <!-- Decorative Background Element -->
-                    <div class="absolute top-0 right-0 p-3 opacity-10 font-display text-8xl font-black text-white select-none pointer-events-none" id="bgTextCode">
-                        TM
-                    </div>
-
-                    <div class="relative group">
-                        <img id="teamLogo" src="" alt="" class="relative w-32 h-32 object-contain drop-shadow-2xl" />
-                    </div>
-
-                    <div class="flex-1 text-center sm:text-left z-10">
-                        <div class="flex items-center justify-center sm:justify-start gap-3 mb-2">
-                            <h1 id="teamName" class="font-display text-4xl md:text-5xl font-bold text-white tracking-tight"></h1>
-                            <span id="teamClass" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-white/10 text-gray-300 border border-white/10">FBS</span>
-                        </div>
+            <!-- Team Profile Header -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+                <!-- Identity Card -->
+                <div class="lg:col-span-8 hud-panel rounded-lg p-0 relative overflow-hidden group">
+                    <!-- Dynamic Team Accent Line (JS injected) -->
+                    <div id="teamAccentLine" class="absolute left-0 top-0 bottom-0 w-1 bg-white/20 z-20"></div>
+                    
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row items-center justify-between relative z-10 h-full gap-6">
                         
-                        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2 text-sm text-gray-400 font-mono mb-6">
-                            <span id="teamMascot" class="text-gray-300"></span>
-                            <span class="text-gray-700">|</span>
-                            <span id="teamConference" class="text-primary font-bold"></span>
-                            <span id="teamDivision" class="text-gray-500"></span>
+                        <!-- LEFT: Team Logo (Premier Look) -->
+                        <div class="relative w-48 h-48 md:w-56 md:h-56 shrink-0 flex items-center justify-center rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 group/logo">
+                            <!-- Sleek Shine Gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 z-20 pointer-events-none"></div>
+                            
+                            <img id="teamLogo" src="" class="w-full h-full object-contain opacity-0 transition-opacity duration-700 filter contrast-110 saturate-105" alt="Team Logo">
                         </div>
 
-                        <!-- Quick Stats Grid -->
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-white/5">
-                            <div>
-                                <div class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mb-1">HQ Location</div>
-                                <div id="teamLocation" class="text-white font-semibold text-sm"></div>
+                        <!-- CENTER: Info & Minimized Stats -->
+                        <div class="flex-1 w-full text-center md:text-left">
+                            <div class="mb-5">
+                                <h1 id="teamName" class="text-3xl md:text-5xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70 tracking-tighter leading-none mb-2">--</h1>
+                                <div class="flex items-center justify-center md:justify-start gap-3 text-xs md:text-sm font-display tracking-widest uppercase opacity-80">
+                                    <span id="teamMascot" class="text-white font-bold">--</span>
+                                    <span class="text-white/30">///</span>
+                                    <span id="teamConference" class="text-white/60">--</span>
+                                    <div class="font-mono text-[10px] text-white/40 border border-white/10 px-2 py-0.5 rounded bg-white/5 ml-2">ID: <span id="teamIdDisp"></span></div>
+                                </div>
                             </div>
-                            <div>
-                                <div class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mb-1">Arena</div>
-                                <div id="teamStadium" class="text-white font-semibold text-sm"></div>
-                            </div>
-                            <div>
-                                <div class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mb-1">Capacity</div>
-                                <div id="teamCapacity" class="text-white font-mono text-sm"></div>
-                            </div>
-                            <div>
-                                <div class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mb-1">System ID</div>
-                                <div class="text-primary font-mono text-sm">#<span id="teamIdDisp"></span></div>
+                            
+                            <!-- Minimized Stats Grid -->
+                            <div class="grid grid-cols-4 gap-4 border-t border-white/10 pt-4">
+                                <div class="text-center md:text-left">
+                                    <div class="text-[10px] font-display text-white/40 uppercase tracking-wider mb-1">Location</div>
+                                    <div id="teamLocation" class="text-base font-mono text-white font-bold tracking-tight">--</div>
+                                </div>
+                                <div class="text-center md:text-left">
+                                    <div class="text-[10px] font-display text-white/40 uppercase tracking-wider mb-1">Stadium</div>
+                                    <div id="teamStadium" class="text-base font-mono text-white font-bold tracking-tight">--</div>
+                                </div>
+                                <div class="text-center md:text-left">
+                                    <div class="text-[10px] font-display text-white/40 uppercase tracking-wider mb-1">Capacity</div>
+                                    <div id="teamCapacity" class="text-base font-mono text-white font-bold tracking-tight">--</div>
+                                </div>
+                                <div class="text-center md:text-left">
+                                    <div class="text-[10px] font-display text-white/40 uppercase tracking-wider mb-1">Division</div>
+                                    <div id="teamDivision" class="text-base font-mono text-white font-bold tracking-tight">--</div>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- RIGHT: Mirrored Logo Area -->
+                        <div class="relative w-40 h-40 md:w-48 md:h-48 shrink-0 group-hover:scale-105 transition-transform duration-700 hidden md:block">
+                            <!-- Main Upward Logo -->
+                            <img id="team-logo-main" src="" alt="Team Logo" class="relative z-10 w-full h-full object-contain drop-shadow-2xl">
+                            <!-- Upside Down Reflection Logo -->
+                            <img id="team-logo-reflect" src="" alt="" class="absolute top-[85%] left-0 w-full h-full object-contain opacity-40 blur-[2px] transform scale-y-[-1] mask-image-linear-to-b pointer-events-none" aria-hidden="true">
+                        </div>
                     </div>
+
+                    <!-- Subtle Background Watermark -->
+                    <div id="watermarkContainer" class="absolute top-0 right-0 h-full w-1/2 opacity-5 pointer-events-none mix-blend-overlay"></div>
                 </div>
 
-                <!-- Live Status / Mini Gauge (Visual placeholder for 'Status') -->
-                <div class="lg:col-span-4 hud-panel rounded-lg p-6 flex flex-col justify-between">
-                    <h3 class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-4">Current Status</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-black/40 rounded p-3 border border-white/5">
-                            <div class="text-[10px] text-gray-400 font-mono mb-1">LATEST RATING (SP+)</div>
-                            <div class="text-2xl font-mono font-bold text-white" id="miniSpRating">--</div>
+                <!-- Status / Key Indicators -->
+                <div class="lg:col-span-4 hud-panel rounded-lg p-8 flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+                    <h3 class="font-display text-sm text-white/50 uppercase tracking-[0.2em] mb-8 relative z-10 flex items-center gap-3">
+                        <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 12H17L15 20L9 4L7 12H3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        System Status
+                    </h3>
+                    
+                    <div class="space-y-6 relative z-10">
+                        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <span class="text-sm text-white/60 font-display tracking-wide">Current SP+ Rating</span>
+                            <span id="stat-sp-rating" class="font-mono text-xl text-white font-bold drop-shadow-lg">--</span>
                         </div>
-                        <div class="bg-black/40 rounded p-3 border border-white/5">
-                            <div class="text-[10px] text-gray-400 font-mono mb-1">LATEST FPI</div>
-                            <div class="text-2xl font-mono font-bold text-white" id="miniFpiRating">--</div>
+                        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <span class="text-sm text-white/60 font-display tracking-wide">FPI Efficiency</span>
+                            <span id="stat-fpi-rating" class="font-mono text-xl text-white font-bold drop-shadow-lg">--</span>
                         </div>
-                        <div class="bg-black/40 rounded p-3 border border-white/5">
-                            <div class="text-[10px] text-gray-400 font-mono mb-1">TALENT COMP</div>
-                            <div class="text-2xl font-mono font-bold text-white" id="miniTalent">--</div>
+                        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <span class="text-sm text-white/60 font-display tracking-wide">Talent Composite</span>
+                            <span id="stat-talent-comp" class="font-mono text-xl text-white font-bold drop-shadow-lg">--</span>
                         </div>
-                        <div class="bg-black/40 rounded p-3 border border-white/5">
-                            <div class="text-[10px] text-gray-400 font-mono mb-1">REC RANK</div>
-                            <div class="text-2xl font-mono font-bold text-white" id="miniRecruit">--</div>
+                        <div class="flex justify-between items-center pb-2">
+                            <span class="text-sm text-white/60 font-display tracking-wide">Recruiting Rank</span>
+                            <span id="stat-recruiting" class="font-mono text-xl text-white font-bold drop-shadow-lg">--</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Navigation Modules -->
-            <div class="sticky top-16 z-40 bg-[#030712]/90 backdrop-blur-xl border-y border-white/10 py-2 -mx-4 px-4 md:mx-0 md:px-0 md:rounded-lg md:border">
-                <div class="flex overflow-x-auto no-scrollbar gap-2 md:gap-4 md:justify-center" id="tabContainer">
-                    <!-- Buttons generated via JS or kept static but styled -->
-                    <button onclick="showTab('overview')" id="tabOverview" class="tab-btn px-4 py-2 text-xs md:text-sm font-mono font-bold text-primary transition-all">
+            <!-- Navigation Tabs -->
+            <div class="mb-6 overflow-x-auto pb-2">
+                <div class="flex items-center gap-2 min-w-max" id="tabContainer">
+                    <button onclick="showTab('overview')" id="tabOverview" class="tab-btn px-4 py-2 rounded text-xs font-mono font-bold uppercase flex items-center gap-2 text-white hover:text-white hover:bg-white/5 active">
+                        <i data-lucide="bar-chart-3" class="w-3 h-3"></i>
                         OVERVIEW
                     </button>
-                    <button onclick="showTab('rankings')" id="tabRankings" class="tab-btn px-4 py-2 text-xs md:text-sm font-mono font-bold text-gray-500 hover:text-white transition-all">
+                    <button onclick="showTab('rankings')" id="tabRankings" class="tab-btn px-4 py-2 rounded text-xs font-mono font-bold uppercase flex items-center gap-2 text-gray-500 hover:text-white hover:bg-white/5">
+                        <i data-lucide="trophy" class="w-3 h-3"></i>
                         RANKINGS
                     </button>
-                    <button onclick="showTab('offense')" id="tabOffense" class="tab-btn px-4 py-2 text-xs md:text-sm font-mono font-bold text-gray-500 hover:text-white transition-all">
+                    <button onclick="showTab('offense')" id="tabOffense" class="tab-btn px-4 py-2 rounded text-xs font-mono font-bold uppercase flex items-center gap-2 text-gray-500 hover:text-white hover:bg-white/5">
+                        <i data-lucide="trending-up" class="w-3 h-3"></i>
                         OFF_METRICS
                     </button>
-                    <button onclick="showTab('defense')" id="tabDefense" class="tab-btn px-4 py-2 text-xs md:text-sm font-mono font-bold text-gray-500 hover:text-white transition-all">
+                    <button onclick="showTab('defense')" id="tabDefense" class="tab-btn px-4 py-2 rounded text-xs font-mono font-bold uppercase flex items-center gap-2 text-gray-500 hover:text-white hover:bg-white/5">
+                        <i data-lucide="shield" class="w-3 h-3"></i>
                         DEF_METRICS
                     </button>
-                    <button onclick="showTab('recruiting')" id="tabRecruiting" class="tab-btn px-4 py-2 text-xs md:text-sm font-mono font-bold text-gray-500 hover:text-white transition-all">
+                    <button onclick="showTab('recruiting')" id="tabRecruiting" class="tab-btn px-4 py-2 rounded text-xs font-mono font-bold uppercase flex items-center gap-2 text-gray-500 hover:text-white hover:bg-white/5">
+                        <i data-lucide="star" class="w-3 h-3"></i>
                         TALENT_DB
                     </button>
-                    <button onclick="showTab('polls')" id="tabPolls" class="tab-btn px-4 py-2 text-xs md:text-sm font-mono font-bold text-gray-500 hover:text-white transition-all">
+                    <button onclick="showTab('polls')" id="tabPolls" class="tab-btn px-4 py-2 rounded text-xs font-mono font-bold uppercase flex items-center gap-2 text-gray-500 hover:text-white hover:bg-white/5">
+                        <i data-lucide="award" class="w-3 h-3"></i>
                         AP_HIST
                     </button>
-                    <button onclick="showTab('roster')" id="tabRoster" class="tab-btn px-4 py-2 text-xs md:text-sm font-mono font-bold text-gray-500 hover:text-white transition-all">
+                    <button onclick="showTab('roster')" id="tabRoster" class="tab-btn px-4 py-2 rounded text-xs font-mono font-bold uppercase flex items-center gap-2 text-gray-500 hover:text-white hover:bg-white/5">
+                        <i data-lucide="users" class="w-3 h-3"></i>
                         ROSTER
                     </button>
                 </div>
             </div>
 
-            <!-- Data Containers -->
-            <div class="min-h-[500px]">
-                
-                <!-- Overview Tab -->
-                <div id="contentOverview" class="hud-panel rounded-lg overflow-hidden animate-fade-in">
-                    <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between">
-                        <h2 class="font-display text-lg font-bold">SEASON LOGS <span class="text-primary text-xs align-top">LIVE</span></h2>
-                        <div class="flex gap-2 text-[10px] font-mono text-gray-500">
-                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-success"></span>ELITE</span>
-                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-warning"></span>AVG</span>
-                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-danger"></span>POOR</span>
-                        </div>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="analytics-table">
-                            <thead>
-                                <tr>
-                                    <th>Season</th>
-                                    <th>Record</th>
-                                    <th>Conf</th>
-                                    <th>Home</th>
-                                    <th>Away</th>
-                                    <th>Win %</th>
-                                    <th>SP+ Rtg</th>
-                                    <th>SP+ Rnk</th>
-                                    <th>FPI</th>
-                                    <th>FPI Rnk</th>
-                                    <th>SRS</th>
-                                    <th>Talent</th>
-                                </tr>
-                            </thead>
-                            <tbody id="overviewTableBody"></tbody>
-                        </table>
+            <!-- Main Content Area -->
+            <div id="content-area" class="min-h-[400px]">
+                <!-- Dynamic Content Injected Here -->
+                <div class="hud-panel rounded-lg h-64 flex items-center justify-center">
+                    <div class="flex flex-col items-center gap-4 text-primary animate-pulse">
+                        <i data-lucide="loader-2" class="w-8 h-8 animate-spin"></i>
+                        <span class="font-mono text-xs tracking-widest">ACCESSING MAINFRAME...</span>
                     </div>
                 </div>
-
-                <!-- Rankings Tab -->
-                <div id="contentRankings" class="hud-panel rounded-lg overflow-hidden hidden animate-fade-in">
-                    <div class="px-6 py-4 border-b border-white/10">
-                        <h2 class="font-display text-lg font-bold">ADVANCED RANKING SYSTEMS</h2>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="analytics-table">
-                            <thead>
-                                <tr>
-                                    <th>Year</th>
-                                    <th>SP+ Rtg</th>
-                                    <th>SP+ Rnk</th>
-                                    <th>Offense</th>
-                                    <th>Defense</th>
-                                    <th>ST</th>
-                                    <th>SOS</th>
-                                    <th>FPI</th>
-                                    <th>FPI Rnk</th>
-                                    <th>Win Prob</th>
-                                    <th>Gm Ctrl</th>
-                                    <th>SRS</th>
-                                    <th>ELO</th>
-                                </tr>
-                            </thead>
-                            <tbody id="rankingsTableBody"></tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Offense Tab -->
-                <div id="contentOffense" class="space-y-6 hidden animate-fade-in">
-                    <!-- Core Offense -->
-                    <div class="hud-panel rounded-lg overflow-hidden">
-                        <div class="px-6 py-4 border-b border-white/10 bg-gradient-to-r from-surface to-primary-dim/20">
-                            <h2 class="font-display text-lg font-bold">OFFENSIVE CORE METRICS</h2>
-                        </div>
-                        <div class="overflow-x-auto">
-                            <table class="analytics-table">
-                                <thead>
-                                    <tr>
-                                        <th>Season</th>
-                                        <th>SP+ Off</th>
-                                        <th>Plays</th>
-                                        <th>Drives</th>
-                                        <th>PPA (Avg)</th>
-                                        <th>Total PPA</th>
-                                        <th>Succ%</th>
-                                        <th>Explosive</th>
-                                        <th>Power Succ</th>
-                                        <th>Stuff Rate</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="offenseCoreTableBody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <!-- Havoc -->
-                        <div class="hud-panel rounded-lg overflow-hidden">
-                             <div class="px-6 py-3 border-b border-white/10">
-                                <h3 class="font-mono text-sm text-primary font-bold">HAVOC & SITUATIONAL</h3>
-                            </div>
-                            <div class="overflow-x-auto">
-                                <table class="analytics-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Year</th>
-                                            <th>Havoc</th>
-                                            <th>Front7</th>
-                                            <th>Std PPA</th>
-                                            <th>Pass PPA</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="offenseHavocTableBody"></tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- Run/Pass Split -->
-                        <div class="hud-panel rounded-lg overflow-hidden">
-                            <div class="px-6 py-3 border-b border-white/10">
-                                <h3 class="font-mono text-sm text-primary font-bold">RUSH / PASS SPLITS</h3>
-                            </div>
-                            <div class="overflow-x-auto">
-                                <table class="analytics-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Year</th>
-                                            <th>Rush%</th>
-                                            <th>Rush PPA</th>
-                                            <th>Pass PPA</th>
-                                            <th>Pass Succ%</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="offenseRushPassTableBody"></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Line Stats -->
-                    <div class="hud-panel rounded-lg overflow-hidden">
-                        <div class="px-6 py-3 border-b border-white/10">
-                            <h3 class="font-mono text-sm text-gray-400">LINE YARDS & FIELD POSITION</h3>
-                        </div>
-                        <div class="overflow-x-auto">
-                            <table class="analytics-table">
-                                <thead>
-                                    <tr>
-                                        <th>Season</th>
-                                        <th>Line Yds</th>
-                                        <th>2nd Lvl</th>
-                                        <th>Open Field</th>
-                                        <th>Oppts</th>
-                                        <th>Pts/Opp</th>
-                                        <th>Avg Start</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="offenseLineTableBody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Defense Tab -->
-                <div id="contentDefense" class="space-y-6 hidden animate-fade-in">
-                    <!-- Core Defense -->
-                    <div class="hud-panel rounded-lg overflow-hidden">
-                        <div class="px-6 py-4 border-b border-white/10 bg-gradient-to-r from-surface to-blue-900/20">
-                            <h2 class="font-display text-lg font-bold text-blue-100">DEFENSIVE CORE METRICS</h2>
-                        </div>
-                        <div class="overflow-x-auto">
-                            <table class="analytics-table">
-                                <thead>
-                                    <tr>
-                                        <th>Season</th>
-                                        <th>SP+ Def</th>
-                                        <th>Plays</th>
-                                        <th>Drives</th>
-                                        <th>PPA Allowed</th>
-                                        <th>Tot PPA</th>
-                                        <th>Succ%</th>
-                                        <th>Expl Allowed</th>
-                                        <th>Pwr Succ</th>
-                                        <th>Stuff Rate</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="defenseCoreTableBody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Defense Sub Tables -->
-                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <!-- Havoc -->
-                        <div class="hud-panel rounded-lg overflow-hidden">
-                             <div class="px-6 py-3 border-b border-white/10">
-                                <h3 class="font-mono text-sm text-blue-400 font-bold">HAVOC CREATED</h3>
-                            </div>
-                            <div class="overflow-x-auto">
-                                <table class="analytics-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Year</th>
-                                            <th>Havoc Tot</th>
-                                            <th>Front7</th>
-                                            <th>DB Havoc</th>
-                                            <th>Std PPA</th>
-                                            <th>Pass PPA</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="defenseHavocTableBody"></tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- Run/Pass Split -->
-                        <div class="hud-panel rounded-lg overflow-hidden">
-                            <div class="px-6 py-3 border-b border-white/10">
-                                <h3 class="font-mono text-sm text-blue-400 font-bold">RUSH / PASS DEFENSE</h3>
+            </div>
+        </div>
+    </div>
                             </div>
                             <div class="overflow-x-auto">
                                 <table class="analytics-table">
@@ -631,69 +504,127 @@
 
     <script>
         lucide.createIcons();
-
+        
         const teamId = window.location.pathname.split('/').pop();
+        document.getElementById('teamIdDisp').textContent = teamId;
 
-        // --- MODERN ANALYTICAL HELPERS ---
+        // --- THEME & UTILS ---
+        const TEAMS = [
+          { id: 1, name: "Air Force", mascot: "Falcons", conf: "Mountain West", primary: "#004a7b", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2005.png" },
+          { id: 2, name: "Akron", mascot: "Zips", conf: "Mid-American", primary: "#00285e", alt: "#84754e", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2006.png" },
+          { id: 3, name: "Alabama", mascot: "Crimson Tide", conf: "SEC", primary: "#9e1632", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/333.png" },
+          { id: 4, name: "App State", mascot: "Mountaineers", conf: "Sun Belt", primary: "#ffcc00", alt: "#222222", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2026.png" },
+          { id: 5, name: "Arizona", mascot: "Wildcats", conf: "Big 12", primary: "#0c234b", alt: "#ab0520", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/12.png" },
+          { id: 6, name: "Arizona State", mascot: "Sun Devils", conf: "Big 12", primary: "#8e0c3a", alt: "#ffc72c", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/9.png" },
+          { id: 7, name: "Arkansas", mascot: "Razorbacks", conf: "SEC", primary: "#a41f35", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/8.png" },
+          { id: 8, name: "Arkansas State", mascot: "Red Wolves", conf: "Sun Belt", primary: "#e81018", alt: "#000000", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2032.png" },
+          { id: 9, name: "Army", mascot: "Black Knights", conf: "American Athletic", primary: "#ce9c00", alt: "#231f20", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/349.png" },
+          { id: 10, name: "Auburn", mascot: "Tigers", conf: "SEC", primary: "#002b5c", alt: "#f26522", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2.png" }
+          // Add more teams as needed...
+        ];
 
-        // Returns visual class for value based on thresholds
-        // type: 'win', 'rank' (low good), 'stat' (high good), 'invStat' (low good)
-        const getColorClass = (val, type) => {
-            if (val === null || val === undefined) return 'text-gray-600';
+        function getGradientStyle(team) {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const isDarkAlt = team.alt === "#000000" || team.alt === "#492000" || team.alt === "#222222";
+            const secondary = isDarkAlt ? "#1a1a1a" : team.alt;
+            const angle = 45; 
+            
+            if (isDark) {
+                return `linear-gradient(${angle}deg, ${team.primary} 0%, #000000 80%)`;
+            }
+            
+            const stop1 = 10;
+            return `linear-gradient(${angle}deg, ${team.primary} 0%, ${team.primary} ${stop1}%, ${secondary} 100%)`;
+        }
+
+        function getGlowStyle(team) {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const color = (team.alt === '#000000' || team.alt === '#222222') ? '#ffffff' : team.alt;
+            
+            if (isDark) {
+                return { color: team.primary, top: 20, left: 20, opacity: 0.3 };
+            }
+            return { color, top: 20, left: 20, opacity: 0.6 };
+        }
+
+        function updateBackground(teamName) {
+            const team = TEAMS.find(t => t.name === teamName) || TEAMS[0];
+            
+            const bg = document.getElementById('dynamic-bg');
+            const glow = document.getElementById('glow-orb');
+            const secondaryGlow = document.getElementById('secondary-orb');
+
+            if(bg) bg.style.background = getGradientStyle(team);
+            
+            if(glow) {
+                const glowStyle = getGlowStyle(team);
+                glow.style.backgroundColor = glowStyle.color;
+                glow.style.boxShadow = `0 0 150px 80px ${glowStyle.color}`;
+                glow.style.opacity = glowStyle.opacity;
+            }
+            
+            if(secondaryGlow) {
+                secondaryGlow.style.backgroundColor = team.primary;
+                secondaryGlow.style.opacity = document.documentElement.getAttribute('data-theme') === 'dark' ? '0.2' : '0.4';
+            }
+            
+            const accentLine = document.getElementById('teamAccentLine');
+            if(accentLine) accentLine.style.backgroundColor = team.primary;
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            
+            // Update Icon
+            const btn = document.getElementById('theme-btn');
+            if(next === 'dark') {
+                btn.innerHTML = '<i data-lucide="moon" class="w-4 h-4"></i>';
+            } else {
+                btn.innerHTML = '<i data-lucide="sun" class="w-4 h-4"></i>';
+            }
+            lucide.createIcons();
+            
+            // Refresh background for new theme
+            const school = document.getElementById('teamName').textContent;
+            if(school && school !== '--') updateBackground(school);
+        }
+
+        // Value Coloring Helpers
+        const getValClass = (val, type) => {
+            if (val === null || val === undefined || val === '-') return 'text-white/30';
             const v = parseFloat(val);
-
-            if (type === 'win') {
-                if (v >= 75) return 'val-elite'; // >75%
+            
+            if (type === 'win_pct') {
+                if (v >= 75) return 'val-elite';
                 if (v >= 60) return 'val-good';
-                if (v >= 50) return 'val-mid';
+                if (v >= 50) return 'val-avg';
+                return 'val-bad';
+            }
+            if (type === 'fpi' || type === 'sp') {
+                if (v >= 15) return 'val-elite';
+                if (v >= 5) return 'val-good';
+                if (v >= 0) return 'val-avg';
                 return 'val-bad';
             }
             if (type === 'rank') {
-                if (v <= 15) return 'val-elite';
-                if (v <= 35) return 'val-good';
-                if (v <= 60) return 'val-mid';
+                if (v <= 10) return 'val-elite';
+                if (v <= 25) return 'val-good';
+                if (v <= 50) return 'val-avg';
                 return 'val-poor';
             }
-            if (type === 'ppa') { // Higher is better for offense
-                if (v >= 0.4) return 'val-elite';
-                if (v >= 0.2) return 'val-good';
-                if (v >= 0.0) return 'val-mid';
-                return 'val-bad';
-            }
-            if (type === 'def_ppa') { // Lower is better
-                if (v <= 0.05) return 'val-elite';
-                if (v <= 0.15) return 'val-good';
-                if (v <= 0.25) return 'val-mid';
-                return 'val-bad';
-            }
-            if (type === 'rating') { // SP+, FPI etc (Higher better)
-                if (v >= 15) return 'val-elite';
-                if (v >= 5) return 'val-good';
-                if (v >= 0) return 'val-mid';
-                return 'val-poor';
-            }
-            return 'text-gray-300';
+            return 'text-white/80';
         };
 
-        // Calculates Trend Arrow compared to next item in array (previous year)
-        // type: 'high' (high is good), 'low' (low is good, like Rank)
-        const getTrendArrow = (current, prev, type = 'high') => {
-            if (prev === null || prev === undefined || current === null) return '';
-            
-            const diff = parseFloat(current) - parseFloat(prev);
-            if (Math.abs(diff) < 0.01) return '<span class="trend-neutral">−</span>'; // Flat
-
-            let isGood = (type === 'high') ? diff > 0 : diff < 0;
-            
-            if (isGood) return `<span class="trend-up font-bold">↑</span>`;
-            return `<span class="trend-down font-bold">↓</span>`;
-        };
-
+        const formatNum = (n, d=1) => n != null ? n.toFixed(d) : '-';
+        
         const formatStat = (value, decimals = 2, colorType = null) => {
             if (value === null || value === undefined || value === '') return '<span class="text-gray-700 font-mono">--</span>';
             const formatted = Number(value).toFixed(decimals);
             if (colorType) {
-                return `<span class="${getColorClass(formatted, colorType)}">${formatted}</span>`;
+                return `<span class="${getValClass(formatted, colorType)}">${formatted}</span>`;
             }
             return formatted;
         };
@@ -703,10 +634,9 @@
             const num = Number(value);
             const formatted = (num * 100).toFixed(1) + '%';
             
-            // Auto-color Pct logic if generic
             let className = 'text-gray-300';
             if(colorType === 'offense') {
-                className = num > 0.45 ? 'val-good' : num < 0.35 ? 'val-bad' : 'val-mid';
+                className = num > 0.45 ? 'val-good' : num < 0.35 ? 'val-bad' : 'val-avg';
             }
             
             return `<span class="${className}">${formatted}</span>`;
@@ -715,30 +645,85 @@
         const formatRank = (value, showArrow = false, prevValue = null) => {
             if (value === null || value === undefined || value === '') return '<span class="text-gray-700">--</span>';
             const arrow = showArrow ? getTrendArrow(value, prevValue, 'low') : '';
-            return `<span class="${getColorClass(value, 'rank')}">#${value}</span> ${arrow}`;
+            return `<span class="${getValClass(value, 'rank')}">#${value}</span> ${arrow}`;
         };
 
         const formatInt = (value) => {
             if (value === null || value === undefined || value === '') return '<span class="text-gray-700">--</span>';
             return Math.round(value).toLocaleString();
         };
+        
+        // Calculates Trend Arrow
+        const getTrendArrow = (current, prev, type = 'high') => {
+            if (prev === null || prev === undefined || current === null) return '';
+            
+            const diff = parseFloat(current) - parseFloat(prev);
+            if (Math.abs(diff) < 0.01) return '<span class="trend-neutral">−</span>';
+
+            let isGood = (type === 'high') ? diff > 0 : diff < 0;
+            
+            if (isGood) return `<span class="trend-up font-bold">↑</span>`;
+            return `<span class="trend-down font-bold">↓</span>`;
+        };
+
+        function renderTableWrapper(title, subtitle, tableHtml) {
+            return `
+                <div class="hud-panel rounded-lg overflow-hidden animate-fade-in">
+                    <div class="px-6 py-4 border-b border-white/5 flex justify-between items-end">
+                        <div>
+                            <h2 class="text-white font-display text-lg tracking-wide font-bold">${title}</h2>
+                            <p class="text-xs font-mono text-white/60 mt-1">${subtitle}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="w-2 h-2 rounded-full bg-white/20"></span>
+                            <span class="w-2 h-2 rounded-full bg-white/20"></span>
+                            <span class="w-2 h-2 rounded-full bg-white/20"></span>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        ${tableHtml}
+                    </div>
+                </div>
+            `;
+        }
 
         function showTab(tab) {
-            // UI Logic for Tabs
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active', 'text-primary');
-                btn.classList.add('text-gray-500');
+            // Update UI State
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active', 'text-white', 'bg-white/5');
+                b.classList.add('text-gray-500');
             });
-            
-            const activeBtn = document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1));
-            activeBtn.classList.add('active', 'text-primary');
-            activeBtn.classList.remove('text-gray-500');
-            
-            // Content Toggle
-            document.querySelectorAll('[id^="content"]').forEach(content => {
-                content.classList.add('hidden');
-            });
-            document.getElementById('content' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab${tab.charAt(0).toUpperCase() + tab.slice(1)}`);
+            if(activeBtn) {
+                activeBtn.classList.add('active');
+                activeBtn.classList.remove('text-gray-500');
+            }
+
+            const contentDiv = document.getElementById('content-area');
+            contentDiv.innerHTML = `
+                <div class="hud-panel rounded-lg h-96 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 scan-line pointer-events-none"></div>
+                    <div class="font-mono text-sm text-primary flex items-center gap-2">
+                        <i data-lucide="download-cloud" class="animate-bounce"></i> FETCHING DATA BLOCK...
+                    </div>
+                </div>`;
+            lucide.createIcons();
+
+            // Route to specific render function based on tab
+            const renderMap = {
+                'overview': renderOverview,
+                'rankings': renderRankings,
+                'offense': renderOffense,
+                'defense': renderDefense,
+                'recruiting': renderRecruiting,
+                'polls': renderPolls,
+                'roster': renderRoster
+            };
+
+            if (renderMap[tab] && window.currentTeam) {
+                renderMap[tab](window.currentTeam);
+            }
+            lucide.createIcons();
         }
 
         async function loadTeamData() {
@@ -756,224 +741,46 @@
                 document.getElementById('teamLocation').textContent = `${team.city || ''}, ${team.state || ''}`.trim();
                 document.getElementById('teamStadium').textContent = team.location_name || 'N/A';
                 document.getElementById('teamCapacity').textContent = team.capacity ? team.capacity.toLocaleString() : 'N/A';
-                document.getElementById('teamIdDisp').textContent = team.id;
-                document.getElementById('bgTextCode').textContent = team.abbreviation || 'TM';
                 
                 const logoUrl = team.logo_url || `https://a.espncdn.com/i/teamlogos/ncaa/500/${team.id}.png`;
-                document.getElementById('teamLogo').src = logoUrl;
+                
+                // Handle Team Logo with fade-in effect
+                const logoImg = document.getElementById('teamLogo');
+                const logoMain = document.getElementById('team-logo-main');
+                const logoReflect = document.getElementById('team-logo-reflect');
+                
+                if(logoImg) {
+                    logoImg.src = logoUrl;
+                    logoImg.onload = () => {
+                        logoImg.classList.remove('opacity-0');
+                    };
+                }
+                if(logoMain) logoMain.src = logoUrl;
+                if(logoReflect) logoReflect.src = logoUrl;
 
-                // --- MINI DASHBOARD LATEST STATS (From most recent season) ---
+                // --- MINI DASHBOARD LATEST STATS ---
                 if(team.seasons && team.seasons.length > 0) {
                     const latest = team.seasons[0];
-                    document.getElementById('miniSpRating').innerHTML = formatStat(latest.sp_rating, 1, 'rating');
-                    document.getElementById('miniFpiRating').innerHTML = formatStat(latest.fpi, 1, 'rating');
-                    document.getElementById('miniTalent').innerHTML = latest.talent_composite ? latest.talent_composite : '--';
-                    document.getElementById('miniRecruit').innerHTML = latest.recruiting_rank ? '#' + latest.recruiting_rank : '--';
+                    document.getElementById('stat-sp-rating').innerHTML = formatStat(latest.sp_rating, 1, 'sp');
+                    document.getElementById('stat-fpi-rating').innerHTML = formatStat(latest.fpi, 1, 'fpi');
+                    document.getElementById('stat-talent-comp').innerHTML = latest.talent_composite ? formatStat(latest.talent_composite, 0) : '--';
+                    document.getElementById('stat-recruiting').innerHTML = latest.recruiting_rank ? `#${latest.recruiting_rank}` : '--';
                 }
 
-                // --- OVERVIEW TABLE (With Trend Logic) ---
-                const overviewBody = document.getElementById('overviewTableBody');
-                if (team.seasons && team.seasons.length > 0) {
-                    overviewBody.innerHTML = team.seasons.map((s, idx, arr) => {
-                        const totalGames = (s.wins || 0) + (s.losses || 0) + (s.ties || 0);
-                        const winPct = totalGames > 0 ? ((s.wins || 0) / totalGames * 100) : 0;
-                        const prev = arr[idx + 1]; // Previous season (assuming desc order)
+                // Global reference for rendering
+                window.currentTeam = {
+                    ...team,
+                    logo_url: logoUrl
+                };
 
-                        return `<tr class="group">
-                            <td class="font-mono text-white group-hover:text-primary transition-colors">${s.season}</td>
-                            <td>${s.wins}-${s.losses}</td>
-                            <td class="text-gray-400">${s.conference_wins}-${s.conference_losses}</td>
-                            <td>${s.home_wins}-${s.home_losses}</td>
-                            <td>${s.away_wins}-${s.away_losses}</td>
-                            <td><span class="${getColorClass(winPct, 'win')} font-bold">${winPct.toFixed(1)}%</span></td>
-                            <td>${formatStat(s.sp_rating, 1, 'rating')} ${getTrendArrow(s.sp_rating, prev?.sp_rating, 'high')}</td>
-                            <td>${formatRank(s.sp_ranking, true, prev?.sp_ranking)}</td>
-                            <td>${formatStat(s.fpi, 1, 'rating')}</td>
-                            <td>${formatRank(s.fpi_ranking)}</td>
-                            <td>${formatStat(s.srs, 2)}</td>
-                            <td class="text-blue-300">${formatStat(s.talent_composite, 0)}</td>
-                        </tr>`;
-                    }).join('');
-                }
-
-                // --- RANKINGS TABLE ---
-                const rankingsBody = document.getElementById('rankingsTableBody');
-                if (team.seasons) {
-                    rankingsBody.innerHTML = team.seasons.map((s, idx, arr) => {
-                        const prev = arr[idx + 1];
-                        return `<tr>
-                        <td>${s.season}</td>
-                        <td class="font-bold">${formatStat(s.sp_rating, 1, 'rating')}</td>
-                        <td>${formatRank(s.sp_ranking, true, prev?.sp_ranking)}</td>
-                        <td>${formatStat(s.sp_offense, 1)}</td>
-                        <td>${formatStat(s.sp_defense, 1)}</td>
-                        <td>${formatStat(s.sp_special_teams, 1)}</td>
-                        <td>${formatStat(s.sp_sos, 2)}</td>
-                        <td class="font-bold">${formatStat(s.fpi, 1, 'rating')}</td>
-                        <td>${formatRank(s.fpi_ranking, true, prev?.fpi_ranking)}</td>
-                        <td>${formatPct(s.fpi_avg_win_probability / 100)}</td> <!-- Assuming API is 0-100 -->
-                        <td>${formatRank(s.fpi_game_control)}</td>
-                        <td>${formatStat(s.srs, 2)}</td>
-                        <td>${formatStat(s.elo_rating, 0)}</td>
-                    </tr>`}).join('');
-                }
-
-                // --- OFFENSE CORE TABLE ---
-                const offenseCoreBody = document.getElementById('offenseCoreTableBody');
-                if (team.seasons) {
-                    offenseCoreBody.innerHTML = team.seasons.map(s => `<tr>
-                        <td class="font-bold text-white">${s.season}</td>
-                        <td class="font-bold">${formatStat(s.sp_offense, 1, 'rating')}</td>
-                        <td>${formatInt(s.off_plays)}</td>
-                        <td>${formatInt(s.off_drives)}</td>
-                        <td>${formatStat(s.off_ppa, 3, 'ppa')}</td>
-                        <td>${formatStat(s.off_total_ppa, 1)}</td>
-                        <td>${formatPct(s.off_success_rate, 'offense')}</td>
-                        <td>${formatStat(s.off_explosiveness, 2)}</td>
-                        <td>${formatPct(s.off_power_success)}</td>
-                        <td>${formatPct(s.off_stuff_rate)}</td>
-                    </tr>`).join('');
-                }
-                
-                // --- OFFENSE HAVOC/SPLITS (New Sub Tables) ---
-                const offenseHavocBody = document.getElementById('offenseHavocTableBody');
-                if (team.seasons) {
-                    offenseHavocBody.innerHTML = team.seasons.map(s => `<tr>
-                        <td class="text-white">${s.season}</td>
-                        <td>${formatPct(s.off_havoc_total)}</td>
-                        <td>${formatPct(s.off_havoc_front_seven)}</td>
-                        <td>${formatStat(s.off_std_ppa, 2)}</td>
-                        <td>${formatStat(s.off_pass_down_ppa, 2)}</td>
-                    </tr>`).join('');
-                }
-                
-                const offenseRushPassBody = document.getElementById('offenseRushPassTableBody');
-                if (team.seasons) {
-                    offenseRushPassBody.innerHTML = team.seasons.map(s => `<tr>
-                        <td class="text-white">${s.season}</td>
-                        <td>${formatPct(s.off_rush_rate)}</td>
-                        <td>${formatStat(s.off_rush_ppa, 2, 'ppa')}</td>
-                        <td>${formatStat(s.off_pass_ppa, 2, 'ppa')}</td>
-                        <td>${formatPct(s.off_pass_success_rate)}</td>
-                    </tr>`).join('');
-                }
-
-                // --- OFFENSE LINE YARDS ---
-                const offenseLineBody = document.getElementById('offenseLineTableBody');
-                if (team.seasons) {
-                    offenseLineBody.innerHTML = team.seasons.map(s => `<tr>
-                        <td class="text-white">${s.season}</td>
-                        <td>${formatStat(s.off_line_yards, 2)}</td>
-                        <td>${formatStat(s.off_second_level_yards, 2)}</td>
-                        <td>${formatStat(s.off_open_field_yards, 2)}</td>
-                        <td>${formatInt(s.off_total_opportunities)}</td>
-                        <td>${formatStat(s.off_points_per_opportunity, 2)}</td>
-                        <td>${formatStat(s.off_field_pos_avg_start, 1)}</td>
-                    </tr>`).join('');
-                }
-
-                // --- DEFENSE CORE TABLE ---
-                const defenseCoreBody = document.getElementById('defenseCoreTableBody');
-                if (team.seasons) {
-                    defenseCoreBody.innerHTML = team.seasons.map(s => `<tr>
-                        <td class="font-bold text-white">${s.season}</td>
-                        <td class="font-bold">${formatStat(s.sp_defense, 1, 'invStat')}</td> <!-- Lower SP+ defense is better usually in some systems, but typically SP+ is higher=better. Adjusting to render plain. -->
-                        <td>${formatInt(s.def_plays)}</td>
-                        <td>${formatInt(s.def_drives)}</td>
-                        <td>${formatStat(s.def_ppa, 3, 'def_ppa')}</td>
-                        <td>${formatStat(s.def_total_ppa, 1)}</td>
-                        <td>${formatPct(s.def_success_rate)}</td>
-                        <td>${formatStat(s.def_explosiveness, 2)}</td>
-                        <td>${formatPct(s.def_power_success)}</td>
-                        <td>${formatPct(s.def_stuff_rate)}</td>
-                    </tr>`).join('');
-                }
-                
-                // --- DEFENSE SUB TABLES ---
-                const defenseHavocBody = document.getElementById('defenseHavocTableBody');
-                if (team.seasons) {
-                    defenseHavocBody.innerHTML = team.seasons.map(s => `<tr>
-                        <td class="text-white">${s.season}</td>
-                        <td class="text-primary font-bold">${formatPct(s.def_havoc_total)}</td>
-                        <td>${formatPct(s.def_havoc_front_seven)}</td>
-                        <td>${formatPct(s.def_havoc_db)}</td>
-                        <td>${formatStat(s.def_std_ppa, 2)}</td>
-                        <td>${formatStat(s.def_pass_down_ppa, 2)}</td>
-                    </tr>`).join('');
-                }
-                
-                const defenseRushPassBody = document.getElementById('defenseRushPassTableBody');
-                if (team.seasons) {
-                    defenseRushPassBody.innerHTML = team.seasons.map(s => `<tr>
-                        <td class="text-white">${s.season}</td>
-                        <td>${formatPct(s.def_rush_rate)}</td>
-                        <td>${formatStat(s.def_rush_ppa, 2)}</td>
-                        <td>${formatStat(s.def_pass_ppa, 2)}</td>
-                        <td>${formatPct(s.def_pass_success_rate)}</td>
-                        <td>${formatStat(s.def_pass_explosiveness, 2)}</td>
-                    </tr>`).join('');
-                }
-
-                // --- DEFENSE LINE YARDS ---
-                const defenseLineBody = document.getElementById('defenseLineTableBody');
-                if (team.seasons) {
-                    defenseLineBody.innerHTML = team.seasons.map(s => `<tr>
-                        <td class="text-white">${s.season}</td>
-                        <td>${formatStat(s.def_line_yards, 2)}</td>
-                        <td>${formatStat(s.def_second_level_yards, 2)}</td>
-                        <td>${formatStat(s.def_open_field_yards, 2)}</td>
-                        <td>${formatInt(s.def_total_opportunities)}</td>
-                        <td>${formatStat(s.def_points_per_opportunity, 2)}</td>
-                        <td>${formatStat(s.def_field_pos_avg_start, 1)}</td>
-                    </tr>`).join('');
-                }
-
-                // --- RECRUITING TABLE ---
-                const recruitingBody = document.getElementById('recruitingTableBody');
-                if (team.seasons) {
-                    recruitingBody.innerHTML = team.seasons.map((s, idx, arr) => {
-                        const prev = arr[idx+1];
-                        return `<tr>
-                        <td class="font-bold text-white">${s.season}</td>
-                        <td class="font-bold text-yellow-400">${formatStat(s.talent_composite, 1)}</td>
-                        <td>${formatRank(s.recruiting_rank, true, prev?.recruiting_rank)}</td>
-                        <td>${formatStat(s.recruiting_points, 1)}</td>
-                        <td>${formatStat(s.fpi_overall_efficiency, 1)}</td>
-                        <td>${getTrendArrow(s.talent_composite, prev?.talent_composite, 'high')}</td>
-                    </tr>`}).join('');
-                }
-
-                // --- POLLS TABLE ---
-                const pollsBody = document.getElementById('pollsTableBody');
-                if (team.rankings) {
-                    pollsBody.innerHTML = team.rankings.map(r => `<tr>
-                        <td class="font-bold text-white">${r.season}</td>
-                        <td>Week ${r.week}</td>
-                        <td>${r.ap_rank ? `<span class="val-elite">#${r.ap_rank}</span>` : '<span class="text-gray-700">-</span>'}</td>
-                        <td>${r.coaches_rank ? `<span class="text-purple-300">#${r.coaches_rank}</span>` : '<span class="text-gray-700">-</span>'}</td>
-                        <td>${r.playoff_rank ? `<span class="text-blue-400 font-bold border border-blue-500/30 px-2 rounded">#${r.playoff_rank}</span>` : '-'}</td>
-                    </tr>`).join('');
-                }
-
-                // --- ROSTER TABLE ---
-                const rosterResponse = await fetch(`/api/team/${teamId}/roster`);
-                const roster = await rosterResponse.json();
-                const rosterBody = document.getElementById('rosterTableBody');
-                
-                // Store roster globally for filtering
-                window.fullRoster = roster;
-                
-                if (roster && roster.length > 0) {
-                    renderRoster(roster);
-                } else {
-                    rosterBody.innerHTML = '<tr><td colspan="12" class="text-center text-gray-500 py-8">No roster data available</td></tr>';
-                }
+                // Dynamic Styling based on School Color
+                updateBackground(team.school);
 
                 // Unhide Interface
                 document.getElementById('loadingState').classList.add('hidden');
                 document.getElementById('teamContent').classList.remove('hidden');
 
-                // Initialize Tabs (defaults to Overview)
+                // Initialize with overview tab
                 showTab('overview');
 
             } catch (error) {
@@ -988,104 +795,313 @@
             }
         }
 
-        function renderRoster(players) {
-            const rosterBody = document.getElementById('rosterTableBody');
-            const classColors = {
-                'SR': 'text-yellow-400',
-                'JR': 'text-blue-400',
-                'SO': 'text-green-400',
-                'FR': 'text-purple-400',
-                'GR': 'text-red-400'
-            };
+        // --- RENDER FUNCTIONS ---
+        function renderOverview(team) {
+            if (!team.seasons || !team.seasons.length) {
+                document.getElementById('content-area').innerHTML = '<div class="p-8 text-center text-red-500 font-mono">NO SEASON DATA</div>';
+                return;
+            }
+
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>Record</th>
+                        <th>Conf</th>
+                        <th>Home</th>
+                        <th>Away</th>
+                        <th>Win %</th>
+                        <th>SP+ Rtg</th>
+                        <th>SP+ Rnk</th>
+                        <th>FPI</th>
+                        <th>FPI Rnk</th>
+                        <th>SRS</th>
+                        <th>Talent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${team.seasons.map((s, idx, arr) => {
+                        const totalGames = (s.wins || 0) + (s.losses || 0) + (s.ties || 0);
+                        const winPct = totalGames > 0 ? ((s.wins || 0) / totalGames * 100) : 0;
+                        const prev = arr[idx + 1];
+
+                        return `<tr class="group">
+                            <td class="font-mono text-white group-hover:text-primary transition-colors">${s.season}</td>
+                            <td>${s.wins}-${s.losses}</td>
+                            <td class="text-gray-400">${s.conference_wins || 0}-${s.conference_losses || 0}</td>
+                            <td>${s.home_wins || 0}-${s.home_losses || 0}</td>
+                            <td>${s.away_wins || 0}-${s.away_losses || 0}</td>
+                            <td><span class="${getValClass(winPct, 'win_pct')} font-bold">${winPct.toFixed(1)}%</span></td>
+                            <td>${formatStat(s.sp_rating, 1, 'sp')} ${getTrendArrow(s.sp_rating, prev?.sp_rating, 'high')}</td>
+                            <td>${formatRank(s.sp_ranking, true, prev?.sp_ranking)}</td>
+                            <td>${formatStat(s.fpi, 1, 'fpi')}</td>
+                            <td>${formatRank(s.fpi_ranking)}</td>
+                            <td>${formatStat(s.srs, 2)}</td>
+                            <td class="text-blue-300">${formatStat(s.talent_composite, 0)}</td>
+                        </tr>`;
+                    }).join('')}
+                </tbody>
+            </table>`;
             
-            rosterBody.innerHTML = players.map(p => {
-                const hometown = [p.hometown_city, p.hometown_state].filter(Boolean).join(', ') || '-';
-                const classColor = classColors[p.class_year] || 'text-gray-400';
-                const heightWeight = [p.height, p.weight ? `${p.weight}lbs` : ''].filter(Boolean).join(' / ') || '-';
-                
-                // Headshot with fallback
-                const headshotHtml = p.headshot_url 
-                    ? `<img src="${p.headshot_url}" class="w-12 h-12 rounded-full object-cover border-2 border-primary/30" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23666%22 stroke-width=%222%22%3E%3Ccircle cx=%2212%22 cy=%228%22 r=%224%22/%3E%3Cpath d=%22M4 20c0-4 4-6 8-6s8 2 8 6%22/%3E%3C/svg%3E';">`
-                    : `<div class="w-12 h-12 rounded-full bg-gray-800 border-2 border-gray-700 flex items-center justify-center text-gray-500 text-xs font-bold">${p.jersey || '?'}</div>`;
-                
-                // Dynamic stats based on position
-                let statsHtml = '';
-                const pos = p.position_abbr || '';
-                
-                if (pos === 'QB') {
-                    const stats = [];
-                    if (p.passing_yards) stats.push(`<span class="text-green-400">${p.passing_yards} Pass Yds</span>`);
-                    if (p.passing_tds) stats.push(`<span class="text-green-300">${p.passing_tds} Pass TD</span>`);
-                    if (p.rushing_yards) stats.push(`<span class="text-blue-400">${p.rushing_yards} Rush Yds</span>`);
-                    if (p.rushing_tds) stats.push(`<span class="text-blue-300">${p.rushing_tds} Rush TD</span>`);
-                    statsHtml = stats.length > 0 ? stats.join('<br>') : '<span class="text-gray-600">No stats</span>';
-                } else if (pos === 'RB') {
-                    const stats = [];
-                    if (p.rushing_yards) stats.push(`<span class="text-blue-400">${p.rushing_yards} Rush Yds</span>`);
-                    if (p.rushing_tds) stats.push(`<span class="text-blue-300">${p.rushing_tds} Rush TD</span>`);
-                    if (p.receiving_yards) stats.push(`<span class="text-purple-400">${p.receiving_yards} Rec Yds</span>`);
-                    if (p.receiving_tds) stats.push(`<span class="text-purple-300">${p.receiving_tds} Rec TD</span>`);
-                    statsHtml = stats.length > 0 ? stats.join('<br>') : '<span class="text-gray-600">No stats</span>';
-                } else if (pos === 'WR' || pos === 'TE') {
-                    const stats = [];
-                    if (p.receiving_yards) stats.push(`<span class="text-purple-400">${p.receiving_yards} Rec Yds</span>`);
-                    if (p.receiving_tds) stats.push(`<span class="text-purple-300">${p.receiving_tds} Rec TD</span>`);
-                    if (p.receiving_receptions) stats.push(`<span class="text-purple-200">${p.receiving_receptions} Rec</span>`);
-                    statsHtml = stats.length > 0 ? stats.join('<br>') : '<span class="text-gray-600">No stats</span>';
-                } else if (['DL', 'DE', 'DT', 'NT', 'LB', 'DB', 'CB', 'S', 'SS', 'FS'].includes(pos)) {
-                    const stats = [];
-                    if (p.total_tackles) stats.push(`<span class="text-red-400">${p.total_tackles} Tackles</span>`);
-                    if (p.sacks) stats.push(`<span class="text-orange-400">${p.sacks} Sacks</span>`);
-                    if (p.interceptions) stats.push(`<span class="text-yellow-400">${p.interceptions} INT</span>`);
-                    if (p.passes_defended) stats.push(`<span class="text-yellow-300">${p.passes_defended} PD</span>`);
-                    statsHtml = stats.length > 0 ? stats.join('<br>') : '<span class="text-gray-600">No stats</span>';
-                } else {
-                    statsHtml = '<span class="text-gray-600">-</span>';
-                }
-                
-                return `<tr class="roster-row" data-position="${p.position_abbr || ''}">
-                    <td>${headshotHtml}</td>
-                    <td class="font-bold text-gray-400">${p.jersey || '-'}</td>
-                    <td class="font-bold text-white">${p.name}</td>
-                    <td><span class="px-2 py-1 rounded bg-primary/10 text-primary text-xs font-mono font-bold">${p.position_abbr || p.position || '-'}</span></td>
-                    <td><span class="${classColor} font-bold">${p.class_year || '-'}</span></td>
-                    <td class="text-gray-400 text-sm">${heightWeight}</td>
-                    <td class="text-gray-400 text-xs">${hometown}</td>
-                    <td class="text-sm">${statsHtml}</td>
-                </tr>`;
-            }).join('');
+            document.getElementById('content-area').innerHTML = renderTableWrapper('SEASON LOGS', 'Historical Performance Data', html);
         }
 
-        function filterPosition(pos) {
-            // Update button states
-            document.querySelectorAll('.position-filter-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-primary/20', 'text-primary', 'border-primary/30');
-                btn.classList.add('bg-white/5', 'text-gray-400');
-            });
+        function renderRankings(team) {
+            if (!team.seasons || !team.seasons.length) {
+                document.getElementById('content-area').innerHTML = '<div class="p-8 text-center text-red-500 font-mono">NO RANKINGS DATA</div>';
+                return;
+            }
+
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>SP+ Rtg</th>
+                        <th>SP+ Rnk</th>
+                        <th>Offense</th>
+                        <th>Defense</th>
+                        <th>ST</th>
+                        <th>SOS</th>
+                        <th>FPI</th>
+                        <th>FPI Rnk</th>
+                        <th>Win Prob</th>
+                        <th>Gm Ctrl</th>
+                        <th>SRS</th>
+                        <th>ELO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${team.seasons.map((s, idx, arr) => {
+                        const prev = arr[idx + 1];
+                        return `<tr>
+                            <td>${s.season}</td>
+                            <td class="font-bold">${formatStat(s.sp_rating, 1, 'sp')}</td>
+                            <td>${formatRank(s.sp_ranking, true, prev?.sp_ranking)}</td>
+                            <td>${formatStat(s.sp_offense, 1)}</td>
+                            <td>${formatStat(s.sp_defense, 1)}</td>
+                            <td>${formatStat(s.sp_special_teams, 1)}</td>
+                            <td>${formatStat(s.sp_sos, 2)}</td>
+                            <td class="font-bold">${formatStat(s.fpi, 1, 'fpi')}</td>
+                            <td>${formatRank(s.fpi_ranking, true, prev?.fpi_ranking)}</td>
+                            <td>${formatPct(s.fpi_avg_win_probability / 100)}</td>
+                            <td>${formatRank(s.fpi_game_control)}</td>
+                            <td>${formatStat(s.srs, 2)}</td>
+                            <td>${formatStat(s.elo_rating, 0)}</td>
+                        </tr>`;
+                    }).join('')}
+                </tbody>
+            </table>`;
             
-            const activeBtn = document.getElementById('filter' + pos);
-            activeBtn.classList.add('active', 'bg-primary/20', 'text-primary', 'border-primary/30');
-            activeBtn.classList.remove('bg-white/5', 'text-gray-400');
+            document.getElementById('content-area').innerHTML = renderTableWrapper('ADVANCED RANKING SYSTEMS', 'Comprehensive Rating Analysis', html);
+        }
+
+        function renderOffense(team) {
+            if (!team.seasons || !team.seasons.length) {
+                document.getElementById('content-area').innerHTML = '<div class="p-8 text-center text-red-500 font-mono">NO OFFENSE DATA</div>';
+                return;
+            }
+
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>SP+ Off</th>
+                        <th>Plays</th>
+                        <th>Drives</th>
+                        <th>PPA (Avg)</th>
+                        <th>Total PPA</th>
+                        <th>Succ%</th>
+                        <th>Explosive</th>
+                        <th>Power Succ</th>
+                        <th>Stuff Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${team.seasons.map(s => `<tr>
+                        <td class="font-bold text-white">${s.season}</td>
+                        <td class="font-bold">${formatStat(s.sp_offense, 1, 'sp')}</td>
+                        <td>${formatInt(s.off_plays)}</td>
+                        <td>${formatInt(s.off_drives)}</td>
+                        <td>${formatStat(s.off_ppa, 3)}</td>
+                        <td>${formatStat(s.off_total_ppa, 1)}</td>
+                        <td>${formatPct(s.off_success_rate, 'offense')}</td>
+                        <td>${formatStat(s.off_explosiveness, 2)}</td>
+                        <td>${formatPct(s.off_power_success)}</td>
+                        <td>${formatPct(s.off_stuff_rate)}</td>
+                    </tr>`).join('')}
+                </tbody>
+            </table>`;
             
-            // Filter roster
-            if (pos === 'ALL') {
-                renderRoster(window.fullRoster);
-            } else {
-                const posMapping = {
-                    'K': ['K', 'P', 'PK', 'LS'],
-                    'OL': ['OL', 'OT', 'OG', 'C', 'G', 'T'],
-                    'DL': ['DL', 'DT', 'DE', 'NT'],
-                    'DB': ['DB', 'CB', 'S', 'SS', 'FS']
+            document.getElementById('content-area').innerHTML = renderTableWrapper('OFFENSIVE METRICS', 'Advanced Efficiency Analysis', html);
+        }
+
+        function renderDefense(team) {
+            if (!team.seasons || !team.seasons.length) {
+                document.getElementById('content-area').innerHTML = '<div class="p-8 text-center text-red-500 font-mono">NO DEFENSE DATA</div>';
+                return;
+            }
+
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>SP+ Def</th>
+                        <th>Plays</th>
+                        <th>Drives</th>
+                        <th>PPA Allowed</th>
+                        <th>Tot PPA</th>
+                        <th>Succ%</th>
+                        <th>Expl Allowed</th>
+                        <th>Pwr Succ</th>
+                        <th>Stuff Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${team.seasons.map(s => `<tr>
+                        <td class="font-bold text-white">${s.season}</td>
+                        <td class="font-bold">${formatStat(s.sp_defense, 1)}</td>
+                        <td>${formatInt(s.def_plays)}</td>
+                        <td>${formatInt(s.def_drives)}</td>
+                        <td>${formatStat(s.def_ppa, 3)}</td>
+                        <td>${formatStat(s.def_total_ppa, 1)}</td>
+                        <td>${formatPct(s.def_success_rate)}</td>
+                        <td>${formatStat(s.def_explosiveness, 2)}</td>
+                        <td>${formatPct(s.def_power_success)}</td>
+                        <td>${formatPct(s.def_stuff_rate)}</td>
+                    </tr>`).join('')}
+                </tbody>
+            </table>`;
+            
+            document.getElementById('content-area').innerHTML = renderTableWrapper('DEFENSIVE METRICS', 'Advanced Defensive Analysis', html);
+        }
+
+        function renderRecruiting(team) {
+            if (!team.seasons || !team.seasons.length) {
+                document.getElementById('content-area').innerHTML = '<div class="p-8 text-center text-red-500 font-mono">NO RECRUITING DATA</div>';
+                return;
+            }
+
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>Talent Rating</th>
+                        <th>Recruit Rank</th>
+                        <th>Recruit Pts</th>
+                        <th>FPI Eff</th>
+                        <th>Trend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${team.seasons.map((s, idx, arr) => {
+                        const prev = arr[idx+1];
+                        return `<tr>
+                            <td class="font-bold text-white">${s.season}</td>
+                            <td class="font-bold text-yellow-400">${formatStat(s.talent_composite, 1)}</td>
+                            <td>${formatRank(s.recruiting_rank, true, prev?.recruiting_rank)}</td>
+                            <td>${formatStat(s.recruiting_points, 1)}</td>
+                            <td>${formatStat(s.fpi_overall_efficiency, 1)}</td>
+                            <td>${getTrendArrow(s.talent_composite, prev?.talent_composite, 'high')}</td>
+                        </tr>`;
+                    }).join('')}
+                </tbody>
+            </table>`;
+            
+            document.getElementById('content-area').innerHTML = renderTableWrapper('TALENT COMPOSITE', 'Recruiting & Development Analysis', html);
+        }
+
+        function renderPolls(team) {
+            if (!team.rankings || !team.rankings.length) {
+                document.getElementById('content-area').innerHTML = '<div class="p-8 text-center text-red-500 font-mono">NO POLLS DATA</div>';
+                return;
+            }
+
+            const html = `<table class="analytics-table">
+                <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>Week</th>
+                        <th>AP Rank</th>
+                        <th>Coaches</th>
+                        <th>Playoff</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${team.rankings.map(r => `<tr>
+                        <td class="font-bold text-white">${r.season}</td>
+                        <td>Week ${r.week}</td>
+                        <td>${r.ap_rank ? `<span class="val-elite">#${r.ap_rank}</span>` : '<span class="text-gray-700">-</span>'}</td>
+                        <td>${r.coaches_rank ? `<span class="text-purple-300">#${r.coaches_rank}</span>` : '<span class="text-gray-700">-</span>'}</td>
+                        <td>${r.playoff_rank ? `<span class="text-blue-400 font-bold border border-blue-500/30 px-2 rounded">#${r.playoff_rank}</span>` : '-'}</td>
+                    </tr>`).join('')}
+                </tbody>
+            </table>`;
+            
+            document.getElementById('content-area').innerHTML = renderTableWrapper('HISTORICAL POLLING', 'AP & Coaches Poll History', html);
+        }
+
+        async function renderRoster(team) {
+            try {
+                const rosterResponse = await fetch(`/api/team/${teamId}/roster`);
+                const roster = await rosterResponse.json();
+                
+                if (!roster || !roster.length) {
+                    document.getElementById('content-area').innerHTML = '<div class="p-8 text-center text-red-500 font-mono">NO ROSTER DATA</div>';
+                    return;
+                }
+
+                const classColors = {
+                    'SR': 'text-yellow-400',
+                    'JR': 'text-blue-400',
+                    'SO': 'text-green-400',
+                    'FR': 'text-purple-400',
+                    'GR': 'text-red-400'
                 };
                 
-                const allowedPositions = posMapping[pos] || [pos];
-                const filtered = window.fullRoster.filter(p => 
-                    allowedPositions.includes(p.position_abbr)
-                );
-                renderRoster(filtered);
+                const html = `<table class="analytics-table">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Pos</th>
+                            <th>Class</th>
+                            <th>Ht/Wt</th>
+                            <th>Hometown</th>
+                            <th>Stats</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${roster.map(p => {
+                            const hometown = [p.hometown_city, p.hometown_state].filter(Boolean).join(', ') || '-';
+                            const classColor = classColors[p.class_year] || 'text-gray-400';
+                            const heightWeight = [p.height, p.weight ? `${p.weight}lbs` : ''].filter(Boolean).join(' / ') || '-';
+                            
+                            const headshotHtml = p.headshot_url 
+                                ? `<img src="${p.headshot_url}" class="w-12 h-12 rounded-full object-cover border-2 border-primary/30" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23666%22 stroke-width=%222%22%3E%3Ccircle cx=%2212%22 cy=%228%22 r=%224%22/%3E%3Cpath d=%22M4 20c0-4 4-6 8-6s8 2 8 6%22/%3E%3C/svg%3E';">`
+                                : `<div class="w-12 h-12 rounded-full bg-gray-800 border-2 border-gray-700 flex items-center justify-center text-gray-500 text-xs font-bold">${p.jersey || '?'}</div>`;
+                            
+                            return `<tr>
+                                <td>${headshotHtml}</td>
+                                <td class="font-bold text-gray-400">${p.jersey || '-'}</td>
+                                <td class="font-bold text-white">${p.name}</td>
+                                <td><span class="px-2 py-1 rounded bg-primary/10 text-primary text-xs font-mono font-bold">${p.position_abbr || p.position || '-'}</span></td>
+                                <td><span class="${classColor} font-bold">${p.class_year || '-'}</span></td>
+                                <td class="text-gray-400 text-sm">${heightWeight}</td>
+                                <td class="text-gray-400 text-xs">${hometown}</td>
+                                <td class="text-sm text-gray-600">-</td>
+                            </tr>`;
+                        }).join('')}
+                    </tbody>
+                </table>`;
+                
+                document.getElementById('content-area').innerHTML = renderTableWrapper('2025 ROSTER', 'Current Team Composition', html);
+            } catch (error) {
+                document.getElementById('content-area').innerHTML = '<div class="p-8 text-center text-red-500 font-mono">ERROR LOADING ROSTER</div>';
             }
         }
 
+        // Initialize
         loadTeamData();
     </script>
 </body>

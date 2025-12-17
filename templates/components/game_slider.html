@@ -1108,6 +1108,223 @@
             return;
         }
         
+        // Check if game is completed - show results with bet performance
+        if (opts.isCompleted) {
+            var body = document.getElementById('predictModalBody');
+            if (body) {
+                // Show loading while we fetch the prediction to check bet results
+                body.innerHTML = 
+                    '<div class="predict-main" style="background: rgba(22, 101, 52, 0.3); border: 1px solid rgba(34, 197, 94, 0.3);">' +
+                        '<div class="predict-loading" style="color: rgba(34, 197, 94, 0.95);">' +
+                            '<div class="predict-spinner"></div>' +
+                            '<span>Checking bet results...</span>' +
+                        '</div>' +
+                    '</div>';
+                
+                // Fetch prediction to check if our bets hit
+                fetch('/predict/' + encodeURIComponent(homeTeam) + '/' + encodeURIComponent(awayTeam))
+                    .then(function(r) { return r.ok ? r.json() : Promise.reject(r.statusText); })
+                    .then(function(data) {
+                        if (_predictModalRequestKey !== requestKey) return;
+                        if (!data || !data.prediction) throw new Error('No prediction data');
+                        
+                        var prediction = data.prediction;
+                        var finalHomeScore = opts.liveHomeScore || 0;
+                        var finalAwayScore = opts.liveAwayScore || 0;
+                        var actualMargin = finalHomeScore - finalAwayScore;  // Positive = home won
+                        var actualTotal = finalHomeScore + finalAwayScore;
+                        
+                        // Calculate bet results
+                        var betResults = [];
+                        var overallHits = 0;
+                        var totalBets = 0;
+                        
+                        // Check spread bet
+                        if (marketHomeSpread !== null && prediction.spread !== null) {
+                            totalBets++;
+                            var modelMargin = _parseNumber(prediction.spread) || (prediction.home_score - prediction.away_score);
+                            var modelHomeLine = -modelMargin;
+                            var marketMargin = -marketHomeSpread;
+                            var diff = modelMargin - marketMargin;
+                            
+                            // Determine our recommendation
+                            var recommendedHome = diff > 0;
+                            var recommendedTeam = recommendedHome ? homeTeam : awayTeam;
+                            var recommendedLine = recommendedHome ? marketHomeSpread : -marketHomeSpread;
+                            
+                            // Check if bet hit - key logic for spread coverage
+                            var betHit = false;
+                            if (recommendedHome) {
+                                // We recommended home team - did they cover the spread?
+                                // Home covers if: actual margin > spread (e.g., favored by 7, won by 10)
+                                betHit = actualMargin > marketHomeSpread;
+                            } else {
+                                // We recommended away team - did they cover the spread? 
+                                // Away covers if: actual margin < spread (e.g., got +6, lost by 3)
+                                betHit = actualMargin < marketHomeSpread;
+                            }
+                            
+                            if (betHit) overallHits++;
+                            
+                            betResults.push({
+                                type: 'Spread',
+                                recommendation: recommendedTeam + ' ' + _formatSignedNumber(recommendedLine, 1),
+                                result: betHit ? 'HIT' : 'MISS',
+                                hit: betHit,
+                                edge: Math.abs(diff).toFixed(1) + ' pts',
+                                details: 'Actual margin: ' + _formatSignedNumber(actualMargin, 1) + ' • ' + (betHit ? 'Covered' : 'Did not cover')
+                            });
+                        }
+                        
+                        // Check total bet  
+                        if (marketTotal !== null && prediction.total !== null) {
+                            totalBets++;
+                            var modelTotal = _parseNumber(prediction.total);
+                            var totalDiff = modelTotal - marketTotal;
+                            var recommendOver = totalDiff > 0;
+                            var recommendedPick = (recommendOver ? 'Over ' : 'Under ') + marketTotal.toFixed(1);
+                            
+                            var totalHit = recommendOver ? (actualTotal > marketTotal) : (actualTotal < marketTotal);
+                            if (totalHit) overallHits++;
+                            
+                            betResults.push({
+                                type: 'Total',
+                                recommendation: recommendedPick,
+                                result: totalHit ? 'HIT' : 'MISS',
+                                hit: totalHit,
+                                edge: Math.abs(totalDiff).toFixed(1) + ' pts',
+                                details: 'Actual total: ' + actualTotal.toFixed(1)
+                            });
+                        }
+                        
+                        // Calculate hit rate
+                        var hitRate = totalBets > 0 ? (overallHits / totalBets * 100) : 0;
+                        var overallSuccess = hitRate >= 50;
+                        
+                        // Build results HTML
+                        var resultsHtml = '';
+                        for (var i = 0; i < betResults.length; i++) {
+                            var bet = betResults[i];
+                            var statusColor = bet.hit ? '#22c55e' : '#ef4444';
+                            var statusIcon = bet.hit ? 'check-circle' : 'x-circle';
+                            
+                            resultsHtml +=
+                                '<div style="' +
+                                    'display: flex; align-items: center; justify-content: space-between;' +
+                                    'padding: 14px; margin: 8px 0;' +
+                                    'background: linear-gradient(135deg, rgba(20, 20, 20, 0.4) 0%, rgba(30, 30, 30, 0.2) 100%);' +
+                                    'border: 1px solid rgba(255, 255, 255, 0.08);' +
+                                    'border-left: 3px solid ' + statusColor + ';' +
+                                    'border-radius: 10px;' +
+                                    'backdrop-filter: blur(10px);' +
+                                    'box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);' +
+                                '">' +
+                                    '<div style="flex: 1;">' +
+                                        '<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">' +
+                                            '<i data-lucide="' + (bet.type === 'Spread' ? 'trending-up' : 'bar-chart-3') + '" style="width: 14px; height: 14px; color: rgba(255, 255, 255, 0.7);"></i>' +
+                                            '<span style="font-weight: 600; font-size: 13px; color: rgba(255, 255, 255, 0.9);">' +
+                                                bet.type + ': ' + _escapeHtml(bet.recommendation) +
+                                            '</span>' +
+                                        '</div>' +
+                                        '<div style="font-size: 11px; color: rgba(255, 255, 255, 0.6); padding-left: 22px;">' +
+                                            _escapeHtml(bet.details) + ' • Edge: ' + _escapeHtml(bet.edge) +
+                                        '</div>' +
+                                    '</div>' +
+                                    '<div style="display: flex; align-items: center; gap: 8px;">' +
+                                        '<i data-lucide="' + statusIcon + '" style="width: 18px; height: 18px; color: ' + statusColor + ';"></i>' +
+                                        '<div style="' +
+                                            'font-family: \'JetBrains Mono\', monospace;' +
+                                            'font-weight: 700;' +
+                                            'font-size: 11px;' +
+                                            'color: ' + statusColor + ';' +
+                                            'letter-spacing: 0.5px;' +
+                                        '">' +
+                                            bet.result +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>';
+                        }
+                        
+                        // Overall performance indicator
+                        var overallColor = overallSuccess ? '#22c55e' : (hitRate > 0 ? '#f59e0b' : '#ef4444');
+                        var overallIcon = overallSuccess ? 'target' : (hitRate > 0 ? 'zap' : 'x-circle');
+                        var overallText = hitRate === 100 ? 'PERFECT' : (hitRate >= 50 ? 'PROFITABLE' : 'MISS');
+                        
+                        body.innerHTML = 
+                            '<div class="predict-main" style="background: rgba(22, 101, 52, 0.3); border: 1px solid rgba(34, 197, 94, 0.3);">' +
+                                '<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">' +
+                                    '<div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(34, 197, 94, 0.2); border: 2px solid #22c55e; border-radius: 10px;">' +
+                                        '<i data-lucide="flag-checkered" style="width: 20px; height: 20px; color: #22c55e;"></i>' +
+                                    '</div>' +
+                                    '<div style="flex: 1;">' +
+                                        '<div style="font-weight: 700; font-size: 16px; color: rgba(34, 197, 94, 0.95);">Game Completed</div>' +
+                                        '<div style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-top: 2px;">Final Score: ' + _escapeHtml(awayTeam) + ' ' + finalAwayScore + ' - ' + finalHomeScore + ' ' + _escapeHtml(homeTeam) + '</div>' +
+                                    '</div>' +
+                                '</div>' +
+                                
+                                (betResults.length > 0 ? (
+                                    '<div style="' +
+                                        'padding: 16px; margin: 12px 0;' +
+                                        'background: rgba(0, 0, 0, 0.3);' +
+                                        'border-radius: 12px;' +
+                                        'border: 1px solid rgba(255, 255, 255, 0.1);' +
+                                    '">' +
+                                        '<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">' +
+                                            '<div style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: rgba(255, 255, 255, 0.9);">' +
+                                                '<i data-lucide="trending-up" style="width: 16px; height: 16px;"></i>' +
+                                                'Bet Performance' +
+                                            '</div>' +
+                                            '<div style="display: flex; align-items: center; gap: 8px;">' +
+                                                '<i data-lucide="' + overallIcon + '" style="width: 16px; height: 16px; color: ' + overallColor + ';"></i>' +
+                                                '<div style="font-family: \'JetBrains Mono\', monospace; font-weight: 700; color: ' + overallColor + ';">' +
+                                                    overallHits + '/' + totalBets + ' ' + overallText +
+                                                '</div>' +
+                                            '</div>' +
+                                        '</div>' +
+                                        resultsHtml +
+                                        '<div style="text-align: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.1);">' +
+                                            '<div style="display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: rgba(255, 255, 255, 0.6);">' +
+                                                '<i data-lucide="percent" style="width: 12px; height: 12px;"></i>' +
+                                                'Hit Rate: <span style="color: ' + overallColor + '; font-weight: 700; font-family: \'JetBrains Mono\', monospace;">' + hitRate.toFixed(0) + '%</span>' +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>'
+                                ) : (
+                                    '<div style="padding: 16px; text-align: center; color: rgba(255, 255, 255, 0.6); font-size: 12px;">' +
+                                        '<i data-lucide="info" style="width: 16px; height: 16px; margin-bottom: 4px;"></i><br>' +
+                                        'No betting data available for this game' +
+                                    '</div>'
+                                )) +
+                            '</div>';
+                        
+                        // Render lucide icons after DOM update
+                        setTimeout(function() {
+                            if (typeof lucide !== 'undefined') {
+                                lucide.createIcons();
+                            }
+                        }, 50);
+                    })
+                    .catch(function(err) {
+                        if (_predictModalRequestKey !== requestKey) return;
+                        // Fall back to simple completed message if prediction fetch fails
+                        body.innerHTML = 
+                            '<div class="predict-main" style="background: rgba(22, 101, 52, 0.3); border: 1px solid rgba(34, 197, 94, 0.3);">' +
+                                '<div class="predict-loading" style="color: rgba(34, 197, 94, 0.95);">' +
+                                    '<div style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: rgba(34, 197, 94, 0.2); border: 2px solid #22c55e; border-radius: 8px; font-size: 18px; font-weight: 700; color: #22c55e; box-shadow: 0 2px 12px rgba(34, 197, 94, 0.4);">' +
+                                        '✓' +
+                                    '</div>' +
+                                    '<div style="flex: 1;">' +
+                                        '<div style="font-weight: 700; font-size: 16px; color: rgba(34, 197, 94, 0.95);">Game Completed!</div>' +
+                                        '<div style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-top: 4px;">Final Score: ' + _escapeHtml(awayTeam) + ' ' + (opts.liveAwayScore || 0) + ' - ' + (opts.liveHomeScore || 0) + ' ' + _escapeHtml(homeTeam) + '</div>' +
+                                        '<div style="font-size: 11px; color: rgba(255, 255, 255, 0.5); margin-top: 6px;">Could not load betting results</div>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>';
+                    });
+            }
+            return;
+        }
+        
         if (_predictCache[requestKey]) {
             _renderPredictModalBody(_predictCache[requestKey], {
                 homeTeam: homeTeam,
@@ -1719,6 +1936,7 @@
                 book: btn.getAttribute('data-market-book') || '',
                 formattedSpread: btn.getAttribute('data-market-formatted-spread') || '',
                 isLive: btn.getAttribute('data-is-live') === '1',
+                isCompleted: btn.getAttribute('data-is-completed') === '1',
                 liveHomeScore: parseFloat(btn.getAttribute('data-live-home-score')) || null,
                 liveAwayScore: parseFloat(btn.getAttribute('data-live-away-score')) || null,
                 gameStatus: btn.getAttribute('data-game-status') || ''
@@ -1745,6 +1963,7 @@
                 book: btn.getAttribute('data-market-book') || '',
                 formattedSpread: btn.getAttribute('data-market-formatted-spread') || '',
                 isLive: btn.getAttribute('data-is-live') === '1',
+                isCompleted: btn.getAttribute('data-is-completed') === '1',
                 liveHomeScore: parseFloat(btn.getAttribute('data-live-home-score')) || null,
                 liveAwayScore: parseFloat(btn.getAttribute('data-live-away-score')) || null,
                 gameStatus: btn.getAttribute('data-game-status') || ''
@@ -1810,10 +2029,17 @@
                     
                     // Detect game status: live, completed, or upcoming
                     // Check multiple fields for robust detection
-                    var isCompleted = game.status === 'Final' || game.status === 'final' || 
-                                      game.statusDetail === 'Final' || game.statusDescription === 'Final';
+                    var now = new Date();
+                    var gameTime = new Date(game.date);
+                    var hoursAfterGame = (now - gameTime) / (1000 * 60 * 60); // Hours since game start
                     
-                    var isLive = game.status === 'In Progress' || 
+                    var isCompleted = game.status === 'Final' || game.status === 'final' || 
+                                      game.statusDetail === 'Final' || game.statusDescription === 'Final' ||
+                                      // Also consider games that started more than 4.5 hours ago as completed
+                                      // (typical game duration is 3.5-4 hours)
+                                      (hoursAfterGame > 4.5 && !game.status.includes('Progress'));
+                    
+                    var isLive = (game.status === 'In Progress' || 
                                  game.statusDescription === 'In Progress' ||
                                  (game.statusDetail && (
                                      game.statusDetail.toLowerCase().indexOf('quarter') !== -1 ||
@@ -1821,7 +2047,7 @@
                                      game.statusDetail.toLowerCase().indexOf('half') !== -1 ||
                                      game.statusDetail.match(/Q[1-4]/) ||
                                      game.statusDetail.match(/OT/)
-                                 ));
+                                 ))) && !isCompleted; // Don't show as live if already completed
                     
                     // Debug log for troubleshooting
                     if (gameId === '401778303' || gameId === 401778303) {
@@ -1925,12 +2151,13 @@
                                 ' data-market-book="' + _escapeHtml((game.betting && game.betting.provider) ? game.betting.provider : '') + '"' +
                                 ' data-market-formatted-spread="' + _escapeHtml((game.betting && game.betting.formattedSpread) ? game.betting.formattedSpread : '') + '"' +
                                 ' data-is-live="' + (isLive ? '1' : '0') + '"' +
-                                ' data-live-home-score="' + ((isLive && game.home.score != null) ? game.home.score : '') + '"' +
-                                ' data-live-away-score="' + ((isLive && game.away.score != null) ? game.away.score : '') + '"' +
+                                ' data-is-completed="' + (isCompleted ? '1' : '0') + '"' +
+                                ' data-live-home-score="' + ((isCompleted || isLive) && game.home.score != null ? game.home.score : '') + '"' +
+                                ' data-live-away-score="' + ((isCompleted || isLive) && game.away.score != null ? game.away.score : '') + '"' +
                                 ' data-game-status="' + _escapeHtml(game.statusDetail || game.status || '') + '"' +
                                 '>' +
                                 '<span class="predict-dot"></span>' +
-                                '<span>Predict</span>' +
+                                '<span>' + (isCompleted ? 'Results' : 'Predict') + '</span>' +
                             '</div>' +
                         '</div>' +
                     '</a>';

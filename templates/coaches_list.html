@@ -47,88 +47,155 @@
 
     <style>
         body {
-            background-color: #F3F4F6;
+            background-image: url('/static/Gemini_Generated_Image_jtfxwojtfxwojtfx.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            position: relative;
             color: #111827;
             overflow-x: hidden;
-            transition: background-color 0.3s, color 0.3s;
+            transition: color 0.3s;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('/static/Gemini_Generated_Image_jtfxwojtfxwojtfx.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            filter: blur(8px) brightness(0.7) contrast(1.1);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+            backdrop-filter: blur(20px) saturate(1.8);
+            -webkit-backdrop-filter: blur(20px) saturate(1.8);
+            z-index: -1;
+            pointer-events: none;
         }
 
         /* Dark Mode Overrides */
         .dark body {
-            background-color: #111827; /* Gray 900 */
             color: #F3F4F6;
         }
 
-        /* HUD Panels - Modern Glassmorphism */
+        .dark body::after {
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
+            backdrop-filter: blur(24px) saturate(1.5);
+            -webkit-backdrop-filter: blur(24px) saturate(1.5);
+        }
+
+        /* HUD Panels - Premium Glassmorphism */
         .hud-panel {
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            backdrop-filter: blur(32px) saturate(1.8) brightness(1.1);
+            -webkit-backdrop-filter: blur(32px) saturate(1.8) brightness(1.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .dark .hud-panel {
-            background: rgba(17, 24, 39, 0.6); /* Darker glass */
-            border-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .hud-panel:hover {
             border-color: rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-            transform: translateY(-2px);
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.15) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px) scale(1.02);
+            backdrop-filter: blur(40px) saturate(2) brightness(1.2);
+            -webkit-backdrop-filter: blur(40px) saturate(2) brightness(1.2);
         }
 
         .dark .hud-panel:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(31, 41, 55, 0.7);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        /* Coach Card Specifics */
+        /* Coach Card Specifics - Premium Glassmorphism */
         .coach-card {
             position: relative;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.25) !important;
+            transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .dark .coach-card {
-            background: rgba(31, 41, 55, 0.4) !important; /* Gray 800 glass */
+        .coach-card:hover {
+            transform: translateY(-4px) scale(1.02);
         }
         
-        /* Modern Gradient Glow */
-        .coach-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(0,0,0,0.03), transparent 40%);
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .dark .coach-card::before {
-            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(255,255,255,0.05), transparent 40%);
+        /* Reflection Mask Logic */
+        .mask-image-linear-to-b {
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
         }
         
-        .coach-card:hover::before {
+        /* Modern Gradient Glow - Enhanced */
+        .coach-card:hover .glow-effect {
             opacity: 1;
         }
 
-        /* Team Color Accent */
-        .coach-card::after {
-            content: '';
+        /* Watermark Logo */
+        .watermark-logo {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--team-color, rgba(0,0,0,0.2)), transparent);
-            opacity: 0.8;
+            height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+            opacity: 0.05;
+            filter: grayscale(100%);
+            z-index: 0;
+            pointer-events: none;
+            transition: all 0.5s ease;
+        }
+        
+        .coach-card:hover .watermark-logo {
+            opacity: 0.15;
+            filter: grayscale(0%);
+            transform: scale(1.05);
         }
 
         /* Metric Bars */
@@ -150,44 +217,45 @@
             transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Filter Buttons */
+        /* Filter Buttons - Premium Glass */
         .filter-btn {
-            background: rgba(255, 255, 255, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #6B7280;
-            transition: all 0.2s;
-        }
-
-        .dark .filter-btn {
-            background: rgba(31, 41, 55, 0.4);
-            border-color: rgba(255, 255, 255, 0.1);
-            color: #9CA3AF;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            backdrop-filter: blur(20px) saturate(1.5);
+            -webkit-backdrop-filter: blur(20px) saturate(1.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 4px 16px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .filter-btn:hover {
-            color: #111827;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
             border-color: rgba(255, 255, 255, 0.5);
-            background: rgba(255, 255, 255, 0.6);
-        }
-
-        .dark .filter-btn:hover {
-            color: #F3F4F6;
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(55, 65, 81, 0.6);
+            color: rgba(255, 255, 255, 1);
+            transform: translateY(-1px) scale(1.02);
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
         }
 
         .filter-btn.active {
-            background: rgba(255, 255, 255, 0.8);
-            border-color: #F43F5E;
+            background: 
+                linear-gradient(135deg, rgba(244, 63, 94, 0.25) 0%, rgba(244, 63, 94, 0.1) 100%),
+                radial-gradient(circle at 30% 30%, rgba(244, 63, 94, 0.15) 0%, transparent 70%);
+            border: 1px solid rgba(244, 63, 94, 0.5);
             color: #F43F5E;
-            box-shadow: 0 4px 6px -1px rgba(244, 63, 94, 0.1);
-        }
-
-        .dark .filter-btn.active {
-            background: rgba(244, 63, 94, 0.15);
-            border-color: #F43F5E;
-            color: #F43F5E;
-            box-shadow: 0 0 15px rgba(244, 63, 94, 0.2);
+            box-shadow: 
+                0 6px 20px rgba(244, 63, 94, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 20px rgba(244, 63, 94, 0.3);
+            backdrop-filter: blur(24px) saturate(1.8);
+            -webkit-backdrop-filter: blur(24px) saturate(1.8);
         }
 
         /* Team Watermark */
@@ -214,57 +282,51 @@
         .dark ::-webkit-scrollbar-thumb { background: #4B5563; }
         ::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
 
-        /* Blurred Background Image */
-        .bg-image-blur {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            background-image: url('https://media.cnn.com/api/v1/images/stellar/prod/221222170706-03-college-football-playoffs-watch.jpg?c=original');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: blur(2px);
-            opacity: 0.15;
-        }
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
+        .dark ::-webkit-scrollbar-thumb { background: #374151; }
+        ::-webkit-scrollbar-thumb:hover { background: #F43F5E; }
 
-        .bg-image-blur::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(243, 244, 246, 0.8) 0%, rgba(243, 244, 246, 0.4) 50%, rgba(243, 244, 246, 0.8) 100%);
-        }
-        
-        .dark .bg-image-blur::after {
-            background: linear-gradient(180deg, rgba(17, 24, 39, 0.9) 0%, rgba(17, 24, 39, 0.6) 50%, rgba(17, 24, 39, 0.9) 100%);
+        /* Dark Mode Header */
+        .dark header {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.35) 100%), 
+                        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%), 
+                        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.04) 0%, transparent 50%), 
+                        linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%) !important;
+            backdrop-filter: blur(60px) saturate(1.8) brightness(0.8) contrast(1.2) !important;
+            -webkit-backdrop-filter: blur(60px) saturate(1.8) brightness(0.8) contrast(1.2) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+                        inset 0 -1px 0 rgba(255, 255, 255, 0.1) !important;
         }
     </style>
 </head>
 <body class="antialiased min-h-screen relative selection:bg-primary selection:text-white">
     
-    <!-- Blurred Background Image -->
-    <div class="bg-image-blur"></div>
-    
     <!-- Background Grid -->
     <div class="fixed inset-0 bg-grid-scan pointer-events-none z-0 opacity-40"></div>
 
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 border-b border-gray-200 dark:border-white/10 bg-white/80 dark:bg-[#030712]/80 backdrop-blur-md transition-colors duration-300">
+    <header class="fixed top-0 w-full z-50 border-b border-white/30" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.15) 100%), radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%); backdrop-filter: blur(60px) saturate(2.2) brightness(1.3) contrast(1.1); -webkit-backdrop-filter: blur(60px) saturate(2.2) brightness(1.3) contrast(1.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 rgba(255, 255, 255, 0.2);">
         <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-4">
-                <div class="w-2 h-8 bg-primary shadow-[0_0_15px_rgba(244,63,94,0.3)]"></div>
-                <a href="/" class="font-display font-bold text-2xl tracking-wider text-gray-900 dark:text-white">
-                    GAMEDAY<span class="text-primary">+</span> <span class="text-xs text-gray-400 dark:text-gray-500 font-mono align-top mt-1 ml-1 opacity-70">SYS.V.2.0</span>
+                <div class="w-2 h-8 bg-white/60 shadow-[0_0_15px_rgba(255,255,255,0.3)]"></div>
+                <a href="/" class="font-display font-bold text-xl tracking-wider">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-900 via-red-800 via-red-700 via-red-600 to-red-500 drop-shadow-sm" style="background-image: linear-gradient(135deg, #7f1d1d 0%, #991b1b 25%, #b91c1c 50%, #dc2626 75%, #ef4444 100%); -webkit-background-clip: text; background-clip: text; filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));">GAMEDAY+</span> <span class="text-xs text-white/50 font-mono align-top mt-1 ml-1">SYS.V.2.0</span>
                 </a>
             </div>
             
             <div class="flex items-center gap-4">
-                <nav class="flex items-center gap-1 bg-gray-100 dark:bg-white/5 p-1 rounded-lg border border-gray-200 dark:border-white/5">
-                    <a href="/" class="px-4 py-1.5 text-xs font-mono text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition rounded hover:bg-white dark:hover:bg-white/5 shadow-sm hover:shadow">DB_HOME</a>
-                    <a href="/coaches" class="px-4 py-1.5 text-xs font-mono text-primary bg-white dark:bg-primary/10 rounded font-bold border border-gray-200 dark:border-primary/20 shadow-sm">COACHES_Index</a>
-                    <a href="/teams" class="px-4 py-1.5 text-xs font-mono text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition rounded hover:bg-white dark:hover:bg-white/5 shadow-sm hover:shadow">TEAMS</a>
+                <nav class="flex items-center gap-1 bg-white/10 backdrop-blur-md p-1 rounded-lg border border-white/20">
+                    <a href="/" class="px-4 py-1.5 text-xs font-mono text-white/70 hover:text-white transition rounded hover:bg-white/10">DB_HOME</a>
+                    <a href="/coaches" class="px-4 py-1.5 text-xs font-mono text-white bg-white/20 rounded font-bold border border-white/30">COACHES_Index</a>
+                    <a href="/teams" class="px-4 py-1.5 text-xs font-mono text-white/70 hover:text-white transition rounded hover:bg-white/10">TEAMS</a>
                 </nav>
                 
-                <button onclick="generateLeagueBriefing()" class="px-4 py-2 bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-mono text-xs font-bold shadow-sm hover:shadow-md flex items-center gap-2">
+                <button onclick="generateLeagueBriefing()" class="px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white/70 hover:text-white hover:bg-white/15 hover:border-white/30 transition-all duration-300 font-mono text-xs font-bold flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/><path d="M2 9h2"/></svg>
                     <span>LEAGUE_BRIEFING // AI</span>
                 </button>
@@ -277,128 +339,102 @@
         <!-- Dashboard Header / Metrics -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
             <!-- Title Card -->
-            <div class="lg:col-span-8 hud-panel rounded-lg p-6 flex flex-col justify-center relative overflow-hidden group">
-                <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-700"></div>
+            <div class="lg:col-span-8 hud-panel rounded-2xl p-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-5">
+                    <i data-lucide="users" class="w-24 h-24"></i>
+                </div>
                 
-                <div class="relative z-10 flex items-center justify-between">
-                    <div>
-                        <div class="flex items-center gap-3 mb-2">
-                            <i data-lucide="database" class="text-primary w-6 h-6"></i>
-                            <h1 class="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white tracking-tight">COACH ANALYTICS</h1>
-                        </div>
-                        <div class="flex items-center gap-4 text-xs font-mono text-gray-500 dark:text-gray-400">
-                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-success animate-pulse"></span>DATABASE_ONLINE</span>
-                            <span class="text-gray-300 dark:text-gray-600">|</span>
-                            <span>coaches_master.db</span>
-                            <span class="text-gray-300 dark:text-gray-600">|</span>
-                            <span class="text-primary" id="last-updated">LIVE_FEED</span>
-                        </div>
+                <div class="relative z-10">
+                    <div class="inline-flex items-center gap-2 px-2 py-1 bg-white/10 border border-white/20 rounded-lg mb-3">
+                        <span class="relative flex h-1.5 w-1.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/60 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-white/80"></span>
+                        </span>
+                        <span class="text-[9px] font-mono text-white/70 uppercase tracking-wider font-medium">Live Database Connection</span>
                     </div>
                     
-                    <div class="text-right border-l border-gray-200 dark:border-white/10 pl-6 hidden sm:block">
-                        <div class="text-xs text-gray-500 dark:text-gray-400 font-mono uppercase tracking-widest mb-1">Total Records</div>
-                        <div class="text-4xl font-mono font-bold text-gray-900 dark:text-white" id="coach-count">--</div>
+                    <h1 class="font-display text-2xl md:text-3xl font-bold text-white/95 mb-2 tracking-tight">
+                        COACH ANALYTICS
+                    </h1>
+                    <p class="text-white/60 font-mono text-xs max-w-xl leading-relaxed">
+                        Real-time performance metrics and tactical analysis of college football's top coaching talent.
+                    </p>
+                </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Mini Stats Gauge -->
-            <div class="lg:col-span-4 grid grid-cols-3 gap-3">
-                <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">SEC</span>
-                        <span class="text-xs font-bold text-primary" id="sec-count">--</span>
+            <!-- Stats Ticker -->
+            <div class="lg:col-span-4 hud-panel rounded-2xl p-6 flex flex-col justify-center gap-4">
+                <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-white/10 border border-white/20 flex items-center justify-center text-white/70">
+                            <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                        </div>
+                        <div class="text-xs font-mono text-white/60 uppercase">Active Coaches</div>
                     </div>
-                    <div class="tech-bar-bg"><div class="tech-bar-fill" style="width: 30%"></div></div>
+                    <div class="text-2xl font-mono font-bold text-white/95" id="coach-count">--</div>
                 </div>
-                <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">B1G</span>
-                        <span class="text-xs font-bold text-blue-600 dark:text-blue-400" id="bigten-count">--</span>
+                <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-white/10 border border-white/20 flex items-center justify-center text-white/70">
+                            <i data-lucide="trophy" class="w-4 h-4"></i>
+                        </div>
+                        <div class="text-xs font-mono text-white/60 uppercase">SEC Coaches</div>
                     </div>
-                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-blue-500 shadow-blue-500/50" style="width: 30%"></div></div>
+                    <div class="text-2xl font-mono font-bold text-white/95" id="sec-count">--</div>
                 </div>
-                <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">ACC</span>
-                        <span class="text-xs font-bold text-purple-600 dark:text-purple-400" id="acc-count">--</span>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-white/10 border border-white/20 flex items-center justify-center text-white/70">
+                            <i data-lucide="target" class="w-4 h-4"></i>
+                        </div>
+                        <div class="text-xs font-mono text-white/60 uppercase">P5 Elite</div>
                     </div>
-                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-purple-500 shadow-purple-500/50" style="width: 30%"></div></div>
-                </div>
-                <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">B12</span>
-                        <span class="text-xs font-bold text-gray-600 dark:text-gray-300" id="big12-count">--</span>
-                    </div>
-                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-gray-400 shadow-gray-400/20" style="width: 30%"></div></div>
-                </div>
-                <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">AAC</span>
-                        <span class="text-xs font-bold text-cyan-600 dark:text-cyan-400" id="aac-count">--</span>
-                    </div>
-                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-cyan-500 shadow-cyan-500/50" style="width: 30%"></div></div>
-                </div>
-                <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">MAC</span>
-                        <span class="text-xs font-bold text-green-600 dark:text-green-400" id="mac-count">--</span>
-                    </div>
-                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-green-500 shadow-green-500/50" style="width: 30%"></div></div>
-                </div>
-                <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">MW</span>
-                        <span class="text-xs font-bold text-orange-600 dark:text-orange-400" id="mw-count">--</span>
-                    </div>
-                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-orange-500 shadow-orange-500/50" style="width: 30%"></div></div>
-                </div>
-                <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">SBC</span>
-                        <span class="text-xs font-bold text-yellow-600 dark:text-yellow-400" id="sbc-count">--</span>
-                    </div>
-                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-yellow-500 shadow-yellow-500/50" style="width: 30%"></div></div>
-                </div>
-                <div class="hud-panel rounded-lg p-3 flex flex-col justify-between">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase">CUSA</span>
-                        <span class="text-xs font-bold text-red-600 dark:text-red-400" id="cusa-count">--</span>
-                    </div>
-                    <div class="tech-bar-bg"><div class="tech-bar-fill bg-red-500 shadow-red-500/50" style="width: 30%"></div></div>
+                    <div class="text-2xl font-mono font-bold text-white/95" id="bigten-count">--</div>
                 </div>
             </div>
         </div>
 
         <!-- Controls Bar -->
-        <div class="hud-panel rounded-lg p-4 mb-8 sticky top-20 z-40 bg-white/60 dark:bg-black/40 backdrop-blur-xl">
+        <div class="hud-panel rounded-2xl p-6 mb-8 sticky top-20 z-40">
             <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
                 
                 <!-- Filters -->
                 <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
-                    <i data-lucide="filter" class="w-4 h-4 text-gray-500 dark:text-gray-400 mr-2 flex-shrink-0"></i>
-                    <button onclick="filterCoaches('all')" id="filter-all" class="filter-btn active px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">All</button>
-                    <button onclick="filterCoaches('Big Ten')" id="filter-bigten" class="filter-btn px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">B1G</button>
-                    <button onclick="filterCoaches('SEC')" id="filter-sec" class="filter-btn px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">SEC</button>
-                    <button onclick="filterCoaches('Big 12')" id="filter-big12" class="filter-btn px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">B12</button>
-                    <button onclick="filterCoaches('ACC')" id="filter-acc" class="filter-btn px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">ACC</button>
-                    <button onclick="filterCoaches('AAC')" id="filter-aac" class="filter-btn px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">AAC</button>
-                    <button onclick="filterCoaches('MAC')" id="filter-mac" class="filter-btn px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">MAC</button>
-                    <button onclick="filterCoaches('Mountain West')" id="filter-mountainwest" class="filter-btn px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">MW</button>
-                    <button onclick="filterCoaches('Sun Belt')" id="filter-sunbelt" class="filter-btn px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">SBC</button>
-                    <button onclick="filterCoaches('CUSA')" id="filter-cusa" class="filter-btn px-3 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">CUSA</button>
+                    <i data-lucide="filter" class="w-4 h-4 text-gray-500 mr-2 flex-shrink-0"></i>
+                    <button onclick="filterCoaches('all')" id="filter-all" class="filter-btn active px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">All</button>
+                    <button onclick="filterCoaches('SEC')" id="filter-sec" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">SEC</button>
+                    <button onclick="filterCoaches('Big Ten')" id="filter-bigten" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">Big Ten</button>
+                    <button onclick="filterCoaches('Big 12')" id="filter-big12" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">Big 12</button>
+                    <button onclick="filterCoaches('ACC')" id="filter-acc" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">ACC</button>
+                    <button onclick="filterCoaches('Other')" id="filter-other" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">G5 / Ind</button>
                 </div>
 
-                <!-- Search -->
-                <div class="relative w-full md:w-64">
-                    <input 
-                        type="text" 
-                        id="search-input"
-                        placeholder="SEARCH_DATABASE..."
-                        class="w-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded px-4 py-2 pl-10 text-xs font-mono text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all uppercase shadow-sm"
-                        oninput="searchCoaches()"
-                    >
-                    <i data-lucide="search" class="absolute left-3 top-2 w-4 h-4 text-gray-400 dark:text-gray-500"></i>
+                <!-- Sort Options -->
+                <div class="flex items-center gap-2">
+                    <i data-lucide="arrow-up-down" class="w-4 h-4 text-gray-500 flex-shrink-0"></i>
+                    <select id="sort-select" onchange="sortCoaches()" 
+                            class="bg-white/10 backdrop-blur-md border border-white/30 rounded-xl px-3 py-1.5 text-xs font-mono text-white focus:outline-none focus:border-primary/60 focus:bg-white/15 transition-all uppercase">
+                        <option value="name">Name</option>
+                        <option value="win_pct" selected>Win %</option>
+                        <option value="games">Total Games</option>
+                        <option value="school">School</option>
+                    </select>
+                </div>
+
+                <div class="flex items-center gap-3 w-full md:w-auto">
+                    <!-- Search -->
+                    <div class="relative w-full md:w-64">
+                        <input 
+                            type="text" 
+                            id="search-input"
+                            placeholder="SEARCH_COACHES..."
+                            class="w-full bg-white/10 backdrop-blur-md border border-white/30 rounded-xl px-4 py-2 pl-10 text-xs font-mono text-white placeholder-white/50 focus:outline-none focus:border-primary/60 focus:bg-white/15 transition-all uppercase shadow-inner"
+                            oninput="searchCoaches()"
+                        >
+                        <i data-lucide="search" class="absolute left-3 top-2 w-4 h-4 text-white/40"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -455,6 +491,7 @@
         // Store
         let allCoaches = [];
         let currentFilter = 'all';
+        let currentSort = 'win_pct';
         let teamLogos = {};
 
         // Helper: Fetch Logos
@@ -559,7 +596,7 @@
                 allCoaches = data.coaches || [];
                 
                 updateStats();
-                displayCoaches(allCoaches);
+                applyFilterAndSort(); // Apply initial sorting by win percentage
                 createCharts();
                 // createTreemap(); // Disabled
                 lucide.createIcons();
@@ -577,28 +614,19 @@
         }
 
         function updateStats() {
-            // Count animation could go here, staying simple for now
-            document.getElementById('coach-count').textContent = allCoaches.length;
+            // Update the three stats we actually display in the new design
+            const totalCoaches = allCoaches.length;
+            const secCoaches = allCoaches.filter(c => conferenceMap[c.current_school] === 'SEC').length;
+            const bigTenCoaches = allCoaches.filter(c => conferenceMap[c.current_school] === 'Big Ten').length;
             
-            const bigTen = allCoaches.filter(c => conferenceMap[c.current_school] === 'Big Ten').length;
-            const sec = allCoaches.filter(c => conferenceMap[c.current_school] === 'SEC').length;
-            const big12 = allCoaches.filter(c => conferenceMap[c.current_school] === 'Big 12').length;
-            const acc = allCoaches.filter(c => conferenceMap[c.current_school] === 'ACC').length;
-            const aac = allCoaches.filter(c => conferenceMap[c.current_school] === 'AAC').length;
-            const mac = allCoaches.filter(c => conferenceMap[c.current_school] === 'MAC').length;
-            const mw = allCoaches.filter(c => conferenceMap[c.current_school] === 'Mountain West').length;
-            const sbc = allCoaches.filter(c => conferenceMap[c.current_school] === 'Sun Belt').length;
-            const cusa = allCoaches.filter(c => conferenceMap[c.current_school] === 'CUSA').length;
+            // Update elements that exist in our new design
+            const coachCountEl = document.getElementById('coach-count');
+            const secCountEl = document.getElementById('sec-count');
+            const bigtenCountEl = document.getElementById('bigten-count');
             
-            document.getElementById('bigten-count').textContent = bigTen;
-            document.getElementById('sec-count').textContent = sec;
-            document.getElementById('big12-count').textContent = big12;
-            document.getElementById('acc-count').textContent = acc;
-            document.getElementById('aac-count').textContent = aac;
-            document.getElementById('mac-count').textContent = mac;
-            document.getElementById('mw-count').textContent = mw;
-            document.getElementById('sbc-count').textContent = sbc;
-            document.getElementById('cusa-count').textContent = cusa;
+            if (coachCountEl) coachCountEl.textContent = totalCoaches;
+            if (secCountEl) secCountEl.textContent = secCoaches;
+            if (bigtenCountEl) bigtenCountEl.textContent = bigTenCoaches;
         }
 
         function displayCoaches(coaches) {
@@ -607,87 +635,116 @@
             if (coaches.length === 0) {
                 grid.innerHTML = `
                     <div class="col-span-full text-center py-12">
-                        <p class="text-gray-500 font-mono">NO RECORDS FOUND MATCHING QUERY</p>
+                        <p class="text-gray-500 font-mono">NO RECORDS FOUND</p>
                     </div>
                 `;
                 return;
             }
 
             grid.innerHTML = coaches.map(coach => {
-                const teamInfo = teamLogos[coach.current_school] || { logo: '', color: '#374151' };
+                const teamInfo = teamLogos[coach.current_school] || { logo: '', color: '#F43F5E' };
                 const winPct = (coach.career_win_pct * 100).toFixed(1);
+                const teamColor = teamInfo.color || '#F43F5E';
                 
                 // Initials fallback
                 const initials = coach.name.split(' ').map(n => n[0]).join('').substring(0,2);
 
                 return `
-                <div class="coach-card hud-panel rounded-2xl p-6 cursor-pointer group" 
-                     onclick="viewCoach(${coach.id})" 
-                     onmousemove="handleCardHover(event)"
-                     style="--team-color: ${teamInfo.color}">
-                    
-                    ${teamInfo.logo ? `<img src="${teamInfo.logo}" class="watermark-logo opacity-[0.08] group-hover:opacity-[0.15] grayscale group-hover:grayscale-0 transition-all duration-500" alt="">` : ''}
-
-                    <!-- Header -->
-                    <div class="relative z-10 flex gap-5 mb-5 items-center">
-                        <div class="relative shrink-0">
-                            ${coach.headshot_url ? 
-                                `<img src="${coach.headshot_url}" alt="${coach.name}" class="w-16 h-16 rounded-xl object-cover shadow-sm ring-1 ring-gray-200 dark:ring-white/10 bg-gray-50 dark:bg-white/5">` :
-                                `<div class="w-16 h-16 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-white/5 dark:to-white/10 ring-1 ring-gray-200 dark:ring-white/10 flex items-center justify-center font-display font-bold text-gray-400 dark:text-gray-500 text-xl shadow-sm">${initials}</div>`
-                            }
-                            <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-white dark:bg-gray-900 rounded-full flex items-center justify-center ring-1 ring-white dark:ring-gray-800 shadow-sm">
-                                <div class="w-2 h-2 rounded-full ${winPct > 60 ? 'bg-emerald-500' : 'bg-amber-500'}"></div>
-                            </div>
-                        </div>
+                    <a href="/coach/${coach.id}" class="coach-card group relative block cursor-pointer transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2" 
+                       style="--team-primary: ${teamColor};">
                         
-                        <div class="flex-1 min-w-0 flex flex-col justify-center">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight truncate group-hover:text-[var(--team-color)] transition-colors duration-300">${coach.name}</h3>
-                            <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase truncate mt-1 tracking-wide">${coach.current_school}</p>
-                            <div class="flex gap-2 mt-2">
-                                <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 tracking-wider">
-                                    ${conferenceMap[coach.current_school] || 'N/A'}
+                        <!-- Glassmorphism Card -->
+                        <div class="relative h-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden group-hover:bg-white/15 group-hover:border-white/30 transition-all duration-500">
+                            
+                            <!-- Conference Badge -->
+                            <div class="absolute top-3 left-3 z-20">
+                                <span class="px-3 py-1 rounded-full border border-white/30 text-xs font-semibold tracking-wider bg-black/20 uppercase text-white/90 backdrop-blur-sm">
+                                    ${conferenceMap[coach.current_school] || 'IND'}
                                 </span>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Stats Grid -->
-                    <div class="relative z-10 space-y-4 border-t border-gray-100 dark:border-white/5 pt-4">
-                        <div class="flex justify-between items-center">
-                            <span class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Career Record</span>
-                            <span class="text-sm font-mono font-bold text-gray-900 dark:text-white tracking-tight">${coach.career_record}</span>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between items-end mb-1.5">
-                                <span class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Win Efficiency</span>
-                                <span class="text-xs font-mono font-bold ${winPct > 65 ? 'text-emerald-600 dark:text-emerald-400' : 'text-gray-400 dark:text-gray-500'}">${winPct}%</span>
+                            <!-- Coach Photo/Avatar Section -->
+                            <div class="relative flex items-center justify-center p-8 bg-gradient-to-br from-white/5 to-transparent border-b border-white/10 group-hover:from-white/10 transition-all duration-500 min-h-[200px]">
+                                <!-- Main Photo -->
+                                <div class="relative w-32 h-32 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3">
+                                    ${coach.headshot_url ? 
+                                        `<img src="${coach.headshot_url}" alt="${coach.name}" class="relative z-10 w-full h-full object-cover rounded-2xl drop-shadow-2xl border-2 border-white/20">` :
+                                        `<div class="relative z-10 w-full h-full rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 flex items-center justify-center font-display font-bold text-white/80 text-4xl drop-shadow-2xl">${initials}</div>`
+                                    }
+                                    
+                                    <!-- Reflection Effect -->
+                                    ${coach.headshot_url ? 
+                                        `<img src="${coach.headshot_url}" alt="" class="absolute top-[85%] left-0 w-full h-full object-cover rounded-2xl opacity-40 blur-[1px] transform scale-y-[-1] mask-image-linear-to-b" 
+                                             style="mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);" 
+                                             aria-hidden="true" onerror="this.style.display='none'">` :
+                                        ''
+                                    }
+                                </div>
                             </div>
-                            <div class="tech-bar-bg bg-gray-100 dark:bg-white/10">
-                                <div class="tech-bar-fill" style="width: ${winPct}%; background-color: ${teamInfo.color}; box-shadow: 0 0 12px ${teamInfo.color}40"></div>
+
+                            <!-- Coach Info Section -->
+                            <div class="relative p-6 space-y-6">
+                                <!-- Coach Name -->
+                                <div>
+                                    <h2 class="text-2xl font-black tracking-tighter leading-none mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70 font-display">
+                                        ${coach.name}
+                                    </h2>
+                                    <p class="text-lg font-light tracking-widest uppercase opacity-80 font-display text-white/60">
+                                        ${coach.current_school}
+                                    </p>
+                                </div>
+
+                                <!-- Gradient Line -->
+                                <div class="h-px w-full bg-gradient-to-r from-white/30 to-transparent"></div>
+                                
+                                <!-- Stats Grid -->
+                                <div class="grid grid-cols-2 gap-4 text-white">
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest opacity-50 mb-1">Record</div>
+                                        <div class="text-sm font-mono font-medium">
+                                            ${coach.career_record || '--'}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest opacity-50 mb-1">Win %</div>
+                                        <div class="text-sm font-mono font-medium">
+                                            ${winPct}%
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Win Efficiency Bar -->
+                                <div class="space-y-3">
+                                    <div class="text-xs font-bold uppercase tracking-widest opacity-50">Performance Rating</div>
+                                    <div class="relative">
+                                        <div class="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                                            <div class="h-full rounded-full transition-all duration-1000 group-hover:animate-pulse" 
+                                                 style="width: ${winPct}%; background: linear-gradient(90deg, ${teamColor}, ${teamColor}88); box-shadow: 0 0 20px ${teamColor}40;"></div>
+                                        </div>
+                                        <div class="text-xs text-white/60 mt-1">${coach.total_games} Games Coached</div>
+                                    </div>
+                                </div>
+
+                                <!-- Explore Button -->
+                                <div class="pt-2">
+                                    <div class="w-full px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/30 text-white font-medium tracking-wide overflow-hidden transition-all group-hover:bg-white/20 group-hover:border-white/40 group-hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]">
+                                        <span class="flex items-center justify-center gap-2">
+                                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                                            <span class="text-sm">View Profile</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Team Logo Watermark -->
+                            ${teamInfo.logo ? `<img src="${teamInfo.logo}" class="watermark-logo" alt="">` : ''}
+
+                            <!-- Glow Effect -->
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                                <div class="absolute inset-0 bg-gradient-to-br opacity-10 blur-xl" style="background: radial-gradient(circle at 30% 30%, ${teamColor}, transparent 70%);"></div>
                             </div>
                         </div>
-
-                        <div class="flex justify-between items-center pt-1">
-                            <span class="text-[11px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Experience</span>
-                            <span class="text-xs font-mono text-gray-500 dark:text-gray-400">${coach.total_games} Games</span>
-                        </div>
-                    </div>
-
-                    <!-- AI Scan Button -->
-                    <div class="relative z-10 mt-4 pt-4 border-t border-gray-100 dark:border-white/5">
-                        <button onclick="event.stopPropagation(); generateScoutReport('${coach.name}', '${coach.current_school}', '${coach.career_record}', '${winPct}', ${coach.total_games})" 
-                                class="w-full py-2.5 bg-gray-50 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-medium text-xs flex items-center justify-center gap-2 group/btn shadow-sm hover:shadow">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover/btn:animate-pulse"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg>
-                            <span>TACTICAL_SCAN</span>
-                        </button>
-                    </div>
-
-                    <!-- Hover Action -->
-                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                         <i data-lucide="arrow-up-right" class="w-4 h-4 text-primary"></i>
-                    </div>
-                </div>
+                    </a>
                 `;
             }).join('');
             
@@ -704,10 +761,25 @@
             const activeBtn = document.getElementById(`filter-${filter.toLowerCase().replace(' ', '')}`);
             if (activeBtn) activeBtn.classList.add('active');
             
+            applyFilterAndSort();
+        }
+
+        function sortCoaches() {
+            currentSort = document.getElementById('sort-select').value;
+            applyFilterAndSort();
+        }
+
+        function applyFilterAndSort() {
             // Logic
             let filtered = allCoaches;
-            if (filter !== 'all') {
-                filtered = allCoaches.filter(coach => conferenceMap[coach.current_school] === filter);
+            if (currentFilter !== 'all') {
+                filtered = allCoaches.filter(coach => {
+                    const conference = conferenceMap[coach.current_school] || 'Other';
+                    if (currentFilter === 'Other') {
+                        return !['SEC', 'Big Ten', 'Big 12', 'ACC'].includes(conference);
+                    }
+                    return conference === currentFilter;
+                });
             }
             
             // Search
@@ -719,11 +791,26 @@
                 );
             }
             
+            // Apply sorting
+            filtered.sort((a, b) => {
+                switch (currentSort) {
+                    case 'win_pct':
+                        return (b.career_win_pct || 0) - (a.career_win_pct || 0);
+                    case 'games':
+                        return (b.total_games || 0) - (a.total_games || 0);
+                    case 'school':
+                        return (a.current_school || '').localeCompare(b.current_school || '');
+                    case 'name':
+                    default:
+                        return (a.name || '').localeCompare(b.name || '');
+                }
+            });
+            
             displayCoaches(filtered);
         }
 
         function searchCoaches() {
-            filterCoaches(currentFilter);
+            applyFilterAndSort();
         }
 
         function viewCoach(coachId) {

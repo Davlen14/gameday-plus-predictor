@@ -1027,7 +1027,9 @@
         async function loadGameData() {
             try {
                 console.log(`Loading game data for: ${gameId}`);
-                const response = await fetch(`/api/espn/game/${gameId}`);
+                // Always force refresh to get latest data (especially important for live games)
+                const url = `/api/espn/game/${gameId}?refresh=true&_=${Date.now()}`;
+                const response = await fetch(url);
                 const result = await response.json();
                 
                 if (!result.success) {

@@ -17,6 +17,8 @@
                         surface: '#0f172a',
                         primary: '#ef4444', // Red 500
                         'primary-dim': 'rgba(239, 68, 68, 0.1)',
+                        secondary: '#3B82F6', // Blue 500 
+                        'secondary-dim': 'rgba(59, 130, 246, 0.1)',
                         success: '#10B981', // Emerald 500
                         warning: '#F59E0B', // Amber 500
                         danger: '#EF4444', // Red 500
@@ -49,7 +51,7 @@
 
     <style>
         :root {
-            --bg-color: #0f172a;
+            --bg-color: linear-gradient(135deg, #1e293b 0%, #0f172a 25%, #020617 50%, #1e293b 100%);
             --glass-bg: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
             --text-primary: #ffffff;
@@ -71,15 +73,19 @@
         }
 
         [data-theme="dark"] {
-            --bg-color: #000000;
-            --glass-bg: rgba(0, 0, 0, 0.6);
+            --bg-color: var(--dark-bg-color, linear-gradient(135deg, #1a0a0f 0%, #0f1a2d 25%, #2d1b1b 50%, #1b1b2d 75%, #1a0a0f 100%));
+            --glass-bg: rgba(45, 27, 27, 0.6);
             --glass-border: rgba(255, 255, 255, 0.15);
             --text-primary: #ffffff; /* Pure white */
             --text-secondary: #e2e8f0; /* Very light gray/white */
             --text-muted: #94a3b8;
-            --accent-glow: rgba(0, 0, 0, 0.5);
+            --accent-glow: rgba(45, 27, 27, 0.5);
             --table-header-bg: rgba(255, 255, 255, 0.05);
             --table-row-hover: rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] body {
+            background: var(--dark-bg-color, var(--bg-color)) !important;
         }
 
         body { 
@@ -87,14 +93,35 @@
             margin: 0;
             padding: 0;
             background: var(--bg-color);
+            background-attachment: fixed;
+            position: relative;
             color: var(--text-primary);
             overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 60%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        [data-theme="dark"] body::before {
+            background: var(--dark-overlay, radial-gradient(circle at 20% 20%, rgba(239, 68, 68, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 50%), radial-gradient(circle at 40% 60%, rgba(16, 185, 129, 0.08) 0%, transparent 50%), radial-gradient(circle at 60% 20%, rgba(245, 158, 11, 0.06) 0%, transparent 50%));
         }
 
         /* Dynamic Background Transitions */
         #dynamic-bg {
             transition: background 1.0s ease-in-out;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(59, 130, 246, 0.03) 50%, rgba(16, 185, 129, 0.02) 100%);
         }
         #glow-orb, #secondary-orb {
             transition: all 1.0s ease-in-out;
@@ -333,6 +360,69 @@
         document.getElementById('coachIdDisp').textContent = coachId;
 
         // --- THEME & UTILS ---
+        
+        // Function to set team-based background colors
+        function setTeamBackground(teamData) {
+            if (!teamData || !teamData.primary) return;
+            
+            const primary = teamData.primary;
+            const alt = teamData.alt || teamData.primary;
+            
+            console.log('Setting team background for:', teamData.name, 'Primary:', primary, 'Alt:', alt);
+            
+            // Create much darker versions of team colors for true dark mode
+            const darkPrimary = adjustBrightness(primary, -85);
+            const darkAlt = adjustBrightness(alt, -85);
+            const mediumPrimary = adjustBrightness(primary, -70);
+            const mediumAlt = adjustBrightness(alt, -70);
+            const lightPrimary = adjustBrightness(primary, -55);
+            const lightAlt = adjustBrightness(alt, -55);
+            
+            console.log('Calculated colors - Dark Primary:', darkPrimary, 'Dark Alt:', darkAlt);
+            
+            // Create a more complex gradient that ensures both colors are visible
+            const gradient = `linear-gradient(135deg, ${darkPrimary} 0%, ${darkAlt} 20%, ${mediumPrimary} 40%, ${mediumAlt} 60%, ${lightPrimary} 80%, ${darkAlt} 100%)`;
+            
+            // Update CSS custom properties for dark mode
+            document.documentElement.style.setProperty('--dark-bg-color', gradient);
+            
+            // Update color overlays with both team colors prominently
+            const primaryRgba = hexToRgba(primary, 0.20);
+            const altRgba = hexToRgba(alt, 0.18);
+            const primaryDarkRgba = hexToRgba(mediumPrimary, 0.15);
+            const altDarkRgba = hexToRgba(mediumAlt, 0.12);
+            
+            const overlay = `radial-gradient(circle at 15% 15%, ${primaryRgba} 0%, transparent 45%), radial-gradient(circle at 85% 85%, ${altRgba} 0%, transparent 45%), radial-gradient(circle at 50% 20%, ${primaryDarkRgba} 0%, transparent 40%), radial-gradient(circle at 20% 80%, ${altDarkRgba} 0%, transparent 40%)`;
+            
+            document.documentElement.style.setProperty('--dark-overlay', overlay);
+            
+            console.log('Applied gradient:', gradient);
+            console.log('Applied overlay:', overlay);
+        }
+        
+        // Helper functions
+        function hexToRgba(hex, alpha) {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        }
+        
+        function adjustBrightness(hex, percent) {
+            const num = parseInt(hex.replace('#', ''), 16);
+            const amt = Math.round(2.55 * percent);
+            let R = (num >> 16) + amt;
+            let G = (num >> 8 & 0x00FF) + amt;
+            let B = (num & 0x0000FF) + amt;
+            
+            // Ensure colors don't go completely black (minimum brightness of 15)
+            R = Math.max(15, Math.min(255, R));
+            G = Math.max(15, Math.min(255, G));
+            B = Math.max(15, Math.min(255, B));
+            
+            return '#' + (0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1);
+        }
+        
         const TEAMS = [
           { id: 1, name: "Air Force", mascot: "Falcons", conf: "Mountain West", primary: "#004a7b", alt: "#ffffff", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2005.png" },
           { id: 2, name: "Akron", mascot: "Zips", conf: "Mid-American", primary: "#00285e", alt: "#84754e", logo: "http://a.espncdn.com/i/teamlogos/ncaa/500/2006.png" },
@@ -475,12 +565,14 @@
         function getGradientStyle(team) {
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             const isDarkAlt = team.alt === "#000000" || team.alt === "#492000" || team.alt === "#222222";
-            const secondary = isDarkAlt ? "#1a1a1a" : team.alt;
+            const secondary = isDarkAlt ? adjustBrightness(team.primary, -30) : team.alt;
             const angle = 45; 
             
             if (isDark) {
-                // Darker, more subtle gradient for dark mode
-                return `linear-gradient(${angle}deg, ${team.primary} 0%, #000000 80%)`;
+                // Use much darker versions of BOTH team colors, never pure black
+                const darkPrimary = adjustBrightness(team.primary, -80);
+                const darkSecondary = adjustBrightness(secondary, -80);
+                return `linear-gradient(${angle}deg, ${darkPrimary} 0%, ${darkSecondary} 80%)`;
             }
             
             const stop1 = 10;
@@ -504,7 +596,13 @@
             const glow = document.getElementById('glow-orb');
             const secondaryGlow = document.getElementById('secondary-orb');
 
-            if(bg) bg.style.background = getGradientStyle(team);
+            if(bg) {
+                // In dark mode, let setTeamBackground handle the main gradient
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                if (!isDark) {
+                    bg.style.background = getGradientStyle(team);
+                }
+            }
             
             if(glow) {
                 const glowStyle = getGlowStyle(team);
@@ -539,7 +637,14 @@
             
             // Refresh background for new theme
             const school = document.getElementById('current-school').textContent;
-            if(school && school !== '--') updateBackground(school);
+            if(school && school !== '--') {
+                updateBackground(school);
+                // Also refresh team colors for dark mode
+                const team = TEAMS.find(t => t.name === school);
+                if (team) {
+                    setTeamBackground(team);
+                }
+            }
         }
 
         // Value Coloring Helpers
@@ -639,6 +744,11 @@
 
                 // Dynamic Styling based on School Color
                 updateBackground(data.current_school);
+                
+                // Set team-based background colors for dark mode
+                if (team) {
+                    setTeamBackground(team);
+                }
 
                 // Load additional data for status panel
                 loadStatusData();
@@ -774,7 +884,16 @@
 
         function renderTimeline(data) {
             const coachName = data.coach_name || 'Coach';
-            const careerRecord = data.career_record || '--';
+            // Build career record from wins/losses or use provided career_record
+            let careerRecord = data.career_record || '--';
+            if (careerRecord === '--' && data.total_wins !== undefined && data.total_losses !== undefined) {
+                careerRecord = `${data.total_wins}-${data.total_losses}`;
+            } else if (careerRecord === '--' && currentCoach) {
+                // Fallback to main coach data
+                const wins = currentCoach.wins || 0;
+                const losses = currentCoach.losses || 0;
+                careerRecord = `${wins}-${losses}`;
+            }
             const winPct = (data.career_win_pct || 0).toFixed(1);
             const maxStreak = data.max_win_streak || 0;
             const rankedWins = data.total_ranked_wins || 0;
@@ -827,7 +946,7 @@
         }
         
         function drawWatermarks(chart) {
-            // Add coach headshot overlay (top-right)
+            // Add coach headshot overlay (top-right) - more subtle
             if (currentCoach && currentCoach.image_url) {
                 chart.renderer.image(
                     currentCoach.image_url,
@@ -836,12 +955,12 @@
                     100,
                     100
                 ).attr({
-                    opacity: 0.15,
+                    opacity: 0.08,
                     zIndex: 1
                 }).add();
             }
             
-            // Add school logo watermark (center)
+            // Add school logo watermark (center) - very subtle
             if (currentCoach && currentCoach.school_logo) {
                 chart.renderer.image(
                     currentCoach.school_logo,
@@ -850,15 +969,19 @@
                     150,
                     150
                 ).attr({
-                    opacity: 0.03,
+                    opacity: 0.02,
                     zIndex: 1
                 }).add();
             }
             
-            // Add career stats watermark (top-left)
+            // Add career stats watermark (top-left) - more subtle
             if (currentCoach) {
-                const wins = currentCoach.wins || 0;
-                const losses = currentCoach.losses || 0;
+                let wins = currentCoach.wins || 0;
+                let losses = currentCoach.losses || 0;
+                
+                // If wins/losses are 0, don't show the watermark
+                if (wins === 0 && losses === 0) return;
+                
                 const winPct = wins + losses > 0 ? ((wins / (wins + losses)) * 100).toFixed(1) : '0.0';
                 
                 chart.renderer.text(
@@ -871,7 +994,7 @@
                     fontSize: '28px',
                     fontWeight: 'bold',
                     fontFamily: 'JetBrains Mono, monospace',
-                    color: 'rgba(255, 255, 255, 0.1)'
+                    color: 'rgba(255, 255, 255, 0.06)'
                 }).add();
             }
         }
@@ -896,9 +1019,9 @@
                     x: w.x,
                     y: w.win_pct,
                     marker: {
-                        fillColor: w.win_pct >= 50 ? '#10B981' : '#EF4444',
+                        fillColor: w.win_pct >= 50 ? '#22C55E' : '#EF4444',
                         lineWidth: 2,
-                        lineColor: w.win_pct >= 50 ? '#34D399' : '#F87171',
+                        lineColor: w.win_pct >= 50 ? '#16A34A' : '#DC2626',
                         radius: w.ranked_wins > 0 ? 5 : 3 // Larger marker for ranked wins
                     },
                     custom: {
@@ -937,17 +1060,17 @@
             // Transform flags data for achievement markers
             const chartFlags = flags.map(flag => ({
                 x: flag.x,
-                title: flag.type === 'bowl_win' ? '🏆' : 
-                       flag.type === 'conference_championship' ? '👑' : 
-                       flag.type === 'playoff_appearance' ? '🎯' : 
-                       flag.type === 'national_championship' ? '🏈' : 
-                       flag.type === 'major_milestone' ? '⭐' : '📍',
+                title: flag.type === 'bowl_win' ? 'B' : 
+                       flag.type === 'conference_championship' ? 'C' : 
+                       flag.type === 'playoff_appearance' ? 'P' : 
+                       flag.type === 'national_championship' ? 'N' : 
+                       flag.type === 'major_milestone' ? 'M' : 'A',
                 text: flag.text,
-                fillColor: flag.type === 'bowl_win' ? '#F59E0B' : 
-                          flag.type === 'conference_championship' ? '#8B5CF6' : 
-                          flag.type === 'playoff_appearance' ? '#3B82F6' : 
-                          flag.type === 'national_championship' ? '#10B981' : 
-                          flag.type === 'major_milestone' ? '#EC4899' : '#6B7280'
+                fillColor: flag.type === 'bowl_win' ? '#EAB308' : 
+                          flag.type === 'conference_championship' ? '#22C55E' : 
+                          flag.type === 'playoff_appearance' ? '#F59E0B' : 
+                          flag.type === 'national_championship' ? '#16A34A' : 
+                          flag.type === 'major_milestone' ? '#DC2626' : '#64748B'
             }));
             
             console.log('Rendering chart with', gameData.length, 'data points');
@@ -999,7 +1122,7 @@
                     title: {
                         text: 'Win Percentage',
                         style: {
-                            color: '#10B981',
+                            color: '#22C55E',
                             fontSize: '12px',
                             fontWeight: 'bold'
                         }
@@ -1007,7 +1130,7 @@
                     labels: {
                         format: '{value}%',
                         style: {
-                            color: '#10B981',
+                            color: '#22C55E',
                             fontSize: '11px'
                         }
                     },
@@ -1016,7 +1139,7 @@
                     max: 100,
                     plotLines: [{
                         value: 50,
-                        color: 'rgba(239, 68, 68, 0.3)',
+                        color: 'rgba(239, 68, 68, 0.4)',
                         width: 2,
                         dashStyle: 'Dash',
                         zIndex: 3,
@@ -1034,14 +1157,14 @@
                     title: {
                         text: 'AP Rank Quality',
                         style: {
-                            color: '#F59E0B',
+                            color: '#EAB308',
                             fontSize: '12px',
                             fontWeight: 'bold'
                         }
                     },
                     labels: {
                         style: {
-                            color: '#F59E0B',
+                            color: '#EAB308',
                             fontSize: '11px'
                         }
                     },
@@ -1054,7 +1177,7 @@
                     title: {
                         text: 'Avg Margin',
                         style: {
-                            color: '#06B6D4',
+                            color: '#334155',
                             fontSize: '12px',
                             fontWeight: 'bold'
                         }
@@ -1062,7 +1185,7 @@
                     labels: {
                         format: '{value}',
                         style: {
-                            color: '#06B6D4',
+                            color: '#334155',
                             fontSize: '11px'
                         }
                     },
@@ -1078,14 +1201,14 @@
                     title: {
                         text: 'Win Streak',
                         style: {
-                            color: '#A855F7',
+                            color: '#475569',
                             fontSize: '12px',
                             fontWeight: 'bold'
                         }
                     },
                     labels: {
                         style: {
-                            color: '#A855F7',
+                            color: '#475569',
                             fontSize: '11px'
                         }
                     },
@@ -1143,25 +1266,33 @@
                     }
                 },
                 tooltip: {
-                    backgroundColor: 'rgba(15, 23, 42, 0.98)',
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
-                    borderRadius: 8,
-                    borderWidth: 2,
-                    shadow: true,
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    borderColor: 'rgba(255, 255, 255, 0.15)',
+                    borderRadius: 12,
+                    borderWidth: 1,
+                    shadow: {
+                        color: 'rgba(0, 0, 0, 0.3)',
+                        offsetX: 0,
+                        offsetY: 4,
+                        opacity: 0.5,
+                        width: 8
+                    },
                     style: {
-                        color: '#e2e8f0',
+                        color: '#ffffff',
                         fontSize: '11px',
-                        fontFamily: 'JetBrains Mono, monospace'
+                        fontFamily: 'JetBrains Mono, monospace',
+                        backdropFilter: 'blur(20px)',
+                        webkitBackdropFilter: 'blur(20px)'
                     },
                     useHTML: true,
                     shared: true,
                     crosshairs: [{
-                        width: 2,
-                        color: 'rgba(59, 130, 246, 0.5)',
+                        width: 1,
+                        color: 'rgba(255, 255, 255, 0.3)',
                         dashStyle: 'Dash'
                     }, {
-                        width: 2,
-                        color: 'rgba(59, 130, 246, 0.5)',
+                        width: 1,
+                        color: 'rgba(255, 255, 255, 0.3)',
                         dashStyle: 'Dash'
                     }],
                     formatter: function() {
@@ -1172,11 +1303,44 @@
                         const mainPoint = this.points.find(p => p.point.custom);
                         const custom = mainPoint ? mainPoint.point.custom : {};
                         
+                        // Get team logo if available
+                        const teamLogo = currentCoach && currentCoach.school_logo ? currentCoach.school_logo : '';
+                        
                         let html = `
-                            <div class="p-3" style="min-width: 240px;">
-                                <div class="font-bold text-white mb-1 text-sm">${dateStr}</div>
-                                <div class="text-xs text-gray-400 mb-3 pb-2 border-b border-white/10">${custom.season} Week ${custom.week}</div>
-                                <div class="space-y-1">`;
+                            <div style="
+                                min-width: 280px;
+                                background: rgba(15, 23, 42, 0.85);
+                                backdrop-filter: blur(40px) saturate(180%);
+                                -webkit-backdrop-filter: blur(40px) saturate(180%);
+                                border: 1px solid rgba(255, 255, 255, 0.3);
+                                border-radius: 12px;
+                                padding: 16px;
+                                position: relative;
+                                overflow: hidden;
+                                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                            ">`;
+                        
+                        // Add team logo watermark
+                        if (teamLogo) {
+                            html += `
+                                <div style="
+                                    position: absolute;
+                                    top: 8px;
+                                    right: 8px;
+                                    width: 40px;
+                                    height: 40px;
+                                    opacity: 0.15;
+                                    background-image: url('${teamLogo}');
+                                    background-size: contain;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                "></div>`;
+                        }
+                        
+                        html += `
+                                <div style="font-weight: bold; color: #ffffff; margin-bottom: 4px; font-size: 13px;">${dateStr}</div>
+                                <div style="font-size: 11px; color: rgba(255, 255, 255, 0.7); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">${custom.season} Week ${custom.week}</div>
+                                <div style="display: flex; flex-direction: column; gap: 4px;">`;
                         
                         // Add each series value
                         this.points.forEach(point => {
@@ -1196,9 +1360,9 @@
                             }
                             
                             html += `
-                                <div class="flex justify-between items-center text-xs">
-                                    <span style="color: ${color};" class="font-medium">${seriesName}:</span>
-                                    <span class="text-white font-bold ml-2">${valueStr}</span>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+                                    <span style="color: ${color}; font-weight: 500;">${seriesName}:</span>
+                                    <span style="color: #ffffff; font-weight: bold; margin-left: 8px;">${valueStr}</span>
                                 </div>`;
                         });
                         
@@ -1207,19 +1371,19 @@
                         // Add additional stats
                         if (custom.wins !== undefined) {
                             html += `
-                                <div class="mt-3 pt-2 border-t border-white/10">
-                                    <div class="grid grid-cols-2 gap-2 text-xs">
+                                <div style="margin-top: 12px; padding-top: 8px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 11px;">
                                         <div>
-                                            <div class="text-white/60 text-[10px] uppercase tracking-wider">RECORD</div>
-                                            <div class="text-white font-bold font-mono">${custom.wins}-${custom.games - custom.wins}</div>
+                                            <div style="color: rgba(255, 255, 255, 0.6); font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;">RECORD</div>
+                                            <div style="color: #ffffff; font-weight: bold; font-family: 'JetBrains Mono', monospace;">${custom.wins}-${custom.games - custom.wins}</div>
                                         </div>
                                         ${custom.ranked_wins > 0 ? `
                                         <div>
-                                            <div class="text-white/60 text-[10px] uppercase tracking-wider">RANKED WINS</div>
-                                            <div class="text-[#F59E0B] font-bold font-mono">${custom.ranked_wins}</div>
+                                            <div style="color: rgba(255, 255, 255, 0.6); font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;">RANKED WINS</div>
+                                            <div style="color: #EAB308; font-weight: bold; font-family: 'JetBrains Mono', monospace;">${custom.ranked_wins}</div>
                                         </div>` : ''}
                                     </div>
-                                    ${custom.ap_rank ? `<div class="text-xs text-[#3B82F6] mt-2 font-bold">AP Rank: #${custom.ap_rank}</div>` : ''}
+                                    ${custom.ap_rank ? `<div style="font-size: 11px; color: #22C55E; margin-top: 8px; font-weight: bold;">AP Rank: #${custom.ap_rank}</div>` : ''}
                                 </div>`;
                         }
                         
@@ -1232,17 +1396,17 @@
                     type: 'area',
                     data: gameData,
                     yAxis: 0,
-                    color: '#10B981', // sem-success
+                    color: '#22C55E', // Professional green for success
                     fillColor: {
                         linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
                         stops: [
-                            [0, 'rgba(16, 185, 129, 0.3)'],
-                            [1, 'rgba(16, 185, 129, 0.05)']
+                            [0, 'rgba(34, 197, 94, 0.3)'],
+                            [1, 'rgba(34, 197, 94, 0.05)']
                         ]
                     },
                     zones: [{
                         value: 50,
-                        color: '#EF4444', // sem-danger
+                        color: '#EF4444', // Professional red for poor performance
                         fillColor: {
                             linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
                             stops: [
@@ -1251,7 +1415,7 @@
                             ]
                         }
                     }, {
-                        color: '#10B981'
+                        color: '#22C55E'
                     }],
                     lineWidth: 3,
                     marker: {
@@ -1264,7 +1428,7 @@
                     type: 'line',
                     data: weeklyHomeWinPct,
                     yAxis: 0,
-                    color: '#14B8A6', // cat-c
+                    color: '#16A34A', // Darker green for home performance
                     dashStyle: 'ShortDot',
                     lineWidth: 2,
                     marker: {
@@ -1275,7 +1439,7 @@
                     type: 'line',
                     data: weeklyConfWinPct,
                     yAxis: 0,
-                    color: '#8B5CF6', // cat-d
+                    color: '#15803D', // Forest green for conference
                     dashStyle: 'ShortDot',
                     lineWidth: 2,
                     marker: {
@@ -1286,7 +1450,7 @@
                     type: 'spline',
                     data: weeklyAPRank,
                     yAxis: 1,
-                    color: '#F59E0B', // sem-warning
+                    color: '#EAB308', // Professional yellow for rankings
                     dashStyle: 'ShortDash',
                     lineWidth: 2,
                     marker: {
@@ -1297,7 +1461,7 @@
                     type: 'spline',
                     data: weeklyMargin,
                     yAxis: 2,
-                    color: '#3B82F6', // cat-a
+                    color: '#64748B', // Keep margin neutral gray
                     lineWidth: 2,
                     marker: {
                         enabled: false
@@ -1307,7 +1471,7 @@
                     type: 'column',
                     data: weeklyWinStreak,
                     yAxis: 3,
-                    color: 'rgba(139, 92, 246, 0.4)', // cat-d opacity
+                    color: 'rgba(34, 197, 94, 0.6)', // Green translucent for streaks
                     borderWidth: 0
                 }, {
                     // Achievement flags
