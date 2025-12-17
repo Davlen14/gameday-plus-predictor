@@ -49,9 +49,9 @@ CORS(app)
 # Priority order: instance folder first (local/Railway), then deployment paths
 DB_PATH = None
 possible_paths = [
-    'instance/coaches_master.db',  # Local and Railway
+    'instance/coaches_master.db',  # Local development
+    '/app/instance/coaches_master.db',  # Railway (Docker working directory)
     '/opt/render/project/src/instance/coaches_master.db',  # Render
-    '/app/instance/coaches_master.db',  # Docker generic
 ]
 
 for path in possible_paths:
