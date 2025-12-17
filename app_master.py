@@ -197,6 +197,11 @@ def gamedaylive():
     """GAMEDAY+ Live - Real-time game and analytics showcase"""
     return render_template('gamedaylive.html')
 
+@app.route('/deepdive')
+def deepdive():
+    """GAMEDAY+ Deep Dive Analytics - Coming Soon"""
+    return render_template('deepdive.html')
+
 @app.route('/api/map-data')
 def map_data():
     """Get team data for the map with latest season stats"""

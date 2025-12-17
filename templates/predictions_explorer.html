@@ -54,6 +54,149 @@
     </script>
 
     <style>
+        /* Pure White Shining Light Gradient */
+        :root {
+            --white-gradient: linear-gradient(135deg, #FFFFFF, #F8FAFC, #FFFFFF, #E2E8F0, #FFFFFF);
+            --red-black-gradient: linear-gradient(135deg, #000000 0%, #1a0505 25%, #2d0a0a 50%, #1a0505 75%, #000000 100%);
+        }
+
+        .red-text {
+            background: var(--white-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.9),
+                0 0 60px rgba(255, 255, 255, 0.6),
+                0 0 90px rgba(255, 255, 255, 0.3);
+            filter: brightness(1.3) contrast(1.2);
+        }
+
+        .white-glow {
+            color: #FFFFFF;
+            text-shadow: 
+                0 0 20px rgba(255, 255, 255, 1),
+                0 0 40px rgba(255, 255, 255, 0.8),
+                0 0 60px rgba(255, 255, 255, 0.6);
+            filter: brightness(1.4) contrast(1.3);
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--red-black-gradient);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            visibility: visible;
+            transition: all 1s ease-in-out;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Sleek Electrical Particles */
+        .loading-particle {
+            position: absolute;
+            width: 1px;
+            height: 8px;
+            background: linear-gradient(90deg, transparent, #FFFFFF, transparent);
+            opacity: 0.9;
+            animation: electricalPulse 3s ease-in-out infinite;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .loading-particle:nth-child(2n) {
+            height: 12px;
+            background: linear-gradient(0deg, transparent, #FFFFFF, transparent);
+            animation: electricalPulse 2.5s ease-in-out infinite;
+        }
+
+        .loading-particle:nth-child(3n) {
+            width: 8px;
+            height: 1px;
+            background: linear-gradient(180deg, transparent, #FFFFFF, transparent);
+            animation: electricalPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes electricalPulse {
+            0%, 100% { 
+                opacity: 0.2; 
+                transform: scale(0.8);
+                box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.2);
+                box-shadow: 0 0 16px rgba(255, 255, 255, 1);
+            }
+        }
+
+        /* Loading Animation */
+        .typing-text {
+            overflow: hidden;
+            border-right: 3px solid #DC2626;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 2.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #DC2626; }
+        }
+
+        @keyframes electricalSweep {
+            0% { 
+                transform: translateX(-100%); 
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateX(100%); 
+                opacity: 0;
+            }
+        }
+
+        @keyframes electricalScan {
+            0%, 100% { 
+                transform: translateX(-200px); 
+                opacity: 0;
+            }
+            50% { 
+                transform: translateX(200px); 
+                opacity: 1;
+            }
+        }
+
+        .main-content {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .main-content.visible {
+            opacity: 1;
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
@@ -171,6 +314,71 @@
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="text-center space-y-8">
+            <!-- Sleek Electrical Header -->
+            <div class="mb-12 space-y-6">
+                <div class="flex items-center justify-center gap-8">
+                    <div class="text-7xl font-black font-display white-glow tracking-tighter">G+</div>
+                    <div class="h-16 w-px bg-gradient-to-b from-transparent via-white to-transparent relative">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white to-transparent animate-pulse"></div>
+                        <div class="absolute top-0 left-1/2 w-2 h-2 -ml-1 bg-white rounded-full animate-ping opacity-75"></div>
+                        <div class="absolute bottom-0 left-1/2 w-2 h-2 -ml-1 bg-white rounded-full animate-ping opacity-75" style="animation-delay: 0.5s;"></div>
+                    </div>
+                    <div class="text-5xl font-black font-display text-white tracking-wider" style="text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);">
+                        PREDICTIONS <span class="red-text" style="letter-spacing: 0.1em;">NEXUS</span>
+                    </div>
+                </div>
+                <div class="text-sm font-mono tracking-[0.3em] text-gray-400 uppercase">
+                    SYSTEM V.2.0 • NEURAL INTERFACE
+                </div>
+            </div>
+            
+            <!-- Typing Animation -->
+            <div class="text-xl font-mono">
+                <div class="typing-text red-text" id="typingText">
+                    LOADING PREDICTIONS DATABASE...
+                </div>
+            </div>
+            
+            <!-- Sleek Electrical Loading Bar -->
+            <div class="w-96 h-1 bg-gray-950 mx-auto relative border border-white/10" style="box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);">
+                <div class="h-full bg-gradient-to-r from-transparent via-white to-transparent relative overflow-hidden" 
+                     style="width: 100%; animation: electricalSweep 3s ease-in-out; box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);">
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent animate-pulse"></div>
+                    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent" style="animation: electricalScan 1.5s ease-in-out infinite;"></div>
+                </div>
+                <!-- Circuit lines -->
+                <div class="absolute -top-2 -bottom-2 left-0 w-px bg-white/30"></div>
+                <div class="absolute -top-2 -bottom-2 right-0 w-px bg-white/30"></div>
+                <div class="absolute -left-2 -right-2 top-0 h-px bg-white/30"></div>
+            </div>
+            
+            <!-- System Status -->
+            <div class="text-xs font-mono text-gray-500 tracking-[0.2em] uppercase">
+                <span class="text-white/80">AI</span> PREDICTIONS • <span class="text-white/80">BETTING</span> LINES • <span class="text-white/80">REAL-TIME</span> DATA
+            </div>
+        </div>
+
+        <!-- Loading Particles -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="loading-particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="loading-particle" style="top: 60%; left: 20%; animation-delay: 1s;"></div>
+            <div class="loading-particle" style="top: 30%; left: 80%; animation-delay: 2s;"></div>
+            <div class="loading-particle" style="top: 70%; left: 70%; animation-delay: 3s;"></div>
+            <div class="loading-particle" style="top: 40%; left: 50%; animation-delay: 1.5s;"></div>
+            <div class="loading-particle" style="top: 80%; left: 30%; animation-delay: 2.5s;"></div>
+            <div class="loading-particle" style="top: 15%; left: 90%; animation-delay: 0.5s;"></div>
+            <div class="loading-particle" style="top: 85%; left: 85%; animation-delay: 3.5s;"></div>
+            <div class="loading-particle" style="top: 25%; left: 60%; animation-delay: 1.2s;"></div>
+            <div class="loading-particle" style="top: 75%; left: 40%; animation-delay: 2.8s;"></div>
+        </div>
+    </div>
+    
+    <!-- Main Content Container -->
+    <div class="main-content" id="mainContent">
 
     <!-- Top Navigation -->
     <header class="glass-header sticky top-0 z-50 h-16 flex items-center justify-between px-6">
@@ -673,7 +881,23 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
         animate();
+        
+        // Loading Animation Control
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const mainContent = document.getElementById('mainContent');
+            
+            // Show loading for 3 seconds (simulating data loading)
+            setTimeout(() => {
+                loadingOverlay.classList.add('hidden');
+                setTimeout(() => {
+                    mainContent.classList.add('visible');
+                }, 500);
+            }, 3000);
+        });
 
     </script>
+    
+    </div> <!-- End main-content -->
 </body>
 </html>

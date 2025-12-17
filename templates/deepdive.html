@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEDAY+ | Deep Dive Analytics</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#FF0F45',
+                            dark: '#030303',
+                            surface: '#0A0A0A',
+                            accent: '#CCFF00',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 2s ease-in-out',
+                        'slide-up': 'slideUp 1.5s ease-out',
+                        'pulse-gold': 'pulseGold 3s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(100px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        pulseGold: {
+                            '0%, 100%': { 
+                                textShadow: '0 0 20px rgba(212, 175, 55, 0.5)',
+                                transform: 'scale(1)'
+                            },
+                            '50%': { 
+                                textShadow: '0 0 40px rgba(212, 175, 55, 0.8), 0 0 80px rgba(212, 175, 55, 0.4)',
+                                transform: 'scale(1.05)'
+                            }
+                        },
+                        glow: {
+                            '0%': { 
+                                boxShadow: '0 0 20px rgba(212, 175, 55, 0.3), 0 0 40px rgba(212, 175, 55, 0.1)'
+                            },
+                            '100%': { 
+                                boxShadow: '0 0 40px rgba(212, 175, 55, 0.6), 0 0 80px rgba(212, 175, 55, 0.2)'
+                            }
+                        },
+                        typing: {
+                            '0%': { width: '0' },
+                            '100%': { width: '100%' }
+                        },
+                        'blink-caret': {
+                            '0%, 50%': { borderColor: 'transparent' },
+                            '51%, 100%': { borderColor: '#D4AF37' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --gold-gradient: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            --black-gold-gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #2d2617 50%, #1a1a1a 75%, #000000 100%);
+        }
+
+        body {
+            background: #000000;
+            overflow-x: hidden;
+        }
+
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .gold-border {
+            border-image: var(--gold-gradient) 1;
+            border-style: solid;
+        }
+
+        .premier-bg {
+            background: var(--black-gold-gradient);
+        }
+
+        .intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(45deg, #000000 0%, #0a0a0a 25%, #1a1309 50%, #0a0a0a 75%, #000000 100%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            visibility: visible;
+            transition: all 1s ease-in-out;
+        }
+
+        .intro-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .typing-text {
+            overflow: hidden;
+            border-right: 3px solid #D4AF37;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        .main-content {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .main-content.visible {
+            opacity: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #D4AF37;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.6; }
+            25% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+            50% { transform: translateY(-40px) translateX(-5px); opacity: 1; }
+            75% { transform: translateY(-20px) translateX(-10px); opacity: 0.8; }
+        }
+
+
+
+        .neural-grid {
+            background-image: 
+                linear-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 20s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        /* Floating Team Logos - No Containers */
+        .floating-logo {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.4)) brightness(1.1) contrast(1.1);
+            transition: all 0.3s ease;
+            z-index: 5;
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            padding: 6px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            animation: floatLogo 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .floating-logo:nth-child(2n) {
+            animation-delay: 1s;
+            animation-duration: 10s;
+        }
+
+        .floating-logo:nth-child(3n) {
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .floating-logo:nth-child(4n) {
+            animation-delay: 0.5s;
+            animation-duration: 9s;
+        }
+
+        .floating-logo:nth-child(5n) {
+            animation-delay: 3s;
+            animation-duration: 11s;
+        }
+
+        /* Ensure images load properly */
+        .floating-logo {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+                filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.4)) brightness(1.1) contrast(1.1);
+                opacity: 0.7;
+            }
+            25% { 
+                transform: translateY(-20px) translateX(10px) rotate(2deg) scale(1.05);
+                filter: drop-shadow(0 6px 16px rgba(212, 175, 55, 0.6)) brightness(1.2) contrast(1.15);
+                opacity: 0.9;
+            }
+            50% { 
+                transform: translateY(-40px) translateX(-5px) rotate(0deg) scale(1.1);
+                filter: drop-shadow(0 8px 20px rgba(212, 175, 55, 0.8)) brightness(1.3) contrast(1.2);
+                opacity: 1;
+            }
+            75% { 
+                transform: translateY(-20px) translateX(-10px) rotate(-2deg) scale(1.05);
+                filter: drop-shadow(0 6px 16px rgba(212, 175, 55, 0.6)) brightness(1.2) contrast(1.15);
+                opacity: 0.9;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white overflow-x-hidden min-h-screen">
+    <!-- Intro Animation Overlay -->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="text-center space-y-8">
+            <!-- CFP Themed Header -->
+            <div class="mb-8 space-y-4">
+                <div class="flex items-center justify-center gap-6">
+                    <div class="text-6xl font-black font-display gold-text animate-pulse-gold">G+</div>
+                    <div class="h-12 w-px bg-gradient-to-b from-transparent via-yellow-400 to-transparent"></div>
+                    <div class="text-4xl font-black font-display text-white tracking-tighter">
+                        CFP <span class="gold-text">PLAYOFF</span>
+                    </div>
+                </div>
+                <div class="text-xl font-display font-bold tracking-wider text-gray-300">
+                    DEEP DIVE ANALYTICS
+                </div>
+            </div>
+            
+            <!-- Typing Animation -->
+            <div class="text-xl font-mono">
+                <div class="typing-text gold-text" id="typingText">
+                    ACCESSING COLLEGE FOOTBALL PLAYOFF DATABASE...
+                </div>
+            </div>
+            
+            <!-- Loading Bar with CFP Branding -->
+            <div class="w-96 h-2 bg-gray-800 rounded-full mx-auto overflow-hidden border border-yellow-400/30">
+                <div class="h-full bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 animate-pulse" 
+                     style="width: 100%; animation: loading 3s ease-in-out;"></div>
+            </div>
+            
+            <!-- CFP Status -->
+            <div class="text-sm font-mono text-gray-400 tracking-widest">
+                12-TEAM PLAYOFF • 2025 SEASON • NEURAL ANALYSIS
+            </div>
+        </div>
+
+        <!-- Floating Particles -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="top: 60%; left: 20%; animation-delay: 1s;"></div>
+            <div class="particle" style="top: 30%; left: 80%; animation-delay: 2s;"></div>
+            <div class="particle" style="top: 70%; left: 70%; animation-delay: 3s;"></div>
+            <div class="particle" style="top: 40%; left: 50%; animation-delay: 1.5s;"></div>
+            <div class="particle" style="top: 80%; left: 30%; animation-delay: 2.5s;"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content w-full min-h-screen" id="mainContent">
+        <!-- Fixed Navigation - Edge to Edge -->
+        <nav class="fixed top-0 left-0 right-0 z-50 border-b border-yellow-400/20 bg-black/95 backdrop-blur-xl">
+            <div class="w-full px-6 h-20 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <a href="/gamedaylive" class="font-display font-black text-2xl relative tracking-tight">
+                        <span class="gold-text">GAMEDAY</span><span class="text-white">+</span>
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-6">
+                    <a href="/gamedaylive" class="text-sm text-gray-400 hover:text-yellow-400 transition-colors flex items-center gap-2">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        Back to Main
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Scrollable Content Container - Edge to Edge -->
+        <div class="w-full pt-20 relative">
+            <!-- Fixed Background Elements -->
+            <div class="neural-grid fixed inset-0 opacity-20 z-0"></div>
+            
+            <!-- Floating Particles Background - Fixed -->
+            <div class="fixed inset-0 pointer-events-none z-0">
+                <div class="particle" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+                <div class="particle" style="top: 30%; left: 15%; animation-delay: 1s;"></div>
+                <div class="particle" style="top: 50%; left: 85%; animation-delay: 2s;"></div>
+                <div class="particle" style="top: 70%; left: 75%; animation-delay: 3s;"></div>
+                <div class="particle" style="top: 20%; left: 95%; animation-delay: 1.5s;"></div>
+                <div class="particle" style="top: 80%; left: 25%; animation-delay: 2.5s;"></div>
+                <div class="particle" style="top: 60%; left: 45%; animation-delay: 4s;"></div>
+                <div class="particle" style="top: 40%; left: 65%; animation-delay: 0.5s;"></div>
+            </div>
+            
+            <!-- Premier Hero Section - Full Width -->
+            <section class="w-full min-h-screen flex items-center justify-center relative py-20">
+                <div class="relative z-10 text-center space-y-12 w-full px-6">
+                <!-- CFP Themed Header -->
+                <div class="space-y-6">
+                    <div class="flex items-center justify-center gap-8 mb-6">
+                        <div class="text-8xl md:text-9xl font-black font-display gold-text animate-pulse-gold">G+</div>
+                        <div class="h-16 w-px bg-gradient-to-b from-transparent via-yellow-400 to-transparent"></div>
+                        <div class="text-6xl md:text-8xl font-black font-display text-white tracking-tighter">
+                            CFP <span class="gold-text">PLAYOFF</span>
+                        </div>
+                    </div>
+                    <div class="text-2xl md:text-4xl font-display font-bold tracking-wider text-gray-300">
+                        DEEP DIVE ANALYTICS
+                    </div>
+                </div>
+
+                <!-- Floating CFP Team Logos Throughout Page -->
+                <div class="hidden md:block">
+                    <!-- Logos positioned throughout the page -->
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/84.png" alt="Indiana" class="floating-logo" style="top: 15vh; left: 8%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" alt="Ohio State" class="floating-logo" style="top: 25vh; right: 12%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" alt="Georgia" class="floating-logo" style="top: 40vh; left: 5%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png" alt="Texas Tech" class="floating-logo" style="top: 55vh; right: 8%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png" alt="Oregon" class="floating-logo" style="top: 70vh; left: 10%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/145.png" alt="Ole Miss" class="floating-logo" style="top: 85vh; right: 15%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/245.png" alt="Texas A&M" class="floating-logo" style="top: 110vh; left: 7%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/201.png" alt="Oklahoma" class="floating-logo" style="top: 125vh; right: 10%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" alt="Alabama" class="floating-logo" style="top: 140vh; left: 12%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png" alt="Miami" class="floating-logo" style="top: 155vh; right: 6%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" alt="Tulane" class="floating-logo" style="top: 170vh; left: 9%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/256.png" alt="JMU" class="floating-logo" style="top: 185vh; right: 11%;">
+                    
+                    <!-- Additional logos for more density -->
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/84.png" alt="Indiana" class="floating-logo" style="top: 200vh; left: 6%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" alt="Ohio State" class="floating-logo" style="top: 35vh; left: 85%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" alt="Georgia" class="floating-logo" style="top: 65vh; right: 85%;">
+                    <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png" alt="Texas Tech" class="floating-logo" style="top: 95vh; left: 88%;">
+                </div>
+
+                <!-- Premier Coming Soon Card -->
+                <div class="bg-black/40 backdrop-blur-md rounded-3xl p-12 md:p-20 max-w-6xl mx-auto border border-yellow-400/20 shadow-2xl">
+                    <div class="space-y-12">
+                        <!-- Status -->
+                        <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-black/30 border border-yellow-400/20 backdrop-blur-sm">
+                            <div class="relative flex h-3 w-3">
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-400"></span>
+                            </div>
+                            <span class="text-sm font-mono tracking-wider gold-text font-bold">
+                                CFP DEEP DIVE: IN DEVELOPMENT
+                            </span>
+                        </div>
+
+                        <!-- Main Message -->
+                        <div class="space-y-6">
+                            <h2 class="text-4xl md:text-6xl font-black font-display gold-text">
+                                COMING SOON
+                            </h2>
+                            <p class="text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
+                                Revolutionary College Football Playoff analytics powered by neural networks and real-time data processing
+                            </p>
+                        </div>
+
+                        <!-- What We're Building -->
+                        <div class="space-y-6">
+                            <h3 class="text-2xl font-bold gold-text text-center">What Deep Dive Provides</h3>
+                            <div class="grid md:grid-cols-3 gap-6 text-left">
+                                <div class="bg-black/20 p-6 rounded-lg border border-yellow-400/15 backdrop-blur-sm">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                        <div class="text-yellow-400 font-bold">Playoff Predictions</div>
+                                    </div>
+                                    <div class="text-gray-300 text-sm leading-relaxed">
+                                        Real-time bracket simulation with win probabilities, upset alerts, and championship paths for all 12 teams
+                                    </div>
+                                </div>
+                                <div class="bg-black/20 p-6 rounded-lg border border-yellow-400/15 backdrop-blur-sm">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                        <div class="text-yellow-400 font-bold">Advanced Metrics</div>
+                                    </div>
+                                    <div class="text-gray-300 text-sm leading-relaxed">
+                                        EPA analysis, success rates, explosive play tracking, and situational performance breakdowns by game scenario
+                                    </div>
+                                </div>
+                                <div class="bg-black/20 p-6 rounded-lg border border-yellow-400/15 backdrop-blur-sm">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                        <div class="text-yellow-400 font-bold">Live Game Intelligence</div>
+                                    </div>
+                                    <div class="text-gray-300 text-sm leading-relaxed">
+                                        Quarter-by-quarter predictions, momentum tracking, and real-time win probability updates during games
+                                    </div>
+                                </div>
+                                <div class="bg-black/20 p-6 rounded-lg border border-yellow-400/15 backdrop-blur-sm">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                        <div class="text-yellow-400 font-bold">Market Analysis</div>
+                                    </div>
+                                    <div class="text-gray-300 text-sm leading-relaxed">
+                                        Betting line comparisons, value identification, and sharp money tracking across multiple sportsbooks
+                                    </div>
+                                </div>
+                                <div class="bg-black/20 p-6 rounded-lg border border-yellow-400/15 backdrop-blur-sm">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                        <div class="text-yellow-400 font-bold">Team Deep Dives</div>
+                                    </div>
+                                    <div class="text-gray-300 text-sm leading-relaxed">
+                                        Comprehensive team profiles with strength-of-schedule adjustments, injury impact, and coaching analytics
+                                    </div>
+                                </div>
+                                <div class="bg-black/20 p-6 rounded-lg border border-yellow-400/15 backdrop-blur-sm">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                        <div class="text-yellow-400 font-bold">Championship Scenarios</div>
+                                    </div>
+                                    <div class="text-gray-300 text-sm leading-relaxed">
+                                        Interactive bracket simulation, upset probability matrices, and championship path optimization
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Launch Info -->
+                        <div class="pt-8 border-t border-yellow-400/20">
+                            <div class="text-center space-y-2">
+                                <div class="text-sm font-mono text-gray-500 tracking-widest">
+                                    ESTIMATED LAUNCH: <span class="gold-text font-bold">PLAYOFF SEASON 2025</span>
+                                </div>
+                                <div class="text-xs text-gray-600 font-mono">
+                                    Neural networks trained on 25+ years of CFB data • Real-time API integration • Sub-second analysis
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Tagline -->
+                <div class="text-lg font-mono text-gray-500 tracking-wider">
+                    WHERE DATA MEETS <span class="gold-text font-bold">DESTINY</span>
+                </div>
+                
+                </div>
+            </section>
+            
+            <!-- Additional Premier Sections -->
+            
+            <!-- Technology Preview Section -->
+            <section class="w-full py-20 bg-gradient-to-b from-transparent via-yellow-400/5 to-transparent relative">
+                <div class="max-w-7xl mx-auto px-6 text-center space-y-12">
+                    <div class="relative z-10">
+                        <h2 class="text-4xl md:text-6xl font-black font-display gold-text mb-6">
+                            NEURAL ARCHITECTURE
+                        </h2>
+                        <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                            Our deep learning models process over 10,000 data points per game, analyzing everything from individual player performance to weather conditions and referee tendencies.
+                        </p>
+                    </div>
+                    
+                    <!-- Tech Stats Grid -->
+                    <div class="grid md:grid-cols-4 gap-8 mt-16">
+                        <div class="text-center space-y-3">
+                            <div class="text-4xl font-black gold-text font-display">25+</div>
+                            <div class="text-sm text-gray-400 font-mono tracking-wider">YEARS OF DATA</div>
+                        </div>
+                        <div class="text-center space-y-3">
+                            <div class="text-4xl font-black gold-text font-display">10K+</div>
+                            <div class="text-sm text-gray-400 font-mono tracking-wider">DATA POINTS / GAME</div>
+                        </div>
+                        <div class="text-center space-y-3">
+                            <div class="text-4xl font-black gold-text font-display">87%</div>
+                            <div class="text-sm text-gray-400 font-mono tracking-wider">PREDICTION ACCURACY</div>
+                        </div>
+                        <div class="text-center space-y-3">
+                            <div class="text-4xl font-black gold-text font-display">&lt;1s</div>
+                            <div class="text-sm text-gray-400 font-mono tracking-wider">ANALYSIS SPEED</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- CFP Playoff Tree Preview -->
+            <section class="w-full py-20 relative">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-6xl font-black font-display gold-text mb-6">
+                            PLAYOFF SIMULATION
+                        </h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                            Interactive bracket with real-time probability updates and championship path analysis
+                        </p>
+                    </div>
+                    
+                    <!-- Bracket Preview Mock -->
+                    <div class="bg-black/80 backdrop-blur-lg rounded-2xl p-8 border border-yellow-400/20 max-w-5xl mx-auto">
+                        <div class="text-center space-y-6">
+                            <div class="text-2xl font-bold gold-text">12-TEAM PLAYOFF BRACKET</div>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                                <div class="bg-yellow-400/10 p-4 rounded border border-yellow-400/30">
+                                    <div class="font-bold">First Round</div>
+                                    <div class="text-gray-400 text-xs mt-1">Dec 20-21</div>
+                                </div>
+                                <div class="bg-yellow-400/10 p-4 rounded border border-yellow-400/30">
+                                    <div class="font-bold">Quarterfinals</div>
+                                    <div class="text-gray-400 text-xs mt-1">Jan 1</div>
+                                </div>
+                                <div class="bg-yellow-400/10 p-4 rounded border border-yellow-400/30">
+                                    <div class="font-bold">Semifinals</div>
+                                    <div class="text-gray-400 text-xs mt-1">Jan 9-10</div>
+                                </div>
+                                <div class="bg-yellow-400/10 p-4 rounded border border-yellow-400/30">
+                                    <div class="font-bold">Championship</div>
+                                    <div class="text-gray-400 text-xs mt-1">Jan 20</div>
+                                </div>
+                            </div>
+                            <div class="text-gray-500 text-sm font-mono">
+                                Live probability tracking • Upset alerts • Championship paths
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Footer CTA -->
+            <section class="w-full py-20 border-t border-yellow-400/20 bg-gradient-to-b from-transparent to-yellow-400/5">
+                <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+                    <h3 class="text-3xl md:text-5xl font-black font-display gold-text">
+                        THE FUTURE OF CFB ANALYTICS
+                    </h3>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Get ready for the most advanced college football analytics platform ever built. 
+                        Deep Dive will revolutionize how you understand the game.
+                    </p>
+                    <div class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-yellow-600/20 to-yellow-400/20 rounded-full border border-yellow-400/40 backdrop-blur-md">
+                        <div class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+                        <span class="font-mono text-sm tracking-wider gold-text font-bold">
+                            LAUNCHING WITH 2025 CFP
+                        </span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Intro Animation Sequence
+        document.addEventListener('DOMContentLoaded', function() {
+            const introOverlay = document.getElementById('introOverlay');
+            const mainContent = document.getElementById('mainContent');
+
+            // Hide intro after animation
+            setTimeout(() => {
+                introOverlay.classList.add('hidden');
+                setTimeout(() => {
+                    mainContent.classList.add('visible');
+                }, 500);
+            }, 4000);
+        });
+
+        // Add custom loading animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes loading {
+                0% { transform: translateX(-100%); }
+                50% { transform: translateX(0%); }
+                100% { transform: translateX(100%); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Particle animation on scroll/mouse move
+        document.addEventListener('mousemove', (e) => {
+            // Create temporary particles following mouse
+            if (Math.random() > 0.95) {
+                const particle = document.createElement('div');
+                particle.className = 'fixed w-1 h-1 bg-yellow-400 rounded-full pointer-events-none z-40';
+                particle.style.left = e.clientX + 'px';
+                particle.style.top = e.clientY + 'px';
+                particle.style.animation = 'fadeOut 2s ease-out forwards';
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 2000);
+            }
+        });
+
+        // Add fadeOut animation
+        const fadeOutStyle = document.createElement('style');
+        fadeOutStyle.textContent = `
+            @keyframes fadeOut {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0); }
+            }
+        `;
+        document.head.appendChild(fadeOutStyle);
+    </script>
+</body>
+</html>
