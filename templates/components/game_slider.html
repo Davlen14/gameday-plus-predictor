@@ -299,23 +299,63 @@
         align-items: center;
         justify-content: center;
         padding: 20px;
-        background: rgba(0, 0, 0, 0.55);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(16px) brightness(0.95);
+        -webkit-backdrop-filter: blur(16px) brightness(0.95);
     }
     
     .predict-modal {
         width: 100%;
         max-width: 600px;
-        border-radius: 24px;
+        border-radius: 28px;
         overflow: hidden;
-        background: rgba(15, 15, 15, 0.85);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(22px) saturate(160%);
-        -webkit-backdrop-filter: blur(22px) saturate(160%);
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.25) 0%,
+            rgba(240, 240, 245, 0.18) 25%,
+            rgba(220, 220, 230, 0.15) 50%,
+            rgba(200, 200, 215, 0.18) 75%,
+            rgba(255, 255, 255, 0.22) 100%
+        );
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-top-color: rgba(255, 255, 255, 0.6);
+        border-left-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 
+            0 40px 100px rgba(0, 0, 0, 0.3),
+            0 8px 32px rgba(0, 0, 0, 0.2),
+            inset 0 1px 2px rgba(255, 255, 255, 0.4),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.08),
+            inset 2px 0 4px rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(40px) saturate(140%);
+        -webkit-backdrop-filter: blur(40px) saturate(140%);
         animation: predictFadeIn 160ms ease-out;
         position: relative;
+    }
+    
+    /* Premium glass shine effect */
+    .predict-modal::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.15) 50%,
+            transparent
+        );
+        animation: modalShine 4s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 10;
+    }
+    
+    @keyframes modalShine {
+        0%, 100% { left: -100%; opacity: 0; }
+        10% { opacity: 1; }
+        50% { left: 100%; opacity: 1; }
+        100% { left: 100%; opacity: 0; }
     }
     
     .predict-modal-watermark {
@@ -325,8 +365,8 @@
         justify-content: space-between;
         pointer-events: none;
         z-index: 0;
-        opacity: 0.15;
-        filter: grayscale(100%) contrast(1.2);
+        opacity: 0.08;
+        filter: grayscale(100%) contrast(1.1) brightness(1.2);
         overflow: hidden;
     }
 
@@ -367,27 +407,31 @@
         font-size: 12px;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.65);
+        color: rgba(17, 24, 39, 0.85);
         margin-bottom: 16px;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
     }
     
     .predict-modal-close {
         width: 28px;
         height: 28px;
         border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        color: rgba(255, 255, 255, 0.75);
+        background: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: rgba(17, 24, 39, 0.7);
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     .predict-modal-close:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.18);
-        color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.5);
+        border-color: rgba(255, 255, 255, 0.7);
+        color: rgba(17, 24, 39, 0.9);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transform: scale(1.05);
     }
     
     .predict-matchup {
@@ -450,18 +494,19 @@
     .predict-team-name {
         font-size: 12px;
         font-weight: 800;
-        color: rgba(255, 255, 255, 0.92);
+        color: rgba(17, 24, 39, 0.95);
         text-transform: uppercase;
         letter-spacing: 0.03em;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
     }
     .predict-at {
         font-family: 'Orbitron', sans-serif;
         font-size: 10px;
         letter-spacing: 0.16em;
-        color: rgba(255, 255, 255, 0.35);
+        color: rgba(17, 24, 39, 0.4);
         flex: 0 0 auto;
     }
     
@@ -469,27 +514,30 @@
         margin-top: 12px;
         padding: 12px;
         border-radius: 14px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.09);
+        background: rgba(20, 20, 20, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05), 0 2px 8px rgba(0, 0, 0, 0.3);
     }
     .predict-pick {
         font-size: 18px;
         font-weight: 900;
-        color: rgba(255, 255, 255, 0.96);
+        color: rgba(255, 255, 255, 0.95);
         letter-spacing: 0.02em;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
     }
     .predict-sub {
         margin-top: 4px;
         font-size: 11px;
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 0.65);
     }
     
     .predict-chart {
         margin-top: 16px;
         padding: 16px;
         border-radius: 16px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(20, 20, 20, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05), 0 2px 8px rgba(0, 0, 0, 0.3);
     }
     
     .predict-chart-header {
@@ -506,6 +554,7 @@
         font-size: 14px;
         font-weight: 800;
         color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
     }
 
     .predict-chart-logo {
@@ -527,9 +576,10 @@
         height: 16px;
         border-radius: 9999px;
         overflow: hidden;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         position: relative;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
     }
     
     .predict-bar-seg { height: 100%; transition: width 0.5s ease-out; }
@@ -547,10 +597,10 @@
         top: 0;
         bottom: 0;
         width: 2px;
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.6);
         transform: translateX(-50%);
         z-index: 2;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
     }
     .predict-metrics {
         margin-top: 10px;
@@ -561,24 +611,25 @@
     .predict-chip {
         padding: 6px 10px;
         border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 10px;
-        color: rgba(255, 255, 255, 0.72);
+        color: rgba(255, 255, 255, 0.7);
         letter-spacing: 0.02em;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     }
     .predict-chip b {
-        color: rgba(255, 255, 255, 0.92);
+        color: rgba(255, 255, 255, 0.95);
         font-weight: 800;
     }
     .predict-factors {
         margin-top: 10px;
         font-size: 10px;
-        color: rgba(255, 255, 255, 0.55);
+        color: rgba(255, 255, 255, 0.6);
         line-height: 1.45;
     }
     .predict-factors-title {
-        color: rgba(255, 255, 255, 0.65);
+        color: rgba(255, 255, 255, 0.7);
         letter-spacing: 0.12em;
         text-transform: uppercase;
         font-size: 9px;
@@ -590,8 +641,9 @@
         margin-top: 10px;
         padding: 10px 12px;
         border-radius: 14px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(20, 20, 20, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05), 0 2px 6px rgba(0, 0, 0, 0.3);
     }
     
     .predict-market-top {
@@ -610,7 +662,7 @@
     
     .predict-book-name {
         font-size: 10px;
-        color: rgba(255, 255, 255, 0.65);
+        color: rgba(255, 255, 255, 0.7);
         letter-spacing: 0.12em;
         text-transform: uppercase;
         font-family: 'Orbitron', sans-serif;
@@ -623,7 +675,7 @@
         width: 28px;
         height: 28px;
         object-fit: contain;
-        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.12));
+        filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.15));
     }
     
     .predict-book-fallback {
@@ -632,7 +684,7 @@
         justify-content: center;
         font-family: 'Orbitron', sans-serif;
         font-size: 10px;
-        color: rgba(255, 255, 255, 0.72);
+        color: rgba(255, 255, 255, 0.75);
         letter-spacing: 0.06em;
     }
     
@@ -649,14 +701,14 @@
     }
     
     .predict-line b {
-        color: rgba(255, 255, 255, 0.92);
+        color: rgba(255, 255, 255, 0.95);
         font-weight: 800;
     }
     
     .predict-best {
         margin-top: 10px;
         padding-top: 10px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .predict-best-label {
@@ -664,7 +716,7 @@
         font-size: 9px;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.55);
+        color: rgba(255, 255, 255, 0.6);
     }
     
     .predict-best-pick {
@@ -673,28 +725,30 @@
         font-weight: 900;
         color: rgba(255, 255, 255, 0.95);
         letter-spacing: 0.02em;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
     }
     
     .predict-edge-meter {
         margin-top: 8px;
         height: 8px;
         border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         overflow: hidden;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
     }
     
     .predict-edge-fill {
         height: 100%;
         width: 0%;
-        background: linear-gradient(90deg, rgba(124, 241, 124, 0.25), rgba(124, 241, 124, 0.75));
+        background: linear-gradient(90deg, rgba(124, 241, 124, 0.5), rgba(124, 241, 124, 0.9));
         transition: width 220ms ease;
     }
     
     .predict-best-sub {
         margin-top: 6px;
         font-size: 10px;
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 0.65);
     }
     
     .predict-loading {
@@ -702,7 +756,7 @@
         align-items: center;
         gap: 10px;
         font-size: 11px;
-        color: rgba(255, 255, 255, 0.65);
+        color: rgba(255, 255, 255, 0.7);
     }
     .predict-spinner {
         width: 14px;
@@ -924,6 +978,12 @@
                 '<div class="predict-modal-inner">' +
                     '<div class="predict-modal-header">' +
                         '<div id="predictModalTitle">Prediction</div>' +
+                        (opts.isLive ? 
+                            '<div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.8);">' +
+                                '<span style="width: 6px; height: 6px; background: #4ade80; border-radius: 50%; animation: pulse-glow 2s infinite;"></span>' +
+                                '<span id="liveGameStatus">' + _escapeHtml(opts.gameStatus || 'LIVE') + '</span>' +
+                                '<span style="margin-left: 4px; color: rgba(255,255,255,0.5); font-size: 11px;" id="lastUpdated">Updated now</span>' +
+                            '</div>' : '') +
                         '<div class="predict-modal-close" role="button" tabindex="0" aria-label="Close">×</div>' +
                     '</div>' +
                     '<div class="predict-matchup">' +
@@ -953,10 +1013,72 @@
         var modal = overlay.querySelector('.predict-modal');
         var closeBtn = overlay.querySelector('.predict-modal-close');
         
+        // Auto-refresh for live games
+        var modalRefreshInterval = null;
+        if (opts.isLive) {
+            console.log('⏱️ Starting live game modal refresh (15s interval)');
+            modalRefreshInterval = setInterval(function() {
+                // Re-fetch from API to get fresh scores and status
+                fetch('/api/upcoming-games?_=' + Date.now())
+                    .then(function(r) { return r.ok ? r.json() : Promise.reject('Failed'); })
+                    .then(function(data) {
+                        // Find this specific game and update live data
+                        var updatedGame = data.games.find(function(g) {
+                            return g.home.team === homeTeam && g.away.team === awayTeam;
+                        });
+                        if (updatedGame && (updatedGame.status === 'In Progress' || updatedGame.statusDescription === 'In Progress')) {
+                            opts.liveHomeScore = parseFloat(updatedGame.home.score) || 0;
+                            opts.liveAwayScore = parseFloat(updatedGame.away.score) || 0;
+                            opts.gameStatus = updatedGame.statusDetail || updatedGame.status || '';
+                            
+                            // Update status in modal header
+                            var statusElem = document.getElementById('liveGameStatus');
+                            var timestampElem = document.getElementById('lastUpdated');
+                            if (statusElem) statusElem.textContent = opts.gameStatus;
+                            if (timestampElem) {
+                                var now = new Date();
+                                timestampElem.textContent = 'Updated ' + now.toLocaleTimeString('en-US', { 
+                                    hour: 'numeric', 
+                                    minute: '2-digit'
+                                });
+                            }
+                            
+                            // Re-render modal with updated data
+                            if (_predictCache[requestKey]) {
+                                _renderPredictModalBody(_predictCache[requestKey], {
+                                    homeTeam: homeTeam,
+                                    awayTeam: awayTeam,
+                                    homeLogo: homeLogo,
+                                    awayLogo: awayLogo,
+                                    homeColor: homeColor,
+                                    awayColor: awayColor,
+                                    marketHomeSpread: marketHomeSpread,
+                                    marketTotal: marketTotal,
+                                    book: book,
+                                    formattedSpread: formattedSpread,
+                                    isLive: opts.isLive,
+                                    liveHomeScore: opts.liveHomeScore,
+                                    liveAwayScore: opts.liveAwayScore,
+                                    gameStatus: opts.gameStatus
+                                });
+                            }
+                            console.log('🔄 Modal refreshed:', opts.gameStatus, opts.liveAwayScore, '-', opts.liveHomeScore);
+                        }
+                    })
+                    .catch(function(err) {
+                        console.warn('⚠️ Modal refresh failed:', err);
+                    });
+            }, 15000); // 15 seconds
+        }
+        
         function handleCloseActivate(ev) {
             if (ev) {
                 ev.preventDefault();
                 ev.stopPropagation();
+            }
+            if (modalRefreshInterval) {
+                clearInterval(modalRefreshInterval);
+                console.log('⏸️ Stopped modal refresh');
             }
             closePredictModal();
         }
@@ -1310,12 +1432,13 @@
                             '<div class="predict-live-status" style="' +
                                 'margin-top: 16px;' +
                                 'padding: 16px;' +
-                                'background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);' +
-                                'backdrop-filter: blur(20px) saturate(180%);' +
-                                '-webkit-backdrop-filter: blur(20px) saturate(180%);' +
+                                'background: rgba(20, 20, 20, 0.3);' +
+                                'backdrop-filter: blur(20px) saturate(140%);' +
+                                '-webkit-backdrop-filter: blur(20px) saturate(140%);' +
                                 'border-radius: 12px;' +
-                                'border: 1px solid rgba(255,255,255,0.1);' +
-                                'box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);' +
+                                'border: 1px solid rgba(255, 255, 255, 0.1);' +
+                                'border-top-color: rgba(255, 255, 255, 0.15);' +
+                                'box-shadow: 0 4px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255, 255, 255, 0.05);' +
                                 'position: relative;' +
                                 'overflow: hidden;' +
                             '">' +
@@ -1326,7 +1449,7 @@
                                     'left: -100%;' +
                                     'width: 100%;' +
                                     'height: 100%;' +
-                                    'background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);' +
+                                    'background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);' +
                                     'animation: shimmer 3s infinite;' +
                                 '"></div>' +
                                 
@@ -1338,31 +1461,31 @@
                                         'display: flex;' +
                                         'align-items: center;' +
                                         'justify-content: center;' +
-                                        'background: ' + statusColor + '20;' +
+                                        'background: rgba(0, 0, 0, 0.3);' +
                                         'border: 2px solid ' + statusColor + ';' +
                                         'border-radius: 8px;' +
                                         'font-size: 18px;' +
                                         'font-weight: 700;' +
                                         'color: ' + statusColor + ';' +
-                                        'box-shadow: 0 0 20px ' + statusColor + '40;' +
+                                        'box-shadow: 0 2px 12px ' + statusColor + '40, inset 0 1px 2px rgba(255, 255, 255, 0.05);' +
                                         'animation: pulse-glow 2s infinite;' +
                                     '">' + statusIcon + '</div>' +
                                     '<div style="flex: 1;">' +
-                                        '<div style="font-family: \'JetBrains Mono\', monospace; font-weight: 700; font-size: 14px; color: ' + statusColor + '; text-shadow: 0 0 10px ' + statusColor + '60;">' +
+                                        '<div style="font-family: \'JetBrains Mono\', monospace; font-weight: 700; font-size: 14px; color: ' + statusColor + '; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);">' +
                                             statusLabel +
                                         '</div>' +
-                                        '<div style="font-family: \'JetBrains Mono\', monospace; font-size: 10px; color: #9ca3af; margin-top: 2px; letter-spacing: 0.5px;">' +
+                                        '<div style="font-family: \'JetBrains Mono\', monospace; font-size: 10px; color: rgba(255, 255, 255, 0.6); margin-top: 2px; letter-spacing: 0.5px;">' +
                                             'HIT PROBABILITY: ' + hitChance.toFixed(0) + '%' +
                                         '</div>' +
                                     '</div>' +
                                     '<div style="display: flex; align-items: center; gap: 6px;">' +
                                         '<span class="blink-live" style="width: 8px; height: 8px; background: #ef4444; border-radius: 50%; box-shadow: 0 0 10px #ef4444;">●</span>' +
-                                        '<span style="font-family: \'JetBrains Mono\', monospace; font-size: 11px; color: #9ca3af; font-weight: 600;">' + _escapeHtml(ctx.gameStatus) + '</span>' +
+                                        '<span style="font-family: \'JetBrains Mono\', monospace; font-size: 11px; color: rgba(255, 255, 255, 0.7); font-weight: 600;">' + _escapeHtml(ctx.gameStatus) + '</span>' +
                                     '</div>' +
                                 '</div>' +
                                 
                                 // Progress bar
-                                '<div style="position: relative; height: 24px; background: rgba(0,0,0,0.4); border-radius: 12px; overflow: hidden; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.05);">' +
+                                '<div style="position: relative; height: 24px; background: rgba(0, 0, 0, 0.4); border-radius: 12px; overflow: hidden; margin-bottom: 12px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);">' +
                                     '<div style="' +
                                         'position: absolute;' +
                                         'left: 0;' +
@@ -1401,35 +1524,85 @@
                                 
                                 // Live score
                                 '<div style="' +
+                                    'position: relative;' +
                                     'font-family: \'JetBrains Mono\', monospace;' +
                                     'font-size: 13px;' +
-                                    'color: #e5e7eb;' +
                                     'margin-bottom: 8px;' +
-                                    'padding: 8px 12px;' +
-                                    'background: rgba(0,0,0,0.3);' +
-                                    'border-radius: 8px;' +
-                                    'border-left: 3px solid ' + statusColor + ';' +
-                                    'position: relative;' +
+                                    'padding: 16px;' +
+                                    'background: linear-gradient(135deg, rgba(15,15,15,0.8) 0%, rgba(20,20,25,0.85) 50%, rgba(15,15,15,0.8) 100%);' +
+                                    'backdrop-filter: blur(20px) saturate(140%);' +
+                                    '-webkit-backdrop-filter: blur(20px) saturate(140%);' +
+                                    'border-radius: 12px;' +
+                                    'border: 1px solid rgba(255,255,255,0.15);' +
+                                    'border-top-color: rgba(255,255,255,0.25);' +
+                                    'box-shadow: 0 4px 16px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.1);' +
+                                    'overflow: hidden;' +
                                     'z-index: 1;' +
                                 '">' +
-                                    '<span style="color: #9ca3af; font-size: 10px; text-transform: uppercase; letter-spacing: 1px;">LIVE SCORE</span><br>' +
-                                    '<span style="font-weight: 600;">' + _escapeHtml(ctx.awayTeam) + '</span> ' +
-                                    '<span style="font-size: 16px; font-weight: 700; color: ' + statusColor + ';">' + ctx.liveAwayScore + '</span>' +
-                                    ' <span style="color: #6b7280;">-</span> ' +
-                                    '<span style="font-size: 16px; font-weight: 700; color: ' + statusColor + ';">' + ctx.liveHomeScore + '</span> ' +
-                                    '<span style="font-weight: 600;">' + _escapeHtml(ctx.homeTeam) + '</span>' +
+                                    // Watermark logos
+                                    '<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; pointer-events: none; z-index: 0;">' +
+                                        '<img src="' + _escapeHtml(ctx.awayLogo) + '" style="position: absolute; left: -10%; top: 50%; transform: translateY(-50%) rotate(-15deg); width: 80px; height: 80px; object-fit: contain; filter: grayscale(100%);">' +
+                                        '<img src="' + _escapeHtml(ctx.homeLogo) + '" style="position: absolute; right: -10%; top: 50%; transform: translateY(-50%) rotate(15deg); width: 80px; height: 80px; object-fit: contain; filter: grayscale(100%);">' +
+                                    '</div>' +
+                                    
+                                    // Content
+                                    '<div style="position: relative; z-index: 1;">' +
+                                        '<div style="color: rgba(255, 255, 255, 0.6); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; text-align: center; font-weight: 600;">LIVE SCORE</div>' +
+                                        '<div style="display: flex; align-items: center; justify-content: center; gap: 16px;">' +
+                                            // Away team
+                                            '<div style="flex: 1; text-align: right;">' +
+                                                '<div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-bottom: 4px;">' +
+                                                    '<span style="font-weight: 700; font-size: 12px; color: rgba(255, 255, 255, 0.85); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);">' + _escapeHtml(ctx.awayTeam) + '</span>' +
+                                                    '<img src="' + _escapeHtml(ctx.awayLogo) + '" style="width: 28px; height: 28px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));">' +
+                                                '</div>' +
+                                                '<div style="' +
+                                                    'font-size: 24px;' +
+                                                    'font-weight: 700;' +
+                                                    'font-family: \'Orbitron\', monospace;' +
+                                                    'color: ' + (ctx.awayColor || 'rgba(17,24,39,0.9)') + ';' +
+                                                    'text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8), 0 0 20px ' + (ctx.awayColor || 'rgba(255, 255, 255, 0.9)') + '30;' +
+                                                '">' + ctx.liveAwayScore + '</div>' +
+                                            '</div>' +
+                                            
+                                            // Separator
+                                            '<div style="' +
+                                                'font-size: 20px;' +
+                                                'font-weight: 700;' +
+                                                'color: rgba(255, 255, 255, 0.3);' +
+                                                'padding: 0 4px;' +
+                                            '">-</div>' +
+                                            
+                                            // Home team
+                                            '<div style="flex: 1; text-align: left;">' +
+                                                '<div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px; margin-bottom: 4px;">' +
+                                                    '<img src="' + _escapeHtml(ctx.homeLogo) + '" style="width: 28px; height: 28px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));">' +
+                                                    '<span style="font-weight: 700; font-size: 12px; color: rgba(255, 255, 255, 0.85); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);">' + _escapeHtml(ctx.homeTeam) + '</span>' +
+                                                '</div>' +
+                                                '<div style="' +
+                                                    'font-size: 24px;' +
+                                                    'font-weight: 700;' +
+                                                    'font-family: \'Orbitron\', monospace;' +
+                                                    'color: ' + (ctx.homeColor || 'rgba(17,24,39,0.9)') + ';' +
+                                                    'text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8), 0 0 20px ' + (ctx.homeColor || 'rgba(255, 255, 255, 0.9)') + '30;' +
+                                                '">' + ctx.liveHomeScore + '</div>' +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
                                 '</div>' +
                                 
                                 // Status text
                                 '<div style="' +
                                     'font-family: \'JetBrains Mono\', monospace;' +
                                     'font-size: 11px;' +
-                                    'color: #9ca3af;' +
+                                    'color: rgba(255, 255, 255, 0.85);' +
                                     'text-align: center;' +
                                     'position: relative;' +
                                     'z-index: 1;' +
                                     'text-transform: uppercase;' +
                                     'letter-spacing: 0.5px;' +
+                                    'margin-top: 8px;' +
+                                    'font-weight: 600;' +
+                                    'text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);' +
                                 '">' + _escapeHtml(betStatus.statusText) + '</div>' +
                             '</div>' +
                             
@@ -1579,8 +1752,10 @@
         });
     }
     
+    var liveGameRefreshInterval = null;
+    
     function loadUpcomingGames() {
-        fetch('/api/upcoming-games')
+        fetch('/api/upcoming-games?_=' + Date.now()) // Cache bust for fresh data
             .then(function(response) {
                 if (!response.ok) {
                     throw new Error('HTTP ' + response.status + ': ' + response.statusText);
@@ -1593,6 +1768,30 @@
                 if (!data.games || data.games.length === 0) {
                     slider.innerHTML = '<p class="text-gray-500 text-sm">No upcoming games found</p>';
                     return;
+                }
+                
+                // Check if any games are live - if so, set up auto-refresh
+                var hasLiveGames = data.games.some(function(g) {
+                    return g.status === 'In Progress' || 
+                           g.statusDescription === 'In Progress' ||
+                           (g.statusDetail && (
+                               g.statusDetail.toLowerCase().indexOf('quarter') !== -1 ||
+                               g.statusDetail.toLowerCase().indexOf('qtr') !== -1 ||
+                               g.statusDetail.match(/Q[1-4]/) ||
+                               g.statusDetail.match(/OT/)
+                           ));
+                });
+                
+                // Set up auto-refresh for live games (every 30 seconds)
+                if (hasLiveGames && !liveGameRefreshInterval) {
+                    liveGameRefreshInterval = setInterval(function() {
+                        loadUpcomingGames();
+                    }, 30000); // 30 seconds
+                    console.log('🔄 Auto-refresh enabled for live games (30s interval)');
+                } else if (!hasLiveGames && liveGameRefreshInterval) {
+                    clearInterval(liveGameRefreshInterval);
+                    liveGameRefreshInterval = null;
+                    console.log('⏸️ Auto-refresh disabled (no live games)');
                 }
                 
                 var gamesHtml = '';
