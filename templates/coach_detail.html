@@ -218,6 +218,71 @@
             mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
             -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
         }
+
+        /* Mobile-First Chart Styles */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        /* Mobile chart optimizations */
+        @media (max-width: 768px) {
+            .chart-container {
+                padding: 0;
+                margin: 0 -1rem;
+            }
+            
+            #timeline-chart {
+                min-width: 100vw;
+                height: 400px !important;
+            }
+            
+            .analytics-table {
+                font-size: 0.8rem;
+            }
+            
+            .analytics-table th,
+            .analytics-table td {
+                padding: 8px 12px;
+            }
+            
+            /* Mobile tab navigation */
+            #tabContainer {
+                padding-bottom: 8px;
+            }
+            
+            .tab-btn {
+                font-size: 10px;
+                padding: 8px 12px;
+                min-width: auto;
+            }
+        }
+        
+        /* Team Logo Watermark for Coach Photo */
+        .coach-photo-container {
+            position: relative;
+        }
+        
+        .team-logo-watermark {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            opacity: 0.12;
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+            transition: opacity 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .team-logo-watermark {
+                opacity: 0.08;
+                background-size: 70%;
+            }
+        }
     </style>
 </head>
 <body class="antialiased min-h-screen relative selection:bg-white/30 selection:text-white">
@@ -255,14 +320,17 @@
                 <div class="p-6 md:p-8 flex flex-col md:flex-row items-center justify-between relative z-10 h-full gap-6">
                     
                     <!-- LEFT: Coach Headshot (Premier Look) -->
-                    <div class="relative w-48 h-48 md:w-56 md:h-56 shrink-0 flex items-end justify-center rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 group/headshot">
+                    <div class="coach-photo-container relative w-48 h-48 md:w-56 md:h-56 shrink-0 flex items-end justify-center rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 group/headshot">
+                        <!-- Team Logo Watermark -->
+                        <div id="team-logo-watermark" class="team-logo-watermark"></div>
+                        
                         <!-- Sleek Shine Gradient -->
                         <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 z-20 pointer-events-none"></div>
                         
                         <!-- Bottom Depth Gradient -->
                         <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none"></div>
                         
-                        <img id="coach-headshot" src="" class="w-full h-full object-cover object-top opacity-0 transition-opacity duration-700 filter contrast-110 saturate-105" alt="Coach">
+                        <img id="coach-headshot" src="" class="relative z-15 w-full h-full object-cover object-top opacity-0 transition-opacity duration-700 filter contrast-110 saturate-105" alt="Coach">
                     </div>
 
                     <!-- CENTER: Info & Minimized Stats -->
@@ -719,9 +787,15 @@
                 
                 const logoImg = document.getElementById('team-logo');
                 const logoReflect = document.getElementById('team-logo-reflect');
+                const logoWatermark = document.getElementById('team-logo-watermark');
                 
                 if(logoImg) logoImg.src = logoUrl;
                 if(logoReflect) logoReflect.src = logoUrl;
+                
+                // Set team logo watermark behind coach photo
+                if(logoWatermark && logoUrl) {
+                    logoWatermark.style.backgroundImage = `url('${logoUrl}')`;
+                }
 
                 // Handle Coach Headshot
                 const headshotImg = document.getElementById('coach-headshot');
@@ -933,8 +1007,10 @@
                     </div>
                     
                     <!-- Chart Container -->
-                    <div class="p-6">
-                        <div id="timeline-chart" style="height: 650px; width: 100%;"></div>
+                    <div class="p-3 md:p-6">
+                        <div class="chart-container">
+                            <div id="timeline-chart" style="height: 650px; width: 100%;"></div>
+                        </div>
                     </div>
                 </div>
             `;
@@ -1077,6 +1153,10 @@
             console.log('Plot bands:', chartPlotBands.length);
             console.log('Achievement flags:', chartFlags.length);
             
+            // Mobile detection and responsive config
+            const isMobile = window.innerWidth < 768;
+            const isTablet = window.innerWidth < 1024;
+            
             const chartConfig = {
                 chart: {
                     type: 'line',
@@ -1085,20 +1165,25 @@
                         fontFamily: 'JetBrains Mono, monospace'
                     },
                     zooming: {
-                        type: 'x'
+                        type: isMobile ? 'x' : 'xy'
                     },
                     panning: true,
-                    panKey: 'shift',
+                    panKey: isMobile ? undefined : 'shift',
                     scrollablePlotArea: {
-                        minWidth: 800,
+                        minWidth: isMobile ? window.innerWidth - 32 : 800,
                         scrollPositionX: 1
                     },
+                    height: isMobile ? 400 : 650,
+                    marginTop: isMobile ? 20 : 40,
+                    marginRight: isMobile ? 15 : 50,
+                    marginBottom: isMobile ? 60 : 80,
+                    marginLeft: isMobile ? 40 : 60,
                     events: {
                         load: function() {
-                            drawWatermarks(this);
+                            if (!isMobile) drawWatermarks(this);
                         },
                         redraw: function() {
-                            drawWatermarks(this);
+                            if (!isMobile) drawWatermarks(this);
                         }
                     }
                 },
@@ -1110,20 +1195,22 @@
                     labels: {
                         style: {
                             color: '#94a3b8',
-                            fontSize: '11px'
-                        }
+                            fontSize: isMobile ? '9px' : '11px'
+                        },
+                        rotation: isMobile ? -45 : 0,
+                        step: isMobile ? 2 : 1
                     },
                     gridLineColor: 'rgba(255, 255, 255, 0.05)',
                     lineColor: 'rgba(255, 255, 255, 0.1)',
-                    plotBands: chartPlotBands
+                    plotBands: isMobile ? [] : chartPlotBands
                 },
                 yAxis: [{
                     // Primary Y-axis: Win Percentage
                     title: {
-                        text: 'Win Percentage',
+                        text: isMobile ? 'Win %' : 'Win Percentage',
                         style: {
                             color: '#22C55E',
-                            fontSize: '12px',
+                            fontSize: isMobile ? '10px' : '12px',
                             fontWeight: 'bold'
                         }
                     },
@@ -1131,7 +1218,7 @@
                         format: '{value}%',
                         style: {
                             color: '#22C55E',
-                            fontSize: '11px'
+                            fontSize: isMobile ? '9px' : '11px'
                         }
                     },
                     gridLineColor: 'rgba(255, 255, 255, 0.05)',
@@ -1155,17 +1242,17 @@
                 }, {
                     // Secondary Y-axis: AP Ranking Quality (0-100 scale)
                     title: {
-                        text: 'AP Rank Quality',
+                        text: isMobile ? 'AP Rank' : 'AP Rank Quality',
                         style: {
                             color: '#EAB308',
-                            fontSize: '12px',
+                            fontSize: isMobile ? '10px' : '12px',
                             fontWeight: 'bold'
                         }
                     },
                     labels: {
                         style: {
                             color: '#EAB308',
-                            fontSize: '11px'
+                            fontSize: isMobile ? '9px' : '11px'
                         }
                     },
                     gridLineColor: 'transparent',
@@ -1175,10 +1262,10 @@
                 }, {
                     // Tertiary Y-axis: Point Margin
                     title: {
-                        text: 'Avg Margin',
+                        text: isMobile ? 'Margin' : 'Avg Margin',
                         style: {
                             color: '#334155',
-                            fontSize: '12px',
+                            fontSize: isMobile ? '10px' : '12px',
                             fontWeight: 'bold'
                         }
                     },
@@ -1186,7 +1273,7 @@
                         format: '{value}',
                         style: {
                             color: '#334155',
-                            fontSize: '11px'
+                            fontSize: isMobile ? '9px' : '11px'
                         }
                     },
                     gridLineColor: 'transparent',
@@ -1199,17 +1286,17 @@
                 }, {
                     // Quaternary Y-axis: Win Streak
                     title: {
-                        text: 'Win Streak',
+                        text: isMobile ? 'Streak' : 'Win Streak',
                         style: {
                             color: '#475569',
-                            fontSize: '12px',
+                            fontSize: isMobile ? '10px' : '12px',
                             fontWeight: 'bold'
                         }
                     },
                     labels: {
                         style: {
                             color: '#475569',
-                            fontSize: '11px'
+                            fontSize: isMobile ? '9px' : '11px'
                         }
                     },
                     gridLineColor: 'transparent',
@@ -1217,12 +1304,12 @@
                     opposite: false
                 }],
                 legend: {
-                    enabled: true,
+                    enabled: !isMobile,
                     align: 'center',
                     verticalAlign: 'bottom',
                     itemStyle: {
                         color: '#94a3b8',
-                        fontSize: '11px',
+                        fontSize: isMobile ? '9px' : '11px',
                         fontFamily: 'JetBrains Mono, monospace'
                     },
                     itemHoverStyle: {
@@ -1232,7 +1319,8 @@
                     borderColor: 'rgba(255, 255, 255, 0.1)',
                     borderWidth: 1,
                     borderRadius: 4,
-                    padding: 8
+                    padding: isMobile ? 4 : 8,
+                    maxHeight: isMobile ? 50 : undefined
                 },
                 plotOptions: {
                     line: {
@@ -1306,15 +1394,21 @@
                         // Get team logo if available
                         const teamLogo = currentCoach && currentCoach.school_logo ? currentCoach.school_logo : '';
                         
+                        // Mobile-responsive tooltip sizing
+                        const tooltipWidth = isMobile ? '240px' : '280px';
+                        const tooltipPadding = isMobile ? '12px' : '16px';
+                        const logoSize = isMobile ? '30px' : '40px';
+                        
                         let html = `
                             <div style="
-                                min-width: 280px;
+                                min-width: ${tooltipWidth};
+                                max-width: ${isMobile ? '90vw' : '320px'};
                                 background: rgba(15, 23, 42, 0.85);
                                 backdrop-filter: blur(40px) saturate(180%);
                                 -webkit-backdrop-filter: blur(40px) saturate(180%);
                                 border: 1px solid rgba(255, 255, 255, 0.3);
                                 border-radius: 12px;
-                                padding: 16px;
+                                padding: ${tooltipPadding};
                                 position: relative;
                                 overflow: hidden;
                                 box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -1327,8 +1421,8 @@
                                     position: absolute;
                                     top: 8px;
                                     right: 8px;
-                                    width: 40px;
-                                    height: 40px;
+                                    width: ${logoSize};
+                                    height: ${logoSize};
                                     opacity: 0.15;
                                     background-image: url('${teamLogo}');
                                     background-size: contain;
@@ -1391,108 +1485,117 @@
                         return html;
                     }
                 },
-                series: [{
-                    name: 'Win Percentage',
-                    type: 'area',
-                    data: gameData,
-                    yAxis: 0,
-                    color: '#22C55E', // Professional green for success
-                    fillColor: {
-                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                        stops: [
-                            [0, 'rgba(34, 197, 94, 0.3)'],
-                            [1, 'rgba(34, 197, 94, 0.05)']
-                        ]
-                    },
-                    zones: [{
-                        value: 50,
-                        color: '#EF4444', // Professional red for poor performance
+                series: [
+                    // Primary series - always show
+                    {
+                        name: 'Win Percentage',
+                        type: 'area',
+                        data: gameData,
+                        yAxis: 0,
+                        color: '#22C55E', // Professional green for success
                         fillColor: {
                             linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
                             stops: [
-                                [0, 'rgba(239, 68, 68, 0.3)'],
-                                [1, 'rgba(239, 68, 68, 0.05)']
+                                [0, 'rgba(34, 197, 94, 0.3)'],
+                                [1, 'rgba(34, 197, 94, 0.05)']
                             ]
+                        },
+                        zones: [{
+                            value: 50,
+                            color: '#EF4444', // Professional red for poor performance
+                            fillColor: {
+                                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                                stops: [
+                                    [0, 'rgba(239, 68, 68, 0.3)'],
+                                    [1, 'rgba(239, 68, 68, 0.05)']
+                                ]
+                            }
+                        }, {
+                            color: '#22C55E'
+                        }],
+                        lineWidth: isMobile ? 2 : 3,
+                        marker: {
+                            enabled: true,
+                            radius: isMobile ? 2 : 3,
+                            symbol: 'circle'
+                        }
+                    },
+                    // Show fewer series on mobile for clarity
+                    ...(isMobile ? [] : [{
+                        name: 'Home Win %',
+                        type: 'line',
+                        data: weeklyHomeWinPct,
+                        yAxis: 0,
+                        color: '#16A34A', // Darker green for home performance
+                        dashStyle: 'ShortDot',
+                        lineWidth: 2,
+                        marker: {
+                            enabled: false
                         }
                     }, {
-                        color: '#22C55E'
-                    }],
-                    lineWidth: 3,
-                    marker: {
-                        enabled: true,
-                        radius: 3,
-                        symbol: 'circle'
-                    }
-                }, {
-                    name: 'Home Win %',
-                    type: 'line',
-                    data: weeklyHomeWinPct,
-                    yAxis: 0,
-                    color: '#16A34A', // Darker green for home performance
-                    dashStyle: 'ShortDot',
-                    lineWidth: 2,
-                    marker: {
-                        enabled: false
-                    }
-                }, {
-                    name: 'Conference Win %',
-                    type: 'line',
-                    data: weeklyConfWinPct,
-                    yAxis: 0,
-                    color: '#15803D', // Forest green for conference
-                    dashStyle: 'ShortDot',
-                    lineWidth: 2,
-                    marker: {
-                        enabled: false
-                    }
-                }, {
-                    name: 'AP Ranking Quality',
-                    type: 'spline',
-                    data: weeklyAPRank,
-                    yAxis: 1,
-                    color: '#EAB308', // Professional yellow for rankings
-                    dashStyle: 'ShortDash',
-                    lineWidth: 2,
-                    marker: {
-                        enabled: false
-                    }
-                }, {
-                    name: 'Avg Point Margin',
-                    type: 'spline',
-                    data: weeklyMargin,
-                    yAxis: 2,
-                    color: '#64748B', // Keep margin neutral gray
-                    lineWidth: 2,
-                    marker: {
-                        enabled: false
-                    }
-                }, {
-                    name: 'Win Streak',
-                    type: 'column',
-                    data: weeklyWinStreak,
-                    yAxis: 3,
-                    color: 'rgba(34, 197, 94, 0.6)', // Green translucent for streaks
-                    borderWidth: 0
-                }, {
-                    // Achievement flags
-                    type: 'flags',
-                    name: 'Achievements',
-                    data: chartFlags,
-                    onSeries: 'Win Percentage',
-                    shape: 'flag',
-                    width: 20,
-                    lineWidth: 2,
-                    states: {
-                        hover: {
-                            fillColor: '#ffffff'
+                        name: 'Conference Win %',
+                        type: 'line',
+                        data: weeklyConfWinPct,
+                        yAxis: 0,
+                        color: '#15803D', // Forest green for conference
+                        dashStyle: 'ShortDot',
+                        lineWidth: 2,
+                        marker: {
+                            enabled: false
+                        }
+                    }]),
+                    {
+                        name: isMobile ? 'AP Rank' : 'AP Ranking Quality',
+                        type: 'spline',
+                        data: weeklyAPRank,
+                        yAxis: 1,
+                        color: '#EAB308', // Professional yellow for rankings
+                        dashStyle: 'ShortDash',
+                        lineWidth: 2,
+                        marker: {
+                            enabled: false
                         }
                     },
-                    style: {
-                        fontSize: '12px',
-                        color: '#ffffff'
+                    ...(isMobile ? [] : [{
+                        name: 'Avg Point Margin',
+                        type: 'spline',
+                        data: weeklyMargin,
+                        yAxis: 2,
+                        color: '#64748B', // Keep margin neutral gray
+                        lineWidth: 2,
+                        marker: {
+                            enabled: false
+                        }
+                    }]),
+                    {
+                        name: isMobile ? 'Streak' : 'Win Streak',
+                        type: 'column',
+                        data: weeklyWinStreak,
+                        yAxis: 3,
+                        color: 'rgba(34, 197, 94, 0.6)', // Green translucent for streaks
+                        borderWidth: 0
                     },
-                    y: -30
-                }],
+                    // Achievement flags - smaller on mobile
+                    {
+                        type: 'flags',
+                        name: 'Achievements',
+                        data: chartFlags,
+                        onSeries: 'Win Percentage',
+                        shape: 'flag',
+                        width: isMobile ? 15 : 20,
+                        lineWidth: isMobile ? 1 : 2,
+                        states: {
+                            hover: {
+                                fillColor: '#ffffff'
+                            }
+                        },
+                        style: {
+                            fontSize: isMobile ? '10px' : '12px',
+                            color: '#ffffff'
+                        },
+                        y: isMobile ? -20 : -30
+                    }
+                ],
                 credits: {
                     enabled: false
                 },

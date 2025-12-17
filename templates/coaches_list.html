@@ -270,24 +270,57 @@
             z-index: 0;
             pointer-events: none;
         }
-            z-index: 0;
-            pointer-events: none;
-        }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #F3F4F6; }
-        .dark ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
-        .dark ::-webkit-scrollbar-thumb { background: #4B5563; }
-        ::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
-
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
         .dark ::-webkit-scrollbar-thumb { background: #374151; }
         ::-webkit-scrollbar-thumb:hover { background: #F43F5E; }
+
+        /* Hide scrollbars for filter buttons */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Sticky Controls Optimization */
+        .hud-panel.sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            backdrop-filter: blur(40px) saturate(1.8) brightness(1.1) !important;
+            -webkit-backdrop-filter: blur(40px) saturate(1.8) brightness(1.1) !important;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 70%) !important;
+        }
+
+        .dark .hud-panel.sticky {
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 70%) !important;
+        }
+
+        /* Disable transform on sticky panels to maintain position */
+        .hud-panel.sticky:hover {
+            transform: none !important;
+        }
+
+        /* Mobile-specific sticky adjustments */
+        @media (max-width: 768px) {
+            .hud-panel.sticky {
+                margin-left: -1rem;
+                margin-right: -1rem;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
 
         /* Dark Mode Header */
         .dark header {
@@ -315,7 +348,7 @@
             <div class="flex items-center gap-4">
                 <div class="w-2 h-8 bg-white/60 shadow-[0_0_15px_rgba(255,255,255,0.3)]"></div>
                 <a href="/" class="font-display font-bold text-xl tracking-wider">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-900 via-red-800 via-red-700 via-red-600 to-red-500 drop-shadow-sm" style="background-image: linear-gradient(135deg, #7f1d1d 0%, #991b1b 25%, #b91c1c 50%, #dc2626 75%, #ef4444 100%); -webkit-background-clip: text; background-clip: text; filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));">GAMEDAY+</span> <span class="text-xs text-white/50 font-mono align-top mt-1 ml-1">SYS.V.2.0</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-900 via-red-700 to-red-500 drop-shadow-sm" style="background-image: linear-gradient(135deg, #7f1d1d 0%, #991b1b 25%, #b91c1c 50%, #dc2626 75%, #ef4444 100%); -webkit-background-clip: text; background-clip: text; filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));">GAMEDAY+</span> <span class="text-xs text-white/50 font-mono align-top mt-1 ml-1">SYS.V.2.0</span>
                 </a>
             </div>
             
@@ -397,43 +430,48 @@
         </div>
 
         <!-- Controls Bar -->
-        <div class="hud-panel rounded-2xl p-6 mb-8 sticky top-20 z-40">
-            <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
+        <div class="hud-panel rounded-2xl p-4 md:p-6 mb-8 border border-white/30">
+            <div class="flex flex-col gap-4">
                 
-                <!-- Filters -->
-                <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
-                    <i data-lucide="filter" class="w-4 h-4 text-gray-500 mr-2 flex-shrink-0"></i>
-                    <button onclick="filterCoaches('all')" id="filter-all" class="filter-btn active px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">All</button>
-                    <button onclick="filterCoaches('SEC')" id="filter-sec" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">SEC</button>
-                    <button onclick="filterCoaches('Big Ten')" id="filter-bigten" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">Big Ten</button>
-                    <button onclick="filterCoaches('Big 12')" id="filter-big12" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">Big 12</button>
-                    <button onclick="filterCoaches('ACC')" id="filter-acc" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">ACC</button>
-                    <button onclick="filterCoaches('Other')" id="filter-other" class="filter-btn px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">G5 / Ind</button>
-                </div>
+                <!-- Mobile: Stack vertically, Desktop: Row layout -->
+                <div class="flex flex-col md:flex-row gap-4 md:justify-between md:items-center">
+                    
+                    <!-- Filters -->
+                    <div class="flex items-center gap-2 overflow-x-auto w-full pb-2 md:pb-0 scrollbar-hide">
+                        <i data-lucide="filter" class="w-4 h-4 text-gray-500 mr-2 flex-shrink-0"></i>
+                        <button onclick="filterCoaches('all')" id="filter-all" class="filter-btn active px-3 md:px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">All</button>
+                        <button onclick="filterCoaches('SEC')" id="filter-sec" class="filter-btn px-3 md:px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">SEC</button>
+                        <button onclick="filterCoaches('Big Ten')" id="filter-bigten" class="filter-btn px-3 md:px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">Big Ten</button>
+                        <button onclick="filterCoaches('Big 12')" id="filter-big12" class="filter-btn px-3 md:px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">Big 12</button>
+                        <button onclick="filterCoaches('ACC')" id="filter-acc" class="filter-btn px-3 md:px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">ACC</button>
+                        <button onclick="filterCoaches('Other')" id="filter-other" class="filter-btn px-3 md:px-4 py-1.5 rounded text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap">G5 / Ind</button>
+                    </div>
 
-                <!-- Sort Options -->
-                <div class="flex items-center gap-2">
-                    <i data-lucide="arrow-up-down" class="w-4 h-4 text-gray-500 flex-shrink-0"></i>
-                    <select id="sort-select" onchange="sortCoaches()" 
-                            class="bg-white/10 backdrop-blur-md border border-white/30 rounded-xl px-3 py-1.5 text-xs font-mono text-white focus:outline-none focus:border-primary/60 focus:bg-white/15 transition-all uppercase">
-                        <option value="name">Name</option>
-                        <option value="win_pct" selected>Win %</option>
-                        <option value="games">Total Games</option>
-                        <option value="school">School</option>
-                    </select>
-                </div>
+                    <!-- Sort & Search Row -->
+                    <div class="flex items-center gap-3 w-full md:w-auto">
+                        <!-- Sort Options -->
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="arrow-up-down" class="w-4 h-4 text-gray-500 flex-shrink-0"></i>
+                            <select id="sort-select" onchange="sortCoaches()" 
+                                    class="bg-white/10 backdrop-blur-md border border-white/30 rounded-xl px-3 py-1.5 text-xs font-mono text-white focus:outline-none focus:border-primary/60 focus:bg-white/15 transition-all uppercase">
+                                <option value="name">Name</option>
+                                <option value="win_pct" selected>Win %</option>
+                                <option value="games">Total Games</option>
+                                <option value="school">School</option>
+                            </select>
+                        </div>
 
-                <div class="flex items-center gap-3 w-full md:w-auto">
-                    <!-- Search -->
-                    <div class="relative w-full md:w-64">
-                        <input 
-                            type="text" 
-                            id="search-input"
-                            placeholder="SEARCH_COACHES..."
-                            class="w-full bg-white/10 backdrop-blur-md border border-white/30 rounded-xl px-4 py-2 pl-10 text-xs font-mono text-white placeholder-white/50 focus:outline-none focus:border-primary/60 focus:bg-white/15 transition-all uppercase shadow-inner"
-                            oninput="searchCoaches()"
-                        >
-                        <i data-lucide="search" class="absolute left-3 top-2 w-4 h-4 text-white/40"></i>
+                        <!-- Search -->
+                        <div class="relative flex-1 md:w-64">
+                            <input 
+                                type="text" 
+                                id="search-input"
+                                placeholder="SEARCH_COACHES..."
+                                class="w-full bg-white/10 backdrop-blur-md border border-white/30 rounded-xl px-4 py-2 pl-10 text-xs font-mono text-white placeholder-white/50 focus:outline-none focus:border-primary/60 focus:bg-white/15 transition-all uppercase shadow-inner"
+                                oninput="searchCoaches()"
+                            >
+                            <i data-lucide="search" class="absolute left-3 top-2 w-4 h-4 text-white/40"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1351,7 +1389,7 @@ STYLE: System Administrator, authoritative, abstract. Max 80 words.`;
     </script>
 
     <!-- AI Modal -->
-    <div id="ai-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div id="ai-modal" class="fixed inset-0 z-[100] items-center justify-center bg-black/80 backdrop-blur-sm" style="display: none;">
         <div class="relative w-full max-w-2xl mx-4 bg-gradient-to-br from-[#0a0e1a] to-[#050810] border-2 border-cyan-500/30 rounded-xl shadow-2xl shadow-cyan-500/20 overflow-hidden">
             <!-- Header -->
             <div class="relative bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border-b border-cyan-500/20 p-6">
