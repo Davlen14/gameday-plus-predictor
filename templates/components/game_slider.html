@@ -1315,24 +1315,71 @@
                     
                     var gameId = game.id || Math.floor(Math.random() * 100000);
                     
-                    // Route to recap if completed, preview if upcoming
+                    // Detect game status: live, completed, or upcoming
+                    // Check multiple fields for robust detection
                     var isCompleted = game.status === 'Final' || game.status === 'final' || 
                                       game.statusDetail === 'Final' || game.statusDescription === 'Final';
-                    var gameUrl = isCompleted ? '/game-recap/' + gameId : '/game-preview/' + gameId;
+                    
+                    var isLive = game.status === 'In Progress' || 
+                                 game.statusDescription === 'In Progress' ||
+                                 (game.statusDetail && (
+                                     game.statusDetail.toLowerCase().indexOf('quarter') !== -1 ||
+                                     game.statusDetail.toLowerCase().indexOf('qtr') !== -1 ||
+                                     game.statusDetail.toLowerCase().indexOf('half') !== -1 ||
+                                     game.statusDetail.match(/Q[1-4]/) ||
+                                     game.statusDetail.match(/OT/)
+                                 ));
+                    
+                    // Debug log for troubleshooting
+                    if (gameId === '401778303' || gameId === 401778303) {
+                        console.log('🏈 Game 401778303 Detection:', {
+                            status: game.status,
+                            statusDetail: game.statusDetail,
+                            statusDescription: game.statusDescription,
+                            isLive: isLive,
+                            isCompleted: isCompleted
+                        });
+                    }
+                    
+                    // Route: live and completed games go to recap (it auto-detects), upcoming to preview
+                    var gameUrl = (isCompleted || isLive) ? '/game-recap/' + gameId : '/game-preview/' + gameId;
                     
                     var awayRank = game.away.rank ? '<span class="team-rank">#' + game.away.rank + '</span>' : '';
                     var homeRank = game.home.rank ? '<span class="team-rank">#' + game.home.rank + '</span>' : '';
                     
-                    var awaySubtext = isCompleted ? 
-                        '<div class="team-score">' + (game.away.score || 0) + '</div>' : 
-                        '<div class="team-record">' + (game.away.record || '') + '</div>';
-                        
-                    var homeSubtext = isCompleted ? 
-                        '<div class="team-score">' + (game.home.score || 0) + '</div>' : 
-                        '<div class="team-record">' + (game.home.record || '') + '</div>';
+                    // Display logic based on game status
+                    var awaySubtext = '';
+                    var homeSubtext = '';
+                    var headerStatus = '';
+                    
+                    if (isLive) {
+                        // Live game - show current scores
+                        awaySubtext = '<div class="team-score">' + (game.away.score || 0) + '</div>';
+                        homeSubtext = '<div class="team-score">' + (game.home.score || 0) + '</div>';
+                        headerStatus = '<span class="blink-live">● LIVE</span>';
+                    } else if (isCompleted) {
+                        // Completed game - show final scores
+                        awaySubtext = '<div class="team-score">' + (game.away.score || 0) + '</div>';
+                        homeSubtext = '<div class="team-score">' + (game.home.score || 0) + '</div>';
+                        headerStatus = '<span>FINAL</span>';
+                    } else {
+                        // Upcoming game - show records
+                        awaySubtext = '<div class="team-record">' + (game.away.record || '') + '</div>';
+                        homeSubtext = '<div class="team-record">' + (game.home.record || '') + '</div>';
+                        headerStatus = '<span>' + dateStr + '</span>';
+                    }
                     
                     var footerContent = '';
-                    if (!isCompleted && (game.betting.spread || game.betting.overUnder)) {
+                    if (isLive) {
+                        // Live game footer - show current quarter/period
+                        var liveStatus = game.status || game.statusDetail || 'Live';
+                        footerContent = '<div class="card-footer">' +
+                            '<div class="odds-item">' +
+                                '<span class="blink-live">●</span>' +
+                                '<span class="odds-value" style="color: #4ade80;">' + liveStatus + '</span>' +
+                            '</div>' +
+                        '</div>';
+                    } else if (!isCompleted && (game.betting.spread || game.betting.overUnder)) {
                         footerContent = '<div class="card-footer">';
                         if (game.betting.spread) {
                             footerContent += '<div class="odds-item"><span class="odds-label">SPREAD</span><span class="odds-value">' + (game.betting.spread > 0 ? '+' : '') + game.betting.spread + '</span></div>';
@@ -1352,7 +1399,7 @@
                         '</div>' +
                         '<div class="content-overlay">' +
                             '<div class="card-header">' +
-                                '<span>' + (isCompleted ? 'FINAL' : dateStr) + '</span>' +
+                                headerStatus +
                                 '<span>' + (game.seasonType === 'postseason' ? 'BOWL' : 'WEEK ' + game.week) + '</span>' +
                             '</div>' +
                             '<div class="matchup-container">' +

@@ -411,7 +411,15 @@ def game_preview_by_id(game_id):
 
 @app.route('/game-recap/<game_id>')
 def game_recap(game_id):
-    """Game recap page - Full play-by-play visualization for completed games"""
+    """Game recap page - Play-by-play visualization for completed games and live games
+    
+    Auto-detects if game is live and enables:
+    - Auto-refresh every 15 seconds
+    - Live score updates with flash animations
+    - Real-time play-by-play updates
+    - Live game clock display
+    - LIVE status indicators
+    """
     return render_template('game_recap.html', game_id=game_id)
 
 
@@ -1542,7 +1550,7 @@ def get_predictions_table(table_name):
 
 @app.route('/api/upcoming-games', methods=['GET'])
 def get_upcoming_games():
-    """Get upcoming games from predictions database"""
+    """Get upcoming games from predictions database with real-time status from ESPN"""
     try:
         conn = sqlite3.connect('instance/predictions.db')
         conn.row_factory = sqlite3.Row
@@ -1562,13 +1570,56 @@ def get_upcoming_games():
         
         games = []
         for row in cursor.fetchall():
+            game_id = row['id']
+            
+            # Try to get live status from ESPN if game service is available
+            status = 'Final' if row['completed'] else 'Scheduled'
+            status_detail = 'Final' if row['completed'] else 'TBD'
+            home_score = row['home_points'] if row['home_points'] is not None else 0
+            away_score = row['away_points'] if row['away_points'] is not None else 0
+            
+            # Fetch live status from ESPN if not completed
+            if espn_service and not row['completed']:
+                try:
+                    espn_data = espn_service.get_game_for_field(str(game_id))
+                    if espn_data and espn_data.get('status'):
+                        espn_status = espn_data['status']
+                        # ESPN service returns simplified status: {'state': 'in', 'period': 2, ...}
+                        status_state = espn_status.get('state', '')
+                        
+                        # Update status based on ESPN data
+                        if status_state == 'in':
+                            # Game is live
+                            status = 'In Progress'
+                            period = espn_status.get('period', 1)
+                            clock = espn_status.get('clock', '')
+                            if period <= 4:
+                                status_detail = f'Q{period} {clock}'
+                            else:
+                                status_detail = f'OT{period - 4} {clock}'
+                            
+                            # Update live scores
+                            if espn_data.get('home') and espn_data.get('away'):
+                                home_score = espn_data['home'].get('score', home_score)
+                                away_score = espn_data['away'].get('score', away_score)
+                        elif status_state == 'post':
+                            # Game is completed
+                            status = 'Final'
+                            status_detail = 'Final'
+                            if espn_data.get('home') and espn_data.get('away'):
+                                home_score = espn_data['home'].get('score', home_score)
+                                away_score = espn_data['away'].get('score', away_score)
+                except Exception as e:
+                    print(f"⚠️  Could not fetch live status for game {game_id}: {e}")
+            
             games.append({
-                'id': row['id'],
+                'id': game_id,
                 'date': row['start_date'],
                 'week': row['week'],
                 'seasonType': row['season_type'],
-                'status': 'Final' if row['completed'] else 'Scheduled',
-                'statusDetail': 'Final' if row['completed'] else 'TBD',
+                'status': status,
+                'statusDetail': status_detail,
+                'statusDescription': status,  # Add for compatibility
                 'home': {
                     'team': row['home_team'],
                     'abbr': row['home_abbreviation'],
@@ -1578,7 +1629,7 @@ def get_upcoming_games():
                     'record': row['home_record'],
                     'rank': row['home_rank'],
                     'fpi': row['home_fpi'],
-                    'score': row['home_points'] if row['home_points'] is not None else 0
+                    'score': home_score
                 },
                 'away': {
                     'team': row['away_team'],
@@ -1589,7 +1640,7 @@ def get_upcoming_games():
                     'record': row['away_record'],
                     'rank': row['away_rank'],
                     'fpi': row['away_fpi'],
-                    'score': row['away_points'] if row['away_points'] is not None else 0
+                    'score': away_score
                 },
                 'betting': {
                     'provider': row['line_provider'],

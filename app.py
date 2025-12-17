@@ -3189,6 +3189,8 @@ def get_upcoming_games():
         
         games = []
         for row in rows:
+            game_id = row['id']
+            
             # Get colors - prefer from upcoming_games, fallback to coaches_master.db
             home_color = row['home_color']
             home_alt_color = row['home_alt_color']
@@ -3205,13 +3207,54 @@ def get_upcoming_games():
             if not away_alt_color and row['away_team'] in team_colors:
                 away_alt_color = team_colors[row['away_team']]['alt_color']
             
+            # Try to get live status from ESPN if game service is available
+            status = 'Final' if row['completed'] else 'Scheduled'
+            status_detail = 'Final' if row['completed'] else 'TBD'
+            home_score = row['home_points'] if row['home_points'] is not None else 0
+            away_score = row['away_points'] if row['away_points'] is not None else 0
+            
+            # Fetch live status from ESPN if not completed
+            if espn_game_service and not row['completed']:
+                try:
+                    espn_data = espn_game_service.get_game_for_field(str(game_id))
+                    if espn_data and espn_data.get('status'):
+                        espn_status = espn_data['status']
+                        # ESPN service returns simplified status: {'state': 'in', 'period': 2, ...}
+                        status_state = espn_status.get('state', '')
+                        
+                        # Update status based on ESPN data
+                        if status_state == 'in':
+                            # Game is live
+                            status = 'In Progress'
+                            period = espn_status.get('period', 1)
+                            clock = espn_status.get('clock', '')
+                            if period <= 4:
+                                status_detail = f'Q{period} {clock}'
+                            else:
+                                status_detail = f'OT{period - 4} {clock}'
+                            
+                            # Update live scores
+                            if espn_data.get('home') and espn_data.get('away'):
+                                home_score = espn_data['home'].get('score', home_score)
+                                away_score = espn_data['away'].get('score', away_score)
+                        elif status_state == 'post':
+                            # Game is completed
+                            status = 'Final'
+                            status_detail = 'Final'
+                            if espn_data.get('home') and espn_data.get('away'):
+                                home_score = espn_data['home'].get('score', home_score)
+                                away_score = espn_data['away'].get('score', away_score)
+                except Exception as e:
+                    print(f"⚠️  Could not fetch live status for game {game_id}: {e}")
+            
             games.append({
-                'id': row['id'],
+                'id': game_id,
                 'date': row['start_date'],
                 'week': row['week'],
                 'seasonType': row['season_type'],
-                'status': 'Final' if row['completed'] else 'Scheduled',
-                'statusDetail': 'Final' if row['completed'] else 'TBD',
+                'status': status,
+                'statusDetail': status_detail,
+                'statusDescription': status,  # Add for compatibility
                 'home': {
                     'id': row['home_id'],
                     'team': row['home_team'],
@@ -3223,7 +3266,7 @@ def get_upcoming_games():
                     'rank': row['home_rank'],
                     'fpi': row['home_fpi'],
                     'conference': row['home_conference'],
-                    'score': row['home_points'] if row['home_points'] is not None else 0
+                    'score': home_score
                 },
                 'away': {
                     'id': row['away_id'],
@@ -3236,7 +3279,7 @@ def get_upcoming_games():
                     'rank': row['away_rank'],
                     'fpi': row['away_fpi'],
                     'conference': row['away_conference'],
-                    'score': row['away_points'] if row['away_points'] is not None else 0
+                    'score': away_score
                 },
                 'betting': {
                     'provider': row['line_provider'],
@@ -3418,7 +3461,15 @@ def game_detail_dynamic(game_id: int):
 
 @app.route('/game-recap/<game_id>')
 def game_recap(game_id):
-    """Game recap page - Full play-by-play visualization for completed games"""
+    """Game recap page - Play-by-play visualization for completed games and live games
+    
+    Auto-detects if game is live and enables:
+    - Auto-refresh every 15 seconds
+    - Live score updates with flash animations
+    - Real-time play-by-play updates
+    - Live game clock display
+    - LIVE status indicators
+    """
     return render_template('game_recap.html', game_id=game_id)
 
 
