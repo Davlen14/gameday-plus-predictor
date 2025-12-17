@@ -25,7 +25,7 @@ Usage:
     Then visit: http://localhost:5555
 """
 
-from flask import Flask, jsonify, render_template, request, send_from_directory
+from flask import Flask, jsonify, render_template, request, send_from_directory, redirect
 from flask_cors import CORS
 import sqlite3
 import os
@@ -539,6 +539,17 @@ def serve_predictor_assets(path):
             }), 404
     except Exception as e:
         return jsonify({'error': 'Error serving predictor assets', 'details': str(e)}), 500
+
+
+@app.route('/predict/<team1>/<team2>')
+def predict_game(team1, team2):
+    """
+    Handle predict button from game cards - redirect to predictor with teams pre-filled
+    """
+    from urllib.parse import quote
+    # Redirect to the predictor with the teams in the URL hash/query
+    return redirect(f'/predictor/?home={quote(team1)}&away={quote(team2)}')
+
 
 @app.route('/ats_data_2025.json')
 def serve_ats_data():
