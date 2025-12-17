@@ -551,6 +551,43 @@ def predict_game(team1, team2):
     return redirect(f'/predictor/?home={quote(team1)}&away={quote(team2)}')
 
 
+@app.route('/predict', methods=['POST', 'OPTIONS'])
+def predict_api():
+    """
+    Proxy prediction requests to the full prediction engine on port 5002
+    If app.py isn't running, return helpful error message
+    """
+    if request.method == 'OPTIONS':
+        response = jsonify({'status': 'ok'})
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        response.headers.add('Access-Control-Allow-Methods', 'POST')
+        return response
+    
+    try:
+        import requests
+        # Forward the request to app.py on port 5002
+        prediction_url = 'http://localhost:5002/predict'
+        response = requests.post(
+            prediction_url,
+            json=request.get_json(),
+            headers={'Content-Type': 'application/json'},
+            timeout=30
+        )
+        return jsonify(response.json()), response.status_code
+    except requests.exceptions.ConnectionError:
+        return jsonify({
+            'error': 'Prediction service unavailable',
+            'message': 'Start the prediction engine: python3 app.py',
+            'note': 'app_master.py serves the UI, app.py runs predictions'
+        }), 503
+    except Exception as e:
+        return jsonify({
+            'error': 'Prediction failed',
+            'message': str(e)
+        }), 500
+
+
 @app.route('/ats_data_2025.json')
 def serve_ats_data():
     """Serve ATS dataset used by the predictor"""
