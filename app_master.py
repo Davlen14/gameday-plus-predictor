@@ -598,6 +598,64 @@ def api_get_coaches():
     })
 
 
+@app.route('/api/nil')
+@app.route('/api/nil/valuations')
+def api_nil_valuations():
+    """
+    API endpoint for NIL valuations data
+    Returns team NIL data for dashboard display
+    """
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        # Check if NIL-related tables exist
+        cursor.execute("""
+            SELECT name FROM sqlite_master 
+            WHERE type='table' AND (name LIKE '%nil%' OR name LIKE '%valuation%')
+        """)
+        nil_tables = cursor.fetchall()
+        
+        if not nil_tables:
+            # Return teams data as fallback if no NIL table exists
+            cursor.execute("""
+                SELECT 
+                    id, school, mascot, conference, logo_url, color
+                FROM teams 
+                ORDER BY school
+                LIMIT 50
+            """)
+            teams = rows_to_list(cursor.fetchall())
+            conn.close()
+            
+            return jsonify({
+                'teams': teams,
+                'count': len(teams),
+                'message': 'NIL data not yet available, showing teams'
+            })
+        
+        # If NIL data exists, fetch it (adjust based on actual table structure)
+        table_name = nil_tables[0][0]
+        cursor.execute(f"SELECT * FROM {table_name} LIMIT 50")
+        
+        data = rows_to_list(cursor.fetchall())
+        conn.close()
+        
+        return jsonify({
+            'data': data,
+            'count': len(data),
+            'table': table_name
+        })
+        
+    except Exception as e:
+        return jsonify({
+            'error': str(e),
+            'message': 'Failed to fetch NIL data',
+            'data': [],
+            'count': 0
+        }), 500
+
+
 @app.route('/api/teams')
 def api_get_teams():
     """Get list of all FBS teams"""
