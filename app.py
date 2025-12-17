@@ -2318,36 +2318,349 @@ def get_live_game():
             'error': f'Failed to fetch live game data: {str(e)}'
         }), 500
 
-@app.route('/teams', methods=['GET'])
+@app.route('/api/teams', methods=['GET'])
 def get_teams():
-    """Get list of FBS teams for dropdowns from local fbs.json file"""
+    """Get list of all FBS teams from coaches_master.db"""
     try:
-        import json
+        conn = sqlite3.connect('instance/coaches_master.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
         
-        # Load teams from local fbs.json file
-        with open('fbs.json', 'r') as f:
-            teams_data = json.load(f)
+        cursor.execute("""
+            SELECT 
+                t.id,
+                t.school,
+                t.mascot,
+                t.abbreviation,
+                t.conference,
+                t.division,
+                t.classification,
+                t.color,
+                t.alt_color,
+                t.logo_url,
+                t.location_name,
+                t.city,
+                t.state,
+                t.capacity,
+                COUNT(DISTINCT r.id) as total_rankings,
+                COUNT(DISTINCT s.id) as total_seasons,
+                ts.wins as latest_wins,
+                ts.losses as latest_losses,
+                ts.sp_rating as latest_sp,
+                ts.talent_composite as latest_talent
+            FROM teams t
+            LEFT JOIN team_rankings r ON t.id = r.team_id
+            LEFT JOIN team_seasons s ON t.id = s.team_id
+            LEFT JOIN team_seasons ts ON t.id = ts.team_id AND ts.season = (SELECT MAX(season) FROM team_seasons)
+            GROUP BY t.id
+            ORDER BY t.school
+        """)
         
-        # Sort teams by school name and format for frontend
-        sorted_teams = sorted(teams_data, key=lambda x: x['school'])
-        formatted_teams = []
+        teams = [dict(row) for row in cursor.fetchall()]
+        conn.close()
         
-        for team in sorted_teams:
-            formatted_teams.append({
-                'id': team['id'], 
-                'name': team['school'],
-                'logo': team['logos'][0],  # Regular logo (light mode)
-                'logo_dark': team['logos'][1],  # Dark logo (dark mode)
-                'mascot': team['mascot'],
-                'conference': team['conference'],
-                'primary_color': team['primary_color'],
-                'alt_color': team['alt_color']
+        return jsonify({
+            'teams': teams,
+            'count': len(teams)
+        })
+    except FileNotFoundError as e:
+        return jsonify({'error': 'Database not available', 'message': str(e)}), 503
+    except Exception as e:
+        import traceback
+        return jsonify({
+            'error': 'Failed to load teams',
+            'message': str(e),
+            'traceback': traceback.format_exc()
+        }), 500
+
+@app.route('/api/coaches')
+def api_get_coaches():
+    """Get list of all coaches"""
+    try:
+        conn = sqlite3.connect('instance/coaches_master.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        cursor.execute("""
+            SELECT 
+                c.id, c.name, c.current_school, c.headshot_url,
+                c.career_record, c.career_win_pct, c.total_games, c.created_at,
+                COUNT(DISTINCT r.id) as weeks_ranked
+            FROM coaches c
+            LEFT JOIN coach_rankings r ON c.id = r.coach_id
+            GROUP BY c.id
+            ORDER BY c.name
+        """)
+        
+        coaches = [dict(row) for row in cursor.fetchall()]
+        conn.close()
+        
+        return jsonify({
+            'coaches': coaches,
+            'count': len(coaches)
+        })
+    except Exception as e:
+        import traceback
+        return jsonify({
+            'error': 'Failed to load coaches',
+            'message': str(e),
+            'traceback': traceback.format_exc()
+        }), 500
+
+@app.route('/api/nil/teams')
+def api_nil_teams():
+    """API endpoint for all NIL team summaries"""
+    try:
+        conn = sqlite3.connect('instance/coaches_master.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        # Get all teams
+        cursor.execute('''
+            SELECT 
+                team_id, team_name, total_valuation, avg_valuation, total_players,
+                qb_valuation, rb_valuation, wr_valuation, te_valuation, ol_valuation,
+                dl_valuation, lb_valuation, db_valuation, k_valuation, p_valuation
+            FROM nil_team_summary
+            ORDER BY total_valuation DESC
+        ''')
+        teams = []
+        for row in cursor.fetchall():
+            teams.append({
+                'team_id': row[0],
+                'team_name': row[1],
+                'total_valuation': row[2],
+                'avg_valuation': row[3],
+                'total_players': row[4],
+                'qb_valuation': row[5],
+                'rb_valuation': row[6],
+                'wr_valuation': row[7],
+                'te_valuation': row[8],
+                'ol_valuation': row[9],
+                'dl_valuation': row[10],
+                'lb_valuation': row[11],
+                'db_valuation': row[12],
+                'k_valuation': row[13],
+                'p_valuation': row[14]
             })
         
-        return jsonify({'success': True, 'teams': formatted_teams})
-            
+        # Get global stats
+        cursor.execute('''
+            SELECT 
+                COUNT(*) as total_players,
+                SUM(valuation) as total_valuation,
+                AVG(valuation) as avg_valuation
+            FROM nil_players
+        ''')
+        stats_row = cursor.fetchone()
+        
+        cursor.execute('SELECT COUNT(DISTINCT team_id) FROM nil_team_summary')
+        total_teams = cursor.fetchone()[0]
+        
+        conn.close()
+        
+        return jsonify({
+            'teams': teams,
+            'stats': {
+                'total_players': stats_row[0],
+                'total_valuation': stats_row[1],
+                'avg_valuation': stats_row[2],
+                'total_teams': total_teams
+            }
+        })
     except Exception as e:
-        return jsonify({'error': f'Failed to load teams: {str(e)}'}), 500
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/nil/team/<int:team_id>')
+def api_nil_team(team_id: int):
+    """API endpoint for single team NIL summary"""
+    try:
+        conn = sqlite3.connect('instance/coaches_master.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT 
+                team_id, team_name, total_valuation, avg_valuation, total_players,
+                qb_valuation, rb_valuation, wr_valuation, te_valuation, ol_valuation,
+                dl_valuation, lb_valuation, db_valuation, k_valuation, p_valuation
+            FROM nil_team_summary
+            WHERE team_id = ?
+        ''', (team_id,))
+        
+        row = cursor.fetchone()
+        conn.close()
+        
+        if not row:
+            return jsonify({'error': 'Team not found'}), 404
+        
+        return jsonify({
+            'team_id': row[0],
+            'team_name': row[1],
+            'total_valuation': row[2],
+            'avg_valuation': row[3],
+            'total_players': row[4],
+            'qb_valuation': row[5],
+            'rb_valuation': row[6],
+            'wr_valuation': row[7],
+            'te_valuation': row[8],
+            'ol_valuation': row[9],
+            'dl_valuation': row[10],
+            'lb_valuation': row[11],
+            'db_valuation': row[12],
+            'k_valuation': row[13],
+            'p_valuation': row[14]
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/nil/team/<int:team_id>/players')
+def api_nil_team_players(team_id: int):
+    """API endpoint for team's NIL player list"""
+    try:
+        conn = sqlite3.connect('instance/coaches_master.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT 
+                id, player_name, position, position_order, valuation,
+                eff1, sigma1, eff2, sigma2, weight_2025, is_backup
+            FROM nil_players
+            WHERE team_id = ?
+            ORDER BY valuation DESC
+        ''', (team_id,))
+        
+        players = []
+        for row in cursor.fetchall():
+            players.append({
+                'id': row[0],
+                'player_name': row[1],
+                'position': row[2],
+                'position_order': row[3],
+                'valuation': row[4],
+                'eff1': row[5],
+                'sigma1': row[6],
+                'eff2': row[7],
+                'sigma2': row[8],
+                'weight_2025': row[9],
+                'is_backup': row[10]
+            })
+        
+        conn.close()
+        
+        return jsonify({'players': players})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/nil/team/<int:team_id>/positions')
+def api_nil_team_positions(team_id: int):
+    """API endpoint for team's position group analytics"""
+    try:
+        conn = sqlite3.connect('instance/coaches_master.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT 
+                position, total_players, total_valuation, avg_valuation,
+                avg_eff1, avg_eff2, avg_sigma1, avg_sigma2,
+                starter_valuation, backup_valuation
+            FROM nil_position_groups
+            WHERE team_id = ?
+            ORDER BY total_valuation DESC
+        ''', (team_id,))
+        
+        positions = []
+        for row in cursor.fetchall():
+            positions.append({
+                'position': row[0],
+                'total_players': row[1],
+                'total_valuation': row[2],
+                'avg_valuation': row[3],
+                'avg_eff1': row[4],
+                'avg_eff2': row[5],
+                'avg_sigma1': row[6],
+                'avg_sigma2': row[7],
+                'starter_valuation': row[8],
+                'backup_valuation': row[9]
+            })
+        
+        conn.close()
+        
+        return jsonify({'positions': positions})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/stats/conference-wins')
+def api_get_conference_wins():
+    """Get aggregated conference wins for charts"""
+    try:
+        conn = sqlite3.connect('instance/coaches_master.db')
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        # Get latest season - safely handle empty result
+        cursor.execute("SELECT MAX(season) FROM team_seasons")
+        result = cursor.fetchone()
+        latest_season = result[0] if result and result[0] else 2024
+        
+        query = """
+            SELECT 
+                t.conference,
+                AVG(ts.wins) as avg_wins,
+                SUM(ts.wins) as total_wins,
+                COUNT(t.id) as team_count,
+                AVG(ts.sp_rating) as avg_sp,
+                AVG(ts.talent_composite) as avg_talent,
+                AVG(ts.sp_offense) as avg_offense,
+                AVG(ts.sp_defense) as avg_defense,
+                AVG(ts.fpi_strength_of_schedule) as avg_sos,
+                AVG(ts.turnover_margin) as avg_turnover
+            FROM teams t
+            JOIN team_seasons ts ON t.id = ts.team_id
+            WHERE ts.season = ? AND LOWER(t.classification) = 'fbs'
+            GROUP BY t.conference
+            ORDER BY avg_wins DESC
+        """
+        
+        cursor.execute(query, (latest_season,))
+        rows = cursor.fetchall()
+        conn.close()
+        
+        p5_confs = ['SEC', 'Big Ten', 'Big 12', 'ACC', 'Pac-12']
+        g5_confs = ['American Athletic', 'Mid-American', 'Mountain West', 'Sun Belt', 'Conference USA']
+        
+        data = {
+            'p5': [],
+            'g5': []
+        }
+        
+        for row in rows:
+            conf = row['conference']
+            stats = {
+                'conference': conf,
+                'avg_wins': round(row['avg_wins'], 1),
+                'total_wins': row['total_wins'],
+                'team_count': row['team_count'],
+                'avg_sp': round(row['avg_sp'] or 0, 1),
+                'avg_talent': round(row['avg_talent'] or 0, 0),
+                'avg_offense': round(row['avg_offense'] or 0, 1),
+                'avg_defense': round(row['avg_defense'] or 0, 1),
+                'avg_sos': round(row['avg_sos'] or 0, 1),
+                'avg_turnover': round(row['avg_turnover'] or 0, 1)
+            }
+            
+            if conf in p5_confs:
+                data['p5'].append(stats)
+            elif conf in g5_confs:
+                data['g5'].append(stats)
+                
+        return jsonify(data)
+    except Exception as e:
+        return jsonify({'error': f'Failed to load conference wins: {str(e)}'}), 500
+
+@app.route('/frontend/public/photos/<path:filename>')
+def serve_conference_logos(filename):
+    """Serve conference logos"""
+    return send_from_directory('frontend/public/photos', filename)
 
 @app.route('/api/team/<int:team_id>/drives-stats', methods=['GET'])
 def get_team_drives_stats(team_id):
@@ -3379,6 +3692,11 @@ def master_dashboard():
     """Master Dashboard - Comprehensive visualization of all data"""
     return render_template('master_dashboard.html')
 
+@app.route('/team-showcase')
+def team_showcase():
+    """Team Showcase - Modern team explorer"""
+    return render_template('team_showcase.html')
+
 @app.route('/coaches')
 def coaches_list():
     """Coaches database page"""
@@ -3388,6 +3706,16 @@ def coaches_list():
 def coach_detail(coach_id: int):
     """Individual coach profile page"""
     return render_template('coach_detail.html')
+
+@app.route('/teams')
+def teams_list():
+    """Teams database page"""
+    return render_template('teams_list.html')
+
+@app.route('/team/<int:team_id>')
+def team_detail(team_id: int):
+    """Individual team profile page"""
+    return render_template('team_detail.html')
 
 @app.route('/nil')
 def nil_index():
