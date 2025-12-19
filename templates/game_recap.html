@@ -479,8 +479,8 @@
                                     <feMergeNode in="SourceGraphic"/>
                                 </feMerge>
                             </filter>
-                             <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
-                                <path d="M0,0 L0,5 L5,2.5 z" fill="#a855f7" id="arrow-color" />
+                            <marker id="arrowhead" markerWidth="4" markerHeight="4" refX="3.2" refY="2" orient="auto">
+                                <path d="M0,0 L0,4 L4,2 z" fill="#94a3b8" id="arrow-color" />
                             </marker>
                             
                             <linearGradient id="fieldShine" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -570,9 +570,7 @@
                             </g>
                             
                             <!-- 4. PLAY PATH (Clean Arrow) -->
-                            <path id="ar-path" d="M 60 26.65 Q 65 15 70 26.65" fill="none" stroke="#a855f7" stroke-width="0.5" stroke-linecap="round" stroke-dasharray="1.5 0.8" marker-end="url(#arrowhead)" opacity="0.9">
-                                <animate attributeName="stroke-dashoffset" from="80" to="0" dur="1.5s" repeatCount="indefinite" />
-                            </path>
+                            <path id="ar-path" d="M 60 26.65 Q 65 18 70 26.65" fill="none" stroke="#94a3b8" stroke-width="0.4" stroke-linecap="round" marker-end="url(#arrowhead)" opacity="0.6" />
 
                         </g>
 
@@ -1481,6 +1479,8 @@
             document.getElementById('ar-ball').setAttribute('cx', play.ball);
             document.getElementById('ar-path').setAttribute('d', play.path);
             document.getElementById('ar-path').setAttribute('stroke', play.arrowColor);
+            const arrowHead = document.getElementById('arrow-color');
+            if (arrowHead) arrowHead.setAttribute('fill', play.arrowColor);
             
             // Possession logo on field
             const possLogo = document.getElementById('ar-possession-logo');

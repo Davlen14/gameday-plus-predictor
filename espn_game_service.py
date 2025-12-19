@@ -56,25 +56,36 @@ class ESPNGameService:
             conn = sqlite3.connect(self.coaches_db_path)
             cursor = conn.cursor()
             
-            # Try exact match first
-            cursor.execute("SELECT wordmark_url FROM teams WHERE school = ?", (team_name,))
+            # Try exact match first (preferred)
+            cursor.execute(
+                "SELECT wordmark_url FROM teams WHERE school = ? AND wordmark_url IS NOT NULL",
+                (team_name,)
+            )
             result = cursor.fetchone()
             
             if not result:
-                # Extract first part of team name for partial match
-                # e.g., "Washington Huskies" -> "Washington", "Boise State Broncos" -> "Boise State"
-                team_parts = team_name.split()
-                
-                # Try matching with first word
-                cursor.execute("SELECT wordmark_url FROM teams WHERE school LIKE ? AND wordmark_url IS NOT NULL LIMIT 1", 
-                             (f"{team_parts[0]}%",))
+                # Prefer the longest school name that matches the team prefix
+                cursor.execute("""
+                    SELECT wordmark_url
+                    FROM teams
+                    WHERE wordmark_url IS NOT NULL
+                      AND LOWER(?) LIKE LOWER(school) || '%'
+                    ORDER BY LENGTH(school) DESC
+                    LIMIT 1
+                """, (team_name,))
                 result = cursor.fetchone()
-                
-                # If still no match and we have 2+ words, try first two words
-                if not result and len(team_parts) >= 2:
-                    cursor.execute("SELECT wordmark_url FROM teams WHERE school LIKE ? AND wordmark_url IS NOT NULL LIMIT 1", 
-                                 (f"{team_parts[0]} {team_parts[1]}%",))
-                    result = cursor.fetchone()
+            
+            if not result:
+                # Fallback: match by team prefix (team_name as prefix)
+                cursor.execute("""
+                    SELECT wordmark_url
+                    FROM teams
+                    WHERE wordmark_url IS NOT NULL
+                      AND LOWER(school) LIKE LOWER(?) || '%'
+                    ORDER BY LENGTH(school) DESC
+                    LIMIT 1
+                """, (team_name,))
+                result = cursor.fetchone()
             
             conn.close()
             
@@ -351,16 +362,18 @@ class ESPNGameService:
     def _generate_play_path(self, start: float, end: float, play_type: str) -> str:
         """Generate SVG path for play visualization"""
         mid_x = (start + end) / 2
-        
-        # Curve up for passes, down for rushes
-        if 'pass' in play_type.lower():
-            mid_y = 10  # Curve up
-        elif 'punt' in play_type.lower() or 'kick' in play_type.lower():
-            mid_y = 5   # High arc
-        else:
-            mid_y = 35  # Curve down
-        
-        return f"M {start} 26.65 Q {mid_x} {mid_y} {end} 26.65"
+        base_y = 26.65
+        kind = play_type.lower()
+
+        # Flat for runs, arched for passes
+        if 'rush' in kind or 'run' in kind:
+            return f"M {start} {base_y} L {end} {base_y}"
+        if 'pass' in kind:
+            return f"M {start} {base_y} Q {mid_x} 16 {end} {base_y}"
+        if 'punt' in kind or 'kick' in kind:
+            return f"M {start} {base_y} Q {mid_x} 10 {end} {base_y}"
+
+        return f"M {start} {base_y} Q {mid_x} 22 {end} {base_y}"
     
     def _process_boxscore(self, boxscore: Dict) -> Dict:
         """Process boxscore data for player stats"""
