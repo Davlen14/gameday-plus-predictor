@@ -4,6 +4,7 @@ import asyncio
 import os
 import json
 import sqlite3
+from datetime import datetime, timedelta
 from graphqlpredictor import LightningPredictor
 from run import format_prediction_output
 # from prediction_validator import PredictionValidator, apply_prediction_fixes
@@ -2907,7 +2908,7 @@ def api_get_players():
         
         rows = cursor.fetchall()
         conn.close()
-        
+
         players = [dict(row) for row in rows]
         
         return jsonify({'players': players, 'count': len(players)})
@@ -3993,6 +3994,26 @@ def get_upcoming_games():
         
         rows = cursor.fetchall()
         conn.close()
+
+        force_refresh = request.args.get('force_refresh', '0').lower() in ('1', 'true', 'yes')
+
+        def _parse_game_date(value):
+            if not value:
+                return None
+            if isinstance(value, datetime):
+                return value
+            text = str(value)
+            if text.endswith('Z'):
+                text = text[:-1] + '+00:00'
+            try:
+                return datetime.fromisoformat(text)
+            except ValueError:
+                for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M:%S"):
+                    try:
+                        return datetime.strptime(text, fmt)
+                    except ValueError:
+                        continue
+            return None
         
         # Build team color lookup from coaches_master.db
         team_colors = {}
@@ -4031,30 +4052,44 @@ def get_upcoming_games():
                 away_alt_color = team_colors[row['away_team']]['alt_color']
             
             # Try to get live status from ESPN if game service is available
+            status_state = 'post' if row['completed'] else 'pre'
             status = 'Final' if row['completed'] else 'Scheduled'
             status_detail = 'Final' if row['completed'] else 'TBD'
             home_score = row['home_points'] if row['home_points'] is not None else 0
             away_score = row['away_points'] if row['away_points'] is not None else 0
+
+            game_time = _parse_game_date(row['start_date'])
+            if game_time:
+                now = datetime.now(game_time.tzinfo) if game_time.tzinfo else datetime.utcnow()
+                refresh_window = (
+                    (now >= (game_time - timedelta(hours=6))) and
+                    (now <= (game_time + timedelta(hours=12)))
+                )
+            else:
+                refresh_window = False
+            should_refresh = force_refresh or (not row['completed'] and refresh_window)
             
             # Fetch live status from ESPN if not completed
-            if espn_game_service and not row['completed']:
+            if espn_game_service and should_refresh:
                 try:
-                    espn_data = espn_game_service.get_game_for_field(str(game_id))
+                    espn_data = espn_game_service.get_game_for_field(str(game_id), force_refresh=should_refresh)
                     if espn_data and espn_data.get('status'):
                         espn_status = espn_data['status']
                         # ESPN service returns simplified status: {'state': 'in', 'period': 2, ...}
-                        status_state = espn_status.get('state', '')
+                        status_state = espn_status.get('state', status_state)
                         
                         # Update status based on ESPN data
                         if status_state == 'in':
                             # Game is live
                             status = 'In Progress'
-                            period = espn_status.get('period', 1)
-                            clock = espn_status.get('clock', '')
-                            if period <= 4:
-                                status_detail = f'Q{period} {clock}'
-                            else:
-                                status_detail = f'OT{period - 4} {clock}'
+                            status_detail = espn_status.get('detail', '')
+                            if not status_detail:
+                                period = espn_status.get('period', 1)
+                                clock = espn_status.get('clock', '')
+                                if period <= 4:
+                                    status_detail = f'Q{period} {clock}'
+                                else:
+                                    status_detail = f'OT{period - 4} {clock}'
                             
                             # Update live scores
                             if espn_data.get('home') and espn_data.get('away'):
@@ -4063,12 +4098,17 @@ def get_upcoming_games():
                         elif status_state == 'post':
                             # Game is completed
                             status = 'Final'
-                            status_detail = 'Final'
+                            status_detail = espn_status.get('detail', 'Final') or 'Final'
                             if espn_data.get('home') and espn_data.get('away'):
                                 home_score = espn_data['home'].get('score', home_score)
                                 away_score = espn_data['away'].get('score', away_score)
+                        elif status_state == 'pre':
+                            status = 'Scheduled'
+                            status_detail = espn_status.get('detail', status_detail) or status_detail
                 except Exception as e:
                     print(f"⚠️  Could not fetch live status for game {game_id}: {e}")
+
+            is_completed = bool(row['completed']) or status_state == 'post'
             
             games.append({
                 'id': game_id,
@@ -4078,6 +4118,8 @@ def get_upcoming_games():
                 'status': status,
                 'statusDetail': status_detail,
                 'statusDescription': status,  # Add for compatibility
+                'statusState': status_state,
+                'completed': is_completed,
                 'home': {
                     'id': row['home_id'],
                     'team': row['home_team'],

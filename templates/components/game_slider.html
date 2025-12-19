@@ -2028,26 +2028,27 @@
                     var gameId = game.id || Math.floor(Math.random() * 100000);
                     
                     // Detect game status: live, completed, or upcoming
-                    // Check multiple fields for robust detection
-                    var now = new Date();
-                    var gameTime = new Date(game.date);
-                    var hoursAfterGame = (now - gameTime) / (1000 * 60 * 60); // Hours since game start
+                    // Prefer server-provided state to avoid stale client assumptions
+                    var statusText = String(game.status || '');
+                    var statusDetail = String(game.statusDetail || '');
+                    var statusState = String(game.statusState || '').toLowerCase();
                     
-                    var isCompleted = game.status === 'Final' || game.status === 'final' || 
-                                      game.statusDetail === 'Final' || game.statusDescription === 'Final' ||
-                                      // Also consider games that started more than 4.5 hours ago as completed
-                                      // (typical game duration is 3.5-4 hours)
-                                      (hoursAfterGame > 4.5 && !game.status.includes('Progress'));
+                    var isCompleted = !!game.completed ||
+                                      statusState === 'post' ||
+                                      statusText.toLowerCase() === 'final' ||
+                                      statusDetail.toLowerCase() === 'final';
                     
-                    var isLive = (game.status === 'In Progress' || 
-                                 game.statusDescription === 'In Progress' ||
-                                 (game.statusDetail && (
-                                     game.statusDetail.toLowerCase().indexOf('quarter') !== -1 ||
-                                     game.statusDetail.toLowerCase().indexOf('qtr') !== -1 ||
-                                     game.statusDetail.toLowerCase().indexOf('half') !== -1 ||
-                                     game.statusDetail.match(/Q[1-4]/) ||
-                                     game.statusDetail.match(/OT/)
-                                 ))) && !isCompleted; // Don't show as live if already completed
+                    var isLive = statusState === 'in' ||
+                                 statusText.toLowerCase() === 'in progress' ||
+                                 (statusDetail && (
+                                     statusDetail.toLowerCase().indexOf('quarter') !== -1 ||
+                                     statusDetail.toLowerCase().indexOf('qtr') !== -1 ||
+                                     statusDetail.toLowerCase().indexOf('half') !== -1 ||
+                                     statusDetail.match(/Q[1-4]/i) ||
+                                     statusDetail.match(/OT/i)
+                                 ));
+                    
+                    if (isCompleted) isLive = false;
                     
                     // Debug log for troubleshooting
                     if (gameId === '401778303' || gameId === 401778303) {

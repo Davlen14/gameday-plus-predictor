@@ -4,7 +4,7 @@ ESPN Game Service - Fetches play-by-play, boxscore, and game data from ESPN API
 import requests
 import sqlite3
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any
 
 class ESPNGameService:
@@ -421,16 +421,54 @@ class ESPNGameService:
         try:
             conn = sqlite3.connect(self.db_path)
             cursor = conn.cursor()
-            cursor.execute("SELECT data FROM espn_game_cache WHERE game_id = ?", (game_id,))
+            cursor.execute(
+                "SELECT data, fetched_at, game_status FROM espn_game_cache WHERE game_id = ?",
+                (game_id,)
+            )
             row = cursor.fetchone()
             conn.close()
             
             if row:
-                return json.loads(row[0])
+                data_raw, fetched_at, game_status = row
+                if not self._is_cache_fresh(fetched_at, game_status):
+                    return None
+                return json.loads(data_raw)
         except Exception as e:
             print(f"Cache read error: {e}")
         
         return None
+
+    def _parse_cache_time(self, value) -> Optional[datetime]:
+        if not value:
+            return None
+        if isinstance(value, datetime):
+            return value
+        text = str(value)
+        try:
+            return datetime.fromisoformat(text)
+        except ValueError:
+            for fmt in ("%Y-%m-%d %H:%M:%S.%f", "%Y-%m-%d %H:%M:%S"):
+                try:
+                    return datetime.strptime(text, fmt)
+                except ValueError:
+                    continue
+        return None
+
+    def _is_cache_fresh(self, fetched_at, game_status: Optional[str]) -> bool:
+        ts = self._parse_cache_time(fetched_at)
+        if not ts:
+            return False
+        status = str(game_status or '').lower()
+        if status == 'in':
+            ttl = timedelta(seconds=30)
+        elif status == 'pre':
+            ttl = timedelta(minutes=5)
+        elif status == 'post':
+            ttl = timedelta(hours=6)
+        else:
+            ttl = timedelta(minutes=5)
+        now = datetime.now(ts.tzinfo) if ts.tzinfo else datetime.utcnow()
+        return (now - ts) <= ttl
     
     def _cache_game(self, game_id: str, data: Dict):
         """Cache game data"""
