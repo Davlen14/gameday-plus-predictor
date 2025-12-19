@@ -1,0 +1,354 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "name": "Indiana",
+      "connections_2025": 13,
+      "avg_margin_2025": 32.5,
+      "cfp_matchups_2025": 1,
+      "size": 39
+    },
+    {
+      "id": 1,
+      "name": "Ohio State",
+      "connections_2025": 13,
+      "avg_margin_2025": 26.9,
+      "cfp_matchups_2025": 1,
+      "size": 39
+    },
+    {
+      "id": 2,
+      "name": "Georgia",
+      "connections_2025": 12,
+      "avg_margin_2025": 16.0,
+      "cfp_matchups_2025": 3,
+      "size": 36
+    },
+    {
+      "id": 3,
+      "name": "Texas Tech",
+      "connections_2025": 12,
+      "avg_margin_2025": 31.5,
+      "cfp_matchups_2025": 0,
+      "size": 36
+    },
+    {
+      "id": 4,
+      "name": "Oregon",
+      "connections_2025": 12,
+      "avg_margin_2025": 23.3,
+      "cfp_matchups_2025": 1,
+      "size": 36
+    },
+    {
+      "id": 5,
+      "name": "Oklahoma",
+      "connections_2025": 12,
+      "avg_margin_2025": 12.5,
+      "cfp_matchups_2025": 2,
+      "size": 36
+    },
+    {
+      "id": 6,
+      "name": "Alabama",
+      "connections_2025": 12,
+      "avg_margin_2025": 13.8,
+      "cfp_matchups_2025": 3,
+      "size": 36
+    },
+    {
+      "id": 7,
+      "name": "Ole Miss",
+      "connections_2025": 12,
+      "avg_margin_2025": 17.2,
+      "cfp_matchups_2025": 3,
+      "size": 36
+    },
+    {
+      "id": 8,
+      "name": "Tulane",
+      "connections_2025": 13,
+      "avg_margin_2025": 6.5,
+      "cfp_matchups_2025": 1,
+      "size": 39
+    },
+    {
+      "id": 9,
+      "name": "Texas A&M",
+      "connections_2025": 12,
+      "avg_margin_2025": 14.4,
+      "cfp_matchups_2025": 0,
+      "size": 36
+    },
+    {
+      "id": 10,
+      "name": "Miami",
+      "connections_2025": 12,
+      "avg_margin_2025": 20.2,
+      "cfp_matchups_2025": 0,
+      "size": 36
+    },
+    {
+      "id": 11,
+      "name": "James Madison",
+      "connections_2025": 13,
+      "avg_margin_2025": 21.5,
+      "cfp_matchups_2025": 0,
+      "size": 39
+    }
+  ],
+  "edges": [
+    {
+      "source": 2,
+      "target": 6,
+      "relationship": "2025_DIRECT",
+      "strength": 22.0,
+      "width": 12
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "relationship": "2025_DIRECT",
+      "strength": 15.0,
+      "width": 12
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "relationship": "2025_DIRECT",
+      "strength": 13.0,
+      "width": 12
+    },
+    {
+      "source": 2,
+      "target": 7,
+      "relationship": "2025_DIRECT",
+      "strength": 13.0,
+      "width": 12
+    },
+    {
+      "source": 5,
+      "target": 7,
+      "relationship": "2025_DIRECT",
+      "strength": 12.0,
+      "width": 12
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "relationship": "2025_DIRECT",
+      "strength": 10.0,
+      "width": 10.0
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "relationship": "2025_DIRECT",
+      "strength": 10.0,
+      "width": 10.0
+    },
+    {
+      "source": 0,
+      "target": 1,
+      "relationship": "2025_STRONG_NETWORK",
+      "strength": 6.0,
+      "width": 6.0
+    },
+    {
+      "source": 5,
+      "target": 9,
+      "relationship": "2025_STRONG_NETWORK",
+      "strength": 5.0,
+      "width": 5.0
+    },
+    {
+      "source": 7,
+      "target": 9,
+      "relationship": "2025_STRONG_NETWORK",
+      "strength": 5.0,
+      "width": 5.0
+    },
+    {
+      "source": 2,
+      "target": 9,
+      "relationship": "2025_STRONG_NETWORK",
+      "strength": 4.0,
+      "width": 4.0
+    },
+    {
+      "source": 6,
+      "target": 9,
+      "relationship": "2025_STRONG_NETWORK",
+      "strength": 4.0,
+      "width": 4.0
+    },
+    {
+      "source": 2,
+      "target": 5,
+      "relationship": "2025_MODERATE_NETWORK",
+      "strength": 3.0,
+      "width": 3.0
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "relationship": "2025_MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 2
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "relationship": "2025_MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 2
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "relationship": "2025_MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 2
+    },
+    {
+      "source": 7,
+      "target": 11,
+      "relationship": "2025_MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 2
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "relationship": "2025_MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 2
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 0,
+      "target": 11,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 1,
+      "target": 6,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 1,
+      "target": 9,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 2,
+      "target": 8,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 2,
+      "target": 10,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 2,
+      "target": 11,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 3,
+      "target": 5,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 4,
+      "target": 8,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 5,
+      "target": 8,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 6,
+      "target": 10,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 7,
+      "target": 10,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "relationship": "2025_WEAK_NETWORK",
+      "strength": 1.0,
+      "width": 2
+    }
+  ],
+  "metadata": {
+    "created": "2025-12-17",
+    "season": "2025",
+    "total_teams": 12,
+    "total_connections": 35,
+    "description": "CFP 2025 Season Competitive Network"
+  }
+}

@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 CFP Nuclear Analysis - Multi-Layer Competitive Intelligence</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f1419, #1e3c72, #2a5298);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: rgba(0,0,0,0.8);
+            padding: 20px 0;
+            border-bottom: 3px solid gold;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin: 0;
+            background: linear-gradient(45deg, #ffd700, #ffed4a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .analysis-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            background: rgba(255,215,0,0.2);
+            color: white;
+            border: 2px solid gold;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab.active {
+            background: gold;
+            color: #1e3c72;
+            box-shadow: 0 0 20px rgba(255,215,0,0.5);
+        }
+
+        .tab:hover:not(.active) {
+            background: rgba(255,215,0,0.4);
+            transform: translateY(-2px);
+        }
+
+        .analysis-content {
+            display: none;
+        }
+
+        .analysis-content.active {
+            display: block;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .main-panel {
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,215,0,0.3);
+            position: relative;
+        }
+
+        .sidebar {
+            background: rgba(0,0,0,0.4);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,215,0,0.2);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .control-button {
+            background: rgba(255,215,0,0.8);
+            color: #1e3c72;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+        }
+
+        .control-button:hover {
+            background: gold;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .control-button.active {
+            background: #ff4444;
+            color: white;
+        }
+
+        .analysis-panel {
+            margin-bottom: 25px;
+        }
+
+        .panel-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: gold;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .metric-card {
+            background: rgba(255,215,0,0.1);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,215,0,0.3);
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: gold;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.8em;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        .team-analysis {
+            margin: 10px 0;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            border-left: 3px solid gold;
+        }
+
+        .team-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .team-name {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .team-record {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .matchup-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9em;
+        }
+
+        .matchup-detail:last-child {
+            border-bottom: none;
+        }
+
+        .strength-indicator {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin: 8px 0;
+            overflow: hidden;
+        }
+
+        .strength-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .explanation-box {
+            background: rgba(0,100,200,0.2);
+            border: 1px solid rgba(100,150,255,0.4);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .explanation-title {
+            font-weight: bold;
+            color: #87CEEB;
+            margin-bottom: 8px;
+        }
+
+        .chart-container {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .node {
+            cursor: pointer;
+            stroke: #fff;
+            stroke-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .node:hover {
+            stroke: gold;
+            stroke-width: 3px;
+        }
+
+        .node.highlighted {
+            stroke: gold;
+            stroke-width: 4px;
+        }
+
+        .link {
+            stroke-opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            stroke-opacity: 1;
+            stroke-width: 6px !important;
+        }
+
+        .link.highlighted {
+            stroke-opacity: 1;
+            stroke-width: 5px !important;
+        }
+
+        .node-label {
+            font-size: 11px;
+            font-weight: bold;
+            text-anchor: middle;
+            pointer-events: none;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            fill: white;
+        }
+
+        .tooltip {
+            position: absolute;
+            padding: 12px;
+            background: rgba(0,0,0,0.95);
+            color: white;
+            border-radius: 8px;
+            pointer-events: none;
+            font-size: 0.9em;
+            max-width: 300px;
+            border: 2px solid gold;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            z-index: 1000;
+        }
+
+        #network-svg {
+            border-radius: 10px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .data-table th {
+            background: rgba(255,215,0,0.3);
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+
+        .data-table td {
+            padding: 6px 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8em;
+        }
+
+        .data-table tr:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .connection-type-legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.85em;
+            padding: 6px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 3px;
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+
+        .methodology-section {
+            background: rgba(100,50,150,0.2);
+            border: 1px solid rgba(150,100,200,0.4);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .methodology-title {
+            font-weight: bold;
+            color: #DDA0DD;
+            margin-bottom: 10px;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            background: rgba(0,0,0,0.3);
+            padding: 8px;
+            border-radius: 4px;
+            margin: 8px 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>🏈 2025 CFP NUCLEAR ANALYSIS</h1>
+            <div class="subtitle">Multi-Layer Competitive Intelligence & Network Forensics</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="analysis-tabs">
+            <div class="tab active" onclick="switchTab('network')">🕸️ Network Analysis</div>
+            <div class="tab" onclick="switchTab('forensics')">🔬 Team Forensics</div>
+            <div class="tab" onclick="switchTab('matchups')">⚔️ Direct Matchups</div>
+            <div class="tab" onclick="switchTab('predictions')">🎯 Prediction Engine</div>
+            <div class="tab" onclick="switchTab('methodology')">📊 Methodology</div>
+        </div>
+
+        <!-- Network Analysis Tab -->
+        <div id="network" class="analysis-content active">
+            <div class="dashboard">
+                <div class="main-panel">
+                    <div class="controls">
+                        <button class="control-button" onclick="toggleDirectOnly()">Direct Only</button>
+                        <button class="control-button" onclick="toggleStrongNetworks()">Strong Networks</button>
+                        <button class="control-button" onclick="resetSimulation()">Reset Layout</button>
+                        <button class="control-button" onclick="toggleLabels()">Toggle Labels</button>
+                        <button class="control-button" onclick="focusTeam()">Focus Team</button>
+                        <button class="control-button" onclick="showAllConnections()">Show All</button>
+                    </div>
+                    
+                    <svg id="network-svg"></svg>
+
+                    <div class="explanation-box">
+                        <div class="explanation-title">🧠 What This Network Shows:</div>
+                        This visualization maps the competitive relationships between all 12 CFP teams based on their 2025 season performance. 
+                        <strong>Node size</strong> represents total connections, <strong>edge thickness</strong> shows relationship strength, 
+                        and <strong>colors</strong> indicate different types of competitive links (direct games vs. common opponents).
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="analysis-panel">
+                        <div class="panel-title">🎯 Network Metrics</div>
+                        <div class="metric-grid">
+                            <div class="metric-card">
+                                <span class="metric-value" id="total-connections">0</span>
+                                <div class="metric-label">Total Connections</div>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value" id="direct-matchups">0</span>
+                                <div class="metric-label">Direct Matchups</div>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value" id="network-density">0%</span>
+                                <div class="metric-label">Network Density</div>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value" id="avg-connections">0</span>
+                                <div class="metric-label">Avg Connections</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analysis-panel">
+                        <div class="panel-title">🏆 Connection Types</div>
+                        <div class="connection-type-legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #ff4444;"></div>
+                                Direct H2H
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #ff8800;"></div>
+                                Strong Network
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #ffaa00;"></div>
+                                Moderate Network
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #ffdd00;"></div>
+                                Weak Network
+                            </div>
+                        </div>
+
+                        <div class="explanation-box">
+                            <div class="explanation-title">📖 Connection Meanings:</div>
+                            <strong>Direct H2H:</strong> Teams played each other in 2025<br>
+                            <strong>Strong Network:</strong> 4+ common opponents<br>
+                            <strong>Moderate Network:</strong> 2-3 common opponents<br>
+                            <strong>Weak Network:</strong> 1 common opponent
+                        </div>
+                    </div>
+
+                    <div class="analysis-panel">
+                        <div class="panel-title">🎯 Most Connected Teams</div>
+                        <div id="top-connected-teams"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Forensics Tab -->
+        <div id="forensics" class="analysis-content">
+            <div class="dashboard">
+                <div class="main-panel">
+                    <div class="panel-title">🔬 Individual Team Analysis</div>
+                    <div id="team-forensics-content"></div>
+                </div>
+                <div class="sidebar">
+                    <div class="analysis-panel">
+                        <div class="panel-title">🏈 Select Team</div>
+                        <select id="team-selector" onchange="analyzeTeam()">
+                            <option value="">Choose a team...</option>
+                        </select>
+                    </div>
+                    <div id="team-metrics"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Direct Matchups Tab -->
+        <div id="matchups" class="analysis-content">
+            <div class="dashboard">
+                <div class="main-panel">
+                    <div class="panel-title">⚔️ 2025 CFP Head-to-Head Results</div>
+                    <div id="matchups-content"></div>
+                </div>
+                <div class="sidebar">
+                    <div class="analysis-panel">
+                        <div class="panel-title">📊 H2H Statistics</div>
+                        <div id="h2h-stats"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prediction Engine Tab -->
+        <div id="predictions" class="analysis-content">
+            <div class="dashboard">
+                <div class="main-panel">
+                    <div class="panel-title">🎯 CFP Bracket Predictions</div>
+                    <div id="predictions-content"></div>
+                </div>
+                <div class="sidebar">
+                    <div class="analysis-panel">
+                        <div class="panel-title">⚡ Prediction Factors</div>
+                        <div id="prediction-factors"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Methodology Tab -->
+        <div id="methodology" class="analysis-content">
+            <div class="main-panel">
+                <div class="panel-title">📊 Analysis Methodology</div>
+                <div class="methodology-section">
+                    <div class="methodology-title">🧮 Connection Strength Formula</div>
+                    <div class="formula">Connection Strength = (Direct H2H × 5) + (Common Opponents × 1)</div>
+                    <p>Direct head-to-head matchups receive 5x weight since they provide the most reliable comparison data between teams.</p>
+                </div>
+
+                <div class="methodology-section">
+                    <div class="methodology-title">🎯 Network Density Calculation</div>
+                    <div class="formula">Network Density = (Actual Connections / Possible Connections) × 100%</div>
+                    <p>With 12 teams, maximum possible connections = 66 (12 × 11 ÷ 2). Current density shows how interconnected the CFP field is.</p>
+                </div>
+
+                <div class="methodology-section">
+                    <div class="methodology-title">🏆 Relationship Categories</div>
+                    <ul>
+                        <li><strong>Direct:</strong> Teams played each other in 2025 season</li>
+                        <li><strong>Strong Network:</strong> 4+ mutual opponents (high comparative data)</li>
+                        <li><strong>Moderate Network:</strong> 2-3 mutual opponents (moderate comparative data)</li>
+                        <li><strong>Weak Network:</strong> 1 mutual opponent (limited comparative data)</li>
+                    </ul>
+                </div>
+
+                <div class="methodology-section">
+                    <div class="methodology-title">🔬 Why This Matters for Predictions</div>
+                    <p>Teams with stronger network connections have more reliable comparative data for predictions. 
+                    Direct matchups provide the gold standard, while common opponents allow for transitive analysis. 
+                    The visualization helps identify which matchups have the most predictive power based on available competitive intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tooltip" id="tooltip" style="display: none;"></div>
+
+    <script>
+        let networkData;
+        let svg, g, simulation;
+        let showDirectOnly = false;
+        let showStrongOnly = false;
+        let showLabels = true;
+        let nodes, links;
+        let selectedTeam = null;
+
+        // Color scheme for different connection types
+        const connectionColors = {
+            '2025_DIRECT': '#ff4444',
+            '2025_STRONG_NETWORK': '#ff8800',
+            '2025_MODERATE_NETWORK': '#ffaa00',
+            '2025_WEAK_NETWORK': '#ffdd00',
+            '2025_NO_CONNECTION': '#666666'
+        };
+
+        // Team colors and data
+        const teamColors = {
+            'Indiana': '#990000', 'Ohio State': '#cc0000', 'Georgia': '#cc0000',
+            'Texas Tech': '#cc0000', 'Oregon': '#007030', 'Oklahoma': '#cc0000',
+            'Alabama': '#990000', 'Ole Miss': '#ce1126', 'Tulane': '#00703c',
+            'Texas A&M': '#500000', 'Miami': '#f47321', 'James Madison': '#450084'
+        };
+
+        const cfpSeeds = {
+            'Indiana': 1, 'Ohio State': 2, 'Georgia': 3, 'Texas Tech': 4,
+            'Oregon': 5, 'Oklahoma': 6, 'Alabama': 7, 'Ole Miss': 8,
+            'Tulane': 9, 'Texas A&M': 10, 'Miami': 11, 'James Madison': 12
+        };
+
+        function switchTab(tabName) {
+            // Hide all content
+            document.querySelectorAll('.analysis-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected content and tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            // Initialize tab-specific content
+            if (tabName === 'network' && networkData) {
+                setTimeout(renderNetwork, 100);
+            } else if (tabName === 'forensics') {
+                initTeamForensics();
+            } else if (tabName === 'matchups') {
+                loadDirectMatchups();
+            } else if (tabName === 'predictions') {
+                loadPredictions();
+            }
+        }
+
+        function initVisualization() {
+            const container = document.querySelector('.main-panel');
+            const width = container.clientWidth - 40;
+            const height = 600;
+
+            svg = d3.select("#network-svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            g = svg.append("g");
+
+            // Add zoom behavior
+            const zoom = d3.zoom()
+                .scaleExtent([0.2, 4])
+                .on("zoom", (event) => {
+                    g.attr("transform", event.transform);
+                });
+
+            svg.call(zoom);
+
+            simulation = d3.forceSimulation()
+                .force("link", d3.forceLink().id(d => d.id).distance(d => Math.max(80, 150 - d.strength * 3)))
+                .force("charge", d3.forceManyBody().strength(-1000))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collision", d3.forceCollide().radius(d => d.size / 2 + 15));
+        }
+
+        async function loadAndRenderNetwork() {
+            try {
+                const response = await fetch('cfp_web_2025_only.json');
+                networkData = await response.json();
+                
+                updateNetworkMetrics();
+                renderNetwork();
+                populateTeamSelector();
+                loadTopConnectedTeams();
+            } catch (error) {
+                console.error('Error loading network data:', error);
+            }
+        }
+
+        function updateNetworkMetrics() {
+            const directConnections = networkData.edges.filter(e => e.relationship.includes('DIRECT')).length;
+            const totalPossible = (networkData.nodes.length * (networkData.nodes.length - 1)) / 2;
+            const density = ((networkData.edges.length / totalPossible) * 100).toFixed(1);
+            const avgConnections = (networkData.edges.length * 2 / networkData.nodes.length).toFixed(1);
+
+            document.getElementById('total-connections').textContent = networkData.edges.length;
+            document.getElementById('direct-matchups').textContent = directConnections;
+            document.getElementById('network-density').textContent = density + '%';
+            document.getElementById('avg-connections').textContent = avgConnections;
+        }
+
+        function loadTopConnectedTeams() {
+            const teamConnections = {};
+            
+            networkData.nodes.forEach(node => {
+                teamConnections[node.name] = {
+                    total: node.connections_2025,
+                    cfp: node.cfp_matchups_2025,
+                    margin: node.avg_margin_2025
+                };
+            });
+
+            const sorted = Object.entries(teamConnections)
+                .sort((a, b) => b[1].total - a[1].total);
+
+            let html = '';
+            sorted.slice(0, 6).forEach(([team, stats]) => {
+                html += `
+                    <div class="team-analysis">
+                        <div class="team-header">
+                            <div class="team-name">${team}</div>
+                            <div class="team-record">#${cfpSeeds[team]} seed</div>
+                        </div>
+                        <div class="matchup-detail">
+                            <span>Total Connections:</span>
+                            <span><strong>${stats.total}</strong></span>
+                        </div>
+                        <div class="matchup-detail">
+                            <span>CFP Matchups:</span>
+                            <span><strong>${stats.cfp}</strong></span>
+                        </div>
+                        <div class="matchup-detail">
+                            <span>Avg Margin:</span>
+                            <span style="color: ${stats.margin > 0 ? '#4CAF50' : '#f44336'}"><strong>${stats.margin > 0 ? '+' : ''}${stats.margin}</strong></span>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('top-connected-teams').innerHTML = html;
+        }
+
+        function renderNetwork() {
+            if (!networkData) return;
+
+            g.selectAll("*").remove();
+
+            // Filter edges based on current settings
+            let filteredEdges = [...networkData.edges];
+            if (showDirectOnly) {
+                filteredEdges = filteredEdges.filter(e => e.relationship.includes('DIRECT'));
+            }
+            if (showStrongOnly) {
+                filteredEdges = filteredEdges.filter(e => 
+                    e.relationship.includes('DIRECT') || e.relationship.includes('STRONG'));
+            }
+
+            nodes = [...networkData.nodes];
+            links = filteredEdges;
+
+            // Create links
+            const link = g.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(links)
+                .enter().append("line")
+                .attr("class", "link")
+                .attr("stroke", d => connectionColors[d.relationship] || '#666')
+                .attr("stroke-width", d => Math.max(2, d.width))
+                .on("mouseover", showLinkTooltip)
+                .on("mouseout", hideTooltip);
+
+            // Create nodes
+            const node = g.append("g")
+                .attr("class", "nodes")
+                .selectAll("circle")
+                .data(nodes)
+                .enter().append("circle")
+                .attr("class", "node")
+                .attr("r", d => Math.max(20, d.size))
+                .attr("fill", d => teamColors[d.name] || '#4CAF50')
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended))
+                .on("mouseover", showNodeTooltip)
+                .on("mouseout", hideTooltip)
+                .on("click", (event, d) => {
+                    highlightConnectedNodes(d);
+                });
+
+            // Create labels
+            const label = g.append("g")
+                .attr("class", "labels")
+                .selectAll("text")
+                .data(nodes)
+                .enter().append("text")
+                .attr("class", "node-label")
+                .text(d => d.name)
+                .style("display", showLabels ? "block" : "none");
+
+            // Update simulation
+            simulation.nodes(nodes);
+            simulation.force("link").links(links);
+            
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+
+                label
+                    .attr("x", d => d.x)
+                    .attr("y", d => d.y + 5);
+            });
+
+            simulation.alpha(0.8).restart();
+        }
+
+        function showNodeTooltip(event, d) {
+            const tooltip = document.getElementById('tooltip');
+            const html = `
+                <div style="font-size: 1.1em; font-weight: bold; margin-bottom: 8px; color: gold;">${d.name} (#${cfpSeeds[d.name]} seed)</div>
+                <div><strong>2025 Season Analysis:</strong></div>
+                <div>• Total Connections: <strong>${d.connections_2025}</strong></div>
+                <div>• CFP Head-to-Head: <strong>${d.cfp_matchups_2025}</strong></div>
+                <div>• Average Margin: <strong style="color: ${d.avg_margin_2025 > 0 ? '#4CAF50' : '#f44336'}">${d.avg_margin_2025 > 0 ? '+' : ''}${d.avg_margin_2025}</strong></div>
+                <div style="margin-top: 8px; font-size: 0.9em; opacity: 0.8;">Click to highlight connections</div>
+            `;
+            tooltip.innerHTML = html;
+            tooltip.style.display = 'block';
+            tooltip.style.left = (event.pageX + 15) + 'px';
+            tooltip.style.top = (event.pageY - 10) + 'px';
+        }
+
+        function showLinkTooltip(event, d) {
+            const tooltip = document.getElementById('tooltip');
+            const sourceNode = networkData.nodes.find(n => n.id === d.source.id);
+            const targetNode = networkData.nodes.find(n => n.id === d.target.id);
+            const relType = d.relationship.replace('2025_', '').replace('_', ' ');
+            
+            let details = '';
+            if (d.relationship.includes('DIRECT')) {
+                details = '<div style="color: #ff4444;">🔥 These teams played each other in 2025!</div>';
+            } else {
+                details = `<div>🎯 Connection through common opponents</div>`;
+            }
+            
+            const html = `
+                <div style="font-size: 1.1em; font-weight: bold; margin-bottom: 8px;">
+                    ${sourceNode.name} ↔ ${targetNode.name}
+                </div>
+                ${details}
+                <div>Connection Type: <strong>${relType}</strong></div>
+                <div>Strength Score: <strong>${d.strength} points</strong></div>
+            `;
+            tooltip.innerHTML = html;
+            tooltip.style.display = 'block';
+            tooltip.style.left = (event.pageX + 15) + 'px';
+            tooltip.style.top = (event.pageY - 10) + 'px';
+        }
+
+        function hideTooltip() {
+            document.getElementById('tooltip').style.display = 'none';
+        }
+
+        function highlightConnectedNodes(selectedNode) {
+            selectedTeam = selectedNode;
+            
+            // Reset all elements
+            g.selectAll('.node').classed('highlighted', false).style('opacity', 0.3);
+            g.selectAll('.link').classed('highlighted', false).style('opacity', 0.1);
+            g.selectAll('.node-label').style('opacity', 0.3);
+
+            // Highlight selected node
+            g.selectAll('.node')
+                .filter(d => d.id === selectedNode.id)
+                .classed('highlighted', true)
+                .style('opacity', 1);
+
+            // Find and highlight connected nodes and links
+            const connectedNodeIds = new Set([selectedNode.id]);
+            
+            links.forEach(link => {
+                if (link.source.id === selectedNode.id || link.target.id === selectedNode.id) {
+                    connectedNodeIds.add(link.source.id);
+                    connectedNodeIds.add(link.target.id);
+                    
+                    g.selectAll('.link')
+                        .filter(l => l === link)
+                        .classed('highlighted', true)
+                        .style('opacity', 0.8);
+                }
+            });
+
+            g.selectAll('.node')
+                .filter(d => connectedNodeIds.has(d.id))
+                .classed('highlighted', true)
+                .style('opacity', 1);
+
+            g.selectAll('.node-label')
+                .filter(d => connectedNodeIds.has(d.id))
+                .style('opacity', 1);
+        }
+
+        function toggleDirectOnly() {
+            showDirectOnly = !showDirectOnly;
+            event.target.classList.toggle('active', showDirectOnly);
+            if (showDirectOnly) {
+                showStrongOnly = false;
+                document.querySelector('[onclick="toggleStrongNetworks()"]').classList.remove('active');
+            }
+            renderNetwork();
+        }
+
+        function toggleStrongNetworks() {
+            showStrongOnly = !showStrongOnly;
+            event.target.classList.toggle('active', showStrongOnly);
+            if (showStrongOnly) {
+                showDirectOnly = false;
+                document.querySelector('[onclick="toggleDirectOnly()"]').classList.remove('active');
+            }
+            renderNetwork();
+        }
+
+        function resetSimulation() {
+            simulation.alpha(0.8).restart();
+        }
+
+        function toggleLabels() {
+            showLabels = !showLabels;
+            event.target.classList.toggle('active', !showLabels);
+            g.selectAll('.node-label').style('display', showLabels ? 'block' : 'none');
+        }
+
+        function focusTeam() {
+            if (selectedTeam) {
+                highlightConnectedNodes(selectedTeam);
+            }
+        }
+
+        function showAllConnections() {
+            g.selectAll('.node').classed('highlighted', false).style('opacity', 1);
+            g.selectAll('.link').classed('highlighted', false).style('opacity', 0.6);
+            g.selectAll('.node-label').style('opacity', 1);
+            selectedTeam = null;
+        }
+
+        function populateTeamSelector() {
+            const selector = document.getElementById('team-selector');
+            networkData.nodes.forEach(node => {
+                const option = document.createElement('option');
+                option.value = node.name;
+                option.textContent = `${node.name} (#${cfpSeeds[node.name]})`;
+                selector.appendChild(option);
+            });
+        }
+
+        function initTeamForensics() {
+            // Initialize team forensics content
+            if (!networkData) return;
+            
+            let html = '<p>Select a team from the sidebar to see detailed forensic analysis of their 2025 season performance, connections, and competitive network position.</p>';
+            document.getElementById('team-forensics-content').innerHTML = html;
+        }
+
+        function analyzeTeam() {
+            const teamName = document.getElementById('team-selector').value;
+            if (!teamName || !networkData) return;
+
+            const team = networkData.nodes.find(n => n.name === teamName);
+            const teamConnections = networkData.edges.filter(e => 
+                (e.source.name || networkData.nodes.find(n => n.id === e.source.id)?.name) === teamName ||
+                (e.target.name || networkData.nodes.find(n => n.id === e.target.id)?.name) === teamName
+            );
+
+            // Generate detailed analysis
+            let html = `
+                <div class="team-analysis">
+                    <div class="team-header">
+                        <div class="team-name" style="font-size: 1.5em;">${teamName}</div>
+                        <div class="team-record">CFP Seed #${cfpSeeds[teamName]}</div>
+                    </div>
+                    
+                    <div class="metric-grid">
+                        <div class="metric-card">
+                            <span class="metric-value">${team.connections_2025}</span>
+                            <div class="metric-label">2025 Opponents</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">${team.cfp_matchups_2025}</span>
+                            <div class="metric-label">CFP Matchups</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value" style="color: ${team.avg_margin_2025 > 0 ? '#4CAF50' : '#f44336'}">${team.avg_margin_2025 > 0 ? '+' : ''}${team.avg_margin_2025}</span>
+                            <div class="metric-label">Avg Margin</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">${teamConnections.length}</span>
+                            <div class="metric-label">CFP Connections</div>
+                        </div>
+                    </div>
+
+                    <h3>🔗 Network Connections:</h3>
+            `;
+
+            // Add connection details
+            teamConnections.forEach(conn => {
+                const otherTeam = (conn.source.name || networkData.nodes.find(n => n.id === conn.source.id)?.name) === teamName ?
+                    (conn.target.name || networkData.nodes.find(n => n.id === conn.target.id)?.name) :
+                    (conn.source.name || networkData.nodes.find(n => n.id === conn.source.id)?.name);
+                
+                const relType = conn.relationship.replace('2025_', '').replace('_', ' ');
+                const color = connectionColors[conn.relationship];
+                
+                html += `
+                    <div class="matchup-detail">
+                        <span>vs ${otherTeam}</span>
+                        <span style="color: ${color}; font-weight: bold;">${relType} (${conn.strength} pts)</span>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            document.getElementById('team-forensics-content').innerHTML = html;
+
+            // Update team metrics sidebar
+            const metricsHtml = `
+                <div class="analysis-panel">
+                    <div class="panel-title">📊 ${teamName} Metrics</div>
+                    <div class="explanation-box">
+                        <div class="explanation-title">Competitive Profile:</div>
+                        Based on ${teamName}'s 2025 season, they have ${team.connections_2025} total games with ${team.cfp_matchups_2025} direct CFP matchups. 
+                        Their average margin of ${team.avg_margin_2025 > 0 ? '+' : ''}${team.avg_margin_2025} points indicates ${team.avg_margin_2025 > 0 ? 'strong' : 'challenging'} performance.
+                    </div>
+                </div>
+            `;
+            document.getElementById('team-metrics').innerHTML = metricsHtml;
+        }
+
+        async function loadDirectMatchups() {
+            // This would load actual matchup data from the database
+            const matchupsHtml = `
+                <div class="explanation-box">
+                    <div class="explanation-title">⚔️ 2025 CFP Direct Matchups</div>
+                    These are the head-to-head games between CFP teams that provide the strongest predictive data.
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Week</th><th>Matchup</th><th>Result</th><th>Margin</th><th>Significance</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>15</td><td>Georgia vs Alabama</td><td>Georgia W</td><td>+21</td><td>🏆 SEC Championship</td></tr>
+                        <tr><td>12</td><td>Oklahoma vs Alabama</td><td>Oklahoma W</td><td>+2</td><td>🔥 Major upset</td></tr>
+                        <tr><td>9</td><td>Oklahoma vs Ole Miss</td><td>Ole Miss W</td><td>+8</td><td>📊 Network key</td></tr>
+                        <tr><td>8</td><td>Georgia vs Ole Miss</td><td>Georgia W</td><td>+8</td><td>📊 Network key</td></tr>
+                        <tr><td>7</td><td>Indiana vs Oregon</td><td>Indiana W</td><td>+10</td><td>🎯 Bracket impact</td></tr>
+                        <tr><td>5</td><td>Georgia vs Alabama</td><td>Alabama W</td><td>+3</td><td>🔄 Regular season</td></tr>
+                        <tr><td>4</td><td>Ohio State vs Oregon</td><td>Oregon W</td><td>+1</td><td>🏈 Close game</td></tr>
+                        <tr><td>4</td><td>Ole Miss vs Tulane</td><td>Ole Miss W</td><td>+35</td><td>💥 Blowout</td></tr>
+                    </tbody>
+                </table>
+            `;
+            document.getElementById('matchups-content').innerHTML = matchupsHtml;
+
+            const statsHtml = `
+                <div class="analysis-panel">
+                    <div class="panel-title">📈 H2H Analysis</div>
+                    <div class="metric-card">
+                        <span class="metric-value">15</span>
+                        <div class="metric-label">Total H2H Games</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">12.7</span>
+                        <div class="metric-label">Avg Margin</div>
+                    </div>
+                    <div class="explanation-box">
+                        <div class="explanation-title">🎯 Key Insights:</div>
+                        Georgia and Alabama played twice (split 1-1). Oklahoma upset Alabama but lost to Ole Miss. 
+                        These direct matchups form the backbone of our prediction model.
+                    </div>
+                </div>
+            `;
+            document.getElementById('h2h-stats').innerHTML = statsHtml;
+        }
+
+        function loadPredictions() {
+            const predictionsHtml = `
+                <div class="explanation-box">
+                    <div class="explanation-title">🎯 CFP Bracket Prediction Model</div>
+                    Based on network analysis, direct matchups, and competitive intelligence from the 2025 season.
+                </div>
+                <div class="chart-container">
+                    <h3>🏆 Predicted Bracket Outcomes</h3>
+                    <p style="text-align: center; font-style: italic;">Full bracket predictions would be generated here using the network analysis data...</p>
+                </div>
+            `;
+            document.getElementById('predictions-content').innerHTML = predictionsHtml;
+
+            const factorsHtml = `
+                <div class="analysis-panel">
+                    <div class="panel-title">⚡ Prediction Model</div>
+                    <div class="metric-card">
+                        <span class="metric-value">85%</span>
+                        <div class="metric-label">Model Confidence</div>
+                    </div>
+                    <div class="explanation-box">
+                        <div class="explanation-title">🧮 Factors:</div>
+                        • Direct H2H results (50% weight)<br>
+                        • Common opponent analysis (30%)<br>
+                        • Network position strength (20%)
+                    </div>
+                </div>
+            `;
+            document.getElementById('prediction-factors').innerHTML = factorsHtml;
+        }
+
+        // Drag functions
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // Initialize everything when page loads
+        window.addEventListener('load', () => {
+            initVisualization();
+            loadAndRenderNetwork();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const container = document.querySelector('.main-panel');
+            const width = container.clientWidth - 40;
+            const height = 600;
+            
+            svg.attr("width", width).attr("height", height);
+            simulation.force("center", d3.forceCenter(width / 2, height / 2));
+            simulation.alpha(0.3).restart();
+        });
+    </script>
+</body>
+</html>

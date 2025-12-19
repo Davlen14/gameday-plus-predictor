@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 CFP Nuclear Analysis - Multi-Layer Competitive Intelligence</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f1419, #1e3c72, #2a5298);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: rgba(0,0,0,0.8);
+            padding: 20px 0;
+            border-bottom: 3px solid gold;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin: 0;
+            background: linear-gradient(45deg, #ffd700, #ffed4a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .analysis-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 10px;
+        }
+
+        .tab {
+            background: rgba(255,215,0,0.2);
+            color: white;
+            border: 2px solid gold;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab.active {
+            background: gold;
+            color: #1e3c72;
+            box-shadow: 0 0 20px rgba(255,215,0,0.5);
+        }
+
+        .tab:hover:not(.active) {
+            background: rgba(255,215,0,0.4);
+            transform: translateY(-2px);
+        }
+
+        .analysis-content {
+            display: none;
+        }
+
+        .analysis-content.active {
+            display: block;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .network-container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,0,0.2);
+        }
+
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .control-button {
+            background: rgba(255,215,0,0.8);
+            color: #1e3c72;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .control-button:hover {
+            background: gold;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .legend {
+            position: absolute;
+            top: 120px;
+            right: 30px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            max-width: 250px;
+        }
+
+        .legend-item {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 3px;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .stats-panel {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            max-width: 300px;
+        }
+
+        .tooltip {
+            position: absolute;
+            padding: 10px;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            border-radius: 8px;
+            pointer-events: none;
+            font-size: 0.85em;
+            max-width: 250px;
+            border: 1px solid gold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .node {
+            cursor: pointer;
+            stroke: #fff;
+            stroke-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .node:hover {
+            stroke: gold;
+            stroke-width: 3px;
+        }
+
+        .link {
+            stroke-opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            stroke-opacity: 1;
+            stroke-width: 6px !important;
+        }
+
+        .node-label {
+            font-size: 12px;
+            font-weight: bold;
+            text-anchor: middle;
+            pointer-events: none;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            fill: white;
+        }
+
+        #network-svg {
+            border-radius: 10px;
+            background: rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏈 2025 CFP Competitive Network</h1>
+        <div class="subtitle">Interactive analysis of College Football Playoff team relationships</div>
+        
+        <div class="network-container">
+            <div class="controls">
+                <button class="control-button" onclick="toggleDirectOnly()">Toggle Direct Matchups</button>
+                <button class="control-button" onclick="resetSimulation()">Reset Layout</button>
+                <button class="control-button" onclick="toggleLabels()">Toggle Labels</button>
+            </div>
+            
+            <svg id="network-svg"></svg>
+        </div>
+
+        <div class="legend">
+            <h3>🎯 Connection Types</h3>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff4444;"></div>
+                Direct 2025 Matchup
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff8800;"></div>
+                Strong Network (4+ common)
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ffaa00;"></div>
+                Moderate Network (2-3 common)
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ffdd00;"></div>
+                Weak Network (1 common)
+            </div>
+            <h3 style="margin-top: 15px;">📊 Node Size</h3>
+            <div style="font-size: 0.85em; opacity: 0.9;">
+                Larger nodes = More 2025 connections<br>
+                Hover for detailed stats
+            </div>
+        </div>
+
+        <div class="stats-panel">
+            <h3>🏆 2025 Network Stats</h3>
+            <div id="network-stats">Loading...</div>
+        </div>
+    </div>
+
+    <div class="tooltip" id="tooltip" style="display: none;"></div>
+
+    <script>
+        let networkData;
+        let svg, g, simulation;
+        let showDirectOnly = false;
+        let showLabels = true;
+        let nodes, links;
+
+        // Color scheme for different connection types
+        const connectionColors = {
+            '2025_DIRECT': '#ff4444',
+            '2025_STRONG_NETWORK': '#ff8800',
+            '2025_MODERATE_NETWORK': '#ffaa00',
+            '2025_WEAK_NETWORK': '#ffdd00',
+            '2025_NO_CONNECTION': '#666666'
+        };
+
+        // Team colors (approximated)
+        const teamColors = {
+            'Indiana': '#990000',
+            'Ohio State': '#cc0000',
+            'Georgia': '#cc0000',
+            'Texas Tech': '#cc0000',
+            'Oregon': '#007030',
+            'Oklahoma': '#cc0000',
+            'Alabama': '#990000',
+            'Ole Miss': '#ce1126',
+            'Tulane': '#00703c',
+            'Texas A&M': '#500000',
+            'Miami': '#f47321',
+            'James Madison': '#450084'
+        };
+
+        function initVisualization() {
+            const container = document.querySelector('.network-container');
+            const width = container.clientWidth - 40;
+            const height = 700;
+
+            svg = d3.select("#network-svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            g = svg.append("g");
+
+            // Add zoom behavior
+            const zoom = d3.zoom()
+                .scaleExtent([0.3, 3])
+                .on("zoom", (event) => {
+                    g.attr("transform", event.transform);
+                });
+
+            svg.call(zoom);
+
+            simulation = d3.forceSimulation()
+                .force("link", d3.forceLink().id(d => d.id).distance(d => Math.max(100, 200 - d.strength * 5)))
+                .force("charge", d3.forceManyBody().strength(-800))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collision", d3.forceCollide().radius(d => d.size / 2 + 10));
+        }
+
+        async function loadAndRenderNetwork() {
+            try {
+                const response = await fetch('cfp_web_2025_only.json');
+                networkData = await response.json();
+                
+                updateNetworkStats();
+                renderNetwork();
+            } catch (error) {
+                console.error('Error loading network data:', error);
+                document.getElementById('network-stats').innerHTML = 'Error loading data';
+            }
+        }
+
+        function updateNetworkStats() {
+            const directConnections = networkData.edges.filter(e => e.relationship.includes('DIRECT')).length;
+            const strongConnections = networkData.edges.filter(e => e.relationship.includes('STRONG')).length;
+            const totalGames = networkData.nodes.reduce((sum, n) => sum + n.cfp_matchups_2025, 0) / 2; // Divide by 2 to avoid double counting
+
+            const statsHtml = `
+                <div><strong>${networkData.nodes.length}</strong> CFP Teams</div>
+                <div><strong>${networkData.edges.length}</strong> Total Connections</div>
+                <div><strong>${directConnections}</strong> Direct Matchups</div>
+                <div><strong>${strongConnections}</strong> Strong Networks</div>
+                <div><strong>${totalGames}</strong> CFP vs CFP Games</div>
+                <div style="margin-top: 10px; font-size: 0.8em; opacity: 0.8;">
+                    Click and drag nodes to explore!
+                </div>
+            `;
+            document.getElementById('network-stats').innerHTML = statsHtml;
+        }
+
+        function renderNetwork() {
+            g.selectAll("*").remove();
+
+            // Filter edges if needed
+            const filteredEdges = showDirectOnly ? 
+                networkData.edges.filter(e => e.relationship.includes('DIRECT')) : 
+                networkData.edges;
+
+            nodes = [...networkData.nodes];
+            links = [...filteredEdges];
+
+            // Create links
+            const link = g.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(links)
+                .enter().append("line")
+                .attr("class", "link")
+                .attr("stroke", d => connectionColors[d.relationship] || '#666')
+                .attr("stroke-width", d => Math.max(2, d.width))
+                .on("mouseover", showLinkTooltip)
+                .on("mouseout", hideTooltip);
+
+            // Create nodes
+            const node = g.append("g")
+                .attr("class", "nodes")
+                .selectAll("circle")
+                .data(nodes)
+                .enter().append("circle")
+                .attr("class", "node")
+                .attr("r", d => d.size)
+                .attr("fill", d => teamColors[d.name] || '#4CAF50')
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended))
+                .on("mouseover", showNodeTooltip)
+                .on("mouseout", hideTooltip)
+                .on("click", (event, d) => {
+                    // Highlight connected nodes
+                    highlightConnectedNodes(d);
+                });
+
+            // Create labels
+            const label = g.append("g")
+                .attr("class", "labels")
+                .selectAll("text")
+                .data(nodes)
+                .enter().append("text")
+                .attr("class", "node-label")
+                .text(d => d.name)
+                .style("display", showLabels ? "block" : "none");
+
+            // Update simulation
+            simulation.nodes(nodes);
+            simulation.force("link").links(links);
+            
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+
+                label
+                    .attr("x", d => d.x)
+                    .attr("y", d => d.y + 5);
+            });
+
+            simulation.alpha(1).restart();
+        }
+
+        function showNodeTooltip(event, d) {
+            const tooltip = document.getElementById('tooltip');
+            const html = `
+                <strong>${d.name}</strong><br>
+                2025 Connections: ${d.connections_2025}<br>
+                CFP Matchups: ${d.cfp_matchups_2025}<br>
+                Avg Margin: ${d.avg_margin_2025 > 0 ? '+' : ''}${d.avg_margin_2025}
+            `;
+            tooltip.innerHTML = html;
+            tooltip.style.display = 'block';
+            tooltip.style.left = (event.pageX + 10) + 'px';
+            tooltip.style.top = (event.pageY - 10) + 'px';
+        }
+
+        function showLinkTooltip(event, d) {
+            const tooltip = document.getElementById('tooltip');
+            const sourceNode = networkData.nodes.find(n => n.id === d.source.id);
+            const targetNode = networkData.nodes.find(n => n.id === d.target.id);
+            const html = `
+                <strong>${sourceNode.name} ↔ ${targetNode.name}</strong><br>
+                Connection: ${d.relationship.replace('2025_', '').replace('_', ' ')}<br>
+                Strength: ${d.strength} points
+            `;
+            tooltip.innerHTML = html;
+            tooltip.style.display = 'block';
+            tooltip.style.left = (event.pageX + 10) + 'px';
+            tooltip.style.top = (event.pageY - 10) + 'px';
+        }
+
+        function hideTooltip() {
+            document.getElementById('tooltip').style.display = 'none';
+        }
+
+        function highlightConnectedNodes(selectedNode) {
+            // Reset all nodes and links
+            g.selectAll('.node').style('opacity', 0.3);
+            g.selectAll('.link').style('opacity', 0.1);
+            g.selectAll('.node-label').style('opacity', 0.3);
+
+            // Highlight selected node
+            g.selectAll('.node')
+                .filter(d => d.id === selectedNode.id)
+                .style('opacity', 1);
+
+            // Find connected nodes
+            const connectedNodeIds = new Set();
+            connectedNodeIds.add(selectedNode.id);
+
+            links.forEach(link => {
+                if (link.source.id === selectedNode.id || link.target.id === selectedNode.id) {
+                    connectedNodeIds.add(link.source.id);
+                    connectedNodeIds.add(link.target.id);
+                    
+                    // Highlight connected links
+                    g.selectAll('.link')
+                        .filter(l => l === link)
+                        .style('opacity', 0.8);
+                }
+            });
+
+            // Highlight connected nodes
+            g.selectAll('.node')
+                .filter(d => connectedNodeIds.has(d.id))
+                .style('opacity', 1);
+
+            g.selectAll('.node-label')
+                .filter(d => connectedNodeIds.has(d.id))
+                .style('opacity', 1);
+
+            // Reset after 3 seconds
+            setTimeout(() => {
+                g.selectAll('.node').style('opacity', 1);
+                g.selectAll('.link').style('opacity', 0.6);
+                g.selectAll('.node-label').style('opacity', 1);
+            }, 3000);
+        }
+
+        function toggleDirectOnly() {
+            showDirectOnly = !showDirectOnly;
+            renderNetwork();
+        }
+
+        function resetSimulation() {
+            simulation.alpha(1).restart();
+        }
+
+        function toggleLabels() {
+            showLabels = !showLabels;
+            g.selectAll('.node-label').style('display', showLabels ? 'block' : 'none');
+        }
+
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // Initialize everything when page loads
+        window.addEventListener('load', () => {
+            initVisualization();
+            loadAndRenderNetwork();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const container = document.querySelector('.network-container');
+            const width = container.clientWidth - 40;
+            const height = 700;
+            
+            svg.attr("width", width).attr("height", height);
+            simulation.force("center", d3.forceCenter(width / 2, height / 2));
+            simulation.alpha(1).restart();
+        });
+    </script>
+</body>
+</html>

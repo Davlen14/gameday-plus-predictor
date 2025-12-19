@@ -1,0 +1,488 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "name": "Indiana",
+      "connections": 20,
+      "avg_margin": 32.5,
+      "size": 20
+    },
+    {
+      "id": 1,
+      "name": "Ohio State",
+      "connections": 40,
+      "avg_margin": 26.9,
+      "size": 40
+    },
+    {
+      "id": 2,
+      "name": "Georgia",
+      "connections": 43,
+      "avg_margin": 16.0,
+      "size": 43
+    },
+    {
+      "id": 3,
+      "name": "Texas Tech",
+      "connections": 34,
+      "avg_margin": 31.5,
+      "size": 34
+    },
+    {
+      "id": 4,
+      "name": "Oregon",
+      "connections": 45,
+      "avg_margin": 23.3,
+      "size": 45
+    },
+    {
+      "id": 5,
+      "name": "Oklahoma",
+      "connections": 44,
+      "avg_margin": 12.5,
+      "size": 44
+    },
+    {
+      "id": 6,
+      "name": "Alabama",
+      "connections": 16,
+      "avg_margin": 13.8,
+      "size": 20
+    },
+    {
+      "id": 7,
+      "name": "Ole Miss",
+      "connections": 35,
+      "avg_margin": 17.2,
+      "size": 35
+    },
+    {
+      "id": 8,
+      "name": "Tulane",
+      "connections": 53,
+      "avg_margin": 6.5,
+      "size": 50
+    },
+    {
+      "id": 9,
+      "name": "Texas A&M",
+      "connections": 16,
+      "avg_margin": 14.4,
+      "size": 20
+    },
+    {
+      "id": 10,
+      "name": "Miami",
+      "connections": 38,
+      "avg_margin": 20.2,
+      "size": 38
+    },
+    {
+      "id": 11,
+      "name": "James Madison",
+      "connections": 29,
+      "avg_margin": 21.5,
+      "size": 29
+    }
+  ],
+  "edges": [
+    {
+      "source": 2,
+      "target": 6,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 38.0,
+      "width": 10
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 35.0,
+      "width": 10
+    },
+    {
+      "source": 2,
+      "target": 7,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 32.0,
+      "width": 10
+    },
+    {
+      "source": 3,
+      "target": 5,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 32.0,
+      "width": 10
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 30.0,
+      "width": 10
+    },
+    {
+      "source": 5,
+      "target": 8,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 24.0,
+      "width": 10
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 20.0,
+      "width": 10
+    },
+    {
+      "source": 5,
+      "target": 7,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 18.0,
+      "width": 9.0
+    },
+    {
+      "source": 2,
+      "target": 5,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 16.0,
+      "width": 8.0
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 16.0,
+      "width": 8.0
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 15.0,
+      "width": 7.5
+    },
+    {
+      "source": 7,
+      "target": 9,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 14.0,
+      "width": 7.0
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 12.0,
+      "width": 6.0
+    },
+    {
+      "source": 0,
+      "target": 1,
+      "relationship": "STRONG_NETWORK",
+      "strength": 11.0,
+      "width": 5.5
+    },
+    {
+      "source": 2,
+      "target": 8,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 10.0,
+      "width": 5.0
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 9.0,
+      "width": 4.5
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 8.0,
+      "width": 4.0
+    },
+    {
+      "source": 2,
+      "target": 9,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 8.0,
+      "width": 4.0
+    },
+    {
+      "source": 3,
+      "target": 7,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 8.0,
+      "width": 4.0
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 8.0,
+      "width": 4.0
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 8.0,
+      "width": 4.0
+    },
+    {
+      "source": 2,
+      "target": 4,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 7.0,
+      "width": 3.5
+    },
+    {
+      "source": 1,
+      "target": 6,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 6.0,
+      "width": 3.0
+    },
+    {
+      "source": 1,
+      "target": 10,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 6.0,
+      "width": 3.0
+    },
+    {
+      "source": 7,
+      "target": 10,
+      "relationship": "STRONG_NETWORK",
+      "strength": 6.0,
+      "width": 3.0
+    },
+    {
+      "source": 5,
+      "target": 9,
+      "relationship": "STRONG_NETWORK",
+      "strength": 5.0,
+      "width": 2.5
+    },
+    {
+      "source": 6,
+      "target": 10,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 5.0,
+      "width": 2.5
+    },
+    {
+      "source": 1,
+      "target": 8,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 4.0,
+      "width": 2.0
+    },
+    {
+      "source": 2,
+      "target": 10,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 4.0,
+      "width": 2.0
+    },
+    {
+      "source": 6,
+      "target": 9,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 4.0,
+      "width": 2.0
+    },
+    {
+      "source": 8,
+      "target": 10,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 4.0,
+      "width": 2.0
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 4.0,
+      "width": 2.0
+    },
+    {
+      "source": 0,
+      "target": 7,
+      "relationship": "DIRECT_RIVALS",
+      "strength": 3.0,
+      "width": 1.5
+    },
+    {
+      "source": 3,
+      "target": 8,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 3.0,
+      "width": 1.5
+    },
+    {
+      "source": 4,
+      "target": 8,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 3.0,
+      "width": 1.5
+    },
+    {
+      "source": 7,
+      "target": 11,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 3.0,
+      "width": 1.5
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 1
+    },
+    {
+      "source": 0,
+      "target": 11,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 1
+    },
+    {
+      "source": 1,
+      "target": 7,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 1
+    },
+    {
+      "source": 1,
+      "target": 9,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 1
+    },
+    {
+      "source": 1,
+      "target": 11,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 1
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 1
+    },
+    {
+      "source": 5,
+      "target": 10,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 1
+    },
+    {
+      "source": 6,
+      "target": 8,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 1
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 1
+    },
+    {
+      "source": 8,
+      "target": 11,
+      "relationship": "MODERATE_NETWORK",
+      "strength": 2.0,
+      "width": 1
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "relationship": "WEAK_CONNECTION",
+      "strength": 1.0,
+      "width": 1
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "relationship": "WEAK_CONNECTION",
+      "strength": 1.0,
+      "width": 1
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "relationship": "WEAK_CONNECTION",
+      "strength": 1.0,
+      "width": 1
+    },
+    {
+      "source": 0,
+      "target": 9,
+      "relationship": "WEAK_CONNECTION",
+      "strength": 1.0,
+      "width": 1
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "relationship": "WEAK_CONNECTION",
+      "strength": 1.0,
+      "width": 1
+    },
+    {
+      "source": 2,
+      "target": 11,
+      "relationship": "WEAK_CONNECTION",
+      "strength": 1.0,
+      "width": 1
+    },
+    {
+      "source": 3,
+      "target": 9,
+      "relationship": "WEAK_CONNECTION",
+      "strength": 1.0,
+      "width": 1
+    },
+    {
+      "source": 3,
+      "target": 10,
+      "relationship": "WEAK_CONNECTION",
+      "strength": 1.0,
+      "width": 1
+    },
+    {
+      "source": 4,
+      "target": 10,
+      "relationship": "WEAK_CONNECTION",
+      "strength": 1.0,
+      "width": 1
+    },
+    {
+      "source": 6,
+      "target": 11,
+      "relationship": "WEAK_CONNECTION",
+      "strength": 1.0,
+      "width": 1
+    }
+  ],
+  "metadata": {
+    "created": "2025-12-17",
+    "total_teams": 12,
+    "total_connections": 56,
+    "description": "CFP Competitive Network Web"
+  }
+}

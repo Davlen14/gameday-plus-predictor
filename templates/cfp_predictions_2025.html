@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 CFP Predictions - Enhanced Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .timestamp {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #FFD700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .matchup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .matchup-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .matchup-card:hover {
+            border-color: #FFD700;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .matchup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .vs-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+        
+        .team {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .prediction {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .stats {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 8px 0;
+        }
+        
+        .h2h {
+            background: rgba(0, 123, 255, 0.2);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 8px 0;
+            border-left: 3px solid #007bff;
+        }
+        
+        .trends-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .trends-table th,
+        .trends-table td {
+            padding: 12px 8px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .trends-table th {
+            background: rgba(255, 215, 0, 0.2);
+            color: #FFD700;
+            font-weight: 600;
+        }
+        
+        .trends-table tr:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .positive {
+            color: #28a745;
+        }
+        
+        .negative {
+            color: #dc3545;
+        }
+        
+        .sleeper-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .sleeper-card {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .sleeper-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .emoji {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .matchup-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏆 2025 CFP Predictions</h1>
+            <div class="subtitle">Enhanced Analysis with 2024-2025 Historical Data</div>
+            <div class="timestamp">Generated: December 17, 2025 at 9:44 AM</div>
+        </div>
+
+        <div class="section">
+            <h2>🏈 First Round Matchup Predictions</h2>
+            <div class="matchup-grid">
+                <div class="matchup-card">
+                    <div class="matchup-header">
+                        <span class="team">Indiana</span>
+                        <span class="vs-text">vs</span>
+                        <span class="team">James Madison</span>
+                    </div>
+                    <div class="prediction">🎯 PREDICTION: Indiana by 12.0 pts</div>
+                    <div class="stats">📊 Indiana: +33.4 margin (44.3 PPG - 10.9 allowed)</div>
+                    <div class="stats">📊 James Madison: +21.5 margin (37.3 PPG - 15.8 allowed)</div>
+                    <div class="h2h">📚 Head-to-Head: No recent matchups</div>
+                    <div class="stats">🎯 Common Opponents: James Madison slight edge (+4.0 pts)</div>
+                </div>
+
+                <div class="matchup-card">
+                    <div class="matchup-header">
+                        <span class="team">Ohio State</span>
+                        <span class="vs-text">vs</span>
+                        <span class="team">Oregon</span>
+                    </div>
+                    <div class="prediction">🎯 PREDICTION: Ohio State by 5.9 pts</div>
+                    <div class="stats">📊 Ohio State: +29.2 margin (37.0 PPG - 7.8 allowed)</div>
+                    <div class="stats">📊 Oregon: +23.3 margin (38.2 PPG - 14.8 allowed)</div>
+                    <div class="h2h">📚 2024 H2H: OSU 2-1 (W 41-21, L 31-32, W 41-21)</div>
+                    <div class="stats">🎯 Common Opponents: Ohio State advantage (+4.0 pts)</div>
+                </div>
+
+                <div class="matchup-card">
+                    <div class="matchup-header">
+                        <span class="team">Georgia</span>
+                        <span class="vs-text">vs</span>
+                        <span class="team">Alabama</span>
+                    </div>
+                    <div class="prediction">🎯 PREDICTION: Georgia by 2.2 pts</div>
+                    <div class="stats">📊 Georgia: +16.0 margin (31.9 PPG - 15.9 allowed)</div>
+                    <div class="stats">📊 Alabama: +13.8 margin (31.2 PPG - 17.4 allowed)</div>
+                    <div class="h2h">📚 Recent: 2025 W 28-7, 2025 L 21-24, 2024 L 34-41</div>
+                    <div class="stats">🎯 Common Opponents: Georgia advantage (+3.5 pts)</div>
+                </div>
+
+                <div class="matchup-card">
+                    <div class="matchup-header">
+                        <span class="team">Texas Tech</span>
+                        <span class="vs-text">vs</span>
+                        <span class="team">Miami</span>
+                    </div>
+                    <div class="prediction">🎯 PREDICTION: Texas Tech by 11.3 pts</div>
+                    <div class="stats">📊 Texas Tech: +31.5 margin (42.5 PPG - 10.9 allowed)</div>
+                    <div class="stats">📊 Miami: +20.2 margin (34.1 PPG - 13.8 allowed)</div>
+                    <div class="h2h">📚 Head-to-Head: No recent matchups</div>
+                    <div class="stats">🎯 Common Opponents: Texas Tech advantage (+2.0 pts)</div>
+                </div>
+
+                <div class="matchup-card">
+                    <div class="matchup-header">
+                        <span class="team">Ole Miss</span>
+                        <span class="vs-text">vs</span>
+                        <span class="team">Oklahoma</span>
+                    </div>
+                    <div class="prediction">🎯 PREDICTION: Ole Miss by 4.7 pts</div>
+                    <div class="stats">📊 Ole Miss: +17.2 margin (37.2 PPG - 20.1 allowed)</div>
+                    <div class="stats">📊 Oklahoma: +12.5 margin (26.4 PPG - 13.9 allowed)</div>
+                    <div class="h2h">📚 Recent H2H: Ole Miss 2-0 (2025: W 34-26, 2024: W 26-14)</div>
+                    <div class="stats">🎯 Common Opponents: Ole Miss dominance (+16.2 pts)</div>
+                </div>
+
+                <div class="matchup-card">
+                    <div class="matchup-header">
+                        <span class="team">Texas A&M</span>
+                        <span class="vs-text">vs</span>
+                        <span class="team">Tulane</span>
+                    </div>
+                    <div class="prediction">🎯 PREDICTION: Texas A&M by 8.0 pts</div>
+                    <div class="stats">📊 Texas A&M: +14.4 margin (36.3 PPG - 21.9 allowed)</div>
+                    <div class="stats">📊 Tulane: +6.5 margin (29.1 PPG - 22.6 allowed)</div>
+                    <div class="h2h">📚 Head-to-Head: No recent matchups</div>
+                    <div class="stats">🎯 Common Opponents: Texas A&M huge advantage (+39.0 pts)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📈 Two-Year Performance Trends (2024 → 2025)</h2>
+            <table class="trends-table">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>2024 Record</th>
+                        <th>2025 Record</th>
+                        <th>Win% Change</th>
+                        <th>Offensive Δ</th>
+                        <th>Defensive Δ</th>
+                        <th>2025 Margin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Indiana</strong></td>
+                        <td>11-1</td>
+                        <td>12-0</td>
+                        <td class="positive">+0.083</td>
+                        <td class="positive">+0.8</td>
+                        <td class="positive">+2.8</td>
+                        <td><strong>+33.4</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ohio State</strong></td>
+                        <td>17-2</td>
+                        <td>12-0</td>
+                        <td class="positive">+0.105</td>
+                        <td class="positive">+1.3</td>
+                        <td class="positive">+6.2</td>
+                        <td><strong>+29.2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Texas Tech</strong></td>
+                        <td>8-5</td>
+                        <td>12-1</td>
+                        <td class="positive">+0.308</td>
+                        <td class="positive">+4.8</td>
+                        <td class="positive">+23.9</td>
+                        <td><strong>+31.5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oklahoma</strong></td>
+                        <td>6-7</td>
+                        <td>10-2</td>
+                        <td class="positive">+0.372</td>
+                        <td class="positive">+2.4</td>
+                        <td class="positive">+7.6</td>
+                        <td>+12.5</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Texas A&M</strong></td>
+                        <td>8-5</td>
+                        <td>11-1</td>
+                        <td class="positive">+0.301</td>
+                        <td class="positive">+5.9</td>
+                        <td class="positive">+0.3</td>
+                        <td>+14.4</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Georgia</strong></td>
+                        <td>11-3</td>
+                        <td>12-1</td>
+                        <td class="positive">+0.137</td>
+                        <td class="positive">+0.4</td>
+                        <td class="positive">+4.6</td>
+                        <td>+16.0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oregon</strong></td>
+                        <td>13-1</td>
+                        <td>11-1</td>
+                        <td class="negative">-0.012</td>
+                        <td class="positive">+3.3</td>
+                        <td class="positive">+4.6</td>
+                        <td>+23.3</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ole Miss</strong></td>
+                        <td>10-3</td>
+                        <td>11-1</td>
+                        <td class="positive">+0.147</td>
+                        <td class="negative">-1.4</td>
+                        <td class="negative">-5.7</td>
+                        <td>+17.2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🌟 Tournament Sleepers & Key Insights</h2>
+            <div class="sleeper-cards">
+                <div class="sleeper-card">
+                    <h4><span class="emoji">🔥</span>Biggest Risers</h4>
+                    <div>Oklahoma: +0.372 win% (6-7 → 10-2)</div>
+                    <div>Texas Tech: +0.308 win% (8-5 → 12-1)</div>
+                    <div>Texas A&M: +0.301 win% (8-5 → 11-1)</div>
+                </div>
+                <div class="sleeper-card">
+                    <h4><span class="emoji">⚡</span>Offensive Powerhouses</h4>
+                    <div>Indiana: 33.4 point margin</div>
+                    <div>Texas Tech: 31.5 point margin</div>
+                    <div>Ohio State: 29.2 point margin</div>
+                </div>
+                <div class="sleeper-card">
+                    <h4><span class="emoji">🛡️</span>Defensive Elite</h4>
+                    <div>Ohio State: 7.8 PPG allowed</div>
+                    <div>Indiana: 10.9 PPG allowed</div>
+                    <div>Texas Tech: 10.9 PPG allowed</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Key Statistical Insights</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                <div style="background: rgba(40, 167, 69, 0.2); padding: 15px; border-radius: 8px;">
+                    <h4>🎯 Most Likely Upsets</h4>
+                    <p>Georgia over Alabama (recent dominance)</p>
+                    <p>James Madison over Indiana (common opponent edge)</p>
+                </div>
+                <div style="background: rgba(255, 193, 7, 0.2); padding: 15px; border-radius: 8px;">
+                    <h4>🔒 Safest Picks</h4>
+                    <p>Ohio State over Oregon (H2H + defense)</p>
+                    <p>Texas Tech over Miami (margin dominance)</p>
+                </div>
+                <div style="background: rgba(220, 53, 69, 0.2); padding: 15px; border-radius: 8px;">
+                    <h4>🚨 Dark Horse Alert</h4>
+                    <p>Oklahoma (massive turnaround season)</p>
+                    <p>Texas A&M (39pt common opponent edge)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🏆 Analysis based on comprehensive 2024-2025 season data</p>
+            <p>📈 Includes head-to-head records, common opponent analysis, and performance trends</p>
+        </div>
+    </div>
+</body>
+</html>
