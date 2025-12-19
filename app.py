@@ -4269,6 +4269,11 @@ def team_detail(team_id: int):
     """Individual team profile page"""
     return render_template('team_detail.html')
 
+@app.route('/playerdetail')
+def player_detail():
+    """Player detail placeholder page"""
+    return render_template('Playerdetail.html')
+
 @app.route('/nil')
 def nil_index():
     """NIL valuations index page"""

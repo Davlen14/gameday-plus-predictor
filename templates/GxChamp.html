@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden G+ Collab</title>
+    <!-- Google Fonts: Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            /* Clean White Background */
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Canvas sits behind the text */
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Main Vertical Layout Wrapper */
+        .main-layout {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4vh; /* Space between the rows */
+            width: 100%;
+            padding: 2vh 0; /* Add some padding to prevent edge touching */
+        }
+
+        /* Row of Bowl Game Logos */
+        .bowl-logos-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3vw;
+            opacity: 0; /* Animation start */
+            animation: fadeInDown 1.5s ease-out forwards;
+        }
+
+        /* Delay animation for bottom row */
+        .bowl-logos-row.bottom {
+            animation-delay: 0.5s;
+        }
+
+        .bowl-logo {
+            height: 5vw; /* Smaller than main logo */
+            width: auto;
+            /* Show original colors */
+            filter: none;
+            transition: all 0.3s ease;
+        }
+
+        .bowl-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Container for the collab lockup (G+ | CFP) */
+        .content-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4vw;
+            width: 90%;
+        }
+
+        .golden-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 15vw;
+            
+            /* The Golden Gradient */
+            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            /* Slightly softer shadow for white background */
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.15);
+            
+            user-select: none;
+            cursor: default;
+            line-height: 1;
+            filter: drop-shadow(0 0 15px rgba(191, 149, 63, 0.15));
+        }
+
+        /* Modern Gold Vertical Separator */
+        .separator-line {
+            width: 2px;
+            height: 12vw;
+            background: linear-gradient(
+                to bottom, 
+                transparent, 
+                #BF953F 20%, 
+                #FCF6BA 50%, 
+                #AA771C 80%, 
+                transparent
+            );
+            opacity: 0.8;
+            box-shadow: 0 0 5px rgba(191, 149, 63, 0.3);
+        }
+
+        /* The CFP Logo */
+        .cfp-logo {
+            height: 12vw;
+            width: auto;
+            /* Show original colors */
+            filter: none;
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile adjustment */
+        @media (max-width: 800px) {
+            .main-layout {
+                gap: 2rem;
+            }
+            
+            .bowl-logos-row {
+                gap: 1.5rem;
+                flex-wrap: wrap; /* Allow wrapping on small screens */
+                width: 90%;
+            }
+            
+            .bowl-logo {
+                height: 12vw; /* Larger on mobile */
+            }
+
+            .content-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .golden-text { font-size: 30vw; }
+            
+            .separator-line { 
+                width: 60%;
+                height: 2px;
+                background: linear-gradient(
+                    to right, 
+                    transparent, 
+                    #BF953F 20%, 
+                    #FCF6BA 50%, 
+                    #AA771C 80%, 
+                    transparent
+                );
+            }
+            
+            .cfp-logo { height: 25vw; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    
+    <div class="main-layout">
+        <!-- Top Row: First 4 Bowl Games -->
+        <div class="bowl-logos-row">
+            <!-- Rose Bowl -->
+            <img src="https://s1.ticketm.net/tm/en-us/img/static/collegefootballplayoff/25/Rose-Bowl.png" class="bowl-logo" alt="Rose Bowl" onerror="this.style.display='none'">
+            
+            <!-- Sugar Bowl -->
+            <img src="https://s1.ticketm.net/tm/en-us/img/static/collegefootballplayoff/25/Sugar-Bowl.png" class="bowl-logo" alt="Sugar Bowl" onerror="this.style.display='none'">
+            
+            <!-- Cotton Bowl -->
+            <img src="https://s1.ticketm.net/tm/en-us/img/static/collegefootballplayoff/25/Cotton-Bowl.png" class="bowl-logo" alt="Cotton Bowl" onerror="this.style.display='none'">
+            
+            <!-- Orange Bowl -->
+            <img src="https://s1.ticketm.net/tm/en-us/img/static/collegefootballplayoff/25/Orange-Bowl.png" class="bowl-logo" alt="Orange Bowl" onerror="this.style.display='none'">
+        </div>
+
+        <!-- Main Content: G+ | CFP -->
+        <div class="content-container">
+            <div class="golden-text">G+</div>
+            
+            <!-- The Modern Separator -->
+            <div class="separator-line"></div>
+            
+            <img 
+                src="https://collegefootballplayoff.com/images/2024/6/14/CFP_2026_SUPPLEMENTARY_DATE_LOCATION_LIGHT_BG_fSCpo.png" 
+                alt="CFP Logo" 
+                class="cfp-logo"
+                onerror="this.style.display='none'"
+            >
+        </div>
+
+        <!-- Bottom Row: New Bowl Games (Fiesta & Peach) -->
+        <div class="bowl-logos-row bottom">
+            <!-- Fiesta Bowl -->
+            <img src="https://s1.ticketm.net/tm/en-us/img/static/collegefootballplayoff/25/Fiesta-Bowl.png" class="bowl-logo" alt="Fiesta Bowl" onerror="this.style.display='none'">
+
+            <!-- Peach Bowl -->
+            <img src="https://s1.ticketm.net/tm/en-us/img/static/collegefootballplayoff/25/Peach-Bowl.png" class="bowl-logo" alt="Peach Bowl" onerror="this.style.display='none'">
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+        
+        // Resize handling
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            initParticles(); 
+        }
+        
+        window.addEventListener('resize', resize);
+        
+        // Updated colors to be visible on White Background (Darker Golds & Greys)
+        const colors = [
+            '191, 149, 63',  // Gold
+            '205, 127, 50',  // Bronze
+            '160, 160, 160', // Silver/Grey (replaces white)
+            '139, 69, 19'    // Dark Saddle Brown for contrast
+        ];
+
+        class Particle {
+            constructor(type) {
+                this.type = type; 
+                this.reset();
+            }
+            
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                
+                if (this.type === 'bokeh') {
+                    this.vx = (Math.random() - 0.5) * 0.2;
+                    this.vy = (Math.random() - 0.5) * 0.2;
+                    this.size = Math.random() * 60 + 20; 
+                    this.baseAlpha = Math.random() * 0.05 + 0.02; 
+                    this.pulseSpeed = Math.random() * 0.005 + 0.001;
+                } else {
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.baseAlpha = Math.random() * 0.6 + 0.2;
+                    this.pulseSpeed = Math.random() * 0.02 + 0.01;
+                }
+                
+                this.alpha = this.baseAlpha;
+                this.pulse = Math.random() * Math.PI; 
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < -this.size) this.x = width + this.size;
+                if (this.x > width + this.size) this.x = -this.size;
+                if (this.y < -this.size) this.y = height + this.size;
+                if (this.y > height + this.size) this.y = -this.size;
+                
+                this.pulse += this.pulseSpeed;
+                this.alpha = this.baseAlpha + (Math.sin(this.pulse) * (this.baseAlpha * 0.5));
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                
+                if (this.type === 'bokeh') {
+                    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+                    gradient.addColorStop(0, `rgba(${this.color}, ${this.alpha})`);
+                    gradient.addColorStop(1, `rgba(${this.color}, 0)`);
+                    ctx.fillStyle = gradient;
+                } else {
+                    ctx.fillStyle = `rgba(${this.color}, ${this.alpha})`;
+                    ctx.shadowBlur = 5;
+                    ctx.shadowColor = `rgba(${this.color}, 0.5)`;
+                }
+                
+                ctx.fill();
+                ctx.shadowBlur = 0; 
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const bokehCount = 15;
+            const sparkleCount = 60;
+            
+            for (let i = 0; i < bokehCount; i++) particles.push(new Particle('bokeh'));
+            for (let i = 0; i < sparkleCount; i++) particles.push(new Particle('sparkle'));
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        resize();
+        animate();
+    </script>
+</body>
+</html>

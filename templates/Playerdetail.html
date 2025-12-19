@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julian Sayin | Analytics Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+        
+        :root {
+            --osu-scarlet: #BB0000;
+            --osu-gray: #666666;
+            --bg-page: #ffffff;
+            --bg-card: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+            --border-color: #f1f5f9;
+            --chart-grid: #f8fafc;
+            --card-shadow: rgba(0, 0, 0, 0.06);
+            --header-grad: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,250,252,1) 100%);
+        }
+
+        /* Dark Mode variables */
+        body.dark-mode {
+            --bg-page: #0a0a0a;
+            --bg-card: #121212;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --border-color: #1e293b;
+            --chart-grid: #1e293b;
+            --card-shadow: rgba(0, 0, 0, 0.5);
+            --header-grad: linear-gradient(135deg, rgba(25,25,25,1) 0%, rgba(15,15,15,1) 100%);
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg-page);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .chart-container { 
+            position: relative; 
+            height: 55vh; 
+            width: 100%; 
+        }
+        
+        .watermark-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            height: 60vw;
+            max-width: 1000px;
+            background-image: url('https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/194.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.02; 
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .premier-card-main {
+            background: var(--bg-card) !important;
+            box-shadow: 0 10px 40px -15px var(--card-shadow);
+            border: 1px solid var(--border-color);
+            transition: background 0.4s, box-shadow 0.4s, border 0.4s;
+        }
+
+        /* Sidebar Specific Transitions */
+        .sidebar-card {
+            background: var(--bg-card) !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .shadow-glow-green { box-shadow: 0 20px 40px -15px rgba(34, 197, 94, 0.2); }
+        .shadow-glow-red { box-shadow: 0 20px 40px -15px rgba(187, 0, 0, 0.15); }
+        
+        body.dark-mode .shadow-glow-green { box-shadow: 0 20px 40px -15px rgba(34, 197, 94, 0.1); }
+        body.dark-mode .shadow-glow-red { box-shadow: 0 20px 40px -15px rgba(187, 0, 0, 0.1); }
+
+        .analytics-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+        }
+
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 8s infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-150%) rotate(45deg); }
+            100% { transform: translateX(150%) rotate(45deg); }
+        }
+
+        .sidebar-watermark {
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            width: 120px;
+            height: 120px;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+        .legend-item {
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+        .legend-item.inactive { opacity: 0.3; filter: grayscale(1); }
+
+        /* Next-Gen Table Styles */
+        .stats-table-container {
+            border-radius: 2.5rem;
+            background: var(--bg-card);
+            box-shadow: 0 20px 50px -20px var(--card-shadow);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: background 0.4s, border 0.4s;
+        }
+        
+        table.stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        .stats-table th {
+            text-align: right;
+            padding: 1.25rem 1rem;
+            background: var(--bg-page);
+            color: var(--text-dim);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 10px;
+            border-bottom: 2px solid var(--border-color);
+            transition: background 0.4s, color 0.4s, border 0.4s;
+        }
+        
+        .stats-table th:first-child { text-align: left; padding-left: 2rem; }
+        
+        .stats-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+            transition: border 0.4s, color 0.4s;
+        }
+        
+        .stats-table td:first-child { padding-left: 2rem; }
+        .stats-table tr:last-child td { border-bottom: none; }
+        .stats-table tr:hover { background: var(--border-color); }
+        
+        .group-header {
+            background: var(--border-color);
+            font-weight: 900;
+            color: var(--text-main);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            padding: 0.75rem 2rem !important;
+            text-align: left !important;
+            transition: background 0.4s, color 0.4s;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            background: var(--border-color);
+        }
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: var(--text-main);
+            stroke-width: 2;
+            transition: stroke 0.4s;
+        }
+        .sun-icon { display: none; }
+        body.dark-mode .moon-icon { display: none; }
+        body.dark-mode .sun-icon { display: block; }
+
+        /* Color Pill Indicators */
+        .val-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+        .v-green { color: #10b981; background: rgba(16, 185, 129, 0.12); }
+        .v-red { color: #ef4444; background: rgba(239, 68, 68, 0.12); }
+        .v-yellow { color: #f59e0b; background: rgba(245, 158, 11, 0.12); }
+
+        .trend-icon { width: 12px; height: 12px; stroke-width: 3px; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <div class="watermark-bg"></div>
+
+    <div class="w-full px-4 lg:px-12 py-8 lg:py-12">
+        <button class="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-bold uppercase tracking-widest text-slate-500 transition hover:border-slate-300 hover:text-slate-700" onclick="window.history.back()" aria-label="Go back">
+            <span aria-hidden="true">←</span>
+            Back
+        </button>
+        
+        <!-- Header -->
+        <header class="relative mb-10 rounded-[2.5rem] shadow-2xl overflow-hidden w-full premier-card-main">
+            <div class="absolute inset-0 bg-[var(--header-grad)] opacity-100 pointer-events-none transition-all duration-400"></div>
+            
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+                <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+
+            <div class="relative flex flex-col lg:flex-row items-center gap-10 p-8 lg:p-12">
+                <div class="relative flex-shrink-0">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-[0.15] transform scale-[2] pointer-events-none">
+                         <img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/194.png" class="w-full h-full object-contain" alt="">
+                    </div>
+                    <div class="relative z-10 w-44 h-44 lg:w-56 lg:h-56 flex items-end justify-center">
+                        <img src="https://a.espncdn.com/combiner/i?img=/i/headshots/college-football/players/full/5079712.png&w=600&h=435" alt="Julian Sayin" class="w-full h-full object-contain object-bottom scale-125 drop-shadow-[0_20px_20px_rgba(0,0,0,0.15)]">
+                    </div>
+                    <div class="absolute bottom-2 -right-2 w-14 h-14 bg-white rounded-2xl p-3 shadow-xl border border-white/50 z-20">
+                        <img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/194.png" alt="Ohio State" class="w-full h-full object-contain">
+                    </div>
+                </div>
+
+                <div class="flex-grow text-center lg:text-left z-10">
+                    <div class="flex flex-col lg:flex-row lg:items-center gap-4 mb-4 justify-center lg:justify-start">
+                        <h1 class="text-6xl lg:text-8xl font-black tracking-tighter leading-none uppercase">
+                            <span style="color: var(--osu-scarlet);">JULIAN</span>
+                            <span style="color: var(--osu-gray);">SAYIN</span>
+                        </h1>
+                    </div>
+                    <div class="flex flex-col lg:flex-row lg:items-center gap-5 mb-10 justify-center lg:justify-start">
+                         <div class="inline-flex items-center px-4 py-1.5 bg-black dark:bg-white text-white dark:text-black analytics-label rounded-md shadow-lg transition-colors">FRESHMAN • QUARTERBACK</div>
+                        <p class="text-slate-400 text-lg font-bold tracking-tight uppercase">Ohio State Buckeyes | No. 10</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-12">
+                        <div class="flex flex-col">
+                            <span class="text-4xl font-black mono tracking-tighter" style="color: var(--osu-scarlet);">3,323</span>
+                            <span class="analytics-label text-slate-300 uppercase mt-1">Pass Yards</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-4xl font-black mono tracking-tighter" style="color: var(--text-main);">31:6</span>
+                            <span class="analytics-label text-slate-300 uppercase mt-1">TD : INT</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-4xl font-black mono tracking-tighter" style="color: var(--text-main);">78.4%</span>
+                            <span class="analytics-label text-slate-300 uppercase mt-1">Comp. Rate</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-4xl font-black mono tracking-tighter" style="color: var(--text-main);">182.1</span>
+                            <span class="analytics-label text-slate-300 uppercase mt-1">Passer RTG</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Analytics Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 w-full items-stretch">
+            <main class="lg:col-span-3 premier-card-main rounded-[3rem] p-10 lg:p-14 relative overflow-hidden flex flex-col justify-between">
+                <div>
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12">
+                        <div>
+                            <h2 class="text-4xl font-black tracking-tighter uppercase leading-none" style="color: var(--text-main);">Passing Production</h2>
+                            <p class="analytics-label text-slate-400 mt-2">Variance vs Season Average (255.6 YDS)</p>
+                        </div>
+                        <div class="flex items-center gap-8">
+                            <div id="legendAbove" class="legend-item flex items-center gap-2" onclick="toggleFilter('above')">
+                                <div class="w-3 h-3 bg-[#34d399] rounded-sm"></div>
+                                <span class="analytics-label text-slate-500">ABOVE</span>
+                            </div>
+                            <div id="legendBelow" class="legend-item flex items-center gap-2" onclick="toggleFilter('below')">
+                                <div class="w-3 h-3 bg-[#f87171] rounded-sm"></div>
+                                <span class="analytics-label text-slate-500">BELOW</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="lg:col-span-1 flex flex-col gap-6">
+                <!-- Elite Performance -->
+                <div class="sidebar-card p-8 rounded-[2rem] flex-grow flex flex-col justify-center shadow-glow-green shimmer group hover:scale-[1.02] premier-card-main">
+                    <span class="analytics-label text-slate-400 uppercase group-hover:text-green-500 transition-colors">Elite Performance</span>
+                    <p class="text-5xl font-black mt-3 mono" style="color: var(--text-main);">393 <span class="text-base font-bold text-slate-300">YDS</span></p>
+                    <p class="analytics-label text-slate-500 mt-2 opacity-60 uppercase">vs WISCONSIN</p>
+                </div>
+                <!-- Defensive Struggle -->
+                <div class="sidebar-card p-8 rounded-[2rem] flex-grow flex flex-col justify-center shadow-glow-red group hover:scale-[1.02] premier-card-main">
+                    <span class="analytics-label text-slate-400 uppercase group-hover:text-red-500 transition-colors">Defensive Struggle</span>
+                    <p class="text-5xl font-black mt-3 mono" style="color: var(--text-main);">126 <span class="text-base font-bold text-slate-300">YDS</span></p>
+                    <p class="analytics-label text-slate-500 mt-2 opacity-60 uppercase">vs #1 TEXAS</p>
+                </div>
+                <!-- Efficiency Mark -->
+                <div class="sidebar-card p-8 rounded-[2rem] flex-grow flex flex-col justify-center shadow-glow-neutral hover:scale-[1.02] premier-card-main">
+                    <span class="analytics-label text-slate-400 uppercase">Efficiency Mark</span>
+                    <p class="text-5xl font-black mt-3 mono" style="color: var(--text-main);">94.7<span class="text-base font-bold text-slate-300">%</span></p>
+                    <p class="analytics-label text-slate-500 mt-2 opacity-60 uppercase">vs GRAMBLING</p>
+                </div>
+                <!-- Season Finish -->
+                <div class="sidebar-card p-8 rounded-[2rem] flex-grow flex flex-col justify-center shadow-glow-neutral relative overflow-hidden group hover:scale-[1.02] premier-card-main">
+                    <img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/194.png" class="sidebar-watermark" alt="">
+                    <span class="analytics-label text-slate-400 uppercase">Season Finish</span>
+                    <p class="text-5xl font-black mt-3 mono" style="color: var(--text-main);">12-1</p>
+                    <p class="analytics-label text-slate-400 mt-2 opacity-60 italic tracking-tighter">REGULAR SEASON</p>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Modernized Analytics Table -->
+        <section class="mt-20">
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <h2 class="text-4xl font-black tracking-tighter uppercase leading-none" style="color: var(--text-main);">Statistical Splits</h2>
+                    <p class="analytics-label text-slate-400 mt-2 uppercase">Heatmapped Performance Variance Indicator</p>
+                </div>
+            </div>
+            
+            <div class="stats-table-container">
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 250px;">Split Category</th>
+                            <th>CMP</th>
+                            <th>ATT</th>
+                            <th>YDS</th>
+                            <th>CMP %</th>
+                            <th>Y/A</th>
+                            <th>TD</th>
+                            <th>INT</th>
+                            <th>RTG</th>
+                            <th>R-ATT</th>
+                            <th>R-YDS</th>
+                            <th>R-TD</th>
+                        </tr>
+                    </thead>
+                    <tbody id="splitsTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('performanceChart');
+        const ctx = canvas.getContext('2d');
+        
+        const gameData = [
+            { opp: 'TEX', yds: 126, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/251.png' },
+            { opp: 'GRAM', yds: 306, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2755.png' },
+            { opp: 'OHIO', yds: 347, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/195.png' },
+            { opp: 'WASH', yds: 208, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/264.png' },
+            { opp: 'MINN', yds: 326, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/135.png' },
+            { opp: 'ILL', yds: 166, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/356.png' },
+            { opp: 'WIS', yds: 393, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/275.png' },
+            { opp: 'PSU', yds: 316, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/213.png' },
+            { opp: 'PUR', yds: 303, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2509.png' },
+            { opp: 'UCLA', yds: 184, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/26.png' },
+            { opp: 'RUTG', yds: 157, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/164.png' },
+            { opp: 'MICH', yds: 233, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/130.png' },
+            { opp: 'IU', yds: 258, logo: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/84.png' }
+        ];
+
+        const seasonAvg = { pct: 77.4, ypa: 9.2, rtg: 170.9 };
+        const rawSplits = [
+            { group: "Final Margin", split: "0-7 PT DIFF", cmp: 34, att: 49, yds: 393, pct: 69.4, avg: 8.0, td: 1, int: 1, rtg: 139.1, ratt: 3, ryds: 11, rtd: 0 },
+            { group: "Final Margin", split: "15+ PT DIFF", cmp: 247, att: 314, yds: 2953, pct: 78.7, avg: 9.4, td: 21, int: 6, rtg: 175.9, ratt: 35, ryds: -5, rtd: 0 },
+            { group: "Goal To Go", split: "1ST & GOAL", cmp: 3, att: 7, yds: 12, pct: 42.9, avg: 1.7, td: 2, int: 0, rtg: 151.5, ratt: 2, ryds: 13, rtd: 0 },
+            { group: "Goal To Go", split: "2ND & GOAL", cmp: 2, att: 6, yds: 5, pct: 33.3, avg: 0.8, td: 1, int: 2, rtg: 28.7, ratt: 1, ryds: 4, rtd: 0 },
+            { group: "Teams", split: "VS AP TOP 25", cmp: 71, att: 100, yds: 783, pct: 71.0, avg: 7.8, td: 3, int: 2, rtg: 142.7, ratt: 11, ryds: 5, rtd: 0 },
+            { group: "Down", split: "1ST DOWN", cmp: 128, att: 160, yds: 1651, pct: 80.0, avg: 10.3, td: 6, int: 2, rtg: 176.6, ratt: 20, ryds: 31, rtd: 0 },
+            { group: "Down", split: "2ND DOWN", cmp: 89, att: 117, yds: 1030, pct: 76.1, avg: 8.8, td: 7, int: 3, rtg: 164.6, ratt: 13, ryds: 26, rtd: 0 },
+            { group: "Down", split: "3RD DOWN", cmp: 59, att: 79, yds: 618, pct: 74.7, avg: 7.8, td: 6, int: 2, rtg: 160.4, ratt: 4, ryds: 6, rtd: 0 },
+            { group: "Down", split: "4TH DOWN", cmp: 5, att: 7, yds: 45, pct: 71.4, avg: 6.4, td: 3, int: 0, rtg: 266.9, ratt: 7, ryds: 1, rtd: 0 },
+            { group: "Field Position", split: "BETWEEN 40S", cmp: 69, att: 81, yds: 988, pct: 85.2, avg: 12.2, td: 4, int: 1, rtg: 201.5, ratt: 8, ryds: 13, rtd: 0 },
+            { group: "Field Position", split: "OPP 19-GOAL", cmp: 32, att: 54, yds: 233, pct: 59.3, avg: 4.3, td: 15, int: 3, rtg: 176.1, ratt: 11, ryds: 0, rtd: 0 },
+            { group: "Half", split: "1ST HALF", cmp: 164, att: 209, yds: 1946, pct: 78.5, avg: 9.3, td: 13, int: 5, rtg: 172.4, ratt: 17, ryds: 39, rtd: 0 },
+            { group: "Half", split: "2ND HALF", cmp: 117, att: 154, yds: 1398, pct: 76.0, avg: 9.1, td: 9, int: 2, rtg: 168.9, ratt: 21, ryds: 6, rtd: 0 },
+            { group: "Home/Away", split: "AWAY GAMES", cmp: 120, att: 152, yds: 1262, pct: 78.9, avg: 8.3, td: 8, int: 2, rtg: 163.4, ratt: 17, ryds: 5, rtd: 0 },
+            { group: "Home/Away", split: "HOME GAMES", cmp: 161, att: 211, yds: 2082, pct: 76.3, avg: 9.9, td: 14, int: 5, rtg: 176.3, ratt: 21, ryds: 12, rtd: 0 },
+            { group: "Season", split: "TOTAL 2025", cmp: 281, att: 363, yds: 3334, pct: 77.4, avg: 9.2, td: 22, int: 7, rtg: 170.9, ratt: 38, ryds: 92, rtd: 0 }
+        ];
+
+        const avgYards = 255.6;
+        let activeFilter = null;
+
+        const greenChrome = ctx.createLinearGradient(0, 0, 0, 400);
+        greenChrome.addColorStop(0, '#34d399'); greenChrome.addColorStop(0.5, '#10b981'); greenChrome.addColorStop(1, '#059669'); 
+        const redChrome = ctx.createLinearGradient(0, 0, 0, 400);
+        redChrome.addColorStop(0, '#f87171'); redChrome.addColorStop(0.5, '#ef4444'); redChrome.addColorStop(1, '#b91c1c'); 
+
+        const logoLabels = {
+            id: 'logoLabels',
+            afterDraw(chart) {
+                const { ctx, chartArea: { bottom }, scales: { x } } = chart;
+                const size = 32;
+                chart.getDatasetMeta(0).data.forEach((bar, i) => {
+                    if (bar.skip) return;
+                    const img = new Image();
+                    img.src = gameData[i].logo;
+                    ctx.drawImage(img, bar.x - size / 2, bottom + 15, size, size);
+                });
+            }
+        };
+
+        const edgeToEdgeLine = {
+            id: 'edgeToEdgeLine',
+            afterDatasetsDraw(chart) {
+                const { ctx, chartArea: { left, right }, scales: { y } } = chart;
+                const yPos = y.getPixelForValue(avgYards);
+                ctx.save();
+                ctx.fillStyle = 'rgba(187, 0, 0, 0.04)'; ctx.fillRect(left, yPos, right - left, y.getPixelForValue(0) - yPos);
+                ctx.fillStyle = 'rgba(34, 197, 94, 0.04)'; ctx.fillRect(left, 0, right - left, yPos);
+                ctx.beginPath(); 
+                ctx.strokeStyle = document.body.classList.contains('dark-mode') ? '#475569' : '#cbd5e1'; 
+                ctx.setLineDash([10, 5]); ctx.lineWidth = 2;
+                ctx.moveTo(left, yPos); ctx.lineTo(right, yPos); ctx.stroke();
+                ctx.restore();
+            }
+        };
+
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: gameData.map(d => d.opp),
+                datasets: [{
+                    label: 'Passing Yards',
+                    data: gameData.map(d => d.yds),
+                    backgroundColor: (ctx) => ctx.raw >= avgYards ? greenChrome : redChrome,
+                    borderRadius: 8,
+                    categoryPercentage: 0.9, barPercentage: 0.9, maxBarThickness: 100
+                }]
+            },
+            plugins: [logoLabels, edgeToEdgeLine],
+            options: {
+                responsive: true, maintainAspectRatio: false, layout: { padding: { bottom: 40 } },
+                animation: { duration: 800, easing: 'easeInOutCubic' },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1a1a1a', padding: 20,
+                        titleFont: { family: 'JetBrains Mono', size: 14, weight: '700' },
+                        bodyFont: { family: 'JetBrains Mono', size: 12 },
+                        displayColors: false, cornerRadius: 12,
+                        callbacks: {
+                            title: (items) => `MATCHUP: ${gameData[items[0].dataIndex].opp}`,
+                            label: (item) => {
+                                const diff = (item.parsed.y - avgYards).toFixed(1);
+                                return [`YARDS: ${item.parsed.y}`, `VARIANCE: ${diff >= 0 ? '+' : ''}${diff}`];
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true, 
+                        grid: { color: () => document.body.classList.contains('dark-mode') ? '#1e293b' : '#f8fafc' },
+                        ticks: { color: '#64748b', font: { family: 'JetBrains Mono', weight: '700', size: 11 }, callback: v => v + ' YDS' }
+                    },
+                    x: { grid: { display: false }, ticks: { display: false } }
+                }
+            }
+        });
+
+        function toggleFilter(type) {
+            const legendAbove = document.getElementById('legendAbove');
+            const legendBelow = document.getElementById('legendBelow');
+            if (activeFilter === type) {
+                activeFilter = null;
+                legendAbove.classList.remove('inactive'); legendBelow.classList.remove('inactive');
+                chart.data.datasets[0].data = gameData.map(d => d.yds);
+            } else {
+                activeFilter = type;
+                if (type === 'above') {
+                    legendAbove.classList.remove('inactive'); legendBelow.classList.add('inactive');
+                    chart.data.datasets[0].data = gameData.map(d => d.yds >= avgYards ? d.yds : null);
+                } else {
+                    legendAbove.classList.add('inactive'); legendBelow.classList.remove('inactive');
+                    chart.data.datasets[0].data = gameData.map(d => d.yds < avgYards ? d.yds : null);
+                }
+            }
+            chart.update();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            chart.options.scales.y.grid.color = document.body.classList.contains('dark-mode') ? '#1e293b' : '#f8fafc';
+            chart.options.plugins.tooltip.backgroundColor = document.body.classList.contains('dark-mode') ? '#000000' : '#1a1a1a';
+            chart.update();
+        }
+
+        function getTrendIcon(isUp) {
+            return isUp 
+                ? `<svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+                : `<svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 7L17 17M17 17H7M17 17V7" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+        }
+
+        function formatVal(val, baseline, isHigherBetter = true) {
+            const diff = val - baseline;
+            let cls = "v-yellow";
+            let icon = "";
+            if (Math.abs(diff) < (baseline * 0.03)) cls = "v-yellow"; 
+            else if (diff > 0) {
+                cls = isHigherBetter ? "v-green" : "v-red";
+                icon = getTrendIcon(isHigherBetter);
+            } else {
+                cls = isHigherBetter ? "v-red" : "v-green";
+                icon = getTrendIcon(!isHigherBetter);
+            }
+            return `<span class="val-pill ${cls}">${val}${icon}</span>`;
+        }
+
+        const tableBody = document.getElementById('splitsTableBody');
+        let currentGroup = "";
+        rawSplits.forEach(item => {
+            if (item.group !== currentGroup) {
+                currentGroup = item.group;
+                const headerRow = document.createElement('tr');
+                headerRow.innerHTML = `<td colspan="12" class="group-header">${currentGroup}</td>`;
+                tableBody.appendChild(headerRow);
+            }
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td class="font-bold text-[11px] opacity-70">${item.split}</td>
+                <td class="text-right mono font-medium">${item.cmp}</td>
+                <td class="text-right mono font-medium">${item.att}</td>
+                <td class="text-right mono font-bold">${item.yds}</td>
+                <td class="text-right mono">${formatVal(item.pct, seasonAvg.pct)}</td>
+                <td class="text-right mono">${formatVal(item.avg, seasonAvg.ypa)}</td>
+                <td class="text-right mono font-bold" style="color:var(--osu-scarlet)">${item.td}</td>
+                <td class="text-right mono font-bold opacity-40">${item.int}</td>
+                <td class="text-right mono">${formatVal(item.rtg, seasonAvg.rtg)}</td>
+                <td class="text-right mono opacity-50">${item.ratt}</td>
+                <td class="text-right mono opacity-50">${item.ryds}</td>
+                <td class="text-right mono opacity-50">${item.rtd}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

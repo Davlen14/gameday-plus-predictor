@@ -68,6 +68,10 @@
             --cat-b: #F97316;
             --cat-c: #14B8A6;
             --cat-d: #8B5CF6;
+
+            --team-primary: #ef4444;
+            --team-primary-rgb: 239, 68, 68;
+            --team-alt: #ffffff;
         }
 
         [data-theme="dark"] {
@@ -190,6 +194,14 @@
             color: #fff;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
+
+        .text-primary { color: var(--team-primary) !important; }
+        .bg-primary { background-color: var(--team-primary) !important; }
+        .border-primary { border-color: var(--team-primary) !important; }
+        .bg-primary\/10 { background-color: rgba(var(--team-primary-rgb), 0.1) !important; }
+        .bg-primary\/20 { background-color: rgba(var(--team-primary-rgb), 0.2) !important; }
+        .border-primary\/30 { border-color: rgba(var(--team-primary-rgb), 0.3) !important; }
+        .group:hover .group-hover\:text-primary { color: var(--team-primary) !important; }
         
         /* Reflection Mask */
         .mask-image-linear-to-b {
@@ -547,8 +559,29 @@
             return { color, top: 20, left: 20, opacity: 0.6 };
         }
 
-        function updateBackground(teamName) {
-            const team = TEAMS.find(t => t.name === teamName) || TEAMS[0];
+        function normalizeHex(color, fallback) {
+            if (!color || typeof color !== 'string') return fallback;
+            const trimmed = color.trim();
+            return trimmed.startsWith('#') ? trimmed : `#${trimmed}`;
+        }
+
+        function hexToRgb(hex) {
+            const cleaned = hex.replace('#', '');
+            if (cleaned.length !== 6) return null;
+            const num = parseInt(cleaned, 16);
+            if (Number.isNaN(num)) return null;
+            return `${(num >> 16) & 255}, ${(num >> 8) & 255}, ${num & 255}`;
+        }
+
+        function resolveTeamTheme(team) {
+            const fallback = TEAMS.find(t => t.name === team.school) || TEAMS[0];
+            const primary = normalizeHex(team.color || team.primary_color || team.primary || fallback.primary, '#ef4444');
+            const alt = normalizeHex(team.alt_color || team.secondary_color || team.alt || fallback.alt, '#ffffff');
+            return { primary, alt };
+        }
+
+        function updateBackground(teamTheme) {
+            const team = teamTheme || TEAMS[0];
             
             const bg = document.getElementById('dynamic-bg');
             const glow = document.getElementById('glow-orb');
@@ -570,6 +603,13 @@
             
             const accentLine = document.getElementById('teamAccentLine');
             if(accentLine) accentLine.style.backgroundColor = team.primary;
+
+            document.documentElement.style.setProperty('--team-primary', team.primary);
+            document.documentElement.style.setProperty('--team-alt', team.alt);
+            const rgb = hexToRgb(team.primary);
+            if (rgb) {
+                document.documentElement.style.setProperty('--team-primary-rgb', rgb);
+            }
         }
 
         function toggleTheme() {
@@ -588,8 +628,7 @@
             lucide.createIcons();
             
             // Refresh background for new theme
-            const school = document.getElementById('teamName').textContent;
-            if(school && school !== '--') updateBackground(school);
+            if (window.currentTeamTheme) updateBackground(window.currentTeamTheme);
         }
 
         // Value Coloring Helpers
@@ -774,7 +813,8 @@
                 };
 
                 // Dynamic Styling based on School Color
-                updateBackground(team.school);
+                window.currentTeamTheme = resolveTeamTheme(team);
+                updateBackground(window.currentTeamTheme);
 
                 // Unhide Interface
                 document.getElementById('loadingState').classList.add('hidden');
@@ -1081,7 +1121,7 @@
                                 ? `<img src="${p.headshot_url}" class="w-12 h-12 rounded-full object-cover border-2 border-primary/30" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23666%22 stroke-width=%222%22%3E%3Ccircle cx=%2212%22 cy=%228%22 r=%224%22/%3E%3Cpath d=%22M4 20c0-4 4-6 8-6s8 2 8 6%22/%3E%3C/svg%3E';">`
                                 : `<div class="w-12 h-12 rounded-full bg-gray-800 border-2 border-gray-700 flex items-center justify-center text-gray-500 text-xs font-bold">${p.jersey || '?'}</div>`;
                             
-                            return `<tr>
+                            return `<tr class="cursor-pointer hover:bg-white/5" onclick="window.location.href='/playerdetail'" title="View player details">
                                 <td>${headshotHtml}</td>
                                 <td class="font-bold text-gray-400">${p.jersey || '-'}</td>
                                 <td class="font-bold text-white">${p.name}</td>
