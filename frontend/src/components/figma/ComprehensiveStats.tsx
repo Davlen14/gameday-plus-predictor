@@ -1174,17 +1174,6 @@ export function ComprehensiveTeamStats({ predictionData }: ComprehensiveTeamStat
 
   return (
     <div className="space-y-8">
-      {/* 🔍 DEBUG TOGGLE - Floating in top right */}
-      <button
-        onClick={() => setDebugMode(!debugMode)}
-        className={`fixed top-24 right-8 z-50 px-4 py-2 font-bold rounded-lg shadow-lg transition-all transform hover:scale-105 ${
-          debugMode ? 'bg-red-500 hover:bg-red-600' : 'bg-yellow-500 hover:bg-yellow-600'
-        } text-black`}
-        style={{ fontFamily: 'Orbitron, sans-serif' }}
-      >
-        {debugMode ? '❌ HIDE DEBUG' : '🔍 SHOW DEBUG'}
-      </button>
-
       {/* MODERN CHARTS SECTION */}
       <section className="space-y-6">
         {/* Win Probability Hero */}

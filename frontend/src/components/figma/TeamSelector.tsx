@@ -72,9 +72,9 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
   // Fetch postseason games from database
   const { games: postseasonGames, isLoading: gamesLoading, error: gamesError } = usePostseasonGames();
   
-  // Default to Week 16 Game: Army @ Navy
-  const defaultAwayTeam = teams.find(t => t.school === 'Army') || teams[0];
-  const defaultHomeTeam = teams.find(t => t.school === 'Navy') || teams[1];
+  // Default to CFP Quarterfinal: Miami @ Ohio State (Cotton Bowl - Neutral Site)
+  const defaultAwayTeam = teams.find(t => t.school === 'Miami') || teams[0];
+  const defaultHomeTeam = teams.find(t => t.school === 'Ohio State') || teams[1];
   
   const [awayTeam, setAwayTeam] = useState<Team>(defaultAwayTeam);
   const [homeTeam, setHomeTeam] = useState<Team>(defaultHomeTeam);
@@ -190,15 +190,27 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
 
   // Map postseason games from database to quick select format
   const week16Games = useMemo(() => {
-    return postseasonGames.map(game => ({
-      away: game.away.team,
-      home: game.home.team,
-      label: `${game.away.team} @ ${game.home.team}${game.venue ? ` - ${game.venue}` : ''}`,
-      spread: game.betting.spread,
-      overUnder: game.betting.overUnder,
-      homeMoneyline: game.betting.homeMoneyline,
-      awayMoneyline: game.betting.awayMoneyline
-    }));
+    return postseasonGames.map(game => {
+      // Check if it's a CFP quarterfinal game (week 1 postseason at major bowl venues)
+      const isCFPQuarterfinal = game.seasonType === 'postseason' && 
+        game.week === 1 && 
+        (game.venue?.includes('Cotton Bowl') || 
+         game.venue?.includes('Rose Bowl') || 
+         game.venue?.includes('Sugar Bowl') || 
+         game.venue?.includes('Orange Bowl'));
+      
+      return {
+        away: game.away.team,
+        home: game.home.team,
+        label: isCFPQuarterfinal 
+          ? `CFP: ${game.away.team} @ ${game.home.team}` 
+          : `${game.away.team} @ ${game.home.team}${game.venue ? ` - ${game.venue}` : ''}`,
+        spread: game.betting.spread,
+        overUnder: game.betting.overUnder,
+        homeMoneyline: game.betting.homeMoneyline,
+        awayMoneyline: game.betting.awayMoneyline
+      };
+    });
   }, [postseasonGames]);
 
   const handleQuickGameSelect = (game: { 
@@ -259,6 +271,21 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
     }
   };
 
+  // Separate CFP games from other bowl games
+  const cfpGames = useMemo(() => {
+    return week16Games.filter(game => 
+      game.label.toLowerCase().includes('cfp') || 
+      game.label.toLowerCase().includes('playoff')
+    );
+  }, [week16Games]);
+
+  const bowlGames = useMemo(() => {
+    return week16Games.filter(game => 
+      !game.label.toLowerCase().includes('cfp') && 
+      !game.label.toLowerCase().includes('playoff')
+    );
+  }, [week16Games]);
+
   return (
     <GlassCard className="p-6">
       <div className="flex flex-col gap-4">
@@ -267,10 +294,155 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
           <div className="text-gray-400 text-sm">Choose teams to analyze</div>
         </div>
 
-        {/* Week 16 Quick Games - Moved inside dropdown */}
-        <div className="hidden">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-            {week16Games.map((game, idx) => {
+        {/* CFP Premier Games Section */}
+        {cfpGames.length > 0 && (
+          <div className="mb-2">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30">
+                <span className="text-xl">🏆</span>
+                <h3 className="text-white font-bold text-sm uppercase tracking-wider">College Football Playoff</h3>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {cfpGames.map((game, idx) => {
+                const awayTeamData = teams.find(t => {
+                  const schoolName = t.school.toLowerCase();
+                  const searchName = game.away.toLowerCase();
+                  return schoolName === searchName;
+                }) || teams.find(t => {
+                  const schoolName = t.school.toLowerCase();
+                  const searchName = game.away.toLowerCase();
+                  return searchName.includes(schoolName);
+                });
+                
+                const homeTeamData = teams.find(t => {
+                  const schoolName = t.school.toLowerCase();
+                  const searchName = game.home.toLowerCase();
+                  return schoolName === searchName;
+                }) || teams.find(t => {
+                  const schoolName = t.school.toLowerCase();
+                  const searchName = game.home.toLowerCase();
+                  return searchName.includes(schoolName);
+                });
+                
+                return (
+                  <button
+                    key={`cfp-${idx}`}
+                    onClick={() => handleQuickGameSelect(game)}
+                    disabled={predictionLoading}
+                    className="group relative px-4 py-4 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden transform hover:scale-110 hover:shadow-2xl"
+                    style={{
+                      background: `linear-gradient(135deg, 
+                        ${awayTeamData?.primary_color || '#1e293b'}35 0%, 
+                        rgba(15, 23, 42, 0.9) 50%,
+                        ${homeTeamData?.primary_color || '#1e293b'}35 100%)`,
+                      border: `2px solid ${awayTeamData?.primary_color || '#f59e0b'}50`,
+                      boxShadow: `0 8px 32px ${awayTeamData?.primary_color || '#f59e0b'}25`
+                    }}
+                  >
+                    {/* Championship glow effect */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"
+                      style={{
+                        background: `linear-gradient(135deg, 
+                          ${awayTeamData?.primary_color || '#fbbf24'}80, 
+                          ${homeTeamData?.primary_color || '#f59e0b'}80)`,
+                        filter: 'blur(20px)',
+                        transform: 'scale(1.1)',
+                        zIndex: -1
+                      }}
+                    ></div>
+                    
+                    {/* Team Logos with enhanced styling */}
+                    <div className="flex items-center justify-center gap-2 mb-2 relative z-10">
+                      {awayTeamData && (
+                        <div className="relative">
+                          <div 
+                            className="absolute inset-0 rounded-full opacity-40 group-hover:opacity-70 transition-opacity"
+                            style={{ 
+                              backgroundColor: awayTeamData.primary_color || '#f59e0b',
+                              filter: 'blur(12px)',
+                              transform: 'scale(1.3)'
+                            }}
+                          ></div>
+                          <ImageWithFallback
+                            src={awayTeamData.logos[1] || awayTeamData.logos[0]}
+                            alt={awayTeamData.school}
+                            className="w-12 h-12 object-contain transform group-hover:scale-125 transition-all duration-300 relative z-10"
+                            style={{
+                              filter: 'drop-shadow(0 3px 16px rgba(0,0,0,0.6)) drop-shadow(0 0 12px rgba(255,215,0,0.4))'
+                            }}
+                          />
+                        </div>
+                      )}
+                      <span className="text-yellow-400 text-sm font-bold px-1">@</span>
+                      {homeTeamData && (
+                        <div className="relative">
+                          <div 
+                            className="absolute inset-0 rounded-full opacity-40 group-hover:opacity-70 transition-opacity"
+                            style={{ 
+                              backgroundColor: homeTeamData.primary_color || '#f59e0b',
+                              filter: 'blur(12px)',
+                              transform: 'scale(1.3)'
+                            }}
+                          ></div>
+                          <ImageWithFallback
+                            src={homeTeamData.logos[1] || homeTeamData.logos[0]}
+                            alt={homeTeamData.school}
+                            className="w-12 h-12 object-contain transform group-hover:scale-125 transition-all duration-300 relative z-10"
+                            style={{
+                              filter: 'drop-shadow(0 3px 16px rgba(0,0,0,0.6)) drop-shadow(0 0 12px rgba(255,215,0,0.4))'
+                            }}
+                          />
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Label with CFP styling */}
+                    <div 
+                      className="text-xs font-bold leading-tight text-center group-hover:text-yellow-300 transition-all duration-300 relative z-10"
+                      style={{
+                        color: '#fde047',
+                        textShadow: '0 2px 4px rgba(0,0,0,0.9)'
+                      }}
+                    >
+                      {game.label}
+                    </div>
+                    
+                    {/* Betting Lines */}
+                    {(game.spread !== undefined || game.overUnder) && (
+                      <div className="mt-2 text-[10px] text-gray-200/90 text-center relative z-10 space-y-0.5">
+                        {game.spread !== null && game.spread !== undefined && (
+                          <div className="flex items-center justify-center gap-1">
+                            <span className="font-semibold">{game.spread > 0 ? `${game.away} -${Math.abs(game.spread)}` : `${game.home} -${Math.abs(game.spread)}`}</span>
+                          </div>
+                        )}
+                        {game.overUnder && (
+                          <div className="flex items-center justify-center gap-1">
+                            <span className="font-semibold">O/U {game.overUnder}</span>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    
+                    {/* Golden shimmer effect on hover */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-yellow-400/30 to-transparent"></div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Bowl Games Quick Select */}
+        {bowlGames.length > 0 && (
+          <div className="mb-2">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-blue-400" />
+              <h3 className="text-white font-semibold text-sm">Bowl Games</h3>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-h-64 overflow-y-auto">
+              {bowlGames.map((game, idx) => {
               const awayTeamData = teams.find(t => {
                 const schoolName = t.school.toLowerCase();
                 const searchName = game.away.toLowerCase();
@@ -394,13 +566,11 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
                     <div className="mt-1 text-[9px] text-gray-300/80 text-center relative z-10 space-y-0.5">
                       {game.spread !== null && game.spread !== undefined && (
                         <div className="flex items-center justify-center gap-1">
-                          <span className="text-yellow-400/70">📊</span>
                           <span>{game.spread > 0 ? `${game.away} -${Math.abs(game.spread)}` : `${game.home} -${Math.abs(game.spread)}`}</span>
                         </div>
                       )}
                       {game.overUnder && (
                         <div className="flex items-center justify-center gap-1">
-                          <span className="text-blue-400/70">⚡</span>
                           <span>O/U {game.overUnder}</span>
                         </div>
                       )}
@@ -412,8 +582,9 @@ export function TeamSelector({ onPrediction, isLoading, selectedTeams, onMatchup
                 </button>
               );
             })}
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
           {/* Away Team Selector */}
