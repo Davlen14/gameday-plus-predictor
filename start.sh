@@ -6,8 +6,8 @@ PORT=${PORT:-8080}
 
 echo "Starting Gameday+ server on port $PORT..."
 
-# Use gunicorn to start the Flask app
-exec gunicorn app:app \
+# Use gunicorn to start the Flask app_master (matches Procfile)
+exec gunicorn app_master:app \
     --bind "0.0.0.0:$PORT" \
     --workers 1 \
     --timeout 120 \
