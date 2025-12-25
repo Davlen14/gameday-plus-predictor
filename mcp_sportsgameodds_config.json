@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sports Game Odds MCP Server Configuration",
+  "description": "Configuration for Sports Game Odds API MCP server integration with Gameday+",
+  "mcpServers": {
+    "sports_game_odds": {
+      "description": "Sports Game Odds API for CFB betting odds and EV calculations",
+      "command": "npx",
+      "args": ["-y", "sports-odds-api-mcp", "--client=claude", "--tools=dynamic"],
+      "env": {
+        "SPORTS_ODDS_API_KEY_HEADER": "${SPORTSGAMEODDS_API_KEY}"
+      },
+      "tools": {
+        "get_events": {
+          "description": "Get CFB events/games with odds data",
+          "parameters": {
+            "leagueID": "NCAAF",
+            "limit": 50
+          }
+        },
+        "get_teams": {
+          "description": "Get CFB teams",
+          "parameters": {
+            "leagueID": "NCAAF"
+          }
+        },
+        "get_players": {
+          "description": "Get CFB player data for props",
+          "parameters": {}
+        }
+      }
+    }
+  },
+  "endpoints": {
+    "cfb_odds": {
+      "url": "https://api.sportsgameodds.com/v2/events",
+      "method": "GET",
+      "headers": {
+        "X-API-Key": "${SPORTSGAMEODDS_API_KEY}"
+      },
+      "params": {
+        "leagueID": "NCAAF"
+      }
+    },
+    "cfb_teams": {
+      "url": "https://api.sportsgameodds.com/v2/teams",
+      "method": "GET",
+      "headers": {
+        "X-API-Key": "${SPORTSGAMEODDS_API_KEY}"
+      },
+      "params": {
+        "leagueID": "NCAAF"
+      }
+    }
+  },
+  "ev_tool_integration": {
+    "description": "Integration with Gameday+ prediction engine for EV calculations",
+    "flask_endpoints": [
+      {
+        "path": "/api/ev/games",
+        "method": "GET",
+        "description": "Get CFB games with odds from Sports Game Odds API"
+      },
+      {
+        "path": "/api/ev/calculate",
+        "method": "POST",
+        "description": "Calculate EV for a game using model predictions"
+      },
+      {
+        "path": "/api/ev/analyze/{home_team}/{away_team}",
+        "method": "GET",
+        "description": "Full EV analysis combining LightningPredictor with live odds"
+      },
+      {
+        "path": "/api/ev/status",
+        "method": "GET",
+        "description": "Check Sports Game Odds API connection status"
+      },
+      {
+        "path": "/api/ev/quick-calc",
+        "method": "POST",
+        "description": "Quick EV/Kelly calculation for single bet"
+      }
+    ]
+  },
+  "rate_limits": {
+    "amateur": {
+      "requests_per_minute": 10,
+      "objects_per_month": 1000
+    },
+    "rookie": {
+      "requests_per_minute": 60,
+      "objects_per_month": 5000000
+    },
+    "pro": {
+      "requests_per_minute": 1000,
+      "objects_per_month": "unlimited"
+    }
+  },
+  "supported_markets": {
+    "game_lines": [
+      "spread",
+      "moneyline",
+      "total"
+    ],
+    "player_props": [
+      "passing_yards",
+      "passing_touchdowns",
+      "rushing_yards",
+      "rushing_touchdowns",
+      "receiving_yards",
+      "receptions",
+      "anytime_touchdown"
+    ]
+  },
+  "supported_bookmakers": [
+    "draftkings",
+    "fanduel",
+    "betmgm",
+    "caesars",
+    "espnbet",
+    "bovada",
+    "pinnacle",
+    "bet365"
+  ]
+}
